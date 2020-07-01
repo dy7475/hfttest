@@ -41,7 +41,7 @@ podTemplate(label: label, containers: [
   containerTemplate(name: 'maven', image: 'registry.midland.com.cn/helm/mvn-jdk8:3.6.3', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'docker', image: 'registry.midland.com.cn/helm/docker', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'kubectl', image: 'registry.midland.com.cn/helm/kubectl', command: 'cat', ttyEnabled: true),
-  containerTemplate(name: 'helm', image: 'registry.midland.com.cn/helm/helm:4.4', command: 'cat', ttyEnabled: true)
+  containerTemplate(name: 'helm', image: 'registry.midland.com.cn/helm/helm:4.5', command: 'cat', ttyEnabled: true)
 
 ], volumes: [
   hostPathVolume(mountPath: '/root/.m2', hostPath: '/root/.m2'),
