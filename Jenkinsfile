@@ -7,7 +7,7 @@ def helmInit() {
     sh "helm init --client-only --stable-repo-url https://mirror.azure.cn/kubernetes/charts/"
 }
 def helmRepo(Map args) {
-    sh "cat /tmp/hosts "
+    sh "cat /tmp/hosts && ping registry.midland.com.cn"
     sh "helm repo add --username ${args.username} --password ${args.password} myrepo https://registry.midland.com.cn/chartrepo"
 
     println "update repo"
