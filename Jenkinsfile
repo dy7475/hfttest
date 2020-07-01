@@ -7,7 +7,7 @@ def helmInit() {
     sh "helm init --client-only --stable-repo-url https://mirror.azure.cn/kubernetes/charts/"
 }
 def helmRepo(Map args) {
-    sh "cat /etc/hosts &&   ping registry.midland.com.cn"
+    sh "cat /etc/hosts "
     sh "helm repo add --username ${args.username} --password ${args.password} myrepo https://registry.midland.com.cn/chartrepo"
 
     println "update repo"
@@ -41,7 +41,7 @@ podTemplate(label: label, containers: [
   containerTemplate(name: 'maven', image: 'registry.midland.com.cn/helm/mvn-jdk8:3.6.3', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'docker', image: 'registry.midland.com.cn/helm/docker', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'kubectl', image: 'registry.midland.com.cn/helm/kubectl', command: 'cat', ttyEnabled: true),
-  containerTemplate(name: 'helm', image: 'registry.midland.com.cn/helm/helm', command: 'cat', ttyEnabled: true)
+  containerTemplate(name: 'helm', image: 'registry.midland.com.cn/helm/helm:4.2', command: 'cat', ttyEnabled: true)
 
 ], volumes: [
   hostPathVolume(mountPath: '/root/.m2', hostPath: '/root/.m2'),
