@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFeedbackMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFeedback" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="FEED_CONTENT" property="feedContent" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, FEED_CONTENT, ARCHIVE_ID, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FEEDBACK
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FEEDBACK
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFeedback" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FEEDBACK (FEED_CONTENT, ARCHIVE_ID, CREATE_TIME
+      )
+    values (#{feedContent,jdbcType=VARCHAR}, #{archiveId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFeedback" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FEEDBACK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="feedContent != null" >
+        FEED_CONTENT,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="feedContent != null" >
+        #{feedContent,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFeedback" >
+    <!--@mbggenerated-->
+    update FEEDBACK
+    <set >
+      <if test="feedContent != null" >
+        FEED_CONTENT = #{feedContent,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFeedback" >
+    <!--@mbggenerated-->
+    update FEEDBACK
+    set FEED_CONTENT = #{feedContent,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpCooperateViewMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpCooperateView">
+    <!--@mbggenerated-->
+    <id column="VIEW_ID" jdbcType="INTEGER" property="viewId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="VIEW_USER" jdbcType="INTEGER" property="viewUser" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="VIEW_TIME" jdbcType="VARCHAR" property="viewTime" />
+    <result column="USEAGE" jdbcType="TINYINT" property="useage" />
+    <result column="HAOFANG_AMOUNT" jdbcType="DOUBLE" property="haofangAmount" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    VIEW_ID, CITY_ID, VIEW_USER, CASE_ID, CASE_TYPE, VIEW_TIME, USEAGE, HAOFANG_AMOUNT, 
+    ARCHIVE_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from COOPERATE_VIEW
+    where VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from COOPERATE_VIEW
+    where VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpCooperateView">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="viewId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_COOPERATE_VIEW_VIEW_ID
+    </selectKey>
+    insert into COOPERATE_VIEW (VIEW_ID, CITY_ID, VIEW_USER, 
+      CASE_ID, CASE_TYPE, VIEW_TIME, 
+      USEAGE, HAOFANG_AMOUNT, ARCHIVE_ID
+      )
+    values (#{viewId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{viewUser,jdbcType=INTEGER}, 
+      #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{viewTime,jdbcType=VARCHAR}, 
+      #{useage,jdbcType=TINYINT}, #{haofangAmount,jdbcType=DOUBLE}, #{archiveId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpCooperateView">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="viewId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_COOPERATE_VIEW_VIEW_ID
+    </selectKey>
+    insert into COOPERATE_VIEW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      VIEW_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="viewUser != null">
+        VIEW_USER,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="viewTime != null">
+        VIEW_TIME,
+      </if>
+      <if test="useage != null">
+        USEAGE,
+      </if>
+      <if test="haofangAmount != null">
+        HAOFANG_AMOUNT,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{viewId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="viewUser != null">
+        #{viewUser,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="viewTime != null">
+        #{viewTime,jdbcType=VARCHAR},
+      </if>
+      <if test="useage != null">
+        #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="haofangAmount != null">
+        #{haofangAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpCooperateView">
+    <!--@mbggenerated-->
+    update COOPERATE_VIEW
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="viewUser != null">
+        VIEW_USER = #{viewUser,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="viewTime != null">
+        VIEW_TIME = #{viewTime,jdbcType=VARCHAR},
+      </if>
+      <if test="useage != null">
+        USEAGE = #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="haofangAmount != null">
+        HAOFANG_AMOUNT = #{haofangAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpCooperateView">
+    <!--@mbggenerated-->
+    update COOPERATE_VIEW
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      VIEW_USER = #{viewUser,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      VIEW_TIME = #{viewTime,jdbcType=VARCHAR},
+      USEAGE = #{useage,jdbcType=TINYINT},
+      HAOFANG_AMOUNT = #{haofangAmount,jdbcType=DOUBLE},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+    where VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </update>
+</mapper>

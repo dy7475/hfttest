@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.ErpYouBorkerArchiveMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.ErpYouBorkerArchive" >
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="YOU_AMOUNT" property="youAmount" jdbcType="NUMERIC" />
+    <result column="COMPLAIN_COUNT" property="complainCount" jdbcType="INTEGER" />
+    <result column="COMPLAIN_SUCCESS_COUNT" property="complainSuccessCount" jdbcType="INTEGER" />
+    <result column="LIMIT_END_TIME" property="limitEndTime" jdbcType="TIMESTAMP" />
+    <result column="LIMIT_START_TIME" property="limitStartTime" jdbcType="TIMESTAMP" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="LIMIT_FLAG" property="limitFlag" jdbcType="TINYINT" />
+    <result column="YOUJIA_USER_PROTOCOL" property="youjiaUserProtocol" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ARCHIVE_ID, YOU_AMOUNT, COMPLAIN_COUNT, COMPLAIN_SUCCESS_COUNT, LIMIT_END_TIME, LIMIT_START_TIME, 
+    CREATION_TIME, LIMIT_FLAG, YOUJIA_USER_PROTOCOL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOU_BORKER_ARCHIVE
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from YOU_BORKER_ARCHIVE
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.ErpYouBorkerArchive" >
+    <!--@mbggenerated-->
+    insert into YOU_BORKER_ARCHIVE (ARCHIVE_ID, YOU_AMOUNT, COMPLAIN_COUNT, 
+      COMPLAIN_SUCCESS_COUNT, LIMIT_END_TIME, LIMIT_START_TIME, 
+      CREATION_TIME, LIMIT_FLAG, YOUJIA_USER_PROTOCOL
+      )
+    values (#{archiveId,jdbcType=INTEGER}, #{youAmount,jdbcType=NUMERIC}, #{complainCount,jdbcType=INTEGER}, 
+      #{complainSuccessCount,jdbcType=INTEGER}, #{limitEndTime,jdbcType=TIMESTAMP}, #{limitStartTime,jdbcType=TIMESTAMP}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{limitFlag,jdbcType=TINYINT}, #{youjiaUserProtocol,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.ErpYouBorkerArchive" >
+    <!--@mbggenerated-->
+    insert into YOU_BORKER_ARCHIVE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="youAmount != null" >
+        YOU_AMOUNT,
+      </if>
+      <if test="complainCount != null" >
+        COMPLAIN_COUNT,
+      </if>
+      <if test="complainSuccessCount != null" >
+        COMPLAIN_SUCCESS_COUNT,
+      </if>
+      <if test="limitEndTime != null" >
+        LIMIT_END_TIME,
+      </if>
+      <if test="limitStartTime != null" >
+        LIMIT_START_TIME,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="limitFlag != null" >
+        LIMIT_FLAG,
+      </if>
+      <if test="youjiaUserProtocol != null" >
+        YOUJIA_USER_PROTOCOL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="youAmount != null" >
+        #{youAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="complainCount != null" >
+        #{complainCount,jdbcType=INTEGER},
+      </if>
+      <if test="complainSuccessCount != null" >
+        #{complainSuccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="limitEndTime != null" >
+        #{limitEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitStartTime != null" >
+        #{limitStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitFlag != null" >
+        #{limitFlag,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaUserProtocol != null" >
+        #{youjiaUserProtocol,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.ErpYouBorkerArchive" >
+    <!--@mbggenerated-->
+    update YOU_BORKER_ARCHIVE
+    <set >
+      <if test="youAmount != null" >
+        YOU_AMOUNT = #{youAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="complainCount != null" >
+        COMPLAIN_COUNT = #{complainCount,jdbcType=INTEGER},
+      </if>
+      <if test="complainSuccessCount != null" >
+        COMPLAIN_SUCCESS_COUNT = #{complainSuccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="limitEndTime != null" >
+        LIMIT_END_TIME = #{limitEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitStartTime != null" >
+        LIMIT_START_TIME = #{limitStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitFlag != null" >
+        LIMIT_FLAG = #{limitFlag,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaUserProtocol != null" >
+        YOUJIA_USER_PROTOCOL = #{youjiaUserProtocol,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.ErpYouBorkerArchive" >
+    <!--@mbggenerated-->
+    update YOU_BORKER_ARCHIVE
+    set YOU_AMOUNT = #{youAmount,jdbcType=NUMERIC},
+      COMPLAIN_COUNT = #{complainCount,jdbcType=INTEGER},
+      COMPLAIN_SUCCESS_COUNT = #{complainSuccessCount,jdbcType=INTEGER},
+      LIMIT_END_TIME = #{limitEndTime,jdbcType=TIMESTAMP},
+      LIMIT_START_TIME = #{limitStartTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      LIMIT_FLAG = #{limitFlag,jdbcType=TINYINT},
+      YOUJIA_USER_PROTOCOL = #{youjiaUserProtocol,jdbcType=TINYINT}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="addComplainNumber" parameterType="java.lang.Integer">
+  	UPDATE YOU_BORKER_ARCHIVE SET COMPLAIN_SUCCESS_COUNT = COMPLAIN_SUCCESS_COUNT + 1 
+  	WHERE ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="buckleIntegral" parameterType="com.myfun.repository.admindb.po.ErpYouBorkerArchive">
+  	UPDATE YOU_BORKER_ARCHIVE 
+  	SET YOU_AMOUNT = YOU_AMOUNT - #{youAmount,jdbcType=NUMERIC} WHERE ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="returnIntegral" parameterType="com.myfun.repository.admindb.po.ErpYouBorkerArchive">
+ 	UPDATE YOU_BORKER_ARCHIVE 
+  	SET YOU_AMOUNT = YOU_AMOUNT + #{youAmount,jdbcType=NUMERIC} WHERE ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+</mapper>

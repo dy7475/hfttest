@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpAuditUserRuntimeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpAuditUserRuntime">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="AUDIT_ID" jdbcType="INTEGER" property="auditId" />
+    <result column="AUDIT_USER_ID" jdbcType="INTEGER" property="auditUserId" />
+    <result column="AUDIT_SEQ" jdbcType="INTEGER" property="auditSeq" />
+    <result column="EXAMINE_TYPE" jdbcType="TINYINT" property="examineType" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="AUDIT_STATUS" jdbcType="TINYINT" property="auditStatus" />
+    <result column="AUDIT_TIME" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="AUDIT_USER_TYPE" jdbcType="INTEGER" property="auditUserType" />
+    <result column="AUDIT_ROLE_ID" jdbcType="VARCHAR" property="auditRoleId" />
+    <result column="TRACK_CONTENT" jdbcType="VARCHAR" property="trackContent" />
+    <result column="AUDIT_SOURCE" jdbcType="TINYINT" property="auditSource" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="IS_AUDIT" jdbcType="TINYINT" property="isAudit" />
+    <result column="HOUSE_COMPLAINT_DEAL_TYPE" jdbcType="VARCHAR" property="houseComplaintDealType" />
+    <result column="ORGANIZATION_DEFINITION_ID" jdbcType="INTEGER" property="organizationDefinitionId" />
+    <result column="TRANSMIT_FLAG" jdbcType="TINYINT" property="transmitFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, AUDIT_ID, AUDIT_USER_ID, AUDIT_SEQ, EXAMINE_TYPE, CREATION_TIME, AUDIT_STATUS, 
+    AUDIT_TIME, AUDIT_USER_TYPE, AUDIT_ROLE_ID, TRACK_CONTENT, AUDIT_SOURCE, COMP_ID, 
+    DEPT_ID, IS_AUDIT, HOUSE_COMPLAINT_DEAL_TYPE, ORGANIZATION_DEFINITION_ID, TRANSMIT_FLAG
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpAuditUserRuntimeExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AUDIT_USER_RUNTIME
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from AUDIT_USER_RUNTIME
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from AUDIT_USER_RUNTIME
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpAuditUserRuntimeExample">
+    <!--@mbggenerated-->
+    delete from AUDIT_USER_RUNTIME
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpAuditUserRuntime" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into AUDIT_USER_RUNTIME (AUDIT_ID, AUDIT_USER_ID, AUDIT_SEQ, 
+      EXAMINE_TYPE, CREATION_TIME, AUDIT_STATUS, 
+      AUDIT_TIME, AUDIT_USER_TYPE, AUDIT_ROLE_ID, 
+      TRACK_CONTENT, AUDIT_SOURCE, COMP_ID, 
+      DEPT_ID, IS_AUDIT, HOUSE_COMPLAINT_DEAL_TYPE, 
+      ORGANIZATION_DEFINITION_ID, TRANSMIT_FLAG)
+    values (#{auditId,jdbcType=INTEGER}, #{auditUserId,jdbcType=INTEGER}, #{auditSeq,jdbcType=INTEGER}, 
+      #{examineType,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, #{auditStatus,jdbcType=TINYINT}, 
+      #{auditTime,jdbcType=TIMESTAMP}, #{auditUserType,jdbcType=INTEGER}, #{auditRoleId,jdbcType=VARCHAR}, 
+      #{trackContent,jdbcType=VARCHAR}, #{auditSource,jdbcType=TINYINT}, #{compId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{isAudit,jdbcType=TINYINT}, #{houseComplaintDealType,jdbcType=VARCHAR}, 
+      #{organizationDefinitionId,jdbcType=INTEGER}, #{transmitFlag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpAuditUserRuntime" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into AUDIT_USER_RUNTIME
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="auditId != null">
+        AUDIT_ID,
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID,
+      </if>
+      <if test="auditSeq != null">
+        AUDIT_SEQ,
+      </if>
+      <if test="examineType != null">
+        EXAMINE_TYPE,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME,
+      </if>
+      <if test="auditUserType != null">
+        AUDIT_USER_TYPE,
+      </if>
+      <if test="auditRoleId != null">
+        AUDIT_ROLE_ID,
+      </if>
+      <if test="trackContent != null">
+        TRACK_CONTENT,
+      </if>
+      <if test="auditSource != null">
+        AUDIT_SOURCE,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="isAudit != null">
+        IS_AUDIT,
+      </if>
+      <if test="houseComplaintDealType != null">
+        HOUSE_COMPLAINT_DEAL_TYPE,
+      </if>
+      <if test="organizationDefinitionId != null">
+        ORGANIZATION_DEFINITION_ID,
+      </if>
+      <if test="transmitFlag != null">
+        TRANSMIT_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="auditId != null">
+        #{auditId,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserId != null">
+        #{auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="auditSeq != null">
+        #{auditSeq,jdbcType=INTEGER},
+      </if>
+      <if test="examineType != null">
+        #{examineType,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditUserType != null">
+        #{auditUserType,jdbcType=INTEGER},
+      </if>
+      <if test="auditRoleId != null">
+        #{auditRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="trackContent != null">
+        #{trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="auditSource != null">
+        #{auditSource,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="isAudit != null">
+        #{isAudit,jdbcType=TINYINT},
+      </if>
+      <if test="houseComplaintDealType != null">
+        #{houseComplaintDealType,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationDefinitionId != null">
+        #{organizationDefinitionId,jdbcType=INTEGER},
+      </if>
+      <if test="transmitFlag != null">
+        #{transmitFlag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpAuditUserRuntimeExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from AUDIT_USER_RUNTIME
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update AUDIT_USER_RUNTIME
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditId != null">
+        AUDIT_ID = #{record.auditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditUserId != null">
+        AUDIT_USER_ID = #{record.auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditSeq != null">
+        AUDIT_SEQ = #{record.auditSeq,jdbcType=INTEGER},
+      </if>
+      <if test="record.examineType != null">
+        EXAMINE_TYPE = #{record.examineType,jdbcType=TINYINT},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditStatus != null">
+        AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.auditTime != null">
+        AUDIT_TIME = #{record.auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditUserType != null">
+        AUDIT_USER_TYPE = #{record.auditUserType,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditRoleId != null">
+        AUDIT_ROLE_ID = #{record.auditRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trackContent != null">
+        TRACK_CONTENT = #{record.trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditSource != null">
+        AUDIT_SOURCE = #{record.auditSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isAudit != null">
+        IS_AUDIT = #{record.isAudit,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseComplaintDealType != null">
+        HOUSE_COMPLAINT_DEAL_TYPE = #{record.houseComplaintDealType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationDefinitionId != null">
+        ORGANIZATION_DEFINITION_ID = #{record.organizationDefinitionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.transmitFlag != null">
+        TRANSMIT_FLAG = #{record.transmitFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update AUDIT_USER_RUNTIME
+    set ID = #{record.id,jdbcType=INTEGER},
+      AUDIT_ID = #{record.auditId,jdbcType=INTEGER},
+      AUDIT_USER_ID = #{record.auditUserId,jdbcType=INTEGER},
+      AUDIT_SEQ = #{record.auditSeq,jdbcType=INTEGER},
+      EXAMINE_TYPE = #{record.examineType,jdbcType=TINYINT},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      AUDIT_TIME = #{record.auditTime,jdbcType=TIMESTAMP},
+      AUDIT_USER_TYPE = #{record.auditUserType,jdbcType=INTEGER},
+      AUDIT_ROLE_ID = #{record.auditRoleId,jdbcType=VARCHAR},
+      TRACK_CONTENT = #{record.trackContent,jdbcType=VARCHAR},
+      AUDIT_SOURCE = #{record.auditSource,jdbcType=TINYINT},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      IS_AUDIT = #{record.isAudit,jdbcType=TINYINT},
+      HOUSE_COMPLAINT_DEAL_TYPE = #{record.houseComplaintDealType,jdbcType=VARCHAR},
+      ORGANIZATION_DEFINITION_ID = #{record.organizationDefinitionId,jdbcType=INTEGER},
+      TRANSMIT_FLAG = #{record.transmitFlag,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpAuditUserRuntime">
+    <!--@mbggenerated-->
+    update AUDIT_USER_RUNTIME
+    <set>
+      <if test="auditId != null">
+        AUDIT_ID = #{auditId,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID = #{auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="auditSeq != null">
+        AUDIT_SEQ = #{auditSeq,jdbcType=INTEGER},
+      </if>
+      <if test="examineType != null">
+        EXAMINE_TYPE = #{examineType,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditUserType != null">
+        AUDIT_USER_TYPE = #{auditUserType,jdbcType=INTEGER},
+      </if>
+      <if test="auditRoleId != null">
+        AUDIT_ROLE_ID = #{auditRoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="trackContent != null">
+        TRACK_CONTENT = #{trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="auditSource != null">
+        AUDIT_SOURCE = #{auditSource,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="isAudit != null">
+        IS_AUDIT = #{isAudit,jdbcType=TINYINT},
+      </if>
+      <if test="houseComplaintDealType != null">
+        HOUSE_COMPLAINT_DEAL_TYPE = #{houseComplaintDealType,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationDefinitionId != null">
+        ORGANIZATION_DEFINITION_ID = #{organizationDefinitionId,jdbcType=INTEGER},
+      </if>
+      <if test="transmitFlag != null">
+        TRANSMIT_FLAG = #{transmitFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpAuditUserRuntime">
+    <!--@mbggenerated-->
+    update AUDIT_USER_RUNTIME
+    set AUDIT_ID = #{auditId,jdbcType=INTEGER},
+      AUDIT_USER_ID = #{auditUserId,jdbcType=INTEGER},
+      AUDIT_SEQ = #{auditSeq,jdbcType=INTEGER},
+      EXAMINE_TYPE = #{examineType,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      AUDIT_USER_TYPE = #{auditUserType,jdbcType=INTEGER},
+      AUDIT_ROLE_ID = #{auditRoleId,jdbcType=VARCHAR},
+      TRACK_CONTENT = #{trackContent,jdbcType=VARCHAR},
+      AUDIT_SOURCE = #{auditSource,jdbcType=TINYINT},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      IS_AUDIT = #{isAudit,jdbcType=TINYINT},
+      HOUSE_COMPLAINT_DEAL_TYPE = #{houseComplaintDealType,jdbcType=VARCHAR},
+      ORGANIZATION_DEFINITION_ID = #{organizationDefinitionId,jdbcType=INTEGER},
+      TRANSMIT_FLAG = #{transmitFlag,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="BaseResultMapDto" type="com.myfun.repository.erpdb.dto.ErpAuditUserRuntimeDto">
+    <result column="KEY_DEPT_ID" jdbcType="INTEGER" property="keyDeptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="AUDIT_TYPE" jdbcType="INTEGER" property="auditType" />
+  </resultMap>
+	
+	<insert id="insertList">
+		insert into AUDIT_USER_RUNTIME (AUDIT_ID, AUDIT_USER_ID, AUDIT_SEQ, EXAMINE_TYPE, 
+		CREATION_TIME, AUDIT_STATUS, AUDIT_TIME, AUDIT_USER_TYPE, AUDIT_ROLE_ID,COMP_ID,ORGANIZATION_DEFINITION_ID)
+		values
+		<foreach collection="auditUserRuntimeList" item="item" separator=",">
+			(
+			#{item.auditId}, #{item.auditUserId}, #{item.auditSeq}, #{item.examineType},#{item.creationTime},
+			#{item.auditStatus}, #{item.auditTime}, #{item.auditUserType}, #{item.auditRoleId},#{item.compId},#{item.organizationDefinitionId}
+			)
+		</foreach>
+	</insert>
+	
+	
+	<select id="selectNowAuditUser" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from AUDIT_USER_RUNTIME
+		where AUDIT_ID = #{auditId}
+		<if test="userId != null">and AUDIT_USER_ID = #{userId}</if>
+		and AUDIT_SEQ = (
+			select MIN(AUDIT_SEQ) from AUDIT_USER_RUNTIME
+			where AUDIT_ID = #{auditId} and AUDIT_STATUS = #{auditStatus}
+		)
+	</select>
+	
+	<update id="updateAuditStatusByIds">
+		update AUDIT_USER_RUNTIME set AUDIT_STATUS=#{auditStatus}
+		<if test="auditDate != null">
+			,AUDIT_TIME=#{auditDate}
+		</if>
+		<if test="trackContent != null">
+			,TRACK_CONTENT = #{trackContent}
+		</if>
+		where ID in
+		<foreach close=")" collection="ids" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+
+	</update>
+	
+	<update id="updateAuditStatusBySeq">
+		update AUDIT_USER_RUNTIME set AUDIT_STATUS=#{auditStatus},AUDIT_TIME=GETDATE()
+		WHERE
+		AUDIT_ID = #{auditId} AND AUDIT_SEQ = #{auditSeq} and ID not in
+		<foreach close=")" collection="ids" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</update>
+
+    <select id="getMyAuditList" resultType="java.lang.Integer">
+        select A.AUDIT_ID from AUDIT_USER_RUNTIME A
+        JOIN AUDIT_RUNTIME B ON A.AUDIT_ID = B.ID
+        where A.AUDIT_USER_ID = #{userId} and TRANSMIT_FLAG = 0
+        <if test="auditType == 1">AND A.AUDIT_STATUS = 1 AND B.AUDIT_STATUS=0</if><!-- 待我审核，而且审核未完结 -->
+        <if test="auditType == 2">AND A.AUDIT_STATUS IN (2, 5)</if><!-- 我审核的 -->
+        <if test="param.deptId != null and param.deptId != ''">AND B.DEPT_ID = #{param.deptId}</if>
+        <if test="param.grId != null and param.grId != ''">AND B.GR_ID = #{param.grId}</if>
+        <if test="param.regId != null and param.regId != ''">AND B.REG_ID = #{param.regId}</if>
+        <if test="param.areaId != null and param.areaId != ''">AND B.AREA_ID = #{param.areaId}</if>
+        <if test="param.userId != null and param.userId != ''">AND B.USER_ID = #{param.userId}</if>
+        <if test="param.caseType != null and param.caseType != ''">AND B.CASE_TYPE = #{param.caseType}</if>
+        <choose>
+          <when test="param.caseIds != null and param.caseIds != ''">AND (B.CASE_NO = #{param.caseNo} OR B.CASE_ID IN ${param.caseIds})</when>
+          <when test="param.caseNo != null and param.caseNo != ''">AND B.CASE_NO = #{param.caseNo}</when>
+        </choose>
+        <if test="param.startTime != null and param.startTime != ''">AND B.CREATION_TIME &gt;= #{param.startTime}</if>
+        <if test="param.endTime != null and param.endTime != ''">AND B.CREATION_TIME &lt;= #{param.endTime}</if>
+        <if test="param.auditStatus != null and param.auditStatus != ''">AND B.AUDIT_STATUS = #{param.auditStatus}</if>
+        <if test="param.auditResource != null and param.auditResource != ''">AND B.AUDIT_RESOURCE = #{param.auditResource}</if>
+        <if test="param.organizationId != null">AND B.ORGANIZATION_PATH LIKE '%:${param.organizationId}:%'</if>
+        <if test="param.auditTypeArr != null and param.auditTypeArr.size &gt;0">
+            AND B.AUDIT_TYPE IN
+            <foreach close=")" collection="param.auditTypeArr" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="param.templateIds != null and param.templateIds.size &gt; 0">
+        AND B.TEMPLATE_ID IN
+         <foreach close=")" collection="param.templateIds" item="item" open="(" separator=",">
+           #{item}
+           </foreach>
+       </if>
+        GROUP BY A.AUDIT_ID
+        ORDER BY A.AUDIT_ID DESC
+    </select>
+	
+	<update id="deleteAllAuditByUser">
+		UPDATE A SET AUDIT_USER_ID=NULL
+		FROM AUDIT_USER_RUNTIME A
+		JOIN AUDIT_RUNTIME B ON A.AUDIT_ID=B.ID
+		WHERE B.COMP_ID=#{compId} AND A.AUDIT_STATUS=1 AND B.AUDIT_STATUS=0
+		AND A.AUDIT_USER_TYPE != 1 AND A.AUDIT_USER_ID =#{userId} AND A.ORGANIZATION_DEFINITION_ID is null
+		<!-- 审核中，非指定员工审核，指定审核人 -->
+	</update>
+	
+	<select id="getAuditUserByUser" resultMap="BaseResultMapDto">
+		SELECT B.CASE_ID,B.CASE_TYPE,B.USER_ID,B.DEPT_ID,B.KEY_DEPT_ID,B.AUDIT_TYPE,A.*
+		FROM AUDIT_USER_RUNTIME A
+		JOIN AUDIT_RUNTIME B ON A.AUDIT_ID=B.ID
+		WHERE B.COMP_ID=#{compId} AND A.AUDIT_STATUS=1 AND B.AUDIT_STATUS=0
+		AND A.AUDIT_USER_TYPE != 1 AND A.AUDIT_USER_ID =#{userId}
+		<!-- 审核中，非指定员工审核，指定审核人 -->
+	</select>
+	
+	<select id="getAuditUserByRole" resultMap="BaseResultMapDto">
+	SELECT B.CASE_ID,B.CASE_TYPE,B.USER_ID,B.DEPT_ID,B.KEY_DEPT_ID,B.AUDIT_TYPE,A.*
+		FROM AUDIT_USER_RUNTIME A
+		JOIN AUDIT_RUNTIME B ON A.AUDIT_ID=B.ID
+		WHERE A.AUDIT_ID IN(
+			SELECT AUDIT_ID FROM AUDIT_USER_RUNTIME
+			WHERE COMP_ID=#{compId} AND AUDIT_ROLE_ID=#{roleId} AND AUDIT_STATUS=1 AND AUDIT_USER_TYPE != 1
+		)
+		AND B.COMP_ID=#{compId} AND B.AUDIT_STATUS=0
+		AND A.AUDIT_STATUS=1 AND A.AUDIT_USER_TYPE != 1 AND A.ORGANIZATION_DEFINITION_ID is null
+		<!-- 审核中，非指定员工审核，没有审核人 -->
+	</select>
+	
+	<select id="getUserListByAuditId" resultMap="BaseResultMapDto">
+		select 
+		<include refid="Base_Column_List" />
+		from AUDIT_USER_RUNTIME
+		where AUDIT_ID = #{auditId} and TRANSMIT_FLAG = 0
+		ORDER BY AUDIT_SEQ asc,iif(AUDIT_STATUS &gt; 1,AUDIT_STATUS,999) asc, iif(AUDIT_USER_ID = #{userId},1,2) asc <!-- 已审的自己的排前面 -->
+	</select>
+	
+	<select id="getAuditUserByMyselfCount" resultType="java.lang.Integer">
+		select COUNT(1) from AUDIT_USER_RUNTIME A JOIN AUDIT_RUNTIME B ON A.AUDIT_ID = B.ID
+		where A.AUDIT_USER_ID = #{userId} AND A.AUDIT_STATUS = #{auditStatus} AND B.AUDIT_STATUS=0 AND
+		B.CREATION_TIME &gt;= #{startTime} AND B.CREATION_TIME &lt;= #{nowDate} GROUP BY A.AUDIT_ID
+	</select>
+	
+	<select id="getAuditCount" resultType="java.lang.Integer">
+		SELECT COUNT(DISTINCT A.ID) FROM AUDIT_USER_RUNTIME A JOIN AUDIT_RUNTIME B ON A.AUDIT_ID = B.ID
+		WHERE A.AUDIT_USER_ID = #{userId} AND A.AUDIT_STATUS = 1 AND B.AUDIT_STATUS = 0
+		and B.CREATION_TIME &gt;= #{time1} and B.CREATION_TIME &lt;= #{time2}
+	</select>
+
+  <select id="selectUserByAuditId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from audit_user_runtime
+        where audit_status in (2,5)
+      <if test="auditIds != null and auditIds.size &gt; 0">
+        AND audit_id IN
+        <foreach close=")" collection="auditIds" item="item" open="(" separator=",">
+          #{item}
+        </foreach>
+      </if>
+  </select>
+  <select id="getThisUserAsOrgManagerAuditList" resultMap="BaseResultMapDto">
+    SELECT B.CASE_ID,B.CASE_TYPE,B.USER_ID,B.DEPT_ID,B.KEY_DEPT_ID,B.AUDIT_TYPE,A.*
+		FROM AUDIT_USER_RUNTIME A
+		JOIN AUDIT_RUNTIME B ON A.AUDIT_ID=B.ID
+		WHERE A.AUDIT_ID IN(
+			SELECT AUDIT_ID FROM AUDIT_USER_RUNTIME
+			WHERE COMP_ID=#{compId} AND AUDIT_USER_ID=#{userId} AND AUDIT_STATUS=1 AND AUDIT_USER_TYPE != 1 AND ORGANIZATION_DEFINITION_ID >0
+		)
+		AND B.COMP_ID=#{compId} AND B.AUDIT_STATUS=0
+		AND A.AUDIT_STATUS=1 AND A.AUDIT_USER_TYPE != 1 AND A.AUDIT_USER_ID=#{userId} AND A.ORGANIZATION_DEFINITION_ID >0
+  </select>
+
+</mapper>

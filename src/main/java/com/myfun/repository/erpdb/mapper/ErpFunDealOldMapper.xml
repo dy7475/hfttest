@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunDealOldMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunDealOld">
+    <!--@mbggenerated-->
+    <id column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+    <result column="AGREEMENT_NO" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="CREATOR_DATE" jdbcType="TIMESTAMP" property="creatorDate" />
+    <result column="DEAL_TYPE" jdbcType="VARCHAR" property="dealType" />
+    <result column="DEAL_STATUS" jdbcType="VARCHAR" property="dealStatus" />
+    <result column="DEAL_COMPLETE" jdbcType="INTEGER" property="dealComplete" />
+    <result column="DEAL_USER_ID" jdbcType="INTEGER" property="dealUserId" />
+    <result column="DEAL_VERIFY_CON" jdbcType="VARCHAR" property="dealVerifyCon" />
+    <result column="DEAL_VERIFY_TIME" jdbcType="TIMESTAMP" property="dealVerifyTime" />
+    <result column="DEAL_BUY_STYLE" jdbcType="VARCHAR" property="dealBuyStyle" />
+    <result column="DEAL_SELL_STYLE" jdbcType="VARCHAR" property="dealSellStyle" />
+    <result column="DEAL_CUSTOMER_NO" jdbcType="VARCHAR" property="dealCustomerNo" />
+    <result column="DEAL_HOUSE_NO" jdbcType="VARCHAR" property="dealHouseNo" />
+    <result column="SELL_ADDRESS" jdbcType="VARCHAR" property="sellAddress" />
+    <result column="BUY_CUSTINFO" jdbcType="VARCHAR" property="buyCustinfo" />
+    <result column="SELL_HEZUO_COMPNAME" jdbcType="VARCHAR" property="sellHezuoCompname" />
+    <result column="BUY_HEZUO_COMPNAME" jdbcType="VARCHAR" property="buyHezuoCompname" />
+    <result column="BUY_CONTACTUSER" jdbcType="VARCHAR" property="buyContactuser" />
+    <result column="SELL_CONTACTUSER" jdbcType="VARCHAR" property="sellContactuser" />
+    <result column="BUY_OWNER_NAME" jdbcType="VARCHAR" property="buyOwnerName" />
+    <result column="SELL_OWNER_NAME" jdbcType="VARCHAR" property="sellOwnerName" />
+    <result column="BUY_CALL_PHONE" jdbcType="VARCHAR" property="buyCallPhone" />
+    <result column="SELL_CALL_PHONE" jdbcType="VARCHAR" property="sellCallPhone" />
+    <result column="BUY_ID_CARD" jdbcType="VARCHAR" property="buyIdCard" />
+    <result column="SELL_ID_CARD" jdbcType="VARCHAR" property="sellIdCard" />
+    <result column="BUY_PAYMONEY" jdbcType="DOUBLE" property="buyPaymoney" />
+    <result column="SELL_PAYMONEY" jdbcType="DOUBLE" property="sellPaymoney" />
+    <result column="OTHER_PAYMONEY" jdbcType="DOUBLE" property="otherPaymoney" />
+    <result column="GAIN_MONEY" jdbcType="DOUBLE" property="gainMoney" />
+    <result column="REAL_BUY_PAYMONEY" jdbcType="DOUBLE" property="realBuyPaymoney" />
+    <result column="REAL_SELL_PAYMONEY" jdbcType="DOUBLE" property="realSellPaymoney" />
+    <result column="REAL_OTHER_PAYMONEY" jdbcType="DOUBLE" property="realOtherPaymoney" />
+    <result column="REAL_PAYMONEY" jdbcType="DOUBLE" property="realPaymoney" />
+    <result column="BUY_PRICE_MONEY" jdbcType="DOUBLE" property="buyPriceMoney" />
+    <result column="BUY_PAY_TYPE" jdbcType="VARCHAR" property="buyPayType" />
+    <result column="BUY_MORTGAGE_MONEY" jdbcType="DOUBLE" property="buyMortgageMoney" />
+    <result column="BUY_MORTGAGE_TYPE" jdbcType="VARCHAR" property="buyMortgageType" />
+    <result column="SELL_DEAL_MONEY" jdbcType="DOUBLE" property="sellDealMoney" />
+    <result column="SELL_ISHAVE_LOAN" jdbcType="INTEGER" property="sellIshaveLoan" />
+    <result column="SELL_LOAN_MONEY" jdbcType="DOUBLE" property="sellLoanMoney" />
+    <result column="SELL_RETURN_LOAN" jdbcType="INTEGER" property="sellReturnLoan" />
+    <result column="OWNER_STYLE" jdbcType="VARCHAR" property="ownerStyle" />
+    <result column="OWNER_TYPE" jdbcType="VARCHAR" property="ownerType" />
+    <result column="OWNER_NO" jdbcType="VARCHAR" property="ownerNo" />
+    <result column="HAVE_LANDCARD" jdbcType="INTEGER" property="haveLandcard" />
+    <result column="LANDCARD_NO" jdbcType="VARCHAR" property="landcardNo" />
+    <result column="MANGEMENT_TAX" jdbcType="INTEGER" property="mangementTax" />
+    <result column="OWNER_TAX" jdbcType="INTEGER" property="ownerTax" />
+    <result column="TAX" jdbcType="VARCHAR" property="tax" />
+    <result column="RENT_PAY_METHOD" jdbcType="VARCHAR" property="rentPayMethod" />
+    <result column="RENT_PAY_EARLY" jdbcType="VARCHAR" property="rentPayEarly" />
+    <result column="RENT_DEAL_MONEY" jdbcType="DOUBLE" property="rentDealMoney" />
+    <result column="RENT_DATE" jdbcType="TIMESTAMP" property="rentDate" />
+    <result column="RENT_OVER_DATE" jdbcType="TIMESTAMP" property="rentOverDate" />
+    <result column="RENT_PAY_SPACE" jdbcType="VARCHAR" property="rentPaySpace" />
+    <result column="RENT_DEPOSIT_PAY" jdbcType="DOUBLE" property="rentDepositPay" />
+    <result column="RENT_OTHER_MONEY" jdbcType="DOUBLE" property="rentOtherMoney" />
+    <result column="RENT_PRICE_UNIT" jdbcType="VARCHAR" property="rentPriceUnit" />
+    <result column="GOODSDETAILED" jdbcType="VARCHAR" property="goodsdetailed" />
+    <result column="WATERLIGHTEXPENSES" jdbcType="VARCHAR" property="waterlightexpenses" />
+    <result column="TRADE_REMARK_EXPLAIN" jdbcType="VARCHAR" property="tradeRemarkExplain" />
+    <result column="SYSTEM_RECORD_TIME" jdbcType="TIMESTAMP" property="systemRecordTime" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="UPDATE_UID" jdbcType="INTEGER" property="updateUid" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="SYNC_FLAG" jdbcType="TINYINT" property="syncFlag" />
+    <result column="LOCK_FLAG" jdbcType="TINYINT" property="lockFlag" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    DEAL_ID, AGREEMENT_NO, CREATOR_DATE, DEAL_TYPE, DEAL_STATUS, DEAL_COMPLETE, DEAL_USER_ID, 
+    DEAL_VERIFY_CON, DEAL_VERIFY_TIME, DEAL_BUY_STYLE, DEAL_SELL_STYLE, DEAL_CUSTOMER_NO, 
+    DEAL_HOUSE_NO, SELL_ADDRESS, BUY_CUSTINFO, SELL_HEZUO_COMPNAME, BUY_HEZUO_COMPNAME, 
+    BUY_CONTACTUSER, SELL_CONTACTUSER, BUY_OWNER_NAME, SELL_OWNER_NAME, BUY_CALL_PHONE, 
+    SELL_CALL_PHONE, BUY_ID_CARD, SELL_ID_CARD, BUY_PAYMONEY, SELL_PAYMONEY, OTHER_PAYMONEY, 
+    GAIN_MONEY, REAL_BUY_PAYMONEY, REAL_SELL_PAYMONEY, REAL_OTHER_PAYMONEY, REAL_PAYMONEY, 
+    BUY_PRICE_MONEY, BUY_PAY_TYPE, BUY_MORTGAGE_MONEY, BUY_MORTGAGE_TYPE, SELL_DEAL_MONEY, 
+    SELL_ISHAVE_LOAN, SELL_LOAN_MONEY, SELL_RETURN_LOAN, OWNER_STYLE, OWNER_TYPE, OWNER_NO, 
+    HAVE_LANDCARD, LANDCARD_NO, MANGEMENT_TAX, OWNER_TAX, TAX, RENT_PAY_METHOD, RENT_PAY_EARLY, 
+    RENT_DEAL_MONEY, RENT_DATE, RENT_OVER_DATE, RENT_PAY_SPACE, RENT_DEPOSIT_PAY, RENT_OTHER_MONEY, 
+    RENT_PRICE_UNIT, GOODSDETAILED, WATERLIGHTEXPENSES, TRADE_REMARK_EXPLAIN, SYSTEM_RECORD_TIME, 
+    CREATOR_UID, COMP_ID, DEPT_ID, UPDATE_UID, UPDATE_TIME, SYNC_FLAG, LOCK_FLAG, REG_ID, 
+    AREA_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_DEAL_OLD
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_DEAL_OLD
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunDealOld">
+    <!--@mbggenerated-->
+    insert into FUN_DEAL_OLD (DEAL_ID, AGREEMENT_NO, CREATOR_DATE, 
+      DEAL_TYPE, DEAL_STATUS, DEAL_COMPLETE, 
+      DEAL_USER_ID, DEAL_VERIFY_CON, DEAL_VERIFY_TIME, 
+      DEAL_BUY_STYLE, DEAL_SELL_STYLE, DEAL_CUSTOMER_NO, 
+      DEAL_HOUSE_NO, SELL_ADDRESS, BUY_CUSTINFO, 
+      SELL_HEZUO_COMPNAME, BUY_HEZUO_COMPNAME, BUY_CONTACTUSER, 
+      SELL_CONTACTUSER, BUY_OWNER_NAME, SELL_OWNER_NAME, 
+      BUY_CALL_PHONE, SELL_CALL_PHONE, BUY_ID_CARD, 
+      SELL_ID_CARD, BUY_PAYMONEY, SELL_PAYMONEY, 
+      OTHER_PAYMONEY, GAIN_MONEY, REAL_BUY_PAYMONEY, 
+      REAL_SELL_PAYMONEY, REAL_OTHER_PAYMONEY, REAL_PAYMONEY, 
+      BUY_PRICE_MONEY, BUY_PAY_TYPE, BUY_MORTGAGE_MONEY, 
+      BUY_MORTGAGE_TYPE, SELL_DEAL_MONEY, SELL_ISHAVE_LOAN, 
+      SELL_LOAN_MONEY, SELL_RETURN_LOAN, OWNER_STYLE, 
+      OWNER_TYPE, OWNER_NO, HAVE_LANDCARD, 
+      LANDCARD_NO, MANGEMENT_TAX, OWNER_TAX, 
+      TAX, RENT_PAY_METHOD, RENT_PAY_EARLY, 
+      RENT_DEAL_MONEY, RENT_DATE, RENT_OVER_DATE, 
+      RENT_PAY_SPACE, RENT_DEPOSIT_PAY, RENT_OTHER_MONEY, 
+      RENT_PRICE_UNIT, GOODSDETAILED, WATERLIGHTEXPENSES, 
+      TRADE_REMARK_EXPLAIN, SYSTEM_RECORD_TIME, 
+      CREATOR_UID, COMP_ID, DEPT_ID, 
+      UPDATE_UID, UPDATE_TIME, SYNC_FLAG, 
+      LOCK_FLAG, REG_ID, AREA_ID
+      )
+    values (#{dealId,jdbcType=INTEGER}, #{agreementNo,jdbcType=VARCHAR}, #{creatorDate,jdbcType=TIMESTAMP}, 
+      #{dealType,jdbcType=VARCHAR}, #{dealStatus,jdbcType=VARCHAR}, #{dealComplete,jdbcType=INTEGER}, 
+      #{dealUserId,jdbcType=INTEGER}, #{dealVerifyCon,jdbcType=VARCHAR}, #{dealVerifyTime,jdbcType=TIMESTAMP}, 
+      #{dealBuyStyle,jdbcType=VARCHAR}, #{dealSellStyle,jdbcType=VARCHAR}, #{dealCustomerNo,jdbcType=VARCHAR}, 
+      #{dealHouseNo,jdbcType=VARCHAR}, #{sellAddress,jdbcType=VARCHAR}, #{buyCustinfo,jdbcType=VARCHAR}, 
+      #{sellHezuoCompname,jdbcType=VARCHAR}, #{buyHezuoCompname,jdbcType=VARCHAR}, #{buyContactuser,jdbcType=VARCHAR}, 
+      #{sellContactuser,jdbcType=VARCHAR}, #{buyOwnerName,jdbcType=VARCHAR}, #{sellOwnerName,jdbcType=VARCHAR}, 
+      #{buyCallPhone,jdbcType=VARCHAR}, #{sellCallPhone,jdbcType=VARCHAR}, #{buyIdCard,jdbcType=VARCHAR}, 
+      #{sellIdCard,jdbcType=VARCHAR}, #{buyPaymoney,jdbcType=DOUBLE}, #{sellPaymoney,jdbcType=DOUBLE}, 
+      #{otherPaymoney,jdbcType=DOUBLE}, #{gainMoney,jdbcType=DOUBLE}, #{realBuyPaymoney,jdbcType=DOUBLE}, 
+      #{realSellPaymoney,jdbcType=DOUBLE}, #{realOtherPaymoney,jdbcType=DOUBLE}, #{realPaymoney,jdbcType=DOUBLE}, 
+      #{buyPriceMoney,jdbcType=DOUBLE}, #{buyPayType,jdbcType=VARCHAR}, #{buyMortgageMoney,jdbcType=DOUBLE}, 
+      #{buyMortgageType,jdbcType=VARCHAR}, #{sellDealMoney,jdbcType=DOUBLE}, #{sellIshaveLoan,jdbcType=INTEGER}, 
+      #{sellLoanMoney,jdbcType=DOUBLE}, #{sellReturnLoan,jdbcType=INTEGER}, #{ownerStyle,jdbcType=VARCHAR}, 
+      #{ownerType,jdbcType=VARCHAR}, #{ownerNo,jdbcType=VARCHAR}, #{haveLandcard,jdbcType=INTEGER}, 
+      #{landcardNo,jdbcType=VARCHAR}, #{mangementTax,jdbcType=INTEGER}, #{ownerTax,jdbcType=INTEGER}, 
+      #{tax,jdbcType=VARCHAR}, #{rentPayMethod,jdbcType=VARCHAR}, #{rentPayEarly,jdbcType=VARCHAR}, 
+      #{rentDealMoney,jdbcType=DOUBLE}, #{rentDate,jdbcType=TIMESTAMP}, #{rentOverDate,jdbcType=TIMESTAMP}, 
+      #{rentPaySpace,jdbcType=VARCHAR}, #{rentDepositPay,jdbcType=DOUBLE}, #{rentOtherMoney,jdbcType=DOUBLE}, 
+      #{rentPriceUnit,jdbcType=VARCHAR}, #{goodsdetailed,jdbcType=VARCHAR}, #{waterlightexpenses,jdbcType=VARCHAR}, 
+      #{tradeRemarkExplain,jdbcType=VARCHAR}, #{systemRecordTime,jdbcType=TIMESTAMP}, 
+      #{creatorUid,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{updateUid,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{syncFlag,jdbcType=TINYINT}, 
+      #{lockFlag,jdbcType=TINYINT}, #{regId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunDealOld">
+    <!--@mbggenerated-->
+    insert into FUN_DEAL_OLD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dealId != null">
+        DEAL_ID,
+      </if>
+      <if test="agreementNo != null">
+        AGREEMENT_NO,
+      </if>
+      <if test="creatorDate != null">
+        CREATOR_DATE,
+      </if>
+      <if test="dealType != null">
+        DEAL_TYPE,
+      </if>
+      <if test="dealStatus != null">
+        DEAL_STATUS,
+      </if>
+      <if test="dealComplete != null">
+        DEAL_COMPLETE,
+      </if>
+      <if test="dealUserId != null">
+        DEAL_USER_ID,
+      </if>
+      <if test="dealVerifyCon != null">
+        DEAL_VERIFY_CON,
+      </if>
+      <if test="dealVerifyTime != null">
+        DEAL_VERIFY_TIME,
+      </if>
+      <if test="dealBuyStyle != null">
+        DEAL_BUY_STYLE,
+      </if>
+      <if test="dealSellStyle != null">
+        DEAL_SELL_STYLE,
+      </if>
+      <if test="dealCustomerNo != null">
+        DEAL_CUSTOMER_NO,
+      </if>
+      <if test="dealHouseNo != null">
+        DEAL_HOUSE_NO,
+      </if>
+      <if test="sellAddress != null">
+        SELL_ADDRESS,
+      </if>
+      <if test="buyCustinfo != null">
+        BUY_CUSTINFO,
+      </if>
+      <if test="sellHezuoCompname != null">
+        SELL_HEZUO_COMPNAME,
+      </if>
+      <if test="buyHezuoCompname != null">
+        BUY_HEZUO_COMPNAME,
+      </if>
+      <if test="buyContactuser != null">
+        BUY_CONTACTUSER,
+      </if>
+      <if test="sellContactuser != null">
+        SELL_CONTACTUSER,
+      </if>
+      <if test="buyOwnerName != null">
+        BUY_OWNER_NAME,
+      </if>
+      <if test="sellOwnerName != null">
+        SELL_OWNER_NAME,
+      </if>
+      <if test="buyCallPhone != null">
+        BUY_CALL_PHONE,
+      </if>
+      <if test="sellCallPhone != null">
+        SELL_CALL_PHONE,
+      </if>
+      <if test="buyIdCard != null">
+        BUY_ID_CARD,
+      </if>
+      <if test="sellIdCard != null">
+        SELL_ID_CARD,
+      </if>
+      <if test="buyPaymoney != null">
+        BUY_PAYMONEY,
+      </if>
+      <if test="sellPaymoney != null">
+        SELL_PAYMONEY,
+      </if>
+      <if test="otherPaymoney != null">
+        OTHER_PAYMONEY,
+      </if>
+      <if test="gainMoney != null">
+        GAIN_MONEY,
+      </if>
+      <if test="realBuyPaymoney != null">
+        REAL_BUY_PAYMONEY,
+      </if>
+      <if test="realSellPaymoney != null">
+        REAL_SELL_PAYMONEY,
+      </if>
+      <if test="realOtherPaymoney != null">
+        REAL_OTHER_PAYMONEY,
+      </if>
+      <if test="realPaymoney != null">
+        REAL_PAYMONEY,
+      </if>
+      <if test="buyPriceMoney != null">
+        BUY_PRICE_MONEY,
+      </if>
+      <if test="buyPayType != null">
+        BUY_PAY_TYPE,
+      </if>
+      <if test="buyMortgageMoney != null">
+        BUY_MORTGAGE_MONEY,
+      </if>
+      <if test="buyMortgageType != null">
+        BUY_MORTGAGE_TYPE,
+      </if>
+      <if test="sellDealMoney != null">
+        SELL_DEAL_MONEY,
+      </if>
+      <if test="sellIshaveLoan != null">
+        SELL_ISHAVE_LOAN,
+      </if>
+      <if test="sellLoanMoney != null">
+        SELL_LOAN_MONEY,
+      </if>
+      <if test="sellReturnLoan != null">
+        SELL_RETURN_LOAN,
+      </if>
+      <if test="ownerStyle != null">
+        OWNER_STYLE,
+      </if>
+      <if test="ownerType != null">
+        OWNER_TYPE,
+      </if>
+      <if test="ownerNo != null">
+        OWNER_NO,
+      </if>
+      <if test="haveLandcard != null">
+        HAVE_LANDCARD,
+      </if>
+      <if test="landcardNo != null">
+        LANDCARD_NO,
+      </if>
+      <if test="mangementTax != null">
+        MANGEMENT_TAX,
+      </if>
+      <if test="ownerTax != null">
+        OWNER_TAX,
+      </if>
+      <if test="tax != null">
+        TAX,
+      </if>
+      <if test="rentPayMethod != null">
+        RENT_PAY_METHOD,
+      </if>
+      <if test="rentPayEarly != null">
+        RENT_PAY_EARLY,
+      </if>
+      <if test="rentDealMoney != null">
+        RENT_DEAL_MONEY,
+      </if>
+      <if test="rentDate != null">
+        RENT_DATE,
+      </if>
+      <if test="rentOverDate != null">
+        RENT_OVER_DATE,
+      </if>
+      <if test="rentPaySpace != null">
+        RENT_PAY_SPACE,
+      </if>
+      <if test="rentDepositPay != null">
+        RENT_DEPOSIT_PAY,
+      </if>
+      <if test="rentOtherMoney != null">
+        RENT_OTHER_MONEY,
+      </if>
+      <if test="rentPriceUnit != null">
+        RENT_PRICE_UNIT,
+      </if>
+      <if test="goodsdetailed != null">
+        GOODSDETAILED,
+      </if>
+      <if test="waterlightexpenses != null">
+        WATERLIGHTEXPENSES,
+      </if>
+      <if test="tradeRemarkExplain != null">
+        TRADE_REMARK_EXPLAIN,
+      </if>
+      <if test="systemRecordTime != null">
+        SYSTEM_RECORD_TIME,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="syncFlag != null">
+        SYNC_FLAG,
+      </if>
+      <if test="lockFlag != null">
+        LOCK_FLAG,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dealId != null">
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorDate != null">
+        #{creatorDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealType != null">
+        #{dealType,jdbcType=VARCHAR},
+      </if>
+      <if test="dealStatus != null">
+        #{dealStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dealComplete != null">
+        #{dealComplete,jdbcType=INTEGER},
+      </if>
+      <if test="dealUserId != null">
+        #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="dealVerifyCon != null">
+        #{dealVerifyCon,jdbcType=VARCHAR},
+      </if>
+      <if test="dealVerifyTime != null">
+        #{dealVerifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealBuyStyle != null">
+        #{dealBuyStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="dealSellStyle != null">
+        #{dealSellStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="dealCustomerNo != null">
+        #{dealCustomerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dealHouseNo != null">
+        #{dealHouseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sellAddress != null">
+        #{sellAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCustinfo != null">
+        #{buyCustinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sellHezuoCompname != null">
+        #{sellHezuoCompname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyHezuoCompname != null">
+        #{buyHezuoCompname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyContactuser != null">
+        #{buyContactuser,jdbcType=VARCHAR},
+      </if>
+      <if test="sellContactuser != null">
+        #{sellContactuser,jdbcType=VARCHAR},
+      </if>
+      <if test="buyOwnerName != null">
+        #{buyOwnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellOwnerName != null">
+        #{sellOwnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCallPhone != null">
+        #{buyCallPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellCallPhone != null">
+        #{sellCallPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyIdCard != null">
+        #{buyIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="sellIdCard != null">
+        #{sellIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="buyPaymoney != null">
+        #{buyPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sellPaymoney != null">
+        #{sellPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="otherPaymoney != null">
+        #{otherPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="gainMoney != null">
+        #{gainMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realBuyPaymoney != null">
+        #{realBuyPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realSellPaymoney != null">
+        #{realSellPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realOtherPaymoney != null">
+        #{realOtherPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realPaymoney != null">
+        #{realPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="buyPriceMoney != null">
+        #{buyPriceMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="buyPayType != null">
+        #{buyPayType,jdbcType=VARCHAR},
+      </if>
+      <if test="buyMortgageMoney != null">
+        #{buyMortgageMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="buyMortgageType != null">
+        #{buyMortgageType,jdbcType=VARCHAR},
+      </if>
+      <if test="sellDealMoney != null">
+        #{sellDealMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sellIshaveLoan != null">
+        #{sellIshaveLoan,jdbcType=INTEGER},
+      </if>
+      <if test="sellLoanMoney != null">
+        #{sellLoanMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sellReturnLoan != null">
+        #{sellReturnLoan,jdbcType=INTEGER},
+      </if>
+      <if test="ownerStyle != null">
+        #{ownerStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerType != null">
+        #{ownerType,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerNo != null">
+        #{ownerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="haveLandcard != null">
+        #{haveLandcard,jdbcType=INTEGER},
+      </if>
+      <if test="landcardNo != null">
+        #{landcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mangementTax != null">
+        #{mangementTax,jdbcType=INTEGER},
+      </if>
+      <if test="ownerTax != null">
+        #{ownerTax,jdbcType=INTEGER},
+      </if>
+      <if test="tax != null">
+        #{tax,jdbcType=VARCHAR},
+      </if>
+      <if test="rentPayMethod != null">
+        #{rentPayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="rentPayEarly != null">
+        #{rentPayEarly,jdbcType=VARCHAR},
+      </if>
+      <if test="rentDealMoney != null">
+        #{rentDealMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="rentDate != null">
+        #{rentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentOverDate != null">
+        #{rentOverDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentPaySpace != null">
+        #{rentPaySpace,jdbcType=VARCHAR},
+      </if>
+      <if test="rentDepositPay != null">
+        #{rentDepositPay,jdbcType=DOUBLE},
+      </if>
+      <if test="rentOtherMoney != null">
+        #{rentOtherMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="rentPriceUnit != null">
+        #{rentPriceUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsdetailed != null">
+        #{goodsdetailed,jdbcType=VARCHAR},
+      </if>
+      <if test="waterlightexpenses != null">
+        #{waterlightexpenses,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeRemarkExplain != null">
+        #{tradeRemarkExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="systemRecordTime != null">
+        #{systemRecordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="updateUid != null">
+        #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="syncFlag != null">
+        #{syncFlag,jdbcType=TINYINT},
+      </if>
+      <if test="lockFlag != null">
+        #{lockFlag,jdbcType=TINYINT},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunDealOld">
+    <!--@mbggenerated-->
+    update FUN_DEAL_OLD
+    <set>
+      <if test="agreementNo != null">
+        AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorDate != null">
+        CREATOR_DATE = #{creatorDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealType != null">
+        DEAL_TYPE = #{dealType,jdbcType=VARCHAR},
+      </if>
+      <if test="dealStatus != null">
+        DEAL_STATUS = #{dealStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dealComplete != null">
+        DEAL_COMPLETE = #{dealComplete,jdbcType=INTEGER},
+      </if>
+      <if test="dealUserId != null">
+        DEAL_USER_ID = #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="dealVerifyCon != null">
+        DEAL_VERIFY_CON = #{dealVerifyCon,jdbcType=VARCHAR},
+      </if>
+      <if test="dealVerifyTime != null">
+        DEAL_VERIFY_TIME = #{dealVerifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealBuyStyle != null">
+        DEAL_BUY_STYLE = #{dealBuyStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="dealSellStyle != null">
+        DEAL_SELL_STYLE = #{dealSellStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="dealCustomerNo != null">
+        DEAL_CUSTOMER_NO = #{dealCustomerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dealHouseNo != null">
+        DEAL_HOUSE_NO = #{dealHouseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sellAddress != null">
+        SELL_ADDRESS = #{sellAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCustinfo != null">
+        BUY_CUSTINFO = #{buyCustinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sellHezuoCompname != null">
+        SELL_HEZUO_COMPNAME = #{sellHezuoCompname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyHezuoCompname != null">
+        BUY_HEZUO_COMPNAME = #{buyHezuoCompname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyContactuser != null">
+        BUY_CONTACTUSER = #{buyContactuser,jdbcType=VARCHAR},
+      </if>
+      <if test="sellContactuser != null">
+        SELL_CONTACTUSER = #{sellContactuser,jdbcType=VARCHAR},
+      </if>
+      <if test="buyOwnerName != null">
+        BUY_OWNER_NAME = #{buyOwnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellOwnerName != null">
+        SELL_OWNER_NAME = #{sellOwnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCallPhone != null">
+        BUY_CALL_PHONE = #{buyCallPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellCallPhone != null">
+        SELL_CALL_PHONE = #{sellCallPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyIdCard != null">
+        BUY_ID_CARD = #{buyIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="sellIdCard != null">
+        SELL_ID_CARD = #{sellIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="buyPaymoney != null">
+        BUY_PAYMONEY = #{buyPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sellPaymoney != null">
+        SELL_PAYMONEY = #{sellPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="otherPaymoney != null">
+        OTHER_PAYMONEY = #{otherPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="gainMoney != null">
+        GAIN_MONEY = #{gainMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realBuyPaymoney != null">
+        REAL_BUY_PAYMONEY = #{realBuyPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realSellPaymoney != null">
+        REAL_SELL_PAYMONEY = #{realSellPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realOtherPaymoney != null">
+        REAL_OTHER_PAYMONEY = #{realOtherPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realPaymoney != null">
+        REAL_PAYMONEY = #{realPaymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="buyPriceMoney != null">
+        BUY_PRICE_MONEY = #{buyPriceMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="buyPayType != null">
+        BUY_PAY_TYPE = #{buyPayType,jdbcType=VARCHAR},
+      </if>
+      <if test="buyMortgageMoney != null">
+        BUY_MORTGAGE_MONEY = #{buyMortgageMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="buyMortgageType != null">
+        BUY_MORTGAGE_TYPE = #{buyMortgageType,jdbcType=VARCHAR},
+      </if>
+      <if test="sellDealMoney != null">
+        SELL_DEAL_MONEY = #{sellDealMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sellIshaveLoan != null">
+        SELL_ISHAVE_LOAN = #{sellIshaveLoan,jdbcType=INTEGER},
+      </if>
+      <if test="sellLoanMoney != null">
+        SELL_LOAN_MONEY = #{sellLoanMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sellReturnLoan != null">
+        SELL_RETURN_LOAN = #{sellReturnLoan,jdbcType=INTEGER},
+      </if>
+      <if test="ownerStyle != null">
+        OWNER_STYLE = #{ownerStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerType != null">
+        OWNER_TYPE = #{ownerType,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerNo != null">
+        OWNER_NO = #{ownerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="haveLandcard != null">
+        HAVE_LANDCARD = #{haveLandcard,jdbcType=INTEGER},
+      </if>
+      <if test="landcardNo != null">
+        LANDCARD_NO = #{landcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mangementTax != null">
+        MANGEMENT_TAX = #{mangementTax,jdbcType=INTEGER},
+      </if>
+      <if test="ownerTax != null">
+        OWNER_TAX = #{ownerTax,jdbcType=INTEGER},
+      </if>
+      <if test="tax != null">
+        TAX = #{tax,jdbcType=VARCHAR},
+      </if>
+      <if test="rentPayMethod != null">
+        RENT_PAY_METHOD = #{rentPayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="rentPayEarly != null">
+        RENT_PAY_EARLY = #{rentPayEarly,jdbcType=VARCHAR},
+      </if>
+      <if test="rentDealMoney != null">
+        RENT_DEAL_MONEY = #{rentDealMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="rentDate != null">
+        RENT_DATE = #{rentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentOverDate != null">
+        RENT_OVER_DATE = #{rentOverDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentPaySpace != null">
+        RENT_PAY_SPACE = #{rentPaySpace,jdbcType=VARCHAR},
+      </if>
+      <if test="rentDepositPay != null">
+        RENT_DEPOSIT_PAY = #{rentDepositPay,jdbcType=DOUBLE},
+      </if>
+      <if test="rentOtherMoney != null">
+        RENT_OTHER_MONEY = #{rentOtherMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="rentPriceUnit != null">
+        RENT_PRICE_UNIT = #{rentPriceUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsdetailed != null">
+        GOODSDETAILED = #{goodsdetailed,jdbcType=VARCHAR},
+      </if>
+      <if test="waterlightexpenses != null">
+        WATERLIGHTEXPENSES = #{waterlightexpenses,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeRemarkExplain != null">
+        TRADE_REMARK_EXPLAIN = #{tradeRemarkExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="systemRecordTime != null">
+        SYSTEM_RECORD_TIME = #{systemRecordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="syncFlag != null">
+        SYNC_FLAG = #{syncFlag,jdbcType=TINYINT},
+      </if>
+      <if test="lockFlag != null">
+        LOCK_FLAG = #{lockFlag,jdbcType=TINYINT},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunDealOld">
+    <!--@mbggenerated-->
+    update FUN_DEAL_OLD
+    set AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR},
+      CREATOR_DATE = #{creatorDate,jdbcType=TIMESTAMP},
+      DEAL_TYPE = #{dealType,jdbcType=VARCHAR},
+      DEAL_STATUS = #{dealStatus,jdbcType=VARCHAR},
+      DEAL_COMPLETE = #{dealComplete,jdbcType=INTEGER},
+      DEAL_USER_ID = #{dealUserId,jdbcType=INTEGER},
+      DEAL_VERIFY_CON = #{dealVerifyCon,jdbcType=VARCHAR},
+      DEAL_VERIFY_TIME = #{dealVerifyTime,jdbcType=TIMESTAMP},
+      DEAL_BUY_STYLE = #{dealBuyStyle,jdbcType=VARCHAR},
+      DEAL_SELL_STYLE = #{dealSellStyle,jdbcType=VARCHAR},
+      DEAL_CUSTOMER_NO = #{dealCustomerNo,jdbcType=VARCHAR},
+      DEAL_HOUSE_NO = #{dealHouseNo,jdbcType=VARCHAR},
+      SELL_ADDRESS = #{sellAddress,jdbcType=VARCHAR},
+      BUY_CUSTINFO = #{buyCustinfo,jdbcType=VARCHAR},
+      SELL_HEZUO_COMPNAME = #{sellHezuoCompname,jdbcType=VARCHAR},
+      BUY_HEZUO_COMPNAME = #{buyHezuoCompname,jdbcType=VARCHAR},
+      BUY_CONTACTUSER = #{buyContactuser,jdbcType=VARCHAR},
+      SELL_CONTACTUSER = #{sellContactuser,jdbcType=VARCHAR},
+      BUY_OWNER_NAME = #{buyOwnerName,jdbcType=VARCHAR},
+      SELL_OWNER_NAME = #{sellOwnerName,jdbcType=VARCHAR},
+      BUY_CALL_PHONE = #{buyCallPhone,jdbcType=VARCHAR},
+      SELL_CALL_PHONE = #{sellCallPhone,jdbcType=VARCHAR},
+      BUY_ID_CARD = #{buyIdCard,jdbcType=VARCHAR},
+      SELL_ID_CARD = #{sellIdCard,jdbcType=VARCHAR},
+      BUY_PAYMONEY = #{buyPaymoney,jdbcType=DOUBLE},
+      SELL_PAYMONEY = #{sellPaymoney,jdbcType=DOUBLE},
+      OTHER_PAYMONEY = #{otherPaymoney,jdbcType=DOUBLE},
+      GAIN_MONEY = #{gainMoney,jdbcType=DOUBLE},
+      REAL_BUY_PAYMONEY = #{realBuyPaymoney,jdbcType=DOUBLE},
+      REAL_SELL_PAYMONEY = #{realSellPaymoney,jdbcType=DOUBLE},
+      REAL_OTHER_PAYMONEY = #{realOtherPaymoney,jdbcType=DOUBLE},
+      REAL_PAYMONEY = #{realPaymoney,jdbcType=DOUBLE},
+      BUY_PRICE_MONEY = #{buyPriceMoney,jdbcType=DOUBLE},
+      BUY_PAY_TYPE = #{buyPayType,jdbcType=VARCHAR},
+      BUY_MORTGAGE_MONEY = #{buyMortgageMoney,jdbcType=DOUBLE},
+      BUY_MORTGAGE_TYPE = #{buyMortgageType,jdbcType=VARCHAR},
+      SELL_DEAL_MONEY = #{sellDealMoney,jdbcType=DOUBLE},
+      SELL_ISHAVE_LOAN = #{sellIshaveLoan,jdbcType=INTEGER},
+      SELL_LOAN_MONEY = #{sellLoanMoney,jdbcType=DOUBLE},
+      SELL_RETURN_LOAN = #{sellReturnLoan,jdbcType=INTEGER},
+      OWNER_STYLE = #{ownerStyle,jdbcType=VARCHAR},
+      OWNER_TYPE = #{ownerType,jdbcType=VARCHAR},
+      OWNER_NO = #{ownerNo,jdbcType=VARCHAR},
+      HAVE_LANDCARD = #{haveLandcard,jdbcType=INTEGER},
+      LANDCARD_NO = #{landcardNo,jdbcType=VARCHAR},
+      MANGEMENT_TAX = #{mangementTax,jdbcType=INTEGER},
+      OWNER_TAX = #{ownerTax,jdbcType=INTEGER},
+      TAX = #{tax,jdbcType=VARCHAR},
+      RENT_PAY_METHOD = #{rentPayMethod,jdbcType=VARCHAR},
+      RENT_PAY_EARLY = #{rentPayEarly,jdbcType=VARCHAR},
+      RENT_DEAL_MONEY = #{rentDealMoney,jdbcType=DOUBLE},
+      RENT_DATE = #{rentDate,jdbcType=TIMESTAMP},
+      RENT_OVER_DATE = #{rentOverDate,jdbcType=TIMESTAMP},
+      RENT_PAY_SPACE = #{rentPaySpace,jdbcType=VARCHAR},
+      RENT_DEPOSIT_PAY = #{rentDepositPay,jdbcType=DOUBLE},
+      RENT_OTHER_MONEY = #{rentOtherMoney,jdbcType=DOUBLE},
+      RENT_PRICE_UNIT = #{rentPriceUnit,jdbcType=VARCHAR},
+      GOODSDETAILED = #{goodsdetailed,jdbcType=VARCHAR},
+      WATERLIGHTEXPENSES = #{waterlightexpenses,jdbcType=VARCHAR},
+      TRADE_REMARK_EXPLAIN = #{tradeRemarkExplain,jdbcType=VARCHAR},
+      SYSTEM_RECORD_TIME = #{systemRecordTime,jdbcType=TIMESTAMP},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      SYNC_FLAG = #{syncFlag,jdbcType=TINYINT},
+      LOCK_FLAG = #{lockFlag,jdbcType=TINYINT},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER}
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+  </update>
+</mapper>

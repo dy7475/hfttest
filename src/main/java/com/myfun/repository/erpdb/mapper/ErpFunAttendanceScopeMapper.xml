@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAttendanceScopeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunAttendanceScope">
+    <!--@mbggenerated-->
+    <id column="ATT_SCOPE_ID" jdbcType="INTEGER" property="attScopeId" />
+    <result column="ATT_SCOPE_X" jdbcType="VARCHAR" property="attScopeX" />
+    <result column="ATT_SCOPE_Y" jdbcType="VARCHAR" property="attScopeY" />
+    <result column="ATT_DISTANCE" jdbcType="INTEGER" property="attDistance" />
+    <result column="LOCATION_DESC" jdbcType="VARCHAR" property="locationDesc" />
+    <result column="LOCATION_DESC_ABB" jdbcType="VARCHAR" property="locationDescAbb" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="CAL_DEL" jdbcType="TINYINT" property="calDel" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="DEL_TIME" jdbcType="TIMESTAMP" property="delTime" />
+    <result column="ORGANIZATION_ID" jdbcType="INTEGER" property="organizationId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ATT_SCOPE_ID, ATT_SCOPE_X, ATT_SCOPE_Y, ATT_DISTANCE, LOCATION_DESC, LOCATION_DESC_ABB, 
+    CREATE_TIME, COMP_ID, CAL_DEL, IS_DEL, DEPT_ID, DEL_TIME, ORGANIZATION_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceScopeExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_SCOPE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_SCOPE
+    where ATT_SCOPE_ID = #{attScopeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_SCOPE
+    where ATT_SCOPE_ID = #{attScopeId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceScopeExample">
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_SCOPE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="attScopeId" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceScope" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_SCOPE (ATT_SCOPE_X, ATT_SCOPE_Y, ATT_DISTANCE, 
+      LOCATION_DESC, LOCATION_DESC_ABB, CREATE_TIME, 
+      COMP_ID, CAL_DEL, IS_DEL, 
+      DEPT_ID, DEL_TIME, ORGANIZATION_ID
+      )
+    values (#{attScopeX,jdbcType=VARCHAR}, #{attScopeY,jdbcType=VARCHAR}, #{attDistance,jdbcType=INTEGER}, 
+      #{locationDesc,jdbcType=VARCHAR}, #{locationDescAbb,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{compId,jdbcType=INTEGER}, #{calDel,jdbcType=TINYINT}, #{isDel,jdbcType=TINYINT}, 
+      #{deptId,jdbcType=INTEGER}, #{delTime,jdbcType=TIMESTAMP}, #{organizationId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="attScopeId" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceScope" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_SCOPE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="attScopeX != null">
+        ATT_SCOPE_X,
+      </if>
+      <if test="attScopeY != null">
+        ATT_SCOPE_Y,
+      </if>
+      <if test="attDistance != null">
+        ATT_DISTANCE,
+      </if>
+      <if test="locationDesc != null">
+        LOCATION_DESC,
+      </if>
+      <if test="locationDescAbb != null">
+        LOCATION_DESC_ABB,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="calDel != null">
+        CAL_DEL,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="delTime != null">
+        DEL_TIME,
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="attScopeX != null">
+        #{attScopeX,jdbcType=VARCHAR},
+      </if>
+      <if test="attScopeY != null">
+        #{attScopeY,jdbcType=VARCHAR},
+      </if>
+      <if test="attDistance != null">
+        #{attDistance,jdbcType=INTEGER},
+      </if>
+      <if test="locationDesc != null">
+        #{locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDescAbb != null">
+        #{locationDescAbb,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="calDel != null">
+        #{calDel,jdbcType=TINYINT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null">
+        #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organizationId != null">
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceScopeExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ATTENDANCE_SCOPE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_SCOPE
+    <set>
+      <if test="record.attScopeId != null">
+        ATT_SCOPE_ID = #{record.attScopeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attScopeX != null">
+        ATT_SCOPE_X = #{record.attScopeX,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attScopeY != null">
+        ATT_SCOPE_Y = #{record.attScopeY,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attDistance != null">
+        ATT_DISTANCE = #{record.attDistance,jdbcType=INTEGER},
+      </if>
+      <if test="record.locationDesc != null">
+        LOCATION_DESC = #{record.locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locationDescAbb != null">
+        LOCATION_DESC_ABB = #{record.locationDescAbb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.calDel != null">
+        CAL_DEL = #{record.calDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.delTime != null">
+        DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.organizationId != null">
+        ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_SCOPE
+    set ATT_SCOPE_ID = #{record.attScopeId,jdbcType=INTEGER},
+      ATT_SCOPE_X = #{record.attScopeX,jdbcType=VARCHAR},
+      ATT_SCOPE_Y = #{record.attScopeY,jdbcType=VARCHAR},
+      ATT_DISTANCE = #{record.attDistance,jdbcType=INTEGER},
+      LOCATION_DESC = #{record.locationDesc,jdbcType=VARCHAR},
+      LOCATION_DESC_ABB = #{record.locationDescAbb,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CAL_DEL = #{record.calDel,jdbcType=TINYINT},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP},
+      ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceScope">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_SCOPE
+    <set>
+      <if test="attScopeX != null">
+        ATT_SCOPE_X = #{attScopeX,jdbcType=VARCHAR},
+      </if>
+      <if test="attScopeY != null">
+        ATT_SCOPE_Y = #{attScopeY,jdbcType=VARCHAR},
+      </if>
+      <if test="attDistance != null">
+        ATT_DISTANCE = #{attDistance,jdbcType=INTEGER},
+      </if>
+      <if test="locationDesc != null">
+        LOCATION_DESC = #{locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDescAbb != null">
+        LOCATION_DESC_ABB = #{locationDescAbb,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="calDel != null">
+        CAL_DEL = #{calDel,jdbcType=TINYINT},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null">
+        DEL_TIME = #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ATT_SCOPE_ID = #{attScopeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceScope">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_SCOPE
+    set ATT_SCOPE_X = #{attScopeX,jdbcType=VARCHAR},
+      ATT_SCOPE_Y = #{attScopeY,jdbcType=VARCHAR},
+      ATT_DISTANCE = #{attDistance,jdbcType=INTEGER},
+      LOCATION_DESC = #{locationDesc,jdbcType=VARCHAR},
+      LOCATION_DESC_ABB = #{locationDescAbb,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CAL_DEL = #{calDel,jdbcType=TINYINT},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      DEL_TIME = #{delTime,jdbcType=TIMESTAMP},
+      ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER}
+    where ATT_SCOPE_ID = #{attScopeId,jdbcType=INTEGER}
+  </update>
+
+  <resultMap extends="BaseResultMap" id="extBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunAttendanceScopeDto">
+  </resultMap>
+
+  <select id="getAttendanceScopeList" resultMap="extBaseResultMap">
+    select DISTINCT a.ATT_SCOPE_ID, a.ATT_SCOPE_X, a.ATT_SCOPE_Y, a.ATT_DISTANCE, a.LOCATION_DESC, a.LOCATION_DESC_ABB,
+    a.CREATE_TIME, a.COMP_ID, a.CAL_DEL, a.IS_DEL, a.DEPT_ID, a.DEL_TIME from FUN_ATTENDANCE_SCOPE a
+    left join FUN_ATTENDANCE_SCOPE_BIZ b on a.ATT_SCOPE_ID = b.ATT_SCOPE_ID and b.is_del=0
+    left join FUN_ATTENDANCE_SCOPE_BIZ_PERSON c on b.id=c.SCOP_BIZ_ID and c.is_del=0
+    <where>
+        a.IS_DEL = 0 and a.COMP_ID=#{compId}
+      <if test="null != keyWords and '' != keyWords">
+         and (a.LOCATION_DESC_ABB like '%${keyWords}%' or c.USER_NAME like '%${keyWords}%')
+      </if>
+    </where>
+    order by ATT_SCOPE_ID
+  </select>
+  <!-- ErpFunAttendanceScope getUserScope(@Param("shardCityId") Integer cityId, 
+		@Param("compId")Integer compId, @Param("scopeId") Integer scopeId); -->
+	<select id="getUserScope" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />		 
+		from FUN_ATTENDANCE_SCOPE WHERE IS_DEL=0   and ATT_SCOPE_ID=#{scopeId} 
+
+	</select>
+
+	<select id="getAttendanceScopeByCompIdDeptId" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from FUN_ATTENDANCE_SCOPE where COMP_ID=#{compId} and DEPT_ID=#{deptId}
+	</select>
+
+  <select id="getAttendanceScopeByCompIdDeptIdNew" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from FUN_ATTENDANCE_SCOPE where COMP_ID=#{compId} and ORGANIZATION_ID=#{organizationId}
+  </select>
+</mapper>

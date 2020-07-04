@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpUserActionMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpUserAction" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="OPERATE_ID" property="operateId" jdbcType="VARCHAR" />
+    <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, ARCHIVE_ID, OPERATE_ID, OPERATE_TIME, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from user_action
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from user_action
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpUserAction" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into user_action (ARCHIVE_ID, OPERATE_ID, OPERATE_TIME, 
+      CREATE_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{operateId,jdbcType=VARCHAR}, #{operateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpUserAction" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into user_action
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="operateId != null" >
+        OPERATE_ID,
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="operateId != null" >
+        #{operateId,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null" >
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpUserAction" >
+    <!--@mbggenerated-->
+    update user_action
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="operateId != null" >
+        OPERATE_ID = #{operateId,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpUserAction" >
+    <!--@mbggenerated-->
+    update user_action
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      OPERATE_ID = #{operateId,jdbcType=VARCHAR},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

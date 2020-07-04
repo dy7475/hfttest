@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminZhiYeViewLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminZhiYeViewLog">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="SUBJECT_ID" jdbcType="VARCHAR" property="subjectId" />
+    <result column="COURSES_TYPE" jdbcType="VARCHAR" property="coursesType" />
+    <result column="MEDIA_ID" jdbcType="VARCHAR" property="mediaId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="ERR_MSG" jdbcType="VARCHAR" property="errMsg" />
+    <result column="ERR_CODE" jdbcType="INTEGER" property="errCode" />
+    <result column="VIEW_SOURCE" jdbcType="TINYINT" property="viewSource" />
+    <result column="COURSES_ID" jdbcType="VARCHAR" property="coursesId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, ARCHIVE_ID, SUBJECT_ID, COURSES_TYPE, MEDIA_ID, CREATE_TIME, ERR_MSG, ERR_CODE, 
+    VIEW_SOURCE, COURSES_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminZhiYeViewLogExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ZHIYE_VIEW_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ZHIYE_VIEW_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from ZHIYE_VIEW_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminZhiYeViewLogExample">
+    <!--@mbggenerated-->
+    delete from ZHIYE_VIEW_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminZhiYeViewLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ZHIYE_VIEW_LOG (ARCHIVE_ID, SUBJECT_ID, COURSES_TYPE, 
+      MEDIA_ID, CREATE_TIME, ERR_MSG, 
+      ERR_CODE, VIEW_SOURCE, COURSES_ID
+      )
+    values (#{archiveId,jdbcType=INTEGER}, #{subjectId,jdbcType=VARCHAR}, #{coursesType,jdbcType=VARCHAR}, 
+      #{mediaId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{errMsg,jdbcType=VARCHAR}, 
+      #{errCode,jdbcType=INTEGER}, #{viewSource,jdbcType=TINYINT}, #{coursesId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminZhiYeViewLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ZHIYE_VIEW_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="subjectId != null">
+        SUBJECT_ID,
+      </if>
+      <if test="coursesType != null">
+        COURSES_TYPE,
+      </if>
+      <if test="mediaId != null">
+        MEDIA_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG,
+      </if>
+      <if test="errCode != null">
+        ERR_CODE,
+      </if>
+      <if test="viewSource != null">
+        VIEW_SOURCE,
+      </if>
+      <if test="coursesId != null">
+        COURSES_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null">
+        #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="coursesType != null">
+        #{coursesType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaId != null">
+        #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="errMsg != null">
+        #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        #{errCode,jdbcType=INTEGER},
+      </if>
+      <if test="viewSource != null">
+        #{viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="coursesId != null">
+        #{coursesId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminZhiYeViewLogExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from ZHIYE_VIEW_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update ZHIYE_VIEW_LOG
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectId != null">
+        SUBJECT_ID = #{record.subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.coursesType != null">
+        COURSES_TYPE = #{record.coursesType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mediaId != null">
+        MEDIA_ID = #{record.mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.errMsg != null">
+        ERR_MSG = #{record.errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.errCode != null">
+        ERR_CODE = #{record.errCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewSource != null">
+        VIEW_SOURCE = #{record.viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.coursesId != null">
+        COURSES_ID = #{record.coursesId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update ZHIYE_VIEW_LOG
+    set ID = #{record.id,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      SUBJECT_ID = #{record.subjectId,jdbcType=VARCHAR},
+      COURSES_TYPE = #{record.coursesType,jdbcType=VARCHAR},
+      MEDIA_ID = #{record.mediaId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      ERR_MSG = #{record.errMsg,jdbcType=VARCHAR},
+      ERR_CODE = #{record.errCode,jdbcType=INTEGER},
+      VIEW_SOURCE = #{record.viewSource,jdbcType=TINYINT},
+      COURSES_ID = #{record.coursesId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminZhiYeViewLog">
+    <!--@mbggenerated-->
+    update ZHIYE_VIEW_LOG
+    <set>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null">
+        SUBJECT_ID = #{subjectId,jdbcType=VARCHAR},
+      </if>
+      <if test="coursesType != null">
+        COURSES_TYPE = #{coursesType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaId != null">
+        MEDIA_ID = #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        ERR_CODE = #{errCode,jdbcType=INTEGER},
+      </if>
+      <if test="viewSource != null">
+        VIEW_SOURCE = #{viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="coursesId != null">
+        COURSES_ID = #{coursesId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminZhiYeViewLog">
+    <!--@mbggenerated-->
+    update ZHIYE_VIEW_LOG
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      SUBJECT_ID = #{subjectId,jdbcType=VARCHAR},
+      COURSES_TYPE = #{coursesType,jdbcType=VARCHAR},
+      MEDIA_ID = #{mediaId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      ERR_CODE = #{errCode,jdbcType=INTEGER},
+      VIEW_SOURCE = #{viewSource,jdbcType=TINYINT},
+      COURSES_ID = #{coursesId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

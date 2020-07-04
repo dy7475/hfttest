@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.searchdb.dao.SearchLeaseInDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.searchdb.po.SearchLeaseInDetail" >
+    <!--@mbggenerated-->
+    <id column="province_id" property="provinceId" jdbcType="TINYINT" />
+    <id column="city_id" property="cityId" jdbcType="SMALLINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="property" property="property" jdbcType="VARCHAR" />
+    <result column="is_seperator" property="isSeperator" jdbcType="BIT" />
+    <result column="office_level" property="officeLevel" jdbcType="VARCHAR" />
+    <result column="shop_usage" property="shopUsage" jdbcType="VARCHAR" />
+    <result column="hall_structure" property="hallStructure" jdbcType="VARCHAR" />
+    <result column="ug_area" property="ugArea" jdbcType="DECIMAL" />
+    <result column="ug_type" property="ugType" jdbcType="VARCHAR" />
+    <result column="garden_area" property="gardenArea" jdbcType="DECIMAL" />
+    <result column="garage_amount" property="garageAmount" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    province_id, city_id, id, property, is_seperator, office_level, shop_usage, hall_structure, 
+    ug_area, ug_type, garden_area, garage_amount
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.searchdb.po.SearchLeaseInDetailKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lease_in_detail
+    where province_id = #{provinceId,jdbcType=TINYINT}
+      and city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SearchLeaseInDetailKey" >
+    <!--@mbggenerated-->
+    delete from lease_in_detail
+    where province_id = #{provinceId,jdbcType=TINYINT}
+      and city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.searchdb.po.SearchLeaseInDetail" >
+    <!--@mbggenerated-->
+    insert into lease_in_detail (province_id, city_id, id, 
+      property, is_seperator, office_level, 
+      shop_usage, hall_structure, ug_area, 
+      ug_type, garden_area, garage_amount
+      )
+    values (#{provinceId,jdbcType=TINYINT}, #{cityId,jdbcType=SMALLINT}, #{id,jdbcType=INTEGER}, 
+      #{property,jdbcType=VARCHAR}, #{isSeperator,jdbcType=BIT}, #{officeLevel,jdbcType=VARCHAR}, 
+      #{shopUsage,jdbcType=VARCHAR}, #{hallStructure,jdbcType=VARCHAR}, #{ugArea,jdbcType=DECIMAL}, 
+      #{ugType,jdbcType=VARCHAR}, #{gardenArea,jdbcType=DECIMAL}, #{garageAmount,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.searchdb.po.SearchLeaseInDetail" >
+    <!--@mbggenerated-->
+    insert into lease_in_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="property != null" >
+        property,
+      </if>
+      <if test="isSeperator != null" >
+        is_seperator,
+      </if>
+      <if test="officeLevel != null" >
+        office_level,
+      </if>
+      <if test="shopUsage != null" >
+        shop_usage,
+      </if>
+      <if test="hallStructure != null" >
+        hall_structure,
+      </if>
+      <if test="ugArea != null" >
+        ug_area,
+      </if>
+      <if test="ugType != null" >
+        ug_type,
+      </if>
+      <if test="gardenArea != null" >
+        garden_area,
+      </if>
+      <if test="garageAmount != null" >
+        garage_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="property != null" >
+        #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="isSeperator != null" >
+        #{isSeperator,jdbcType=BIT},
+      </if>
+      <if test="officeLevel != null" >
+        #{officeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="shopUsage != null" >
+        #{shopUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="hallStructure != null" >
+        #{hallStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="ugArea != null" >
+        #{ugArea,jdbcType=DECIMAL},
+      </if>
+      <if test="ugType != null" >
+        #{ugType,jdbcType=VARCHAR},
+      </if>
+      <if test="gardenArea != null" >
+        #{gardenArea,jdbcType=DECIMAL},
+      </if>
+      <if test="garageAmount != null" >
+        #{garageAmount,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.searchdb.po.SearchLeaseInDetail" >
+    <!--@mbggenerated-->
+    update lease_in_detail
+    <set >
+      <if test="property != null" >
+        property = #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="isSeperator != null" >
+        is_seperator = #{isSeperator,jdbcType=BIT},
+      </if>
+      <if test="officeLevel != null" >
+        office_level = #{officeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="shopUsage != null" >
+        shop_usage = #{shopUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="hallStructure != null" >
+        hall_structure = #{hallStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="ugArea != null" >
+        ug_area = #{ugArea,jdbcType=DECIMAL},
+      </if>
+      <if test="ugType != null" >
+        ug_type = #{ugType,jdbcType=VARCHAR},
+      </if>
+      <if test="gardenArea != null" >
+        garden_area = #{gardenArea,jdbcType=DECIMAL},
+      </if>
+      <if test="garageAmount != null" >
+        garage_amount = #{garageAmount,jdbcType=TINYINT},
+      </if>
+    </set>
+    where province_id = #{provinceId,jdbcType=TINYINT}
+      and city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SearchLeaseInDetail" >
+    <!--@mbggenerated-->
+    update lease_in_detail
+    set property = #{property,jdbcType=VARCHAR},
+      is_seperator = #{isSeperator,jdbcType=BIT},
+      office_level = #{officeLevel,jdbcType=VARCHAR},
+      shop_usage = #{shopUsage,jdbcType=VARCHAR},
+      hall_structure = #{hallStructure,jdbcType=VARCHAR},
+      ug_area = #{ugArea,jdbcType=DECIMAL},
+      ug_type = #{ugType,jdbcType=VARCHAR},
+      garden_area = #{gardenArea,jdbcType=DECIMAL},
+      garage_amount = #{garageAmount,jdbcType=TINYINT}
+    where province_id = #{provinceId,jdbcType=TINYINT}
+      and city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

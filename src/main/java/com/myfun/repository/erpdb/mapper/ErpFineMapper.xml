@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFineMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFine">
+    <!--@mbggenerated-->
+    <id column="FINE_ID" jdbcType="INTEGER" property="fineId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="FINE_MOUNT" jdbcType="INTEGER" property="fineMount" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="FINE_DEST" jdbcType="INTEGER" property="fineDest" />
+    <result column="FINE_SOURCE" jdbcType="INTEGER" property="fineSource" />
+    <result column="FINE_DESC" jdbcType="VARCHAR" property="fineDesc" />
+    <result column="FINE_TIME" jdbcType="VARCHAR" property="fineTime" />
+    <result column="DISP_TIME" jdbcType="VARCHAR" property="dispTime" />
+  </resultMap>
+  <resultMap id="DtoBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFineDto">
+    <result column="FINE_DEST"  property="fineDest" />
+    <result column="FINE_COUNT"  property="fineCount" />
+    <result column="FINE_SUM"  property="fineSum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    FINE_ID, COMP_ID, FINE_MOUNT, DEPT_ID, FINE_DEST, FINE_SOURCE, FINE_DESC, FINE_TIME, 
+    DISP_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FINE
+    where FINE_ID = #{fineId,jdbcType=INTEGER}
+  </select>
+  <select id="getFineTotal" resultMap="DtoBaseResultMap">
+    select 
+	FINE_DEST,COUNT(1) as FINE_COUNT,SUM(FINE_MOUNT) as FINE_SUM  
+    from FINE
+    where COMP_ID = #{param.compId,jdbcType=INTEGER}
+    <if test="param.deptId != null">
+      and  DEPT_ID = #{param.deptId,jdbcType =INTEGER}
+    </if>
+	<if test="param.statEnd != null">
+     and FINE_TIME &lt;= #{param.statEnd,jdbcType=VARCHAR}
+    </if>
+    <if test="param.statStart != null">
+     and FINE_TIME &gt;= #{param.statStart,jdbcType=VARCHAR}
+    </if>
+    group by FINE_DEST ORDER BY FINE_DEST OFFSET 0 ROW FETCH NEXT 50 ROWS ONLY
+  </select>
+  <select id="selectMgrFineList" resultMap="BaseResultMap">
+ 	select 
+    <include refid="Base_Column_List" />
+    from FINE
+    where FINE_TIME &lt;= #{param.statEnd,jdbcType=VARCHAR}
+    and FINE_TIME &gt;= #{param.statStart,jdbcType=VARCHAR}
+    and FINE_DEST =#{param.fineDest,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FINE
+    where FINE_ID = #{fineId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFine">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="fineId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FINE_FINE_ID
+    </selectKey>
+    insert into FINE (FINE_ID, COMP_ID, FINE_MOUNT, 
+      DEPT_ID, FINE_DEST, FINE_SOURCE, 
+      FINE_DESC, FINE_TIME, DISP_TIME
+      )
+    values (#{fineId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{fineMount,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{fineDest,jdbcType=INTEGER}, #{fineSource,jdbcType=INTEGER}, 
+      #{fineDesc,jdbcType=VARCHAR}, #{fineTime,jdbcType=VARCHAR}, #{dispTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFine">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="fineId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FINE_FINE_ID
+    </selectKey>
+    insert into FINE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      FINE_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="fineMount != null">
+        FINE_MOUNT,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="fineDest != null">
+        FINE_DEST,
+      </if>
+      <if test="fineSource != null">
+        FINE_SOURCE,
+      </if>
+      <if test="fineDesc != null">
+        FINE_DESC,
+      </if>
+      <if test="fineTime != null">
+        FINE_TIME,
+      </if>
+      <if test="dispTime != null">
+        DISP_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{fineId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fineMount != null">
+        #{fineMount,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="fineDest != null">
+        #{fineDest,jdbcType=INTEGER},
+      </if>
+      <if test="fineSource != null">
+        #{fineSource,jdbcType=INTEGER},
+      </if>
+      <if test="fineDesc != null">
+        #{fineDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fineTime != null">
+        #{fineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dispTime != null">
+        #{dispTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFine">
+    <!--@mbggenerated-->
+    update FINE
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fineMount != null">
+        FINE_MOUNT = #{fineMount,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="fineDest != null">
+        FINE_DEST = #{fineDest,jdbcType=INTEGER},
+      </if>
+      <if test="fineSource != null">
+        FINE_SOURCE = #{fineSource,jdbcType=INTEGER},
+      </if>
+      <if test="fineDesc != null">
+        FINE_DESC = #{fineDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fineTime != null">
+        FINE_TIME = #{fineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dispTime != null">
+        DISP_TIME = #{dispTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FINE_ID = #{fineId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFine">
+    <!--@mbggenerated-->
+    update FINE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      FINE_MOUNT = #{fineMount,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      FINE_DEST = #{fineDest,jdbcType=INTEGER},
+      FINE_SOURCE = #{fineSource,jdbcType=INTEGER},
+      FINE_DESC = #{fineDesc,jdbcType=VARCHAR},
+      FINE_TIME = #{fineTime,jdbcType=VARCHAR},
+      DISP_TIME = #{dispTime,jdbcType=VARCHAR}
+    where FINE_ID = #{fineId,jdbcType=INTEGER}
+  </update>
+</mapper>

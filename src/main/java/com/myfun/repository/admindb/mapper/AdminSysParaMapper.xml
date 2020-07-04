@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminSysParaMapper" >
+  <cache type="com.myfun.repository.support.mybatis.cache.redis.MybatisCacheRedisImpl"></cache>
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminSysPara" >
+    <!--@mbggenerated-->
+    <id column="PARAM_ID" property="paramId" jdbcType="VARCHAR" />
+    <result column="PARAM_VALUE" property="paramValue" jdbcType="VARCHAR" />
+    <result column="PARAM_TYPE" property="paramType" jdbcType="VARCHAR" />
+    <result column="PARAM_PROFILES" property="paramProfiles" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    PARAM_ID, PARAM_VALUE, PARAM_TYPE, PARAM_PROFILES
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" useCache="true">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_PARA
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    delete from SYS_PARA
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminSysPara" >
+    <!--@mbggenerated-->
+    insert into SYS_PARA (PARAM_ID, PARAM_VALUE, PARAM_TYPE, 
+      PARAM_PROFILES)
+    values (#{paramId,jdbcType=VARCHAR}, #{paramValue,jdbcType=VARCHAR}, #{paramType,jdbcType=VARCHAR}, 
+      #{paramProfiles,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminSysPara" >
+    <!--@mbggenerated-->
+    insert into SYS_PARA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paramId != null" >
+        PARAM_ID,
+      </if>
+      <if test="paramValue != null" >
+        PARAM_VALUE,
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE,
+      </if>
+      <if test="paramProfiles != null" >
+        PARAM_PROFILES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paramId != null" >
+        #{paramId,jdbcType=VARCHAR},
+      </if>
+      <if test="paramValue != null" >
+        #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="paramType != null" >
+        #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="paramProfiles != null" >
+        #{paramProfiles,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminSysPara" >
+    <!--@mbggenerated-->
+    update SYS_PARA
+    <set >
+      <if test="paramValue != null" >
+        PARAM_VALUE = #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="paramProfiles != null" >
+        PARAM_PROFILES = #{paramProfiles,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminSysPara" >
+    <!--@mbggenerated-->
+    update SYS_PARA
+    set PARAM_VALUE = #{paramValue,jdbcType=VARCHAR},
+      PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      PARAM_PROFILES = #{paramProfiles,jdbcType=VARCHAR}
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </update>
+
+	<!-- buniess -->
+	<select id="selectParamVlue" resultType="java.lang.String">
+		select PARAM_VALUE from SYS_PARA where PARAM_ID = #{paramId}
+	</select>
+	
+	<select id="query" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from SYS_PARA
+	</select>
+	
+	<select id="getAdminSysPara" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		SYS_PARA
+		WHERE
+		PARAM_ID IN
+		<foreach collection="paramIds" item="paramId" index="index"
+			open="(" separator="," close=")">
+			#{paramId}
+		</foreach>
+	</select>
+
+    <select id="getAdminSysParaData" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM
+        SYS_PARA
+        WHERE
+        PARAM_ID IN
+        <foreach collection="paramIds" item="paramId" index="index"
+                 open="(" separator="," close=")">
+            #{paramId}
+        </foreach>
+    </select>
+	
+	<select id="getAdminSysParaById" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM SYS_PARA
+		where PARAM_ID = #{paramId}
+	</select>
+    <select id = "getAdminSysParas" resultType = "java.lang.String">
+		SELECT PARAM_VALUE FROM SYS_PARA WHERE  PARAM_ID = #{param}
+	</select>
+</mapper>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTemplateFunBuyCustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTemplateFunBuyCustomer" >
+    <!--@mbggenerated-->
+    <result column="BUY_CUST_ID" property="buyCustId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="VARCHAR" />
+    <result column="BUY_CUST_NAME" property="buyCustName" jdbcType="VARCHAR" />
+    <result column="BUY_CUST_SEX" property="buyCustSex" jdbcType="BIT" />
+    <result column="BUY_CUST_AGE" property="buyCustAge" jdbcType="TINYINT" />
+    <result column="BUY_CUST_CAREER" property="buyCustCareer" jdbcType="TINYINT" />
+    <result column="CELL_PHONE" property="cellPhone" jdbcType="VARCHAR" />
+    <result column="ID_CARD" property="idCard" jdbcType="VARCHAR" />
+    <result column="BUY_GOAL" property="buyGoal" jdbcType="TINYINT" />
+    <result column="BUY_LENGTH" property="buyLength" jdbcType="TINYINT" />
+    <result column="BUY_ABILITY" property="buyAbility" jdbcType="TINYINT" />
+    <result column="BUY_PAYTYPE" property="buyPaytype" jdbcType="TINYINT" />
+    <result column="CUST_LEVEL" property="custLevel" jdbcType="VARCHAR" />
+    <result column="PLATE_TYPE" property="plateType" jdbcType="TINYINT" />
+    <result column="BUY_CUST_SOURCE" property="buyCustSource" jdbcType="TINYINT" />
+    <result column="BUY_CUST_LEVEL" property="buyCustLevel" jdbcType="TINYINT" />
+    <result column="HOUSE_ROOM" property="houseRoom" jdbcType="TINYINT" />
+    <result column="HOUSE_ROOM_1" property="houseRoom1" jdbcType="TINYINT" />
+    <result column="HOUSE_TYPE" property="houseType" jdbcType="VARCHAR" />
+    <result column="HOUSE_USEAGE" property="houseUseage" jdbcType="VARCHAR" />
+    <result column="HOUSE_FITMENT" property="houseFitment" jdbcType="TINYINT" />
+    <result column="HOUSE_DIRECT" property="houseDirect" jdbcType="TINYINT" />
+    <result column="HOUSE_FLOOR_LOW" property="houseFloorLow" jdbcType="SMALLINT" />
+    <result column="HOUSE_FLOOR_HIGH" property="houseFloorHigh" jdbcType="SMALLINT" />
+    <result column="HOUSE_PRICE_LOW" property="housePriceLow" jdbcType="NUMERIC" />
+    <result column="HOUSE_PRICE_HIGH" property="housePriceHigh" jdbcType="NUMERIC" />
+    <result column="HOUSE_AREA_LOW" property="houseAreaLow" jdbcType="NUMERIC" />
+    <result column="HOUSE_AREA_HIGH" property="houseAreaHigh" jdbcType="NUMERIC" />
+    <result column="HOUSE_YEAR_LOW" property="houseYearLow" jdbcType="SMALLINT" />
+    <result column="HOUSE_YEAR_HIGH" property="houseYearHigh" jdbcType="SMALLINT" />
+    <result column="HOUSE_LOOK" property="houseLook" jdbcType="BIT" />
+    <result column="CUST_REQUEST" property="custRequest" jdbcType="VARCHAR" />
+    <result column="CUST_MEMO" property="custMemo" jdbcType="VARCHAR" />
+    <result column="BUY_CUST_STATUS" property="buyCustStatus" jdbcType="TINYINT" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="VARCHAR" />
+    <result column="REPEAT_FLAG" property="repeatFlag" jdbcType="BIT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunBuyCustomer" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_BUY_CUSTOMER (BUY_CUST_ID, CREATION_TIME, UPDATE_TIME, 
+      BUY_CUST_NAME, BUY_CUST_SEX, BUY_CUST_AGE, 
+      BUY_CUST_CAREER, CELL_PHONE, ID_CARD, 
+      BUY_GOAL, BUY_LENGTH, BUY_ABILITY, 
+      BUY_PAYTYPE, CUST_LEVEL, PLATE_TYPE, 
+      BUY_CUST_SOURCE, BUY_CUST_LEVEL, HOUSE_ROOM, 
+      HOUSE_ROOM_1, HOUSE_TYPE, HOUSE_USEAGE, 
+      HOUSE_FITMENT, HOUSE_DIRECT, HOUSE_FLOOR_LOW, 
+      HOUSE_FLOOR_HIGH, HOUSE_PRICE_LOW, HOUSE_PRICE_HIGH, 
+      HOUSE_AREA_LOW, HOUSE_AREA_HIGH, HOUSE_YEAR_LOW, 
+      HOUSE_YEAR_HIGH, HOUSE_LOOK, CUST_REQUEST, 
+      CUST_MEMO, BUY_CUST_STATUS, TRACK_TIME, 
+      REPEAT_FLAG)
+    values (#{buyCustId,jdbcType=INTEGER}, #{creationTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
+      #{buyCustName,jdbcType=VARCHAR}, #{buyCustSex,jdbcType=BIT}, #{buyCustAge,jdbcType=TINYINT}, 
+      #{buyCustCareer,jdbcType=TINYINT}, #{cellPhone,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+      #{buyGoal,jdbcType=TINYINT}, #{buyLength,jdbcType=TINYINT}, #{buyAbility,jdbcType=TINYINT}, 
+      #{buyPaytype,jdbcType=TINYINT}, #{custLevel,jdbcType=VARCHAR}, #{plateType,jdbcType=TINYINT}, 
+      #{buyCustSource,jdbcType=TINYINT}, #{buyCustLevel,jdbcType=TINYINT}, #{houseRoom,jdbcType=TINYINT}, 
+      #{houseRoom1,jdbcType=TINYINT}, #{houseType,jdbcType=VARCHAR}, #{houseUseage,jdbcType=VARCHAR}, 
+      #{houseFitment,jdbcType=TINYINT}, #{houseDirect,jdbcType=TINYINT}, #{houseFloorLow,jdbcType=SMALLINT}, 
+      #{houseFloorHigh,jdbcType=SMALLINT}, #{housePriceLow,jdbcType=NUMERIC}, #{housePriceHigh,jdbcType=NUMERIC}, 
+      #{houseAreaLow,jdbcType=NUMERIC}, #{houseAreaHigh,jdbcType=NUMERIC}, #{houseYearLow,jdbcType=SMALLINT}, 
+      #{houseYearHigh,jdbcType=SMALLINT}, #{houseLook,jdbcType=BIT}, #{custRequest,jdbcType=VARCHAR}, 
+      #{custMemo,jdbcType=VARCHAR}, #{buyCustStatus,jdbcType=TINYINT}, #{trackTime,jdbcType=VARCHAR}, 
+      #{repeatFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunBuyCustomer" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_BUY_CUSTOMER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="buyCustId != null" >
+        BUY_CUST_ID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="buyCustName != null" >
+        BUY_CUST_NAME,
+      </if>
+      <if test="buyCustSex != null" >
+        BUY_CUST_SEX,
+      </if>
+      <if test="buyCustAge != null" >
+        BUY_CUST_AGE,
+      </if>
+      <if test="buyCustCareer != null" >
+        BUY_CUST_CAREER,
+      </if>
+      <if test="cellPhone != null" >
+        CELL_PHONE,
+      </if>
+      <if test="idCard != null" >
+        ID_CARD,
+      </if>
+      <if test="buyGoal != null" >
+        BUY_GOAL,
+      </if>
+      <if test="buyLength != null" >
+        BUY_LENGTH,
+      </if>
+      <if test="buyAbility != null" >
+        BUY_ABILITY,
+      </if>
+      <if test="buyPaytype != null" >
+        BUY_PAYTYPE,
+      </if>
+      <if test="custLevel != null" >
+        CUST_LEVEL,
+      </if>
+      <if test="plateType != null" >
+        PLATE_TYPE,
+      </if>
+      <if test="buyCustSource != null" >
+        BUY_CUST_SOURCE,
+      </if>
+      <if test="buyCustLevel != null" >
+        BUY_CUST_LEVEL,
+      </if>
+      <if test="houseRoom != null" >
+        HOUSE_ROOM,
+      </if>
+      <if test="houseRoom1 != null" >
+        HOUSE_ROOM_1,
+      </if>
+      <if test="houseType != null" >
+        HOUSE_TYPE,
+      </if>
+      <if test="houseUseage != null" >
+        HOUSE_USEAGE,
+      </if>
+      <if test="houseFitment != null" >
+        HOUSE_FITMENT,
+      </if>
+      <if test="houseDirect != null" >
+        HOUSE_DIRECT,
+      </if>
+      <if test="houseFloorLow != null" >
+        HOUSE_FLOOR_LOW,
+      </if>
+      <if test="houseFloorHigh != null" >
+        HOUSE_FLOOR_HIGH,
+      </if>
+      <if test="housePriceLow != null" >
+        HOUSE_PRICE_LOW,
+      </if>
+      <if test="housePriceHigh != null" >
+        HOUSE_PRICE_HIGH,
+      </if>
+      <if test="houseAreaLow != null" >
+        HOUSE_AREA_LOW,
+      </if>
+      <if test="houseAreaHigh != null" >
+        HOUSE_AREA_HIGH,
+      </if>
+      <if test="houseYearLow != null" >
+        HOUSE_YEAR_LOW,
+      </if>
+      <if test="houseYearHigh != null" >
+        HOUSE_YEAR_HIGH,
+      </if>
+      <if test="houseLook != null" >
+        HOUSE_LOOK,
+      </if>
+      <if test="custRequest != null" >
+        CUST_REQUEST,
+      </if>
+      <if test="custMemo != null" >
+        CUST_MEMO,
+      </if>
+      <if test="buyCustStatus != null" >
+        BUY_CUST_STATUS,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+      <if test="repeatFlag != null" >
+        REPEAT_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="buyCustId != null" >
+        #{buyCustId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCustName != null" >
+        #{buyCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCustSex != null" >
+        #{buyCustSex,jdbcType=BIT},
+      </if>
+      <if test="buyCustAge != null" >
+        #{buyCustAge,jdbcType=TINYINT},
+      </if>
+      <if test="buyCustCareer != null" >
+        #{buyCustCareer,jdbcType=TINYINT},
+      </if>
+      <if test="cellPhone != null" >
+        #{cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="buyGoal != null" >
+        #{buyGoal,jdbcType=TINYINT},
+      </if>
+      <if test="buyLength != null" >
+        #{buyLength,jdbcType=TINYINT},
+      </if>
+      <if test="buyAbility != null" >
+        #{buyAbility,jdbcType=TINYINT},
+      </if>
+      <if test="buyPaytype != null" >
+        #{buyPaytype,jdbcType=TINYINT},
+      </if>
+      <if test="custLevel != null" >
+        #{custLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="plateType != null" >
+        #{plateType,jdbcType=TINYINT},
+      </if>
+      <if test="buyCustSource != null" >
+        #{buyCustSource,jdbcType=TINYINT},
+      </if>
+      <if test="buyCustLevel != null" >
+        #{buyCustLevel,jdbcType=TINYINT},
+      </if>
+      <if test="houseRoom != null" >
+        #{houseRoom,jdbcType=TINYINT},
+      </if>
+      <if test="houseRoom1 != null" >
+        #{houseRoom1,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null" >
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null" >
+        #{houseUseage,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFitment != null" >
+        #{houseFitment,jdbcType=TINYINT},
+      </if>
+      <if test="houseDirect != null" >
+        #{houseDirect,jdbcType=TINYINT},
+      </if>
+      <if test="houseFloorLow != null" >
+        #{houseFloorLow,jdbcType=SMALLINT},
+      </if>
+      <if test="houseFloorHigh != null" >
+        #{houseFloorHigh,jdbcType=SMALLINT},
+      </if>
+      <if test="housePriceLow != null" >
+        #{housePriceLow,jdbcType=NUMERIC},
+      </if>
+      <if test="housePriceHigh != null" >
+        #{housePriceHigh,jdbcType=NUMERIC},
+      </if>
+      <if test="houseAreaLow != null" >
+        #{houseAreaLow,jdbcType=NUMERIC},
+      </if>
+      <if test="houseAreaHigh != null" >
+        #{houseAreaHigh,jdbcType=NUMERIC},
+      </if>
+      <if test="houseYearLow != null" >
+        #{houseYearLow,jdbcType=SMALLINT},
+      </if>
+      <if test="houseYearHigh != null" >
+        #{houseYearHigh,jdbcType=SMALLINT},
+      </if>
+      <if test="houseLook != null" >
+        #{houseLook,jdbcType=BIT},
+      </if>
+      <if test="custRequest != null" >
+        #{custRequest,jdbcType=VARCHAR},
+      </if>
+      <if test="custMemo != null" >
+        #{custMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyCustStatus != null" >
+        #{buyCustStatus,jdbcType=TINYINT},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="repeatFlag != null" >
+        #{repeatFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

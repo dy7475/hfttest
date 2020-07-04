@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunUsersCountMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunUsersCount">
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="USER_SALE_SCORE" jdbcType="DOUBLE" property="userSaleScore" />
+    <result column="USER_SALE_PER" jdbcType="DOUBLE" property="userSalePer" />
+    <result column="USER_LEASE_SCORE" jdbcType="DOUBLE" property="userLeaseScore" />
+    <result column="USER_LEASE_PER" jdbcType="DOUBLE" property="userLeasePer" />
+    <result column="USER_UINFO_SCORE" jdbcType="DOUBLE" property="userUinfoScore" />
+    <result column="USER_PAID_SCORE" jdbcType="DOUBLE" property="userPaidScore" />
+    <result column="USER_PUB_SCORE" jdbcType="DOUBLE" property="userPubScore" />
+    <result column="USER_UINFO_PER" jdbcType="DOUBLE" property="userUinfoPer" />
+    <result column="USER_PAID_PER" jdbcType="DOUBLE" property="userPaidPer" />
+    <result column="USER_PUB_PER" jdbcType="DOUBLE" property="userPubPer" />
+    <result column="SALE_TOTAL" jdbcType="INTEGER" property="saleTotal" />
+    <result column="LEASE_TOTAL" jdbcType="INTEGER" property="leaseTotal" />
+    <result column="WEIDIAN_LIKE_NUM" jdbcType="INTEGER" property="weidianLikeNum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ARCHIVE_ID, USER_ID, USER_SALE_SCORE, USER_SALE_PER, USER_LEASE_SCORE, USER_LEASE_PER, 
+    USER_UINFO_SCORE, USER_PAID_SCORE, USER_PUB_SCORE, USER_UINFO_PER, USER_PAID_PER, 
+    USER_PUB_PER, SALE_TOTAL, LEASE_TOTAL, WEIDIAN_LIKE_NUM
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminFunUsersCountExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_USERS_COUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_USERS_COUNT
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_USERS_COUNT
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminFunUsersCountExample">
+    <!--@mbggenerated-->
+    delete from FUN_USERS_COUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunUsersCount">
+    <!--@mbggenerated-->
+    insert into FUN_USERS_COUNT (ARCHIVE_ID, USER_ID, USER_SALE_SCORE, 
+      USER_SALE_PER, USER_LEASE_SCORE, USER_LEASE_PER, 
+      USER_UINFO_SCORE, USER_PAID_SCORE, USER_PUB_SCORE, 
+      USER_UINFO_PER, USER_PAID_PER, USER_PUB_PER, 
+      SALE_TOTAL, LEASE_TOTAL, WEIDIAN_LIKE_NUM
+      )
+    values (#{archiveId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userSaleScore,jdbcType=DOUBLE}, 
+      #{userSalePer,jdbcType=DOUBLE}, #{userLeaseScore,jdbcType=DOUBLE}, #{userLeasePer,jdbcType=DOUBLE}, 
+      #{userUinfoScore,jdbcType=DOUBLE}, #{userPaidScore,jdbcType=DOUBLE}, #{userPubScore,jdbcType=DOUBLE}, 
+      #{userUinfoPer,jdbcType=DOUBLE}, #{userPaidPer,jdbcType=DOUBLE}, #{userPubPer,jdbcType=DOUBLE}, 
+      #{saleTotal,jdbcType=INTEGER}, #{leaseTotal,jdbcType=INTEGER}, #{weidianLikeNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunUsersCount">
+    <!--@mbggenerated-->
+    insert into FUN_USERS_COUNT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userSaleScore != null">
+        USER_SALE_SCORE,
+      </if>
+      <if test="userSalePer != null">
+        USER_SALE_PER,
+      </if>
+      <if test="userLeaseScore != null">
+        USER_LEASE_SCORE,
+      </if>
+      <if test="userLeasePer != null">
+        USER_LEASE_PER,
+      </if>
+      <if test="userUinfoScore != null">
+        USER_UINFO_SCORE,
+      </if>
+      <if test="userPaidScore != null">
+        USER_PAID_SCORE,
+      </if>
+      <if test="userPubScore != null">
+        USER_PUB_SCORE,
+      </if>
+      <if test="userUinfoPer != null">
+        USER_UINFO_PER,
+      </if>
+      <if test="userPaidPer != null">
+        USER_PAID_PER,
+      </if>
+      <if test="userPubPer != null">
+        USER_PUB_PER,
+      </if>
+      <if test="saleTotal != null">
+        SALE_TOTAL,
+      </if>
+      <if test="leaseTotal != null">
+        LEASE_TOTAL,
+      </if>
+      <if test="weidianLikeNum != null">
+        WEIDIAN_LIKE_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userSaleScore != null">
+        #{userSaleScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userSalePer != null">
+        #{userSalePer,jdbcType=DOUBLE},
+      </if>
+      <if test="userLeaseScore != null">
+        #{userLeaseScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userLeasePer != null">
+        #{userLeasePer,jdbcType=DOUBLE},
+      </if>
+      <if test="userUinfoScore != null">
+        #{userUinfoScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userPaidScore != null">
+        #{userPaidScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userPubScore != null">
+        #{userPubScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userUinfoPer != null">
+        #{userUinfoPer,jdbcType=DOUBLE},
+      </if>
+      <if test="userPaidPer != null">
+        #{userPaidPer,jdbcType=DOUBLE},
+      </if>
+      <if test="userPubPer != null">
+        #{userPubPer,jdbcType=DOUBLE},
+      </if>
+      <if test="saleTotal != null">
+        #{saleTotal,jdbcType=INTEGER},
+      </if>
+      <if test="leaseTotal != null">
+        #{leaseTotal,jdbcType=INTEGER},
+      </if>
+      <if test="weidianLikeNum != null">
+        #{weidianLikeNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminFunUsersCountExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_USERS_COUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_USERS_COUNT
+    <set>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userSaleScore != null">
+        USER_SALE_SCORE = #{record.userSaleScore,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userSalePer != null">
+        USER_SALE_PER = #{record.userSalePer,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userLeaseScore != null">
+        USER_LEASE_SCORE = #{record.userLeaseScore,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userLeasePer != null">
+        USER_LEASE_PER = #{record.userLeasePer,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userUinfoScore != null">
+        USER_UINFO_SCORE = #{record.userUinfoScore,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userPaidScore != null">
+        USER_PAID_SCORE = #{record.userPaidScore,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userPubScore != null">
+        USER_PUB_SCORE = #{record.userPubScore,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userUinfoPer != null">
+        USER_UINFO_PER = #{record.userUinfoPer,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userPaidPer != null">
+        USER_PAID_PER = #{record.userPaidPer,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userPubPer != null">
+        USER_PUB_PER = #{record.userPubPer,jdbcType=DOUBLE},
+      </if>
+      <if test="record.saleTotal != null">
+        SALE_TOTAL = #{record.saleTotal,jdbcType=INTEGER},
+      </if>
+      <if test="record.leaseTotal != null">
+        LEASE_TOTAL = #{record.leaseTotal,jdbcType=INTEGER},
+      </if>
+      <if test="record.weidianLikeNum != null">
+        WEIDIAN_LIKE_NUM = #{record.weidianLikeNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_USERS_COUNT
+    set ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      USER_SALE_SCORE = #{record.userSaleScore,jdbcType=DOUBLE},
+      USER_SALE_PER = #{record.userSalePer,jdbcType=DOUBLE},
+      USER_LEASE_SCORE = #{record.userLeaseScore,jdbcType=DOUBLE},
+      USER_LEASE_PER = #{record.userLeasePer,jdbcType=DOUBLE},
+      USER_UINFO_SCORE = #{record.userUinfoScore,jdbcType=DOUBLE},
+      USER_PAID_SCORE = #{record.userPaidScore,jdbcType=DOUBLE},
+      USER_PUB_SCORE = #{record.userPubScore,jdbcType=DOUBLE},
+      USER_UINFO_PER = #{record.userUinfoPer,jdbcType=DOUBLE},
+      USER_PAID_PER = #{record.userPaidPer,jdbcType=DOUBLE},
+      USER_PUB_PER = #{record.userPubPer,jdbcType=DOUBLE},
+      SALE_TOTAL = #{record.saleTotal,jdbcType=INTEGER},
+      LEASE_TOTAL = #{record.leaseTotal,jdbcType=INTEGER},
+      WEIDIAN_LIKE_NUM = #{record.weidianLikeNum,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunUsersCount">
+    <!--@mbggenerated-->
+    update FUN_USERS_COUNT
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userSaleScore != null">
+        USER_SALE_SCORE = #{userSaleScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userSalePer != null">
+        USER_SALE_PER = #{userSalePer,jdbcType=DOUBLE},
+      </if>
+      <if test="userLeaseScore != null">
+        USER_LEASE_SCORE = #{userLeaseScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userLeasePer != null">
+        USER_LEASE_PER = #{userLeasePer,jdbcType=DOUBLE},
+      </if>
+      <if test="userUinfoScore != null">
+        USER_UINFO_SCORE = #{userUinfoScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userPaidScore != null">
+        USER_PAID_SCORE = #{userPaidScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userPubScore != null">
+        USER_PUB_SCORE = #{userPubScore,jdbcType=DOUBLE},
+      </if>
+      <if test="userUinfoPer != null">
+        USER_UINFO_PER = #{userUinfoPer,jdbcType=DOUBLE},
+      </if>
+      <if test="userPaidPer != null">
+        USER_PAID_PER = #{userPaidPer,jdbcType=DOUBLE},
+      </if>
+      <if test="userPubPer != null">
+        USER_PUB_PER = #{userPubPer,jdbcType=DOUBLE},
+      </if>
+      <if test="saleTotal != null">
+        SALE_TOTAL = #{saleTotal,jdbcType=INTEGER},
+      </if>
+      <if test="leaseTotal != null">
+        LEASE_TOTAL = #{leaseTotal,jdbcType=INTEGER},
+      </if>
+      <if test="weidianLikeNum != null">
+        WEIDIAN_LIKE_NUM = #{weidianLikeNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunUsersCount">
+    <!--@mbggenerated-->
+    update FUN_USERS_COUNT
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      USER_SALE_SCORE = #{userSaleScore,jdbcType=DOUBLE},
+      USER_SALE_PER = #{userSalePer,jdbcType=DOUBLE},
+      USER_LEASE_SCORE = #{userLeaseScore,jdbcType=DOUBLE},
+      USER_LEASE_PER = #{userLeasePer,jdbcType=DOUBLE},
+      USER_UINFO_SCORE = #{userUinfoScore,jdbcType=DOUBLE},
+      USER_PAID_SCORE = #{userPaidScore,jdbcType=DOUBLE},
+      USER_PUB_SCORE = #{userPubScore,jdbcType=DOUBLE},
+      USER_UINFO_PER = #{userUinfoPer,jdbcType=DOUBLE},
+      USER_PAID_PER = #{userPaidPer,jdbcType=DOUBLE},
+      USER_PUB_PER = #{userPubPer,jdbcType=DOUBLE},
+      SALE_TOTAL = #{saleTotal,jdbcType=INTEGER},
+      LEASE_TOTAL = #{leaseTotal,jdbcType=INTEGER},
+      WEIDIAN_LIKE_NUM = #{weidianLikeNum,jdbcType=INTEGER}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="BaseResultMapDto" type="com.myfun.repository.admindb.dto.AdminFunUsersCountDto">
+    <id column="TOTAL_SCORE" jdbcType="INTEGER" property="totalScore" />
+  </resultMap>
+  
+  
+	<select id="getUserScorByArchiveIds" resultMap="BaseResultMapDto">
+		SELECT ARCHIVE_ID, (ISNULL(USER_SALE_SCORE * USER_SALE_PER, 0)+ISNULL(USER_LEASE_SCORE * USER_LEASE_PER, 0)+ISNULL(USER_UINFO_SCORE*USER_UINFO_PER, 0)+ISNULL(USER_PAID_SCORE*USER_PAID_PER, 0)+ISNULL(USER_PUB_SCORE*USER_PUB_PER, 0)) TOTAL_SCORE
+		FROM FUN_USERS_COUNT
+		where ARCHIVE_ID IN
+		<foreach close=")" collection="archiveIds" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</select>
+
+	<select id="getUserScorCountMapKey" resultMap="BaseResultMapDto">
+		SELECT ARCHIVE_ID, (ISNULL(USER_SALE_SCORE * USER_SALE_PER, 0)+ISNULL(USER_LEASE_SCORE * USER_LEASE_PER, 0)+ISNULL(USER_UINFO_SCORE*USER_UINFO_PER, 0)+ISNULL(USER_PAID_SCORE*USER_PAID_PER, 0)+ISNULL(USER_PUB_SCORE*USER_PUB_PER, 0)) TOTAL_SCORE
+		FROM FUN_USERS_COUNT
+		where ARCHIVE_ID IN
+		<foreach close=")" collection="archiveIds" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</select>
+</mapper>

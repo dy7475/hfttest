@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTicketSendMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTicketSend" >
+    <!--@mbggenerated-->
+    <result column="BROKER_NAME" property="brokerName" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="SELL" property="sell" jdbcType="VARCHAR" />
+    <result column="EXAM" property="exam" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="TINYINT" />
+    <result column="STATUS_TIME" property="statusTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTicketSend" >
+    <!--@mbggenerated-->
+    insert into ticket_send (BROKER_NAME, MOBILE, TIME, 
+      SELL, EXAM, STATUS, 
+      STATUS_TIME)
+    values (#{brokerName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{sell,jdbcType=VARCHAR}, #{exam,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{statusTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTicketSend" >
+    <!--@mbggenerated-->
+    insert into ticket_send
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brokerName != null" >
+        BROKER_NAME,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="sell != null" >
+        SELL,
+      </if>
+      <if test="exam != null" >
+        EXAM,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="statusTime != null" >
+        STATUS_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brokerName != null" >
+        #{brokerName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="sell != null" >
+        #{sell,jdbcType=VARCHAR},
+      </if>
+      <if test="exam != null" >
+        #{exam,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="statusTime != null" >
+        #{statusTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

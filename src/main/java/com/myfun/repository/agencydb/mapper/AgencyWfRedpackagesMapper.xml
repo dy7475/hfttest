@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfRedpackagesMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfRedpackages">
+    <!--@mbggenerated-->
+    <id column="REDPACKAGE_ID" jdbcType="INTEGER" property="redpackageId" />
+    <result column="ISSUE_ID" jdbcType="INTEGER" property="issueId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="TYPE" jdbcType="TINYINT" property="type" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="WX_ID" jdbcType="INTEGER" property="wxId" />
+    <result column="WX_OPEN_ID" jdbcType="VARCHAR" property="wxOpenId" />
+    <result column="AMOUNT" jdbcType="DOUBLE" property="amount" />
+    <result column="BUTIE_AMOUNT" jdbcType="DOUBLE" property="butieAmount" />
+    <result column="USE_TIME" jdbcType="TIMESTAMP" property="useTime" />
+    <result column="STATUS" jdbcType="TINYINT" property="status" />
+    <result column="EXPIRE_TIME" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="AGENT_NAME" jdbcType="VARCHAR" property="agentName" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    REDPACKAGE_ID, ISSUE_ID, CASE_ID, CITY_ID, [TYPE], CASE_TYPE, WX_ID, WX_OPEN_ID, 
+    AMOUNT, BUTIE_AMOUNT, USE_TIME, [STATUS], EXPIRE_TIME, CREATE_TIME, AGENT_NAME, ARCHIVE_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_REDPACKAGES
+    where REDPACKAGE_ID = #{redpackageId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from WF_REDPACKAGES
+    where REDPACKAGE_ID = #{redpackageId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackages">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="redpackageId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REDPACKAGES (ISSUE_ID, CASE_ID, CITY_ID, 
+      [TYPE], CASE_TYPE, WX_ID, 
+      WX_OPEN_ID, AMOUNT, BUTIE_AMOUNT, 
+      USE_TIME, [STATUS], EXPIRE_TIME, 
+      CREATE_TIME, AGENT_NAME, ARCHIVE_ID
+      )
+    values (#{issueId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{type,jdbcType=TINYINT}, #{caseType,jdbcType=TINYINT}, #{wxId,jdbcType=INTEGER}, 
+      #{wxOpenId,jdbcType=VARCHAR}, #{amount,jdbcType=DOUBLE}, #{butieAmount,jdbcType=DOUBLE}, 
+      #{useTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{expireTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{agentName,jdbcType=VARCHAR}, #{archiveId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackages">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="redpackageId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REDPACKAGES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="issueId != null">
+        ISSUE_ID,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="type != null">
+        [TYPE],
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="wxId != null">
+        WX_ID,
+      </if>
+      <if test="wxOpenId != null">
+        WX_OPEN_ID,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="butieAmount != null">
+        BUTIE_AMOUNT,
+      </if>
+      <if test="useTime != null">
+        USE_TIME,
+      </if>
+      <if test="status != null">
+        [STATUS],
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="agentName != null">
+        AGENT_NAME,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="issueId != null">
+        #{issueId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="wxId != null">
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null">
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="butieAmount != null">
+        #{butieAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="useTime != null">
+        #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="agentName != null">
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackages">
+    <!--@mbggenerated-->
+    update WF_REDPACKAGES
+    <set>
+      <if test="issueId != null">
+        ISSUE_ID = #{issueId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        [TYPE] = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="wxId != null">
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null">
+        WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="butieAmount != null">
+        BUTIE_AMOUNT = #{butieAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="useTime != null">
+        USE_TIME = #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        [STATUS] = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="agentName != null">
+        AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where REDPACKAGE_ID = #{redpackageId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackages">
+    <!--@mbggenerated-->
+    update WF_REDPACKAGES
+    set ISSUE_ID = #{issueId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      [TYPE] = #{type,jdbcType=TINYINT},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=DOUBLE},
+      BUTIE_AMOUNT = #{butieAmount,jdbcType=DOUBLE},
+      USE_TIME = #{useTime,jdbcType=TIMESTAMP},
+      [STATUS] = #{status,jdbcType=TINYINT},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+    where REDPACKAGE_ID = #{redpackageId,jdbcType=INTEGER}
+  </update>
+  
+  <!-- buniess -->
+  <select id="getRecordForUUMobile" resultMap="BaseResultMap">
+  	  select 
+    <include refid="Base_Column_List" />
+    from WF_REDPACKAGES
+    WHERE CASE_ID = #{caseId} AND CASE_type = #{caseType} AND  city_id  = #{cityId} AND TYPE= #{type}  AND EXpire_time > GETDATE() AND status = 1
+  </select>
+  
+  
+</mapper>

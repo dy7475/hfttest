@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfUserbMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfUserb" >
+    <!--@mbggenerated-->
+    <id column="WF_ID" property="wfId" jdbcType="INTEGER" />
+    <result column="WF_NICKNAME" property="wfNickname" jdbcType="VARCHAR" />
+    <result column="WF_OPENID" property="wfOpenid" jdbcType="VARCHAR" />
+    <result column="WF_PHOTO" property="wfPhoto" jdbcType="VARCHAR" />
+    <result column="WF_SEX" property="wfSex" jdbcType="TINYINT" />
+    <result column="WF_CREATETIME" property="wfCreatetime" jdbcType="TIMESTAMP" />
+    <result column="WF_MOBILE" property="wfMobile" jdbcType="CHAR" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="SUBSCRIBE" property="subscribe" jdbcType="TINYINT" />
+    <result column="WF_STATUS" property="wfStatus" jdbcType="TINYINT" />
+    <result column="OPEN_ID_BACK" property="openIdBack" jdbcType="VARCHAR" />
+    <result column="IS_UU" property="isUu" jdbcType="TINYINT" />
+    <result column="BONUS_MONEY" property="bonusMoney" jdbcType="VARCHAR" />
+    <result column="BONUS_TIME" property="bonusTime" jdbcType="TIMESTAMP" />
+    <result column="BONUS_BILLNO" property="bonusBillno" jdbcType="VARCHAR" />
+    <result column="WF_BONUS" property="wfBonus" jdbcType="TINYINT" />
+    <result column="OPEN_ID_NEW" property="openIdNew" jdbcType="VARCHAR" />
+    <result column="BIND_TIME" property="bindTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    WF_ID, WF_NICKNAME, WF_OPENID, WF_PHOTO, WF_SEX, WF_CREATETIME, WF_MOBILE, ARCHIVE_ID, 
+    SUBSCRIBE, WF_STATUS, OPEN_ID_BACK, IS_UU, BONUS_MONEY, BONUS_TIME, BONUS_BILLNO, 
+    WF_BONUS, OPEN_ID_NEW, BIND_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserbExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from WF_USERB
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_USERB
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_USERB
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserbExample" >
+    <!--@mbggenerated-->
+    delete from WF_USERB
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserb" useGeneratedKeys="true" keyProperty="wfId" >
+    <!--@mbggenerated-->
+    insert into WF_USERB (WF_NICKNAME, WF_OPENID, WF_PHOTO, 
+      WF_SEX, WF_CREATETIME, WF_MOBILE, 
+      ARCHIVE_ID, SUBSCRIBE, WF_STATUS, 
+      OPEN_ID_BACK, IS_UU, BONUS_MONEY, 
+      BONUS_TIME, BONUS_BILLNO, WF_BONUS, 
+      OPEN_ID_NEW, BIND_TIME)
+    values (#{wfNickname,jdbcType=VARCHAR}, #{wfOpenid,jdbcType=VARCHAR}, #{wfPhoto,jdbcType=VARCHAR}, 
+      #{wfSex,jdbcType=TINYINT}, #{wfCreatetime,jdbcType=TIMESTAMP}, #{wfMobile,jdbcType=CHAR}, 
+      #{archiveId,jdbcType=INTEGER}, #{subscribe,jdbcType=TINYINT}, #{wfStatus,jdbcType=TINYINT}, 
+      #{openIdBack,jdbcType=VARCHAR}, #{isUu,jdbcType=TINYINT}, #{bonusMoney,jdbcType=VARCHAR}, 
+      #{bonusTime,jdbcType=TIMESTAMP}, #{bonusBillno,jdbcType=VARCHAR}, #{wfBonus,jdbcType=TINYINT}, 
+      #{openIdNew,jdbcType=VARCHAR}, #{bindTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserb" useGeneratedKeys="true" keyProperty="wfId" >
+    <!--@mbggenerated-->
+    insert into WF_USERB
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wfNickname != null" >
+        WF_NICKNAME,
+      </if>
+      <if test="wfOpenid != null" >
+        WF_OPENID,
+      </if>
+      <if test="wfPhoto != null" >
+        WF_PHOTO,
+      </if>
+      <if test="wfSex != null" >
+        WF_SEX,
+      </if>
+      <if test="wfCreatetime != null" >
+        WF_CREATETIME,
+      </if>
+      <if test="wfMobile != null" >
+        WF_MOBILE,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="subscribe != null" >
+        SUBSCRIBE,
+      </if>
+      <if test="wfStatus != null" >
+        WF_STATUS,
+      </if>
+      <if test="openIdBack != null" >
+        OPEN_ID_BACK,
+      </if>
+      <if test="isUu != null" >
+        IS_UU,
+      </if>
+      <if test="bonusMoney != null" >
+        BONUS_MONEY,
+      </if>
+      <if test="bonusTime != null" >
+        BONUS_TIME,
+      </if>
+      <if test="bonusBillno != null" >
+        BONUS_BILLNO,
+      </if>
+      <if test="wfBonus != null" >
+        WF_BONUS,
+      </if>
+      <if test="openIdNew != null" >
+        OPEN_ID_NEW,
+      </if>
+      <if test="bindTime != null" >
+        BIND_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wfNickname != null" >
+        #{wfNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfOpenid != null" >
+        #{wfOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfPhoto != null" >
+        #{wfPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="wfSex != null" >
+        #{wfSex,jdbcType=TINYINT},
+      </if>
+      <if test="wfCreatetime != null" >
+        #{wfCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wfMobile != null" >
+        #{wfMobile,jdbcType=CHAR},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="subscribe != null" >
+        #{subscribe,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatus != null" >
+        #{wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="openIdBack != null" >
+        #{openIdBack,jdbcType=VARCHAR},
+      </if>
+      <if test="isUu != null" >
+        #{isUu,jdbcType=TINYINT},
+      </if>
+      <if test="bonusMoney != null" >
+        #{bonusMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="bonusTime != null" >
+        #{bonusTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bonusBillno != null" >
+        #{bonusBillno,jdbcType=VARCHAR},
+      </if>
+      <if test="wfBonus != null" >
+        #{wfBonus,jdbcType=TINYINT},
+      </if>
+      <if test="openIdNew != null" >
+        #{openIdNew,jdbcType=VARCHAR},
+      </if>
+      <if test="bindTime != null" >
+        #{bindTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserbExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from WF_USERB
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update WF_USERB
+    <set >
+      <if test="record.wfId != null" >
+        WF_ID = #{record.wfId,jdbcType=INTEGER},
+      </if>
+      <if test="record.wfNickname != null" >
+        WF_NICKNAME = #{record.wfNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wfOpenid != null" >
+        WF_OPENID = #{record.wfOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wfPhoto != null" >
+        WF_PHOTO = #{record.wfPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wfSex != null" >
+        WF_SEX = #{record.wfSex,jdbcType=TINYINT},
+      </if>
+      <if test="record.wfCreatetime != null" >
+        WF_CREATETIME = #{record.wfCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.wfMobile != null" >
+        WF_MOBILE = #{record.wfMobile,jdbcType=CHAR},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subscribe != null" >
+        SUBSCRIBE = #{record.subscribe,jdbcType=TINYINT},
+      </if>
+      <if test="record.wfStatus != null" >
+        WF_STATUS = #{record.wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.openIdBack != null" >
+        OPEN_ID_BACK = #{record.openIdBack,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isUu != null" >
+        IS_UU = #{record.isUu,jdbcType=TINYINT},
+      </if>
+      <if test="record.bonusMoney != null" >
+        BONUS_MONEY = #{record.bonusMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bonusTime != null" >
+        BONUS_TIME = #{record.bonusTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bonusBillno != null" >
+        BONUS_BILLNO = #{record.bonusBillno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wfBonus != null" >
+        WF_BONUS = #{record.wfBonus,jdbcType=TINYINT},
+      </if>
+      <if test="record.openIdNew != null" >
+        OPEN_ID_NEW = #{record.openIdNew,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindTime != null" >
+        BIND_TIME = #{record.bindTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update WF_USERB
+    set WF_ID = #{record.wfId,jdbcType=INTEGER},
+      WF_NICKNAME = #{record.wfNickname,jdbcType=VARCHAR},
+      WF_OPENID = #{record.wfOpenid,jdbcType=VARCHAR},
+      WF_PHOTO = #{record.wfPhoto,jdbcType=VARCHAR},
+      WF_SEX = #{record.wfSex,jdbcType=TINYINT},
+      WF_CREATETIME = #{record.wfCreatetime,jdbcType=TIMESTAMP},
+      WF_MOBILE = #{record.wfMobile,jdbcType=CHAR},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      SUBSCRIBE = #{record.subscribe,jdbcType=TINYINT},
+      WF_STATUS = #{record.wfStatus,jdbcType=TINYINT},
+      OPEN_ID_BACK = #{record.openIdBack,jdbcType=VARCHAR},
+      IS_UU = #{record.isUu,jdbcType=TINYINT},
+      BONUS_MONEY = #{record.bonusMoney,jdbcType=VARCHAR},
+      BONUS_TIME = #{record.bonusTime,jdbcType=TIMESTAMP},
+      BONUS_BILLNO = #{record.bonusBillno,jdbcType=VARCHAR},
+      WF_BONUS = #{record.wfBonus,jdbcType=TINYINT},
+      OPEN_ID_NEW = #{record.openIdNew,jdbcType=VARCHAR},
+      BIND_TIME = #{record.bindTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserb" >
+    <!--@mbggenerated-->
+    update WF_USERB
+    <set >
+      <if test="wfNickname != null" >
+        WF_NICKNAME = #{wfNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="wfOpenid != null" >
+        WF_OPENID = #{wfOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wfPhoto != null" >
+        WF_PHOTO = #{wfPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="wfSex != null" >
+        WF_SEX = #{wfSex,jdbcType=TINYINT},
+      </if>
+      <if test="wfCreatetime != null" >
+        WF_CREATETIME = #{wfCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wfMobile != null" >
+        WF_MOBILE = #{wfMobile,jdbcType=CHAR},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="subscribe != null" >
+        SUBSCRIBE = #{subscribe,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatus != null" >
+        WF_STATUS = #{wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="openIdBack != null" >
+        OPEN_ID_BACK = #{openIdBack,jdbcType=VARCHAR},
+      </if>
+      <if test="isUu != null" >
+        IS_UU = #{isUu,jdbcType=TINYINT},
+      </if>
+      <if test="bonusMoney != null" >
+        BONUS_MONEY = #{bonusMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="bonusTime != null" >
+        BONUS_TIME = #{bonusTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bonusBillno != null" >
+        BONUS_BILLNO = #{bonusBillno,jdbcType=VARCHAR},
+      </if>
+      <if test="wfBonus != null" >
+        WF_BONUS = #{wfBonus,jdbcType=TINYINT},
+      </if>
+      <if test="openIdNew != null" >
+        OPEN_ID_NEW = #{openIdNew,jdbcType=VARCHAR},
+      </if>
+      <if test="bindTime != null" >
+        BIND_TIME = #{bindTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserb" >
+    <!--@mbggenerated-->
+    update WF_USERB
+    set WF_NICKNAME = #{wfNickname,jdbcType=VARCHAR},
+      WF_OPENID = #{wfOpenid,jdbcType=VARCHAR},
+      WF_PHOTO = #{wfPhoto,jdbcType=VARCHAR},
+      WF_SEX = #{wfSex,jdbcType=TINYINT},
+      WF_CREATETIME = #{wfCreatetime,jdbcType=TIMESTAMP},
+      WF_MOBILE = #{wfMobile,jdbcType=CHAR},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      SUBSCRIBE = #{subscribe,jdbcType=TINYINT},
+      WF_STATUS = #{wfStatus,jdbcType=TINYINT},
+      OPEN_ID_BACK = #{openIdBack,jdbcType=VARCHAR},
+      IS_UU = #{isUu,jdbcType=TINYINT},
+      BONUS_MONEY = #{bonusMoney,jdbcType=VARCHAR},
+      BONUS_TIME = #{bonusTime,jdbcType=TIMESTAMP},
+      BONUS_BILLNO = #{bonusBillno,jdbcType=VARCHAR},
+      WF_BONUS = #{wfBonus,jdbcType=TINYINT},
+      OPEN_ID_NEW = #{openIdNew,jdbcType=VARCHAR},
+      BIND_TIME = #{bindTime,jdbcType=TIMESTAMP}
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </update>
+	
+	<select id="getByArchiveId" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM WF_USERB
+		WHERE ARCHIVE_ID = #{archiveId} AND WF_STATUS=1 AND WF_OPENID IS NOT NULL
+	</select>
+	
+</mapper>
+

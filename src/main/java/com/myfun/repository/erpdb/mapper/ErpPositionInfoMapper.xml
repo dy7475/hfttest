@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpPositionInfoMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpPositionInfo">
+    <!--@mbggenerated-->
+    <id column="POSITION_ID" jdbcType="INTEGER" property="positionId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="POSITION_X" jdbcType="VARCHAR" property="positionX" />
+    <result column="POSITION_Y" jdbcType="VARCHAR" property="positionY" />
+    <result column="POSITION_TYPE" jdbcType="TINYINT" property="positionType" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    POSITION_ID, BUILD_ID, POSITION_X, POSITION_Y, POSITION_TYPE, ARCHIVE_ID, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from POSITION_INFO
+    where POSITION_ID = #{positionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from POSITION_INFO
+    where POSITION_ID = #{positionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpPositionInfo">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="positionId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_POSITION_INFO_POSITION_ID
+    </selectKey>
+    insert into POSITION_INFO (POSITION_ID, BUILD_ID, POSITION_X, 
+      POSITION_Y, POSITION_TYPE, ARCHIVE_ID, 
+      CREATE_TIME)
+    values (#{positionId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, #{positionX,jdbcType=VARCHAR}, 
+      #{positionY,jdbcType=VARCHAR}, #{positionType,jdbcType=TINYINT}, #{archiveId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpPositionInfo">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="positionId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_POSITION_INFO_POSITION_ID
+    </selectKey>
+    insert into POSITION_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      POSITION_ID,
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="positionX != null">
+        POSITION_X,
+      </if>
+      <if test="positionY != null">
+        POSITION_Y,
+      </if>
+      <if test="positionType != null">
+        POSITION_TYPE,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{positionId,jdbcType=INTEGER},
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="positionX != null">
+        #{positionX,jdbcType=VARCHAR},
+      </if>
+      <if test="positionY != null">
+        #{positionY,jdbcType=VARCHAR},
+      </if>
+      <if test="positionType != null">
+        #{positionType,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpPositionInfo">
+    <!--@mbggenerated-->
+    update POSITION_INFO
+    <set>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="positionX != null">
+        POSITION_X = #{positionX,jdbcType=VARCHAR},
+      </if>
+      <if test="positionY != null">
+        POSITION_Y = #{positionY,jdbcType=VARCHAR},
+      </if>
+      <if test="positionType != null">
+        POSITION_TYPE = #{positionType,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where POSITION_ID = #{positionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpPositionInfo">
+    <!--@mbggenerated-->
+    update POSITION_INFO
+    set BUILD_ID = #{buildId,jdbcType=INTEGER},
+      POSITION_X = #{positionX,jdbcType=VARCHAR},
+      POSITION_Y = #{positionY,jdbcType=VARCHAR},
+      POSITION_TYPE = #{positionType,jdbcType=TINYINT},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR}
+    where POSITION_ID = #{positionId,jdbcType=INTEGER}
+  </update>
+</mapper>

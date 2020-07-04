@@ -1,0 +1,1973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyVipBuyMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyVipBuy">
+    <!--@mbggenerated-->
+    <id column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <id column="BUY_ID" jdbcType="INTEGER" property="buyId" />
+    <result column="BUILD_ID" jdbcType="VARCHAR" property="buildId" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="HOUSE_REGION" jdbcType="VARCHAR" property="houseRegion" />
+    <result column="REGION_NAME" jdbcType="VARCHAR" property="regionName" />
+    <result column="HOUSE_ROUND" jdbcType="VARCHAR" property="houseRound" />
+    <result column="ROUND_NAME" jdbcType="VARCHAR" property="roundName" />
+    <result column="BUY_SUBJECT" jdbcType="VARCHAR" property="buySubject" />
+    <result column="HOUSE_USEAGE" jdbcType="VARCHAR" property="houseUseage" />
+    <result column="HOUSE_RIGHT" jdbcType="VARCHAR" property="houseRight" />
+    <result column="ROOM_L" jdbcType="TINYINT" property="roomL" />
+    <result column="ROOM_H" jdbcType="TINYINT" property="roomH" />
+    <result column="FLOOR_L" jdbcType="TINYINT" property="floorL" />
+    <result column="FLOOR_H" jdbcType="TINYINT" property="floorH" />
+    <result column="PRICE_L" jdbcType="INTEGER" property="priceL" />
+    <result column="PRICE_H" jdbcType="INTEGER" property="priceH" />
+    <result column="BUY_PAYTYPE" jdbcType="VARCHAR" property="buyPaytype" />
+    <result column="DOWN_PAY" jdbcType="INTEGER" property="downPay" />
+    <result column="AREA_L" jdbcType="INTEGER" property="areaL" />
+    <result column="AREA_H" jdbcType="INTEGER" property="areaH" />
+    <result column="HOUSE_FITMENT" jdbcType="VARCHAR" property="houseFitment" />
+    <result column="DESCP" jdbcType="VARCHAR" property="descp" />
+    <result column="PERIOD" jdbcType="TINYINT" property="period" />
+    <result column="RELATE_HOUSE" jdbcType="INTEGER" property="relateHouse" />
+    <result column="COMMISSION" jdbcType="NUMERIC" property="commission" />
+    <result column="CASH_DEPOSIT" jdbcType="INTEGER" property="cashDeposit" />
+    <result column="CLIENT_ID" jdbcType="INTEGER" property="clientId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="TRACK_USER" jdbcType="INTEGER" property="trackUser" />
+    <result column="TRACK_TIME" jdbcType="TIMESTAMP" property="trackTime" />
+    <result column="CASE_STATUS" jdbcType="INTEGER" property="caseStatus" />
+    <result column="TRADE_PRICE" jdbcType="INTEGER" property="tradePrice" />
+    <result column="TRADE_TIMES" jdbcType="INTEGER" property="tradeTimes" />
+    <result column="TRADE_USER" jdbcType="INTEGER" property="tradeUser" />
+    <result column="TRADE_TIME" jdbcType="TIMESTAMP" property="tradeTime" />
+    <result column="TRADE_FLAG" jdbcType="TINYINT" property="tradeFlag" />
+    <result column="HOUSE_ID" jdbcType="INTEGER" property="houseId" />
+    <result column="INFO_SOURCE" jdbcType="TINYINT" property="infoSource" />
+    <result column="REPEAT_FLAG" jdbcType="TINYINT" property="repeatFlag" />
+    <result column="HOUSE_SECTION" jdbcType="VARCHAR" property="houseSection" />
+    <result column="SECTION_NAME" jdbcType="VARCHAR" property="sectionName" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="NEW_COMPLAIN" jdbcType="TINYINT" property="newComplain" />
+    <result column="HOUSE_TYPE" jdbcType="VARCHAR" property="houseType" />
+    <result column="HOUSE_YEAR_LOW" jdbcType="VARCHAR" property="houseYearLow" />
+    <result column="HOUSE_YEAR_HIGH" jdbcType="VARCHAR" property="houseYearHigh" />
+    <result column="COMPLAIN_TIME" jdbcType="TIMESTAMP" property="complainTime" />
+    <result column="HAS_REFUND" jdbcType="TINYINT" property="hasRefund" />
+    <result column="REFUND_TIME" jdbcType="TIMESTAMP" property="refundTime" />
+    <result column="PURCHASE_COUNT" jdbcType="TINYINT" property="purchaseCount" />
+    <result column="COMPLAIN_COUNT" jdbcType="TINYINT" property="complainCount" />
+    <result column="DOWN_TIME" jdbcType="TIMESTAMP" property="downTime" />
+    <result column="FULL_TIME" jdbcType="TIMESTAMP" property="fullTime" />
+    <result column="DOWN_TRACKID" jdbcType="INTEGER" property="downTrackid" />
+    <result column="ISURGENT" jdbcType="TINYINT" property="isurgent" />
+    <result column="BUY_PRICE_UNIT" jdbcType="TINYINT" property="buyPriceUnit" />
+    <result column="SOSO_ID" jdbcType="INTEGER" property="sosoId" />
+    <result column="UGC_ID" jdbcType="INTEGER" property="ugcId" />
+    <result column="WX_ID" jdbcType="INTEGER" property="wxId" />
+    <result column="WX_OPEN_ID" jdbcType="VARCHAR" property="wxOpenId" />
+    <result column="WF_STATUS" jdbcType="TINYINT" property="wfStatus" />
+    <result column="WF_STATUS_VALID" jdbcType="TINYINT" property="wfStatusValid" />
+    <result column="WF_STATUS_DROP" jdbcType="TINYINT" property="wfStatusDrop" />
+    <result column="WF_SEX" jdbcType="TINYINT" property="wfSex" />
+    <result column="WF_RELATE_ID" jdbcType="INTEGER" property="wfRelateId" />
+    <result column="WF_FEE" jdbcType="VARCHAR" property="wfFee" />
+    <result column="WF_MONEY" jdbcType="DECIMAL" property="wfMoney" />
+    <result column="WF_MONEY_ADD" jdbcType="DECIMAL" property="wfMoneyAdd" />
+    <result column="WF_MONEY_BUTIE" jdbcType="DECIMAL" property="wfMoneyButie" />
+    <result column="WF_MONEY_BONUS" jdbcType="DECIMAL" property="wfMoneyBonus" />
+    <result column="WF_MONEY_RETURN" jdbcType="DECIMAL" property="wfMoneyReturn" />
+    <result column="WF_MONEY_PAY" jdbcType="DECIMAL" property="wfMoneyPay" />
+    <result column="WF_ONLINE_MONEY" jdbcType="DECIMAL" property="wfOnlineMoney" />
+    <result column="WF_HOUSE_MONEY" jdbcType="DECIMAL" property="wfHouseMoney" />
+    <result column="WF_BROKER_MONEY" jdbcType="DECIMAL" property="wfBrokerMoney" />
+    <result column="WF_COMPLETE_TIME" jdbcType="TIMESTAMP" property="wfCompleteTime" />
+    <result column="WF_RECEIVE_TIME" jdbcType="INTEGER" property="wfReceiveTime" />
+    <result column="WF_PUSH_TIMES" jdbcType="INTEGER" property="wfPushTimes" />
+    <result column="OPERATOR_ID" jdbcType="INTEGER" property="operatorId" />
+    <result column="DOWN_REASON" jdbcType="VARCHAR" property="downReason" />
+    <result column="JIEDAN_COUNT" jdbcType="INTEGER" property="jiedanCount" />
+    <result column="WF_ARCHIVES" jdbcType="VARCHAR" property="wfArchives" />
+    <result column="WF_RECOMED" jdbcType="TINYINT" property="wfRecomed" />
+    <result column="SENDER_MSG" jdbcType="VARCHAR" property="senderMsg" />
+    <result column="LAST_PUSH_TIME" jdbcType="TIMESTAMP" property="lastPushTime" />
+    <result column="UGC_DATETYPE" jdbcType="TINYINT" property="ugcDatetype" />
+    <result column="IS_VIP" jdbcType="TINYINT" property="isVip" />
+    <result column="WF_CODE" jdbcType="VARCHAR" property="wfCode" />
+    <result column="IS_HELP" jdbcType="TINYINT" property="isHelp" />
+    <result column="PUSHMSG_LOCKFLAG" jdbcType="TINYINT" property="pushmsgLockflag" />
+    <result column="LAST_PUSHMSG_TIME" jdbcType="TIMESTAMP" property="lastPushmsgTime" />
+    <result column="SOURCE_TYPE" jdbcType="TINYINT" property="sourceType" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="SUPPLEMENTARY_MONEY" jdbcType="NUMERIC" property="supplementaryMoney" />
+    <result column="MUST_PAY" jdbcType="TINYINT" property="mustPay" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CITY_ID, BUY_ID, BUILD_ID, BUILD_NAME, HOUSE_REGION, REGION_NAME, HOUSE_ROUND, ROUND_NAME, 
+    BUY_SUBJECT, HOUSE_USEAGE, HOUSE_RIGHT, ROOM_L, ROOM_H, FLOOR_L, FLOOR_H, PRICE_L, 
+    PRICE_H, BUY_PAYTYPE, DOWN_PAY, AREA_L, AREA_H, HOUSE_FITMENT, DESCP, PERIOD, RELATE_HOUSE, 
+    COMMISSION, CASH_DEPOSIT, CLIENT_ID, CREATION_TIME, TRACK_USER, TRACK_TIME, CASE_STATUS, 
+    TRADE_PRICE, TRADE_TIMES, TRADE_USER, TRADE_TIME, TRADE_FLAG, HOUSE_ID, INFO_SOURCE, 
+    REPEAT_FLAG, HOUSE_SECTION, SECTION_NAME, CREATOR_UID, NEW_COMPLAIN, HOUSE_TYPE, 
+    HOUSE_YEAR_LOW, HOUSE_YEAR_HIGH, COMPLAIN_TIME, HAS_REFUND, REFUND_TIME, PURCHASE_COUNT, 
+    COMPLAIN_COUNT, DOWN_TIME, FULL_TIME, DOWN_TRACKID, ISURGENT, BUY_PRICE_UNIT, SOSO_ID, 
+    UGC_ID, WX_ID, WX_OPEN_ID, WF_STATUS, WF_STATUS_VALID, WF_STATUS_DROP, WF_SEX, WF_RELATE_ID, 
+    WF_FEE, WF_MONEY, WF_MONEY_ADD, WF_MONEY_BUTIE, WF_MONEY_BONUS, WF_MONEY_RETURN, 
+    WF_MONEY_PAY, WF_ONLINE_MONEY, WF_HOUSE_MONEY, WF_BROKER_MONEY, WF_COMPLETE_TIME, 
+    WF_RECEIVE_TIME, WF_PUSH_TIMES, OPERATOR_ID, DOWN_REASON, JIEDAN_COUNT, WF_ARCHIVES, 
+    WF_RECOMED, SENDER_MSG, LAST_PUSH_TIME, UGC_DATETYPE, IS_VIP, WF_CODE, IS_HELP, PUSHMSG_LOCKFLAG, 
+    LAST_PUSHMSG_TIME, SOURCE_TYPE, UPDATE_TIME, SUPPLEMENTARY_MONEY, MUST_PAY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from VIP_BUY
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUY_ID = #{buyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbggenerated-->
+    delete from VIP_BUY
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUY_ID = #{buyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyVipBuy">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="buyId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(BUY_ID)+1 FROM VIP_BUY
+    </selectKey>
+    insert into VIP_BUY (CITY_ID, BUY_ID, BUILD_ID, 
+      BUILD_NAME, HOUSE_REGION, REGION_NAME, 
+      HOUSE_ROUND, ROUND_NAME, BUY_SUBJECT, 
+      HOUSE_USEAGE, HOUSE_RIGHT, ROOM_L, 
+      ROOM_H, FLOOR_L, FLOOR_H, 
+      PRICE_L, PRICE_H, BUY_PAYTYPE, 
+      DOWN_PAY, AREA_L, AREA_H, 
+      HOUSE_FITMENT, DESCP, PERIOD, 
+      RELATE_HOUSE, COMMISSION, CASH_DEPOSIT, 
+      CLIENT_ID, CREATION_TIME, TRACK_USER, 
+      TRACK_TIME, CASE_STATUS, TRADE_PRICE, 
+      TRADE_TIMES, TRADE_USER, TRADE_TIME, 
+      TRADE_FLAG, HOUSE_ID, INFO_SOURCE, 
+      REPEAT_FLAG, HOUSE_SECTION, SECTION_NAME, 
+      CREATOR_UID, NEW_COMPLAIN, HOUSE_TYPE, 
+      HOUSE_YEAR_LOW, HOUSE_YEAR_HIGH, COMPLAIN_TIME, 
+      HAS_REFUND, REFUND_TIME, PURCHASE_COUNT, 
+      COMPLAIN_COUNT, DOWN_TIME, FULL_TIME, 
+      DOWN_TRACKID, ISURGENT, BUY_PRICE_UNIT, 
+      SOSO_ID, UGC_ID, WX_ID, 
+      WX_OPEN_ID, WF_STATUS, WF_STATUS_VALID, 
+      WF_STATUS_DROP, WF_SEX, WF_RELATE_ID, 
+      WF_FEE, WF_MONEY, WF_MONEY_ADD, 
+      WF_MONEY_BUTIE, WF_MONEY_BONUS, WF_MONEY_RETURN, 
+      WF_MONEY_PAY, WF_ONLINE_MONEY, WF_HOUSE_MONEY, 
+      WF_BROKER_MONEY, WF_COMPLETE_TIME, WF_RECEIVE_TIME, 
+      WF_PUSH_TIMES, OPERATOR_ID, DOWN_REASON, 
+      JIEDAN_COUNT, WF_ARCHIVES, WF_RECOMED, 
+      SENDER_MSG, LAST_PUSH_TIME, UGC_DATETYPE, 
+      IS_VIP, WF_CODE, IS_HELP, 
+      PUSHMSG_LOCKFLAG, LAST_PUSHMSG_TIME, SOURCE_TYPE, 
+      UPDATE_TIME, SUPPLEMENTARY_MONEY, MUST_PAY
+      )
+    values (#{cityId,jdbcType=SMALLINT}, #{buyId,jdbcType=INTEGER}, #{buildId,jdbcType=VARCHAR}, 
+      #{buildName,jdbcType=VARCHAR}, #{houseRegion,jdbcType=VARCHAR}, #{regionName,jdbcType=VARCHAR}, 
+      #{houseRound,jdbcType=VARCHAR}, #{roundName,jdbcType=VARCHAR}, #{buySubject,jdbcType=VARCHAR}, 
+      #{houseUseage,jdbcType=VARCHAR}, #{houseRight,jdbcType=VARCHAR}, #{roomL,jdbcType=TINYINT}, 
+      #{roomH,jdbcType=TINYINT}, #{floorL,jdbcType=TINYINT}, #{floorH,jdbcType=TINYINT}, 
+      #{priceL,jdbcType=INTEGER}, #{priceH,jdbcType=INTEGER}, #{buyPaytype,jdbcType=VARCHAR}, 
+      #{downPay,jdbcType=INTEGER}, #{areaL,jdbcType=INTEGER}, #{areaH,jdbcType=INTEGER}, 
+      #{houseFitment,jdbcType=VARCHAR}, #{descp,jdbcType=VARCHAR}, #{period,jdbcType=TINYINT}, 
+      #{relateHouse,jdbcType=INTEGER}, #{commission,jdbcType=NUMERIC}, #{cashDeposit,jdbcType=INTEGER}, 
+      #{clientId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{trackUser,jdbcType=INTEGER}, 
+      #{trackTime,jdbcType=TIMESTAMP}, #{caseStatus,jdbcType=INTEGER}, #{tradePrice,jdbcType=INTEGER}, 
+      #{tradeTimes,jdbcType=INTEGER}, #{tradeUser,jdbcType=INTEGER}, #{tradeTime,jdbcType=TIMESTAMP}, 
+      #{tradeFlag,jdbcType=TINYINT}, #{houseId,jdbcType=INTEGER}, #{infoSource,jdbcType=TINYINT}, 
+      #{repeatFlag,jdbcType=TINYINT}, #{houseSection,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, 
+      #{creatorUid,jdbcType=INTEGER}, #{newComplain,jdbcType=TINYINT}, #{houseType,jdbcType=VARCHAR}, 
+      #{houseYearLow,jdbcType=VARCHAR}, #{houseYearHigh,jdbcType=VARCHAR}, #{complainTime,jdbcType=TIMESTAMP}, 
+      #{hasRefund,jdbcType=TINYINT}, #{refundTime,jdbcType=TIMESTAMP}, #{purchaseCount,jdbcType=TINYINT}, 
+      #{complainCount,jdbcType=TINYINT}, #{downTime,jdbcType=TIMESTAMP}, #{fullTime,jdbcType=TIMESTAMP}, 
+      #{downTrackid,jdbcType=INTEGER}, #{isurgent,jdbcType=TINYINT}, #{buyPriceUnit,jdbcType=TINYINT}, 
+      #{sosoId,jdbcType=INTEGER}, #{ugcId,jdbcType=INTEGER}, #{wxId,jdbcType=INTEGER}, 
+      #{wxOpenId,jdbcType=VARCHAR}, #{wfStatus,jdbcType=TINYINT}, #{wfStatusValid,jdbcType=TINYINT}, 
+      #{wfStatusDrop,jdbcType=TINYINT}, #{wfSex,jdbcType=TINYINT}, #{wfRelateId,jdbcType=INTEGER}, 
+      #{wfFee,jdbcType=VARCHAR}, #{wfMoney,jdbcType=DECIMAL}, #{wfMoneyAdd,jdbcType=DECIMAL}, 
+      #{wfMoneyButie,jdbcType=DECIMAL}, #{wfMoneyBonus,jdbcType=DECIMAL}, #{wfMoneyReturn,jdbcType=DECIMAL}, 
+      #{wfMoneyPay,jdbcType=DECIMAL}, #{wfOnlineMoney,jdbcType=DECIMAL}, #{wfHouseMoney,jdbcType=DECIMAL}, 
+      #{wfBrokerMoney,jdbcType=DECIMAL}, #{wfCompleteTime,jdbcType=TIMESTAMP}, #{wfReceiveTime,jdbcType=INTEGER}, 
+      #{wfPushTimes,jdbcType=INTEGER}, #{operatorId,jdbcType=INTEGER}, #{downReason,jdbcType=VARCHAR}, 
+      #{jiedanCount,jdbcType=INTEGER}, #{wfArchives,jdbcType=VARCHAR}, #{wfRecomed,jdbcType=TINYINT}, 
+      #{senderMsg,jdbcType=VARCHAR}, #{lastPushTime,jdbcType=TIMESTAMP}, #{ugcDatetype,jdbcType=TINYINT}, 
+      #{isVip,jdbcType=TINYINT}, #{wfCode,jdbcType=VARCHAR}, #{isHelp,jdbcType=TINYINT}, 
+      #{pushmsgLockflag,jdbcType=TINYINT}, #{lastPushmsgTime,jdbcType=TIMESTAMP}, #{sourceType,jdbcType=TINYINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{supplementaryMoney,jdbcType=NUMERIC}, #{mustPay,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyVipBuy">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="buyId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(BUY_ID)+1 FROM VIP_BUY
+    </selectKey>
+    insert into VIP_BUY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      BUY_ID,
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="houseRegion != null">
+        HOUSE_REGION,
+      </if>
+      <if test="regionName != null">
+        REGION_NAME,
+      </if>
+      <if test="houseRound != null">
+        HOUSE_ROUND,
+      </if>
+      <if test="roundName != null">
+        ROUND_NAME,
+      </if>
+      <if test="buySubject != null">
+        BUY_SUBJECT,
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE,
+      </if>
+      <if test="houseRight != null">
+        HOUSE_RIGHT,
+      </if>
+      <if test="roomL != null">
+        ROOM_L,
+      </if>
+      <if test="roomH != null">
+        ROOM_H,
+      </if>
+      <if test="floorL != null">
+        FLOOR_L,
+      </if>
+      <if test="floorH != null">
+        FLOOR_H,
+      </if>
+      <if test="priceL != null">
+        PRICE_L,
+      </if>
+      <if test="priceH != null">
+        PRICE_H,
+      </if>
+      <if test="buyPaytype != null">
+        BUY_PAYTYPE,
+      </if>
+      <if test="downPay != null">
+        DOWN_PAY,
+      </if>
+      <if test="areaL != null">
+        AREA_L,
+      </if>
+      <if test="areaH != null">
+        AREA_H,
+      </if>
+      <if test="houseFitment != null">
+        HOUSE_FITMENT,
+      </if>
+      <if test="descp != null">
+        DESCP,
+      </if>
+      <if test="period != null">
+        PERIOD,
+      </if>
+      <if test="relateHouse != null">
+        RELATE_HOUSE,
+      </if>
+      <if test="commission != null">
+        COMMISSION,
+      </if>
+      <if test="cashDeposit != null">
+        CASH_DEPOSIT,
+      </if>
+      <if test="clientId != null">
+        CLIENT_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="trackUser != null">
+        TRACK_USER,
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME,
+      </if>
+      <if test="caseStatus != null">
+        CASE_STATUS,
+      </if>
+      <if test="tradePrice != null">
+        TRADE_PRICE,
+      </if>
+      <if test="tradeTimes != null">
+        TRADE_TIMES,
+      </if>
+      <if test="tradeUser != null">
+        TRADE_USER,
+      </if>
+      <if test="tradeTime != null">
+        TRADE_TIME,
+      </if>
+      <if test="tradeFlag != null">
+        TRADE_FLAG,
+      </if>
+      <if test="houseId != null">
+        HOUSE_ID,
+      </if>
+      <if test="infoSource != null">
+        INFO_SOURCE,
+      </if>
+      <if test="repeatFlag != null">
+        REPEAT_FLAG,
+      </if>
+      <if test="houseSection != null">
+        HOUSE_SECTION,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="newComplain != null">
+        NEW_COMPLAIN,
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE,
+      </if>
+      <if test="houseYearLow != null">
+        HOUSE_YEAR_LOW,
+      </if>
+      <if test="houseYearHigh != null">
+        HOUSE_YEAR_HIGH,
+      </if>
+      <if test="complainTime != null">
+        COMPLAIN_TIME,
+      </if>
+      <if test="hasRefund != null">
+        HAS_REFUND,
+      </if>
+      <if test="refundTime != null">
+        REFUND_TIME,
+      </if>
+      <if test="purchaseCount != null">
+        PURCHASE_COUNT,
+      </if>
+      <if test="complainCount != null">
+        COMPLAIN_COUNT,
+      </if>
+      <if test="downTime != null">
+        DOWN_TIME,
+      </if>
+      <if test="fullTime != null">
+        FULL_TIME,
+      </if>
+      <if test="downTrackid != null">
+        DOWN_TRACKID,
+      </if>
+      <if test="isurgent != null">
+        ISURGENT,
+      </if>
+      <if test="buyPriceUnit != null">
+        BUY_PRICE_UNIT,
+      </if>
+      <if test="sosoId != null">
+        SOSO_ID,
+      </if>
+      <if test="ugcId != null">
+        UGC_ID,
+      </if>
+      <if test="wxId != null">
+        WX_ID,
+      </if>
+      <if test="wxOpenId != null">
+        WX_OPEN_ID,
+      </if>
+      <if test="wfStatus != null">
+        WF_STATUS,
+      </if>
+      <if test="wfStatusValid != null">
+        WF_STATUS_VALID,
+      </if>
+      <if test="wfStatusDrop != null">
+        WF_STATUS_DROP,
+      </if>
+      <if test="wfSex != null">
+        WF_SEX,
+      </if>
+      <if test="wfRelateId != null">
+        WF_RELATE_ID,
+      </if>
+      <if test="wfFee != null">
+        WF_FEE,
+      </if>
+      <if test="wfMoney != null">
+        WF_MONEY,
+      </if>
+      <if test="wfMoneyAdd != null">
+        WF_MONEY_ADD,
+      </if>
+      <if test="wfMoneyButie != null">
+        WF_MONEY_BUTIE,
+      </if>
+      <if test="wfMoneyBonus != null">
+        WF_MONEY_BONUS,
+      </if>
+      <if test="wfMoneyReturn != null">
+        WF_MONEY_RETURN,
+      </if>
+      <if test="wfMoneyPay != null">
+        WF_MONEY_PAY,
+      </if>
+      <if test="wfOnlineMoney != null">
+        WF_ONLINE_MONEY,
+      </if>
+      <if test="wfHouseMoney != null">
+        WF_HOUSE_MONEY,
+      </if>
+      <if test="wfBrokerMoney != null">
+        WF_BROKER_MONEY,
+      </if>
+      <if test="wfCompleteTime != null">
+        WF_COMPLETE_TIME,
+      </if>
+      <if test="wfReceiveTime != null">
+        WF_RECEIVE_TIME,
+      </if>
+      <if test="wfPushTimes != null">
+        WF_PUSH_TIMES,
+      </if>
+      <if test="operatorId != null">
+        OPERATOR_ID,
+      </if>
+      <if test="downReason != null">
+        DOWN_REASON,
+      </if>
+      <if test="jiedanCount != null">
+        JIEDAN_COUNT,
+      </if>
+      <if test="wfArchives != null">
+        WF_ARCHIVES,
+      </if>
+      <if test="wfRecomed != null">
+        WF_RECOMED,
+      </if>
+      <if test="senderMsg != null">
+        SENDER_MSG,
+      </if>
+      <if test="lastPushTime != null">
+        LAST_PUSH_TIME,
+      </if>
+      <if test="ugcDatetype != null">
+        UGC_DATETYPE,
+      </if>
+      <if test="isVip != null">
+        IS_VIP,
+      </if>
+      <if test="wfCode != null">
+        WF_CODE,
+      </if>
+      <if test="isHelp != null">
+        IS_HELP,
+      </if>
+      <if test="pushmsgLockflag != null">
+        PUSHMSG_LOCKFLAG,
+      </if>
+      <if test="lastPushmsgTime != null">
+        LAST_PUSHMSG_TIME,
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="supplementaryMoney != null">
+        SUPPLEMENTARY_MONEY,
+      </if>
+      <if test="mustPay != null">
+        MUST_PAY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      #{buyId,jdbcType=INTEGER},
+      <if test="buildId != null">
+        #{buildId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRegion != null">
+        #{houseRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="regionName != null">
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRound != null">
+        #{houseRound,jdbcType=VARCHAR},
+      </if>
+      <if test="roundName != null">
+        #{roundName,jdbcType=VARCHAR},
+      </if>
+      <if test="buySubject != null">
+        #{buySubject,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRight != null">
+        #{houseRight,jdbcType=VARCHAR},
+      </if>
+      <if test="roomL != null">
+        #{roomL,jdbcType=TINYINT},
+      </if>
+      <if test="roomH != null">
+        #{roomH,jdbcType=TINYINT},
+      </if>
+      <if test="floorL != null">
+        #{floorL,jdbcType=TINYINT},
+      </if>
+      <if test="floorH != null">
+        #{floorH,jdbcType=TINYINT},
+      </if>
+      <if test="priceL != null">
+        #{priceL,jdbcType=INTEGER},
+      </if>
+      <if test="priceH != null">
+        #{priceH,jdbcType=INTEGER},
+      </if>
+      <if test="buyPaytype != null">
+        #{buyPaytype,jdbcType=VARCHAR},
+      </if>
+      <if test="downPay != null">
+        #{downPay,jdbcType=INTEGER},
+      </if>
+      <if test="areaL != null">
+        #{areaL,jdbcType=INTEGER},
+      </if>
+      <if test="areaH != null">
+        #{areaH,jdbcType=INTEGER},
+      </if>
+      <if test="houseFitment != null">
+        #{houseFitment,jdbcType=VARCHAR},
+      </if>
+      <if test="descp != null">
+        #{descp,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=TINYINT},
+      </if>
+      <if test="relateHouse != null">
+        #{relateHouse,jdbcType=INTEGER},
+      </if>
+      <if test="commission != null">
+        #{commission,jdbcType=NUMERIC},
+      </if>
+      <if test="cashDeposit != null">
+        #{cashDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackUser != null">
+        #{trackUser,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null">
+        #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseStatus != null">
+        #{caseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tradePrice != null">
+        #{tradePrice,jdbcType=INTEGER},
+      </if>
+      <if test="tradeTimes != null">
+        #{tradeTimes,jdbcType=INTEGER},
+      </if>
+      <if test="tradeUser != null">
+        #{tradeUser,jdbcType=INTEGER},
+      </if>
+      <if test="tradeTime != null">
+        #{tradeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradeFlag != null">
+        #{tradeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="infoSource != null">
+        #{infoSource,jdbcType=TINYINT},
+      </if>
+      <if test="repeatFlag != null">
+        #{repeatFlag,jdbcType=TINYINT},
+      </if>
+      <if test="houseSection != null">
+        #{houseSection,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="newComplain != null">
+        #{newComplain,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYearLow != null">
+        #{houseYearLow,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYearHigh != null">
+        #{houseYearHigh,jdbcType=VARCHAR},
+      </if>
+      <if test="complainTime != null">
+        #{complainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasRefund != null">
+        #{hasRefund,jdbcType=TINYINT},
+      </if>
+      <if test="refundTime != null">
+        #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purchaseCount != null">
+        #{purchaseCount,jdbcType=TINYINT},
+      </if>
+      <if test="complainCount != null">
+        #{complainCount,jdbcType=TINYINT},
+      </if>
+      <if test="downTime != null">
+        #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fullTime != null">
+        #{fullTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downTrackid != null">
+        #{downTrackid,jdbcType=INTEGER},
+      </if>
+      <if test="isurgent != null">
+        #{isurgent,jdbcType=TINYINT},
+      </if>
+      <if test="buyPriceUnit != null">
+        #{buyPriceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="sosoId != null">
+        #{sosoId,jdbcType=INTEGER},
+      </if>
+      <if test="ugcId != null">
+        #{ugcId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null">
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null">
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfStatus != null">
+        #{wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatusValid != null">
+        #{wfStatusValid,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatusDrop != null">
+        #{wfStatusDrop,jdbcType=TINYINT},
+      </if>
+      <if test="wfSex != null">
+        #{wfSex,jdbcType=TINYINT},
+      </if>
+      <if test="wfRelateId != null">
+        #{wfRelateId,jdbcType=INTEGER},
+      </if>
+      <if test="wfFee != null">
+        #{wfFee,jdbcType=VARCHAR},
+      </if>
+      <if test="wfMoney != null">
+        #{wfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyAdd != null">
+        #{wfMoneyAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyButie != null">
+        #{wfMoneyButie,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyBonus != null">
+        #{wfMoneyBonus,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyReturn != null">
+        #{wfMoneyReturn,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyPay != null">
+        #{wfMoneyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="wfOnlineMoney != null">
+        #{wfOnlineMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfHouseMoney != null">
+        #{wfHouseMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfBrokerMoney != null">
+        #{wfBrokerMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfCompleteTime != null">
+        #{wfCompleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wfReceiveTime != null">
+        #{wfReceiveTime,jdbcType=INTEGER},
+      </if>
+      <if test="wfPushTimes != null">
+        #{wfPushTimes,jdbcType=INTEGER},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="downReason != null">
+        #{downReason,jdbcType=VARCHAR},
+      </if>
+      <if test="jiedanCount != null">
+        #{jiedanCount,jdbcType=INTEGER},
+      </if>
+      <if test="wfArchives != null">
+        #{wfArchives,jdbcType=VARCHAR},
+      </if>
+      <if test="wfRecomed != null">
+        #{wfRecomed,jdbcType=TINYINT},
+      </if>
+      <if test="senderMsg != null">
+        #{senderMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="lastPushTime != null">
+        #{lastPushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ugcDatetype != null">
+        #{ugcDatetype,jdbcType=TINYINT},
+      </if>
+      <if test="isVip != null">
+        #{isVip,jdbcType=TINYINT},
+      </if>
+      <if test="wfCode != null">
+        #{wfCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isHelp != null">
+        #{isHelp,jdbcType=TINYINT},
+      </if>
+      <if test="pushmsgLockflag != null">
+        #{pushmsgLockflag,jdbcType=TINYINT},
+      </if>
+      <if test="lastPushmsgTime != null">
+        #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplementaryMoney != null">
+        #{supplementaryMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="mustPay != null">
+        #{mustPay,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyVipBuy">
+    <!--@mbggenerated-->
+    update VIP_BUY
+    <set>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRegion != null">
+        HOUSE_REGION = #{houseRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="regionName != null">
+        REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRound != null">
+        HOUSE_ROUND = #{houseRound,jdbcType=VARCHAR},
+      </if>
+      <if test="roundName != null">
+        ROUND_NAME = #{roundName,jdbcType=VARCHAR},
+      </if>
+      <if test="buySubject != null">
+        BUY_SUBJECT = #{buySubject,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE = #{houseUseage,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRight != null">
+        HOUSE_RIGHT = #{houseRight,jdbcType=VARCHAR},
+      </if>
+      <if test="roomL != null">
+        ROOM_L = #{roomL,jdbcType=TINYINT},
+      </if>
+      <if test="roomH != null">
+        ROOM_H = #{roomH,jdbcType=TINYINT},
+      </if>
+      <if test="floorL != null">
+        FLOOR_L = #{floorL,jdbcType=TINYINT},
+      </if>
+      <if test="floorH != null">
+        FLOOR_H = #{floorH,jdbcType=TINYINT},
+      </if>
+      <if test="priceL != null">
+        PRICE_L = #{priceL,jdbcType=INTEGER},
+      </if>
+      <if test="priceH != null">
+        PRICE_H = #{priceH,jdbcType=INTEGER},
+      </if>
+      <if test="buyPaytype != null">
+        BUY_PAYTYPE = #{buyPaytype,jdbcType=VARCHAR},
+      </if>
+      <if test="downPay != null">
+        DOWN_PAY = #{downPay,jdbcType=INTEGER},
+      </if>
+      <if test="areaL != null">
+        AREA_L = #{areaL,jdbcType=INTEGER},
+      </if>
+      <if test="areaH != null">
+        AREA_H = #{areaH,jdbcType=INTEGER},
+      </if>
+      <if test="houseFitment != null">
+        HOUSE_FITMENT = #{houseFitment,jdbcType=VARCHAR},
+      </if>
+      <if test="descp != null">
+        DESCP = #{descp,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        PERIOD = #{period,jdbcType=TINYINT},
+      </if>
+      <if test="relateHouse != null">
+        RELATE_HOUSE = #{relateHouse,jdbcType=INTEGER},
+      </if>
+      <if test="commission != null">
+        COMMISSION = #{commission,jdbcType=NUMERIC},
+      </if>
+      <if test="cashDeposit != null">
+        CASH_DEPOSIT = #{cashDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        CLIENT_ID = #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackUser != null">
+        TRACK_USER = #{trackUser,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseStatus != null">
+        CASE_STATUS = #{caseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tradePrice != null">
+        TRADE_PRICE = #{tradePrice,jdbcType=INTEGER},
+      </if>
+      <if test="tradeTimes != null">
+        TRADE_TIMES = #{tradeTimes,jdbcType=INTEGER},
+      </if>
+      <if test="tradeUser != null">
+        TRADE_USER = #{tradeUser,jdbcType=INTEGER},
+      </if>
+      <if test="tradeTime != null">
+        TRADE_TIME = #{tradeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradeFlag != null">
+        TRADE_FLAG = #{tradeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="houseId != null">
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="infoSource != null">
+        INFO_SOURCE = #{infoSource,jdbcType=TINYINT},
+      </if>
+      <if test="repeatFlag != null">
+        REPEAT_FLAG = #{repeatFlag,jdbcType=TINYINT},
+      </if>
+      <if test="houseSection != null">
+        HOUSE_SECTION = #{houseSection,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="newComplain != null">
+        NEW_COMPLAIN = #{newComplain,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE = #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYearLow != null">
+        HOUSE_YEAR_LOW = #{houseYearLow,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYearHigh != null">
+        HOUSE_YEAR_HIGH = #{houseYearHigh,jdbcType=VARCHAR},
+      </if>
+      <if test="complainTime != null">
+        COMPLAIN_TIME = #{complainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasRefund != null">
+        HAS_REFUND = #{hasRefund,jdbcType=TINYINT},
+      </if>
+      <if test="refundTime != null">
+        REFUND_TIME = #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purchaseCount != null">
+        PURCHASE_COUNT = #{purchaseCount,jdbcType=TINYINT},
+      </if>
+      <if test="complainCount != null">
+        COMPLAIN_COUNT = #{complainCount,jdbcType=TINYINT},
+      </if>
+      <if test="downTime != null">
+        DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fullTime != null">
+        FULL_TIME = #{fullTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downTrackid != null">
+        DOWN_TRACKID = #{downTrackid,jdbcType=INTEGER},
+      </if>
+      <if test="isurgent != null">
+        ISURGENT = #{isurgent,jdbcType=TINYINT},
+      </if>
+      <if test="buyPriceUnit != null">
+        BUY_PRICE_UNIT = #{buyPriceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="sosoId != null">
+        SOSO_ID = #{sosoId,jdbcType=INTEGER},
+      </if>
+      <if test="ugcId != null">
+        UGC_ID = #{ugcId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null">
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null">
+        WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfStatus != null">
+        WF_STATUS = #{wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatusValid != null">
+        WF_STATUS_VALID = #{wfStatusValid,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatusDrop != null">
+        WF_STATUS_DROP = #{wfStatusDrop,jdbcType=TINYINT},
+      </if>
+      <if test="wfSex != null">
+        WF_SEX = #{wfSex,jdbcType=TINYINT},
+      </if>
+      <if test="wfRelateId != null">
+        WF_RELATE_ID = #{wfRelateId,jdbcType=INTEGER},
+      </if>
+      <if test="wfFee != null">
+        WF_FEE = #{wfFee,jdbcType=VARCHAR},
+      </if>
+      <if test="wfMoney != null">
+        WF_MONEY = #{wfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyAdd != null">
+        WF_MONEY_ADD = #{wfMoneyAdd,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyButie != null">
+        WF_MONEY_BUTIE = #{wfMoneyButie,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyBonus != null">
+        WF_MONEY_BONUS = #{wfMoneyBonus,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyReturn != null">
+        WF_MONEY_RETURN = #{wfMoneyReturn,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyPay != null">
+        WF_MONEY_PAY = #{wfMoneyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="wfOnlineMoney != null">
+        WF_ONLINE_MONEY = #{wfOnlineMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfHouseMoney != null">
+        WF_HOUSE_MONEY = #{wfHouseMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfBrokerMoney != null">
+        WF_BROKER_MONEY = #{wfBrokerMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfCompleteTime != null">
+        WF_COMPLETE_TIME = #{wfCompleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wfReceiveTime != null">
+        WF_RECEIVE_TIME = #{wfReceiveTime,jdbcType=INTEGER},
+      </if>
+      <if test="wfPushTimes != null">
+        WF_PUSH_TIMES = #{wfPushTimes,jdbcType=INTEGER},
+      </if>
+      <if test="operatorId != null">
+        OPERATOR_ID = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="downReason != null">
+        DOWN_REASON = #{downReason,jdbcType=VARCHAR},
+      </if>
+      <if test="jiedanCount != null">
+        JIEDAN_COUNT = #{jiedanCount,jdbcType=INTEGER},
+      </if>
+      <if test="wfArchives != null">
+        WF_ARCHIVES = #{wfArchives,jdbcType=VARCHAR},
+      </if>
+      <if test="wfRecomed != null">
+        WF_RECOMED = #{wfRecomed,jdbcType=TINYINT},
+      </if>
+      <if test="senderMsg != null">
+        SENDER_MSG = #{senderMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="lastPushTime != null">
+        LAST_PUSH_TIME = #{lastPushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ugcDatetype != null">
+        UGC_DATETYPE = #{ugcDatetype,jdbcType=TINYINT},
+      </if>
+      <if test="isVip != null">
+        IS_VIP = #{isVip,jdbcType=TINYINT},
+      </if>
+      <if test="wfCode != null">
+        WF_CODE = #{wfCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isHelp != null">
+        IS_HELP = #{isHelp,jdbcType=TINYINT},
+      </if>
+      <if test="pushmsgLockflag != null">
+        PUSHMSG_LOCKFLAG = #{pushmsgLockflag,jdbcType=TINYINT},
+      </if>
+      <if test="lastPushmsgTime != null">
+        LAST_PUSHMSG_TIME = #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourceType != null">
+        SOURCE_TYPE = #{sourceType,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplementaryMoney != null">
+        SUPPLEMENTARY_MONEY = #{supplementaryMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="mustPay != null">
+        MUST_PAY = #{mustPay,jdbcType=TINYINT},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUY_ID = #{buyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyVipBuy">
+    <!--@mbggenerated-->
+    update VIP_BUY
+    set BUILD_ID = #{buildId,jdbcType=VARCHAR},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      HOUSE_REGION = #{houseRegion,jdbcType=VARCHAR},
+      REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      HOUSE_ROUND = #{houseRound,jdbcType=VARCHAR},
+      ROUND_NAME = #{roundName,jdbcType=VARCHAR},
+      BUY_SUBJECT = #{buySubject,jdbcType=VARCHAR},
+      HOUSE_USEAGE = #{houseUseage,jdbcType=VARCHAR},
+      HOUSE_RIGHT = #{houseRight,jdbcType=VARCHAR},
+      ROOM_L = #{roomL,jdbcType=TINYINT},
+      ROOM_H = #{roomH,jdbcType=TINYINT},
+      FLOOR_L = #{floorL,jdbcType=TINYINT},
+      FLOOR_H = #{floorH,jdbcType=TINYINT},
+      PRICE_L = #{priceL,jdbcType=INTEGER},
+      PRICE_H = #{priceH,jdbcType=INTEGER},
+      BUY_PAYTYPE = #{buyPaytype,jdbcType=VARCHAR},
+      DOWN_PAY = #{downPay,jdbcType=INTEGER},
+      AREA_L = #{areaL,jdbcType=INTEGER},
+      AREA_H = #{areaH,jdbcType=INTEGER},
+      HOUSE_FITMENT = #{houseFitment,jdbcType=VARCHAR},
+      DESCP = #{descp,jdbcType=VARCHAR},
+      PERIOD = #{period,jdbcType=TINYINT},
+      RELATE_HOUSE = #{relateHouse,jdbcType=INTEGER},
+      COMMISSION = #{commission,jdbcType=NUMERIC},
+      CASH_DEPOSIT = #{cashDeposit,jdbcType=INTEGER},
+      CLIENT_ID = #{clientId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      TRACK_USER = #{trackUser,jdbcType=INTEGER},
+      TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      CASE_STATUS = #{caseStatus,jdbcType=INTEGER},
+      TRADE_PRICE = #{tradePrice,jdbcType=INTEGER},
+      TRADE_TIMES = #{tradeTimes,jdbcType=INTEGER},
+      TRADE_USER = #{tradeUser,jdbcType=INTEGER},
+      TRADE_TIME = #{tradeTime,jdbcType=TIMESTAMP},
+      TRADE_FLAG = #{tradeFlag,jdbcType=TINYINT},
+      HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      INFO_SOURCE = #{infoSource,jdbcType=TINYINT},
+      REPEAT_FLAG = #{repeatFlag,jdbcType=TINYINT},
+      HOUSE_SECTION = #{houseSection,jdbcType=VARCHAR},
+      SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      NEW_COMPLAIN = #{newComplain,jdbcType=TINYINT},
+      HOUSE_TYPE = #{houseType,jdbcType=VARCHAR},
+      HOUSE_YEAR_LOW = #{houseYearLow,jdbcType=VARCHAR},
+      HOUSE_YEAR_HIGH = #{houseYearHigh,jdbcType=VARCHAR},
+      COMPLAIN_TIME = #{complainTime,jdbcType=TIMESTAMP},
+      HAS_REFUND = #{hasRefund,jdbcType=TINYINT},
+      REFUND_TIME = #{refundTime,jdbcType=TIMESTAMP},
+      PURCHASE_COUNT = #{purchaseCount,jdbcType=TINYINT},
+      COMPLAIN_COUNT = #{complainCount,jdbcType=TINYINT},
+      DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      FULL_TIME = #{fullTime,jdbcType=TIMESTAMP},
+      DOWN_TRACKID = #{downTrackid,jdbcType=INTEGER},
+      ISURGENT = #{isurgent,jdbcType=TINYINT},
+      BUY_PRICE_UNIT = #{buyPriceUnit,jdbcType=TINYINT},
+      SOSO_ID = #{sosoId,jdbcType=INTEGER},
+      UGC_ID = #{ugcId,jdbcType=INTEGER},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      WF_STATUS = #{wfStatus,jdbcType=TINYINT},
+      WF_STATUS_VALID = #{wfStatusValid,jdbcType=TINYINT},
+      WF_STATUS_DROP = #{wfStatusDrop,jdbcType=TINYINT},
+      WF_SEX = #{wfSex,jdbcType=TINYINT},
+      WF_RELATE_ID = #{wfRelateId,jdbcType=INTEGER},
+      WF_FEE = #{wfFee,jdbcType=VARCHAR},
+      WF_MONEY = #{wfMoney,jdbcType=DECIMAL},
+      WF_MONEY_ADD = #{wfMoneyAdd,jdbcType=DECIMAL},
+      WF_MONEY_BUTIE = #{wfMoneyButie,jdbcType=DECIMAL},
+      WF_MONEY_BONUS = #{wfMoneyBonus,jdbcType=DECIMAL},
+      WF_MONEY_RETURN = #{wfMoneyReturn,jdbcType=DECIMAL},
+      WF_MONEY_PAY = #{wfMoneyPay,jdbcType=DECIMAL},
+      WF_ONLINE_MONEY = #{wfOnlineMoney,jdbcType=DECIMAL},
+      WF_HOUSE_MONEY = #{wfHouseMoney,jdbcType=DECIMAL},
+      WF_BROKER_MONEY = #{wfBrokerMoney,jdbcType=DECIMAL},
+      WF_COMPLETE_TIME = #{wfCompleteTime,jdbcType=TIMESTAMP},
+      WF_RECEIVE_TIME = #{wfReceiveTime,jdbcType=INTEGER},
+      WF_PUSH_TIMES = #{wfPushTimes,jdbcType=INTEGER},
+      OPERATOR_ID = #{operatorId,jdbcType=INTEGER},
+      DOWN_REASON = #{downReason,jdbcType=VARCHAR},
+      JIEDAN_COUNT = #{jiedanCount,jdbcType=INTEGER},
+      WF_ARCHIVES = #{wfArchives,jdbcType=VARCHAR},
+      WF_RECOMED = #{wfRecomed,jdbcType=TINYINT},
+      SENDER_MSG = #{senderMsg,jdbcType=VARCHAR},
+      LAST_PUSH_TIME = #{lastPushTime,jdbcType=TIMESTAMP},
+      UGC_DATETYPE = #{ugcDatetype,jdbcType=TINYINT},
+      IS_VIP = #{isVip,jdbcType=TINYINT},
+      WF_CODE = #{wfCode,jdbcType=VARCHAR},
+      IS_HELP = #{isHelp,jdbcType=TINYINT},
+      PUSHMSG_LOCKFLAG = #{pushmsgLockflag,jdbcType=TINYINT},
+      LAST_PUSHMSG_TIME = #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      SOURCE_TYPE = #{sourceType,jdbcType=TINYINT},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      SUPPLEMENTARY_MONEY = #{supplementaryMoney,jdbcType=NUMERIC},
+      MUST_PAY = #{mustPay,jdbcType=TINYINT}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUY_ID = #{buyId,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="AgencyVipBuyListDto" type="com.myfun.repository.agencydb.dto.AgencyVipBuyListDto">
+<!--<result column="property" property="property" />
+    <result column="is_seperator" property="isSeperator" />
+    <result column="office_level" property="officeLevel" />
+    <result column="shop_usage" property="shopUsage" />
+    <result column="hall_structure" property="hallStructure" />
+    <result column="ug_area" property="ugArea" />
+    <result column="ug_type" property="ugType" />
+    <result column="garden_area" property="gardenArea" />
+    <result column="garage_amount" property="garageAmount" />
+    <result column="VIEW_TIME" property="viewTime" />-->
+    <result column="readed" property="readed" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="extResultMap" type="com.myfun.repository.agencydb.dto.AgencyVipBuyDto">
+  </resultMap>
+  
+  <resultMap id="BaseResultMapDto" type="com.myfun.repository.agencydb.dto.AgencyVipBuyDto">
+  	<id column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <id column="BUY_ID" jdbcType="INTEGER" property="buyId" />
+    <result column="BUILD_ID" jdbcType="VARCHAR" property="buildId" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="HOUSE_REGION" jdbcType="VARCHAR" property="houseRegion" />
+    <result column="REGION_NAME" jdbcType="VARCHAR" property="regionName" />
+    <result column="HOUSE_ROUND" jdbcType="VARCHAR" property="houseRound" />
+    <result column="ROUND_NAME" jdbcType="VARCHAR" property="roundName" />
+    <result column="BUY_SUBJECT" jdbcType="VARCHAR" property="buySubject" />
+    <result column="HOUSE_USEAGE" jdbcType="VARCHAR" property="houseUseage" />
+    <result column="HOUSE_RIGHT" jdbcType="VARCHAR" property="houseRight" />
+    <result column="ROOM_L" jdbcType="TINYINT" property="roomL" />
+    <result column="ROOM_H" jdbcType="TINYINT" property="roomH" />
+    <result column="FLOOR_L" jdbcType="TINYINT" property="floorL" />
+    <result column="FLOOR_H" jdbcType="TINYINT" property="floorH" />
+    <result column="PRICE_L" jdbcType="INTEGER" property="priceL" />
+    <result column="PRICE_H" jdbcType="INTEGER" property="priceH" />
+    <result column="BUY_PAYTYPE" jdbcType="VARCHAR" property="buyPaytype" />
+    <result column="DOWN_PAY" jdbcType="INTEGER" property="downPay" />
+    <result column="AREA_L" jdbcType="INTEGER" property="areaL" />
+    <result column="AREA_H" jdbcType="INTEGER" property="areaH" />
+    <result column="HOUSE_FITMENT" jdbcType="VARCHAR" property="houseFitment" />
+    <result column="DESCP" jdbcType="VARCHAR" property="descp" />
+    <result column="PERIOD" jdbcType="TINYINT" property="period" />
+    <result column="RELATE_HOUSE" jdbcType="INTEGER" property="relateHouse" />
+    <result column="COMMISSION" jdbcType="NUMERIC" property="commission" />
+    <result column="CASH_DEPOSIT" jdbcType="INTEGER" property="cashDeposit" />
+    <result column="CLIENT_ID" jdbcType="INTEGER" property="clientId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="TRACK_USER" jdbcType="INTEGER" property="trackUser" />
+    <result column="TRACK_TIME" jdbcType="TIMESTAMP" property="trackTime" />
+    <result column="CASE_STATUS" jdbcType="INTEGER" property="caseStatus" />
+    <result column="TRADE_PRICE" jdbcType="INTEGER" property="tradePrice" />
+    <result column="TRADE_TIMES" jdbcType="INTEGER" property="tradeTimes" />
+    <result column="TRADE_USER" jdbcType="INTEGER" property="tradeUser" />
+    <result column="TRADE_TIME" jdbcType="TIMESTAMP" property="tradeTime" />
+    <result column="TRADE_FLAG" jdbcType="TINYINT" property="tradeFlag" />
+    <result column="HOUSE_ID" jdbcType="INTEGER" property="houseId" />
+    <result column="INFO_SOURCE" jdbcType="TINYINT" property="infoSource" />
+    <result column="REPEAT_FLAG" jdbcType="TINYINT" property="repeatFlag" />
+    <result column="HOUSE_SECTION" jdbcType="VARCHAR" property="houseSection" />
+    <result column="SECTION_NAME" jdbcType="VARCHAR" property="sectionName" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="NEW_COMPLAIN" jdbcType="TINYINT" property="newComplain" />
+    <result column="HOUSE_TYPE" jdbcType="VARCHAR" property="houseType" />
+    <result column="HOUSE_YEAR_LOW" jdbcType="VARCHAR" property="houseYearLow" />
+    <result column="HOUSE_YEAR_HIGH" jdbcType="VARCHAR" property="houseYearHigh" />
+    <result column="COMPLAIN_TIME" jdbcType="TIMESTAMP" property="complainTime" />
+    <result column="HAS_REFUND" jdbcType="TINYINT" property="hasRefund" />
+    <result column="REFUND_TIME" jdbcType="TIMESTAMP" property="refundTime" />
+    <result column="PURCHASE_COUNT" jdbcType="TINYINT" property="purchaseCount" />
+    <result column="COMPLAIN_COUNT" jdbcType="TINYINT" property="complainCount" />
+    <result column="DOWN_TIME" jdbcType="TIMESTAMP" property="downTime" />
+    <result column="FULL_TIME" jdbcType="TIMESTAMP" property="fullTime" />
+    <result column="DOWN_TRACKID" jdbcType="INTEGER" property="downTrackid" />
+    <result column="ISURGENT" jdbcType="TINYINT" property="isurgent" />
+    <result column="BUY_PRICE_UNIT" jdbcType="TINYINT" property="buyPriceUnit" />
+    <result column="SOSO_ID" jdbcType="INTEGER" property="sosoId" />
+    <result column="UGC_ID" jdbcType="INTEGER" property="ugcId" />
+    <result column="WF_STATUS" jdbcType="TINYINT" property="wfStatus" />
+    <result column="WF_STATUS_VALID" jdbcType="TINYINT" property="wfStatusValid" />
+    <result column="WF_STATUS_DROP" jdbcType="TINYINT" property="wfStatusDrop" />
+    <result column="WF_CODE" jdbcType="VARCHAR" property="wfCode" />
+    <result column="WF_SEX" jdbcType="TINYINT" property="wfSex" />
+    <result column="WF_RELATE_ID" jdbcType="INTEGER" property="wfRelateId" />
+    <result column="WX_ID" jdbcType="INTEGER" property="wxId" />
+    <result column="WX_OPEN_ID" jdbcType="VARCHAR" property="wxOpenId" />
+    <result column="WF_FEE" jdbcType="VARCHAR" property="wfFee" />
+    <result column="WF_MONEY" jdbcType="DECIMAL" property="wfMoney" />
+    <result column="WF_MONEY_BUTIE" jdbcType="DECIMAL" property="wfMoneyButie" />
+    <result column="WF_MONEY_BONUS" jdbcType="DECIMAL" property="wfMoneyBonus" />
+    <result column="WF_MONEY_RETURN" jdbcType="DECIMAL" property="wfMoneyReturn" />
+    <result column="WF_ONLINE_MONEY" jdbcType="DECIMAL" property="wfOnlineMoney" />
+    <result column="WF_HOUSE_MONEY" jdbcType="DECIMAL" property="wfHouseMoney" />
+    <result column="WF_BROKER_MONEY" jdbcType="DECIMAL" property="wfBrokerMoney" />
+    <result column="WF_MONEY_PAY" jdbcType="DECIMAL" property="wfMoneyPay" />
+    <result column="WF_COMPLETE_TIME" jdbcType="TIMESTAMP" property="wfCompleteTime" />
+    <result column="WF_RECEIVE_TIME" jdbcType="INTEGER" property="wfReceiveTime" />
+    <result column="OPERATOR_ID" jdbcType="INTEGER" property="operatorId" />
+    <result column="DOWN_REASON" jdbcType="VARCHAR" property="downReason" />
+    <result column="WF_MONEY_ADD" jdbcType="DOUBLE" property="wfMoneyAdd" />
+    <result column="JIEDAN_COUNT" jdbcType="INTEGER" property="jiedanCount" />
+    <result column="WF_PUSH_TIMES" jdbcType="INTEGER" property="wfPushTimes" />
+    <result column="WF_ARCHIVES" jdbcType="VARCHAR" property="wfArchives" />
+    <result column="WF_RECOMED" jdbcType="TINYINT" property="wfRecomed" />
+  	<result column="CITY_NAME" jdbcType="VARCHAR" property="cityName" />
+  	<result column="IS_BROKER" jdbcType="VARCHAR" property="isBroker" />
+  </resultMap>
+  
+  <!-- buniess -->
+  <select id="getAgencyVipBuyDtoList" parameterType="com.myfun.repository.agencydb.param.AgencyVipBuyParam" resultMap="BaseResultMapDto">
+  	select  <include refid="Base_Column_List" />
+		  , (
+				SELECT
+					CITY_NAME
+				FROM
+					FUN_CITY
+				WHERE
+					FUN_CITY.CITY_ID = VIP_BUY.CITY_ID
+			) AS CITY_NAME,
+			(
+				SELECT
+					IS_BROKER
+				FROM
+					WEB_CLIENT
+				WHERE
+					WEB_CLIENT.CITY_ID = VIP_BUY.CITY_ID
+				AND WEB_CLIENT.CLIENT_ID = VIP_BUY.CLIENT_ID
+			) AS IS_BROKER
+		FROM
+			VIP_BUY
+		<where>
+			<if test="date1 != null and date1 != ''">
+				CREATION_TIME &gt;= #{date1}
+			</if>
+			<if test="date2 != null and date2 != ''">
+				AND CREATION_TIME &lt;= #{date2}
+			</if>
+			<if test="tradeTime1 != null and tradeTime1 != ''">
+				AND TRADE_TIME &gt;= #{tradeTime1}
+			</if>
+			 <if test="tradeTime2 != null and tradeTime2 != ''">
+				AND TRADE_TIME &lt;= #{tradeTime2}
+			</if>
+			<if test="buildId != null and buildId != ''">
+				AND BUILD_ID = #{buildId,jdbcType=VARCHAR}
+			</if>
+			<if test="(buildId == null or buildId == '') and buildName !=null and buildName != ''">
+				AND BUILD_NAME like '%${buildName}%'
+			</if>
+			<if test="isphone == 1">
+				AND CLIENT_ID = (SELECT CLIENT_ID FROM WEB_CLIENT WHERE CLIENT_MOBILE = #{clientmobile})
+			</if>
+			<if test="cityId != null">
+				And CITY_ID = #{cityId,jdbcType=SMALLINT}
+			</if>
+			<if test="houseRoom1 !=null">
+				AND ROOM_L &gt;= #{houseRoom1,jdbcType=TINYINT}
+			</if>
+			<if test="houseRoom2 !=null">
+				AND ROOM_H &lt;= #{houseRoom2,jdbcType=TINYINT}
+			</if>
+			<if test="price2 !=null">
+				And PRICE_L &gt;= #{price2,jdbcType=INTEGER}
+			</if>
+			<if test="price2 !=null">
+				AND PRICE_H &lt;= #{price2,jdbcType=INTEGER}
+			</if>
+			<if test="caseStatus !=null">
+				AND CASE_STATUS = #{caseStatus,jdbcType=INTEGER}
+			</if>
+			<if test="newComplain !=null">
+				AND NEW_COMPLAIN = #{newComplain,jdbcType=TINYINT}
+			</if>
+			<if test="houseUseage !=null and houseUseage !=''">
+				 AND HOUSE_USEAGE = #{houseUseage,jdbcType=VARCHAR}
+			</if>
+			<if test="houseArea1 != null">
+				AND AREA_L  &gt;= #{houseArea1,jdbcType=INTEGER}
+			</if>
+			<if test="houseArea2 != null">
+				AND AREA_H &lt;= #{houseArea2,jdbcType=INTEGER}
+			</if>
+			<if test="houseFitment !=null and houseFitment !=''">
+				AND HOUSE_FITMENT = #{houseFitment,jdbcType=VARCHAR}
+			</if>
+			<if test="houseRight !=null and houseRight != ''">
+				AND HOUSE_RIGHT = #{houseRight,jdbcType=VARCHAR}
+			</if>
+			<if test="infoSource !=null">
+				AND INFO_SOURCE = #{infoSource,jdbcType=TINYINT}
+			</if>
+			<if test="creatorUid != null">
+				AND CREATOR_UID = #{creatorUid,jdbcType=INTEGER}
+			</if>
+		</where>
+		ORDER BY TRADE_TIME DESC
+  </select>
+  
+   <!-- buniess -->
+  <select id="getId" resultType="java.lang.Integer">
+  	select max(BUY_ID) +1  from VIP_BUY 
+  </select>
+  
+  <insert id="createRecord" parameterType="com.myfun.repository.agencydb.param.AgencyVipBuyParam4Create">
+  
+   insert into VIP_BUY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="buyId != null">
+        BUY_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="houseRegion != null">
+        HOUSE_REGION,
+      </if>
+      <if test="regionName != null">
+        REGION_NAME,
+      </if>
+      <if test="houseRound != null">
+        HOUSE_ROUND,
+      </if>
+      <if test="roundName != null">
+        ROUND_NAME,
+      </if>
+      <if test="buySubject != null">
+        BUY_SUBJECT,
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE,
+      </if>
+      <if test="houseRight != null">
+        HOUSE_RIGHT,
+      </if>
+      <if test="roomL != null">
+        ROOM_L,
+      </if>
+      <if test="roomH != null">
+        ROOM_H,
+      </if>
+      <if test="floorL != null">
+        FLOOR_L,
+      </if>
+      <if test="floorH != null">
+        FLOOR_H,
+      </if>
+      <if test="priceL != null">
+        PRICE_L,
+      </if>
+      <if test="priceH != null">
+        PRICE_H,
+      </if>
+      <if test="buyPaytype != null">
+        BUY_PAYTYPE,
+      </if>
+      <if test="downPay != null">
+        DOWN_PAY,
+      </if>
+      <if test="areaL != null">
+        AREA_L,
+      </if>
+      <if test="areaH != null">
+        AREA_H,
+      </if>
+      <if test="houseFitment != null">
+        HOUSE_FITMENT,
+      </if>
+      <if test="descp != null">
+        DESCP,
+      </if>
+      <if test="period != null">
+        PERIOD,
+      </if>
+      <if test="relateHouse != null">
+        RELATE_HOUSE,
+      </if>
+      <if test="commission != null">
+        COMMISSION,
+      </if>
+      <if test="cashDeposit != null">
+        CASH_DEPOSIT,
+      </if>
+      <if test="clientId != null">
+        CLIENT_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="trackUser != null">
+        TRACK_USER,
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME,
+      </if>
+      <if test="caseStatus != null">
+        CASE_STATUS,
+      </if>
+      <if test="tradePrice != null">
+        TRADE_PRICE,
+      </if>
+      <if test="tradeTimes != null">
+        TRADE_TIMES,
+      </if>
+      <if test="tradeUser != null">
+        TRADE_USER,
+      </if>
+      <if test="tradeTime != null">
+        TRADE_TIME,
+      </if>
+      <if test="tradeFlag != null">
+        TRADE_FLAG,
+      </if>
+      <if test="houseId != null">
+        HOUSE_ID,
+      </if>
+      <if test="infoSource != null">
+        INFO_SOURCE,
+      </if>
+      <if test="repeatFlag != null">
+        REPEAT_FLAG,
+      </if>
+      <if test="houseSection != null">
+        HOUSE_SECTION,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="newComplain != null">
+        NEW_COMPLAIN,
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE,
+      </if>
+      <if test="houseYearLow != null">
+        HOUSE_YEAR_LOW,
+      </if>
+      <if test="houseYearHigh != null">
+        HOUSE_YEAR_HIGH,
+      </if>
+      <if test="complainTime != null">
+        COMPLAIN_TIME,
+      </if>
+      <if test="hasRefund != null">
+        HAS_REFUND,
+      </if>
+      <if test="refundTime != null">
+        REFUND_TIME,
+      </if>
+      <if test="purchaseCount != null">
+        PURCHASE_COUNT,
+      </if>
+      <if test="complainCount != null">
+        COMPLAIN_COUNT,
+      </if>
+      <if test="downTime != null">
+        DOWN_TIME,
+      </if>
+      <if test="fullTime != null">
+        FULL_TIME,
+      </if>
+      <if test="downTrackid != null">
+        DOWN_TRACKID,
+      </if>
+      <if test="isurgent != null">
+        ISURGENT,
+      </if>
+      <if test="buyPriceUnit != null">
+        BUY_PRICE_UNIT,
+      </if>
+      <if test="sosoId != null">
+        SOSO_ID,
+      </if>
+      <if test="ugcId != null">
+        UGC_ID,
+      </if>
+      <if test="wfStatus != null">
+        WF_STATUS,
+      </if>
+      <if test="wfStatusValid != null">
+        WF_STATUS_VALID,
+      </if>
+      <if test="wfStatusDrop != null">
+        WF_STATUS_DROP,
+      </if>
+      <if test="wfCode != null">
+        WF_CODE,
+      </if>
+      <if test="wfSex != null">
+        WF_SEX,
+      </if>
+      <if test="wfRelateId != null">
+        WF_RELATE_ID,
+      </if>
+      <if test="wxId != null">
+        WX_ID,
+      </if>
+      <if test="wxOpenId != null">
+        WX_OPEN_ID,
+      </if>
+      <if test="wfFee != null">
+        WF_FEE,
+      </if>
+      <if test="wfMoney != null">
+        WF_MONEY,
+      </if>
+      <if test="wfMoneyButie != null">
+        WF_MONEY_BUTIE,
+      </if>
+      <if test="wfMoneyBonus != null">
+        WF_MONEY_BONUS,
+      </if>
+      <if test="wfMoneyReturn != null">
+        WF_MONEY_RETURN,
+      </if>
+      <if test="wfOnlineMoney != null">
+        WF_ONLINE_MONEY,
+      </if>
+      <if test="wfHouseMoney != null">
+        WF_HOUSE_MONEY,
+      </if>
+      <if test="wfBrokerMoney != null">
+        WF_BROKER_MONEY,
+      </if>
+      <if test="wfMoneyPay != null">
+        WF_MONEY_PAY,
+      </if>
+      <if test="wfCompleteTime != null">
+        WF_COMPLETE_TIME,
+      </if>
+      <if test="wfReceiveTime != null">
+        WF_RECEIVE_TIME,
+      </if>
+      <if test="operatorId != null">
+        OPERATOR_ID,
+      </if>
+      <if test="downReason != null">
+        DOWN_REASON,
+      </if>
+      <if test="wfMoneyAdd != null">
+        WF_MONEY_ADD,
+      </if>
+      <if test="jiedanCount != null">
+        JIEDAN_COUNT,
+      </if>
+      <if test="wfPushTimes != null">
+        WF_PUSH_TIMES,
+      </if>
+      <if test="wfArchives != null">
+        WF_ARCHIVES,
+      </if>
+      <if test="wfRecomed != null">
+        WF_RECOMED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buyId != null">
+        #{buyId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRegion != null">
+        #{houseRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="regionName != null">
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRound != null">
+        #{houseRound,jdbcType=VARCHAR},
+      </if>
+      <if test="roundName != null">
+        #{roundName,jdbcType=VARCHAR},
+      </if>
+      <if test="buySubject != null">
+        #{buySubject,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRight != null">
+        #{houseRight,jdbcType=VARCHAR},
+      </if>
+      <if test="roomL != null">
+        #{roomL,jdbcType=TINYINT},
+      </if>
+      <if test="roomH != null">
+        #{roomH,jdbcType=TINYINT},
+      </if>
+      <if test="floorL != null">
+        #{floorL,jdbcType=TINYINT},
+      </if>
+      <if test="floorH != null">
+        #{floorH,jdbcType=TINYINT},
+      </if>
+      <if test="priceL != null">
+        #{priceL,jdbcType=INTEGER},
+      </if>
+      <if test="priceH != null">
+        #{priceH,jdbcType=INTEGER},
+      </if>
+      <if test="buyPaytype != null">
+        #{buyPaytype,jdbcType=VARCHAR},
+      </if>
+      <if test="downPay != null">
+        #{downPay,jdbcType=INTEGER},
+      </if>
+      <if test="areaL != null">
+        #{areaL,jdbcType=INTEGER},
+      </if>
+      <if test="areaH != null">
+        #{areaH,jdbcType=INTEGER},
+      </if>
+      <if test="houseFitment != null">
+        #{houseFitment,jdbcType=VARCHAR},
+      </if>
+      <if test="descp != null">
+        #{descp,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=TINYINT},
+      </if>
+      <if test="relateHouse != null">
+        #{relateHouse,jdbcType=INTEGER},
+      </if>
+      <if test="commission != null">
+        #{commission,jdbcType=NUMERIC},
+      </if>
+      <if test="cashDeposit != null">
+        #{cashDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackUser != null">
+        #{trackUser,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null">
+        #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseStatus != null">
+        #{caseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tradePrice != null">
+        #{tradePrice,jdbcType=INTEGER},
+      </if>
+      <if test="tradeTimes != null">
+        #{tradeTimes,jdbcType=INTEGER},
+      </if>
+      <if test="tradeUser != null">
+        #{tradeUser,jdbcType=INTEGER},
+      </if>
+      <if test="tradeTime != null">
+        #{tradeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradeFlag != null">
+        #{tradeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="infoSource != null">
+        #{infoSource,jdbcType=TINYINT},
+      </if>
+      <if test="repeatFlag != null">
+        #{repeatFlag,jdbcType=TINYINT},
+      </if>
+      <if test="houseSection != null">
+        #{houseSection,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="newComplain != null">
+        #{newComplain,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYearLow != null">
+        #{houseYearLow,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYearHigh != null">
+        #{houseYearHigh,jdbcType=VARCHAR},
+      </if>
+      <if test="complainTime != null">
+        #{complainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasRefund != null">
+        #{hasRefund,jdbcType=TINYINT},
+      </if>
+      <if test="refundTime != null">
+        #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purchaseCount != null">
+        #{purchaseCount,jdbcType=TINYINT},
+      </if>
+      <if test="complainCount != null">
+        #{complainCount,jdbcType=TINYINT},
+      </if>
+      <if test="downTime != null">
+        #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fullTime != null">
+        #{fullTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downTrackid != null">
+        #{downTrackid,jdbcType=INTEGER},
+      </if>
+      <if test="isurgent != null">
+        #{isurgent,jdbcType=TINYINT},
+      </if>
+      <if test="buyPriceUnit != null">
+        #{buyPriceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="sosoId != null">
+        #{sosoId,jdbcType=INTEGER},
+      </if>
+      <if test="ugcId != null">
+        #{ugcId,jdbcType=INTEGER},
+      </if>
+      <if test="wfStatus != null">
+        #{wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatusValid != null">
+        #{wfStatusValid,jdbcType=TINYINT},
+      </if>
+      <if test="wfStatusDrop != null">
+        #{wfStatusDrop,jdbcType=TINYINT},
+      </if>
+      <if test="wfCode != null">
+        #{wfCode,jdbcType=VARCHAR},
+      </if>
+      <if test="wfSex != null">
+        #{wfSex,jdbcType=TINYINT},
+      </if>
+      <if test="wfRelateId != null">
+        #{wfRelateId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null">
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null">
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="wfFee != null">
+        #{wfFee,jdbcType=VARCHAR},
+      </if>
+      <if test="wfMoney != null">
+        #{wfMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyButie != null">
+        #{wfMoneyButie,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyBonus != null">
+        #{wfMoneyBonus,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyReturn != null">
+        #{wfMoneyReturn,jdbcType=DECIMAL},
+      </if>
+      <if test="wfOnlineMoney != null">
+        #{wfOnlineMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfHouseMoney != null">
+        #{wfHouseMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfBrokerMoney != null">
+        #{wfBrokerMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="wfMoneyPay != null">
+        #{wfMoneyPay,jdbcType=DECIMAL},
+      </if>
+      <if test="wfCompleteTime != null">
+        #{wfCompleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wfReceiveTime != null">
+        #{wfReceiveTime,jdbcType=INTEGER},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="downReason != null">
+        #{downReason,jdbcType=VARCHAR},
+      </if>
+      <if test="wfMoneyAdd != null">
+        #{wfMoneyAdd,jdbcType=DOUBLE},
+      </if>
+      <if test="jiedanCount != null">
+        #{jiedanCount,jdbcType=INTEGER},
+      </if>
+      <if test="wfPushTimes != null">
+        #{wfPushTimes,jdbcType=INTEGER},
+      </if>
+      <if test="wfArchives != null">
+        #{wfArchives,jdbcType=VARCHAR},
+      </if>
+      <if test="wfRecomed != null">
+        #{wfRecomed,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="selectByCityIdAndUgcId" resultMap="BaseResultMap">
+  	  select 
+	    <include refid="Base_Column_List" />
+	    from VIP_BUY
+	    where CITY_ID = #{hftCityId}
+     	and UGC_ID = #{ugcId}
+  </select>
+  
+  <select id="getYouYouEntrustInfoList" resultMap="BaseResultMap">
+  	select 
+		CITY_ID, BUY_ID, BUILD_ID, BUILD_NAME,
+		REGION_NAME, SECTION_NAME, 
+		HOUSE_USEAGE, HOUSE_FITMENT, WX_ID, WF_STATUS, IS_VIP 
+	from VIP_BUY where BUY_ID in 
+	<foreach close=")" collection="caseIds" index="index" item="item" open="(" separator=",">  
+	  #{item}  
+	</foreach> 
+	and CITY_ID = #{cityId,jdbcType=SMALLINT} 
+	and INFO_SOURCE = 12
+  </select>
+  
+	<sql id="GET_LIST_CONDITION">
+		<if test="time1 != null and time1 != ''">and CREATION_TIME &gt;= #{time1}</if>
+		<if test="time2 != null and time2 != ''">and CREATION_TIME &lt;= #{time2}</if>
+		<if test="room1 != null and room1 != ''">and ROOM_L &gt;= #{room1}</if>
+		<if test="room2 != null and room2 != ''">and ROOM_H &lt;= #{room2}</if>
+		<if test="area1 != null and area1 != ''">and AREA_L &gt;= #{area1}</if>
+		<if test="area2 != null and area2 != ''">and AREA_H &lt;= #{area2}</if>
+		<if test="price1 != null and price1 != ''">and PRICE_H &gt;= #{price1}</if>
+		<if test="price2 != null and price2 != ''">and PRICE_H &lt;= #{price2}</if>
+		<if test="keywords != null and keywords != ''">and BUY_SUBJECT like #{keywords}</if>
+		<if test="regions != null and regions.length &gt; 0">
+			AND (
+			<foreach collection="regions" item="item" separator="OR">
+				REGION_NAME like #{item}
+			</foreach>
+			OR REGION_NAME is null
+			)
+		</if>
+	</sql>
+	
+	<select id="getVipBuyViewedList" parameterType="com.myfun.repository.support.param.DaoBaseParam" resultMap="AgencyVipBuyListDto">
+		SELECT pb.CITY_ID,BUY_ID,BUILD_NAME,HOUSE_REGION,REGION_NAME,HOUSE_ROUND,ROUND_NAME,HOUSE_SECTION,SECTION_NAME,BUY_SUBJECT,HOUSE_USEAGE,HOUSE_FITMENT,HOUSE_RIGHT,ROOM_L,ROOM_H,FLOOR_L,FLOOR_H,PRICE_L,PRICE_H,AREA_L,AREA_H,HOUSE_TYPE,HOUSE_YEAR_LOW,HOUSE_YEAR_HIGH,BUY_PAYTYPE,DOWN_PAY,CALL_COUNT,CASE_STATUS,CREATION_TIME,TRADE_TIMES,PURCHASE_COUNT,DOWN_TIME,FULL_TIME,TRADE_TIME,DESCP,TRADE_FLAG,ISURGENT,BUY_PRICE_UNIT,INFO_SOURCE,PB_TIME,1 as READED
+		FROM PURCHASE_BORKER pb
+		left join VIP_BUY vb on pb.CITY_ID = vb.CITY_ID AND pb.CASE_ID = vb.BUY_ID and pb.CASE_TYPE = 3
+		<where>
+			vb.CITY_ID = #{cityId}
+			and FULL_TIME &gt; getdate()
+			and pb.ARCHIVE_ID=#{archiveId}
+			<include refid="GET_LIST_CONDITION" />
+		</where>
+		order by vb.CITY_ID,PB_TIME DESC
+	</select>
+	
+	<select id="getSoSoBuyList" parameterType="com.myfun.repository.support.param.DaoBaseParam" resultMap="AgencyVipBuyListDto">
+		SELECT vb.CITY_ID,BUY_ID,BUILD_NAME,HOUSE_REGION,REGION_NAME,HOUSE_ROUND,ROUND_NAME,HOUSE_SECTION,SECTION_NAME,BUY_SUBJECT,HOUSE_USEAGE,HOUSE_FITMENT,HOUSE_RIGHT,ROOM_L,ROOM_H,FLOOR_L,FLOOR_H,PRICE_L,PRICE_H,AREA_L,AREA_H,HOUSE_TYPE,HOUSE_YEAR_LOW,HOUSE_YEAR_HIGH,BUY_PAYTYPE,DOWN_PAY,CALL_COUNT,CASE_STATUS,CREATION_TIME,TRADE_TIMES,PURCHASE_COUNT,DOWN_TIME,FULL_TIME,TRADE_TIME,DESCP,ISURGENT,BUY_PRICE_UNIT,INFO_SOURCE,(case when (pb.CALL_COUNT &gt;0) then 1 else 0 end) READED
+		from VIP_BUY vb 
+		left join PURCHASE_BORKER pb on vb.CITY_ID = pb.CITY_ID AND pb.CASE_ID = vb.BUY_ID 
+		and pb.CASE_TYPE = 3 and pb.ARCHIVE_ID=#{archiveId}
+		<where>
+			vb.CITY_ID = #{cityId} and FULL_TIME &gt; getdate()
+			<include refid="GET_LIST_CONDITION" />
+		</where>
+		order by vb.CITY_ID,TRADE_TIME DESC
+	</select>
+    <select id="getVipBuyById" resultMap="extResultMap">
+      SELECT <include refid="Base_Column_List" /> from VIP_BUY where CITY_ID = #{cityId} and BUY_ID = #{buyId}
+    </select>
+	<select id="getVipBuyInfoByCaseId" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+	  	from VIP_BUY
+	  	where BUY_ID = #{caseId} and CITY_ID = #{cityId}
+	</select>
+</mapper>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminDicDefinitionsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminDicDefinitions" >
+    <!--@mbggenerated-->
+    <id column="DIC_ID" property="dicId" jdbcType="INTEGER" />
+    <result column="DIC_TYPE" property="dicType" jdbcType="VARCHAR" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="INTEGER" />
+    <result column="DIC_VALUE" property="dicValue" jdbcType="VARCHAR" />
+    <result column="DIC_VALUE_1" property="dicValue1" jdbcType="VARCHAR" />
+    <result column="DIC_EN_MSG" property="dicEnMsg" jdbcType="VARCHAR" />
+    <result column="DIC_CN_MSG" property="dicCnMsg" jdbcType="VARCHAR" />
+    <result column="SYSVER" property="sysver" jdbcType="TINYINT" />
+  </resultMap>
+   <resultMap id="BaseResultMapDto" type="com.myfun.repository.agencydb.dto.SelectDto" >
+    <result column="DIC_CN_MSG" property="text" jdbcType="VARCHAR" />
+    <result column="DIC_VALUE" property="value" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    DIC_ID, DIC_TYPE, PROVINCE_ID, CITY_ID, SEQ_NO, DIC_VALUE, DIC_VALUE_1, DIC_EN_MSG, 
+    DIC_CN_MSG, SYSVER
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from DIC_DEFINITIONS
+    where DIC_ID = #{dicId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from DIC_DEFINITIONS
+    where DIC_ID = #{dicId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminDicDefinitions" >
+    <!--@mbggenerated-->
+    insert into DIC_DEFINITIONS (DIC_ID, DIC_TYPE, PROVINCE_ID, 
+      CITY_ID, SEQ_NO, DIC_VALUE, 
+      DIC_VALUE_1, DIC_EN_MSG, DIC_CN_MSG, 
+      SYSVER)
+    values (#{dicId,jdbcType=INTEGER}, #{dicType,jdbcType=VARCHAR}, #{provinceId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER}, #{seqNo,jdbcType=INTEGER}, #{dicValue,jdbcType=VARCHAR}, 
+      #{dicValue1,jdbcType=VARCHAR}, #{dicEnMsg,jdbcType=VARCHAR}, #{dicCnMsg,jdbcType=VARCHAR}, 
+      #{sysver,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminDicDefinitions" >
+    <!--@mbggenerated-->
+    insert into DIC_DEFINITIONS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dicId != null" >
+        DIC_ID,
+      </if>
+      <if test="dicType != null" >
+        DIC_TYPE,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="dicValue != null" >
+        DIC_VALUE,
+      </if>
+      <if test="dicValue1 != null" >
+        DIC_VALUE_1,
+      </if>
+      <if test="dicEnMsg != null" >
+        DIC_EN_MSG,
+      </if>
+      <if test="dicCnMsg != null" >
+        DIC_CN_MSG,
+      </if>
+      <if test="sysver != null" >
+        SYSVER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dicId != null" >
+        #{dicId,jdbcType=INTEGER},
+      </if>
+      <if test="dicType != null" >
+        #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="dicValue != null" >
+        #{dicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicValue1 != null" >
+        #{dicValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="dicEnMsg != null" >
+        #{dicEnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCnMsg != null" >
+        #{dicCnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="sysver != null" >
+        #{sysver,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminDicDefinitions" >
+    <!--@mbggenerated-->
+    update DIC_DEFINITIONS
+    <set >
+      <if test="dicType != null" >
+        DIC_TYPE = #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="dicValue != null" >
+        DIC_VALUE = #{dicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicValue1 != null" >
+        DIC_VALUE_1 = #{dicValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="dicEnMsg != null" >
+        DIC_EN_MSG = #{dicEnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCnMsg != null" >
+        DIC_CN_MSG = #{dicCnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="sysver != null" >
+        SYSVER = #{sysver,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DIC_ID = #{dicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminDicDefinitions" >
+    <!--@mbggenerated-->
+    update DIC_DEFINITIONS
+    set DIC_TYPE = #{dicType,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      DIC_VALUE = #{dicValue,jdbcType=VARCHAR},
+      DIC_VALUE_1 = #{dicValue1,jdbcType=VARCHAR},
+      DIC_EN_MSG = #{dicEnMsg,jdbcType=VARCHAR},
+      DIC_CN_MSG = #{dicCnMsg,jdbcType=VARCHAR},
+      SYSVER = #{sysver,jdbcType=TINYINT}
+    where DIC_ID = #{dicId,jdbcType=INTEGER}
+  </update>
+  <select id="getMsg" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from DIC_DEFINITIONS
+    where DIC_TYPE = #{dicType} and DIC_VALUE = #{dicValue}
+    <if test="cityId != null and cityId != ''">
+    	 and CITY_ID = #{cityId}
+    </if>
+  </select>
+  
+  
+   <select id="getMsgS" resultMap="BaseResultMap">
+   	select 
+    <include refid="Base_Column_List" />
+    from DIC_DEFINITIONS
+    where DIC_TYPE = #{dicType} and DIC_VALUE = #{dicValue} and CITY_ID = #{cityId}
+  </select>
+  <select id="getMsgList"  resultMap="BaseResultMapDto">
+  		select 
+    <include refid="Base_Column_List" />
+    from DIC_DEFINITIONS
+    where DIC_TYPE = #{dicType} and CITY_ID = #{cityId}
+  </select>
+
+
+  <select id="getDicDefMapByDicType"  resultType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from DIC_DEFINITIONS
+    where DIC_TYPE = #{dicType}
+  </select>
+
+</mapper>

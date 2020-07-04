@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminSosoBuildingPhotoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminSosoBuildingPhoto" >
+    <!--@mbggenerated-->
+    <id column="PHOTO_ID" property="photoId" jdbcType="INTEGER" />
+    <result column="BUILDING_ID" property="buildingId" jdbcType="INTEGER" />
+    <result column="PHOTO_NAME" property="photoName" jdbcType="VARCHAR" />
+    <result column="PHOTO_ADDR" property="photoAddr" jdbcType="VARCHAR" />
+    <result column="IS_FIRST" property="isFirst" jdbcType="TINYINT" />
+    <result column="PHOTO_TYPE" property="photoType" jdbcType="TINYINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="HUXING_ID" property="huxingId" jdbcType="INTEGER" />
+    <result column="PHOTO_CATEGORY" property="photoCategory" jdbcType="TINYINT" />
+    <result column="LOCK_USER" property="lockUser" jdbcType="INTEGER" />
+    <result column="AUDIT_STATUS" property="auditStatus" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    PHOTO_ID, BUILDING_ID, PHOTO_NAME, PHOTO_ADDR, IS_FIRST, PHOTO_TYPE, CITY_ID, HUXING_ID, 
+    PHOTO_CATEGORY, LOCK_USER, AUDIT_STATUS
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.po.AdminSosoBuildingPhotoExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SOSO_BUILDING_PHOTO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SOSO_BUILDING_PHOTO
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from SOSO_BUILDING_PHOTO
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminSosoBuildingPhotoExample" >
+    <!--@mbggenerated-->
+    delete from SOSO_BUILDING_PHOTO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminSosoBuildingPhoto" useGeneratedKeys="true" keyProperty="photoId" >
+    <!--@mbggenerated-->
+    insert into SOSO_BUILDING_PHOTO (BUILDING_ID, PHOTO_NAME, PHOTO_ADDR, 
+      IS_FIRST, PHOTO_TYPE, CITY_ID, 
+      HUXING_ID, PHOTO_CATEGORY, LOCK_USER, 
+      AUDIT_STATUS)
+    values (#{buildingId,jdbcType=INTEGER}, #{photoName,jdbcType=VARCHAR}, #{photoAddr,jdbcType=VARCHAR}, 
+      #{isFirst,jdbcType=TINYINT}, #{photoType,jdbcType=TINYINT}, #{cityId,jdbcType=INTEGER}, 
+      #{huxingId,jdbcType=INTEGER}, #{photoCategory,jdbcType=TINYINT}, #{lockUser,jdbcType=INTEGER}, 
+      #{auditStatus,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminSosoBuildingPhoto" useGeneratedKeys="true" keyProperty="photoId" >
+    <!--@mbggenerated-->
+    insert into SOSO_BUILDING_PHOTO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="buildingId != null" >
+        BUILDING_ID,
+      </if>
+      <if test="photoName != null" >
+        PHOTO_NAME,
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR,
+      </if>
+      <if test="isFirst != null" >
+        IS_FIRST,
+      </if>
+      <if test="photoType != null" >
+        PHOTO_TYPE,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="huxingId != null" >
+        HUXING_ID,
+      </if>
+      <if test="photoCategory != null" >
+        PHOTO_CATEGORY,
+      </if>
+      <if test="lockUser != null" >
+        LOCK_USER,
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="buildingId != null" >
+        #{buildingId,jdbcType=INTEGER},
+      </if>
+      <if test="photoName != null" >
+        #{photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAddr != null" >
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirst != null" >
+        #{isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="photoType != null" >
+        #{photoType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="huxingId != null" >
+        #{huxingId,jdbcType=INTEGER},
+      </if>
+      <if test="photoCategory != null" >
+        #{photoCategory,jdbcType=TINYINT},
+      </if>
+      <if test="lockUser != null" >
+        #{lockUser,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminSosoBuildingPhotoExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from SOSO_BUILDING_PHOTO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update SOSO_BUILDING_PHOTO
+    <set >
+      <if test="record.photoId != null" >
+        PHOTO_ID = #{record.photoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildingId != null" >
+        BUILDING_ID = #{record.buildingId,jdbcType=INTEGER},
+      </if>
+      <if test="record.photoName != null" >
+        PHOTO_NAME = #{record.photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoAddr != null" >
+        PHOTO_ADDR = #{record.photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isFirst != null" >
+        IS_FIRST = #{record.isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="record.photoType != null" >
+        PHOTO_TYPE = #{record.photoType,jdbcType=TINYINT},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.huxingId != null" >
+        HUXING_ID = #{record.huxingId,jdbcType=INTEGER},
+      </if>
+      <if test="record.photoCategory != null" >
+        PHOTO_CATEGORY = #{record.photoCategory,jdbcType=TINYINT},
+      </if>
+      <if test="record.lockUser != null" >
+        LOCK_USER = #{record.lockUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditStatus != null" >
+        AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update SOSO_BUILDING_PHOTO
+    set PHOTO_ID = #{record.photoId,jdbcType=INTEGER},
+      BUILDING_ID = #{record.buildingId,jdbcType=INTEGER},
+      PHOTO_NAME = #{record.photoName,jdbcType=VARCHAR},
+      PHOTO_ADDR = #{record.photoAddr,jdbcType=VARCHAR},
+      IS_FIRST = #{record.isFirst,jdbcType=TINYINT},
+      PHOTO_TYPE = #{record.photoType,jdbcType=TINYINT},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      HUXING_ID = #{record.huxingId,jdbcType=INTEGER},
+      PHOTO_CATEGORY = #{record.photoCategory,jdbcType=TINYINT},
+      LOCK_USER = #{record.lockUser,jdbcType=INTEGER},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminSosoBuildingPhoto" >
+    <!--@mbggenerated-->
+    update SOSO_BUILDING_PHOTO
+    <set >
+      <if test="buildingId != null" >
+        BUILDING_ID = #{buildingId,jdbcType=INTEGER},
+      </if>
+      <if test="photoName != null" >
+        PHOTO_NAME = #{photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirst != null" >
+        IS_FIRST = #{isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="photoType != null" >
+        PHOTO_TYPE = #{photoType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="huxingId != null" >
+        HUXING_ID = #{huxingId,jdbcType=INTEGER},
+      </if>
+      <if test="photoCategory != null" >
+        PHOTO_CATEGORY = #{photoCategory,jdbcType=TINYINT},
+      </if>
+      <if test="lockUser != null" >
+        LOCK_USER = #{lockUser,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminSosoBuildingPhoto" >
+    <!--@mbggenerated-->
+    update SOSO_BUILDING_PHOTO
+    set BUILDING_ID = #{buildingId,jdbcType=INTEGER},
+      PHOTO_NAME = #{photoName,jdbcType=VARCHAR},
+      PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      IS_FIRST = #{isFirst,jdbcType=TINYINT},
+      PHOTO_TYPE = #{photoType,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      HUXING_ID = #{huxingId,jdbcType=INTEGER},
+      PHOTO_CATEGORY = #{photoCategory,jdbcType=TINYINT},
+      LOCK_USER = #{lockUser,jdbcType=INTEGER},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT}
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+	
+	<select id="getPhotoListOrderByPhotoIdDesc" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select top 50 PHOTO_ID,PHOTO_ADDR
+		from SOSO_BUILDING_PHOTO
+		where PHOTO_ADDR LIKE 'SmallPic%'
+		<if test="photoId != null and photoId > 0">AND PHOTO_ID &lt; #{photoId}</if>
+		order by PHOTO_ID desc
+	</select>
+</mapper>

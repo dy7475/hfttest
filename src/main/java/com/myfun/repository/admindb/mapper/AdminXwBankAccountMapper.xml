@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminXwBankAccountMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminXwBankAccount">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="ACCOUNT_TYPE" jdbcType="TINYINT" property="accountType" />
+    <result column="OPEN_ACCOUNT_NO" jdbcType="VARCHAR" property="openAccountNo" />
+    <result column="OPEN_ACCOUNT_STATUS" jdbcType="TINYINT" property="openAccountStatus" />
+    <result column="ACCOUNT_HFT_IDENTIFICATION" jdbcType="INTEGER" property="accountHftIdentification" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, CITY_ID, CREATION_TIME, ACCOUNT_TYPE, OPEN_ACCOUNT_NO, OPEN_ACCOUNT_STATUS, ACCOUNT_HFT_IDENTIFICATION, 
+    UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminXwBankAccountExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from XW_BANK_ACCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from XW_BANK_ACCOUNT
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from XW_BANK_ACCOUNT
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminXwBankAccountExample">
+    <!--@mbggenerated-->
+    delete from XW_BANK_ACCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminXwBankAccount" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into XW_BANK_ACCOUNT (CITY_ID, CREATION_TIME, ACCOUNT_TYPE, 
+      OPEN_ACCOUNT_NO, OPEN_ACCOUNT_STATUS, ACCOUNT_HFT_IDENTIFICATION, 
+      UPDATE_TIME)
+    values (#{cityId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{accountType,jdbcType=TINYINT}, 
+      #{openAccountNo,jdbcType=VARCHAR}, #{openAccountStatus,jdbcType=TINYINT}, #{accountHftIdentification,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminXwBankAccount" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into XW_BANK_ACCOUNT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="accountType != null">
+        ACCOUNT_TYPE,
+      </if>
+      <if test="openAccountNo != null">
+        OPEN_ACCOUNT_NO,
+      </if>
+      <if test="openAccountStatus != null">
+        OPEN_ACCOUNT_STATUS,
+      </if>
+      <if test="accountHftIdentification != null">
+        ACCOUNT_HFT_IDENTIFICATION,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountType != null">
+        #{accountType,jdbcType=TINYINT},
+      </if>
+      <if test="openAccountNo != null">
+        #{openAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="openAccountStatus != null">
+        #{openAccountStatus,jdbcType=TINYINT},
+      </if>
+      <if test="accountHftIdentification != null">
+        #{accountHftIdentification,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminXwBankAccountExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from XW_BANK_ACCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update XW_BANK_ACCOUNT
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.accountType != null">
+        ACCOUNT_TYPE = #{record.accountType,jdbcType=TINYINT},
+      </if>
+      <if test="record.openAccountNo != null">
+        OPEN_ACCOUNT_NO = #{record.openAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openAccountStatus != null">
+        OPEN_ACCOUNT_STATUS = #{record.openAccountStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.accountHftIdentification != null">
+        ACCOUNT_HFT_IDENTIFICATION = #{record.accountHftIdentification,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update XW_BANK_ACCOUNT
+    set ID = #{record.id,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      ACCOUNT_TYPE = #{record.accountType,jdbcType=TINYINT},
+      OPEN_ACCOUNT_NO = #{record.openAccountNo,jdbcType=VARCHAR},
+      OPEN_ACCOUNT_STATUS = #{record.openAccountStatus,jdbcType=TINYINT},
+      ACCOUNT_HFT_IDENTIFICATION = #{record.accountHftIdentification,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminXwBankAccount">
+    <!--@mbggenerated-->
+    update XW_BANK_ACCOUNT
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountType != null">
+        ACCOUNT_TYPE = #{accountType,jdbcType=TINYINT},
+      </if>
+      <if test="openAccountNo != null">
+        OPEN_ACCOUNT_NO = #{openAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="openAccountStatus != null">
+        OPEN_ACCOUNT_STATUS = #{openAccountStatus,jdbcType=TINYINT},
+      </if>
+      <if test="accountHftIdentification != null">
+        ACCOUNT_HFT_IDENTIFICATION = #{accountHftIdentification,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminXwBankAccount">
+    <!--@mbggenerated-->
+    update XW_BANK_ACCOUNT
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      ACCOUNT_TYPE = #{accountType,jdbcType=TINYINT},
+      OPEN_ACCOUNT_NO = #{openAccountNo,jdbcType=VARCHAR},
+      OPEN_ACCOUNT_STATUS = #{openAccountStatus,jdbcType=TINYINT},
+      ACCOUNT_HFT_IDENTIFICATION = #{accountHftIdentification,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfRefundMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfRefund" >
+    <!--@mbggenerated-->
+    <id column="REFUND_ID" property="refundId" jdbcType="INTEGER" />
+    <result column="WX_ID" property="wxId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="REFUND_MONEY" property="refundMoney" jdbcType="DOUBLE" />
+    <result column="REFUND_TYPE" property="refundType" jdbcType="TINYINT" />
+    <result column="REFUND_STATUS" property="refundStatus" jdbcType="TINYINT" />
+    <result column="OPERATOR" property="operator" jdbcType="INTEGER" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="ACT_TIME" property="actTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    REFUND_ID, WX_ID, CASE_ID, CASE_TYPE, CITY_ID, REFUND_MONEY, REFUND_TYPE, REFUND_STATUS, 
+    OPERATOR, REMARK, ACT_TIME, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_REFUND
+    where REFUND_ID = #{refundId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_REFUND
+    where REFUND_ID = #{refundId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefund" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="refundId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REFUND (WX_ID, CASE_ID, CASE_TYPE, 
+      CITY_ID, REFUND_MONEY, REFUND_TYPE, 
+      REFUND_STATUS, OPERATOR, REMARK, 
+      ACT_TIME, CREATE_TIME)
+    values (#{wxId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, 
+      #{cityId,jdbcType=INTEGER}, #{refundMoney,jdbcType=DOUBLE}, #{refundType,jdbcType=TINYINT}, 
+      #{refundStatus,jdbcType=TINYINT}, #{operator,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{actTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefund" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="refundId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REFUND
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wxId != null" >
+        WX_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="refundMoney != null" >
+        REFUND_MONEY,
+      </if>
+      <if test="refundType != null" >
+        REFUND_TYPE,
+      </if>
+      <if test="refundStatus != null" >
+        REFUND_STATUS,
+      </if>
+      <if test="operator != null" >
+        OPERATOR,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="actTime != null" >
+        ACT_TIME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wxId != null" >
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="refundMoney != null" >
+        #{refundMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="refundType != null" >
+        #{refundType,jdbcType=TINYINT},
+      </if>
+      <if test="refundStatus != null" >
+        #{refundStatus,jdbcType=TINYINT},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="actTime != null" >
+        #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefund" >
+    <!--@mbggenerated-->
+    update WF_REFUND
+    <set >
+      <if test="wxId != null" >
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="refundMoney != null" >
+        REFUND_MONEY = #{refundMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="refundType != null" >
+        REFUND_TYPE = #{refundType,jdbcType=TINYINT},
+      </if>
+      <if test="refundStatus != null" >
+        REFUND_STATUS = #{refundStatus,jdbcType=TINYINT},
+      </if>
+      <if test="operator != null" >
+        OPERATOR = #{operator,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="actTime != null" >
+        ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where REFUND_ID = #{refundId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefund" >
+    <!--@mbggenerated-->
+    update WF_REFUND
+    set WX_ID = #{wxId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      REFUND_MONEY = #{refundMoney,jdbcType=DOUBLE},
+      REFUND_TYPE = #{refundType,jdbcType=TINYINT},
+      REFUND_STATUS = #{refundStatus,jdbcType=TINYINT},
+      OPERATOR = #{operator,jdbcType=INTEGER},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where REFUND_ID = #{refundId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.search2db.dao.Search2ShopMainMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.search2db.po.Search2ShopMain">
+    <!--@mbggenerated-->
+    <id column="city_id" jdbcType="SMALLINT" property="cityId" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="in_time" jdbcType="TIMESTAMP" property="inTime" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="build_name" jdbcType="VARCHAR" property="buildName" />
+    <result column="build_id" jdbcType="INTEGER" property="buildId" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="reg_id" jdbcType="INTEGER" property="regId" />
+    <result column="shop_type" jdbcType="TINYINT" property="shopType" />
+    <result column="sectors" jdbcType="VARCHAR" property="sectors" />
+    <result column="area" jdbcType="DECIMAL" property="area" />
+    <result column="transfer_fee" jdbcType="VARCHAR" property="transferFee" />
+    <result column="total_price" jdbcType="DOUBLE" property="totalPrice" />
+    <result column="price_unit" jdbcType="VARCHAR" property="priceUnit" />
+    <result column="section" jdbcType="VARCHAR" property="section" />
+    <result column="owner" jdbcType="VARCHAR" property="owner" />
+    <result column="img_flag" jdbcType="TINYINT" property="imgFlag" />
+    <result column="small_pic" jdbcType="VARCHAR" property="smallPic" />
+    <result column="floor" jdbcType="SMALLINT" property="floor" />
+    <result column="b_zj" jdbcType="BIT" property="bZj" />
+    <result column="pub_type" jdbcType="TINYINT" property="pubType" />
+    <result column="charact" jdbcType="VARCHAR" property="charact" />
+    <result column="b_jl" jdbcType="BIT" property="bJl" />
+    <result column="b_mr" jdbcType="BIT" property="bMr" />
+    <result column="b_fs" jdbcType="BIT" property="bFs" />
+    <result column="b_xx" jdbcType="BIT" property="bXx" />
+    <result column="b_bh" jdbcType="BIT" property="bBh" />
+    <result column="b_sh" jdbcType="BIT" property="bSh" />
+    <result column="b_dz" jdbcType="BIT" property="bDz" />
+    <result column="b_cp" jdbcType="BIT" property="bCp" />
+    <result column="b_yy" jdbcType="BIT" property="bYy" />
+    <result column="b_jj" jdbcType="BIT" property="bJj" />
+    <result column="b_zy" jdbcType="BIT" property="bZy" />
+    <result column="b_bg" jdbcType="BIT" property="bBg" />
+    <result column="b_qt" jdbcType="BIT" property="bQt" />
+    <result column="b_empty" jdbcType="BIT" property="bEmpty" />
+    <result column="tel_flag" jdbcType="BIT" property="telFlag" />
+    <result column="status_flag" jdbcType="TINYINT" property="statusFlag" />
+    <result column="ext_bit" jdbcType="INTEGER" property="extBit" />
+    <result column="data_source" jdbcType="INTEGER" property="dataSource" />
+    <result column="relate_id" jdbcType="INTEGER" property="relateId" />
+    <result column="show_tel" jdbcType="TINYINT" property="showTel" />
+    <result column="show_other" jdbcType="TINYINT" property="showOther" />
+    <result column="vip_flag" jdbcType="TINYINT" property="vipFlag" />
+    <result column="vip_repeat" jdbcType="TINYINT" property="vipRepeat" />
+    <result column="vip_down_time" jdbcType="TIMESTAMP" property="vipDownTime" />
+    <result column="vip_refund_time" jdbcType="TIMESTAMP" property="vipRefundTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="pub_time" jdbcType="TIMESTAMP" property="pubTime" />
+    <result column="PUSHMSG_LOCKFLAG" jdbcType="TINYINT" property="pushmsgLockflag" />
+    <result column="LAST_PUSHMSG_TIME" jdbcType="TIMESTAMP" property="lastPushmsgTime" />
+    <result column="page_sours" jdbcType="VARCHAR" property="pageSours" />
+    <result column="section_id" jdbcType="INTEGER" property="sectionId" />
+    <result column="region_id" jdbcType="INTEGER" property="regionId" />
+    <result column="img_download" jdbcType="INTEGER" property="imgDownload" />
+    <result column="COMPLAINT_AGENCY" jdbcType="INTEGER" property="complaintAgency" />
+    <result column="COMPLAINT_FAKE" jdbcType="INTEGER" property="complaintFake" />
+    <result column="COMPLAINT_SOLD" jdbcType="INTEGER" property="complaintSold" />
+    <result column="COMPLAINT_KEEP" jdbcType="INTEGER" property="complaintKeep" />
+    <result column="REPEAT_ID" jdbcType="INTEGER" property="repeatId" />
+    <result column="SITE_FLAG" jdbcType="INTEGER" property="siteFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    city_id, id, in_time, title, build_name, build_id, region, reg_id, shop_type, sectors, 
+    area, transfer_fee, total_price, price_unit, [section], [owner], img_flag, small_pic, 
+    [floor], b_zj, pub_type, charact, b_jl, b_mr, b_fs, b_xx, b_bh, b_sh, b_dz, b_cp, 
+    b_yy, b_jj, b_zy, b_bg, b_qt, b_empty, tel_flag, status_flag, ext_bit, data_source, 
+    relate_id, show_tel, show_other, vip_flag, vip_repeat, vip_down_time, vip_refund_time, 
+    update_time, pub_time, PUSHMSG_LOCKFLAG, LAST_PUSHMSG_TIME, page_sours, section_id, 
+    region_id, img_download, COMPLAINT_AGENCY, COMPLAINT_FAKE, COMPLAINT_SOLD, COMPLAINT_KEEP, 
+    REPEAT_ID, SITE_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.search2db.po.Search2ShopMainKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from shop_main
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.search2db.po.Search2ShopMainKey">
+    <!--@mbggenerated-->
+    delete from shop_main
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.search2db.po.Search2ShopMain">
+    <!--@mbggenerated-->
+    insert into shop_main (city_id, id, in_time, 
+      title, build_name, build_id, 
+      region, reg_id, shop_type, 
+      sectors, area, transfer_fee, 
+      total_price, price_unit, [section], 
+      [owner], img_flag, small_pic, 
+      [floor], b_zj, pub_type, charact, 
+      b_jl, b_mr, b_fs, b_xx, 
+      b_bh, b_sh, b_dz, b_cp, 
+      b_yy, b_jj, b_zy, b_bg, 
+      b_qt, b_empty, tel_flag, status_flag, 
+      ext_bit, data_source, relate_id, 
+      show_tel, show_other, vip_flag, 
+      vip_repeat, vip_down_time, vip_refund_time, 
+      update_time, pub_time, PUSHMSG_LOCKFLAG, 
+      LAST_PUSHMSG_TIME, page_sours, section_id, 
+      region_id, img_download, COMPLAINT_AGENCY, 
+      COMPLAINT_FAKE, COMPLAINT_SOLD, COMPLAINT_KEEP, 
+      REPEAT_ID, SITE_FLAG)
+    values (#{cityId,jdbcType=SMALLINT}, #{id,jdbcType=INTEGER}, #{inTime,jdbcType=TIMESTAMP}, 
+      #{title,jdbcType=VARCHAR}, #{buildName,jdbcType=VARCHAR}, #{buildId,jdbcType=INTEGER}, 
+      #{region,jdbcType=VARCHAR}, #{regId,jdbcType=INTEGER}, #{shopType,jdbcType=TINYINT}, 
+      #{sectors,jdbcType=VARCHAR}, #{area,jdbcType=DECIMAL}, #{transferFee,jdbcType=VARCHAR}, 
+      #{totalPrice,jdbcType=DOUBLE}, #{priceUnit,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, 
+      #{owner,jdbcType=VARCHAR}, #{imgFlag,jdbcType=TINYINT}, #{smallPic,jdbcType=VARCHAR}, 
+      #{floor,jdbcType=SMALLINT}, #{bZj,jdbcType=BIT}, #{pubType,jdbcType=TINYINT}, #{charact,jdbcType=VARCHAR}, 
+      #{bJl,jdbcType=BIT}, #{bMr,jdbcType=BIT}, #{bFs,jdbcType=BIT}, #{bXx,jdbcType=BIT}, 
+      #{bBh,jdbcType=BIT}, #{bSh,jdbcType=BIT}, #{bDz,jdbcType=BIT}, #{bCp,jdbcType=BIT}, 
+      #{bYy,jdbcType=BIT}, #{bJj,jdbcType=BIT}, #{bZy,jdbcType=BIT}, #{bBg,jdbcType=BIT}, 
+      #{bQt,jdbcType=BIT}, #{bEmpty,jdbcType=BIT}, #{telFlag,jdbcType=BIT}, #{statusFlag,jdbcType=TINYINT}, 
+      #{extBit,jdbcType=INTEGER}, #{dataSource,jdbcType=INTEGER}, #{relateId,jdbcType=INTEGER}, 
+      #{showTel,jdbcType=TINYINT}, #{showOther,jdbcType=TINYINT}, #{vipFlag,jdbcType=TINYINT}, 
+      #{vipRepeat,jdbcType=TINYINT}, #{vipDownTime,jdbcType=TIMESTAMP}, #{vipRefundTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{pubTime,jdbcType=TIMESTAMP}, #{pushmsgLockflag,jdbcType=TINYINT}, 
+      #{lastPushmsgTime,jdbcType=TIMESTAMP}, #{pageSours,jdbcType=VARCHAR}, #{sectionId,jdbcType=INTEGER}, 
+      #{regionId,jdbcType=INTEGER}, #{imgDownload,jdbcType=INTEGER}, #{complaintAgency,jdbcType=INTEGER}, 
+      #{complaintFake,jdbcType=INTEGER}, #{complaintSold,jdbcType=INTEGER}, #{complaintKeep,jdbcType=INTEGER}, 
+      #{repeatId,jdbcType=INTEGER}, #{siteFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.search2db.po.Search2ShopMain">
+    <!--@mbggenerated-->
+    insert into shop_main
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="inTime != null">
+        in_time,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="buildName != null">
+        build_name,
+      </if>
+      <if test="buildId != null">
+        build_id,
+      </if>
+      <if test="region != null">
+        region,
+      </if>
+      <if test="regId != null">
+        reg_id,
+      </if>
+      <if test="shopType != null">
+        shop_type,
+      </if>
+      <if test="sectors != null">
+        sectors,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="transferFee != null">
+        transfer_fee,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="priceUnit != null">
+        price_unit,
+      </if>
+      <if test="section != null">
+        [section],
+      </if>
+      <if test="owner != null">
+        [owner],
+      </if>
+      <if test="imgFlag != null">
+        img_flag,
+      </if>
+      <if test="smallPic != null">
+        small_pic,
+      </if>
+      <if test="floor != null">
+        [floor],
+      </if>
+      <if test="bZj != null">
+        b_zj,
+      </if>
+      <if test="pubType != null">
+        pub_type,
+      </if>
+      <if test="charact != null">
+        charact,
+      </if>
+      <if test="bJl != null">
+        b_jl,
+      </if>
+      <if test="bMr != null">
+        b_mr,
+      </if>
+      <if test="bFs != null">
+        b_fs,
+      </if>
+      <if test="bXx != null">
+        b_xx,
+      </if>
+      <if test="bBh != null">
+        b_bh,
+      </if>
+      <if test="bSh != null">
+        b_sh,
+      </if>
+      <if test="bDz != null">
+        b_dz,
+      </if>
+      <if test="bCp != null">
+        b_cp,
+      </if>
+      <if test="bYy != null">
+        b_yy,
+      </if>
+      <if test="bJj != null">
+        b_jj,
+      </if>
+      <if test="bZy != null">
+        b_zy,
+      </if>
+      <if test="bBg != null">
+        b_bg,
+      </if>
+      <if test="bQt != null">
+        b_qt,
+      </if>
+      <if test="bEmpty != null">
+        b_empty,
+      </if>
+      <if test="telFlag != null">
+        tel_flag,
+      </if>
+      <if test="statusFlag != null">
+        status_flag,
+      </if>
+      <if test="extBit != null">
+        ext_bit,
+      </if>
+      <if test="dataSource != null">
+        data_source,
+      </if>
+      <if test="relateId != null">
+        relate_id,
+      </if>
+      <if test="showTel != null">
+        show_tel,
+      </if>
+      <if test="showOther != null">
+        show_other,
+      </if>
+      <if test="vipFlag != null">
+        vip_flag,
+      </if>
+      <if test="vipRepeat != null">
+        vip_repeat,
+      </if>
+      <if test="vipDownTime != null">
+        vip_down_time,
+      </if>
+      <if test="vipRefundTime != null">
+        vip_refund_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="pubTime != null">
+        pub_time,
+      </if>
+      <if test="pushmsgLockflag != null">
+        PUSHMSG_LOCKFLAG,
+      </if>
+      <if test="lastPushmsgTime != null">
+        LAST_PUSHMSG_TIME,
+      </if>
+      <if test="pageSours != null">
+        page_sours,
+      </if>
+      <if test="sectionId != null">
+        section_id,
+      </if>
+      <if test="regionId != null">
+        region_id,
+      </if>
+      <if test="imgDownload != null">
+        img_download,
+      </if>
+      <if test="complaintAgency != null">
+        COMPLAINT_AGENCY,
+      </if>
+      <if test="complaintFake != null">
+        COMPLAINT_FAKE,
+      </if>
+      <if test="complaintSold != null">
+        COMPLAINT_SOLD,
+      </if>
+      <if test="complaintKeep != null">
+        COMPLAINT_KEEP,
+      </if>
+      <if test="repeatId != null">
+        REPEAT_ID,
+      </if>
+      <if test="siteFlag != null">
+        SITE_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="inTime != null">
+        #{inTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="shopType != null">
+        #{shopType,jdbcType=TINYINT},
+      </if>
+      <if test="sectors != null">
+        #{sectors,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFee != null">
+        #{transferFee,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="priceUnit != null">
+        #{priceUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="section != null">
+        #{section,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="imgFlag != null">
+        #{imgFlag,jdbcType=TINYINT},
+      </if>
+      <if test="smallPic != null">
+        #{smallPic,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null">
+        #{floor,jdbcType=SMALLINT},
+      </if>
+      <if test="bZj != null">
+        #{bZj,jdbcType=BIT},
+      </if>
+      <if test="pubType != null">
+        #{pubType,jdbcType=TINYINT},
+      </if>
+      <if test="charact != null">
+        #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="bJl != null">
+        #{bJl,jdbcType=BIT},
+      </if>
+      <if test="bMr != null">
+        #{bMr,jdbcType=BIT},
+      </if>
+      <if test="bFs != null">
+        #{bFs,jdbcType=BIT},
+      </if>
+      <if test="bXx != null">
+        #{bXx,jdbcType=BIT},
+      </if>
+      <if test="bBh != null">
+        #{bBh,jdbcType=BIT},
+      </if>
+      <if test="bSh != null">
+        #{bSh,jdbcType=BIT},
+      </if>
+      <if test="bDz != null">
+        #{bDz,jdbcType=BIT},
+      </if>
+      <if test="bCp != null">
+        #{bCp,jdbcType=BIT},
+      </if>
+      <if test="bYy != null">
+        #{bYy,jdbcType=BIT},
+      </if>
+      <if test="bJj != null">
+        #{bJj,jdbcType=BIT},
+      </if>
+      <if test="bZy != null">
+        #{bZy,jdbcType=BIT},
+      </if>
+      <if test="bBg != null">
+        #{bBg,jdbcType=BIT},
+      </if>
+      <if test="bQt != null">
+        #{bQt,jdbcType=BIT},
+      </if>
+      <if test="bEmpty != null">
+        #{bEmpty,jdbcType=BIT},
+      </if>
+      <if test="telFlag != null">
+        #{telFlag,jdbcType=BIT},
+      </if>
+      <if test="statusFlag != null">
+        #{statusFlag,jdbcType=TINYINT},
+      </if>
+      <if test="extBit != null">
+        #{extBit,jdbcType=INTEGER},
+      </if>
+      <if test="dataSource != null">
+        #{dataSource,jdbcType=INTEGER},
+      </if>
+      <if test="relateId != null">
+        #{relateId,jdbcType=INTEGER},
+      </if>
+      <if test="showTel != null">
+        #{showTel,jdbcType=TINYINT},
+      </if>
+      <if test="showOther != null">
+        #{showOther,jdbcType=TINYINT},
+      </if>
+      <if test="vipFlag != null">
+        #{vipFlag,jdbcType=TINYINT},
+      </if>
+      <if test="vipRepeat != null">
+        #{vipRepeat,jdbcType=TINYINT},
+      </if>
+      <if test="vipDownTime != null">
+        #{vipDownTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vipRefundTime != null">
+        #{vipRefundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pubTime != null">
+        #{pubTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushmsgLockflag != null">
+        #{pushmsgLockflag,jdbcType=TINYINT},
+      </if>
+      <if test="lastPushmsgTime != null">
+        #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageSours != null">
+        #{pageSours,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null">
+        #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="imgDownload != null">
+        #{imgDownload,jdbcType=INTEGER},
+      </if>
+      <if test="complaintAgency != null">
+        #{complaintAgency,jdbcType=INTEGER},
+      </if>
+      <if test="complaintFake != null">
+        #{complaintFake,jdbcType=INTEGER},
+      </if>
+      <if test="complaintSold != null">
+        #{complaintSold,jdbcType=INTEGER},
+      </if>
+      <if test="complaintKeep != null">
+        #{complaintKeep,jdbcType=INTEGER},
+      </if>
+      <if test="repeatId != null">
+        #{repeatId,jdbcType=INTEGER},
+      </if>
+      <if test="siteFlag != null">
+        #{siteFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.search2db.po.Search2ShopMain">
+    <!--@mbggenerated-->
+    update shop_main
+    <set>
+      <if test="inTime != null">
+        in_time = #{inTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="buildName != null">
+        build_name = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        build_id = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="region != null">
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="regId != null">
+        reg_id = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="shopType != null">
+        shop_type = #{shopType,jdbcType=TINYINT},
+      </if>
+      <if test="sectors != null">
+        sectors = #{sectors,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFee != null">
+        transfer_fee = #{transferFee,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="priceUnit != null">
+        price_unit = #{priceUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="section != null">
+        [section] = #{section,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        [owner] = #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="imgFlag != null">
+        img_flag = #{imgFlag,jdbcType=TINYINT},
+      </if>
+      <if test="smallPic != null">
+        small_pic = #{smallPic,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null">
+        [floor] = #{floor,jdbcType=SMALLINT},
+      </if>
+      <if test="bZj != null">
+        b_zj = #{bZj,jdbcType=BIT},
+      </if>
+      <if test="pubType != null">
+        pub_type = #{pubType,jdbcType=TINYINT},
+      </if>
+      <if test="charact != null">
+        charact = #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="bJl != null">
+        b_jl = #{bJl,jdbcType=BIT},
+      </if>
+      <if test="bMr != null">
+        b_mr = #{bMr,jdbcType=BIT},
+      </if>
+      <if test="bFs != null">
+        b_fs = #{bFs,jdbcType=BIT},
+      </if>
+      <if test="bXx != null">
+        b_xx = #{bXx,jdbcType=BIT},
+      </if>
+      <if test="bBh != null">
+        b_bh = #{bBh,jdbcType=BIT},
+      </if>
+      <if test="bSh != null">
+        b_sh = #{bSh,jdbcType=BIT},
+      </if>
+      <if test="bDz != null">
+        b_dz = #{bDz,jdbcType=BIT},
+      </if>
+      <if test="bCp != null">
+        b_cp = #{bCp,jdbcType=BIT},
+      </if>
+      <if test="bYy != null">
+        b_yy = #{bYy,jdbcType=BIT},
+      </if>
+      <if test="bJj != null">
+        b_jj = #{bJj,jdbcType=BIT},
+      </if>
+      <if test="bZy != null">
+        b_zy = #{bZy,jdbcType=BIT},
+      </if>
+      <if test="bBg != null">
+        b_bg = #{bBg,jdbcType=BIT},
+      </if>
+      <if test="bQt != null">
+        b_qt = #{bQt,jdbcType=BIT},
+      </if>
+      <if test="bEmpty != null">
+        b_empty = #{bEmpty,jdbcType=BIT},
+      </if>
+      <if test="telFlag != null">
+        tel_flag = #{telFlag,jdbcType=BIT},
+      </if>
+      <if test="statusFlag != null">
+        status_flag = #{statusFlag,jdbcType=TINYINT},
+      </if>
+      <if test="extBit != null">
+        ext_bit = #{extBit,jdbcType=INTEGER},
+      </if>
+      <if test="dataSource != null">
+        data_source = #{dataSource,jdbcType=INTEGER},
+      </if>
+      <if test="relateId != null">
+        relate_id = #{relateId,jdbcType=INTEGER},
+      </if>
+      <if test="showTel != null">
+        show_tel = #{showTel,jdbcType=TINYINT},
+      </if>
+      <if test="showOther != null">
+        show_other = #{showOther,jdbcType=TINYINT},
+      </if>
+      <if test="vipFlag != null">
+        vip_flag = #{vipFlag,jdbcType=TINYINT},
+      </if>
+      <if test="vipRepeat != null">
+        vip_repeat = #{vipRepeat,jdbcType=TINYINT},
+      </if>
+      <if test="vipDownTime != null">
+        vip_down_time = #{vipDownTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vipRefundTime != null">
+        vip_refund_time = #{vipRefundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pubTime != null">
+        pub_time = #{pubTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushmsgLockflag != null">
+        PUSHMSG_LOCKFLAG = #{pushmsgLockflag,jdbcType=TINYINT},
+      </if>
+      <if test="lastPushmsgTime != null">
+        LAST_PUSHMSG_TIME = #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageSours != null">
+        page_sours = #{pageSours,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null">
+        section_id = #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        region_id = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="imgDownload != null">
+        img_download = #{imgDownload,jdbcType=INTEGER},
+      </if>
+      <if test="complaintAgency != null">
+        COMPLAINT_AGENCY = #{complaintAgency,jdbcType=INTEGER},
+      </if>
+      <if test="complaintFake != null">
+        COMPLAINT_FAKE = #{complaintFake,jdbcType=INTEGER},
+      </if>
+      <if test="complaintSold != null">
+        COMPLAINT_SOLD = #{complaintSold,jdbcType=INTEGER},
+      </if>
+      <if test="complaintKeep != null">
+        COMPLAINT_KEEP = #{complaintKeep,jdbcType=INTEGER},
+      </if>
+      <if test="repeatId != null">
+        REPEAT_ID = #{repeatId,jdbcType=INTEGER},
+      </if>
+      <if test="siteFlag != null">
+        SITE_FLAG = #{siteFlag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.search2db.po.Search2ShopMain">
+    <!--@mbggenerated-->
+    update shop_main
+    set in_time = #{inTime,jdbcType=TIMESTAMP},
+      title = #{title,jdbcType=VARCHAR},
+      build_name = #{buildName,jdbcType=VARCHAR},
+      build_id = #{buildId,jdbcType=INTEGER},
+      region = #{region,jdbcType=VARCHAR},
+      reg_id = #{regId,jdbcType=INTEGER},
+      shop_type = #{shopType,jdbcType=TINYINT},
+      sectors = #{sectors,jdbcType=VARCHAR},
+      area = #{area,jdbcType=DECIMAL},
+      transfer_fee = #{transferFee,jdbcType=VARCHAR},
+      total_price = #{totalPrice,jdbcType=DOUBLE},
+      price_unit = #{priceUnit,jdbcType=VARCHAR},
+      [section] = #{section,jdbcType=VARCHAR},
+      [owner] = #{owner,jdbcType=VARCHAR},
+      img_flag = #{imgFlag,jdbcType=TINYINT},
+      small_pic = #{smallPic,jdbcType=VARCHAR},
+      [floor] = #{floor,jdbcType=SMALLINT},
+      b_zj = #{bZj,jdbcType=BIT},
+      pub_type = #{pubType,jdbcType=TINYINT},
+      charact = #{charact,jdbcType=VARCHAR},
+      b_jl = #{bJl,jdbcType=BIT},
+      b_mr = #{bMr,jdbcType=BIT},
+      b_fs = #{bFs,jdbcType=BIT},
+      b_xx = #{bXx,jdbcType=BIT},
+      b_bh = #{bBh,jdbcType=BIT},
+      b_sh = #{bSh,jdbcType=BIT},
+      b_dz = #{bDz,jdbcType=BIT},
+      b_cp = #{bCp,jdbcType=BIT},
+      b_yy = #{bYy,jdbcType=BIT},
+      b_jj = #{bJj,jdbcType=BIT},
+      b_zy = #{bZy,jdbcType=BIT},
+      b_bg = #{bBg,jdbcType=BIT},
+      b_qt = #{bQt,jdbcType=BIT},
+      b_empty = #{bEmpty,jdbcType=BIT},
+      tel_flag = #{telFlag,jdbcType=BIT},
+      status_flag = #{statusFlag,jdbcType=TINYINT},
+      ext_bit = #{extBit,jdbcType=INTEGER},
+      data_source = #{dataSource,jdbcType=INTEGER},
+      relate_id = #{relateId,jdbcType=INTEGER},
+      show_tel = #{showTel,jdbcType=TINYINT},
+      show_other = #{showOther,jdbcType=TINYINT},
+      vip_flag = #{vipFlag,jdbcType=TINYINT},
+      vip_repeat = #{vipRepeat,jdbcType=TINYINT},
+      vip_down_time = #{vipDownTime,jdbcType=TIMESTAMP},
+      vip_refund_time = #{vipRefundTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      pub_time = #{pubTime,jdbcType=TIMESTAMP},
+      PUSHMSG_LOCKFLAG = #{pushmsgLockflag,jdbcType=TINYINT},
+      LAST_PUSHMSG_TIME = #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      page_sours = #{pageSours,jdbcType=VARCHAR},
+      section_id = #{sectionId,jdbcType=INTEGER},
+      region_id = #{regionId,jdbcType=INTEGER},
+      img_download = #{imgDownload,jdbcType=INTEGER},
+      COMPLAINT_AGENCY = #{complaintAgency,jdbcType=INTEGER},
+      COMPLAINT_FAKE = #{complaintFake,jdbcType=INTEGER},
+      COMPLAINT_SOLD = #{complaintSold,jdbcType=INTEGER},
+      COMPLAINT_KEEP = #{complaintKeep,jdbcType=INTEGER},
+      REPEAT_ID = #{repeatId,jdbcType=INTEGER},
+      SITE_FLAG = #{siteFlag,jdbcType=INTEGER}
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="Search2ShopMainInDataInfoDto" type="com.myfun.repository.searchdb.dto.SearchShopMainInDataInfoDto">
+	<result column="title" property="title" />
+	<result column="build_name" property="buildName" />
+	<result column="region" property="region" />
+	<result column="sectors" property="sectors" />
+	<result column="transfer_fee" property="transferFee" />
+	<result column="price_unit" property="priceUnit" />
+	<result column="section" property="section" />
+	<result column="owner" property="owner" />
+	<result column="small_pic" property="smallPic" />
+	<result column="charact" property="charact" />
+	<result column="PUSHMSG_LOCKFLAG" property="pushmsgLockflag" />
+	<result column="LAST_PUSHMSG_TIME" property="lastPushmsgTime" />
+	<result column="page_sours" property="pageSours" />
+    <result column="readed" property="readed" />
+    <result column="mobile_Phone" property="mobilePhone" />
+    <result column="tele_Phone" property="telePhone" />
+    <result column="tel_Source" property="telSource" />
+    <result column="COMPLAINT_FLAG" property="complaintFlag" />
+    <result column="COMPLAINT_TIME" property="complaintTime" />
+  </resultMap>
+  
+   <resultMap id="searchdtoMap" type="com.myfun.repository.searchdb.dto.SearchRepeatDto">
+  	<!-- BUILD_NAME, HALL, ROOM, FLOOR, FLOORS, FITMENT, AREA, TOTAL_PRICE, ADD_TIME, HOUSE_TYPE, STATUS -->
+   	<result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+   	<result column="HALL" jdbcType="VARCHAR" property="hall" />
+   	<result column="ROOM" jdbcType="VARCHAR" property="room" />
+   	<result column="FLOOR" jdbcType="VARCHAR" property="floor" />
+   	<result column="FLOORS" jdbcType="VARCHAR" property="floors" />
+   	<result column="FITMENT" jdbcType="VARCHAR" property="fitment" />
+   	<result column="AREA" jdbcType="VARCHAR" property="area" />
+   	<result column="TOTAL_PRICE" jdbcType="VARCHAR" property="totalPrice" />
+   	<result column="ADD_TIME" jdbcType="VARCHAR" property="addTime" />
+   	<result column="HOUSE_TYPE" jdbcType="VARCHAR" property="houseType" />
+   	<result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <!-- business -->
+  <select id="getShopMainRepeatList" resultMap="searchdtoMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_main
+     where CITY_ID = #{cityId}
+    <if test="caseIds !=null and caseIds != ''">
+    	and id in
+    	<foreach close=")" collection="caseIds" index="index" item="item" open="(" separator=",">  
+		  #{item}  
+	 </foreach> 
+    </if>
+  </select>
+  <select id="getShopMainListBySolrForPage" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_main
+    <where>
+      <if test="preSyncTime != null">
+        and update_time &gt;= #{preSyncTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="serverTime != null">
+        and update_time &lt;= #{serverTime,jdbcType=TIMESTAMP}
+      </if>
+    </where>
+    order by update_time desc
+  </select>
+	
+	<sql id="GET_LIST_CONDITION">
+		<if test="regions != null and regions != ''">
+			and (REGION IN
+			<foreach close=")" collection="regions" item="column" open="(" separator=",">#{column}</foreach>
+				<if test="regionIds != null and regionIds != ''">
+					OR REGION_ID IN (${regionIds})
+				</if>
+			)
+		</if>
+		<if test="regionIdArr != null and regionIdArr != ''">
+			and region_id IN
+			<foreach close=")" collection="regionIdArr" item="column" open="(" separator=",">#{column}</foreach>
+		</if>
+		<if test="sectionArr != null and sectionArr != ''">
+			and (SECTION IN
+			<foreach close=")" collection="sectionArr" item="column" open="(" separator=",">#{column}</foreach>
+				<if test="regionIds != null and regionIds != ''">
+					OR SECTION_ID IN (${sectionIds})
+				</if>
+			)
+		</if>
+		<if test="shoptype != null and shoptype != ''">and SHOP_TYPE = #{shoptype}</if>
+		<if test="area1 != null and area1 != ''">and AREA &gt;= #{area1}</if>
+		<if test="area2 != null and area2 != ''">and AREA &lt;= #{area2}</if>
+		<if test="price1 != null and price1 != ''">and TOTAL_PRICE &gt;= #{price1}</if>
+		<if test="price2 != null and price2 != ''">and TOTAL_PRICE &lt;= #{price2}</if>
+		<if test="time1 != null and time1 != ''">and IN_TIME &gt;= #{time1}</if>
+		<if test="time2 != null and time2 != ''">and IN_TIME &lt;= #{time2}</if>
+		<if test="keywords != null and keywords != ''">and (TITLE like #{keywords} OR BUILD_NAME like #{keywords})</if>
+	</sql>
+	
+	<select id="getSOSOViewedShopList" parameterType="com.myfun.repository.support.param.DaoBaseParam" resultMap="Search2ShopMainInDataInfoDto">
+		select ID, CITY_ID, TITLE, REGION, SECTORS, AREA, TRANSFER_FEE, TOTAL_PRICE, SHOP_TYPE, IN_TIME, 1 AS READED,CHARACT,STATUS_FLAG,
+		B.COMPLAINT_FLAG,B.COMPLAINT_TIME, IMG_FLAG, B.VIEW_TIME,DATA_SOURCE,RELATE_ID,VIP_FLAG,
+		VIP_REPEAT,SECTION,OWNER,BUILD_ID,PAGE_SOURS,REPEAT_ID
+		FROM hft_searchdb..SOSO_VIEW B
+		LEFT JOIN ${tbName} A ON A.ID = B.SOSO_ID
+		<where>
+			B_ZJ = 0
+			AND PUB_TYPE = 3
+			<choose>
+				<when test="fakeHouseFlag == 1 and intermediaryHouseFlag == 1">AND STATUS_FLAG = 0</when>
+				<when test="fakeHouseFlag == 1">AND (STATUS_FLAG = 0 or STATUS_FLAG between 101 and 199)</when>
+				<when test="intermediaryHouseFlag == 1">AND (STATUS_FLAG = 0 or STATUS_FLAG between 51 and 100)</when>
+				<otherwise>AND STATUS_FLAG &lt; 200</otherwise>
+			</choose>
+			AND B.SOSO_TYPE = 1
+			AND B.ARCHIVE_ID = #{archiveId}
+			AND A.CITY_ID = #{cityId}
+			<include refid="GET_LIST_CONDITION" />
+		</where>
+      union
+      select ID, CITY_ID, TITLE, REGION, SECTORS, AREA, TRANSFER_FEE, TOTAL_PRICE, SHOP_TYPE, IN_TIME, 1 AS READED,CHARACT,STATUS_FLAG,
+      B.COMPLAINT_FLAG,B.COMPLAINT_TIME, IMG_FLAG, B.VIEW_TIME,DATA_SOURCE,RELATE_ID,VIP_FLAG,
+      VIP_REPEAT,SECTION,OWNER,BUILD_ID,PAGE_SOURS,REPEAT_ID
+      FROM hft_searchdb..SOSO_VIEW B
+      LEFT JOIN ${tbName} A ON A.REPEAT_ID > 10 AND A.REPEAT_ID = B.SOSO_ID
+      <where>
+        B_ZJ = 0
+        AND PUB_TYPE = 3
+        <choose>
+          <when test="fakeHouseFlag == 1 and intermediaryHouseFlag == 1">AND STATUS_FLAG = 0</when>
+          <when test="fakeHouseFlag == 1">AND (STATUS_FLAG = 0 or STATUS_FLAG between 101 and 199)</when>
+          <when test="intermediaryHouseFlag == 1">AND (STATUS_FLAG = 0 or STATUS_FLAG between 51 and 100)</when>
+          <otherwise>AND STATUS_FLAG &lt; 200</otherwise>
+        </choose>
+        AND B.SOSO_TYPE = 1
+        AND B.ARCHIVE_ID = #{archiveId}
+        AND A.CITY_ID = #{cityId}
+        <include refid="GET_LIST_CONDITION" />
+      </where>
+		order by B.VIEW_TIME DESC
+	</select>
+	
+	<select id="getSoSoShopMainList" parameterType="com.myfun.repository.support.param.DaoBaseParam" resultMap="Search2ShopMainInDataInfoDto">
+		SELECT
+        a.ID,a.RELATE_ID,a.VIP_FLAG,a.IN_TIME,a.IMG_FLAG,a.SECTORS,a.REGION,a.SHOP_TYPE,a.TOTAL_PRICE,a.PRICE_UNIT,a.AREA,a.REPEAT_ID,a.CHARACT,
+        a.TRANSFER_FEE,a.TITLE,a.STATUS_FLAG,a.SECTION,a.OWNER,a.BUILD_ID,a.PAGE_SOURS,b.mobile_phone,b.tele_phone,b.tel_source
+        FROM ${tbName} a join ${tbNameDetail} b on a.city_id = b.city_id and a.id = b.id
+		<where>
+          a.B_ZJ = 0
+			AND a.PUB_TYPE = 3
+			AND a.CITY_ID = #{cityId}
+			<choose>
+				<when test="fakeHouseFlag == 1 and intermediaryHouseFlag == 1">AND a.STATUS_FLAG = 0</when>
+				<when test="intermediaryHouseFlag == 1">AND (a.STATUS_FLAG = 0 or a.STATUS_FLAG between 101 and 199)</when>
+				<when test="fakeHouseFlag == 1">AND (a.STATUS_FLAG = 0 or a.STATUS_FLAG between 51 and 100)</when>
+				<otherwise>AND a.STATUS_FLAG &lt; 200</otherwise>
+			</choose>
+			<include refid="GET_LIST_CONDITION" />
+		</where>
+		order by IN_TIME DESC
+	</select>
+	
+	<select id="getDataInfoById" parameterType="com.myfun.repository.support.param.DaoBaseParam" resultMap="Search2ShopMainInDataInfoDto">
+	  select top 1
+      a.city_id, a.id, a.in_time, a.title, a.build_name, a.build_id, a.region, a.reg_id, a.shop_type, a.sectors,
+      a.area, a.transfer_fee, a.total_price, a.price_unit, a.section, a.owner, a.img_flag, a.small_pic,
+      a.floor, a.b_zj, a.pub_type, a.charact, a.b_jl, a.b_mr, a.b_fs, a.b_xx, a.b_bh, a.b_sh, a.b_dz, a.b_cp,
+      a.b_yy, a.b_jj, a.b_zy, a.b_bg, a.b_qt, a.b_empty, a.tel_flag, a.status_flag, a.ext_bit, a.data_source,
+      a.relate_id, a.show_tel, a.show_other, a.vip_flag, a.vip_repeat, a.vip_down_time, a.vip_refund_time,
+      a.update_time, a.pub_time, a.page_sours, a.section_id,
+      a.region_id, a.img_download, a.COMPLAINT_AGENCY, a.COMPLAINT_FAKE, a.COMPLAINT_SOLD, a.COMPLAINT_KEEP,
+      a.REPEAT_ID, a.SITE_FLAG, b.mobile_Phone, b.tele_Phone, b.tel_Source,c.COMPLAINT_FLAG,c.COMPLAINT_TIME, iif(c.SOSO_ID is null,null,1) AS readed
+		from ${tbName} a left join ${tbNameDetail} b on a.city_id = b.city_id and a.id = b.id
+		left join hft_searchdb..SOSO_VIEW c on (a.id = c.SOSO_ID or (a.REPEAT_ID > 10 and a.REPEAT_ID = c.SOSO_ID)) and SOSO_TYPE=1 and ARCHIVE_id=#{archiveId}
+		where a.city_id = #{cityId} and a.id=#{sosoId}
+	</select>
+	
+	<update id="addComplaintCount">
+		update ${sosoTableName} set 
+		<if test="complaintType == 1">
+			COMPLAINT_AGENCY=COMPLAINT_AGENCY+1
+		</if>
+		<if test="complaintType == 2">
+			COMPLAINT_FAKE=COMPLAINT_FAKE+1
+		</if>
+		<if test="complaintType == 3">
+			COMPLAINT_SOLD=COMPLAINT_SOLD+1
+		</if>
+		<if test="complaintType == 4">
+			COMPLAINT_KEEP=COMPLAINT_KEEP+1
+		</if>
+		where id=#{sosoId} and city_id = #{cityId}
+	</update>
+	
+	<select id="getShopRepeatById" resultMap="Search2ShopMainInDataInfoDto">
+		select top 15 id,area,total_price,pub_time,build_name,price_unit from ${tbName} 
+		where city_id = #{cityId} and  repeat_id = #{repeatId} 
+		<if test="sosoId != null">and id != #{sosoId}</if>
+		order by in_time
+	</select>
+</mapper>

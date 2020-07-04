@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopStatisticsMonthMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopStatisticsMonth" >
+    <!--@mbggenerated-->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="FCompId" property="fcompid" jdbcType="INTEGER" />
+    <result column="FCityId" property="fcityid" jdbcType="INTEGER" />
+    <result column="BRokerId" property="brokerid" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="month" property="month" jdbcType="INTEGER" />
+    <result column="mss_num" property="mssNum" jdbcType="INTEGER" />
+    <result column="cards_num" property="cardsNum" jdbcType="INTEGER" />
+    <result column="fys_num" property="fysNum" jdbcType="INTEGER" />
+    <result column="requ_num" property="requNum" jdbcType="INTEGER" />
+    <result column="appo_num" property="appoNum" jdbcType="INTEGER" />
+    <result column="atten_num" property="attenNum" jdbcType="INTEGER" />
+    <result column="circle_num" property="circleNum" jdbcType="INTEGER" />
+    <result column="friends_num" property="friendsNum" jdbcType="INTEGER" />
+    <result column="shareqq_num" property="shareqqNum" jdbcType="INTEGER" />
+    <result column="shareweibo" property="shareweibo" jdbcType="INTEGER" />
+    <result column="PV" property="pv" jdbcType="INTEGER" />
+    <result column="IP" property="ip" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    id, FCompId, FCityId, BRokerId, year, month, mss_num, cards_num, fys_num, requ_num, 
+    appo_num, atten_num, circle_num, friends_num, shareqq_num, shareweibo, PV, IP
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from w_microshop_statistics_month
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_statistics_month
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopStatisticsMonth" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_statistics_month (FCompId, FCityId, BRokerId, 
+      year, month, mss_num, 
+      cards_num, fys_num, requ_num, 
+      appo_num, atten_num, circle_num, 
+      friends_num, shareqq_num, shareweibo, 
+      PV, IP)
+    values (#{fcompid,jdbcType=INTEGER}, #{fcityid,jdbcType=INTEGER}, #{brokerid,jdbcType=INTEGER}, 
+      #{year,jdbcType=INTEGER}, #{month,jdbcType=INTEGER}, #{mssNum,jdbcType=INTEGER}, 
+      #{cardsNum,jdbcType=INTEGER}, #{fysNum,jdbcType=INTEGER}, #{requNum,jdbcType=INTEGER}, 
+      #{appoNum,jdbcType=INTEGER}, #{attenNum,jdbcType=INTEGER}, #{circleNum,jdbcType=INTEGER}, 
+      #{friendsNum,jdbcType=INTEGER}, #{shareqqNum,jdbcType=INTEGER}, #{shareweibo,jdbcType=INTEGER}, 
+      #{pv,jdbcType=INTEGER}, #{ip,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopStatisticsMonth" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_statistics_month
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fcompid != null" >
+        FCompId,
+      </if>
+      <if test="fcityid != null" >
+        FCityId,
+      </if>
+      <if test="brokerid != null" >
+        BRokerId,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="mssNum != null" >
+        mss_num,
+      </if>
+      <if test="cardsNum != null" >
+        cards_num,
+      </if>
+      <if test="fysNum != null" >
+        fys_num,
+      </if>
+      <if test="requNum != null" >
+        requ_num,
+      </if>
+      <if test="appoNum != null" >
+        appo_num,
+      </if>
+      <if test="attenNum != null" >
+        atten_num,
+      </if>
+      <if test="circleNum != null" >
+        circle_num,
+      </if>
+      <if test="friendsNum != null" >
+        friends_num,
+      </if>
+      <if test="shareqqNum != null" >
+        shareqq_num,
+      </if>
+      <if test="shareweibo != null" >
+        shareweibo,
+      </if>
+      <if test="pv != null" >
+        PV,
+      </if>
+      <if test="ip != null" >
+        IP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fcompid != null" >
+        #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fcityid != null" >
+        #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="brokerid != null" >
+        #{brokerid,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=INTEGER},
+      </if>
+      <if test="mssNum != null" >
+        #{mssNum,jdbcType=INTEGER},
+      </if>
+      <if test="cardsNum != null" >
+        #{cardsNum,jdbcType=INTEGER},
+      </if>
+      <if test="fysNum != null" >
+        #{fysNum,jdbcType=INTEGER},
+      </if>
+      <if test="requNum != null" >
+        #{requNum,jdbcType=INTEGER},
+      </if>
+      <if test="appoNum != null" >
+        #{appoNum,jdbcType=INTEGER},
+      </if>
+      <if test="attenNum != null" >
+        #{attenNum,jdbcType=INTEGER},
+      </if>
+      <if test="circleNum != null" >
+        #{circleNum,jdbcType=INTEGER},
+      </if>
+      <if test="friendsNum != null" >
+        #{friendsNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareqqNum != null" >
+        #{shareqqNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareweibo != null" >
+        #{shareweibo,jdbcType=INTEGER},
+      </if>
+      <if test="pv != null" >
+        #{pv,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopStatisticsMonth" >
+    <!--@mbggenerated-->
+    update w_microshop_statistics_month
+    <set >
+      <if test="fcompid != null" >
+        FCompId = #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fcityid != null" >
+        FCityId = #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="brokerid != null" >
+        BRokerId = #{brokerid,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="month != null" >
+        month = #{month,jdbcType=INTEGER},
+      </if>
+      <if test="mssNum != null" >
+        mss_num = #{mssNum,jdbcType=INTEGER},
+      </if>
+      <if test="cardsNum != null" >
+        cards_num = #{cardsNum,jdbcType=INTEGER},
+      </if>
+      <if test="fysNum != null" >
+        fys_num = #{fysNum,jdbcType=INTEGER},
+      </if>
+      <if test="requNum != null" >
+        requ_num = #{requNum,jdbcType=INTEGER},
+      </if>
+      <if test="appoNum != null" >
+        appo_num = #{appoNum,jdbcType=INTEGER},
+      </if>
+      <if test="attenNum != null" >
+        atten_num = #{attenNum,jdbcType=INTEGER},
+      </if>
+      <if test="circleNum != null" >
+        circle_num = #{circleNum,jdbcType=INTEGER},
+      </if>
+      <if test="friendsNum != null" >
+        friends_num = #{friendsNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareqqNum != null" >
+        shareqq_num = #{shareqqNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareweibo != null" >
+        shareweibo = #{shareweibo,jdbcType=INTEGER},
+      </if>
+      <if test="pv != null" >
+        PV = #{pv,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null" >
+        IP = #{ip,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopStatisticsMonth" >
+    <!--@mbggenerated-->
+    update w_microshop_statistics_month
+    set FCompId = #{fcompid,jdbcType=INTEGER},
+      FCityId = #{fcityid,jdbcType=INTEGER},
+      BRokerId = #{brokerid,jdbcType=INTEGER},
+      year = #{year,jdbcType=INTEGER},
+      month = #{month,jdbcType=INTEGER},
+      mss_num = #{mssNum,jdbcType=INTEGER},
+      cards_num = #{cardsNum,jdbcType=INTEGER},
+      fys_num = #{fysNum,jdbcType=INTEGER},
+      requ_num = #{requNum,jdbcType=INTEGER},
+      appo_num = #{appoNum,jdbcType=INTEGER},
+      atten_num = #{attenNum,jdbcType=INTEGER},
+      circle_num = #{circleNum,jdbcType=INTEGER},
+      friends_num = #{friendsNum,jdbcType=INTEGER},
+      shareqq_num = #{shareqqNum,jdbcType=INTEGER},
+      shareweibo = #{shareweibo,jdbcType=INTEGER},
+      PV = #{pv,jdbcType=INTEGER},
+      IP = #{ip,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

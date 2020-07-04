@@ -1,0 +1,1677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminIpCallLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminIpCallLog">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="LOG_ID" jdbcType="VARCHAR" property="logId" />
+    <result column="CALL_TYPE" jdbcType="TINYINT" property="callType" />
+    <result column="CALL_PHONE" jdbcType="VARCHAR" property="callPhone" />
+    <result column="CALLED_PHONE" jdbcType="VARCHAR" property="calledPhone" />
+    <result column="CALL_COMP_ID" jdbcType="INTEGER" property="callCompId" />
+    <result column="CALL_DEPT_ID" jdbcType="INTEGER" property="callDeptId" />
+    <result column="CALL_USER_ID" jdbcType="INTEGER" property="callUserId" />
+    <result column="CALL_ARCHIVE_ID" jdbcType="INTEGER" property="callArchiveId" />
+    <result column="CALL_UA_ID" jdbcType="INTEGER" property="callUaId" />
+    <result column="CALL_CITY_ID" jdbcType="INTEGER" property="callCityId" />
+    <result column="TARGET_ID" jdbcType="INTEGER" property="targetId" />
+    <result column="TARGET_DEPT" jdbcType="INTEGER" property="targetDept" />
+    <result column="TARGET_TYPE" jdbcType="TINYINT" property="targetType" />
+    <result column="TARGET_PLATE_TYPE" jdbcType="TINYINT" property="targetPlateType" />
+    <result column="TARGET_OWNER_ID" jdbcType="INTEGER" property="targetOwnerId" />
+    <result column="TARGET_USEAGE" jdbcType="INTEGER" property="targetUseage" />
+    <result column="TARGET_NO" jdbcType="VARCHAR" property="targetNo" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="CALL_LENGTH" jdbcType="INTEGER" property="callLength" />
+    <result column="CALL_FEE" jdbcType="DECIMAL" property="callFee" />
+    <result column="CALL_AMOUNT_BEFORE" jdbcType="DECIMAL" property="callAmountBefore" />
+    <result column="CALL_AMOUNT_AFTER" jdbcType="DECIMAL" property="callAmountAfter" />
+    <result column="CUT_REASON" jdbcType="TINYINT" property="cutReason" />
+    <result column="REASON_DESC" jdbcType="TINYINT" property="reasonDesc" />
+    <result column="CALL_RECORD_URL" jdbcType="VARCHAR" property="callRecordUrl" />
+    <result column="IS_DOWNLOAD_RECORD" jdbcType="TINYINT" property="isDownloadRecord" />
+    <result column="PAID_ID" jdbcType="INTEGER" property="paidId" />
+    <result column="LOG_SOURCE" jdbcType="TINYINT" property="logSource" />
+    <result column="CALL_TIME" jdbcType="TIMESTAMP" property="callTime" />
+    <result column="VOIP_POOL_ID" jdbcType="INTEGER" property="voipPoolId" />
+    <result column="THIRD_RECORD_URL" jdbcType="VARCHAR" property="thirdRecordUrl" />
+    <result column="POOL_LOCK_ID" jdbcType="VARCHAR" property="poolLockId" />
+    <result column="COMP_AMOUNT" jdbcType="DECIMAL" property="compAmount" />
+    <result column="USER_AMOUNT" jdbcType="DECIMAL" property="userAmount" />
+    <result column="THIRD_CHANNEL" jdbcType="TINYINT" property="thirdChannel" />
+    <result column="IS_CALLBACK" jdbcType="TINYINT" property="isCallback" />
+    <result column="VOIP_MINUTE" jdbcType="INTEGER" property="voipMinute" />
+    <result column="TARGET_SOURCE" jdbcType="TINYINT" property="targetSource" />
+    <result column="EXTEND_JSON" jdbcType="VARCHAR" property="extendJson" />
+    <result column="USER_COIN" jdbcType="DECIMAL" property="userCoin" />
+    <result column="USER_QUAN" jdbcType="DECIMAL" property="userQuan" />
+    <result column="COMP_COIN" jdbcType="DECIMAL" property="compCoin" />
+    <result column="COMP_QUAN" jdbcType="DECIMAL" property="compQuan" />
+    <result column="CALL_AREA_ID" jdbcType="INTEGER" property="callAreaId" />
+    <result column="CALL_REG_ID" jdbcType="INTEGER" property="callRegId" />
+    <result column="CALL_GR_ID" jdbcType="INTEGER" property="callGrId" />
+    <result column="CASH_MONEY" jdbcType="DECIMAL" property="cashMoney" />
+    <result column="COMP_CASH_MONEY" jdbcType="DECIMAL" property="compCashMoney" />
+    <result column="IS_FDD" jdbcType="TINYINT" property="isFdd" />
+    <result column="FDD_HIDDEN_NUMBER" jdbcType="VARCHAR" property="fddHiddenNumber" />
+    <result column="CALL_ID" jdbcType="VARCHAR" property="callId" />
+    <result column="AXB_STYLE" jdbcType="INTEGER" property="axbStyle" />
+    <result column="DEDUCTION_FAILURE_REASON" jdbcType="VARCHAR" property="deductionFailureReason" />
+    <result column="PARENT_LOG_ID" jdbcType="VARCHAR" property="parentLogId" />
+    <result column="HOUSING_SALE_FLAG" jdbcType="INTEGER" property="housingSaleFlag" />
+    <result column="TARGET_CASE_STATUS" jdbcType="TINYINT" property="targetCaseStatus" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="TISSUE_LINE" jdbcType="VARCHAR" property="tissueLine" />
+    <result column="BIND_X" jdbcType="VARCHAR" property="bindX" />
+    <result column="ORGANIZATION_ID" jdbcType="INTEGER" property="organizationId" />
+    <result column="ORG_1" jdbcType="INTEGER" property="org1" />
+    <result column="ORG_2" jdbcType="INTEGER" property="org2" />
+    <result column="ORG_3" jdbcType="INTEGER" property="org3" />
+    <result column="ORG_4" jdbcType="INTEGER" property="org4" />
+    <result column="ORG_5" jdbcType="INTEGER" property="org5" />
+    <result column="ORG_6" jdbcType="INTEGER" property="org6" />
+    <result column="ORG_7" jdbcType="INTEGER" property="org7" />
+    <result column="ORG_8" jdbcType="INTEGER" property="org8" />
+    <result column="ORG_9" jdbcType="INTEGER" property="org9" />
+    <result column="ORG_10" jdbcType="INTEGER" property="org10" />
+    <result column="ORG_11" jdbcType="INTEGER" property="org11" />
+    <result column="ORG_12" jdbcType="INTEGER" property="org12" />
+    <result column="ORG_13" jdbcType="INTEGER" property="org13" />
+    <result column="ORG_14" jdbcType="INTEGER" property="org14" />
+    <result column="CALL_USER_NAME" jdbcType="VARCHAR" property="callUserName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, LOG_ID, CALL_TYPE, CALL_PHONE, CALLED_PHONE, CALL_COMP_ID, CALL_DEPT_ID, CALL_USER_ID, 
+    CALL_ARCHIVE_ID, CALL_UA_ID, CALL_CITY_ID, TARGET_ID, TARGET_DEPT, TARGET_TYPE, TARGET_PLATE_TYPE, 
+    TARGET_OWNER_ID, TARGET_USEAGE, TARGET_NO, START_TIME, END_TIME, CALL_LENGTH, CALL_FEE, 
+    CALL_AMOUNT_BEFORE, CALL_AMOUNT_AFTER, CUT_REASON, REASON_DESC, CALL_RECORD_URL, 
+    IS_DOWNLOAD_RECORD, PAID_ID, LOG_SOURCE, CALL_TIME, VOIP_POOL_ID, THIRD_RECORD_URL, 
+    POOL_LOCK_ID, COMP_AMOUNT, USER_AMOUNT, THIRD_CHANNEL, IS_CALLBACK, VOIP_MINUTE, 
+    TARGET_SOURCE, EXTEND_JSON, USER_COIN, USER_QUAN, COMP_COIN, COMP_QUAN, CALL_AREA_ID, 
+    CALL_REG_ID, CALL_GR_ID, CASH_MONEY, COMP_CASH_MONEY, IS_FDD, FDD_HIDDEN_NUMBER, 
+    CALL_ID, AXB_STYLE, DEDUCTION_FAILURE_REASON, PARENT_LOG_ID, HOUSING_SALE_FLAG, TARGET_CASE_STATUS, 
+    CREATE_TIME, TISSUE_LINE, BIND_X, ORGANIZATION_ID, ORG_1, ORG_2, ORG_3, ORG_4, ORG_5, 
+    ORG_6, ORG_7, ORG_8, ORG_9, ORG_10, ORG_11, ORG_12, ORG_13, ORG_14, CALL_USER_NAME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminIpCallLogExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IP_CALL_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from IP_CALL_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from IP_CALL_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminIpCallLogExample">
+    <!--@mbggenerated-->
+    delete from IP_CALL_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminIpCallLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into IP_CALL_LOG (LOG_ID, CALL_TYPE, CALL_PHONE, 
+      CALLED_PHONE, CALL_COMP_ID, CALL_DEPT_ID, 
+      CALL_USER_ID, CALL_ARCHIVE_ID, CALL_UA_ID, 
+      CALL_CITY_ID, TARGET_ID, TARGET_DEPT, 
+      TARGET_TYPE, TARGET_PLATE_TYPE, TARGET_OWNER_ID, 
+      TARGET_USEAGE, TARGET_NO, START_TIME, 
+      END_TIME, CALL_LENGTH, CALL_FEE, 
+      CALL_AMOUNT_BEFORE, CALL_AMOUNT_AFTER, CUT_REASON, 
+      REASON_DESC, CALL_RECORD_URL, IS_DOWNLOAD_RECORD, 
+      PAID_ID, LOG_SOURCE, CALL_TIME, 
+      VOIP_POOL_ID, THIRD_RECORD_URL, POOL_LOCK_ID, 
+      COMP_AMOUNT, USER_AMOUNT, THIRD_CHANNEL, 
+      IS_CALLBACK, VOIP_MINUTE, TARGET_SOURCE, 
+      EXTEND_JSON, USER_COIN, USER_QUAN, 
+      COMP_COIN, COMP_QUAN, CALL_AREA_ID, 
+      CALL_REG_ID, CALL_GR_ID, CASH_MONEY, 
+      COMP_CASH_MONEY, IS_FDD, FDD_HIDDEN_NUMBER, 
+      CALL_ID, AXB_STYLE, DEDUCTION_FAILURE_REASON, 
+      PARENT_LOG_ID, HOUSING_SALE_FLAG, TARGET_CASE_STATUS, 
+      CREATE_TIME, TISSUE_LINE, BIND_X, 
+      ORGANIZATION_ID, ORG_1, ORG_2, 
+      ORG_3, ORG_4, ORG_5, ORG_6, 
+      ORG_7, ORG_8, ORG_9, ORG_10, 
+      ORG_11, ORG_12, ORG_13, 
+      ORG_14, CALL_USER_NAME)
+    values (#{logId,jdbcType=VARCHAR}, #{callType,jdbcType=TINYINT}, #{callPhone,jdbcType=VARCHAR}, 
+      #{calledPhone,jdbcType=VARCHAR}, #{callCompId,jdbcType=INTEGER}, #{callDeptId,jdbcType=INTEGER}, 
+      #{callUserId,jdbcType=INTEGER}, #{callArchiveId,jdbcType=INTEGER}, #{callUaId,jdbcType=INTEGER}, 
+      #{callCityId,jdbcType=INTEGER}, #{targetId,jdbcType=INTEGER}, #{targetDept,jdbcType=INTEGER}, 
+      #{targetType,jdbcType=TINYINT}, #{targetPlateType,jdbcType=TINYINT}, #{targetOwnerId,jdbcType=INTEGER}, 
+      #{targetUseage,jdbcType=INTEGER}, #{targetNo,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{callLength,jdbcType=INTEGER}, #{callFee,jdbcType=DECIMAL}, 
+      #{callAmountBefore,jdbcType=DECIMAL}, #{callAmountAfter,jdbcType=DECIMAL}, #{cutReason,jdbcType=TINYINT}, 
+      #{reasonDesc,jdbcType=TINYINT}, #{callRecordUrl,jdbcType=VARCHAR}, #{isDownloadRecord,jdbcType=TINYINT}, 
+      #{paidId,jdbcType=INTEGER}, #{logSource,jdbcType=TINYINT}, #{callTime,jdbcType=TIMESTAMP}, 
+      #{voipPoolId,jdbcType=INTEGER}, #{thirdRecordUrl,jdbcType=VARCHAR}, #{poolLockId,jdbcType=VARCHAR}, 
+      #{compAmount,jdbcType=DECIMAL}, #{userAmount,jdbcType=DECIMAL}, #{thirdChannel,jdbcType=TINYINT}, 
+      #{isCallback,jdbcType=TINYINT}, #{voipMinute,jdbcType=INTEGER}, #{targetSource,jdbcType=TINYINT}, 
+      #{extendJson,jdbcType=VARCHAR}, #{userCoin,jdbcType=DECIMAL}, #{userQuan,jdbcType=DECIMAL}, 
+      #{compCoin,jdbcType=DECIMAL}, #{compQuan,jdbcType=DECIMAL}, #{callAreaId,jdbcType=INTEGER}, 
+      #{callRegId,jdbcType=INTEGER}, #{callGrId,jdbcType=INTEGER}, #{cashMoney,jdbcType=DECIMAL}, 
+      #{compCashMoney,jdbcType=DECIMAL}, #{isFdd,jdbcType=TINYINT}, #{fddHiddenNumber,jdbcType=VARCHAR}, 
+      #{callId,jdbcType=VARCHAR}, #{axbStyle,jdbcType=INTEGER}, #{deductionFailureReason,jdbcType=VARCHAR}, 
+      #{parentLogId,jdbcType=VARCHAR}, #{housingSaleFlag,jdbcType=INTEGER}, #{targetCaseStatus,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{tissueLine,jdbcType=VARCHAR}, #{bindX,jdbcType=VARCHAR}, 
+      #{organizationId,jdbcType=INTEGER}, #{org1,jdbcType=INTEGER}, #{org2,jdbcType=INTEGER}, 
+      #{org3,jdbcType=INTEGER}, #{org4,jdbcType=INTEGER}, #{org5,jdbcType=INTEGER}, #{org6,jdbcType=INTEGER}, 
+      #{org7,jdbcType=INTEGER}, #{org8,jdbcType=INTEGER}, #{org9,jdbcType=INTEGER}, #{org10,jdbcType=INTEGER}, 
+      #{org11,jdbcType=INTEGER}, #{org12,jdbcType=INTEGER}, #{org13,jdbcType=INTEGER}, 
+      #{org14,jdbcType=INTEGER}, #{callUserName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminIpCallLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into IP_CALL_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logId != null">
+        LOG_ID,
+      </if>
+      <if test="callType != null">
+        CALL_TYPE,
+      </if>
+      <if test="callPhone != null">
+        CALL_PHONE,
+      </if>
+      <if test="calledPhone != null">
+        CALLED_PHONE,
+      </if>
+      <if test="callCompId != null">
+        CALL_COMP_ID,
+      </if>
+      <if test="callDeptId != null">
+        CALL_DEPT_ID,
+      </if>
+      <if test="callUserId != null">
+        CALL_USER_ID,
+      </if>
+      <if test="callArchiveId != null">
+        CALL_ARCHIVE_ID,
+      </if>
+      <if test="callUaId != null">
+        CALL_UA_ID,
+      </if>
+      <if test="callCityId != null">
+        CALL_CITY_ID,
+      </if>
+      <if test="targetId != null">
+        TARGET_ID,
+      </if>
+      <if test="targetDept != null">
+        TARGET_DEPT,
+      </if>
+      <if test="targetType != null">
+        TARGET_TYPE,
+      </if>
+      <if test="targetPlateType != null">
+        TARGET_PLATE_TYPE,
+      </if>
+      <if test="targetOwnerId != null">
+        TARGET_OWNER_ID,
+      </if>
+      <if test="targetUseage != null">
+        TARGET_USEAGE,
+      </if>
+      <if test="targetNo != null">
+        TARGET_NO,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="callLength != null">
+        CALL_LENGTH,
+      </if>
+      <if test="callFee != null">
+        CALL_FEE,
+      </if>
+      <if test="callAmountBefore != null">
+        CALL_AMOUNT_BEFORE,
+      </if>
+      <if test="callAmountAfter != null">
+        CALL_AMOUNT_AFTER,
+      </if>
+      <if test="cutReason != null">
+        CUT_REASON,
+      </if>
+      <if test="reasonDesc != null">
+        REASON_DESC,
+      </if>
+      <if test="callRecordUrl != null">
+        CALL_RECORD_URL,
+      </if>
+      <if test="isDownloadRecord != null">
+        IS_DOWNLOAD_RECORD,
+      </if>
+      <if test="paidId != null">
+        PAID_ID,
+      </if>
+      <if test="logSource != null">
+        LOG_SOURCE,
+      </if>
+      <if test="callTime != null">
+        CALL_TIME,
+      </if>
+      <if test="voipPoolId != null">
+        VOIP_POOL_ID,
+      </if>
+      <if test="thirdRecordUrl != null">
+        THIRD_RECORD_URL,
+      </if>
+      <if test="poolLockId != null">
+        POOL_LOCK_ID,
+      </if>
+      <if test="compAmount != null">
+        COMP_AMOUNT,
+      </if>
+      <if test="userAmount != null">
+        USER_AMOUNT,
+      </if>
+      <if test="thirdChannel != null">
+        THIRD_CHANNEL,
+      </if>
+      <if test="isCallback != null">
+        IS_CALLBACK,
+      </if>
+      <if test="voipMinute != null">
+        VOIP_MINUTE,
+      </if>
+      <if test="targetSource != null">
+        TARGET_SOURCE,
+      </if>
+      <if test="extendJson != null">
+        EXTEND_JSON,
+      </if>
+      <if test="userCoin != null">
+        USER_COIN,
+      </if>
+      <if test="userQuan != null">
+        USER_QUAN,
+      </if>
+      <if test="compCoin != null">
+        COMP_COIN,
+      </if>
+      <if test="compQuan != null">
+        COMP_QUAN,
+      </if>
+      <if test="callAreaId != null">
+        CALL_AREA_ID,
+      </if>
+      <if test="callRegId != null">
+        CALL_REG_ID,
+      </if>
+      <if test="callGrId != null">
+        CALL_GR_ID,
+      </if>
+      <if test="cashMoney != null">
+        CASH_MONEY,
+      </if>
+      <if test="compCashMoney != null">
+        COMP_CASH_MONEY,
+      </if>
+      <if test="isFdd != null">
+        IS_FDD,
+      </if>
+      <if test="fddHiddenNumber != null">
+        FDD_HIDDEN_NUMBER,
+      </if>
+      <if test="callId != null">
+        CALL_ID,
+      </if>
+      <if test="axbStyle != null">
+        AXB_STYLE,
+      </if>
+      <if test="deductionFailureReason != null">
+        DEDUCTION_FAILURE_REASON,
+      </if>
+      <if test="parentLogId != null">
+        PARENT_LOG_ID,
+      </if>
+      <if test="housingSaleFlag != null">
+        HOUSING_SALE_FLAG,
+      </if>
+      <if test="targetCaseStatus != null">
+        TARGET_CASE_STATUS,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="tissueLine != null">
+        TISSUE_LINE,
+      </if>
+      <if test="bindX != null">
+        BIND_X,
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID,
+      </if>
+      <if test="org1 != null">
+        ORG_1,
+      </if>
+      <if test="org2 != null">
+        ORG_2,
+      </if>
+      <if test="org3 != null">
+        ORG_3,
+      </if>
+      <if test="org4 != null">
+        ORG_4,
+      </if>
+      <if test="org5 != null">
+        ORG_5,
+      </if>
+      <if test="org6 != null">
+        ORG_6,
+      </if>
+      <if test="org7 != null">
+        ORG_7,
+      </if>
+      <if test="org8 != null">
+        ORG_8,
+      </if>
+      <if test="org9 != null">
+        ORG_9,
+      </if>
+      <if test="org10 != null">
+        ORG_10,
+      </if>
+      <if test="org11 != null">
+        ORG_11,
+      </if>
+      <if test="org12 != null">
+        ORG_12,
+      </if>
+      <if test="org13 != null">
+        ORG_13,
+      </if>
+      <if test="org14 != null">
+        ORG_14,
+      </if>
+      <if test="callUserName != null">
+        CALL_USER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logId != null">
+        #{logId,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null">
+        #{callType,jdbcType=TINYINT},
+      </if>
+      <if test="callPhone != null">
+        #{callPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="calledPhone != null">
+        #{calledPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="callCompId != null">
+        #{callCompId,jdbcType=INTEGER},
+      </if>
+      <if test="callDeptId != null">
+        #{callDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="callUserId != null">
+        #{callUserId,jdbcType=INTEGER},
+      </if>
+      <if test="callArchiveId != null">
+        #{callArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="callUaId != null">
+        #{callUaId,jdbcType=INTEGER},
+      </if>
+      <if test="callCityId != null">
+        #{callCityId,jdbcType=INTEGER},
+      </if>
+      <if test="targetId != null">
+        #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="targetDept != null">
+        #{targetDept,jdbcType=INTEGER},
+      </if>
+      <if test="targetType != null">
+        #{targetType,jdbcType=TINYINT},
+      </if>
+      <if test="targetPlateType != null">
+        #{targetPlateType,jdbcType=TINYINT},
+      </if>
+      <if test="targetOwnerId != null">
+        #{targetOwnerId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUseage != null">
+        #{targetUseage,jdbcType=INTEGER},
+      </if>
+      <if test="targetNo != null">
+        #{targetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="callLength != null">
+        #{callLength,jdbcType=INTEGER},
+      </if>
+      <if test="callFee != null">
+        #{callFee,jdbcType=DECIMAL},
+      </if>
+      <if test="callAmountBefore != null">
+        #{callAmountBefore,jdbcType=DECIMAL},
+      </if>
+      <if test="callAmountAfter != null">
+        #{callAmountAfter,jdbcType=DECIMAL},
+      </if>
+      <if test="cutReason != null">
+        #{cutReason,jdbcType=TINYINT},
+      </if>
+      <if test="reasonDesc != null">
+        #{reasonDesc,jdbcType=TINYINT},
+      </if>
+      <if test="callRecordUrl != null">
+        #{callRecordUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDownloadRecord != null">
+        #{isDownloadRecord,jdbcType=TINYINT},
+      </if>
+      <if test="paidId != null">
+        #{paidId,jdbcType=INTEGER},
+      </if>
+      <if test="logSource != null">
+        #{logSource,jdbcType=TINYINT},
+      </if>
+      <if test="callTime != null">
+        #{callTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voipPoolId != null">
+        #{voipPoolId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdRecordUrl != null">
+        #{thirdRecordUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="poolLockId != null">
+        #{poolLockId,jdbcType=VARCHAR},
+      </if>
+      <if test="compAmount != null">
+        #{compAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="userAmount != null">
+        #{userAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdChannel != null">
+        #{thirdChannel,jdbcType=TINYINT},
+      </if>
+      <if test="isCallback != null">
+        #{isCallback,jdbcType=TINYINT},
+      </if>
+      <if test="voipMinute != null">
+        #{voipMinute,jdbcType=INTEGER},
+      </if>
+      <if test="targetSource != null">
+        #{targetSource,jdbcType=TINYINT},
+      </if>
+      <if test="extendJson != null">
+        #{extendJson,jdbcType=VARCHAR},
+      </if>
+      <if test="userCoin != null">
+        #{userCoin,jdbcType=DECIMAL},
+      </if>
+      <if test="userQuan != null">
+        #{userQuan,jdbcType=DECIMAL},
+      </if>
+      <if test="compCoin != null">
+        #{compCoin,jdbcType=DECIMAL},
+      </if>
+      <if test="compQuan != null">
+        #{compQuan,jdbcType=DECIMAL},
+      </if>
+      <if test="callAreaId != null">
+        #{callAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="callRegId != null">
+        #{callRegId,jdbcType=INTEGER},
+      </if>
+      <if test="callGrId != null">
+        #{callGrId,jdbcType=INTEGER},
+      </if>
+      <if test="cashMoney != null">
+        #{cashMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="compCashMoney != null">
+        #{compCashMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="isFdd != null">
+        #{isFdd,jdbcType=TINYINT},
+      </if>
+      <if test="fddHiddenNumber != null">
+        #{fddHiddenNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="callId != null">
+        #{callId,jdbcType=VARCHAR},
+      </if>
+      <if test="axbStyle != null">
+        #{axbStyle,jdbcType=INTEGER},
+      </if>
+      <if test="deductionFailureReason != null">
+        #{deductionFailureReason,jdbcType=VARCHAR},
+      </if>
+      <if test="parentLogId != null">
+        #{parentLogId,jdbcType=VARCHAR},
+      </if>
+      <if test="housingSaleFlag != null">
+        #{housingSaleFlag,jdbcType=INTEGER},
+      </if>
+      <if test="targetCaseStatus != null">
+        #{targetCaseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tissueLine != null">
+        #{tissueLine,jdbcType=VARCHAR},
+      </if>
+      <if test="bindX != null">
+        #{bindX,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null">
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="org1 != null">
+        #{org1,jdbcType=INTEGER},
+      </if>
+      <if test="org2 != null">
+        #{org2,jdbcType=INTEGER},
+      </if>
+      <if test="org3 != null">
+        #{org3,jdbcType=INTEGER},
+      </if>
+      <if test="org4 != null">
+        #{org4,jdbcType=INTEGER},
+      </if>
+      <if test="org5 != null">
+        #{org5,jdbcType=INTEGER},
+      </if>
+      <if test="org6 != null">
+        #{org6,jdbcType=INTEGER},
+      </if>
+      <if test="org7 != null">
+        #{org7,jdbcType=INTEGER},
+      </if>
+      <if test="org8 != null">
+        #{org8,jdbcType=INTEGER},
+      </if>
+      <if test="org9 != null">
+        #{org9,jdbcType=INTEGER},
+      </if>
+      <if test="org10 != null">
+        #{org10,jdbcType=INTEGER},
+      </if>
+      <if test="org11 != null">
+        #{org11,jdbcType=INTEGER},
+      </if>
+      <if test="org12 != null">
+        #{org12,jdbcType=INTEGER},
+      </if>
+      <if test="org13 != null">
+        #{org13,jdbcType=INTEGER},
+      </if>
+      <if test="org14 != null">
+        #{org14,jdbcType=INTEGER},
+      </if>
+      <if test="callUserName != null">
+        #{callUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminIpCallLogExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from IP_CALL_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update IP_CALL_LOG
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.logId != null">
+        LOG_ID = #{record.logId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.callType != null">
+        CALL_TYPE = #{record.callType,jdbcType=TINYINT},
+      </if>
+      <if test="record.callPhone != null">
+        CALL_PHONE = #{record.callPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.calledPhone != null">
+        CALLED_PHONE = #{record.calledPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.callCompId != null">
+        CALL_COMP_ID = #{record.callCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.callDeptId != null">
+        CALL_DEPT_ID = #{record.callDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.callUserId != null">
+        CALL_USER_ID = #{record.callUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.callArchiveId != null">
+        CALL_ARCHIVE_ID = #{record.callArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.callUaId != null">
+        CALL_UA_ID = #{record.callUaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.callCityId != null">
+        CALL_CITY_ID = #{record.callCityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetId != null">
+        TARGET_ID = #{record.targetId,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetDept != null">
+        TARGET_DEPT = #{record.targetDept,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetType != null">
+        TARGET_TYPE = #{record.targetType,jdbcType=TINYINT},
+      </if>
+      <if test="record.targetPlateType != null">
+        TARGET_PLATE_TYPE = #{record.targetPlateType,jdbcType=TINYINT},
+      </if>
+      <if test="record.targetOwnerId != null">
+        TARGET_OWNER_ID = #{record.targetOwnerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetUseage != null">
+        TARGET_USEAGE = #{record.targetUseage,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetNo != null">
+        TARGET_NO = #{record.targetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null">
+        START_TIME = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null">
+        END_TIME = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.callLength != null">
+        CALL_LENGTH = #{record.callLength,jdbcType=INTEGER},
+      </if>
+      <if test="record.callFee != null">
+        CALL_FEE = #{record.callFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.callAmountBefore != null">
+        CALL_AMOUNT_BEFORE = #{record.callAmountBefore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.callAmountAfter != null">
+        CALL_AMOUNT_AFTER = #{record.callAmountAfter,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cutReason != null">
+        CUT_REASON = #{record.cutReason,jdbcType=TINYINT},
+      </if>
+      <if test="record.reasonDesc != null">
+        REASON_DESC = #{record.reasonDesc,jdbcType=TINYINT},
+      </if>
+      <if test="record.callRecordUrl != null">
+        CALL_RECORD_URL = #{record.callRecordUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDownloadRecord != null">
+        IS_DOWNLOAD_RECORD = #{record.isDownloadRecord,jdbcType=TINYINT},
+      </if>
+      <if test="record.paidId != null">
+        PAID_ID = #{record.paidId,jdbcType=INTEGER},
+      </if>
+      <if test="record.logSource != null">
+        LOG_SOURCE = #{record.logSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.callTime != null">
+        CALL_TIME = #{record.callTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.voipPoolId != null">
+        VOIP_POOL_ID = #{record.voipPoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.thirdRecordUrl != null">
+        THIRD_RECORD_URL = #{record.thirdRecordUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.poolLockId != null">
+        POOL_LOCK_ID = #{record.poolLockId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compAmount != null">
+        COMP_AMOUNT = #{record.compAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userAmount != null">
+        USER_AMOUNT = #{record.userAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.thirdChannel != null">
+        THIRD_CHANNEL = #{record.thirdChannel,jdbcType=TINYINT},
+      </if>
+      <if test="record.isCallback != null">
+        IS_CALLBACK = #{record.isCallback,jdbcType=TINYINT},
+      </if>
+      <if test="record.voipMinute != null">
+        VOIP_MINUTE = #{record.voipMinute,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetSource != null">
+        TARGET_SOURCE = #{record.targetSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.extendJson != null">
+        EXTEND_JSON = #{record.extendJson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCoin != null">
+        USER_COIN = #{record.userCoin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userQuan != null">
+        USER_QUAN = #{record.userQuan,jdbcType=DECIMAL},
+      </if>
+      <if test="record.compCoin != null">
+        COMP_COIN = #{record.compCoin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.compQuan != null">
+        COMP_QUAN = #{record.compQuan,jdbcType=DECIMAL},
+      </if>
+      <if test="record.callAreaId != null">
+        CALL_AREA_ID = #{record.callAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.callRegId != null">
+        CALL_REG_ID = #{record.callRegId,jdbcType=INTEGER},
+      </if>
+      <if test="record.callGrId != null">
+        CALL_GR_ID = #{record.callGrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cashMoney != null">
+        CASH_MONEY = #{record.cashMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.compCashMoney != null">
+        COMP_CASH_MONEY = #{record.compCashMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isFdd != null">
+        IS_FDD = #{record.isFdd,jdbcType=TINYINT},
+      </if>
+      <if test="record.fddHiddenNumber != null">
+        FDD_HIDDEN_NUMBER = #{record.fddHiddenNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.callId != null">
+        CALL_ID = #{record.callId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.axbStyle != null">
+        AXB_STYLE = #{record.axbStyle,jdbcType=INTEGER},
+      </if>
+      <if test="record.deductionFailureReason != null">
+        DEDUCTION_FAILURE_REASON = #{record.deductionFailureReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentLogId != null">
+        PARENT_LOG_ID = #{record.parentLogId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housingSaleFlag != null">
+        HOUSING_SALE_FLAG = #{record.housingSaleFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetCaseStatus != null">
+        TARGET_CASE_STATUS = #{record.targetCaseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tissueLine != null">
+        TISSUE_LINE = #{record.tissueLine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindX != null">
+        BIND_X = #{record.bindX,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationId != null">
+        ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.org1 != null">
+        ORG_1 = #{record.org1,jdbcType=INTEGER},
+      </if>
+      <if test="record.org2 != null">
+        ORG_2 = #{record.org2,jdbcType=INTEGER},
+      </if>
+      <if test="record.org3 != null">
+        ORG_3 = #{record.org3,jdbcType=INTEGER},
+      </if>
+      <if test="record.org4 != null">
+        ORG_4 = #{record.org4,jdbcType=INTEGER},
+      </if>
+      <if test="record.org5 != null">
+        ORG_5 = #{record.org5,jdbcType=INTEGER},
+      </if>
+      <if test="record.org6 != null">
+        ORG_6 = #{record.org6,jdbcType=INTEGER},
+      </if>
+      <if test="record.org7 != null">
+        ORG_7 = #{record.org7,jdbcType=INTEGER},
+      </if>
+      <if test="record.org8 != null">
+        ORG_8 = #{record.org8,jdbcType=INTEGER},
+      </if>
+      <if test="record.org9 != null">
+        ORG_9 = #{record.org9,jdbcType=INTEGER},
+      </if>
+      <if test="record.org10 != null">
+        ORG_10 = #{record.org10,jdbcType=INTEGER},
+      </if>
+      <if test="record.org11 != null">
+        ORG_11 = #{record.org11,jdbcType=INTEGER},
+      </if>
+      <if test="record.org12 != null">
+        ORG_12 = #{record.org12,jdbcType=INTEGER},
+      </if>
+      <if test="record.org13 != null">
+        ORG_13 = #{record.org13,jdbcType=INTEGER},
+      </if>
+      <if test="record.org14 != null">
+        ORG_14 = #{record.org14,jdbcType=INTEGER},
+      </if>
+      <if test="record.callUserName != null">
+        CALL_USER_NAME = #{record.callUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update IP_CALL_LOG
+    set ID = #{record.id,jdbcType=INTEGER},
+      LOG_ID = #{record.logId,jdbcType=VARCHAR},
+      CALL_TYPE = #{record.callType,jdbcType=TINYINT},
+      CALL_PHONE = #{record.callPhone,jdbcType=VARCHAR},
+      CALLED_PHONE = #{record.calledPhone,jdbcType=VARCHAR},
+      CALL_COMP_ID = #{record.callCompId,jdbcType=INTEGER},
+      CALL_DEPT_ID = #{record.callDeptId,jdbcType=INTEGER},
+      CALL_USER_ID = #{record.callUserId,jdbcType=INTEGER},
+      CALL_ARCHIVE_ID = #{record.callArchiveId,jdbcType=INTEGER},
+      CALL_UA_ID = #{record.callUaId,jdbcType=INTEGER},
+      CALL_CITY_ID = #{record.callCityId,jdbcType=INTEGER},
+      TARGET_ID = #{record.targetId,jdbcType=INTEGER},
+      TARGET_DEPT = #{record.targetDept,jdbcType=INTEGER},
+      TARGET_TYPE = #{record.targetType,jdbcType=TINYINT},
+      TARGET_PLATE_TYPE = #{record.targetPlateType,jdbcType=TINYINT},
+      TARGET_OWNER_ID = #{record.targetOwnerId,jdbcType=INTEGER},
+      TARGET_USEAGE = #{record.targetUseage,jdbcType=INTEGER},
+      TARGET_NO = #{record.targetNo,jdbcType=VARCHAR},
+      START_TIME = #{record.startTime,jdbcType=TIMESTAMP},
+      END_TIME = #{record.endTime,jdbcType=TIMESTAMP},
+      CALL_LENGTH = #{record.callLength,jdbcType=INTEGER},
+      CALL_FEE = #{record.callFee,jdbcType=DECIMAL},
+      CALL_AMOUNT_BEFORE = #{record.callAmountBefore,jdbcType=DECIMAL},
+      CALL_AMOUNT_AFTER = #{record.callAmountAfter,jdbcType=DECIMAL},
+      CUT_REASON = #{record.cutReason,jdbcType=TINYINT},
+      REASON_DESC = #{record.reasonDesc,jdbcType=TINYINT},
+      CALL_RECORD_URL = #{record.callRecordUrl,jdbcType=VARCHAR},
+      IS_DOWNLOAD_RECORD = #{record.isDownloadRecord,jdbcType=TINYINT},
+      PAID_ID = #{record.paidId,jdbcType=INTEGER},
+      LOG_SOURCE = #{record.logSource,jdbcType=TINYINT},
+      CALL_TIME = #{record.callTime,jdbcType=TIMESTAMP},
+      VOIP_POOL_ID = #{record.voipPoolId,jdbcType=INTEGER},
+      THIRD_RECORD_URL = #{record.thirdRecordUrl,jdbcType=VARCHAR},
+      POOL_LOCK_ID = #{record.poolLockId,jdbcType=VARCHAR},
+      COMP_AMOUNT = #{record.compAmount,jdbcType=DECIMAL},
+      USER_AMOUNT = #{record.userAmount,jdbcType=DECIMAL},
+      THIRD_CHANNEL = #{record.thirdChannel,jdbcType=TINYINT},
+      IS_CALLBACK = #{record.isCallback,jdbcType=TINYINT},
+      VOIP_MINUTE = #{record.voipMinute,jdbcType=INTEGER},
+      TARGET_SOURCE = #{record.targetSource,jdbcType=TINYINT},
+      EXTEND_JSON = #{record.extendJson,jdbcType=VARCHAR},
+      USER_COIN = #{record.userCoin,jdbcType=DECIMAL},
+      USER_QUAN = #{record.userQuan,jdbcType=DECIMAL},
+      COMP_COIN = #{record.compCoin,jdbcType=DECIMAL},
+      COMP_QUAN = #{record.compQuan,jdbcType=DECIMAL},
+      CALL_AREA_ID = #{record.callAreaId,jdbcType=INTEGER},
+      CALL_REG_ID = #{record.callRegId,jdbcType=INTEGER},
+      CALL_GR_ID = #{record.callGrId,jdbcType=INTEGER},
+      CASH_MONEY = #{record.cashMoney,jdbcType=DECIMAL},
+      COMP_CASH_MONEY = #{record.compCashMoney,jdbcType=DECIMAL},
+      IS_FDD = #{record.isFdd,jdbcType=TINYINT},
+      FDD_HIDDEN_NUMBER = #{record.fddHiddenNumber,jdbcType=VARCHAR},
+      CALL_ID = #{record.callId,jdbcType=VARCHAR},
+      AXB_STYLE = #{record.axbStyle,jdbcType=INTEGER},
+      DEDUCTION_FAILURE_REASON = #{record.deductionFailureReason,jdbcType=VARCHAR},
+      PARENT_LOG_ID = #{record.parentLogId,jdbcType=VARCHAR},
+      HOUSING_SALE_FLAG = #{record.housingSaleFlag,jdbcType=INTEGER},
+      TARGET_CASE_STATUS = #{record.targetCaseStatus,jdbcType=TINYINT},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      TISSUE_LINE = #{record.tissueLine,jdbcType=VARCHAR},
+      BIND_X = #{record.bindX,jdbcType=VARCHAR},
+      ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      ORG_1 = #{record.org1,jdbcType=INTEGER},
+      ORG_2 = #{record.org2,jdbcType=INTEGER},
+      ORG_3 = #{record.org3,jdbcType=INTEGER},
+      ORG_4 = #{record.org4,jdbcType=INTEGER},
+      ORG_5 = #{record.org5,jdbcType=INTEGER},
+      ORG_6 = #{record.org6,jdbcType=INTEGER},
+      ORG_7 = #{record.org7,jdbcType=INTEGER},
+      ORG_8 = #{record.org8,jdbcType=INTEGER},
+      ORG_9 = #{record.org9,jdbcType=INTEGER},
+      ORG_10 = #{record.org10,jdbcType=INTEGER},
+      ORG_11 = #{record.org11,jdbcType=INTEGER},
+      ORG_12 = #{record.org12,jdbcType=INTEGER},
+      ORG_13 = #{record.org13,jdbcType=INTEGER},
+      ORG_14 = #{record.org14,jdbcType=INTEGER},
+      CALL_USER_NAME = #{record.callUserName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminIpCallLog">
+    <!--@mbggenerated-->
+    update IP_CALL_LOG
+    <set>
+      <if test="logId != null">
+        LOG_ID = #{logId,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null">
+        CALL_TYPE = #{callType,jdbcType=TINYINT},
+      </if>
+      <if test="callPhone != null">
+        CALL_PHONE = #{callPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="calledPhone != null">
+        CALLED_PHONE = #{calledPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="callCompId != null">
+        CALL_COMP_ID = #{callCompId,jdbcType=INTEGER},
+      </if>
+      <if test="callDeptId != null">
+        CALL_DEPT_ID = #{callDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="callUserId != null">
+        CALL_USER_ID = #{callUserId,jdbcType=INTEGER},
+      </if>
+      <if test="callArchiveId != null">
+        CALL_ARCHIVE_ID = #{callArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="callUaId != null">
+        CALL_UA_ID = #{callUaId,jdbcType=INTEGER},
+      </if>
+      <if test="callCityId != null">
+        CALL_CITY_ID = #{callCityId,jdbcType=INTEGER},
+      </if>
+      <if test="targetId != null">
+        TARGET_ID = #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="targetDept != null">
+        TARGET_DEPT = #{targetDept,jdbcType=INTEGER},
+      </if>
+      <if test="targetType != null">
+        TARGET_TYPE = #{targetType,jdbcType=TINYINT},
+      </if>
+      <if test="targetPlateType != null">
+        TARGET_PLATE_TYPE = #{targetPlateType,jdbcType=TINYINT},
+      </if>
+      <if test="targetOwnerId != null">
+        TARGET_OWNER_ID = #{targetOwnerId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUseage != null">
+        TARGET_USEAGE = #{targetUseage,jdbcType=INTEGER},
+      </if>
+      <if test="targetNo != null">
+        TARGET_NO = #{targetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        START_TIME = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="callLength != null">
+        CALL_LENGTH = #{callLength,jdbcType=INTEGER},
+      </if>
+      <if test="callFee != null">
+        CALL_FEE = #{callFee,jdbcType=DECIMAL},
+      </if>
+      <if test="callAmountBefore != null">
+        CALL_AMOUNT_BEFORE = #{callAmountBefore,jdbcType=DECIMAL},
+      </if>
+      <if test="callAmountAfter != null">
+        CALL_AMOUNT_AFTER = #{callAmountAfter,jdbcType=DECIMAL},
+      </if>
+      <if test="cutReason != null">
+        CUT_REASON = #{cutReason,jdbcType=TINYINT},
+      </if>
+      <if test="reasonDesc != null">
+        REASON_DESC = #{reasonDesc,jdbcType=TINYINT},
+      </if>
+      <if test="callRecordUrl != null">
+        CALL_RECORD_URL = #{callRecordUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDownloadRecord != null">
+        IS_DOWNLOAD_RECORD = #{isDownloadRecord,jdbcType=TINYINT},
+      </if>
+      <if test="paidId != null">
+        PAID_ID = #{paidId,jdbcType=INTEGER},
+      </if>
+      <if test="logSource != null">
+        LOG_SOURCE = #{logSource,jdbcType=TINYINT},
+      </if>
+      <if test="callTime != null">
+        CALL_TIME = #{callTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voipPoolId != null">
+        VOIP_POOL_ID = #{voipPoolId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdRecordUrl != null">
+        THIRD_RECORD_URL = #{thirdRecordUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="poolLockId != null">
+        POOL_LOCK_ID = #{poolLockId,jdbcType=VARCHAR},
+      </if>
+      <if test="compAmount != null">
+        COMP_AMOUNT = #{compAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="userAmount != null">
+        USER_AMOUNT = #{userAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdChannel != null">
+        THIRD_CHANNEL = #{thirdChannel,jdbcType=TINYINT},
+      </if>
+      <if test="isCallback != null">
+        IS_CALLBACK = #{isCallback,jdbcType=TINYINT},
+      </if>
+      <if test="voipMinute != null">
+        VOIP_MINUTE = #{voipMinute,jdbcType=INTEGER},
+      </if>
+      <if test="targetSource != null">
+        TARGET_SOURCE = #{targetSource,jdbcType=TINYINT},
+      </if>
+      <if test="extendJson != null">
+        EXTEND_JSON = #{extendJson,jdbcType=VARCHAR},
+      </if>
+      <if test="userCoin != null">
+        USER_COIN = #{userCoin,jdbcType=DECIMAL},
+      </if>
+      <if test="userQuan != null">
+        USER_QUAN = #{userQuan,jdbcType=DECIMAL},
+      </if>
+      <if test="compCoin != null">
+        COMP_COIN = #{compCoin,jdbcType=DECIMAL},
+      </if>
+      <if test="compQuan != null">
+        COMP_QUAN = #{compQuan,jdbcType=DECIMAL},
+      </if>
+      <if test="callAreaId != null">
+        CALL_AREA_ID = #{callAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="callRegId != null">
+        CALL_REG_ID = #{callRegId,jdbcType=INTEGER},
+      </if>
+      <if test="callGrId != null">
+        CALL_GR_ID = #{callGrId,jdbcType=INTEGER},
+      </if>
+      <if test="cashMoney != null">
+        CASH_MONEY = #{cashMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="compCashMoney != null">
+        COMP_CASH_MONEY = #{compCashMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="isFdd != null">
+        IS_FDD = #{isFdd,jdbcType=TINYINT},
+      </if>
+      <if test="fddHiddenNumber != null">
+        FDD_HIDDEN_NUMBER = #{fddHiddenNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="callId != null">
+        CALL_ID = #{callId,jdbcType=VARCHAR},
+      </if>
+      <if test="axbStyle != null">
+        AXB_STYLE = #{axbStyle,jdbcType=INTEGER},
+      </if>
+      <if test="deductionFailureReason != null">
+        DEDUCTION_FAILURE_REASON = #{deductionFailureReason,jdbcType=VARCHAR},
+      </if>
+      <if test="parentLogId != null">
+        PARENT_LOG_ID = #{parentLogId,jdbcType=VARCHAR},
+      </if>
+      <if test="housingSaleFlag != null">
+        HOUSING_SALE_FLAG = #{housingSaleFlag,jdbcType=INTEGER},
+      </if>
+      <if test="targetCaseStatus != null">
+        TARGET_CASE_STATUS = #{targetCaseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tissueLine != null">
+        TISSUE_LINE = #{tissueLine,jdbcType=VARCHAR},
+      </if>
+      <if test="bindX != null">
+        BIND_X = #{bindX,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="org1 != null">
+        ORG_1 = #{org1,jdbcType=INTEGER},
+      </if>
+      <if test="org2 != null">
+        ORG_2 = #{org2,jdbcType=INTEGER},
+      </if>
+      <if test="org3 != null">
+        ORG_3 = #{org3,jdbcType=INTEGER},
+      </if>
+      <if test="org4 != null">
+        ORG_4 = #{org4,jdbcType=INTEGER},
+      </if>
+      <if test="org5 != null">
+        ORG_5 = #{org5,jdbcType=INTEGER},
+      </if>
+      <if test="org6 != null">
+        ORG_6 = #{org6,jdbcType=INTEGER},
+      </if>
+      <if test="org7 != null">
+        ORG_7 = #{org7,jdbcType=INTEGER},
+      </if>
+      <if test="org8 != null">
+        ORG_8 = #{org8,jdbcType=INTEGER},
+      </if>
+      <if test="org9 != null">
+        ORG_9 = #{org9,jdbcType=INTEGER},
+      </if>
+      <if test="org10 != null">
+        ORG_10 = #{org10,jdbcType=INTEGER},
+      </if>
+      <if test="org11 != null">
+        ORG_11 = #{org11,jdbcType=INTEGER},
+      </if>
+      <if test="org12 != null">
+        ORG_12 = #{org12,jdbcType=INTEGER},
+      </if>
+      <if test="org13 != null">
+        ORG_13 = #{org13,jdbcType=INTEGER},
+      </if>
+      <if test="org14 != null">
+        ORG_14 = #{org14,jdbcType=INTEGER},
+      </if>
+      <if test="callUserName != null">
+        CALL_USER_NAME = #{callUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminIpCallLog">
+    <!--@mbggenerated-->
+    update IP_CALL_LOG
+    set LOG_ID = #{logId,jdbcType=VARCHAR},
+      CALL_TYPE = #{callType,jdbcType=TINYINT},
+      CALL_PHONE = #{callPhone,jdbcType=VARCHAR},
+      CALLED_PHONE = #{calledPhone,jdbcType=VARCHAR},
+      CALL_COMP_ID = #{callCompId,jdbcType=INTEGER},
+      CALL_DEPT_ID = #{callDeptId,jdbcType=INTEGER},
+      CALL_USER_ID = #{callUserId,jdbcType=INTEGER},
+      CALL_ARCHIVE_ID = #{callArchiveId,jdbcType=INTEGER},
+      CALL_UA_ID = #{callUaId,jdbcType=INTEGER},
+      CALL_CITY_ID = #{callCityId,jdbcType=INTEGER},
+      TARGET_ID = #{targetId,jdbcType=INTEGER},
+      TARGET_DEPT = #{targetDept,jdbcType=INTEGER},
+      TARGET_TYPE = #{targetType,jdbcType=TINYINT},
+      TARGET_PLATE_TYPE = #{targetPlateType,jdbcType=TINYINT},
+      TARGET_OWNER_ID = #{targetOwnerId,jdbcType=INTEGER},
+      TARGET_USEAGE = #{targetUseage,jdbcType=INTEGER},
+      TARGET_NO = #{targetNo,jdbcType=VARCHAR},
+      START_TIME = #{startTime,jdbcType=TIMESTAMP},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      CALL_LENGTH = #{callLength,jdbcType=INTEGER},
+      CALL_FEE = #{callFee,jdbcType=DECIMAL},
+      CALL_AMOUNT_BEFORE = #{callAmountBefore,jdbcType=DECIMAL},
+      CALL_AMOUNT_AFTER = #{callAmountAfter,jdbcType=DECIMAL},
+      CUT_REASON = #{cutReason,jdbcType=TINYINT},
+      REASON_DESC = #{reasonDesc,jdbcType=TINYINT},
+      CALL_RECORD_URL = #{callRecordUrl,jdbcType=VARCHAR},
+      IS_DOWNLOAD_RECORD = #{isDownloadRecord,jdbcType=TINYINT},
+      PAID_ID = #{paidId,jdbcType=INTEGER},
+      LOG_SOURCE = #{logSource,jdbcType=TINYINT},
+      CALL_TIME = #{callTime,jdbcType=TIMESTAMP},
+      VOIP_POOL_ID = #{voipPoolId,jdbcType=INTEGER},
+      THIRD_RECORD_URL = #{thirdRecordUrl,jdbcType=VARCHAR},
+      POOL_LOCK_ID = #{poolLockId,jdbcType=VARCHAR},
+      COMP_AMOUNT = #{compAmount,jdbcType=DECIMAL},
+      USER_AMOUNT = #{userAmount,jdbcType=DECIMAL},
+      THIRD_CHANNEL = #{thirdChannel,jdbcType=TINYINT},
+      IS_CALLBACK = #{isCallback,jdbcType=TINYINT},
+      VOIP_MINUTE = #{voipMinute,jdbcType=INTEGER},
+      TARGET_SOURCE = #{targetSource,jdbcType=TINYINT},
+      EXTEND_JSON = #{extendJson,jdbcType=VARCHAR},
+      USER_COIN = #{userCoin,jdbcType=DECIMAL},
+      USER_QUAN = #{userQuan,jdbcType=DECIMAL},
+      COMP_COIN = #{compCoin,jdbcType=DECIMAL},
+      COMP_QUAN = #{compQuan,jdbcType=DECIMAL},
+      CALL_AREA_ID = #{callAreaId,jdbcType=INTEGER},
+      CALL_REG_ID = #{callRegId,jdbcType=INTEGER},
+      CALL_GR_ID = #{callGrId,jdbcType=INTEGER},
+      CASH_MONEY = #{cashMoney,jdbcType=DECIMAL},
+      COMP_CASH_MONEY = #{compCashMoney,jdbcType=DECIMAL},
+      IS_FDD = #{isFdd,jdbcType=TINYINT},
+      FDD_HIDDEN_NUMBER = #{fddHiddenNumber,jdbcType=VARCHAR},
+      CALL_ID = #{callId,jdbcType=VARCHAR},
+      AXB_STYLE = #{axbStyle,jdbcType=INTEGER},
+      DEDUCTION_FAILURE_REASON = #{deductionFailureReason,jdbcType=VARCHAR},
+      PARENT_LOG_ID = #{parentLogId,jdbcType=VARCHAR},
+      HOUSING_SALE_FLAG = #{housingSaleFlag,jdbcType=INTEGER},
+      TARGET_CASE_STATUS = #{targetCaseStatus,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      TISSUE_LINE = #{tissueLine,jdbcType=VARCHAR},
+      BIND_X = #{bindX,jdbcType=VARCHAR},
+      ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      ORG_1 = #{org1,jdbcType=INTEGER},
+      ORG_2 = #{org2,jdbcType=INTEGER},
+      ORG_3 = #{org3,jdbcType=INTEGER},
+      ORG_4 = #{org4,jdbcType=INTEGER},
+      ORG_5 = #{org5,jdbcType=INTEGER},
+      ORG_6 = #{org6,jdbcType=INTEGER},
+      ORG_7 = #{org7,jdbcType=INTEGER},
+      ORG_8 = #{org8,jdbcType=INTEGER},
+      ORG_9 = #{org9,jdbcType=INTEGER},
+      ORG_10 = #{org10,jdbcType=INTEGER},
+      ORG_11 = #{org11,jdbcType=INTEGER},
+      ORG_12 = #{org12,jdbcType=INTEGER},
+      ORG_13 = #{org13,jdbcType=INTEGER},
+      ORG_14 = #{org14,jdbcType=INTEGER},
+      CALL_USER_NAME = #{callUserName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+    <sql id="Custom_Column_List">
+   TARGET_TYPE,LOG_ID,TARGET_NO,CALL_TIME,TARGET_NO,TARGET_ID,TARGET_USEAGE,CALL_LENGTH,CALL_RECORD_URL,IS_DOWNLOAD_RECORD,ORGANIZATION_ID as CALL_DEPT_ID,CALL_USER_ID,CALLED_PHONE,CALL_GR_ID,CALL_ARCHIVE_ID, TARGET_CASE_STATUS
+  </sql>
+
+    <select id="getCallRecordingList" parameterType="com.myfun.repository.admindb.po.AdminIpCallLog" resultMap="BaseResultMap">
+        SELECT FV.CALL_USER_ID, FV.CALL_CITY_ID, FV.CALL_TIME, FV.CALL_LENGTH, FV.CALL_RECORD_URL, FV.LOG_ID
+        FROM IP_CALL_LOG FV WHERE 1=1
+        <if test="targetId !=null">
+            AND FV.TARGET_ID=#{targetId,jdbcType=INTEGER}
+        </if>
+        <if test="targetType !=null">
+            AND FV.TARGET_TYPE=#{targetType,jdbcType=INTEGER}
+        </if>
+    </select>
+    <select id="getRecordingByIds" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from IP_CALL_LOG where LOG_ID in (#{substring,jdbcType=VARCHAR})
+    </select>
+    <update id="callBackByLogId" parameterType="java.lang.String">
+    UPDATE IP_CALL_LOG SET IS_CALLBACK=1 WHERE LOG_ID = #{logId,jdbcType=VARCHAR} AND IS_CALLBACK = 0
+  </update>
+
+<select id="getMgrVoiceNoteLog" resultMap="BaseResultMap">
+		select
+		<include refid="Custom_Column_List" />
+		from IP_CALL_LOG
+		where CALL_COMP_ID = #{param.compId,jdbcType=INTEGER}
+		<if test="param.caseTypeList!=null and param.caseTypeList.size &gt; 0">
+			AND TARGET_TYPE IN 
+			<foreach close=")" collection="param.caseTypeList" item="caseType" open="(" separator=",">
+				${caseType}
+			</foreach>
+		</if>
+		<if test="param.cityId!=null">
+			AND CALL_CITY_ID=#{param.cityId,jdbcType=INTEGER}
+		</if>
+		<choose>
+            <when test="param.timeLowerLimit != null and param.timeUpperLimit != null ">
+                AND CALL_LENGTH &gt;= #{param.timeLowerLimit} and CALL_LENGTH &lt;= #{param.timeUpperLimit}
+            </when>
+            <when test="param.timeLowerLimit != null  and param.timeUpperLimit == null ">
+                AND CALL_LENGTH &gt;= #{param.timeLowerLimit}
+            </when>
+            <when test="param.timeLowerLimit == null  and param.timeUpperLimit != null ">
+                AND CALL_LENGTH &lt;= #{param.timeUpperLimit} AND CALL_LENGTH &gt; 0 and CALL_LENGTH&gt;0
+            </when>
+            <otherwise>
+                AND CALL_LENGTH&gt;0
+            </otherwise>
+        </choose>
+		<if test="param.targetId!=null and param.targetId!='' ">
+			AND TARGET_ID=#{param.targetId,jdbcType=INTEGER}
+		</if>
+		<!-- <if test="param.deptIds!=null and param.deptIds.size &gt; 0">
+			AND CALL_DEPT_ID IN
+			<foreach close=")" collection="param.deptIds" item="deptId" open="(" separator=",">
+				${deptId}
+			</foreach>
+		</if> -->
+
+        <!-- 老版组织机构走以前的逻辑, 新版组织机构走新的组织机构ID筛选 -->
+        <choose>
+            <when test="param.newOrganizationType == 1">
+                <if test="'' != param.organizationId and null != param.organizationId and 0 != param.organizationId">
+                    AND TISSUE_LINE LIKE CONCAT('%:', #{param.organizationId}, ':%')
+                </if>
+            </when>
+            <otherwise>
+                <choose>
+                    <when test="param.deptIds!=null and param.deptIds.size &gt; 0">
+                        AND CALL_DEPT_ID IN
+                        <foreach close=")" collection="param.deptIds" item="deptId" open="(" separator=",">
+                            ${deptId}
+                        </foreach>
+                    </when>
+                    <otherwise>
+                        <if test="param.grId!=null">
+                            AND CALL_GR_ID=#{param.grId,jdbcType=INTEGER}
+                        </if>
+                        <if test="param.deptId!=null">
+                            AND CALL_DEPT_ID=#{param.deptId,jdbcType=INTEGER}
+                        </if>
+                        <if test="param.regId!=null">
+                            AND CALL_REG_ID=#{param.regId,jdbcType=INTEGER}
+                        </if>
+                        <if test="param.areaId!=null">
+                            AND CALL_AREA_ID=#{param.areaId,jdbcType=INTEGER}
+                        </if>
+                    </otherwise>
+                </choose>
+            </otherwise>
+        </choose>
+
+		<!-- <if test="param.userIds!=null and param.userIds.size &gt; 0">
+			AND CALL_USER_ID IN
+			<foreach close=")" collection="param.userIds" item="userId" open="(" separator=",">
+				${userId}
+			</foreach>
+		</if> -->
+		
+		<choose>
+			<when test="param.userIds!=null and param.userIds.size &gt; 0">
+				AND CALL_USER_ID IN
+				<foreach close=")" collection="param.userIds" item="userId" open="(" separator=",">
+					${userId}
+				</foreach>
+			</when>
+			<otherwise>
+                <!-- 老版组织机构走以前的逻辑, 新版组织机构走新的组织机构ID筛选 -->
+                <choose>
+                    <when test="param.newOrganizationType == 1">
+                        <if test="'' != param.organizationId and null != param.organizationId and 0 != param.organizationId">
+                            AND TISSUE_LINE LIKE CONCAT('%:', #{param.organizationId}, ':%')
+                        </if>
+                    </when>
+                    <otherwise>
+                        <if test="param.grId!=null">
+                            AND CALL_GR_ID=#{param.grId,jdbcType=INTEGER}
+                        </if>
+                        <if test="param.deptId!=null">
+                            AND CALL_DEPT_ID=#{param.deptId,jdbcType=INTEGER}
+                        </if>
+                        <if test="param.regId!=null">
+                            AND CALL_REG_ID=#{param.regId,jdbcType=INTEGER}
+                        </if>
+                        <if test="param.areaId!=null">
+                            AND CALL_AREA_ID=#{param.areaId,jdbcType=INTEGER}
+                        </if>
+                    </otherwise>
+                </choose>
+			</otherwise>
+		</choose>
+		
+		<if test="param.time1!=null">
+			AND CALL_TIME &gt;= #{param.time1,jdbcType=TIMESTAMP}
+		</if>
+		<if test="param.time2!=null">
+			AND CALL_TIME &lt;= #{param.time2,jdbcType=TIMESTAMP}
+		</if>
+        order by CALL_TIME DESC
+	</select>
+
+    <select id="getRecordingByIdArr" resultMap="BaseResultMap">
+        SELECT
+        CALL_RECORD_URL,IS_DOWNLOAD_RECORD,TARGET_OWNER_ID,CALL_TIME,TARGET_NO,CALL_LENGTH,CALL_FEE,CALL_DEPT_ID,CALL_USER_ID,TARGET_TYPE,TARGET_ID
+        FROM IP_CALL_LOG WHERE LOG_ID IN
+        <foreach close=")" collection="recordIds" item="item" open="(" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="getIpCallLogReport" resultType="java.util.Map">
+        select sum(CALL_LENGTH) callLength,sum(USER_COIN) userCoin,sum(USER_QUAN) userQuan,sum(COMP_COIN)
+        compCoin,sum(COMP_QUAN) compQuan,
+        sum(iif(CALL_LENGTH%60=0,CALL_LENGTH,(CALL_LENGTH/60+1)*60))
+        callFeeTime,${param.queryDimension},sum(USER_AMOUNT) userAmount,
+        sum(COMP_AMOUNT) compAmount
+        from IP_CALL_LOG
+        where CALL_CITY_ID = #{param.cityId} and CALL_COMP_ID = #{param.compId}
+        and ${param.serchRange} = #{param.serchRangeId}<!-- 搜索范围 -->
+        <if test="param.userId != null and param.userId != ''">AND CALL_USER_ID = #{param.userId}</if>
+        and (CALL_TIME BETWEEN #{param.startTime} and #{param.endTime})
+        group by ${param.groupbyDimension}
+    </select>
+
+    <select id="getBuildDataIpCallList" resultMap="BaseResultMap">
+        SELECT
+        CALL_RECORD_URL,IS_DOWNLOAD_RECORD,TARGET_OWNER_ID,CALL_TIME,TARGET_NO,CALL_LENGTH,CALL_FEE,CALL_DEPT_ID,CALL_USER_ID,TARGET_TYPE,TARGET_ID
+        FROM IP_CALL_LOG
+        WHERE CALL_CITY_ID = #{cityId} AND CALL_LENGTH &gt; 0 AND CALL_COMP_ID = #{compId}
+        AND TARGET_TYPE = 26 AND CALL_${serchRange} = #{serchRangeId}
+        <if test="userId != null and userId != ''">
+            AND CALL_USER_ID = #{userId}
+        </if>
+        <if test="buildId != null and buildId != ''">
+            AND TARGET_ID = #{buildId}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND CALL_TIME &gt;= #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND CALL_TIME &lt;= #{endTime}
+        </if>
+        ORDER BY CALL_TIME
+    </select>
+
+    <select id="getIpCallBuildData" resultType="java.util.Map">
+        SELECT COUNT(DISTINCT TARGET_ID) ipBuildCount,
+        COUNT(1) AS ipAllCount,
+        CALL_COMP_ID compId,CALL_AREA_ID areaId,CALL_REG_ID regId,CALL_DEPT_ID deptId,
+        CALL_GR_ID grId,CALL_USER_ID userId
+        FROM IP_CALL_LOG
+        WHERE CALL_CITY_ID = #{cityId} AND CALL_LENGTH &gt; 0 AND CALL_COMP_ID = #{compId}
+        AND TARGET_TYPE = 26 AND CALL_${serchRange} = #{serchRangeId}
+        <if test="userId != null and userId != ''">
+            AND CALL_USER_ID = #{userId}
+        </if>
+        <if test="buildId != null and buildId != ''">
+            AND TARGET_ID = #{buildId}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND CALL_TIME &gt;= #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND CALL_TIME &lt;= #{endTime}
+        </if>
+        GROUP BY CALL_COMP_ID,CALL_AREA_ID,CALL_REG_ID,CALL_DEPT_ID,CALL_GR_ID,CALL_USER_ID
+    </select>
+
+    <select id="getAdminIpCallLogList" resultMap="BaseResultMap">
+        SELECT CALL_TIME,COMP_AMOUNT,USER_AMOUNT,CALL_LENGTH,CALL_FEE,CALLED_PHONE
+        FROM IP_CALL_LOG
+        WHERE
+        CALL_CITY_ID = #{param.cityId}
+        AND CALL_COMP_ID = #{param.compId}
+        <if test="param.archiveId != null">
+            AND CALL_ARCHIVE_ID = #{param.archiveId}
+        </if>
+        <choose>
+            <when test="param.rangeDateStart != null and param.rangeDateEnd != null ">
+                AND CALL_TIME &gt;= #{param.rangeDateStart} and CALL_TIME &lt;= #{param.rangeDateEnd}
+            </when>
+            <when test="param.dateStart != null  and param.dateEnd != null ">
+                AND CALL_TIME &gt;= #{param.dateStart} and CALL_TIME &lt;= #{param.dateEnd}
+            </when>
+        </choose>
+        <if test="param.paidAccount == 1">
+            AND (COMP_AMOUNT &gt; 0 OR USER_AMOUNT &gt; 0)
+        </if>
+        <if test="param.paidAccount == 2">
+            AND COMP_AMOUNT &gt; 0
+        </if>
+        ORDER BY CALL_TIME DESC
+    </select>
+
+    <select id="getBuildInfoIpCallLog" resultMap="BaseResultMap">
+        SELECT
+        TARGET_TYPE,LOG_ID,TARGET_NO,CALL_TIME,TARGET_NO,TARGET_ID,TARGET_USEAGE,CALL_LENGTH,CALL_RECORD_URL,
+        IS_DOWNLOAD_RECORD,CALL_DEPT_ID,CALL_USER_ID,CALLED_PHONE
+        FROM IP_CALL_LOG
+        WHERE CALL_CITY_ID = #{cityId} AND CALL_LENGTH &gt;0 AND CALL_COMP_ID = #{compId}
+        <if test="null != param.targetId">
+            AND TARGET_ID = #{param.targetId}
+        </if>
+        <choose>
+            <when test="null != param.deptId">
+                AND CALL_DEPT_ID = #{param.deptId}
+            </when>
+            <when test="null != param.regId">
+                <if test="null != deptIds">
+                    AND CALL_DEPT_ID IN
+                    <foreach close=")" collection="deptIds" index="index" item="deptId" open="(" separator=",">
+                        #{deptId}
+                    </foreach>
+                </if>
+            </when>
+            <when test="null != param.areaId">
+                <if test="null != deptIds">
+                    AND CALL_DEPT_ID IN
+                    <foreach close=")" collection="deptIds" index="index" item="deptId" open="(" separator=",">
+                        #{deptId}
+                    </foreach>
+                </if>
+            </when>
+            <when test="null != param.grId">
+                <if test="null != userIds">
+                    AND CALL_USER_ID IN
+                    <foreach close=")" collection="userIds" index="index" item="userId" open="(" separator=",">
+                        #{userId}
+                    </foreach>
+                </if>
+            </when>
+        </choose>
+        <if test="null != param.userId">
+            AND CALL_USER_ID = #{param.userId}
+        </if>
+        <if test="null != param.targetType">
+            AND TARGET_TYPE = #{param.targetType}
+        </if>
+        <if test="null != param.time1">
+            AND CALL_TIME &gt;= #{param.time1}
+        </if>
+        <if test="null != param.time2">
+            AND CALL_TIME &lt;= #{param.time2}
+        </if>
+        ORDER BY CALL_TIME DESC
+    </select>
+    
+    <select id="getCallRecordList" resultMap="BaseResultMap">
+    	select <include refid="Base_Column_List" /> from IP_CALL_LOG where CALL_COMP_ID = #{param.compId} and CALL_LENGTH &gt;= 0
+    	<if test="param.organizationId != null">
+	    	and TISSUE_LINE like CONCAT('%:', #{param.organizationId}, ':%')
+    	</if>
+    	<if test="param.userId != null">
+    		and CALL_USER_ID = #{param.userId}
+    	</if>
+    	<if test="param.startTime != null and param.startTime != ''">
+    		and CALL_TIME &gt;= #{param.startTime}
+    	</if>
+    	<if test="param.endTime != null and param.endTime != ''">
+    		and CALL_TIME &lt;= #{param.endTime}
+    	</if>
+    	<if test="param.callSource != null">
+    		and LOG_SOURCE = #{param.callSource}
+    	</if>
+    	<if test="param.callType != null">
+    		and CALL_TYPE = #{param.callType}
+    	</if>
+    	<if test="param.keys != null">
+    		and (BIND_X like '%${param.keys}%' or CALLED_PHONE like '%${param.keys}%' or CALL_USER_NAME like '%${param.keys}%')
+    	</if>
+    	order by CALL_TIME desc
+    </select>
+
+  <select id="selectByLogId"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from IP_CALL_LOG
+    where LOG_ID = #{voipId}
+  </select>
+</mapper>

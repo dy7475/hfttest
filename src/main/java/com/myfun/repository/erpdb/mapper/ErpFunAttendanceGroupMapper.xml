@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAttendanceGroupMapper">
+    <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunAttendanceGroup">
+        <!--@mbggenerated-->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="CLASS_TYPE" jdbcType="TINYINT" property="classType"/>
+        <result column="GROUP_NAME" jdbcType="VARCHAR" property="groupName"/>
+        <result column="FESTIVALS" jdbcType="TINYINT" property="festivals"/>
+        <result column="MON_CLASS" jdbcType="INTEGER" property="monClass"/>
+        <result column="TUES_CALSS" jdbcType="INTEGER" property="tuesCalss"/>
+        <result column="WEB_CLASS" jdbcType="INTEGER" property="webClass"/>
+        <result column="THUR_CLASS" jdbcType="INTEGER" property="thurClass"/>
+        <result column="FIR_CLASS" jdbcType="INTEGER" property="firClass"/>
+        <result column="STA_CLASS" jdbcType="INTEGER" property="staClass"/>
+        <result column="SUN_CLASS" jdbcType="INTEGER" property="sunClass"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="COMP_ID" jdbcType="INTEGER" property="compId"/>
+        <result column="IS_DEL" jdbcType="TINYINT" property="isDel"/>
+        <result column="DEL_TIME" jdbcType="TIMESTAMP" property="delTime"/>
+        <result column="DEPT_ID" jdbcType="INTEGER" property="deptId"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <!--@mbggenerated-->
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <!--@mbggenerated-->
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <!--@mbggenerated-->
+        ID, CLASS_TYPE, GROUP_NAME, FESTIVALS, MON_CLASS, TUES_CALSS, WEB_CLASS, THUR_CLASS,
+        FIR_CLASS, STA_CLASS, SUN_CLASS, CREATE_TIME, COMP_ID, IS_DEL, DEL_TIME, DEPT_ID
+    </sql>
+    <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceGroupExample"
+            resultMap="BaseResultMap">
+        <!--@mbggenerated-->
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from FUN_ATTENDANCE_GROUP
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbggenerated-->
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_ATTENDANCE_GROUP
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbggenerated-->
+        delete from FUN_ATTENDANCE_GROUP
+        where ID = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceGroupExample">
+        <!--@mbggenerated-->
+        delete from FUN_ATTENDANCE_GROUP
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceGroup"
+            useGeneratedKeys="true">
+        <!--@mbggenerated-->
+        insert into FUN_ATTENDANCE_GROUP (CLASS_TYPE, GROUP_NAME, FESTIVALS,
+        MON_CLASS, TUES_CALSS, WEB_CLASS,
+        THUR_CLASS, FIR_CLASS, STA_CLASS,
+        SUN_CLASS, CREATE_TIME, COMP_ID,
+        IS_DEL, DEL_TIME, DEPT_ID
+        )
+        values (#{classType,jdbcType=TINYINT}, #{groupName,jdbcType=VARCHAR}, #{festivals,jdbcType=TINYINT},
+        #{monClass,jdbcType=INTEGER}, #{tuesCalss,jdbcType=INTEGER}, #{webClass,jdbcType=INTEGER},
+        #{thurClass,jdbcType=INTEGER}, #{firClass,jdbcType=INTEGER}, #{staClass,jdbcType=INTEGER},
+        #{sunClass,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{compId,jdbcType=INTEGER},
+        #{isDel,jdbcType=TINYINT}, #{delTime,jdbcType=TIMESTAMP}, #{deptId,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceGroup"
+            useGeneratedKeys="true">
+        <!--@mbggenerated-->
+        insert into FUN_ATTENDANCE_GROUP
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="classType != null">
+                CLASS_TYPE,
+            </if>
+            <if test="groupName != null">
+                GROUP_NAME,
+            </if>
+            <if test="festivals != null">
+                FESTIVALS,
+            </if>
+            <if test="monClass != null">
+                MON_CLASS,
+            </if>
+            <if test="tuesCalss != null">
+                TUES_CALSS,
+            </if>
+            <if test="webClass != null">
+                WEB_CLASS,
+            </if>
+            <if test="thurClass != null">
+                THUR_CLASS,
+            </if>
+            <if test="firClass != null">
+                FIR_CLASS,
+            </if>
+            <if test="staClass != null">
+                STA_CLASS,
+            </if>
+            <if test="sunClass != null">
+                SUN_CLASS,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="compId != null">
+                COMP_ID,
+            </if>
+            <if test="isDel != null">
+                IS_DEL,
+            </if>
+            <if test="delTime != null">
+                DEL_TIME,
+            </if>
+            <if test="deptId != null">
+                DEPT_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="classType != null">
+                #{classType,jdbcType=TINYINT},
+            </if>
+            <if test="groupName != null">
+                #{groupName,jdbcType=VARCHAR},
+            </if>
+            <if test="festivals != null">
+                #{festivals,jdbcType=TINYINT},
+            </if>
+            <if test="monClass != null">
+                #{monClass,jdbcType=INTEGER},
+            </if>
+            <if test="tuesCalss != null">
+                #{tuesCalss,jdbcType=INTEGER},
+            </if>
+            <if test="webClass != null">
+                #{webClass,jdbcType=INTEGER},
+            </if>
+            <if test="thurClass != null">
+                #{thurClass,jdbcType=INTEGER},
+            </if>
+            <if test="firClass != null">
+                #{firClass,jdbcType=INTEGER},
+            </if>
+            <if test="staClass != null">
+                #{staClass,jdbcType=INTEGER},
+            </if>
+            <if test="sunClass != null">
+                #{sunClass,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="compId != null">
+                #{compId,jdbcType=INTEGER},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=TINYINT},
+            </if>
+            <if test="delTime != null">
+                #{delTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deptId != null">
+                #{deptId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceGroupExample"
+            resultType="java.lang.Integer">
+        <!--@mbggenerated-->
+        select count(*) from FUN_ATTENDANCE_GROUP
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        <!--@mbggenerated-->
+        update FUN_ATTENDANCE_GROUP
+        <set>
+            <if test="record.id != null">
+                ID = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.classType != null">
+                CLASS_TYPE = #{record.classType,jdbcType=TINYINT},
+            </if>
+            <if test="record.groupName != null">
+                GROUP_NAME = #{record.groupName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.festivals != null">
+                FESTIVALS = #{record.festivals,jdbcType=TINYINT},
+            </if>
+            <if test="record.monClass != null">
+                MON_CLASS = #{record.monClass,jdbcType=INTEGER},
+            </if>
+            <if test="record.tuesCalss != null">
+                TUES_CALSS = #{record.tuesCalss,jdbcType=INTEGER},
+            </if>
+            <if test="record.webClass != null">
+                WEB_CLASS = #{record.webClass,jdbcType=INTEGER},
+            </if>
+            <if test="record.thurClass != null">
+                THUR_CLASS = #{record.thurClass,jdbcType=INTEGER},
+            </if>
+            <if test="record.firClass != null">
+                FIR_CLASS = #{record.firClass,jdbcType=INTEGER},
+            </if>
+            <if test="record.staClass != null">
+                STA_CLASS = #{record.staClass,jdbcType=INTEGER},
+            </if>
+            <if test="record.sunClass != null">
+                SUN_CLASS = #{record.sunClass,jdbcType=INTEGER},
+            </if>
+            <if test="record.createTime != null">
+                CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.compId != null">
+                COMP_ID = #{record.compId,jdbcType=INTEGER},
+            </if>
+            <if test="record.isDel != null">
+                IS_DEL = #{record.isDel,jdbcType=TINYINT},
+            </if>
+            <if test="record.delTime != null">
+                DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.deptId != null">
+                DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        <!--@mbggenerated-->
+        update FUN_ATTENDANCE_GROUP
+        set ID = #{record.id,jdbcType=INTEGER},
+        CLASS_TYPE = #{record.classType,jdbcType=TINYINT},
+        GROUP_NAME = #{record.groupName,jdbcType=VARCHAR},
+        FESTIVALS = #{record.festivals,jdbcType=TINYINT},
+        MON_CLASS = #{record.monClass,jdbcType=INTEGER},
+        TUES_CALSS = #{record.tuesCalss,jdbcType=INTEGER},
+        WEB_CLASS = #{record.webClass,jdbcType=INTEGER},
+        THUR_CLASS = #{record.thurClass,jdbcType=INTEGER},
+        FIR_CLASS = #{record.firClass,jdbcType=INTEGER},
+        STA_CLASS = #{record.staClass,jdbcType=INTEGER},
+        SUN_CLASS = #{record.sunClass,jdbcType=INTEGER},
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+        DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP},
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceGroup">
+        <!--@mbggenerated-->
+        update FUN_ATTENDANCE_GROUP
+        <set>
+            <if test="classType != null">
+                CLASS_TYPE = #{classType,jdbcType=TINYINT},
+            </if>
+            <if test="groupName != null">
+                GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+            </if>
+            <if test="festivals != null">
+                FESTIVALS = #{festivals,jdbcType=TINYINT},
+            </if>
+            <if test="monClass != null">
+                MON_CLASS = #{monClass,jdbcType=INTEGER},
+            </if>
+            <if test="tuesCalss != null">
+                TUES_CALSS = #{tuesCalss,jdbcType=INTEGER},
+            </if>
+            <if test="webClass != null">
+                WEB_CLASS = #{webClass,jdbcType=INTEGER},
+            </if>
+            <if test="thurClass != null">
+                THUR_CLASS = #{thurClass,jdbcType=INTEGER},
+            </if>
+            <if test="firClass != null">
+                FIR_CLASS = #{firClass,jdbcType=INTEGER},
+            </if>
+            <if test="staClass != null">
+                STA_CLASS = #{staClass,jdbcType=INTEGER},
+            </if>
+            <if test="sunClass != null">
+                SUN_CLASS = #{sunClass,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="compId != null">
+                COMP_ID = #{compId,jdbcType=INTEGER},
+            </if>
+            <if test="isDel != null">
+                IS_DEL = #{isDel,jdbcType=TINYINT},
+            </if>
+            <if test="delTime != null">
+                DEL_TIME = #{delTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deptId != null">
+                DEPT_ID = #{deptId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceGroup">
+        <!--@mbggenerated-->
+        update FUN_ATTENDANCE_GROUP
+        set CLASS_TYPE = #{classType,jdbcType=TINYINT},
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+        FESTIVALS = #{festivals,jdbcType=TINYINT},
+        MON_CLASS = #{monClass,jdbcType=INTEGER},
+        TUES_CALSS = #{tuesCalss,jdbcType=INTEGER},
+        WEB_CLASS = #{webClass,jdbcType=INTEGER},
+        THUR_CLASS = #{thurClass,jdbcType=INTEGER},
+        FIR_CLASS = #{firClass,jdbcType=INTEGER},
+        STA_CLASS = #{staClass,jdbcType=INTEGER},
+        SUN_CLASS = #{sunClass,jdbcType=INTEGER},
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+        COMP_ID = #{compId,jdbcType=INTEGER},
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+        DEL_TIME = #{delTime,jdbcType=TIMESTAMP},
+        DEPT_ID = #{deptId,jdbcType=INTEGER}
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="getGroupList" resultMap="BaseResultMap">
+        SELECT GROUP_NAME,ID,CLASS_TYPE FROM FUN_ATTENDANCE_GROUP
+        <where>
+            <if test="1==1">
+                and COMP_ID=#{compId} and IS_DEL = 0
+            </if>
+            <if test="null != keyWords and '' != keyWords">
+                and GROUP_NAME like '%${keyWords}%'
+            </if>
+        </where>
+        order by id
+    </select>
+
+    <resultMap extends="BaseResultMap" id="extBaseResultMap"
+               type="com.myfun.repository.erpdb.dto.ErpFunAttendanceGroupDto">
+    </resultMap>
+    <select id="selectGroupById" resultMap="extBaseResultMap">
+    SELECT  ID, CLASS_TYPE, GROUP_NAME, FESTIVALS, MON_CLASS, TUES_CALSS, WEB_CLASS, THUR_CLASS,COMP_ID,
+    FIR_CLASS, STA_CLASS, SUN_CLASS from FUN_ATTENDANCE_GROUP where id=#{groupId}
+  </select>
+
+    <select id="countHshApplied" resultType="java.lang.Integer">
+      select count(1) from FUN_ATTENDANCE_GROUP where  COMP_ID=#{compId} and IS_DEL = 0 and (
+      MON_CLASS =#{attClassId} OR TUES_CALSS =#{attClassId} OR WEB_CLASS = #{attClassId} OR THUR_CLASS = #{attClassId} OR
+      FIR_CLASS = #{attClassId} OR STA_CLASS = #{attClassId} OR SUN_CLASS = #{attClassId})
+  </select>
+    <select id="findClassType" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT<include refid="Base_Column_List"/>from FUN_ATTENDANCE_GROUP where IS_DEL=0 and id=#{id} ;
+    </select>
+
+
+    <select id="getGroupListByClassId" resultMap="BaseResultMap">
+       select <include refid="Base_Column_List" /> from FUN_ATTENDANCE_GROUP where  COMP_ID=#{compId} and IS_DEL = 0 and (
+      MON_CLASS =#{attClassId} OR TUES_CALSS =#{attClassId} OR WEB_CLASS = #{attClassId} OR THUR_CLASS = #{attClassId} OR
+      FIR_CLASS = #{attClassId} OR STA_CLASS = #{attClassId} OR SUN_CLASS = #{attClassId})
+    </select>
+    <select id="getGroupListByClassId2" resultMap="BaseResultMap">
+       select DISTINCT id, CLASS_TYPE, GROUP_NAME from FUN_ATTENDANCE_GROUP a
+       join  FUN_ATTENDANCE_USER_CLASS_DETAIL b on b.ATT_GR_ID = a.id and a.IS_DEL=0
+       where a.comp_id=#{compId} and b.ATT_ClASS_ID=#{attClassId} order by id desc
+    </select>
+
+    <select id="getAttenGroupList" resultType="com.myfun.erpWeb.managecenter.attendance.vo.AttendanceGroupDto">
+        SELECT id id, CLASS_TYPE classType, GROUP_NAME groupName,
+        CONCAT(MON_CLASS,',',TUES_CALSS,',',WEB_CLASS,',',THUR_CLASS,',',FIR_CLASS,',',STA_CLASS,',',SUN_CLASS) attClassId
+        from FUN_ATTENDANCE_GROUP where COMP_ID=#{compId} and IS_DEL = 0
+    </select>
+
+    <select id="getUserClassDetailList" resultType="com.myfun.repository.erpdb.po.ErpFunAttendanceUserClassDetail">
+        SELECT DISTINCT ATT_ClASS_ID attClassId,ATT_GR_ID attGrId
+        from FUN_ATTENDANCE_USER_CLASS_DETAIL WHERE comp_id=#{compId} and IS_DEL=0 and ATT_GR_ID is not null
+        and ATT_ClASS_ID in(select ID from FUN_ATTENDANCE_CLASS WHERE comp_id=#{compId} and DEL_FLAG=0)
+    </select>
+
+</mapper>

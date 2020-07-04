@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindbRpt.dao.AdmindbRptMarketingCountInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindbRpt.po.AdmindbRptMarketingCountInfo" >
+    <!--@mbggenerated-->
+    <id column="AUTO_ID" property="autoId" jdbcType="INTEGER" />
+    <result column="DJ_COUNT" property="djCount" jdbcType="INTEGER" />
+    <result column="SCSP_COUNT" property="scspCount" jdbcType="INTEGER" />
+    <result column="FB_COUNT" property="fbCount" jdbcType="INTEGER" />
+    <result column="CJ_COUNT" property="cjCount" jdbcType="INTEGER" />
+    <result column="XQ_COUNT" property="xqCount" jdbcType="INTEGER" />
+    <result column="TFY_COUNT" property="tfyCount" jdbcType="INTEGER" />
+    <result column="TFYT_COUNT" property="tfytCount" jdbcType="INTEGER" />
+    <result column="WXZS_COUNT" property="wxzsCount" jdbcType="INTEGER" />
+    <result column="FF_COUNT" property="ffCount" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="REG_ID" property="regId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="CREATION_DATE" property="creationDate" jdbcType="TIMESTAMP" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="LOCAL_DB_NAME" property="localDbName" jdbcType="VARCHAR" />
+  </resultMap>
+   <resultMap type="com.myfun.repository.admindbRpt.dto.AdmindbRptMarketingCountInfoDto" id="BaseResultMapDto">
+	<result column="DATE_COUNT" jdbcType="VARCHAR" property="dateCount" />
+    <result column="XQ_COUNT" jdbcType="INTEGER" property="xqCount" />
+    <result column="TFYT_COUNT" jdbcType="INTEGER" property="tfytCount" />
+    <result column="FF_COUNT" jdbcType="INTEGER" property="ffCount" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    AUTO_ID, DJ_COUNT, SCSP_COUNT, FB_COUNT, CJ_COUNT, XQ_COUNT, TFY_COUNT, TFYT_COUNT, 
+    WXZS_COUNT, FF_COUNT, USER_ID, DEPT_ID, COMP_ID, AREA_ID, REG_ID, CITY_ID, CREATION_DATE, 
+    CASE_TYPE, LOCAL_DB_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from MARKETING_COUNT_INFO
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from MARKETING_COUNT_INFO
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptMarketingCountInfo" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="autoId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into MARKETING_COUNT_INFO (DJ_COUNT, SCSP_COUNT, FB_COUNT, 
+      CJ_COUNT, XQ_COUNT, TFY_COUNT, 
+      TFYT_COUNT, WXZS_COUNT, FF_COUNT, 
+      USER_ID, DEPT_ID, COMP_ID, 
+      AREA_ID, REG_ID, CITY_ID, 
+      CREATION_DATE, CASE_TYPE, LOCAL_DB_NAME
+      )
+    values (#{djCount,jdbcType=INTEGER}, #{scspCount,jdbcType=INTEGER}, #{fbCount,jdbcType=INTEGER}, 
+      #{cjCount,jdbcType=INTEGER}, #{xqCount,jdbcType=INTEGER}, #{tfyCount,jdbcType=INTEGER}, 
+      #{tfytCount,jdbcType=INTEGER}, #{wxzsCount,jdbcType=INTEGER}, #{ffCount,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, 
+      #{areaId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{creationDate,jdbcType=TIMESTAMP}, #{caseType,jdbcType=TINYINT}, #{localDbName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptMarketingCountInfo" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="autoId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into MARKETING_COUNT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="djCount != null" >
+        DJ_COUNT,
+      </if>
+      <if test="scspCount != null" >
+        SCSP_COUNT,
+      </if>
+      <if test="fbCount != null" >
+        FB_COUNT,
+      </if>
+      <if test="cjCount != null" >
+        CJ_COUNT,
+      </if>
+      <if test="xqCount != null" >
+        XQ_COUNT,
+      </if>
+      <if test="tfyCount != null" >
+        TFY_COUNT,
+      </if>
+      <if test="tfytCount != null" >
+        TFYT_COUNT,
+      </if>
+      <if test="wxzsCount != null" >
+        WXZS_COUNT,
+      </if>
+      <if test="ffCount != null" >
+        FF_COUNT,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="regId != null" >
+        REG_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="creationDate != null" >
+        CREATION_DATE,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="localDbName != null" >
+        LOCAL_DB_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="djCount != null" >
+        #{djCount,jdbcType=INTEGER},
+      </if>
+      <if test="scspCount != null" >
+        #{scspCount,jdbcType=INTEGER},
+      </if>
+      <if test="fbCount != null" >
+        #{fbCount,jdbcType=INTEGER},
+      </if>
+      <if test="cjCount != null" >
+        #{cjCount,jdbcType=INTEGER},
+      </if>
+      <if test="xqCount != null" >
+        #{xqCount,jdbcType=INTEGER},
+      </if>
+      <if test="tfyCount != null" >
+        #{tfyCount,jdbcType=INTEGER},
+      </if>
+      <if test="tfytCount != null" >
+        #{tfytCount,jdbcType=INTEGER},
+      </if>
+      <if test="wxzsCount != null" >
+        #{wxzsCount,jdbcType=INTEGER},
+      </if>
+      <if test="ffCount != null" >
+        #{ffCount,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationDate != null" >
+        #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="localDbName != null" >
+        #{localDbName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptMarketingCountInfo" >
+    <!--@mbggenerated-->
+    update MARKETING_COUNT_INFO
+    <set >
+      <if test="djCount != null" >
+        DJ_COUNT = #{djCount,jdbcType=INTEGER},
+      </if>
+      <if test="scspCount != null" >
+        SCSP_COUNT = #{scspCount,jdbcType=INTEGER},
+      </if>
+      <if test="fbCount != null" >
+        FB_COUNT = #{fbCount,jdbcType=INTEGER},
+      </if>
+      <if test="cjCount != null" >
+        CJ_COUNT = #{cjCount,jdbcType=INTEGER},
+      </if>
+      <if test="xqCount != null" >
+        XQ_COUNT = #{xqCount,jdbcType=INTEGER},
+      </if>
+      <if test="tfyCount != null" >
+        TFY_COUNT = #{tfyCount,jdbcType=INTEGER},
+      </if>
+      <if test="tfytCount != null" >
+        TFYT_COUNT = #{tfytCount,jdbcType=INTEGER},
+      </if>
+      <if test="wxzsCount != null" >
+        WXZS_COUNT = #{wxzsCount,jdbcType=INTEGER},
+      </if>
+      <if test="ffCount != null" >
+        FF_COUNT = #{ffCount,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationDate != null" >
+        CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="localDbName != null" >
+        LOCAL_DB_NAME = #{localDbName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptMarketingCountInfo" >
+    <!--@mbggenerated-->
+    update MARKETING_COUNT_INFO
+    set DJ_COUNT = #{djCount,jdbcType=INTEGER},
+      SCSP_COUNT = #{scspCount,jdbcType=INTEGER},
+      FB_COUNT = #{fbCount,jdbcType=INTEGER},
+      CJ_COUNT = #{cjCount,jdbcType=INTEGER},
+      XQ_COUNT = #{xqCount,jdbcType=INTEGER},
+      TFY_COUNT = #{tfyCount,jdbcType=INTEGER},
+      TFYT_COUNT = #{tfytCount,jdbcType=INTEGER},
+      WXZS_COUNT = #{wxzsCount,jdbcType=INTEGER},
+      FF_COUNT = #{ffCount,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      LOCAL_DB_NAME = #{localDbName,jdbcType=VARCHAR}
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </update>
+ 	<select id="getXqTfytFfCount" resultType="java.util.Map">
+	SET DATEFIRST 1;
+	select ${param.admindbRptTrackqueryColumn} as dateCount,
+	sum(XQ_COUNT) as xqCount,
+	sum(TFYT_COUNT) as tfytCount,
+	sum(FF_COUNT) as ffCount 
+	from MARKETING_COUNT_INFO 
+	where CITY_ID = #{param.cityId} 
+	<if test="param.caseType ==101">
+	and CASE_TYPE = 1
+	</if>
+	<if test="param.caseType ==102">
+	and CASE_TYPE = 2
+	</if>
+	and COMP_ID = #{param.compId}
+	<if test="param.serchRange == 'AREA'">
+		and AREA_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'REG'">
+		and REG_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'DEPT'">
+		and DEPT_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'GROUP'">
+		and GR_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'USER'">
+		and USER_ID = #{param.serchRangeId}
+	</if>
+	and CREATION_DATE &gt;= #{param.startTime} and CREATION_DATE &lt;=#{param.endTime} 
+	group by ${param.admindbRptTrackqueryColumn} 
+	</select> 
+ 	<select id="getCurrentWeekhouseTgandPublishDataCount" resultType="java.util.Map">
+	select
+	SUM (iif(CASE_TYPE = 1,TFYT_COUNT,0)) AS saleHouseTgMonthCount,
+	SUM (iif(CASE_TYPE = 2,TFYT_COUNT,0)) AS leaseHouseTgCount,
+	SUM (iif(CASE_TYPE = 1,FF_COUNT,0)) AS saleReleaseHouseCount,
+	SUM (iif(CASE_TYPE = 2,FF_COUNT,0)) AS leaseReleaseHouseCount
+	from MARKETING_COUNT_INFO 
+	where CITY_ID = #{param.cityId} 
+	and COMP_ID = #{param.compId}
+	<if test="param.serchRange == 'AREA'">
+		and AREA_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'REG'">
+		and REG_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'DEPT'">
+		and DEPT_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'GROUP'">
+		and GR_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'USER'">
+		and USER_ID = #{param.serchRangeId}
+	</if>
+	and CREATION_DATE &gt;= #{param.startTime} and CREATION_DATE &lt;=#{param.endTime} 
+	</select> 
+ 	<select id="getCurrentWeekXqzjCount" resultType="java.util.Map">
+	select
+	sum(XQ_COUNT) as xqzjWeekCount
+	from MARKETING_COUNT_INFO 
+	where CITY_ID = #{param.cityId} 
+	and COMP_ID = #{param.compId}
+	<if test="param.serchRange == 'AREA'">
+		and AREA_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'REG'">
+		and REG_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'DEPT'">
+		and DEPT_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'GROUP'">
+		and GR_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'USER'">
+		and USER_ID = #{param.serchRangeId}
+	</if>
+	and CREATION_DATE &gt;= #{param.startTime} and CREATION_DATE &lt;=#{param.endTime} 
+	</select> 
+ 	<select id="getCurrentMonthXqzjCount" resultType="java.util.Map">
+	select
+	sum(XQ_COUNT) as xqzjMonthCount
+	from MARKETING_COUNT_INFO 
+	where CITY_ID = #{param.cityId} 
+	and COMP_ID = #{param.compId}
+	<if test="param.serchRange == 'AREA'">
+		and AREA_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'REG'">
+		and REG_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'DEPT'">
+		and DEPT_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'GROUP'">
+		and GR_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.serchRange == 'USER'">
+		and USER_ID = #{param.serchRangeId}
+	</if>
+	and CREATION_DATE &gt;= #{param.startTime} and CREATION_DATE &lt;=#{param.endTime} 
+	</select> 
+</mapper>

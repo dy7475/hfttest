@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfRecomHouseMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfRecomHouse" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PUSH_LOG_ID" property="pushLogId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="HAS_VIDEO" property="hasVideo" jdbcType="TINYINT" />
+    <result column="SEE_STATUS" property="seeStatus" jdbcType="TINYINT" />
+    <result column="DEL_STATUS" property="delStatus" jdbcType="TINYINT" />
+    <result column="LOCK_STATUS" property="lockStatus" jdbcType="TINYINT" />
+    <result column="HOUSE_MONEY" property="houseMoney" jdbcType="DOUBLE" />
+    <result column="BROKER_MONEY" property="brokerMoney" jdbcType="DOUBLE" />
+    <result column="RECEIVE_TIME" property="receiveTime" jdbcType="TIMESTAMP" />
+    <result column="EVA_TIME" property="evaTime" jdbcType="TIMESTAMP" />
+    <result column="ACT_TIME" property="actTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyWfRecomHouseDto" id="BaseResultMapDto" extends="BaseResultMap">
+	<result column="blCount" property="blCount"/>
+	<result column="buildName" property="buildName"/>
+	<result column="houseUseAge" property="houseUseAge"/>
+	<result column="houseRoom" property="houseRoom"/>
+	<result column="houseHall" property="houseHall"/>
+	<result column="houseWei" property="houseWei"/>
+	<result column="houseArea" property="houseArea"/>
+	<result column="houseFitment" property="houseFitment"/>
+	<result column="houseFloor" property="houseFloor"/>
+	<result column="houseFloors" property="houseFloors"/>
+	<result column="isTrue" property="isTrue"/>
+	<result column="blStatus" property="blStatus"/>
+	<result column="price" property="price"/>
+	<result column="photoCount" property="photoCount"/>
+	<result column="photoAddr" property="photoAddr"/>
+	<result column="praiseNum" property="praiseNum"/>
+	<result column="rentId" property="rentId"/>
+	<result column="isDeal" property="isDeal"/>
+    <result column="intentionRate" jdbcType="VARCHAR" property="intentionRate"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, PUSH_LOG_ID, ARCHIVE_ID, CASE_ID, CASE_TYPE, CITY_ID, HAS_VIDEO, SEE_STATUS, 
+    DEL_STATUS, LOCK_STATUS, HOUSE_MONEY, BROKER_MONEY, RECEIVE_TIME, EVA_TIME, ACT_TIME, 
+    CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_RECOM_HOUSE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_RECOM_HOUSE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfRecomHouse" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_RECOM_HOUSE (PUSH_LOG_ID, ARCHIVE_ID, CASE_ID, 
+      CASE_TYPE, CITY_ID, HAS_VIDEO, 
+      SEE_STATUS, DEL_STATUS, LOCK_STATUS, 
+      HOUSE_MONEY, BROKER_MONEY, RECEIVE_TIME, 
+      EVA_TIME, ACT_TIME, CREATE_TIME
+      )
+    values (#{pushLogId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, 
+      #{caseType,jdbcType=TINYINT}, #{cityId,jdbcType=INTEGER}, #{hasVideo,jdbcType=TINYINT}, 
+      #{seeStatus,jdbcType=TINYINT}, #{delStatus,jdbcType=TINYINT}, #{lockStatus,jdbcType=TINYINT}, 
+      #{houseMoney,jdbcType=DOUBLE}, #{brokerMoney,jdbcType=DOUBLE}, #{receiveTime,jdbcType=TIMESTAMP}, 
+      #{evaTime,jdbcType=TIMESTAMP}, #{actTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRecomHouse" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_RECOM_HOUSE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pushLogId != null" >
+        PUSH_LOG_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="hasVideo != null" >
+        HAS_VIDEO,
+      </if>
+      <if test="seeStatus != null" >
+        SEE_STATUS,
+      </if>
+      <if test="delStatus != null" >
+        DEL_STATUS,
+      </if>
+      <if test="lockStatus != null" >
+        LOCK_STATUS,
+      </if>
+      <if test="houseMoney != null" >
+        HOUSE_MONEY,
+      </if>
+      <if test="brokerMoney != null" >
+        BROKER_MONEY,
+      </if>
+      <if test="receiveTime != null" >
+        RECEIVE_TIME,
+      </if>
+      <if test="evaTime != null" >
+        EVA_TIME,
+      </if>
+      <if test="actTime != null" >
+        ACT_TIME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pushLogId != null" >
+        #{pushLogId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="hasVideo != null" >
+        #{hasVideo,jdbcType=TINYINT},
+      </if>
+      <if test="seeStatus != null" >
+        #{seeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="lockStatus != null" >
+        #{lockStatus,jdbcType=TINYINT},
+      </if>
+      <if test="houseMoney != null" >
+        #{houseMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="brokerMoney != null" >
+        #{brokerMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="receiveTime != null" >
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="evaTime != null" >
+        #{evaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actTime != null" >
+        #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRecomHouse" >
+    <!--@mbggenerated-->
+    update WF_RECOM_HOUSE
+    <set >
+      <if test="pushLogId != null" >
+        PUSH_LOG_ID = #{pushLogId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="hasVideo != null" >
+        HAS_VIDEO = #{hasVideo,jdbcType=TINYINT},
+      </if>
+      <if test="seeStatus != null" >
+        SEE_STATUS = #{seeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="delStatus != null" >
+        DEL_STATUS = #{delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="lockStatus != null" >
+        LOCK_STATUS = #{lockStatus,jdbcType=TINYINT},
+      </if>
+      <if test="houseMoney != null" >
+        HOUSE_MONEY = #{houseMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="brokerMoney != null" >
+        BROKER_MONEY = #{brokerMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="receiveTime != null" >
+        RECEIVE_TIME = #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="evaTime != null" >
+        EVA_TIME = #{evaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actTime != null" >
+        ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfRecomHouse" >
+    <!--@mbggenerated-->
+    update WF_RECOM_HOUSE
+    set PUSH_LOG_ID = #{pushLogId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      HAS_VIDEO = #{hasVideo,jdbcType=TINYINT},
+      SEE_STATUS = #{seeStatus,jdbcType=TINYINT},
+      DEL_STATUS = #{delStatus,jdbcType=TINYINT},
+      LOCK_STATUS = #{lockStatus,jdbcType=TINYINT},
+      HOUSE_MONEY = #{houseMoney,jdbcType=DOUBLE},
+      BROKER_MONEY = #{brokerMoney,jdbcType=DOUBLE},
+      RECEIVE_TIME = #{receiveTime,jdbcType=TIMESTAMP},
+      EVA_TIME = #{evaTime,jdbcType=TIMESTAMP},
+      ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getWfRecomHouseListByPushLogIds" resultMap="BaseResultMapDto">
+	select
+	PUSH_LOG_ID,max(iif(SEE_STATUS=4,BROKER_MONEY,0)) brokerMoney,
+	SUM(iif(DEL_STATUS=0,1,0)) as blCount
+	from WF_RECOM_HOUSE
+	where PUSH_LOG_ID IN
+	<foreach close=")" collection="pushLogIds" item="logId" open="(" separator=",">
+		#{logId}
+	</foreach>
+	AND PERPETUAL_DEL_STATUS=0
+	GROUP BY PUSH_LOG_ID
+	</select>
+	
+	<select id="getWfRecomHouseInfoByCaseId" resultMap="BaseResultMap">
+		select
+	<include refid="Base_Column_List" />
+	from WF_RECOM_HOUSE
+	where CASE_ID =#{caseId}
+	<if test="caseType != null and '' != caseType">
+	AND CASE_TYPE = #{caseType}
+	</if>
+	AND PERPETUAL_DEL_STATUS=0
+	</select>
+	
+	<select id="getWfRecomHouseTimeForCust" resultMap="BaseResultMap">
+		select
+		min(RECEIVE_TIME) as RECEIVE_TIME,
+		min(EVA_TIME) as EVA_TIME,
+		min(iif(SEE_STATUS=4,ACT_TIME,null)) AS ACT_TIME
+		from WF_RECOM_HOUSE
+		where CITY_ID =#{cityId}
+		AND PUSH_LOG_ID = #{pushLogId}
+		AND PERPETUAL_DEL_STATUS=0
+	</select>
+	
+	<select id="getWfRecomHouseByPushLogId" resultMap="BaseResultMapDto">
+		select
+		<include refid="Base_Column_List" />
+		from WF_RECOM_HOUSE
+		where 
+		CITY_ID =#{cityId}
+		AND PUSH_LOG_ID = #{pushLogId}
+		AND PERPETUAL_DEL_STATUS=0
+	</select>
+	
+	<select id="getIntentionRateByArchiveId" resultMap="BaseResultMapDto">
+		SELECT ARCHIVE_ID,(sum(iif(DEL_STATUS=0,1,0))+0.0)/sum(1) as intentionRate 
+		from WF_RECOM_HOUSE WHERE CITY_ID = #{cityId} and  ARCHIVE_ID=#{archiveId} GROUP BY ARCHIVE_ID
+	</select>
+</mapper>

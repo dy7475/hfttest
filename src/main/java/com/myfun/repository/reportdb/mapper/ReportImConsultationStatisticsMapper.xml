@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.reportdb.dao.ReportImConsultationStatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.reportdb.po.ReportImConsultationStatistics" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="SHARE_COUNT" property="shareCount" jdbcType="INTEGER" />
+    <result column="CONSULTATION_USER_COUNT" property="consultationUserCount" jdbcType="INTEGER" />
+    <result column="CONSULTATION_MSG_COUNT" property="consultationMsgCount" jdbcType="INTEGER" />
+    <result column="ANSWER_COUNT" property="answerCount" jdbcType="INTEGER" />
+    <result column="ANSWER_RATE" property="answerRate" jdbcType="NUMERIC" />
+    <result column="STATISTICS_TIME" property="statisticsTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CITY_ID, COMP_ID, USER_ID, ARCHIVE_ID, SHARE_COUNT, CONSULTATION_USER_COUNT, 
+    CONSULTATION_MSG_COUNT, ANSWER_COUNT, ANSWER_RATE, STATISTICS_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.reportdb.po.ReportImConsultationStatisticsExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IM_CONSULTATION_STATISTICS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from IM_CONSULTATION_STATISTICS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from IM_CONSULTATION_STATISTICS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.reportdb.po.ReportImConsultationStatisticsExample" >
+    <!--@mbggenerated-->
+    delete from IM_CONSULTATION_STATISTICS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.reportdb.po.ReportImConsultationStatistics" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into IM_CONSULTATION_STATISTICS (CITY_ID, COMP_ID, USER_ID, 
+      ARCHIVE_ID, SHARE_COUNT, CONSULTATION_USER_COUNT, 
+      CONSULTATION_MSG_COUNT, ANSWER_COUNT, ANSWER_RATE, 
+      STATISTICS_TIME)
+    values (#{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{archiveId,jdbcType=INTEGER}, #{shareCount,jdbcType=INTEGER}, #{consultationUserCount,jdbcType=INTEGER}, 
+      #{consultationMsgCount,jdbcType=INTEGER}, #{answerCount,jdbcType=INTEGER}, #{answerRate,jdbcType=NUMERIC}, 
+      #{statisticsTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.reportdb.po.ReportImConsultationStatistics" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into IM_CONSULTATION_STATISTICS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="shareCount != null" >
+        SHARE_COUNT,
+      </if>
+      <if test="consultationUserCount != null" >
+        CONSULTATION_USER_COUNT,
+      </if>
+      <if test="consultationMsgCount != null" >
+        CONSULTATION_MSG_COUNT,
+      </if>
+      <if test="answerCount != null" >
+        ANSWER_COUNT,
+      </if>
+      <if test="answerRate != null" >
+        ANSWER_RATE,
+      </if>
+      <if test="statisticsTime != null" >
+        STATISTICS_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="shareCount != null" >
+        #{shareCount,jdbcType=INTEGER},
+      </if>
+      <if test="consultationUserCount != null" >
+        #{consultationUserCount,jdbcType=INTEGER},
+      </if>
+      <if test="consultationMsgCount != null" >
+        #{consultationMsgCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerCount != null" >
+        #{answerCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerRate != null" >
+        #{answerRate,jdbcType=NUMERIC},
+      </if>
+      <if test="statisticsTime != null" >
+        #{statisticsTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.reportdb.po.ReportImConsultationStatisticsExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from IM_CONSULTATION_STATISTICS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update IM_CONSULTATION_STATISTICS
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shareCount != null" >
+        SHARE_COUNT = #{record.shareCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.consultationUserCount != null" >
+        CONSULTATION_USER_COUNT = #{record.consultationUserCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.consultationMsgCount != null" >
+        CONSULTATION_MSG_COUNT = #{record.consultationMsgCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerCount != null" >
+        ANSWER_COUNT = #{record.answerCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerRate != null" >
+        ANSWER_RATE = #{record.answerRate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.statisticsTime != null" >
+        STATISTICS_TIME = #{record.statisticsTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update IM_CONSULTATION_STATISTICS
+    set ID = #{record.id,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      SHARE_COUNT = #{record.shareCount,jdbcType=INTEGER},
+      CONSULTATION_USER_COUNT = #{record.consultationUserCount,jdbcType=INTEGER},
+      CONSULTATION_MSG_COUNT = #{record.consultationMsgCount,jdbcType=INTEGER},
+      ANSWER_COUNT = #{record.answerCount,jdbcType=INTEGER},
+      ANSWER_RATE = #{record.answerRate,jdbcType=NUMERIC},
+      STATISTICS_TIME = #{record.statisticsTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.reportdb.po.ReportImConsultationStatistics" >
+    <!--@mbggenerated-->
+    update IM_CONSULTATION_STATISTICS
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="shareCount != null" >
+        SHARE_COUNT = #{shareCount,jdbcType=INTEGER},
+      </if>
+      <if test="consultationUserCount != null" >
+        CONSULTATION_USER_COUNT = #{consultationUserCount,jdbcType=INTEGER},
+      </if>
+      <if test="consultationMsgCount != null" >
+        CONSULTATION_MSG_COUNT = #{consultationMsgCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerCount != null" >
+        ANSWER_COUNT = #{answerCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerRate != null" >
+        ANSWER_RATE = #{answerRate,jdbcType=NUMERIC},
+      </if>
+      <if test="statisticsTime != null" >
+        STATISTICS_TIME = #{statisticsTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.reportdb.po.ReportImConsultationStatistics" >
+    <!--@mbggenerated-->
+    update IM_CONSULTATION_STATISTICS
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      SHARE_COUNT = #{shareCount,jdbcType=INTEGER},
+      CONSULTATION_USER_COUNT = #{consultationUserCount,jdbcType=INTEGER},
+      CONSULTATION_MSG_COUNT = #{consultationMsgCount,jdbcType=INTEGER},
+      ANSWER_COUNT = #{answerCount,jdbcType=INTEGER},
+      ANSWER_RATE = #{answerRate,jdbcType=NUMERIC},
+      STATISTICS_TIME = #{statisticsTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

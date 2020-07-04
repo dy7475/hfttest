@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyTestClassMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyTestClass" >
+    <!--@mbggenerated-->
+    <id column="CLASS_ID" property="classId" jdbcType="INTEGER" />
+    <result column="GRADE_NUMBER" property="gradeNumber" jdbcType="INTEGER" />
+    <result column="CLASS_NUMBER" property="classNumber" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CLASS_ID, GRADE_NUMBER, CLASS_NUMBER
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TEST_CLASS
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from TEST_CLASS
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyTestClass" >
+    <!--@mbggenerated-->
+    insert into TEST_CLASS (CLASS_ID, GRADE_NUMBER, CLASS_NUMBER
+      )
+    values (#{classId,jdbcType=INTEGER}, #{gradeNumber,jdbcType=INTEGER}, #{classNumber,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyTestClass" >
+    <!--@mbggenerated-->
+    insert into TEST_CLASS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="classId != null" >
+        CLASS_ID,
+      </if>
+      <if test="gradeNumber != null" >
+        GRADE_NUMBER,
+      </if>
+      <if test="classNumber != null" >
+        CLASS_NUMBER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="classId != null" >
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeNumber != null" >
+        #{gradeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="classNumber != null" >
+        #{classNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyTestClass" >
+    <!--@mbggenerated-->
+    update TEST_CLASS
+    <set >
+      <if test="gradeNumber != null" >
+        GRADE_NUMBER = #{gradeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="classNumber != null" >
+        CLASS_NUMBER = #{classNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyTestClass" >
+    <!--@mbggenerated-->
+    update TEST_CLASS
+    set GRADE_NUMBER = #{gradeNumber,jdbcType=INTEGER},
+      CLASS_NUMBER = #{classNumber,jdbcType=VARCHAR}
+    where CLASS_ID = #{classId,jdbcType=INTEGER}
+  </update>
+</mapper>

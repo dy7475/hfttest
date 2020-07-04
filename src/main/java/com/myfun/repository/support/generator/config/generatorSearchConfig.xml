@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 驱动路径 -->
+	<classPathEntry
+		location="D:\mavenRepository\net\sourceforge\jtds\jtds\1.2.2\jtds-1.2.2.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+		<property name="autoDelimitKeywords" value="true"/>
+		<property name="beginningDelimiter" value="["/>
+		<property name="endingDelimiter" value="]"/>
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="com.myfun.repository.support.generator.BaseMapperGeneratorPlugin"/>
+		<plugin type="com.myfun.repository.support.generator.FiledPropertyGeneratorPlugin">
+			<property name="filedPropertyClass" value="io.swagger.annotations.ApiModelProperty" />
+		</plugin>
+		<plugin type="com.myfun.repository.support.generator.SolrAnnotationGeneratorPlugin">
+		</plugin>
+		<commentGenerator type="com.myfun.repository.support.generator.CustCommentGenerator">
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="false" />
+			<property name="suppressDate" value="true" />
+			<property name="driverClass" value="net.sourceforge.jtds.jdbc.Driver"/>
+			<property name="connectionURL" value="jdbc:jtds:sqlserver://192.168.11.106:33434;appName=openService;DatabaseName=hft_searchdb"/>
+			<property name="userId" value="user_fafa"/>
+			<property name="password" value="user_fafa123456"/>
+			<property name="classPathEntry" value="D:/mavenRepository/net/sourceforge/jtds/jtds/1.2.2/jtds-1.2.2.jar"/>
+		</commentGenerator>
+		<jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
+			connectionURL="jdbc:jtds:sqlserver://192.168.11.106:33434;appName=openService;DatabaseName=hft_searchdb"
+			userId="user_fafa" password="user_fafa123456">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.myfun.repository.searchdb.po"
+			targetProject="erpWeb">
+			<property name="trimStrings" value="true" />
+			<property name="defaultModelType" value="flat" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.myfun.repository.searchdb.mapper"
+			targetProject="erpWeb">
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.myfun.repository.searchdb.dao" targetProject="erpWeb">
+		</javaClientGenerator>
+		<!-- <table tableName="HEZU_DETAIL_ERROR" domainObjectName="SearchHezuDetailError"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHOP_DETAIL" domainObjectName="SearchShopDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="T_BUILDING_INFO" domainObjectName="SearchTBuildingInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		
+		<table tableName="SHOP_2" domainObjectName="SearchShop2"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHOP_4" domainObjectName="SearchShop4"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHOP_3" domainObjectName="SearchShop3"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHOP_3_DETAIL" domainObjectName="SearchShop3Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TRACE_XE_ACTION_MAP" domainObjectName="SearchTraceXeActionMap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_3_DETAIL" domainObjectName="SearchLease3Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_3_DETAIL" domainObjectName="SearchSale3Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SOSO_CONVERT" domainObjectName="SearchSosoConvert"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="CONVERT_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="HEZU_DETAIL" domainObjectName="SearchHezuDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="HEZU_ERROR" domainObjectName="SearchHezuError"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_ZJ_DETAIL" domainObjectName="SearchSaleZjDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="HEZU_2_DETAIL" domainObjectName="SearchHezu2Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="T_DATA_STATIS_MONITOR" domainObjectName="SearchTDataStatisMonitor"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="T_BUILDING_PHOTO" domainObjectName="SearchTBuildingPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_IN_ERROR" domainObjectName="SearchLeaseInError"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="HEZU_4_DETAIL" domainObjectName="SearchHezu4Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_ZJ_DETAIL" domainObjectName="SearchLeaseZjDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_3" domainObjectName="SearchLease3"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_4" domainObjectName="SearchLease4"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_2" domainObjectName="SearchLease2"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="T_BROKER" domainObjectName="SearchTBroker"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		
+		<table tableName="PHOTO_ZJ" domainObjectName="SearchPhotoZj"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="photo_id" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="SALE_IN_ERROR" domainObjectName="SearchSaleInError"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="T_COMMIT_ZJ_TELEPHONE" domainObjectName="SearchTCommitZjTelephone"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		
+		<table tableName="TRACE_XE_EVENT_MAP" domainObjectName="SearchTraceXeEventMap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_IN_DETAIL" domainObjectName="SearchLeaseInDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_2_DETAIL" domainObjectName="SearchLease2Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_4_DETAIL" domainObjectName="SearchSale4Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_3" domainObjectName="SearchSale3"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHOP_2_DETAIL" domainObjectName="SearchShop2Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHOP_4_DETAIL" domainObjectName="SearchShop4Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_2" domainObjectName="SearchSale2"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_4_DETAIL" domainObjectName="SearchLease4Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_2_DETAIL" domainObjectName="SearchSale2Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_4" domainObjectName="SearchSale4"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="T_TXTRANS_IDS" domainObjectName="SearchTTxtransIds"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_IN_DETAIL" domainObjectName="SearchSaleInDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="HEZU_3_DETAIL" domainObjectName="SearchHezu3Detail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SALE_IN_DETAIL_ERROR" domainObjectName="SearchSaleInDetailError"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TEL" domainObjectName="SearchTel"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PHOTO_ZJ_ERROR" domainObjectName="SearchPhotoZjError"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_IN_DETAIL_ERROR" domainObjectName="SearchLeaseInDetailError"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+	
+		<table tableName="SALE_ZJ_MAIN" domainObjectName="SearchSaleZjMain"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="" value="此表po做了特殊处理不建议自动生成"/>
+		</table>
+		<table tableName="LEASE_ZJ_MAIN" domainObjectName="SearchLeaseZjMain"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="" value="此表po做了特殊处理不建议自动生成"/>
+		</table>
+			
+		<table tableName="HEZU" domainObjectName="SearchHezu"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="HEZU_2" domainObjectName="SearchHezu2"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="HEZU_3" domainObjectName="SearchHezu3"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> 
+		<table tableName="HEZU_4" domainObjectName="SearchHezu4"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_3" domainObjectName="SearchLease3"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_4" domainObjectName="SearchLease4"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_2" domainObjectName="SearchLease2"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LEASE_IN" domainObjectName="SearchLeaseIn"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="STATUS_FLAG" javaType="java.lang.Integer"></columnOverride>
+		</table>
+		<table tableName="SALE_IN" domainObjectName="SearchSaleIn"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="STATUS_FLAG" javaType="java.lang.Integer"></columnOverride>
+			<columnOverride column="TEL_COUNT" javaType="java.lang.Integer"></columnOverride>
+		</table>
+		<table tableName="LEASE_IN" domainObjectName="SearchLeaseIn"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="STATUS_FLAG" javaType="java.lang.Integer"></columnOverride>
+			<columnOverride column="TEL_COUNT" javaType="java.lang.Integer"></columnOverride>
+		</table>
+		<table tableName="HEZU" domainObjectName="SearchHezu"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="STATUS_FLAG" javaType="java.lang.Integer"></columnOverride>
+			<columnOverride column="TEL_COUNT" javaType="java.lang.Integer"></columnOverride>
+		</table>
+		<table tableName="SHOP_MAIN" domainObjectName="SearchShopMain"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="STATUS_FLAG" javaType="java.lang.Integer"></columnOverride>
+		</table>
+		<table tableName="SOSO_VIEW_COUNT" domainObjectName="SearchSosoViewCount">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		-->
+		<table tableName="SOSO_VIEW" domainObjectName="SearchSosoView"
+		></table>
+	</context>
+</generatorConfiguration>
+

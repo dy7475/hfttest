@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunPrintTemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunPrintTemplate" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMP_NO" property="compNo" jdbcType="VARCHAR" />
+    <result column="JSP_NAME" property="jspName" jdbcType="VARCHAR" />
+    <result column="TEMPLATE_NAME" property="templateName" jdbcType="VARCHAR" />
+    <result column="SALE_LEASE" property="saleLease" jdbcType="TINYINT" />
+    <result column="TEMP_TYPE" property="tempType" jdbcType="VARCHAR" />
+    <result column="DIRECT_TYPE" property="directType" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="VARCHAR" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, COMP_NO, JSP_NAME, TEMPLATE_NAME, SALE_LEASE, TEMP_TYPE, DIRECT_TYPE, UPDATE_TIME, 
+    SEQ_NO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PRINT_TEMPLATE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_PRINT_TEMPLATE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunPrintTemplate" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_PRINT_TEMPLATE (COMP_NO, JSP_NAME, TEMPLATE_NAME, 
+      SALE_LEASE, TEMP_TYPE, DIRECT_TYPE, 
+      UPDATE_TIME, SEQ_NO)
+    values (#{compNo,jdbcType=VARCHAR}, #{jspName,jdbcType=VARCHAR}, #{templateName,jdbcType=VARCHAR}, 
+      #{saleLease,jdbcType=TINYINT}, #{tempType,jdbcType=VARCHAR}, #{directType,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=VARCHAR}, #{seqNo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunPrintTemplate" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_PRINT_TEMPLATE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compNo != null" >
+        COMP_NO,
+      </if>
+      <if test="jspName != null" >
+        JSP_NAME,
+      </if>
+      <if test="templateName != null" >
+        TEMPLATE_NAME,
+      </if>
+      <if test="saleLease != null" >
+        SALE_LEASE,
+      </if>
+      <if test="tempType != null" >
+        TEMP_TYPE,
+      </if>
+      <if test="directType != null" >
+        DIRECT_TYPE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compNo != null" >
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="jspName != null" >
+        #{jspName,jdbcType=VARCHAR},
+      </if>
+      <if test="templateName != null" >
+        #{templateName,jdbcType=VARCHAR},
+      </if>
+      <if test="saleLease != null" >
+        #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="tempType != null" >
+        #{tempType,jdbcType=VARCHAR},
+      </if>
+      <if test="directType != null" >
+        #{directType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunPrintTemplate" >
+    <!--@mbggenerated-->
+    update FUN_PRINT_TEMPLATE
+    <set >
+      <if test="compNo != null" >
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="jspName != null" >
+        JSP_NAME = #{jspName,jdbcType=VARCHAR},
+      </if>
+      <if test="templateName != null" >
+        TEMPLATE_NAME = #{templateName,jdbcType=VARCHAR},
+      </if>
+      <if test="saleLease != null" >
+        SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="tempType != null" >
+        TEMP_TYPE = #{tempType,jdbcType=VARCHAR},
+      </if>
+      <if test="directType != null" >
+        DIRECT_TYPE = #{directType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunPrintTemplate" >
+    <!--@mbggenerated-->
+    update FUN_PRINT_TEMPLATE
+    set COMP_NO = #{compNo,jdbcType=VARCHAR},
+      JSP_NAME = #{jspName,jdbcType=VARCHAR},
+      TEMPLATE_NAME = #{templateName,jdbcType=VARCHAR},
+      SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      TEMP_TYPE = #{tempType,jdbcType=VARCHAR},
+      DIRECT_TYPE = #{directType,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

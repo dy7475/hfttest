@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.searchdb.dao.SearchSaleZjDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.searchdb.po.SearchSaleZjDetail" >
+    <!--@mbggenerated-->
+    <id column="city_id" property="cityId" jdbcType="SMALLINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mobile_phone" property="mobilePhone" jdbcType="VARCHAR" />
+    <result column="tele_phone" property="telePhone" jdbcType="VARCHAR" />
+    <result column="house_year" property="houseYear" jdbcType="VARCHAR" />
+    <result column="house_type" property="houseType" jdbcType="VARCHAR" />
+    <result column="house_struct" property="houseStruct" jdbcType="VARCHAR" />
+    <result column="house_right" property="houseRight" jdbcType="VARCHAR" />
+    <result column="house_account" property="houseAccount" jdbcType="VARCHAR" />
+    <result column="area2" property="area2" jdbcType="DECIMAL" />
+    <result column="leave_time" property="leaveTime" jdbcType="VARCHAR" />
+    <result column="charact" property="charact" jdbcType="VARCHAR" />
+    <result column="house_set" property="houseSet" jdbcType="VARCHAR" />
+    <result column="common1" property="common1" jdbcType="VARCHAR" />
+    <result column="common2" property="common2" jdbcType="VARCHAR" />
+    <result column="common3" property="common3" jdbcType="VARCHAR" />
+    <result column="common4" property="common4" jdbcType="VARCHAR" />
+    <result column="common5" property="common5" jdbcType="VARCHAR" />
+    <result column="position_x" property="positionX" jdbcType="VARCHAR" />
+    <result column="position_y" property="positionY" jdbcType="VARCHAR" />
+    <result column="site_id" property="siteId" jdbcType="INTEGER" />
+    <result column="primitive_id" property="primitiveId" jdbcType="VARCHAR" />
+    <result column="url_id" property="urlId" jdbcType="TINYINT" />
+    <result column="site_name" property="siteName" jdbcType="VARCHAR" />
+    <result column="page_sours" property="pageSours" jdbcType="VARCHAR" />
+    <result column="tel_source" property="telSource" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="agent_id" property="agentId" jdbcType="VARCHAR" />
+    <result column="house_tags" property="houseTags" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    city_id, id, mobile_phone, tele_phone, house_year, house_type, house_struct, house_right, 
+    house_account, area2, leave_time, charact, house_set, common1, common2, common3, 
+    common4, common5, position_x, position_y, site_id, primitive_id, url_id, site_name, 
+    page_sours, tel_source, create_time, agent_id, house_tags
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.searchdb.po.SearchSaleZjDetailKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sale_zj_detail
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SearchSaleZjDetailKey" >
+    <!--@mbggenerated-->
+    delete from sale_zj_detail
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.searchdb.po.SearchSaleZjDetail" >
+    <!--@mbggenerated-->
+    insert into sale_zj_detail (city_id, id, mobile_phone, 
+      tele_phone, house_year, house_type, 
+      house_struct, house_right, house_account, 
+      area2, leave_time, charact, 
+      house_set, common1, common2, 
+      common3, common4, common5, 
+      position_x, position_y, site_id, 
+      primitive_id, url_id, site_name, 
+      page_sours, tel_source, create_time, 
+      agent_id, house_tags)
+    values (#{cityId,jdbcType=SMALLINT}, #{id,jdbcType=INTEGER}, #{mobilePhone,jdbcType=VARCHAR}, 
+      #{telePhone,jdbcType=VARCHAR}, #{houseYear,jdbcType=VARCHAR}, #{houseType,jdbcType=VARCHAR}, 
+      #{houseStruct,jdbcType=VARCHAR}, #{houseRight,jdbcType=VARCHAR}, #{houseAccount,jdbcType=VARCHAR}, 
+      #{area2,jdbcType=DECIMAL}, #{leaveTime,jdbcType=VARCHAR}, #{charact,jdbcType=VARCHAR}, 
+      #{houseSet,jdbcType=VARCHAR}, #{common1,jdbcType=VARCHAR}, #{common2,jdbcType=VARCHAR}, 
+      #{common3,jdbcType=VARCHAR}, #{common4,jdbcType=VARCHAR}, #{common5,jdbcType=VARCHAR}, 
+      #{positionX,jdbcType=VARCHAR}, #{positionY,jdbcType=VARCHAR}, #{siteId,jdbcType=INTEGER}, 
+      #{primitiveId,jdbcType=VARCHAR}, #{urlId,jdbcType=TINYINT}, #{siteName,jdbcType=VARCHAR}, 
+      #{pageSours,jdbcType=VARCHAR}, #{telSource,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{agentId,jdbcType=VARCHAR}, #{houseTags,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.searchdb.po.SearchSaleZjDetail" >
+    <!--@mbggenerated-->
+    insert into sale_zj_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mobilePhone != null" >
+        mobile_phone,
+      </if>
+      <if test="telePhone != null" >
+        tele_phone,
+      </if>
+      <if test="houseYear != null" >
+        house_year,
+      </if>
+      <if test="houseType != null" >
+        house_type,
+      </if>
+      <if test="houseStruct != null" >
+        house_struct,
+      </if>
+      <if test="houseRight != null" >
+        house_right,
+      </if>
+      <if test="houseAccount != null" >
+        house_account,
+      </if>
+      <if test="area2 != null" >
+        area2,
+      </if>
+      <if test="leaveTime != null" >
+        leave_time,
+      </if>
+      <if test="charact != null" >
+        charact,
+      </if>
+      <if test="houseSet != null" >
+        house_set,
+      </if>
+      <if test="common1 != null" >
+        common1,
+      </if>
+      <if test="common2 != null" >
+        common2,
+      </if>
+      <if test="common3 != null" >
+        common3,
+      </if>
+      <if test="common4 != null" >
+        common4,
+      </if>
+      <if test="common5 != null" >
+        common5,
+      </if>
+      <if test="positionX != null" >
+        position_x,
+      </if>
+      <if test="positionY != null" >
+        position_y,
+      </if>
+      <if test="siteId != null" >
+        site_id,
+      </if>
+      <if test="primitiveId != null" >
+        primitive_id,
+      </if>
+      <if test="urlId != null" >
+        url_id,
+      </if>
+      <if test="siteName != null" >
+        site_name,
+      </if>
+      <if test="pageSours != null" >
+        page_sours,
+      </if>
+      <if test="telSource != null" >
+        tel_source,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="houseTags != null" >
+        house_tags,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mobilePhone != null" >
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="telePhone != null" >
+        #{telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYear != null" >
+        #{houseYear,jdbcType=VARCHAR},
+      </if>
+      <if test="houseType != null" >
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStruct != null" >
+        #{houseStruct,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRight != null" >
+        #{houseRight,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAccount != null" >
+        #{houseAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="area2 != null" >
+        #{area2,jdbcType=DECIMAL},
+      </if>
+      <if test="leaveTime != null" >
+        #{leaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="charact != null" >
+        #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="houseSet != null" >
+        #{houseSet,jdbcType=VARCHAR},
+      </if>
+      <if test="common1 != null" >
+        #{common1,jdbcType=VARCHAR},
+      </if>
+      <if test="common2 != null" >
+        #{common2,jdbcType=VARCHAR},
+      </if>
+      <if test="common3 != null" >
+        #{common3,jdbcType=VARCHAR},
+      </if>
+      <if test="common4 != null" >
+        #{common4,jdbcType=VARCHAR},
+      </if>
+      <if test="common5 != null" >
+        #{common5,jdbcType=VARCHAR},
+      </if>
+      <if test="positionX != null" >
+        #{positionX,jdbcType=VARCHAR},
+      </if>
+      <if test="positionY != null" >
+        #{positionY,jdbcType=VARCHAR},
+      </if>
+      <if test="siteId != null" >
+        #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="primitiveId != null" >
+        #{primitiveId,jdbcType=VARCHAR},
+      </if>
+      <if test="urlId != null" >
+        #{urlId,jdbcType=TINYINT},
+      </if>
+      <if test="siteName != null" >
+        #{siteName,jdbcType=VARCHAR},
+      </if>
+      <if test="pageSours != null" >
+        #{pageSours,jdbcType=VARCHAR},
+      </if>
+      <if test="telSource != null" >
+        #{telSource,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null" >
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTags != null" >
+        #{houseTags,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.searchdb.po.SearchSaleZjDetail" >
+    <!--@mbggenerated-->
+    update sale_zj_detail
+    <set >
+      <if test="mobilePhone != null" >
+        mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="telePhone != null" >
+        tele_phone = #{telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="houseYear != null" >
+        house_year = #{houseYear,jdbcType=VARCHAR},
+      </if>
+      <if test="houseType != null" >
+        house_type = #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStruct != null" >
+        house_struct = #{houseStruct,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRight != null" >
+        house_right = #{houseRight,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAccount != null" >
+        house_account = #{houseAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="area2 != null" >
+        area2 = #{area2,jdbcType=DECIMAL},
+      </if>
+      <if test="leaveTime != null" >
+        leave_time = #{leaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="charact != null" >
+        charact = #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="houseSet != null" >
+        house_set = #{houseSet,jdbcType=VARCHAR},
+      </if>
+      <if test="common1 != null" >
+        common1 = #{common1,jdbcType=VARCHAR},
+      </if>
+      <if test="common2 != null" >
+        common2 = #{common2,jdbcType=VARCHAR},
+      </if>
+      <if test="common3 != null" >
+        common3 = #{common3,jdbcType=VARCHAR},
+      </if>
+      <if test="common4 != null" >
+        common4 = #{common4,jdbcType=VARCHAR},
+      </if>
+      <if test="common5 != null" >
+        common5 = #{common5,jdbcType=VARCHAR},
+      </if>
+      <if test="positionX != null" >
+        position_x = #{positionX,jdbcType=VARCHAR},
+      </if>
+      <if test="positionY != null" >
+        position_y = #{positionY,jdbcType=VARCHAR},
+      </if>
+      <if test="siteId != null" >
+        site_id = #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="primitiveId != null" >
+        primitive_id = #{primitiveId,jdbcType=VARCHAR},
+      </if>
+      <if test="urlId != null" >
+        url_id = #{urlId,jdbcType=TINYINT},
+      </if>
+      <if test="siteName != null" >
+        site_name = #{siteName,jdbcType=VARCHAR},
+      </if>
+      <if test="pageSours != null" >
+        page_sours = #{pageSours,jdbcType=VARCHAR},
+      </if>
+      <if test="telSource != null" >
+        tel_source = #{telSource,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null" >
+        agent_id = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTags != null" >
+        house_tags = #{houseTags,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SearchSaleZjDetail" >
+    <!--@mbggenerated-->
+    update sale_zj_detail
+    set mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      tele_phone = #{telePhone,jdbcType=VARCHAR},
+      house_year = #{houseYear,jdbcType=VARCHAR},
+      house_type = #{houseType,jdbcType=VARCHAR},
+      house_struct = #{houseStruct,jdbcType=VARCHAR},
+      house_right = #{houseRight,jdbcType=VARCHAR},
+      house_account = #{houseAccount,jdbcType=VARCHAR},
+      area2 = #{area2,jdbcType=DECIMAL},
+      leave_time = #{leaveTime,jdbcType=VARCHAR},
+      charact = #{charact,jdbcType=VARCHAR},
+      house_set = #{houseSet,jdbcType=VARCHAR},
+      common1 = #{common1,jdbcType=VARCHAR},
+      common2 = #{common2,jdbcType=VARCHAR},
+      common3 = #{common3,jdbcType=VARCHAR},
+      common4 = #{common4,jdbcType=VARCHAR},
+      common5 = #{common5,jdbcType=VARCHAR},
+      position_x = #{positionX,jdbcType=VARCHAR},
+      position_y = #{positionY,jdbcType=VARCHAR},
+      site_id = #{siteId,jdbcType=INTEGER},
+      primitive_id = #{primitiveId,jdbcType=VARCHAR},
+      url_id = #{urlId,jdbcType=TINYINT},
+      site_name = #{siteName,jdbcType=VARCHAR},
+      page_sours = #{pageSours,jdbcType=VARCHAR},
+      tel_source = #{telSource,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      agent_id = #{agentId,jdbcType=VARCHAR},
+      house_tags = #{houseTags,jdbcType=VARCHAR}
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

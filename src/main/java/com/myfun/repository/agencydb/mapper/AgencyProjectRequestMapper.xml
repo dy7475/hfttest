@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyProjectRequestMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyProjectRequest">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PROVINCE_ID" jdbcType="INTEGER" property="provinceId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_EMAIL" jdbcType="VARCHAR" property="userEmail" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="DEVLOPER_NAME" jdbcType="VARCHAR" property="devloperName" />
+    <result column="PROJECT_NAME" jdbcType="VARCHAR" property="projectName" />
+    <result column="BUILD_ADDR" jdbcType="VARCHAR" property="buildAddr" />
+    <result column="SALE_ADDR" jdbcType="VARCHAR" property="saleAddr" />
+    <result column="BUILD_TYPE" jdbcType="VARCHAR" property="buildType" />
+    <result column="HOUSE_NUM" jdbcType="VARCHAR" property="houseNum" />
+    <result column="BUILD_AREA" jdbcType="VARCHAR" property="buildArea" />
+    <result column="OPENING_TIME" jdbcType="VARCHAR" property="openingTime" />
+    <result column="DEVLOPER_PROGRESS" jdbcType="VARCHAR" property="devloperProgress" />
+    <result column="CREATION_TIME" jdbcType="VARCHAR" property="creationTime" />
+    <result column="CHECK_STATUS" jdbcType="TINYINT" property="checkStatus" />
+    <result column="CHECK_UID" jdbcType="INTEGER" property="checkUid" />
+    <result column="CRM_COMP_ID" jdbcType="INTEGER" property="crmCompId" />
+    <result column="CRM_USER_ID" jdbcType="INTEGER" property="crmUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, PROVINCE_ID, CITY_ID, USER_NAME, USER_EMAIL, USER_MOBILE, DEVLOPER_NAME, PROJECT_NAME, 
+    BUILD_ADDR, SALE_ADDR, BUILD_TYPE, HOUSE_NUM, BUILD_AREA, OPENING_TIME, DEVLOPER_PROGRESS, 
+    CREATION_TIME, CHECK_STATUS, CHECK_UID, CRM_COMP_ID, CRM_USER_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from PROJECT_REQUEST
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from PROJECT_REQUEST
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyProjectRequest">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      select next value for SEQ_PROJECT_REQUEST_ID
+    </selectKey>
+    insert into PROJECT_REQUEST (ID, PROVINCE_ID, CITY_ID, 
+      USER_NAME, USER_EMAIL, USER_MOBILE, 
+      DEVLOPER_NAME, PROJECT_NAME, BUILD_ADDR, 
+      SALE_ADDR, BUILD_TYPE, HOUSE_NUM, 
+      BUILD_AREA, OPENING_TIME, DEVLOPER_PROGRESS, 
+      CREATION_TIME, CHECK_STATUS, CHECK_UID, 
+      CRM_COMP_ID, CRM_USER_ID)
+    values (#{id,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR}, 
+      #{devloperName,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{buildAddr,jdbcType=VARCHAR}, 
+      #{saleAddr,jdbcType=VARCHAR}, #{buildType,jdbcType=VARCHAR}, #{houseNum,jdbcType=VARCHAR}, 
+      #{buildArea,jdbcType=VARCHAR}, #{openingTime,jdbcType=VARCHAR}, #{devloperProgress,jdbcType=VARCHAR}, 
+      #{creationTime,jdbcType=VARCHAR}, #{checkStatus,jdbcType=TINYINT}, #{checkUid,jdbcType=INTEGER}, 
+      #{crmCompId,jdbcType=INTEGER}, #{crmUserId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyProjectRequest">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+        SELECT isnull(max(ID), 0) +1 from PROJECT_REQUEST
+    </selectKey>
+    insert into PROJECT_REQUEST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userEmail != null">
+        USER_EMAIL,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+      <if test="devloperName != null">
+        DEVLOPER_NAME,
+      </if>
+      <if test="projectName != null">
+        PROJECT_NAME,
+      </if>
+      <if test="buildAddr != null">
+        BUILD_ADDR,
+      </if>
+      <if test="saleAddr != null">
+        SALE_ADDR,
+      </if>
+      <if test="buildType != null">
+        BUILD_TYPE,
+      </if>
+      <if test="houseNum != null">
+        HOUSE_NUM,
+      </if>
+      <if test="buildArea != null">
+        BUILD_AREA,
+      </if>
+      <if test="openingTime != null">
+        OPENING_TIME,
+      </if>
+      <if test="devloperProgress != null">
+        DEVLOPER_PROGRESS,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS,
+      </if>
+      <if test="checkUid != null">
+        CHECK_UID,
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID,
+      </if>
+      <if test="crmUserId != null">
+        CRM_USER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=INTEGER},
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="devloperName != null">
+        #{devloperName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildAddr != null">
+        #{buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="saleAddr != null">
+        #{saleAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="buildType != null">
+        #{buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseNum != null">
+        #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="buildArea != null">
+        #{buildArea,jdbcType=VARCHAR},
+      </if>
+      <if test="openingTime != null">
+        #{openingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="devloperProgress != null">
+        #{devloperProgress,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null">
+        #{checkStatus,jdbcType=TINYINT},
+      </if>
+      <if test="checkUid != null">
+        #{checkUid,jdbcType=INTEGER},
+      </if>
+      <if test="crmCompId != null">
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="crmUserId != null">
+        #{crmUserId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyProjectRequest">
+    <!--@mbggenerated-->
+    update PROJECT_REQUEST
+    <set>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="devloperName != null">
+        DEVLOPER_NAME = #{devloperName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        PROJECT_NAME = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildAddr != null">
+        BUILD_ADDR = #{buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="saleAddr != null">
+        SALE_ADDR = #{saleAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="buildType != null">
+        BUILD_TYPE = #{buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseNum != null">
+        HOUSE_NUM = #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="buildArea != null">
+        BUILD_AREA = #{buildArea,jdbcType=VARCHAR},
+      </if>
+      <if test="openingTime != null">
+        OPENING_TIME = #{openingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="devloperProgress != null">
+        DEVLOPER_PROGRESS = #{devloperProgress,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS = #{checkStatus,jdbcType=TINYINT},
+      </if>
+      <if test="checkUid != null">
+        CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="crmUserId != null">
+        CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyProjectRequest">
+    <!--@mbggenerated-->
+    update PROJECT_REQUEST
+    set PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      DEVLOPER_NAME = #{devloperName,jdbcType=VARCHAR},
+      PROJECT_NAME = #{projectName,jdbcType=VARCHAR},
+      BUILD_ADDR = #{buildAddr,jdbcType=VARCHAR},
+      SALE_ADDR = #{saleAddr,jdbcType=VARCHAR},
+      BUILD_TYPE = #{buildType,jdbcType=VARCHAR},
+      HOUSE_NUM = #{houseNum,jdbcType=VARCHAR},
+      BUILD_AREA = #{buildArea,jdbcType=VARCHAR},
+      OPENING_TIME = #{openingTime,jdbcType=VARCHAR},
+      DEVLOPER_PROGRESS = #{devloperProgress,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      CHECK_STATUS = #{checkStatus,jdbcType=TINYINT},
+      CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      CRM_USER_ID = #{crmUserId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <!--business-->
+  <select id="selectByBusinessListSelective" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PROJECT_REQUEST
+    <where>
+      <if test="crmCompId != null" >
+        and CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER}
+      </if>
+      <if test="provinceId != null" >
+        and PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+      </if>
+      <if test="cityId != null" >
+        and CITY_ID = #{cityId,jdbcType=INTEGER}
+      </if>
+      <if test="devloperName != null and devloperName != ''" >
+        and DEVLOPER_NAME like '%${devloperName}%'
+      </if>
+      <if test="projectName != null and projectName != ''" >
+        and PROJECT_NAME like '%${projectName}%'
+      </if>
+      <if test="checkStatus != null" >
+        and CHECK_STATUS = #{checkStatus,jdbcType=TINYINT}
+      </if>
+    </where>
+    order by CREATION_TIME desc
+  </select>
+</mapper>

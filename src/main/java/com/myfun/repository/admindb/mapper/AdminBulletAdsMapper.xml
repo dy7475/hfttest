@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminBulletAdsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminBulletAds" >
+    <!--@mbggenerated-->
+    <id column="AD_ID" property="adId" jdbcType="INTEGER" />
+    <result column="AD_NAME" property="adName" jdbcType="VARCHAR" />
+    <result column="AD_ADDR" property="adAddr" jdbcType="VARCHAR" />
+    <result column="AD_LINK" property="adLink" jdbcType="VARCHAR" />
+    <result column="IS_ALL_CITY" property="isAllCity" jdbcType="BIT" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="TINYINT" />
+    <result column="AD_STATUS" property="adStatus" jdbcType="BIT" />
+    <result column="AD_TYPE" property="adType" jdbcType="TINYINT" />
+    <result column="AD_VER" property="adVer" jdbcType="TINYINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    AD_ID, AD_NAME, AD_ADDR, AD_LINK, IS_ALL_CITY, SEQ_NO, AD_STATUS, AD_TYPE, AD_VER, 
+    CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BULLET_ADS
+    where AD_ID = #{adId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from BULLET_ADS
+    where AD_ID = #{adId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminBulletAds" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="adId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BULLET_ADS (AD_NAME, AD_ADDR, AD_LINK, 
+      IS_ALL_CITY, SEQ_NO, AD_STATUS, 
+      AD_TYPE, AD_VER, CREATE_TIME
+      )
+    values (#{adName,jdbcType=VARCHAR}, #{adAddr,jdbcType=VARCHAR}, #{adLink,jdbcType=VARCHAR}, 
+      #{isAllCity,jdbcType=BIT}, #{seqNo,jdbcType=TINYINT}, #{adStatus,jdbcType=BIT}, 
+      #{adType,jdbcType=TINYINT}, #{adVer,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminBulletAds" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="adId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BULLET_ADS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adName != null" >
+        AD_NAME,
+      </if>
+      <if test="adAddr != null" >
+        AD_ADDR,
+      </if>
+      <if test="adLink != null" >
+        AD_LINK,
+      </if>
+      <if test="isAllCity != null" >
+        IS_ALL_CITY,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="adStatus != null" >
+        AD_STATUS,
+      </if>
+      <if test="adType != null" >
+        AD_TYPE,
+      </if>
+      <if test="adVer != null" >
+        AD_VER,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adName != null" >
+        #{adName,jdbcType=VARCHAR},
+      </if>
+      <if test="adAddr != null" >
+        #{adAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="adLink != null" >
+        #{adLink,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllCity != null" >
+        #{isAllCity,jdbcType=BIT},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="adStatus != null" >
+        #{adStatus,jdbcType=BIT},
+      </if>
+      <if test="adType != null" >
+        #{adType,jdbcType=TINYINT},
+      </if>
+      <if test="adVer != null" >
+        #{adVer,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminBulletAds" >
+    <!--@mbggenerated-->
+    update BULLET_ADS
+    <set >
+      <if test="adName != null" >
+        AD_NAME = #{adName,jdbcType=VARCHAR},
+      </if>
+      <if test="adAddr != null" >
+        AD_ADDR = #{adAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="adLink != null" >
+        AD_LINK = #{adLink,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllCity != null" >
+        IS_ALL_CITY = #{isAllCity,jdbcType=BIT},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="adStatus != null" >
+        AD_STATUS = #{adStatus,jdbcType=BIT},
+      </if>
+      <if test="adType != null" >
+        AD_TYPE = #{adType,jdbcType=TINYINT},
+      </if>
+      <if test="adVer != null" >
+        AD_VER = #{adVer,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where AD_ID = #{adId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminBulletAds" >
+    <!--@mbggenerated-->
+    update BULLET_ADS
+    set AD_NAME = #{adName,jdbcType=VARCHAR},
+      AD_ADDR = #{adAddr,jdbcType=VARCHAR},
+      AD_LINK = #{adLink,jdbcType=VARCHAR},
+      IS_ALL_CITY = #{isAllCity,jdbcType=BIT},
+      SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      AD_STATUS = #{adStatus,jdbcType=BIT},
+      AD_TYPE = #{adType,jdbcType=TINYINT},
+      AD_VER = #{adVer,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where AD_ID = #{adId,jdbcType=INTEGER}
+  </update>
+</mapper>

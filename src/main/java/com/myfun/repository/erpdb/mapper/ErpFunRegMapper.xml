@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunRegMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunReg">
+    <!--@mbggenerated-->
+    <id column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="REG_NAME" jdbcType="VARCHAR" property="regName" />
+    <result column="SEQ_NO" jdbcType="TINYINT" property="seqNo" />
+    <result column="MAIN_REG" jdbcType="TINYINT" property="mainReg" />
+    <result column="VERTIFY_FLAG" jdbcType="TINYINT" property="vertifyFlag" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    REG_ID, CITY_ID, REG_NAME, SEQ_NO, MAIN_REG, VERTIFY_FLAG, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRegExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_REG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_REG
+    where REG_ID = #{regId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_REG
+    where REG_ID = #{regId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRegExample">
+    <!--@mbggenerated-->
+    delete from FUN_REG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunReg">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="regId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_REG_REG_ID
+    </selectKey>
+    insert into FUN_REG (REG_ID, CITY_ID, REG_NAME, 
+      SEQ_NO, MAIN_REG, VERTIFY_FLAG, 
+      UPDATE_TIME)
+    values (#{regId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{regName,jdbcType=VARCHAR}, 
+      #{seqNo,jdbcType=TINYINT}, #{mainReg,jdbcType=TINYINT}, #{vertifyFlag,jdbcType=TINYINT}, 
+      #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunReg">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="regId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_REG_REG_ID
+    </selectKey>
+    insert into FUN_REG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      REG_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="regName != null">
+        REG_NAME,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="mainReg != null">
+        MAIN_REG,
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{regId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="regName != null">
+        #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="mainReg != null">
+        #{mainReg,jdbcType=TINYINT},
+      </if>
+      <if test="vertifyFlag != null">
+        #{vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRegExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_REG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_REG
+    <set>
+      <if test="record.regId != null">
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.regName != null">
+        REG_NAME = #{record.regName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seqNo != null">
+        SEQ_NO = #{record.seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="record.mainReg != null">
+        MAIN_REG = #{record.mainReg,jdbcType=TINYINT},
+      </if>
+      <if test="record.vertifyFlag != null">
+        VERTIFY_FLAG = #{record.vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_REG
+    set REG_ID = #{record.regId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      REG_NAME = #{record.regName,jdbcType=VARCHAR},
+      SEQ_NO = #{record.seqNo,jdbcType=TINYINT},
+      MAIN_REG = #{record.mainReg,jdbcType=TINYINT},
+      VERTIFY_FLAG = #{record.vertifyFlag,jdbcType=TINYINT},
+      UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunReg">
+    <!--@mbggenerated-->
+    update FUN_REG
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="regName != null">
+        REG_NAME = #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="mainReg != null">
+        MAIN_REG = #{mainReg,jdbcType=TINYINT},
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG = #{vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where REG_ID = #{regId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunReg">
+    <!--@mbggenerated-->
+    update FUN_REG
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      REG_NAME = #{regName,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      MAIN_REG = #{mainReg,jdbcType=TINYINT},
+      VERTIFY_FLAG = #{vertifyFlag,jdbcType=TINYINT},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR}
+    where REG_ID = #{regId,jdbcType=INTEGER}
+  </update>
+	
+	<select id="getRegListByCityId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from FUN_REG
+		where CITY_ID = #{shardCityId,jdbcType=INTEGER}
+        ORDER BY SEQ_NO
+	</select>
+	
+	<select id="getRegListByVertifyFlag" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from FUN_REG
+		where CITY_ID = #{shardCityId,jdbcType=INTEGER}
+		and VERTIFY_FLAG = #{vertifyFlag}
+        ORDER BY SEQ_NO
+	</select>
+
+  <resultMap id="extRegVoResultMap" type="com.myfun.erpWeb.common.vo.ErpFunRegVo">
+    <id column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="REG_NAME" jdbcType="VARCHAR" property="regName" />
+    <result column="SEQ_NO" jdbcType="TINYINT" property="seqNo" />
+    <result column="MAIN_REG" jdbcType="TINYINT" property="mainReg" />
+    <result column="VERTIFY_FLAG" jdbcType="TINYINT" property="vertifyFlag" />
+  </resultMap>
+  <select id="getRegVoListByCityId" parameterType="java.lang.Integer" resultMap="extRegVoResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_REG
+		where CITY_ID = #{shardCityId,jdbcType=INTEGER}
+        ORDER BY SEQ_NO
+  </select>
+</mapper>

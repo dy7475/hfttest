@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfUserAccountsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfUserAccounts" >
+    <!--@mbggenerated-->
+    <id column="DDUA_ID" property="dduaId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="AMOUNT_INCOME" property="amountIncome" jdbcType="DECIMAL" />
+    <result column="OFFLINE_AMOUNT_INCOME" property="offlineAmountIncome" jdbcType="DECIMAL" />
+    <result column="AWARD_AMOUNT" property="awardAmount" jdbcType="DECIMAL" />
+    <result column="AWARD_CLOSING_AMOUNT" property="awardClosingAmount" jdbcType="DECIMAL" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    DDUA_ID, ARCHIVE_ID, COMP_ID, CITY_ID, USER_NAME, USER_MOBILE, AMOUNT_INCOME, OFFLINE_AMOUNT_INCOME, 
+    AWARD_AMOUNT, AWARD_CLOSING_AMOUNT, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_USER_ACCOUNTS
+    where DDUA_ID = #{dduaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_USER_ACCOUNTS
+    where DDUA_ID = #{dduaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserAccounts" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="dduaId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_USER_ACCOUNTS (ARCHIVE_ID, COMP_ID, CITY_ID, 
+      USER_NAME, USER_MOBILE, AMOUNT_INCOME, 
+      OFFLINE_AMOUNT_INCOME, AWARD_AMOUNT, AWARD_CLOSING_AMOUNT, 
+      CREATE_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR}, #{amountIncome,jdbcType=DECIMAL}, 
+      #{offlineAmountIncome,jdbcType=DECIMAL}, #{awardAmount,jdbcType=DECIMAL}, #{awardClosingAmount,jdbcType=DECIMAL}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserAccounts" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="dduaId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_USER_ACCOUNTS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="amountIncome != null" >
+        AMOUNT_INCOME,
+      </if>
+      <if test="offlineAmountIncome != null" >
+        OFFLINE_AMOUNT_INCOME,
+      </if>
+      <if test="awardAmount != null" >
+        AWARD_AMOUNT,
+      </if>
+      <if test="awardClosingAmount != null" >
+        AWARD_CLOSING_AMOUNT,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="amountIncome != null" >
+        #{amountIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="offlineAmountIncome != null" >
+        #{offlineAmountIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="awardAmount != null" >
+        #{awardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="awardClosingAmount != null" >
+        #{awardClosingAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserAccounts" >
+    <!--@mbggenerated-->
+    update WF_USER_ACCOUNTS
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="amountIncome != null" >
+        AMOUNT_INCOME = #{amountIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="offlineAmountIncome != null" >
+        OFFLINE_AMOUNT_INCOME = #{offlineAmountIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="awardAmount != null" >
+        AWARD_AMOUNT = #{awardAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="awardClosingAmount != null" >
+        AWARD_CLOSING_AMOUNT = #{awardClosingAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where DDUA_ID = #{dduaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfUserAccounts" >
+    <!--@mbggenerated-->
+    update WF_USER_ACCOUNTS
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      AMOUNT_INCOME = #{amountIncome,jdbcType=DECIMAL},
+      OFFLINE_AMOUNT_INCOME = #{offlineAmountIncome,jdbcType=DECIMAL},
+      AWARD_AMOUNT = #{awardAmount,jdbcType=DECIMAL},
+      AWARD_CLOSING_AMOUNT = #{awardClosingAmount,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where DDUA_ID = #{dduaId,jdbcType=INTEGER}
+  </update>
+</mapper>

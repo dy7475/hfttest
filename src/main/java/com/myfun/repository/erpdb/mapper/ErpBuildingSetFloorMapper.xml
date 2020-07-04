@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBuildingSetFloorMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBuildingSetFloor">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="BUILD_ROOF" jdbcType="VARCHAR" property="buildRoof" />
+    <result column="BUILD_UNIT" jdbcType="VARCHAR" property="buildUnit" />
+    <result column="BUILD_FLOOR" jdbcType="VARCHAR" property="buildFloor" />
+    <result column="SYS_BUILD_FLOOR" jdbcType="VARCHAR" property="sysBuildFloor" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="BUILDING_SET_ROOF_ID" jdbcType="INTEGER" property="buildingSetRoofId" />
+    <result column="BUILDING_SET_UNIT_ID" jdbcType="INTEGER" property="buildingSetUnitId" />
+    <result column="FLOOR_USEAGE" jdbcType="INTEGER" property="floorUseage" />
+    <result column="DEL_FLAG" jdbcType="TINYINT" property="delFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, CITY_ID, COMP_ID, BUILD_ID, BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR, SYS_BUILD_FLOOR, 
+    CREATION_TIME, UPDATE_TIME, BUILDING_SET_ROOF_ID, BUILDING_SET_UNIT_ID, FLOOR_USEAGE, 
+    DEL_FLAG
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetFloorExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BUILDING_SET_FLOOR
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_SET_FLOOR
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from BUILDING_SET_FLOOR
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetFloorExample">
+    <!--@mbggenerated-->
+    delete from BUILDING_SET_FLOOR
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetFloor" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILDING_SET_FLOOR (CITY_ID, COMP_ID, BUILD_ID, 
+      BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR, 
+      SYS_BUILD_FLOOR, CREATION_TIME, UPDATE_TIME, 
+      BUILDING_SET_ROOF_ID, BUILDING_SET_UNIT_ID, FLOOR_USEAGE, 
+      DEL_FLAG)
+    values (#{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, 
+      #{buildRoof,jdbcType=VARCHAR}, #{buildUnit,jdbcType=VARCHAR}, #{buildFloor,jdbcType=VARCHAR}, 
+      #{sysBuildFloor,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{buildingSetRoofId,jdbcType=INTEGER}, #{buildingSetUnitId,jdbcType=INTEGER}, #{floorUseage,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetFloor" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILDING_SET_FLOOR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="buildRoof != null">
+        BUILD_ROOF,
+      </if>
+      <if test="buildUnit != null">
+        BUILD_UNIT,
+      </if>
+      <if test="buildFloor != null">
+        BUILD_FLOOR,
+      </if>
+      <if test="sysBuildFloor != null">
+        SYS_BUILD_FLOOR,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="buildingSetRoofId != null">
+        BUILDING_SET_ROOF_ID,
+      </if>
+      <if test="buildingSetUnitId != null">
+        BUILDING_SET_UNIT_ID,
+      </if>
+      <if test="floorUseage != null">
+        FLOOR_USEAGE,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRoof != null">
+        #{buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="buildUnit != null">
+        #{buildUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="buildFloor != null">
+        #{buildFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="sysBuildFloor != null">
+        #{sysBuildFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildingSetRoofId != null">
+        #{buildingSetRoofId,jdbcType=INTEGER},
+      </if>
+      <if test="buildingSetUnitId != null">
+        #{buildingSetUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="floorUseage != null">
+        #{floorUseage,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetFloorExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from BUILDING_SET_FLOOR
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILDING_SET_FLOOR
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildRoof != null">
+        BUILD_ROOF = #{record.buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildUnit != null">
+        BUILD_UNIT = #{record.buildUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildFloor != null">
+        BUILD_FLOOR = #{record.buildFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysBuildFloor != null">
+        SYS_BUILD_FLOOR = #{record.sysBuildFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.buildingSetRoofId != null">
+        BUILDING_SET_ROOF_ID = #{record.buildingSetRoofId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildingSetUnitId != null">
+        BUILDING_SET_UNIT_ID = #{record.buildingSetUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="record.floorUseage != null">
+        FLOOR_USEAGE = #{record.floorUseage,jdbcType=INTEGER},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILDING_SET_FLOOR
+    set ID = #{record.id,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      BUILD_ROOF = #{record.buildRoof,jdbcType=VARCHAR},
+      BUILD_UNIT = #{record.buildUnit,jdbcType=VARCHAR},
+      BUILD_FLOOR = #{record.buildFloor,jdbcType=VARCHAR},
+      SYS_BUILD_FLOOR = #{record.sysBuildFloor,jdbcType=VARCHAR},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      BUILDING_SET_ROOF_ID = #{record.buildingSetRoofId,jdbcType=INTEGER},
+      BUILDING_SET_UNIT_ID = #{record.buildingSetUnitId,jdbcType=INTEGER},
+      FLOOR_USEAGE = #{record.floorUseage,jdbcType=INTEGER},
+      DEL_FLAG = #{record.delFlag,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetFloor">
+    <!--@mbggenerated-->
+    update BUILDING_SET_FLOOR
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRoof != null">
+        BUILD_ROOF = #{buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="buildUnit != null">
+        BUILD_UNIT = #{buildUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="buildFloor != null">
+        BUILD_FLOOR = #{buildFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="sysBuildFloor != null">
+        SYS_BUILD_FLOOR = #{sysBuildFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildingSetRoofId != null">
+        BUILDING_SET_ROOF_ID = #{buildingSetRoofId,jdbcType=INTEGER},
+      </if>
+      <if test="buildingSetUnitId != null">
+        BUILDING_SET_UNIT_ID = #{buildingSetUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="floorUseage != null">
+        FLOOR_USEAGE = #{floorUseage,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG = #{delFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetFloor">
+    <!--@mbggenerated-->
+    update BUILDING_SET_FLOOR
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_ROOF = #{buildRoof,jdbcType=VARCHAR},
+      BUILD_UNIT = #{buildUnit,jdbcType=VARCHAR},
+      BUILD_FLOOR = #{buildFloor,jdbcType=VARCHAR},
+      SYS_BUILD_FLOOR = #{sysBuildFloor,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      BUILDING_SET_ROOF_ID = #{buildingSetRoofId,jdbcType=INTEGER},
+      BUILDING_SET_UNIT_ID = #{buildingSetUnitId,jdbcType=INTEGER},
+      FLOOR_USEAGE = #{floorUseage,jdbcType=INTEGER},
+      DEL_FLAG = #{delFlag,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectByBuildFloor" resultMap="BaseResultMap">
+        select ID, BUILD_FLOOR, SYS_BUILD_FLOOR from BUILDING_SET_FLOOR
+        where CITY_ID = #{cityId}
+        AND COMP_ID = 0
+        AND BUILD_ID = #{buildId}
+        AND BUILD_ROOF = #{buildRoof}
+        AND BUILD_UNIT = #{buildUnit}
+        <if test="sysBuildFloor != null">
+            AND SYS_BUILD_FLOOR = #{sysBuildFloor}
+        </if>
+    </select>
+
+    <delete id="delBuildById">
+        delete from BUILDING_SET_FLOOR
+        where COMP_ID = 0
+          and BUILD_ID = #{buildId}
+    </delete>
+
+    <select id="selectFloorByIds" resultType="com.myfun.repository.erpdb.po.ErpBuildingSetFloor">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM BUILDING_SET_FLOOR
+        WHERE COMP_ID = 0 AND BUILD_ID = #{buildId}
+        AND BUILDING_SET_ROOF_ID = #{buildRoof}
+        <if test="buildUnit != null">
+            AND BUILD_UNIT = #{buildUnit}
+        </if>
+        AND ID IN
+        <foreach close=")" collection="floorIds" item="item" open="(" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <delete id="delBuildFloor">
+        DELETE FROM BUILDING_SET_FLOOR
+        WHERE COMP_ID = 0
+        <if test="param.buildId != null">
+            AND BUILD_ID = #{param.buildId,jdbcType=INTEGER}
+        </if>
+        <if test="param.buildingSetRoofId != null">
+            AND BUILDING_SET_ROOF_ID = #{param.buildingSetRoofId,jdbcType=INTEGER}
+        </if>
+        <if test="param.buildingSetUnitId != null">
+            AND BUILDING_SET_UNIT_ID = #{param.buildingSetUnitId,jdbcType=INTEGER}
+        </if>
+        <if test="param.buildingSetFloorId != null">
+            AND ID = #{param.buildingSetFloorId,jdbcType=INTEGER}
+        </if>
+    </delete>
+
+    <select id="selectBuildFloor" resultMap="BaseResultMap">
+        SELECT ID, BUILD_FLOOR, SYS_BUILD_FLOOR, FLOOR_USEAGE
+        FROM BUILDING_SET_FLOOR
+        WHERE COMP_ID = 0
+        <if test="param.buildId != null">
+            AND BUILD_ID = #{param.buildId,jdbcType=INTEGER}
+        </if>
+
+        <if test="param.buildingSetRoofId != null">
+            AND BUILDING_SET_ROOF_ID = #{param.buildingSetRoofId,jdbcType=INTEGER}
+        </if>
+        <if test="param.buildingSetUnitId != null">
+            AND BUILDING_SET_UNIT_ID = #{param.buildingSetUnitId,jdbcType=INTEGER}
+        </if>
+        <if test="param.buildingSetFloorId != null">
+            AND ID = #{param.buildingSetFloorId,jdbcType=INTEGER}
+        </if>
+    </select>
+    <select id="selectByRoofIdAndUnitAndBuildFloor" resultMap="BaseResultMap">
+        select top 1
+        <include refid="Base_Column_List" />
+        from BUILDING_SET_FLOOR where COMP_ID = 0  and BUILDING_SET_ROOF_ID = #{buildSetRoofId} and SYS_BUILD_FLOOR=#{buildFloor} and BUILD_UNIT=#{buildUnit}
+    </select>
+    <select id="selectByRoofIdAndUnitAndBuildFloors" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from BUILDING_SET_FLOOR where COMP_ID = 0 and BUILDING_SET_UNIT_ID = #{buildSetUnitId} and SYS_BUILD_FLOOR=#{buildFloor} and BUILD_UNIT=#{buildUnit}
+    </select>
+    <select id="selectByBuildAndBuildRoofAndBuildUnit" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpRegisterBuildFloorAndRoomListVO">
+        select
+        ID as buildingSetFloorId, BUILD_ID as buildId, BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR as buildFloor,
+        BUILDING_SET_ROOF_ID as buildingSetRoofId, BUILDING_SET_UNIT_ID as buildingSetUnitId,
+        DEL_FLAG,FLOOR_USEAGE as floorUseage,SYS_BUILD_FLOOR as sysBuildFloor
+        from BUILDING_SET_FLOOR where COMP_ID = 0 and BUILD_ID=#{buildId}
+        <if test="buildingSetRoofId!=null">
+            and  BUILDING_SET_ROOF_ID=#{buildingSetRoofId}
+        </if>
+        and BUILDING_SET_UNIT_ID=#{buildingSetUnitId}
+        <if test="floorUseage!=null">
+            and FLOOR_USEAGE in (#{floorUseage} , -1)
+        </if>
+        <!--<if test="floorUseage==null">-->
+            <!--and  FLOOR_USEAGE = -1-->
+        <!--</if>-->
+        order by CAST(SYS_BUILD_FLOOR as DECIMAL)
+    </select>
+
+    <select id="selectByBuildAndBuildRoofAndBuildUnitML" resultType="com.myfun.erpWeb.businesstools.builddic.vo.MLErpRegisterBuildFloorAndRoomListVO">
+        select
+        ID as buildingSetFloorId, BUILD_ID as buildId, BUILD_ROOF as buildRoof, BUILD_UNIT as buildUnit, BUILD_FLOOR as buildFloor,
+        BUILDING_SET_ROOF_ID as buildingSetRoofId, BUILDING_SET_UNIT_ID as buildingSetUnitId,
+        DEL_FLAG,FLOOR_USEAGE as floorUseage,SYS_BUILD_FLOOR as sysBuildFloor
+        from BUILDING_SET_FLOOR where COMP_ID = 0 and BUILD_ID=#{buildId}
+        <if test="buildingSetRoofId!=null">
+            and  BUILDING_SET_ROOF_ID=#{buildingSetRoofId}
+        </if>
+        and BUILDING_SET_UNIT_ID=#{buildingSetUnitId}
+        <if test="floorUseage!=null">
+            and FLOOR_USEAGE in (#{floorUseage} , -1)
+        </if>
+        <!--<if test="floorUseage==null">-->
+        <!--and  FLOOR_USEAGE = -1-->
+        <!--</if>-->
+        order by CAST(SYS_BUILD_FLOOR as DECIMAL)
+    </select>
+    <select id="selectFloorVos" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpBuildingSetFloorVo">
+        select ID AS buildingSetFloorId, BUILD_ID AS buildId, BUILDING_SET_ROOF_ID AS buildingSetRoofId,
+        BUILDING_SET_UNIT_ID AS buildingSetUnitId, BUILD_FLOOR AS buildFloor, SYS_BUILD_FLOOR AS sysBuildFloor, FLOOR_USEAGE AS floorUseage
+        from BUILDING_SET_FLOOR
+        where COMP_ID = 0
+        AND BUILD_ID = #{buildId}
+
+        <!--buildingSetRoofId == 0 号位查询 -->
+        <if test="buildingSetRoofId != null and buildingSetRoofId != 0">
+            AND BUILDING_SET_ROOF_ID = #{buildingSetRoofId}
+        </if>
+        AND BUILDING_SET_UNIT_ID = #{buildingSetUnitId}
+        ORDER BY SYS_BUILD_FLOOR
+    </select>
+    <select id="selectMaxSysRoomIdInFloor" resultType="java.lang.String">
+        <!-- 该层楼最大的 SYS_ROOM_ID, 如果为空,则返回例如每层楼计算的最小SYS_ROOM_ID例如 1-0,2-0 -->
+        SELECT TOP 1 SYS_ROOM_ID
+        FROM BUILDING_SET_ROOM
+        WHERE COMP_ID = 0
+        <if test="buildId != null">
+            AND BUILD_ID = #{buildId,jdbcType=INTEGER}
+        </if>
+
+        <if test="buildingSetRoofId != null">
+            AND BUILDING_SET_ROOF_ID = #{buildingSetRoofId,jdbcType=INTEGER}
+        </if>
+        <if test="buildingSetUnitId != null">
+            AND BUILDING_SET_UNIT_ID = #{buildingSetUnitId,jdbcType=INTEGER}
+        </if>
+        <if test="buildingSetFloorId != null">
+            AND BUILDING_SET_FLOOR_ID = #{buildingSetFloorId,jdbcType=INTEGER}
+        </if>
+        ORDER BY CAST(REPLACE(SYS_ROOM_ID, '-', '') AS decimal(9,0)) DESC
+    </select>
+    <select id="getFloorById" resultType="java.lang.String">
+        select SYS_BUILD_FLOOR AS sysBuildFloor
+        from BUILDING_SET_FLOOR
+        where COMP_ID = 0
+        AND BUILD_ID = #{buildId}
+
+        AND ID = #{buildingSetFloorId}
+    </select>
+    <delete id="delBuildFloorBySysBuildFloor">
+        DELETE FROM BUILDING_SET_FLOOR
+        WHERE COMP_ID = 0
+          AND BUILD_ID = #{buildId}
+          AND BUILDING_SET_UNIT_ID = #{buildingSetUnitId}
+        <if test="needDelFloors != null and needDelFloors.size &gt; 0">
+            AND SYS_BUILD_FLOOR IN
+            <foreach close=")" collection="needDelFloors" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </delete>
+    <insert id="insetWithSysBuildFloor">
+        INSERT INTO BUILDING_SET_FLOOR(CITY_ID, COMP_ID, BUILD_ID, BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR, SYS_BUILD_FLOOR,
+                                       CREATION_TIME, UPDATE_TIME, BUILDING_SET_ROOF_ID, BUILDING_SET_UNIT_ID, FLOOR_USEAGE,
+                                       DEL_FLAG)
+        SELECT TOP 1 CITY_ID, COMP_ID, BUILD_ID, BUILD_ROOF, BUILD_UNIT, #{needAddSysBuildFloor}, #{needAddSysBuildFloor},
+               getdate(), getdate(), BUILDING_SET_ROOF_ID, BUILDING_SET_UNIT_ID, FLOOR_USEAGE,
+               DEL_FLAG
+        FROM BUILDING_SET_FLOOR
+        WHERE COMP_ID = 0
+          AND BUILD_ID = #{buildId}
+          AND BUILDING_SET_UNIT_ID = #{buildingSetUnitId}
+    </insert>
+    <select id="selectRoofAndUnitNameInFloor" resultMap="BaseResultMap">
+        select BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR, SYS_BUILD_FLOOR,BUILDING_SET_UNIT_ID
+        from BUILDING_SET_FLOOR
+        where BUILD_ID = #{buildId} AND COMP_ID = 0
+          AND ID = #{buildingSetFloorId}
+    </select>
+
+    <resultMap id="roofUnitFloorNameMap" type="com.myfun.erpWeb.businesstools.builddic.vo.BuildingRoofUnitFloorNameDto">
+        <result column="BUILD_ROOF" jdbcType="VARCHAR" property="buildRoof" />
+        <result column="BUILD_UNIT" jdbcType="VARCHAR" property="buildUnit" />
+        <result column="BUILD_FLOOR" jdbcType="VARCHAR" property="buildFloor" />
+        <result column="ID" jdbcType="INTEGER" property="buildingSetRoomId" />
+    </resultMap>
+
+    <select id="getRoofAndUnitNameInFloor" resultMap="roofUnitFloorNameMap">
+        select A.BUILD_ROOF, A.BUILD_UNIT, A.BUILD_FLOOR, B.ID
+        from BUILDING_SET_FLOOR A JOIN BUILDING_SET_ROOM B ON A.ID = B.BUILDING_SET_FLOOR_ID and B.ID IN ${buildingSetRoomIds}
+        where A.COMP_ID = 0
+          AND A.BUILD_ID = #{buildId}
+    </select>
+    <insert id="batchAddBuildFloor" parameterType="java.util.List">
+        INSERT INTO BUILDING_SET_FLOOR(CITY_ID, COMP_ID, BUILD_ID, BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR, SYS_BUILD_FLOOR,
+                                       CREATION_TIME, UPDATE_TIME, BUILDING_SET_ROOF_ID, BUILDING_SET_UNIT_ID, FLOOR_USEAGE, DEL_FLAG)
+        <foreach collection="needAddFloors" index="index" item="needAddSysBuildFloor" separator="UNION">
+            SELECT TOP 1 CITY_ID, COMP_ID, BUILD_ID, BUILD_ROOF, BUILD_UNIT, #{needAddSysBuildFloor}, #{needAddSysBuildFloor},
+            getdate(), getdate(), BUILDING_SET_ROOF_ID, BUILDING_SET_UNIT_ID, FLOOR_USEAGE, DEL_FLAG
+            FROM BUILDING_SET_FLOOR
+            WHERE COMP_ID = 0
+            AND BUILD_ID = #{buildId}
+            AND BUILDING_SET_UNIT_ID = #{buildingSetUnitId}
+        </foreach>
+    </insert>
+    <select id="selectByHouseUseage" resultMap="BaseResultMap">
+        select BUILDING_SET_UNIT_ID from  BUILDING_SET_FLOOR where COMP_ID=0 and BUILD_ID=#{buildId}
+        <if test="houseUseage!=null">
+            and FLOOR_USEAGE in (#{houseUseage}, -1)
+        </if>
+        <!--<if test="houseUseage==null">-->
+            <!--and FLOOR_USEAGE =-1-->
+        <!--</if>-->
+         and BUILDING_SET_UNIT_ID is not null  GROUP BY BUILDING_SET_UNIT_ID
+    </select>
+    <select id="selectByNumHouseUseage" resultMap="BaseResultMap">
+        select BUILDING_SET_UNIT_ID from BUILDING_SET_FLOOR where COMP_ID=0 and BUILD_ID=#{buildId}
+        <if test="houseUseage!=null">
+         and FLOOR_USEAGE in (#{houseUseage},-1)
+        </if>
+        <!--<if test="houseUseage==null">-->
+          <!--and  FLOOR_USEAGE =-1-->
+        <!--</if>-->
+        and BUILD_ROOF is null and BUILDING_SET_UNIT_ID is not null  GROUP BY BUILDING_SET_UNIT_ID
+    </select>
+    <select id="selectByUnitIdandBuildFloor" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from BUILDING_SET_FLOOR where COMP_ID=0  and BUILDING_SET_UNIT_ID=#{id}
+        <if test="buildFloor!=null">
+            and BUILD_FLOOR=#{buildFloor}
+        </if>
+    </select>
+    <select id="selectByHouseUseageAndRoof" resultMap="BaseResultMap">
+        select BUILDING_SET_ROOF_ID from  BUILDING_SET_FLOOR where  COMP_ID=0 and BUILD_ID=#{buildId}
+        <if test="houseUseage">
+            and  FLOOR_USEAGE=#{houseUseage}
+        </if>
+        GROUP BY BUILDING_SET_ROOF_ID
+    </select>
+    <select id="selectCountInFloor" resultType="java.lang.Integer">
+        select count(*) from BUILDING_SET_FLOOR
+        WHERE COMP_ID=0 AND BUILD_ID=#{buildId} AND BUILDING_SET_UNIT_ID = #{buildingSetUnitId}
+          AND ID=#{buildingSetFloorId} AND BUILD_FLOOR=#{buildFloor}
+    </select>
+
+    <select id="selectMaxSysFloorInUnits" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpRegisterBuildingSetUnitVO">
+        select
+        MAX(cast(SYS_BUILD_FLOOR as int)) AS floorEnd, BUILDING_SET_UNIT_ID AS buildingSetUnitId
+        FROM BUILDING_SET_FLOOR
+        where COMP_ID = 0 AND BUILD_ID = #{buildId} and BUILDING_SET_UNIT_ID in
+        <foreach close=")" collection="unitIds" index="index" item="item" open="(" separator=",">
+            #{item}
+        </foreach>
+        GROUP BY BUILDING_SET_UNIT_ID
+    </select>
+
+    <select id="selectMinSysFloorInUnits" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpRegisterBuildingSetUnitVO">
+        select
+        MIN (cast(SYS_BUILD_FLOOR as int)) AS floorEnd, BUILDING_SET_UNIT_ID AS buildingSetUnitId
+        FROM BUILDING_SET_FLOOR
+        where COMP_ID = 0 AND BUILD_ID = #{buildId} and BUILDING_SET_UNIT_ID = #{unitId}
+
+        GROUP BY BUILDING_SET_UNIT_ID
+    </select>
+
+</mapper>

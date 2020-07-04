@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAttendanceParamMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunAttendanceParam" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="RULE_VALUE" property="ruleValue" jdbcType="VARCHAR" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="PARAM_TYPE" property="paramType" jdbcType="VARCHAR" />
+    <result column="PENALTY_MONEY" property="penaltyMoney" jdbcType="VARCHAR" />
+    <result column="PENALTY_TYPE" property="penaltyType" jdbcType="TINYINT" />
+    <result column="PAYMENT_TYPE" property="paymentType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, RULE_VALUE, COMP_ID, CREATE_DATE, PARAM_TYPE, PENALTY_MONEY, PENALTY_TYPE, PAYMENT_TYPE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceParamExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_PARAM
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_PARAM
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_PARAM
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceParamExample" >
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_PARAM
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceParam" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_PARAM (RULE_VALUE, COMP_ID, CREATE_DATE, 
+      PARAM_TYPE, PENALTY_MONEY, PENALTY_TYPE, 
+      PAYMENT_TYPE)
+    values (#{ruleValue,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{paramType,jdbcType=VARCHAR}, #{penaltyMoney,jdbcType=VARCHAR}, #{penaltyType,jdbcType=TINYINT}, 
+      #{paymentType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceParam" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_PARAM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ruleValue != null" >
+        RULE_VALUE,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE,
+      </if>
+      <if test="penaltyMoney != null" >
+        PENALTY_MONEY,
+      </if>
+      <if test="penaltyType != null" >
+        PENALTY_TYPE,
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ruleValue != null" >
+        #{ruleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paramType != null" >
+        #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyMoney != null" >
+        #{penaltyMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyType != null" >
+        #{penaltyType,jdbcType=TINYINT},
+      </if>
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceParamExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_ATTENDANCE_PARAM
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_PARAM
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.ruleValue != null" >
+        RULE_VALUE = #{record.ruleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createDate != null" >
+        CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paramType != null" >
+        PARAM_TYPE = #{record.paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.penaltyMoney != null" >
+        PENALTY_MONEY = #{record.penaltyMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="record.penaltyType != null" >
+        PENALTY_TYPE = #{record.penaltyType,jdbcType=TINYINT},
+      </if>
+      <if test="record.paymentType != null" >
+        PAYMENT_TYPE = #{record.paymentType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_PARAM
+    set ID = #{record.id,jdbcType=INTEGER},
+      RULE_VALUE = #{record.ruleValue,jdbcType=VARCHAR},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      PARAM_TYPE = #{record.paramType,jdbcType=VARCHAR},
+      PENALTY_MONEY = #{record.penaltyMoney,jdbcType=VARCHAR},
+      PENALTY_TYPE = #{record.penaltyType,jdbcType=TINYINT},
+      PAYMENT_TYPE = #{record.paymentType,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceParam" >
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_PARAM
+    <set >
+      <if test="ruleValue != null" >
+        RULE_VALUE = #{ruleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyMoney != null" >
+        PENALTY_MONEY = #{penaltyMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyType != null" >
+        PENALTY_TYPE = #{penaltyType,jdbcType=TINYINT},
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE = #{paymentType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceParam" >
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_PARAM
+    set RULE_VALUE = #{ruleValue,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      PENALTY_MONEY = #{penaltyMoney,jdbcType=VARCHAR},
+      PENALTY_TYPE = #{penaltyType,jdbcType=TINYINT},
+      PAYMENT_TYPE = #{paymentType,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <insert id="addDataList">
+	INSERT INTO FUN_ATTENDANCE_PARAM ([RULE_VALUE], [COMP_ID], [CREATE_DATE], [PARAM_TYPE], [PENALTY_MONEY], [PENALTY_TYPE], [PAYMENT_TYPE])
+	VALUES ( NULL, #{compId},  GETDATE(), '1', '100', '1', '1'),
+			( '30', #{compId},  GETDATE(), '2', '100', '2', '1'),
+			( '120', #{compId}, GETDATE(), '3', '100', '1', '1'),
+			( '120', #{compId}, GETDATE(), '4', '100', '1', '1'),
+			( NULL, #{compId},  GETDATE(), '5', '100', '1', '1'),
+			( NULL, #{compId},  GETDATE(), '6', '100', '1', '1'),
+			( NULL, #{compId},  GETDATE(), '7', '100', '1', '1'),
+			( NULL, #{compId},  GETDATE(), '8', '100', '1', '1')
+
+  </insert>
+</mapper>

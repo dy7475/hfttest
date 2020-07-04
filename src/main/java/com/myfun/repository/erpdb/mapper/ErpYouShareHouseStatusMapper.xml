@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpYouShareHouseStatusMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+    <!--@mbggenerated-->
+    <id column="SHARE_ID" jdbcType="INTEGER" property="shareId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="TOTAL_INTEGRAL" jdbcType="DECIMAL" property="totalIntegral" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="YOU_SHARE_FLAG" jdbcType="TINYINT" property="youShareFlag" />
+    <result column="COMPLAIN_FLAG" jdbcType="TINYINT" property="complainFlag" />
+    <result column="DOWN_TYPE" jdbcType="TINYINT" property="downType" />
+    <result column="DOWN_TIME" jdbcType="TIMESTAMP" property="downTime" />
+    <result column="IS_COMPLAIN" jdbcType="TINYINT" property="isComplain" />
+    <result column="LAST_COMPLAIN_TIME" jdbcType="TIMESTAMP" property="lastComplainTime" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="AWARD_INTEGRAL" jdbcType="DECIMAL" property="awardIntegral" />
+    <result column="AWARD_PIC_INTEGRAL" jdbcType="DECIMAL" property="awardPicIntegral" />
+    <result column="THUMB_URL" jdbcType="VARCHAR" property="thumbUrl" />
+    <result column="HOUSE_SUBJECT" jdbcType="VARCHAR" property="houseSubject" />
+    <result column="HOUSE_USEAGE" jdbcType="TINYINT" property="houseUseage" />
+    <result column="HOUSE_TYPE" jdbcType="TINYINT" property="houseType" />
+    <result column="REGION_ID" jdbcType="INTEGER" property="regionId" />
+    <result column="REGION_NAME" jdbcType="VARCHAR" property="regionName" />
+    <result column="SECTION_ID" jdbcType="VARCHAR" property="sectionId" />
+    <result column="SECTION_NAME" jdbcType="VARCHAR" property="sectionName" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="HOUSE_FLOOR" jdbcType="SMALLINT" property="houseFloor" />
+    <result column="HOUSE_FLOORS" jdbcType="TINYINT" property="houseFloors" />
+    <result column="HOUSE_ROOM" jdbcType="TINYINT" property="houseRoom" />
+    <result column="HOUSE_HALL" jdbcType="TINYINT" property="houseHall" />
+    <result column="HOUSE_WEI" jdbcType="TINYINT" property="houseWei" />
+    <result column="HOUSE_AREA" jdbcType="NUMERIC" property="houseArea" />
+    <result column="HOUSE_MAP" jdbcType="TINYINT" property="houseMap" />
+    <result column="HOUSE_TOTAL_PRICE" jdbcType="NUMERIC" property="houseTotalPrice" />
+    <result column="HOUSE_OWNER" jdbcType="VARCHAR" property="houseOwner" />
+    <result column="CELL_PHONE" jdbcType="VARCHAR" property="cellPhone" />
+    <result column="YOU_SHARE_TIME" jdbcType="TIMESTAMP" property="youShareTime" />
+    <result column="VIDEO_NUM" jdbcType="TINYINT" property="videoNum" />
+    <result column="HOUSE_NO" jdbcType="VARCHAR" property="houseNo" />
+    <result column="PRICE_UNIT" jdbcType="TINYINT" property="priceUnit" />
+    <result column="TRUE_FLAG" jdbcType="TINYINT" property="trueFlag" />
+    <result column="TRACK_TIME" jdbcType="VARCHAR" property="trackTime" />
+    <result column="HOUSE_KEY" jdbcType="BIT" property="houseKey" />
+    <result column="HOUSE_EXPLRTH" jdbcType="BIT" property="houseExplrth" />
+    <result column="HOUSE_INNERAREA" jdbcType="NUMERIC" property="houseInnerarea" />
+    <result column="HOUSE_DOORS" jdbcType="TINYINT" property="houseDoors" />
+    <result column="HOUSE_FITMENT" jdbcType="TINYINT" property="houseFitment" />
+    <result column="HOUSE_DIRECT" jdbcType="TINYINT" property="houseDirect" />
+    <result column="HOUSE_RIGHT" jdbcType="TINYINT" property="houseRight" />
+    <result column="HOUSE_CERT_TIME" jdbcType="VARCHAR" property="houseCertTime" />
+    <result column="HOUSE_STRUCT" jdbcType="TINYINT" property="houseStruct" />
+    <result column="HOUSE_YEAR" jdbcType="INTEGER" property="houseYear" />
+    <result column="HOUSE_STREET" jdbcType="BIT" property="houseStreet" />
+    <result column="HOUSE_LEAVE_TIME" jdbcType="VARCHAR" property="houseLeaveTime" />
+    <result column="HOUSE_LADDER" jdbcType="TINYINT" property="houseLadder" />
+    <result column="HOUSE_LIMITE" jdbcType="TINYINT" property="houseLimite" />
+    <result column="HOUSE_SET" jdbcType="VARCHAR" property="houseSet" />
+    <result column="HOUSE_UNIT_PRICE" jdbcType="NUMERIC" property="houseUnitPrice" />
+    <result column="HOUSE_ROUND" jdbcType="TINYINT" property="houseRound" />
+    <result column="HOUSE_DEPOSIT" jdbcType="INTEGER" property="houseDeposit" />
+    <result column="HOUSE_ACCOUNT" jdbcType="VARCHAR" property="houseAccount" />
+    <result column="HALL_STRUCTURE" jdbcType="TINYINT" property="hallStructure" />
+    <result column="GARAGE_AMOUNT" jdbcType="TINYINT" property="garageAmount" />
+    <result column="UG_AREA" jdbcType="NUMERIC" property="ugArea" />
+    <result column="GARDEN_AREA" jdbcType="NUMERIC" property="gardenArea" />
+    <result column="HOUSE_PROPERTY" jdbcType="NUMERIC" property="houseProperty" />
+    <result column="SHOP_USAGE" jdbcType="VARCHAR" property="shopUsage" />
+    <result column="OFFICE_LEVEL" jdbcType="TINYINT" property="officeLevel" />
+    <result column="THUMBPIC_VER" jdbcType="VARCHAR" property="thumbpicVer" />
+    <result column="YOU_COMMISSION" jdbcType="INTEGER" property="youCommission" />
+    <result column="HOUSE_CONSIGN" jdbcType="INTEGER" property="houseConsign" />
+    <result column="LEASE_ROOM_TYPE" jdbcType="TINYINT" property="leaseRoomType" />
+    <result column="LEASE_ROOM_CLASSIC" jdbcType="TINYINT" property="leaseRoomClassic" />
+    <result column="FLAT_SHARE_SEX" jdbcType="TINYINT" property="flatShareSex" />
+    <result column="OWNER_SEX" jdbcType="TINYINT" property="ownerSex" />
+    <result column="PANORAMA_MAP" jdbcType="TINYINT" property="panoramaMap" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.erpdb.dto.ErpYouComplainDto" id="complainMap" extends="BaseResultMap">
+  	<result column="HOUSE_UPDATE_TIME" jdbcType="TIMESTAMP" property="houseUpdateTime" />
+  	<result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+  	<result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    SHARE_ID, CASE_ID, CASE_TYPE, COMP_ID, DEPT_ID, USER_ID, ARCHIVE_ID, TOTAL_INTEGRAL, 
+    CREATION_TIME, YOU_SHARE_FLAG, COMPLAIN_FLAG, DOWN_TYPE, DOWN_TIME, IS_COMPLAIN, 
+    LAST_COMPLAIN_TIME, CITY_ID, AWARD_INTEGRAL, AWARD_PIC_INTEGRAL, THUMB_URL, HOUSE_SUBJECT, 
+    HOUSE_USEAGE, HOUSE_TYPE, REGION_ID, REGION_NAME, SECTION_ID, SECTION_NAME, BUILD_ID, 
+    BUILD_NAME, HOUSE_FLOOR, HOUSE_FLOORS, HOUSE_ROOM, HOUSE_HALL, HOUSE_WEI, HOUSE_AREA, 
+    HOUSE_MAP, HOUSE_TOTAL_PRICE, HOUSE_OWNER, CELL_PHONE, YOU_SHARE_TIME, VIDEO_NUM, 
+    HOUSE_NO, PRICE_UNIT, TRUE_FLAG, TRACK_TIME, HOUSE_KEY, HOUSE_EXPLRTH, HOUSE_INNERAREA, 
+    HOUSE_DOORS, HOUSE_FITMENT, HOUSE_DIRECT, HOUSE_RIGHT, HOUSE_CERT_TIME, HOUSE_STRUCT, 
+    HOUSE_YEAR, HOUSE_STREET, HOUSE_LEAVE_TIME, HOUSE_LADDER, HOUSE_LIMITE, HOUSE_SET, 
+    HOUSE_UNIT_PRICE, HOUSE_ROUND, HOUSE_DEPOSIT, HOUSE_ACCOUNT, HALL_STRUCTURE, GARAGE_AMOUNT, 
+    UG_AREA, GARDEN_AREA, HOUSE_PROPERTY, SHOP_USAGE, OFFICE_LEVEL, THUMBPIC_VER, YOU_COMMISSION, 
+    HOUSE_CONSIGN, LEASE_ROOM_TYPE, LEASE_ROOM_CLASSIC, FLAT_SHARE_SEX, OWNER_SEX, PANORAMA_MAP
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOU_SHARE_HOUSE_STATUS
+    where SHARE_ID = #{shareId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from YOU_SHARE_HOUSE_STATUS
+    where SHARE_ID = #{shareId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="shareId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(ISNULL(SHARE_ID,0))+1 FROM YOU_SHARE_HOUSE_STATUS
+    </selectKey>
+    insert into YOU_SHARE_HOUSE_STATUS (SHARE_ID, CASE_ID, CASE_TYPE, 
+      COMP_ID, DEPT_ID, USER_ID, 
+      ARCHIVE_ID, TOTAL_INTEGRAL, CREATION_TIME, 
+      YOU_SHARE_FLAG, COMPLAIN_FLAG, DOWN_TYPE, 
+      DOWN_TIME, IS_COMPLAIN, LAST_COMPLAIN_TIME, 
+      CITY_ID, AWARD_INTEGRAL, AWARD_PIC_INTEGRAL, 
+      THUMB_URL, HOUSE_SUBJECT, HOUSE_USEAGE, 
+      HOUSE_TYPE, REGION_ID, REGION_NAME, 
+      SECTION_ID, SECTION_NAME, BUILD_ID, 
+      BUILD_NAME, HOUSE_FLOOR, HOUSE_FLOORS, 
+      HOUSE_ROOM, HOUSE_HALL, HOUSE_WEI, 
+      HOUSE_AREA, HOUSE_MAP, HOUSE_TOTAL_PRICE, 
+      HOUSE_OWNER, CELL_PHONE, YOU_SHARE_TIME, 
+      VIDEO_NUM, HOUSE_NO, PRICE_UNIT, 
+      TRUE_FLAG, TRACK_TIME, HOUSE_KEY, 
+      HOUSE_EXPLRTH, HOUSE_INNERAREA, HOUSE_DOORS, 
+      HOUSE_FITMENT, HOUSE_DIRECT, HOUSE_RIGHT, 
+      HOUSE_CERT_TIME, HOUSE_STRUCT, HOUSE_YEAR, 
+      HOUSE_STREET, HOUSE_LEAVE_TIME, HOUSE_LADDER, 
+      HOUSE_LIMITE, HOUSE_SET, HOUSE_UNIT_PRICE, 
+      HOUSE_ROUND, HOUSE_DEPOSIT, HOUSE_ACCOUNT, 
+      HALL_STRUCTURE, GARAGE_AMOUNT, UG_AREA, 
+      GARDEN_AREA, HOUSE_PROPERTY, SHOP_USAGE, 
+      OFFICE_LEVEL, THUMBPIC_VER, YOU_COMMISSION, 
+      HOUSE_CONSIGN, LEASE_ROOM_TYPE, LEASE_ROOM_CLASSIC, 
+      FLAT_SHARE_SEX, OWNER_SEX, PANORAMA_MAP
+      )
+    values (#{shareId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, 
+      #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{archiveId,jdbcType=INTEGER}, #{totalIntegral,jdbcType=DECIMAL}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{youShareFlag,jdbcType=TINYINT}, #{complainFlag,jdbcType=TINYINT}, #{downType,jdbcType=TINYINT}, 
+      #{downTime,jdbcType=TIMESTAMP}, #{isComplain,jdbcType=TINYINT}, #{lastComplainTime,jdbcType=TIMESTAMP}, 
+      #{cityId,jdbcType=INTEGER}, #{awardIntegral,jdbcType=DECIMAL}, #{awardPicIntegral,jdbcType=DECIMAL}, 
+      #{thumbUrl,jdbcType=VARCHAR}, #{houseSubject,jdbcType=VARCHAR}, #{houseUseage,jdbcType=TINYINT}, 
+      #{houseType,jdbcType=TINYINT}, #{regionId,jdbcType=INTEGER}, #{regionName,jdbcType=VARCHAR}, 
+      #{sectionId,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, #{buildId,jdbcType=INTEGER}, 
+      #{buildName,jdbcType=VARCHAR}, #{houseFloor,jdbcType=SMALLINT}, #{houseFloors,jdbcType=TINYINT}, 
+      #{houseRoom,jdbcType=TINYINT}, #{houseHall,jdbcType=TINYINT}, #{houseWei,jdbcType=TINYINT}, 
+      #{houseArea,jdbcType=NUMERIC}, #{houseMap,jdbcType=TINYINT}, #{houseTotalPrice,jdbcType=NUMERIC}, 
+      #{houseOwner,jdbcType=VARCHAR}, #{cellPhone,jdbcType=VARCHAR}, #{youShareTime,jdbcType=TIMESTAMP}, 
+      #{videoNum,jdbcType=TINYINT}, #{houseNo,jdbcType=VARCHAR}, #{priceUnit,jdbcType=TINYINT}, 
+      #{trueFlag,jdbcType=TINYINT}, #{trackTime,jdbcType=VARCHAR}, #{houseKey,jdbcType=BIT}, 
+      #{houseExplrth,jdbcType=BIT}, #{houseInnerarea,jdbcType=NUMERIC}, #{houseDoors,jdbcType=TINYINT}, 
+      #{houseFitment,jdbcType=TINYINT}, #{houseDirect,jdbcType=TINYINT}, #{houseRight,jdbcType=TINYINT}, 
+      #{houseCertTime,jdbcType=VARCHAR}, #{houseStruct,jdbcType=TINYINT}, #{houseYear,jdbcType=INTEGER}, 
+      #{houseStreet,jdbcType=BIT}, #{houseLeaveTime,jdbcType=VARCHAR}, #{houseLadder,jdbcType=TINYINT}, 
+      #{houseLimite,jdbcType=TINYINT}, #{houseSet,jdbcType=VARCHAR}, #{houseUnitPrice,jdbcType=NUMERIC}, 
+      #{houseRound,jdbcType=TINYINT}, #{houseDeposit,jdbcType=INTEGER}, #{houseAccount,jdbcType=VARCHAR}, 
+      #{hallStructure,jdbcType=TINYINT}, #{garageAmount,jdbcType=TINYINT}, #{ugArea,jdbcType=NUMERIC}, 
+      #{gardenArea,jdbcType=NUMERIC}, #{houseProperty,jdbcType=NUMERIC}, #{shopUsage,jdbcType=VARCHAR}, 
+      #{officeLevel,jdbcType=TINYINT}, #{thumbpicVer,jdbcType=VARCHAR}, #{youCommission,jdbcType=INTEGER}, 
+      #{houseConsign,jdbcType=INTEGER}, #{leaseRoomType,jdbcType=TINYINT}, #{leaseRoomClassic,jdbcType=TINYINT}, 
+      #{flatShareSex,jdbcType=TINYINT}, #{ownerSex,jdbcType=TINYINT}, #{panoramaMap,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="shareId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(ISNULL(SHARE_ID,0))+1 FROM YOU_SHARE_HOUSE_STATUS
+    </selectKey>
+    insert into YOU_SHARE_HOUSE_STATUS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      SHARE_ID,
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="totalIntegral != null">
+        TOTAL_INTEGRAL,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="youShareFlag != null">
+        YOU_SHARE_FLAG,
+      </if>
+      <if test="complainFlag != null">
+        COMPLAIN_FLAG,
+      </if>
+      <if test="downType != null">
+        DOWN_TYPE,
+      </if>
+      <if test="downTime != null">
+        DOWN_TIME,
+      </if>
+      <if test="isComplain != null">
+        IS_COMPLAIN,
+      </if>
+      <if test="lastComplainTime != null">
+        LAST_COMPLAIN_TIME,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="awardIntegral != null">
+        AWARD_INTEGRAL,
+      </if>
+      <if test="awardPicIntegral != null">
+        AWARD_PIC_INTEGRAL,
+      </if>
+      <if test="thumbUrl != null">
+        THUMB_URL,
+      </if>
+      <if test="houseSubject != null">
+        HOUSE_SUBJECT,
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE,
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE,
+      </if>
+      <if test="regionId != null">
+        REGION_ID,
+      </if>
+      <if test="regionName != null">
+        REGION_NAME,
+      </if>
+      <if test="sectionId != null">
+        SECTION_ID,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="houseFloor != null">
+        HOUSE_FLOOR,
+      </if>
+      <if test="houseFloors != null">
+        HOUSE_FLOORS,
+      </if>
+      <if test="houseRoom != null">
+        HOUSE_ROOM,
+      </if>
+      <if test="houseHall != null">
+        HOUSE_HALL,
+      </if>
+      <if test="houseWei != null">
+        HOUSE_WEI,
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA,
+      </if>
+      <if test="houseMap != null">
+        HOUSE_MAP,
+      </if>
+      <if test="houseTotalPrice != null">
+        HOUSE_TOTAL_PRICE,
+      </if>
+      <if test="houseOwner != null">
+        HOUSE_OWNER,
+      </if>
+      <if test="cellPhone != null">
+        CELL_PHONE,
+      </if>
+      <if test="youShareTime != null">
+        YOU_SHARE_TIME,
+      </if>
+      <if test="videoNum != null">
+        VIDEO_NUM,
+      </if>
+      <if test="houseNo != null">
+        HOUSE_NO,
+      </if>
+      <if test="priceUnit != null">
+        PRICE_UNIT,
+      </if>
+      <if test="trueFlag != null">
+        TRUE_FLAG,
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME,
+      </if>
+      <if test="houseKey != null">
+        HOUSE_KEY,
+      </if>
+      <if test="houseExplrth != null">
+        HOUSE_EXPLRTH,
+      </if>
+      <if test="houseInnerarea != null">
+        HOUSE_INNERAREA,
+      </if>
+      <if test="houseDoors != null">
+        HOUSE_DOORS,
+      </if>
+      <if test="houseFitment != null">
+        HOUSE_FITMENT,
+      </if>
+      <if test="houseDirect != null">
+        HOUSE_DIRECT,
+      </if>
+      <if test="houseRight != null">
+        HOUSE_RIGHT,
+      </if>
+      <if test="houseCertTime != null">
+        HOUSE_CERT_TIME,
+      </if>
+      <if test="houseStruct != null">
+        HOUSE_STRUCT,
+      </if>
+      <if test="houseYear != null">
+        HOUSE_YEAR,
+      </if>
+      <if test="houseStreet != null">
+        HOUSE_STREET,
+      </if>
+      <if test="houseLeaveTime != null">
+        HOUSE_LEAVE_TIME,
+      </if>
+      <if test="houseLadder != null">
+        HOUSE_LADDER,
+      </if>
+      <if test="houseLimite != null">
+        HOUSE_LIMITE,
+      </if>
+      <if test="houseSet != null">
+        HOUSE_SET,
+      </if>
+      <if test="houseUnitPrice != null">
+        HOUSE_UNIT_PRICE,
+      </if>
+      <if test="houseRound != null">
+        HOUSE_ROUND,
+      </if>
+      <if test="houseDeposit != null">
+        HOUSE_DEPOSIT,
+      </if>
+      <if test="houseAccount != null">
+        HOUSE_ACCOUNT,
+      </if>
+      <if test="hallStructure != null">
+        HALL_STRUCTURE,
+      </if>
+      <if test="garageAmount != null">
+        GARAGE_AMOUNT,
+      </if>
+      <if test="ugArea != null">
+        UG_AREA,
+      </if>
+      <if test="gardenArea != null">
+        GARDEN_AREA,
+      </if>
+      <if test="houseProperty != null">
+        HOUSE_PROPERTY,
+      </if>
+      <if test="shopUsage != null">
+        SHOP_USAGE,
+      </if>
+      <if test="officeLevel != null">
+        OFFICE_LEVEL,
+      </if>
+      <if test="thumbpicVer != null">
+        THUMBPIC_VER,
+      </if>
+      <if test="youCommission != null">
+        YOU_COMMISSION,
+      </if>
+      <if test="houseConsign != null">
+        HOUSE_CONSIGN,
+      </if>
+      <if test="leaseRoomType != null">
+        LEASE_ROOM_TYPE,
+      </if>
+      <if test="leaseRoomClassic != null">
+        LEASE_ROOM_CLASSIC,
+      </if>
+      <if test="flatShareSex != null">
+        FLAT_SHARE_SEX,
+      </if>
+      <if test="ownerSex != null">
+        OWNER_SEX,
+      </if>
+      <if test="panoramaMap != null">
+        PANORAMA_MAP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{shareId,jdbcType=INTEGER},
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="totalIntegral != null">
+        #{totalIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youShareFlag != null">
+        #{youShareFlag,jdbcType=TINYINT},
+      </if>
+      <if test="complainFlag != null">
+        #{complainFlag,jdbcType=TINYINT},
+      </if>
+      <if test="downType != null">
+        #{downType,jdbcType=TINYINT},
+      </if>
+      <if test="downTime != null">
+        #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isComplain != null">
+        #{isComplain,jdbcType=TINYINT},
+      </if>
+      <if test="lastComplainTime != null">
+        #{lastComplainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="awardIntegral != null">
+        #{awardIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="awardPicIntegral != null">
+        #{awardPicIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="thumbUrl != null">
+        #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="houseSubject != null">
+        #{houseSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=TINYINT},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionName != null">
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null">
+        #{sectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFloor != null">
+        #{houseFloor,jdbcType=SMALLINT},
+      </if>
+      <if test="houseFloors != null">
+        #{houseFloors,jdbcType=TINYINT},
+      </if>
+      <if test="houseRoom != null">
+        #{houseRoom,jdbcType=TINYINT},
+      </if>
+      <if test="houseHall != null">
+        #{houseHall,jdbcType=TINYINT},
+      </if>
+      <if test="houseWei != null">
+        #{houseWei,jdbcType=TINYINT},
+      </if>
+      <if test="houseArea != null">
+        #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="houseMap != null">
+        #{houseMap,jdbcType=TINYINT},
+      </if>
+      <if test="houseTotalPrice != null">
+        #{houseTotalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="houseOwner != null">
+        #{houseOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="cellPhone != null">
+        #{cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="youShareTime != null">
+        #{youShareTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoNum != null">
+        #{videoNum,jdbcType=TINYINT},
+      </if>
+      <if test="houseNo != null">
+        #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="priceUnit != null">
+        #{priceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="trueFlag != null">
+        #{trueFlag,jdbcType=TINYINT},
+      </if>
+      <if test="trackTime != null">
+        #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseKey != null">
+        #{houseKey,jdbcType=BIT},
+      </if>
+      <if test="houseExplrth != null">
+        #{houseExplrth,jdbcType=BIT},
+      </if>
+      <if test="houseInnerarea != null">
+        #{houseInnerarea,jdbcType=NUMERIC},
+      </if>
+      <if test="houseDoors != null">
+        #{houseDoors,jdbcType=TINYINT},
+      </if>
+      <if test="houseFitment != null">
+        #{houseFitment,jdbcType=TINYINT},
+      </if>
+      <if test="houseDirect != null">
+        #{houseDirect,jdbcType=TINYINT},
+      </if>
+      <if test="houseRight != null">
+        #{houseRight,jdbcType=TINYINT},
+      </if>
+      <if test="houseCertTime != null">
+        #{houseCertTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStruct != null">
+        #{houseStruct,jdbcType=TINYINT},
+      </if>
+      <if test="houseYear != null">
+        #{houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="houseStreet != null">
+        #{houseStreet,jdbcType=BIT},
+      </if>
+      <if test="houseLeaveTime != null">
+        #{houseLeaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseLadder != null">
+        #{houseLadder,jdbcType=TINYINT},
+      </if>
+      <if test="houseLimite != null">
+        #{houseLimite,jdbcType=TINYINT},
+      </if>
+      <if test="houseSet != null">
+        #{houseSet,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUnitPrice != null">
+        #{houseUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="houseRound != null">
+        #{houseRound,jdbcType=TINYINT},
+      </if>
+      <if test="houseDeposit != null">
+        #{houseDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="houseAccount != null">
+        #{houseAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="hallStructure != null">
+        #{hallStructure,jdbcType=TINYINT},
+      </if>
+      <if test="garageAmount != null">
+        #{garageAmount,jdbcType=TINYINT},
+      </if>
+      <if test="ugArea != null">
+        #{ugArea,jdbcType=NUMERIC},
+      </if>
+      <if test="gardenArea != null">
+        #{gardenArea,jdbcType=NUMERIC},
+      </if>
+      <if test="houseProperty != null">
+        #{houseProperty,jdbcType=NUMERIC},
+      </if>
+      <if test="shopUsage != null">
+        #{shopUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="officeLevel != null">
+        #{officeLevel,jdbcType=TINYINT},
+      </if>
+      <if test="thumbpicVer != null">
+        #{thumbpicVer,jdbcType=VARCHAR},
+      </if>
+      <if test="youCommission != null">
+        #{youCommission,jdbcType=INTEGER},
+      </if>
+      <if test="houseConsign != null">
+        #{houseConsign,jdbcType=INTEGER},
+      </if>
+      <if test="leaseRoomType != null">
+        #{leaseRoomType,jdbcType=TINYINT},
+      </if>
+      <if test="leaseRoomClassic != null">
+        #{leaseRoomClassic,jdbcType=TINYINT},
+      </if>
+      <if test="flatShareSex != null">
+        #{flatShareSex,jdbcType=TINYINT},
+      </if>
+      <if test="ownerSex != null">
+        #{ownerSex,jdbcType=TINYINT},
+      </if>
+      <if test="panoramaMap != null">
+        #{panoramaMap,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+    <!--@mbggenerated-->
+    update YOU_SHARE_HOUSE_STATUS
+    <set>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="totalIntegral != null">
+        TOTAL_INTEGRAL = #{totalIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youShareFlag != null">
+        YOU_SHARE_FLAG = #{youShareFlag,jdbcType=TINYINT},
+      </if>
+      <if test="complainFlag != null">
+        COMPLAIN_FLAG = #{complainFlag,jdbcType=TINYINT},
+      </if>
+      <if test="downType != null">
+        DOWN_TYPE = #{downType,jdbcType=TINYINT},
+      </if>
+      <if test="downTime != null">
+        DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isComplain != null">
+        IS_COMPLAIN = #{isComplain,jdbcType=TINYINT},
+      </if>
+      <if test="lastComplainTime != null">
+        LAST_COMPLAIN_TIME = #{lastComplainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="awardIntegral != null">
+        AWARD_INTEGRAL = #{awardIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="awardPicIntegral != null">
+        AWARD_PIC_INTEGRAL = #{awardPicIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="thumbUrl != null">
+        THUMB_URL = #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="houseSubject != null">
+        HOUSE_SUBJECT = #{houseSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE = #{houseType,jdbcType=TINYINT},
+      </if>
+      <if test="regionId != null">
+        REGION_ID = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionName != null">
+        REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null">
+        SECTION_ID = #{sectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFloor != null">
+        HOUSE_FLOOR = #{houseFloor,jdbcType=SMALLINT},
+      </if>
+      <if test="houseFloors != null">
+        HOUSE_FLOORS = #{houseFloors,jdbcType=TINYINT},
+      </if>
+      <if test="houseRoom != null">
+        HOUSE_ROOM = #{houseRoom,jdbcType=TINYINT},
+      </if>
+      <if test="houseHall != null">
+        HOUSE_HALL = #{houseHall,jdbcType=TINYINT},
+      </if>
+      <if test="houseWei != null">
+        HOUSE_WEI = #{houseWei,jdbcType=TINYINT},
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="houseMap != null">
+        HOUSE_MAP = #{houseMap,jdbcType=TINYINT},
+      </if>
+      <if test="houseTotalPrice != null">
+        HOUSE_TOTAL_PRICE = #{houseTotalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="houseOwner != null">
+        HOUSE_OWNER = #{houseOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="cellPhone != null">
+        CELL_PHONE = #{cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="youShareTime != null">
+        YOU_SHARE_TIME = #{youShareTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoNum != null">
+        VIDEO_NUM = #{videoNum,jdbcType=TINYINT},
+      </if>
+      <if test="houseNo != null">
+        HOUSE_NO = #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="priceUnit != null">
+        PRICE_UNIT = #{priceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="trueFlag != null">
+        TRUE_FLAG = #{trueFlag,jdbcType=TINYINT},
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME = #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseKey != null">
+        HOUSE_KEY = #{houseKey,jdbcType=BIT},
+      </if>
+      <if test="houseExplrth != null">
+        HOUSE_EXPLRTH = #{houseExplrth,jdbcType=BIT},
+      </if>
+      <if test="houseInnerarea != null">
+        HOUSE_INNERAREA = #{houseInnerarea,jdbcType=NUMERIC},
+      </if>
+      <if test="houseDoors != null">
+        HOUSE_DOORS = #{houseDoors,jdbcType=TINYINT},
+      </if>
+      <if test="houseFitment != null">
+        HOUSE_FITMENT = #{houseFitment,jdbcType=TINYINT},
+      </if>
+      <if test="houseDirect != null">
+        HOUSE_DIRECT = #{houseDirect,jdbcType=TINYINT},
+      </if>
+      <if test="houseRight != null">
+        HOUSE_RIGHT = #{houseRight,jdbcType=TINYINT},
+      </if>
+      <if test="houseCertTime != null">
+        HOUSE_CERT_TIME = #{houseCertTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStruct != null">
+        HOUSE_STRUCT = #{houseStruct,jdbcType=TINYINT},
+      </if>
+      <if test="houseYear != null">
+        HOUSE_YEAR = #{houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="houseStreet != null">
+        HOUSE_STREET = #{houseStreet,jdbcType=BIT},
+      </if>
+      <if test="houseLeaveTime != null">
+        HOUSE_LEAVE_TIME = #{houseLeaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseLadder != null">
+        HOUSE_LADDER = #{houseLadder,jdbcType=TINYINT},
+      </if>
+      <if test="houseLimite != null">
+        HOUSE_LIMITE = #{houseLimite,jdbcType=TINYINT},
+      </if>
+      <if test="houseSet != null">
+        HOUSE_SET = #{houseSet,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUnitPrice != null">
+        HOUSE_UNIT_PRICE = #{houseUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="houseRound != null">
+        HOUSE_ROUND = #{houseRound,jdbcType=TINYINT},
+      </if>
+      <if test="houseDeposit != null">
+        HOUSE_DEPOSIT = #{houseDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="houseAccount != null">
+        HOUSE_ACCOUNT = #{houseAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="hallStructure != null">
+        HALL_STRUCTURE = #{hallStructure,jdbcType=TINYINT},
+      </if>
+      <if test="garageAmount != null">
+        GARAGE_AMOUNT = #{garageAmount,jdbcType=TINYINT},
+      </if>
+      <if test="ugArea != null">
+        UG_AREA = #{ugArea,jdbcType=NUMERIC},
+      </if>
+      <if test="gardenArea != null">
+        GARDEN_AREA = #{gardenArea,jdbcType=NUMERIC},
+      </if>
+      <if test="houseProperty != null">
+        HOUSE_PROPERTY = #{houseProperty,jdbcType=NUMERIC},
+      </if>
+      <if test="shopUsage != null">
+        SHOP_USAGE = #{shopUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="officeLevel != null">
+        OFFICE_LEVEL = #{officeLevel,jdbcType=TINYINT},
+      </if>
+      <if test="thumbpicVer != null">
+        THUMBPIC_VER = #{thumbpicVer,jdbcType=VARCHAR},
+      </if>
+      <if test="youCommission != null">
+        YOU_COMMISSION = #{youCommission,jdbcType=INTEGER},
+      </if>
+      <if test="houseConsign != null">
+        HOUSE_CONSIGN = #{houseConsign,jdbcType=INTEGER},
+      </if>
+      <if test="leaseRoomType != null">
+        LEASE_ROOM_TYPE = #{leaseRoomType,jdbcType=TINYINT},
+      </if>
+      <if test="leaseRoomClassic != null">
+        LEASE_ROOM_CLASSIC = #{leaseRoomClassic,jdbcType=TINYINT},
+      </if>
+      <if test="flatShareSex != null">
+        FLAT_SHARE_SEX = #{flatShareSex,jdbcType=TINYINT},
+      </if>
+      <if test="ownerSex != null">
+        OWNER_SEX = #{ownerSex,jdbcType=TINYINT},
+      </if>
+      <if test="panoramaMap != null">
+        PANORAMA_MAP = #{panoramaMap,jdbcType=TINYINT},
+      </if>
+    </set>
+    where SHARE_ID = #{shareId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+    <!--@mbggenerated-->
+    update YOU_SHARE_HOUSE_STATUS
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      TOTAL_INTEGRAL = #{totalIntegral,jdbcType=DECIMAL},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      YOU_SHARE_FLAG = #{youShareFlag,jdbcType=TINYINT},
+      COMPLAIN_FLAG = #{complainFlag,jdbcType=TINYINT},
+      DOWN_TYPE = #{downType,jdbcType=TINYINT},
+      DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      IS_COMPLAIN = #{isComplain,jdbcType=TINYINT},
+      LAST_COMPLAIN_TIME = #{lastComplainTime,jdbcType=TIMESTAMP},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      AWARD_INTEGRAL = #{awardIntegral,jdbcType=DECIMAL},
+      AWARD_PIC_INTEGRAL = #{awardPicIntegral,jdbcType=DECIMAL},
+      THUMB_URL = #{thumbUrl,jdbcType=VARCHAR},
+      HOUSE_SUBJECT = #{houseSubject,jdbcType=VARCHAR},
+      HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      HOUSE_TYPE = #{houseType,jdbcType=TINYINT},
+      REGION_ID = #{regionId,jdbcType=INTEGER},
+      REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      SECTION_ID = #{sectionId,jdbcType=VARCHAR},
+      SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      HOUSE_FLOOR = #{houseFloor,jdbcType=SMALLINT},
+      HOUSE_FLOORS = #{houseFloors,jdbcType=TINYINT},
+      HOUSE_ROOM = #{houseRoom,jdbcType=TINYINT},
+      HOUSE_HALL = #{houseHall,jdbcType=TINYINT},
+      HOUSE_WEI = #{houseWei,jdbcType=TINYINT},
+      HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      HOUSE_MAP = #{houseMap,jdbcType=TINYINT},
+      HOUSE_TOTAL_PRICE = #{houseTotalPrice,jdbcType=NUMERIC},
+      HOUSE_OWNER = #{houseOwner,jdbcType=VARCHAR},
+      CELL_PHONE = #{cellPhone,jdbcType=VARCHAR},
+      YOU_SHARE_TIME = #{youShareTime,jdbcType=TIMESTAMP},
+      VIDEO_NUM = #{videoNum,jdbcType=TINYINT},
+      HOUSE_NO = #{houseNo,jdbcType=VARCHAR},
+      PRICE_UNIT = #{priceUnit,jdbcType=TINYINT},
+      TRUE_FLAG = #{trueFlag,jdbcType=TINYINT},
+      TRACK_TIME = #{trackTime,jdbcType=VARCHAR},
+      HOUSE_KEY = #{houseKey,jdbcType=BIT},
+      HOUSE_EXPLRTH = #{houseExplrth,jdbcType=BIT},
+      HOUSE_INNERAREA = #{houseInnerarea,jdbcType=NUMERIC},
+      HOUSE_DOORS = #{houseDoors,jdbcType=TINYINT},
+      HOUSE_FITMENT = #{houseFitment,jdbcType=TINYINT},
+      HOUSE_DIRECT = #{houseDirect,jdbcType=TINYINT},
+      HOUSE_RIGHT = #{houseRight,jdbcType=TINYINT},
+      HOUSE_CERT_TIME = #{houseCertTime,jdbcType=VARCHAR},
+      HOUSE_STRUCT = #{houseStruct,jdbcType=TINYINT},
+      HOUSE_YEAR = #{houseYear,jdbcType=INTEGER},
+      HOUSE_STREET = #{houseStreet,jdbcType=BIT},
+      HOUSE_LEAVE_TIME = #{houseLeaveTime,jdbcType=VARCHAR},
+      HOUSE_LADDER = #{houseLadder,jdbcType=TINYINT},
+      HOUSE_LIMITE = #{houseLimite,jdbcType=TINYINT},
+      HOUSE_SET = #{houseSet,jdbcType=VARCHAR},
+      HOUSE_UNIT_PRICE = #{houseUnitPrice,jdbcType=NUMERIC},
+      HOUSE_ROUND = #{houseRound,jdbcType=TINYINT},
+      HOUSE_DEPOSIT = #{houseDeposit,jdbcType=INTEGER},
+      HOUSE_ACCOUNT = #{houseAccount,jdbcType=VARCHAR},
+      HALL_STRUCTURE = #{hallStructure,jdbcType=TINYINT},
+      GARAGE_AMOUNT = #{garageAmount,jdbcType=TINYINT},
+      UG_AREA = #{ugArea,jdbcType=NUMERIC},
+      GARDEN_AREA = #{gardenArea,jdbcType=NUMERIC},
+      HOUSE_PROPERTY = #{houseProperty,jdbcType=NUMERIC},
+      SHOP_USAGE = #{shopUsage,jdbcType=VARCHAR},
+      OFFICE_LEVEL = #{officeLevel,jdbcType=TINYINT},
+      THUMBPIC_VER = #{thumbpicVer,jdbcType=VARCHAR},
+      YOU_COMMISSION = #{youCommission,jdbcType=INTEGER},
+      HOUSE_CONSIGN = #{houseConsign,jdbcType=INTEGER},
+      LEASE_ROOM_TYPE = #{leaseRoomType,jdbcType=TINYINT},
+      LEASE_ROOM_CLASSIC = #{leaseRoomClassic,jdbcType=TINYINT},
+      FLAT_SHARE_SEX = #{flatShareSex,jdbcType=TINYINT},
+      OWNER_SEX = #{ownerSex,jdbcType=TINYINT},
+      PANORAMA_MAP = #{panoramaMap,jdbcType=TINYINT}
+    where SHARE_ID = #{shareId,jdbcType=INTEGER}
+  </update>
+  <update id="updateKeyStatus" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+    update YOU_SHARE_HOUSE_STATUS
+    set CASE_ID = #{updateModel.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{updateModel.caseType,jdbcType=TINYINT},
+      HOUSE_KEY = #{updateModel.houseKey,jdbcType=BIT}
+    where CASE_ID = #{conditionModel.caseId,jdbcType=INTEGER}
+    and CASE_TYPE = #{conditionModel.caseType,jdbcType=TINYINT}
+    and YOU_SHARE_FLAG = #{conditionModel.youShareFlag,jdbcType=TINYINT}
+  </update>
+  
+  <select id="getComplainList" parameterType="com.myfun.repository.erpdb.param.ErpYouComplainParam" resultMap="complainMap">
+  	select 
+  	<if test="caseType == 2">
+  		FL.UPDATE_TIME AS HOUSE_UPDATE_TIME,
+  	</if>
+  	<if test="caseType == 1">
+  		FS.UPDATE_TIME AS HOUSE_UPDATE_TIME,
+  	</if>
+  	FU.USER_NAME AS USER_NAME, FD.DEPT_NAME, 
+	YHS.SHARE_ID, YHS.CASE_ID, YHS.CASE_TYPE, YHS.COMP_ID, YHS.DEPT_ID, YHS.USER_ID, YHS.ARCHIVE_ID, YHS.TOTAL_INTEGRAL, YHS.CREATION_TIME, YHS.YOU_SHARE_FLAG, 
+	YHS.COMPLAIN_FLAG, YHS.DOWN_TIME, YHS.DOWN_TYPE, YHS.CITY_ID, YHS.BUILD_ID, YHS.BUILD_NAME, YHS.HOUSE_NO, YHS.LAST_COMPLAIN_TIME, YHS.IS_COMPLAIN 
+	from YOU_SHARE_HOUSE_STATUS YHS 
+	LEFT JOIN FUN_USERS FU ON YHS.USER_ID=FU.USER_ID 
+	LEFT JOIN FUN_DEPTS FD ON YHS.DEPT_ID=FD.DEPT_ID 
+	<if test="caseType == 2">
+  		LEFT JOIN FUN_LEASE FL ON YHS.CASE_ID=FL.LEASE_ID
+  	</if>
+  	<if test="caseType == 1">
+  		LEFT JOIN FUN_SALE FS ON YHS.CASE_ID=FS.SALE_ID
+  	</if>
+	 where 1 = 1
+	<if test="cityId !=null">
+		 AND YHS.CITY_ID=#{cityId,jdbcType=INTEGER}
+	</if>
+	<if test="caseType !=null">
+		 AND YHS.CASE_TYPE=#{caseType,jdbcType=INTEGER}
+	</if>
+	<if test="userName !=null and userName !=''">
+		 AND FU.USER_NAME like '%#{userName,jdbcType=VARCHAR}%'
+	</if>
+	<if test="deptNo !=null and deptNo !=''">
+		 AND FD.DEPT_NO=#{deptNo,jdbcType=VARCHAR}
+	</if>
+	<if test="deptName !=null and deptName !=''">
+		 AND FD.DEPT_NAME like '%#{deptName}%'
+	</if>
+	<if test="complainTime !=null and complainTime !=''">
+		 AND YHS.LAST_COMPLAIN_TIME<![CDATA[ >= ]]>#{complainTimeStart,jdbcType=TIMESTAMP}
+		 AND YHS.LAST_COMPLAIN_TIME<![CDATA[ < ]]>#{complainTimeEnd,jdbcType=TIMESTAMP}
+	</if>
+	ORDER BY LAST_COMPLAIN_TIME DESC
+  </select>
+  
+  <select id="getRecordByShareId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> FROM YOU_SHARE_HOUSE_STATUS
+  	WHERE SHARE_ID=#{shareId,jdbcType=INTEGER}
+  </select>
+  
+  <update id="downShareHouse" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+  	UPDATE YOU_SHARE_HOUSE_STATUS SET YOU_SHARE_FLAG=0, 
+  	DOWN_TIME=#{houseStatus.downTime,jdbcType=TIMESTAMP}, 
+  	DOWN_TYPE=3, COMPLAIN_FLAG = 2 
+  	WHERE SHARE_ID=#{houseStatus.shareId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="buckleHouseIntegral" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+  	UPDATE YOU_SHARE_HOUSE_STATUS SET TOTAL_INTEGRAL = #{houseStatus.totalIntegral,jdbcType=DECIMAL}
+  	WHERE SHARE_ID = #{houseStatus.shareId,jdbcType=INTEGER}
+  </update>
+   <update id="downShareHouseByCondition" parameterType="com.myfun.repository.erpdb.po.ErpYouShareHouseStatus">
+  	UPDATE YOU_SHARE_HOUSE_STATUS SET YOU_SHARE_FLAG=0, 
+  	DOWN_TIME=#{houseStatus.downTime,jdbcType=TIMESTAMP}, 
+  	DOWN_TYPE=3, COMPLAIN_FLAG = 2 
+  	WHERE CASE_ID=#{houseStatus.caseId,jdbcType=INTEGER}
+  	AND CASE_TYPE = #{houseStatus.caseType,jdbcType=INTEGER}
+  </update>
+  
+  <update id="downShareHouseByCaseIds">
+  	UPDATE YOU_SHARE_HOUSE_STATUS SET YOU_SHARE_FLAG=0, 
+  	DOWN_TIME=#{pMap.downTime,jdbcType=TIMESTAMP}, 
+  	DOWN_TYPE=3, COMPLAIN_FLAG = 2 
+  	WHERE CASE_ID in $(pMap.caseId) and CASE_TYPE = #{pMap.caseType}
+  </update>
+
+
+  <select id="selectLastPhotoId" resultType="java.lang.Integer">
+    select top 1 SHARE_ID
+    from YOU_SHARE_HOUSE_STATUS_FASTDFS order by SHARE_ID asc
+  </select>
+
+  <select id="getPhotoListOrderByPhotoIdDesc" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select top 50 SHARE_ID,THUMB_URL
+    from YOU_SHARE_HOUSE_STATUS
+    where (THUMB_URL IS not null and THUMB_URL not like 'group%')
+    <if test="shareId != null and shareId > 0">AND SHARE_ID &lt; #{shareId}</if>
+    order by SHARE_ID desc
+  </select>
+
+  <insert id="insertList">
+    INSERT INTO YOU_SHARE_HOUSE_STATUS_FASTDFS(SHARE_ID, THUMB_URL, THUMB_URL_OLD)
+    VALUES
+    <foreach collection="photoList" item="item" separator=",">
+      (#{item.shareId},#{item.thumbUrl},#{item.thumbUrlOld})
+    </foreach>
+  </insert>
+
+  <update id="updatePhotoAddrForList">
+    <foreach collection="photoList" item="item" separator=";">
+      update YOU_SHARE_HOUSE_STATUS_FASTDFS
+      set THUMB_URL=#{item.thumbUrl}
+      where SHARE_ID = #{item.shareId}
+    </foreach>
+  </update>
+</mapper>

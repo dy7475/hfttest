@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminZfbHouseTransMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminZfbHouseTrans">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="AUDIT_STATUS" jdbcType="INTEGER" property="auditStatus" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="HOUSE_TITILE" jdbcType="VARCHAR" property="houseTitile" />
+    <result column="AUDITOR_ID" jdbcType="INTEGER" property="auditorId" />
+    <result column="ADUIT_TIME" jdbcType="TIMESTAMP" property="aduitTime" />
+    <result column="CASE_NO" jdbcType="VARCHAR" property="caseNo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, CASE_ID, CASE_TYPE, CITY_ID, CREATION_TIME, AUDIT_STATUS, DEPT_NO, COMP_NO, USER_NAME, 
+    USER_MOBILE, HOUSE_TITILE, AUDITOR_ID, ADUIT_TIME, CASE_NO
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminZfbHouseTransExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ZFB_HOUSE_TRANS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ZFB_HOUSE_TRANS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from ZFB_HOUSE_TRANS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminZfbHouseTransExample">
+    <!--@mbggenerated-->
+    delete from ZFB_HOUSE_TRANS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminZfbHouseTrans">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into ZFB_HOUSE_TRANS (CASE_ID, CASE_TYPE, CITY_ID, 
+      CREATION_TIME, AUDIT_STATUS, DEPT_NO, 
+      COMP_NO, USER_NAME, USER_MOBILE, 
+      HOUSE_TITILE, AUDITOR_ID, ADUIT_TIME, 
+      CASE_NO)
+    values (#{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{auditStatus,jdbcType=INTEGER}, #{deptNo,jdbcType=VARCHAR}, 
+      #{compNo,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR}, 
+      #{houseTitile,jdbcType=VARCHAR}, #{auditorId,jdbcType=INTEGER}, #{aduitTime,jdbcType=TIMESTAMP}, 
+      #{caseNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminZfbHouseTrans">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into ZFB_HOUSE_TRANS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO,
+      </if>
+      <if test="compNo != null">
+        COMP_NO,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+      <if test="houseTitile != null">
+        HOUSE_TITILE,
+      </if>
+      <if test="auditorId != null">
+        AUDITOR_ID,
+      </if>
+      <if test="aduitTime != null">
+        ADUIT_TIME,
+      </if>
+      <if test="caseNo != null">
+        CASE_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compNo != null">
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTitile != null">
+        #{houseTitile,jdbcType=VARCHAR},
+      </if>
+      <if test="auditorId != null">
+        #{auditorId,jdbcType=INTEGER},
+      </if>
+      <if test="aduitTime != null">
+        #{aduitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseNo != null">
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminZfbHouseTransExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from ZFB_HOUSE_TRANS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update ZFB_HOUSE_TRANS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditStatus != null">
+        AUDIT_STATUS = #{record.auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptNo != null">
+        DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compNo != null">
+        COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null">
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userMobile != null">
+        USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseTitile != null">
+        HOUSE_TITILE = #{record.houseTitile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditorId != null">
+        AUDITOR_ID = #{record.auditorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.aduitTime != null">
+        ADUIT_TIME = #{record.aduitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.caseNo != null">
+        CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update ZFB_HOUSE_TRANS
+    set ID = #{record.id,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=INTEGER},
+      DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      HOUSE_TITILE = #{record.houseTitile,jdbcType=VARCHAR},
+      AUDITOR_ID = #{record.auditorId,jdbcType=INTEGER},
+      ADUIT_TIME = #{record.aduitTime,jdbcType=TIMESTAMP},
+      CASE_NO = #{record.caseNo,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminZfbHouseTrans">
+    <!--@mbggenerated-->
+    update ZFB_HOUSE_TRANS
+    <set>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compNo != null">
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTitile != null">
+        HOUSE_TITILE = #{houseTitile,jdbcType=VARCHAR},
+      </if>
+      <if test="auditorId != null">
+        AUDITOR_ID = #{auditorId,jdbcType=INTEGER},
+      </if>
+      <if test="aduitTime != null">
+        ADUIT_TIME = #{aduitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseNo != null">
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminZfbHouseTrans">
+    <!--@mbggenerated-->
+    update ZFB_HOUSE_TRANS
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      AUDIT_STATUS = #{auditStatus,jdbcType=INTEGER},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      HOUSE_TITILE = #{houseTitile,jdbcType=VARCHAR},
+      AUDITOR_ID = #{auditorId,jdbcType=INTEGER},
+      ADUIT_TIME = #{aduitTime,jdbcType=TIMESTAMP},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

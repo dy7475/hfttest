@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyVipMonitorFix20131209Mapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyVipMonitorFix20131209" >
+    <!--@mbggenerated-->
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="REGION_ID" property="regionId" jdbcType="VARCHAR" />
+    <result column="SECTION_ID" property="sectionId" jdbcType="VARCHAR" />
+    <result column="MONITOR_ID" property="monitorId" jdbcType="VARCHAR" />
+    <result column="MONITOR_STR" property="monitorStr" jdbcType="VARCHAR" />
+    <result column="LAST_TIME" property="lastTime" jdbcType="TIMESTAMP" />
+    <result column="DEAL_FLAG" property="dealFlag" jdbcType="TINYINT" />
+    <result column="DEAL_TIME" property="dealTime" jdbcType="TIMESTAMP" />
+    <result column="NEW_SALE" property="newSale" jdbcType="INTEGER" />
+    <result column="NEW_LEASE" property="newLease" jdbcType="INTEGER" />
+    <result column="NEW_BUY" property="newBuy" jdbcType="INTEGER" />
+    <result column="NEW_RENT" property="newRent" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyVipMonitorFix20131209" >
+    <!--@mbggenerated-->
+    insert into VIP_MONITOR_FIX2013_12_09 (ARCHIVE_ID, CITY_ID, REGION_ID, 
+      SECTION_ID, MONITOR_ID, MONITOR_STR, 
+      LAST_TIME, DEAL_FLAG, DEAL_TIME, 
+      NEW_SALE, NEW_LEASE, NEW_BUY, 
+      NEW_RENT)
+    values (#{archiveId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{regionId,jdbcType=VARCHAR}, 
+      #{sectionId,jdbcType=VARCHAR}, #{monitorId,jdbcType=VARCHAR}, #{monitorStr,jdbcType=VARCHAR}, 
+      #{lastTime,jdbcType=TIMESTAMP}, #{dealFlag,jdbcType=TINYINT}, #{dealTime,jdbcType=TIMESTAMP}, 
+      #{newSale,jdbcType=INTEGER}, #{newLease,jdbcType=INTEGER}, #{newBuy,jdbcType=INTEGER}, 
+      #{newRent,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyVipMonitorFix20131209" >
+    <!--@mbggenerated-->
+    insert into VIP_MONITOR_FIX2013_12_09
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="regionId != null" >
+        REGION_ID,
+      </if>
+      <if test="sectionId != null" >
+        SECTION_ID,
+      </if>
+      <if test="monitorId != null" >
+        MONITOR_ID,
+      </if>
+      <if test="monitorStr != null" >
+        MONITOR_STR,
+      </if>
+      <if test="lastTime != null" >
+        LAST_TIME,
+      </if>
+      <if test="dealFlag != null" >
+        DEAL_FLAG,
+      </if>
+      <if test="dealTime != null" >
+        DEAL_TIME,
+      </if>
+      <if test="newSale != null" >
+        NEW_SALE,
+      </if>
+      <if test="newLease != null" >
+        NEW_LEASE,
+      </if>
+      <if test="newBuy != null" >
+        NEW_BUY,
+      </if>
+      <if test="newRent != null" >
+        NEW_RENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null" >
+        #{regionId,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null" >
+        #{sectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorId != null" >
+        #{monitorId,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStr != null" >
+        #{monitorStr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTime != null" >
+        #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealFlag != null" >
+        #{dealFlag,jdbcType=TINYINT},
+      </if>
+      <if test="dealTime != null" >
+        #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="newSale != null" >
+        #{newSale,jdbcType=INTEGER},
+      </if>
+      <if test="newLease != null" >
+        #{newLease,jdbcType=INTEGER},
+      </if>
+      <if test="newBuy != null" >
+        #{newBuy,jdbcType=INTEGER},
+      </if>
+      <if test="newRent != null" >
+        #{newRent,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

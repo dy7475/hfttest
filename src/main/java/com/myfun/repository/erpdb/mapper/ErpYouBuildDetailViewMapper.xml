@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpYouBuildDetailViewMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpYouBuildDetailView" >
+    <!--@mbggenerated-->
+    <id column="DETAIL_VIEW_ID" property="detailViewId" jdbcType="INTEGER" />
+    <result column="BUILD_DETAIL_ID" property="buildDetailId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="VIEW_STATUS" property="viewStatus" jdbcType="INTEGER" />
+    <result column="SHOW_PHONE" property="showPhone" jdbcType="TINYINT" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="COLLECTION_TIME" property="collectionTime" jdbcType="VARCHAR" />
+    <result column="BUILD_REG" property="buildReg" jdbcType="INTEGER" />
+    <result column="SECTION_ID" property="sectionId" jdbcType="INTEGER" />
+    <result column="SECTION_NAME" property="sectionName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    DETAIL_VIEW_ID, BUILD_DETAIL_ID, COMP_ID, DEPT_ID, USER_ID, VIEW_STATUS, SHOW_PHONE, 
+    CASE_ID, CASE_TYPE, CREATION_TIME, BUILD_ID, COLLECTION_TIME, BUILD_REG, SECTION_ID, 
+    SECTION_NAME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpYouBuildDetailViewExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from YOU_BUILD_DETAIL_VIEW
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOU_BUILD_DETAIL_VIEW
+    where DETAIL_VIEW_ID = #{detailViewId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from YOU_BUILD_DETAIL_VIEW
+    where DETAIL_VIEW_ID = #{detailViewId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpYouBuildDetailViewExample" >
+    <!--@mbggenerated-->
+    delete from YOU_BUILD_DETAIL_VIEW
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpYouBuildDetailView" useGeneratedKeys="true" keyProperty="detailViewId" >
+    <!--@mbggenerated-->
+    insert into YOU_BUILD_DETAIL_VIEW (BUILD_DETAIL_ID, COMP_ID, DEPT_ID, 
+      USER_ID, VIEW_STATUS, SHOW_PHONE, 
+      CASE_ID, CASE_TYPE, CREATION_TIME, 
+      BUILD_ID, COLLECTION_TIME, BUILD_REG, 
+      SECTION_ID, SECTION_NAME)
+    values (#{buildDetailId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{viewStatus,jdbcType=INTEGER}, #{showPhone,jdbcType=TINYINT}, 
+      #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{buildId,jdbcType=INTEGER}, #{collectionTime,jdbcType=VARCHAR}, #{buildReg,jdbcType=INTEGER}, 
+      #{sectionId,jdbcType=INTEGER}, #{sectionName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpYouBuildDetailView" useGeneratedKeys="true" keyProperty="detailViewId" >
+    <!--@mbggenerated-->
+    insert into YOU_BUILD_DETAIL_VIEW
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="buildDetailId != null" >
+        BUILD_DETAIL_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="viewStatus != null" >
+        VIEW_STATUS,
+      </if>
+      <if test="showPhone != null" >
+        SHOW_PHONE,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="collectionTime != null" >
+        COLLECTION_TIME,
+      </if>
+      <if test="buildReg != null" >
+        BUILD_REG,
+      </if>
+      <if test="sectionId != null" >
+        SECTION_ID,
+      </if>
+      <if test="sectionName != null" >
+        SECTION_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="buildDetailId != null" >
+        #{buildDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="viewStatus != null" >
+        #{viewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="showPhone != null" >
+        #{showPhone,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="collectionTime != null" >
+        #{collectionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="buildReg != null" >
+        #{buildReg,jdbcType=INTEGER},
+      </if>
+      <if test="sectionId != null" >
+        #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionName != null" >
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpYouBuildDetailViewExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from YOU_BUILD_DETAIL_VIEW
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update YOU_BUILD_DETAIL_VIEW
+    <set >
+      <if test="record.detailViewId != null" >
+        DETAIL_VIEW_ID = #{record.detailViewId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildDetailId != null" >
+        BUILD_DETAIL_ID = #{record.buildDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewStatus != null" >
+        VIEW_STATUS = #{record.viewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.showPhone != null" >
+        SHOW_PHONE = #{record.showPhone,jdbcType=TINYINT},
+      </if>
+      <if test="record.caseId != null" >
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null" >
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.creationTime != null" >
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.buildId != null" >
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.collectionTime != null" >
+        COLLECTION_TIME = #{record.collectionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildReg != null" >
+        BUILD_REG = #{record.buildReg,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionId != null" >
+        SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionName != null" >
+        SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update YOU_BUILD_DETAIL_VIEW
+    set DETAIL_VIEW_ID = #{record.detailViewId,jdbcType=INTEGER},
+      BUILD_DETAIL_ID = #{record.buildDetailId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      VIEW_STATUS = #{record.viewStatus,jdbcType=INTEGER},
+      SHOW_PHONE = #{record.showPhone,jdbcType=TINYINT},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      COLLECTION_TIME = #{record.collectionTime,jdbcType=VARCHAR},
+      BUILD_REG = #{record.buildReg,jdbcType=INTEGER},
+      SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpYouBuildDetailView" >
+    <!--@mbggenerated-->
+    update YOU_BUILD_DETAIL_VIEW
+    <set >
+      <if test="buildDetailId != null" >
+        BUILD_DETAIL_ID = #{buildDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="viewStatus != null" >
+        VIEW_STATUS = #{viewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="showPhone != null" >
+        SHOW_PHONE = #{showPhone,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="collectionTime != null" >
+        COLLECTION_TIME = #{collectionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="buildReg != null" >
+        BUILD_REG = #{buildReg,jdbcType=INTEGER},
+      </if>
+      <if test="sectionId != null" >
+        SECTION_ID = #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionName != null" >
+        SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DETAIL_VIEW_ID = #{detailViewId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpYouBuildDetailView" >
+    <!--@mbggenerated-->
+    update YOU_BUILD_DETAIL_VIEW
+    set BUILD_DETAIL_ID = #{buildDetailId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      VIEW_STATUS = #{viewStatus,jdbcType=INTEGER},
+      SHOW_PHONE = #{showPhone,jdbcType=TINYINT},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      COLLECTION_TIME = #{collectionTime,jdbcType=VARCHAR},
+      BUILD_REG = #{buildReg,jdbcType=INTEGER},
+      SECTION_ID = #{sectionId,jdbcType=INTEGER},
+      SECTION_NAME = #{sectionName,jdbcType=VARCHAR}
+    where DETAIL_VIEW_ID = #{detailViewId,jdbcType=INTEGER}
+  </update>
+	
+	<select id="getYouBuildDetailView" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from YOU_BUILD_DETAIL_VIEW
+		where BUILD_DETAIL_ID = #{detailId} and COMP_ID = #{compId} and DEPT_ID = #{deptId} and USER_ID = #{userId}
+	</select>
+	
+	<update id="updateYouBuildDetailView">
+		update YOU_BUILD_DETAIL_VIEW set CASE_ID = #{caseId},CASE_TYPE = #{caseType}
+		<choose>
+			<when test="caseType==1">
+				,VIEW_STATUS = 3
+			</when>
+			<otherwise>
+				,VIEW_STATUS = 4
+			</otherwise>
+		</choose>
+		where BUILD_DETAIL_ID = #{detailId} and COMP_ID = #{compId} and DEPT_ID = #{deptId} and USER_ID = #{userId}
+	</update>
+ 
+</mapper>

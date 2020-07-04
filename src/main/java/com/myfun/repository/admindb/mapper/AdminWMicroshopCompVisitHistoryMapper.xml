@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopCompVisitHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopCompVisitHistory" >
+    <!--@mbggenerated-->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="weixin_id" property="weixinId" jdbcType="VARCHAR" />
+    <result column="comp_id" property="compId" jdbcType="INTEGER" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="is_subscibe" property="isSubscibe" jdbcType="TINYINT" />
+    <result column="add_time" property="addTime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    id, weixin_id, comp_id, city_id, is_subscibe, add_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from w_microshop_comp_visit_history
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_comp_visit_history
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCompVisitHistory" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_comp_visit_history (weixin_id, comp_id, city_id, 
+      is_subscibe, add_time)
+    values (#{weixinId,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{isSubscibe,jdbcType=TINYINT}, #{addTime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCompVisitHistory" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_comp_visit_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="weixinId != null" >
+        weixin_id,
+      </if>
+      <if test="compId != null" >
+        comp_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="isSubscibe != null" >
+        is_subscibe,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="weixinId != null" >
+        #{weixinId,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="isSubscibe != null" >
+        #{isSubscibe,jdbcType=TINYINT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCompVisitHistory" >
+    <!--@mbggenerated-->
+    update w_microshop_comp_visit_history
+    <set >
+      <if test="weixinId != null" >
+        weixin_id = #{weixinId,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        comp_id = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="isSubscibe != null" >
+        is_subscibe = #{isSubscibe,jdbcType=TINYINT},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCompVisitHistory" >
+    <!--@mbggenerated-->
+    update w_microshop_comp_visit_history
+    set weixin_id = #{weixinId,jdbcType=VARCHAR},
+      comp_id = #{compId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      is_subscibe = #{isSubscibe,jdbcType=TINYINT},
+      add_time = #{addTime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTrackCommonLanguageMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTrackCommonLanguage" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="TRACK_TYPE_VALUE" property="trackTypeValue" jdbcType="VARCHAR" />
+    <result column="COMMON_LANGUAGE" property="commonLanguage" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DEL" property="isDel" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CASE_TYPE, TRACK_TYPE_VALUE, COMMON_LANGUAGE, UPDATE_TIME, IS_DEL
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.po.AdminTrackCommonLanguageExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TRACK_COMMON_LANGUAGE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TRACK_COMMON_LANGUAGE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from TRACK_COMMON_LANGUAGE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminTrackCommonLanguageExample" >
+    <!--@mbggenerated-->
+    delete from TRACK_COMMON_LANGUAGE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTrackCommonLanguage" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TRACK_COMMON_LANGUAGE (CASE_TYPE, TRACK_TYPE_VALUE, COMMON_LANGUAGE, 
+      UPDATE_TIME, IS_DEL)
+    values (#{caseType,jdbcType=TINYINT}, #{trackTypeValue,jdbcType=VARCHAR}, #{commonLanguage,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTrackCommonLanguage" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TRACK_COMMON_LANGUAGE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="trackTypeValue != null" >
+        TRACK_TYPE_VALUE,
+      </if>
+      <if test="commonLanguage != null" >
+        COMMON_LANGUAGE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="trackTypeValue != null" >
+        #{trackTypeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="commonLanguage != null" >
+        #{commonLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminTrackCommonLanguageExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from TRACK_COMMON_LANGUAGE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update TRACK_COMMON_LANGUAGE
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null" >
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.trackTypeValue != null" >
+        TRACK_TYPE_VALUE = #{record.trackTypeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commonLanguage != null" >
+        COMMON_LANGUAGE = #{record.commonLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update TRACK_COMMON_LANGUAGE
+    set ID = #{record.id,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      TRACK_TYPE_VALUE = #{record.trackTypeValue,jdbcType=VARCHAR},
+      COMMON_LANGUAGE = #{record.commonLanguage,jdbcType=VARCHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminTrackCommonLanguage" >
+    <!--@mbggenerated-->
+    update TRACK_COMMON_LANGUAGE
+    <set >
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="trackTypeValue != null" >
+        TRACK_TYPE_VALUE = #{trackTypeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="commonLanguage != null" >
+        COMMON_LANGUAGE = #{commonLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminTrackCommonLanguage" >
+    <!--@mbggenerated-->
+    update TRACK_COMMON_LANGUAGE
+    set CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      TRACK_TYPE_VALUE = #{trackTypeValue,jdbcType=VARCHAR},
+      COMMON_LANGUAGE = #{commonLanguage,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <resultMap id="extBaseResultVoMap" type="com.myfun.erpWeb.common.vo.AdminTrackCommonLanguageVo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="TRACK_TYPE_VALUE" property="trackTypeValue" jdbcType="VARCHAR" />
+    <result column="COMMON_LANGUAGE" property="commonLanguage" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DEL" property="isDel" jdbcType="TINYINT" />
+  </resultMap>
+  <select id="getTrackCommonLanuageVoList" resultMap="extBaseResultVoMap">
+    select  * from TRACK_COMMON_LANGUAGE
+  </select>
+</mapper>

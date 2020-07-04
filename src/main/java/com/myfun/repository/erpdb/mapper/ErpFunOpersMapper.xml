@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunOpersMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunOpers">
+    <!--@mbggenerated-->
+    <id column="OPER_ID" jdbcType="VARCHAR" property="operId" />
+    <result column="OPER_NAME" jdbcType="VARCHAR" property="operName" />
+    <result column="ROLE_TYPE" jdbcType="VARCHAR" property="roleType" />
+    <result column="SEQ_NO" jdbcType="TINYINT" property="seqNo" />
+    <result column="ROLE_DESC" jdbcType="VARCHAR" property="roleDesc" />
+    <result column="OPER_TYPE" jdbcType="TINYINT" property="operType" />
+    <result column="OPER_DESC" jdbcType="VARCHAR" property="operDesc" />
+    <result column="OPER_RANGE_LEVEL_SEQ" jdbcType="TINYINT" property="operRangeLevelSeq" />
+    <result column="OPER_RANGE_TYPE" jdbcType="TINYINT" property="operRangeType" />
+    <result column="ORGANIZATION_TYPE" jdbcType="INTEGER" property="organizationType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    OPER_ID, OPER_NAME, ROLE_TYPE, SEQ_NO, ROLE_DESC, OPER_TYPE, OPER_DESC, OPER_RANGE_LEVEL_SEQ, 
+    OPER_RANGE_TYPE, ORGANIZATION_TYPE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunOpersExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_OPERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_OPERS
+    where OPER_ID = #{operId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbggenerated-->
+    delete from FUN_OPERS
+    where OPER_ID = #{operId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunOpersExample">
+    <!--@mbggenerated-->
+    delete from FUN_OPERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunOpers">
+    <!--@mbggenerated-->
+    insert into FUN_OPERS (OPER_ID, OPER_NAME, ROLE_TYPE, 
+      SEQ_NO, ROLE_DESC, OPER_TYPE, 
+      OPER_DESC, OPER_RANGE_LEVEL_SEQ, OPER_RANGE_TYPE, 
+      ORGANIZATION_TYPE)
+    values (#{operId,jdbcType=VARCHAR}, #{operName,jdbcType=VARCHAR}, #{roleType,jdbcType=VARCHAR}, 
+      #{seqNo,jdbcType=TINYINT}, #{roleDesc,jdbcType=VARCHAR}, #{operType,jdbcType=TINYINT}, 
+      #{operDesc,jdbcType=VARCHAR}, #{operRangeLevelSeq,jdbcType=TINYINT}, #{operRangeType,jdbcType=TINYINT}, 
+      #{organizationType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunOpers">
+    <!--@mbggenerated-->
+    insert into FUN_OPERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operId != null">
+        OPER_ID,
+      </if>
+      <if test="operName != null">
+        OPER_NAME,
+      </if>
+      <if test="roleType != null">
+        ROLE_TYPE,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="roleDesc != null">
+        ROLE_DESC,
+      </if>
+      <if test="operType != null">
+        OPER_TYPE,
+      </if>
+      <if test="operDesc != null">
+        OPER_DESC,
+      </if>
+      <if test="operRangeLevelSeq != null">
+        OPER_RANGE_LEVEL_SEQ,
+      </if>
+      <if test="operRangeType != null">
+        OPER_RANGE_TYPE,
+      </if>
+      <if test="organizationType != null">
+        ORGANIZATION_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operId != null">
+        #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleType != null">
+        #{roleType,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="roleDesc != null">
+        #{roleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        #{operType,jdbcType=TINYINT},
+      </if>
+      <if test="operDesc != null">
+        #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operRangeLevelSeq != null">
+        #{operRangeLevelSeq,jdbcType=TINYINT},
+      </if>
+      <if test="operRangeType != null">
+        #{operRangeType,jdbcType=TINYINT},
+      </if>
+      <if test="organizationType != null">
+        #{organizationType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunOpersExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_OPERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_OPERS
+    <set>
+      <if test="record.operId != null">
+        OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operName != null">
+        OPER_NAME = #{record.operName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleType != null">
+        ROLE_TYPE = #{record.roleType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seqNo != null">
+        SEQ_NO = #{record.seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="record.roleDesc != null">
+        ROLE_DESC = #{record.roleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operType != null">
+        OPER_TYPE = #{record.operType,jdbcType=TINYINT},
+      </if>
+      <if test="record.operDesc != null">
+        OPER_DESC = #{record.operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operRangeLevelSeq != null">
+        OPER_RANGE_LEVEL_SEQ = #{record.operRangeLevelSeq,jdbcType=TINYINT},
+      </if>
+      <if test="record.operRangeType != null">
+        OPER_RANGE_TYPE = #{record.operRangeType,jdbcType=TINYINT},
+      </if>
+      <if test="record.organizationType != null">
+        ORGANIZATION_TYPE = #{record.organizationType,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_OPERS
+    set OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      OPER_NAME = #{record.operName,jdbcType=VARCHAR},
+      ROLE_TYPE = #{record.roleType,jdbcType=VARCHAR},
+      SEQ_NO = #{record.seqNo,jdbcType=TINYINT},
+      ROLE_DESC = #{record.roleDesc,jdbcType=VARCHAR},
+      OPER_TYPE = #{record.operType,jdbcType=TINYINT},
+      OPER_DESC = #{record.operDesc,jdbcType=VARCHAR},
+      OPER_RANGE_LEVEL_SEQ = #{record.operRangeLevelSeq,jdbcType=TINYINT},
+      OPER_RANGE_TYPE = #{record.operRangeType,jdbcType=TINYINT},
+      ORGANIZATION_TYPE = #{record.organizationType,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunOpers">
+    <!--@mbggenerated-->
+    update FUN_OPERS
+    <set>
+      <if test="operName != null">
+        OPER_NAME = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleType != null">
+        ROLE_TYPE = #{roleType,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="roleDesc != null">
+        ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operType != null">
+        OPER_TYPE = #{operType,jdbcType=TINYINT},
+      </if>
+      <if test="operDesc != null">
+        OPER_DESC = #{operDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="operRangeLevelSeq != null">
+        OPER_RANGE_LEVEL_SEQ = #{operRangeLevelSeq,jdbcType=TINYINT},
+      </if>
+      <if test="operRangeType != null">
+        OPER_RANGE_TYPE = #{operRangeType,jdbcType=TINYINT},
+      </if>
+      <if test="organizationType != null">
+        ORGANIZATION_TYPE = #{organizationType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where OPER_ID = #{operId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunOpers">
+    <!--@mbggenerated-->
+    update FUN_OPERS
+    set OPER_NAME = #{operName,jdbcType=VARCHAR},
+      ROLE_TYPE = #{roleType,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
+      OPER_TYPE = #{operType,jdbcType=TINYINT},
+      OPER_DESC = #{operDesc,jdbcType=VARCHAR},
+      OPER_RANGE_LEVEL_SEQ = #{operRangeLevelSeq,jdbcType=TINYINT},
+      OPER_RANGE_TYPE = #{operRangeType,jdbcType=TINYINT},
+      ORGANIZATION_TYPE = #{organizationType,jdbcType=INTEGER}
+    where OPER_ID = #{operId,jdbcType=VARCHAR}
+  </update>
+  <select id="getOpersByUserId" resultType="java.lang.String">
+    select OPER_ID from USER_OPERS 
+    where USER_ID = #{userId}
+  </select>
+	
+	<select id="getFunOpersListById" resultMap="BaseResultMap">
+		select a.* from USER_OPERS a where a.USER_ID = #{userId}
+	</select>
+	
+	<select id="getModelDataById" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_OPERS
+		where OPER_ID = #{operId}
+	</select>
+	
+	<select id="getOpersList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_OPERS
+		order by SEQ_NO
+	</select>
+
+  <select id="getOpersListByRoleId" resultMap="extBaseResultMap">
+    select  distinct  b.OPER_ID,a.OPER_TYPE ,b.OPER_TYPE IS_ADVANCE, OPER_NAME, ROLE_TYPE, SEQ_NO, ROLE_DESC, OPER_RANGE_LEVEL_SEQ,
+    OPER_RANGE_TYPE, OPER_DESC
+    from FUN_OPERS a
+    join role_opers b on a.oper_id = b.oper_id
+    where  b.role_id=#{roleId}
+    <if test="null != operType">
+      and b.oper_type=#{operType}
+    </if>
+    <choose>
+        <when test="2 == compType">
+          and PRO_ROLE=1
+        </when>
+        <when test="3 == compType">
+          and SMP_ROLE=1
+        </when>
+        <!--<when test="5 == compType">-->
+          <!--and WY_ROLE=1-->
+        <!--</when>-->
+    </choose>
+    <choose>
+      <when test="newOrganizationType">and (ORGANIZATION_TYPE = 1 or a.ORGANIZATION_TYPE is null) </when>
+      <otherwise> and (ORGANIZATION_TYPE = 0 or a.ORGANIZATION_TYPE is null) </otherwise>
+    </choose>
+    ORDER BY A.SEQ_NO
+  </select>
+
+	<select id="getALLAdvanceOperDescription" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List" /> FROM FUN_OPERS WHERE OPER_ID IN (SELECT DISTINCT OPER_ID FROM ROLE_OPERS WHERE OPER_TYPE = 1) ORDER BY SEQ_NO
+	</select>
+
+  <resultMap extends="BaseResultMap" id="extBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunOpersDto">
+    <result column="IS_ADVANCE" jdbcType="TINYINT" property="isAdvance" />
+    <result column="ORGANIZATION_DEFINITION_ID" jdbcType="INTEGER" property="organizationDefinitionId" />
+  </resultMap>
+
+  <select id="getRoleOpersList" resultMap="extBaseResultMap">
+    select
+    distinct   b.OPER_ID,b.OPER_TYPE,a.OPER_TYPE IS_ADVANCE, OPER_NAME, ROLE_TYPE, SEQ_NO, ROLE_DESC, OPER_RANGE_LEVEL_SEQ, OPER_RANGE_TYPE,ORGANIZATION_DEFINITION_ID
+    <if test="null != mobileApi and !mobileApi">
+    	, OPER_DESC
+    </if>
+    from COMP_ROLE_OPERS a
+    join FUN_OPERS b on a.oper_id = b.oper_id
+    where a.COMP_ID = #{compId} and a.${columnName} = #{columnValue} and a.ROLE_ID= #{roleId} and (ORGANIZATION_TYPE = 0 or b.OPER_TYPE is null)
+  </select>
+
+  <select id="getRoleOpersListNewOrg" resultMap="extBaseResultMap">
+    select
+    distinct   b.OPER_ID,b.OPER_TYPE,a.OPER_TYPE IS_ADVANCE, OPER_NAME, ROLE_TYPE, SEQ_NO, ROLE_DESC, OPER_RANGE_LEVEL_SEQ, OPER_RANGE_TYPE,ORGANIZATION_DEFINITION_ID
+    <if test="null != mobileApi and !mobileApi">
+      , OPER_DESC
+    </if>
+    from COMP_ROLE_OPERS a
+    join FUN_OPERS b on a.oper_id = b.oper_id
+    where a.COMP_ID = #{compId} and a.ROLE_ID= #{roleId} and  (ORGANIZATION_TYPE = 1 or b.ORGANIZATION_TYPE is null)
+    <if test="null != organizationId">
+    	and a.ORGANIZATION_ID = #{organizationId} 
+    </if>
+  </select>
+  <select id="getFunOpersDtoListById" resultMap="extBaseResultMap">
+    select distinct  b.OPER_ID, a.OPER_TYPE,c.OPER_TYPE IS_ADVANCE, OPER_NAME, ROLE_TYPE, SEQ_NO, ROLE_DESC, OPER_DESC, OPER_RANGE_LEVEL_SEQ,
+    OPER_RANGE_TYPE,b.ORGANIZATION_DEFINITION_ID  from fun_opers a
+    left join ROLE_OPERS c on c.oper_id = a.oper_id and c.role_id=#{roleId}
+    join USER_OPERS b on a.oper_id = b.oper_id
+    where b.user_id = #{userId} and c.PARTNER_OPER IN 
+	<foreach close=")" collection="flagList" item="flag" open="(" separator=",">
+	  #{flag}
+	</foreach>
+    ORDER BY A.SEQ_NO
+  </select>
+
+  <select id="getOpersListByRoleId2" resultMap="extBaseResultMap">
+    select  distinct  b.OPER_ID,a.OPER_TYPE ,b.OPER_TYPE IS_ADVANCE, OPER_NAME, ROLE_TYPE, SEQ_NO, ROLE_DESC,  OPER_DESC, OPER_RANGE_LEVEL_SEQ,
+    OPER_RANGE_TYPE from FUN_OPERS a
+    join role_opers b on a.oper_id = b.oper_id
+    where  b.role_id=#{roleId} and a.oper_id in <foreach close=")" collection="operList" item="operId" open="(" separator=",">
+          #{operId}
+      </foreach>
+  </select>
+
+  <select id="getOpersListByRoleId3" resultMap="extBaseResultMap">
+    select  distinct  b.OPER_ID,a.OPER_TYPE ,b.OPER_TYPE IS_ADVANCE, OPER_NAME, ROLE_TYPE, SEQ_NO, ROLE_DESC, OPER_RANGE_LEVEL_SEQ,
+    OPER_RANGE_TYPE, OPER_DESC
+    from FUN_OPERS a
+    join COMP_ROLE_OPERS b on a.oper_id = b.oper_id and b.role_id=#{roleId}
+    where b.comp_id =#{compId} and a.oper_id in <foreach close=")" collection="operList" item="operId" open="(" separator=",">
+    #{operId}
+  </foreach>
+  </select>
+</mapper>

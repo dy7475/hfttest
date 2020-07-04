@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunRegInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunRegInfo" >
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="USER_NO" property="userNo" jdbcType="VARCHAR" />
+    <result column="USER_ID_LOCAL" property="userIdLocal" jdbcType="INTEGER" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_ICCODE" property="userIccode" jdbcType="VARCHAR" />
+    <result column="USER_SEX" property="userSex" jdbcType="INTEGER" />
+    <result column="USER_BIRTHDAY" property="userBirthday" jdbcType="TIMESTAMP" />
+    <result column="USER_EMAIL" property="userEmail" jdbcType="VARCHAR" />
+    <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="USER_FIXEDPH" property="userFixedph" jdbcType="VARCHAR" />
+    <result column="USER_OFFICEPH" property="userOfficeph" jdbcType="VARCHAR" />
+    <result column="USER_QQ" property="userQq" jdbcType="VARCHAR" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <result column="SERVICE_REG" property="serviceReg" jdbcType="VARCHAR" />
+    <result column="SERVICE_ZONE" property="serviceZone" jdbcType="VARCHAR" />
+    <result column="USER_ADDRESS" property="userAddress" jdbcType="VARCHAR" />
+    <result column="USER_POSTCODE" property="userPostcode" jdbcType="VARCHAR" />
+    <result column="USER_SCHOOL" property="userSchool" jdbcType="VARCHAR" />
+    <result column="USER_FIELD" property="userField" jdbcType="VARCHAR" />
+    <result column="USER_SCHLRECORD" property="userSchlrecord" jdbcType="VARCHAR" />
+    <result column="USER_FOREIGN" property="userForeign" jdbcType="VARCHAR" />
+    <result column="USER_POLITY" property="userPolity" jdbcType="VARCHAR" />
+    <result column="PROFESSION_SUB" property="professionSub" jdbcType="VARCHAR" />
+    <result column="USER_DESC" property="userDesc" jdbcType="VARCHAR" />
+    <result column="USER_NUMBER" property="userNumber" jdbcType="VARCHAR" />
+    <result column="REGISTER_URL" property="registerUrl" jdbcType="VARCHAR" />
+    <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
+    <result column="IC_PHOTO_1" property="icPhoto1" jdbcType="VARCHAR" />
+    <result column="IC_PHOTO_2" property="icPhoto2" jdbcType="VARCHAR" />
+    <result column="USER_PHOTO" property="userPhoto" jdbcType="VARCHAR" />
+    <result column="USER_PHOTO_MIN" property="userPhotoMin" jdbcType="VARCHAR" />
+    <result column="CARD_PHOTO" property="cardPhoto" jdbcType="VARCHAR" />
+    <result column="BBS_PHOTO" property="bbsPhoto" jdbcType="VARCHAR" />
+    <result column="SHOP_INNER_PHOTO" property="shopInnerPhoto" jdbcType="VARCHAR" />
+    <result column="SHOP_OUTER_PHOTO" property="shopOuterPhoto" jdbcType="VARCHAR" />
+    <result column="USER_RIGHT" property="userRight" jdbcType="INTEGER" />
+    <result column="AUDIT_TIME" property="auditTime" jdbcType="TIMESTAMP" />
+    <result column="SUPER_USER" property="superUser" jdbcType="INTEGER" />
+    <result column="SUPER_START" property="superStart" jdbcType="TIMESTAMP" />
+    <result column="SUPER_END" property="superEnd" jdbcType="TIMESTAMP" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ARCHIVE_ID, USER_ID, USER_NO, USER_ID_LOCAL, USER_NAME, USER_ICCODE, USER_SEX, USER_BIRTHDAY, 
+    USER_EMAIL, USER_MOBILE, USER_FIXEDPH, USER_OFFICEPH, USER_QQ, PROVINCE_ID, CITY_ID, 
+    SERVICE_REG, SERVICE_ZONE, USER_ADDRESS, USER_POSTCODE, USER_SCHOOL, USER_FIELD, 
+    USER_SCHLRECORD, USER_FOREIGN, USER_POLITY, PROFESSION_SUB, USER_DESC, USER_NUMBER, 
+    REGISTER_URL, NICK_NAME, IC_PHOTO_1, IC_PHOTO_2, USER_PHOTO, USER_PHOTO_MIN, CARD_PHOTO, 
+    BBS_PHOTO, SHOP_INNER_PHOTO, SHOP_OUTER_PHOTO, USER_RIGHT, AUDIT_TIME, SUPER_USER, 
+    SUPER_START, SUPER_END, CREATION_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_REG_INFO
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_REG_INFO
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunRegInfo" >
+    <!--@mbggenerated-->
+    insert into FUN_REG_INFO (ARCHIVE_ID, USER_ID, USER_NO, 
+      USER_ID_LOCAL, USER_NAME, USER_ICCODE, 
+      USER_SEX, USER_BIRTHDAY, USER_EMAIL, 
+      USER_MOBILE, USER_FIXEDPH, USER_OFFICEPH, 
+      USER_QQ, PROVINCE_ID, CITY_ID, 
+      SERVICE_REG, SERVICE_ZONE, USER_ADDRESS, 
+      USER_POSTCODE, USER_SCHOOL, USER_FIELD, 
+      USER_SCHLRECORD, USER_FOREIGN, USER_POLITY, 
+      PROFESSION_SUB, USER_DESC, USER_NUMBER, 
+      REGISTER_URL, NICK_NAME, IC_PHOTO_1, 
+      IC_PHOTO_2, USER_PHOTO, USER_PHOTO_MIN, 
+      CARD_PHOTO, BBS_PHOTO, SHOP_INNER_PHOTO, 
+      SHOP_OUTER_PHOTO, USER_RIGHT, AUDIT_TIME, 
+      SUPER_USER, SUPER_START, SUPER_END, 
+      CREATION_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userNo,jdbcType=VARCHAR}, 
+      #{userIdLocal,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userIccode,jdbcType=VARCHAR}, 
+      #{userSex,jdbcType=INTEGER}, #{userBirthday,jdbcType=TIMESTAMP}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{userFixedph,jdbcType=VARCHAR}, #{userOfficeph,jdbcType=VARCHAR}, 
+      #{userQq,jdbcType=VARCHAR}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, 
+      #{serviceReg,jdbcType=VARCHAR}, #{serviceZone,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, 
+      #{userPostcode,jdbcType=VARCHAR}, #{userSchool,jdbcType=VARCHAR}, #{userField,jdbcType=VARCHAR}, 
+      #{userSchlrecord,jdbcType=VARCHAR}, #{userForeign,jdbcType=VARCHAR}, #{userPolity,jdbcType=VARCHAR}, 
+      #{professionSub,jdbcType=VARCHAR}, #{userDesc,jdbcType=VARCHAR}, #{userNumber,jdbcType=VARCHAR}, 
+      #{registerUrl,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{icPhoto1,jdbcType=VARCHAR}, 
+      #{icPhoto2,jdbcType=VARCHAR}, #{userPhoto,jdbcType=VARCHAR}, #{userPhotoMin,jdbcType=VARCHAR}, 
+      #{cardPhoto,jdbcType=VARCHAR}, #{bbsPhoto,jdbcType=VARCHAR}, #{shopInnerPhoto,jdbcType=VARCHAR}, 
+      #{shopOuterPhoto,jdbcType=VARCHAR}, #{userRight,jdbcType=INTEGER}, #{auditTime,jdbcType=TIMESTAMP}, 
+      #{superUser,jdbcType=INTEGER}, #{superStart,jdbcType=TIMESTAMP}, #{superEnd,jdbcType=TIMESTAMP}, 
+      #{creationTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunRegInfo" >
+    <!--@mbggenerated-->
+    insert into FUN_REG_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="userNo != null" >
+        USER_NO,
+      </if>
+      <if test="userIdLocal != null" >
+        USER_ID_LOCAL,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="userIccode != null" >
+        USER_ICCODE,
+      </if>
+      <if test="userSex != null" >
+        USER_SEX,
+      </if>
+      <if test="userBirthday != null" >
+        USER_BIRTHDAY,
+      </if>
+      <if test="userEmail != null" >
+        USER_EMAIL,
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="userFixedph != null" >
+        USER_FIXEDPH,
+      </if>
+      <if test="userOfficeph != null" >
+        USER_OFFICEPH,
+      </if>
+      <if test="userQq != null" >
+        USER_QQ,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="serviceReg != null" >
+        SERVICE_REG,
+      </if>
+      <if test="serviceZone != null" >
+        SERVICE_ZONE,
+      </if>
+      <if test="userAddress != null" >
+        USER_ADDRESS,
+      </if>
+      <if test="userPostcode != null" >
+        USER_POSTCODE,
+      </if>
+      <if test="userSchool != null" >
+        USER_SCHOOL,
+      </if>
+      <if test="userField != null" >
+        USER_FIELD,
+      </if>
+      <if test="userSchlrecord != null" >
+        USER_SCHLRECORD,
+      </if>
+      <if test="userForeign != null" >
+        USER_FOREIGN,
+      </if>
+      <if test="userPolity != null" >
+        USER_POLITY,
+      </if>
+      <if test="professionSub != null" >
+        PROFESSION_SUB,
+      </if>
+      <if test="userDesc != null" >
+        USER_DESC,
+      </if>
+      <if test="userNumber != null" >
+        USER_NUMBER,
+      </if>
+      <if test="registerUrl != null" >
+        REGISTER_URL,
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME,
+      </if>
+      <if test="icPhoto1 != null" >
+        IC_PHOTO_1,
+      </if>
+      <if test="icPhoto2 != null" >
+        IC_PHOTO_2,
+      </if>
+      <if test="userPhoto != null" >
+        USER_PHOTO,
+      </if>
+      <if test="userPhotoMin != null" >
+        USER_PHOTO_MIN,
+      </if>
+      <if test="cardPhoto != null" >
+        CARD_PHOTO,
+      </if>
+      <if test="bbsPhoto != null" >
+        BBS_PHOTO,
+      </if>
+      <if test="shopInnerPhoto != null" >
+        SHOP_INNER_PHOTO,
+      </if>
+      <if test="shopOuterPhoto != null" >
+        SHOP_OUTER_PHOTO,
+      </if>
+      <if test="userRight != null" >
+        USER_RIGHT,
+      </if>
+      <if test="auditTime != null" >
+        AUDIT_TIME,
+      </if>
+      <if test="superUser != null" >
+        SUPER_USER,
+      </if>
+      <if test="superStart != null" >
+        SUPER_START,
+      </if>
+      <if test="superEnd != null" >
+        SUPER_END,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userNo != null" >
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdLocal != null" >
+        #{userIdLocal,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIccode != null" >
+        #{userIccode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="userBirthday != null" >
+        #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userFixedph != null" >
+        #{userFixedph,jdbcType=VARCHAR},
+      </if>
+      <if test="userOfficeph != null" >
+        #{userOfficeph,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="serviceReg != null" >
+        #{serviceReg,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceZone != null" >
+        #{serviceZone,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null" >
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userPostcode != null" >
+        #{userPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null" >
+        #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userField != null" >
+        #{userField,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchlrecord != null" >
+        #{userSchlrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="userForeign != null" >
+        #{userForeign,jdbcType=VARCHAR},
+      </if>
+      <if test="userPolity != null" >
+        #{userPolity,jdbcType=VARCHAR},
+      </if>
+      <if test="professionSub != null" >
+        #{professionSub,jdbcType=VARCHAR},
+      </if>
+      <if test="userDesc != null" >
+        #{userDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="userNumber != null" >
+        #{userNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="registerUrl != null" >
+        #{registerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto1 != null" >
+        #{icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2 != null" >
+        #{icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null" >
+        #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMin != null" >
+        #{userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhoto != null" >
+        #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhoto != null" >
+        #{bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhoto != null" >
+        #{shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhoto != null" >
+        #{shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userRight != null" >
+        #{userRight,jdbcType=INTEGER},
+      </if>
+      <if test="auditTime != null" >
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superUser != null" >
+        #{superUser,jdbcType=INTEGER},
+      </if>
+      <if test="superStart != null" >
+        #{superStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superEnd != null" >
+        #{superEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunRegInfo" >
+    <!--@mbggenerated-->
+    update FUN_REG_INFO
+    <set >
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userNo != null" >
+        USER_NO = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdLocal != null" >
+        USER_ID_LOCAL = #{userIdLocal,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIccode != null" >
+        USER_ICCODE = #{userIccode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        USER_SEX = #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="userBirthday != null" >
+        USER_BIRTHDAY = #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userEmail != null" >
+        USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userFixedph != null" >
+        USER_FIXEDPH = #{userFixedph,jdbcType=VARCHAR},
+      </if>
+      <if test="userOfficeph != null" >
+        USER_OFFICEPH = #{userOfficeph,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        USER_QQ = #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="serviceReg != null" >
+        SERVICE_REG = #{serviceReg,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceZone != null" >
+        SERVICE_ZONE = #{serviceZone,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null" >
+        USER_ADDRESS = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userPostcode != null" >
+        USER_POSTCODE = #{userPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null" >
+        USER_SCHOOL = #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userField != null" >
+        USER_FIELD = #{userField,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchlrecord != null" >
+        USER_SCHLRECORD = #{userSchlrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="userForeign != null" >
+        USER_FOREIGN = #{userForeign,jdbcType=VARCHAR},
+      </if>
+      <if test="userPolity != null" >
+        USER_POLITY = #{userPolity,jdbcType=VARCHAR},
+      </if>
+      <if test="professionSub != null" >
+        PROFESSION_SUB = #{professionSub,jdbcType=VARCHAR},
+      </if>
+      <if test="userDesc != null" >
+        USER_DESC = #{userDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="userNumber != null" >
+        USER_NUMBER = #{userNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="registerUrl != null" >
+        REGISTER_URL = #{registerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto1 != null" >
+        IC_PHOTO_1 = #{icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2 != null" >
+        IC_PHOTO_2 = #{icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null" >
+        USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMin != null" >
+        USER_PHOTO_MIN = #{userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhoto != null" >
+        CARD_PHOTO = #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhoto != null" >
+        BBS_PHOTO = #{bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhoto != null" >
+        SHOP_INNER_PHOTO = #{shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhoto != null" >
+        SHOP_OUTER_PHOTO = #{shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userRight != null" >
+        USER_RIGHT = #{userRight,jdbcType=INTEGER},
+      </if>
+      <if test="auditTime != null" >
+        AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superUser != null" >
+        SUPER_USER = #{superUser,jdbcType=INTEGER},
+      </if>
+      <if test="superStart != null" >
+        SUPER_START = #{superStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superEnd != null" >
+        SUPER_END = #{superEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunRegInfo" >
+    <!--@mbggenerated-->
+    update FUN_REG_INFO
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      USER_NO = #{userNo,jdbcType=VARCHAR},
+      USER_ID_LOCAL = #{userIdLocal,jdbcType=INTEGER},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_ICCODE = #{userIccode,jdbcType=VARCHAR},
+      USER_SEX = #{userSex,jdbcType=INTEGER},
+      USER_BIRTHDAY = #{userBirthday,jdbcType=TIMESTAMP},
+      USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      USER_FIXEDPH = #{userFixedph,jdbcType=VARCHAR},
+      USER_OFFICEPH = #{userOfficeph,jdbcType=VARCHAR},
+      USER_QQ = #{userQq,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=SMALLINT},
+      SERVICE_REG = #{serviceReg,jdbcType=VARCHAR},
+      SERVICE_ZONE = #{serviceZone,jdbcType=VARCHAR},
+      USER_ADDRESS = #{userAddress,jdbcType=VARCHAR},
+      USER_POSTCODE = #{userPostcode,jdbcType=VARCHAR},
+      USER_SCHOOL = #{userSchool,jdbcType=VARCHAR},
+      USER_FIELD = #{userField,jdbcType=VARCHAR},
+      USER_SCHLRECORD = #{userSchlrecord,jdbcType=VARCHAR},
+      USER_FOREIGN = #{userForeign,jdbcType=VARCHAR},
+      USER_POLITY = #{userPolity,jdbcType=VARCHAR},
+      PROFESSION_SUB = #{professionSub,jdbcType=VARCHAR},
+      USER_DESC = #{userDesc,jdbcType=VARCHAR},
+      USER_NUMBER = #{userNumber,jdbcType=VARCHAR},
+      REGISTER_URL = #{registerUrl,jdbcType=VARCHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      IC_PHOTO_1 = #{icPhoto1,jdbcType=VARCHAR},
+      IC_PHOTO_2 = #{icPhoto2,jdbcType=VARCHAR},
+      USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      USER_PHOTO_MIN = #{userPhotoMin,jdbcType=VARCHAR},
+      CARD_PHOTO = #{cardPhoto,jdbcType=VARCHAR},
+      BBS_PHOTO = #{bbsPhoto,jdbcType=VARCHAR},
+      SHOP_INNER_PHOTO = #{shopInnerPhoto,jdbcType=VARCHAR},
+      SHOP_OUTER_PHOTO = #{shopOuterPhoto,jdbcType=VARCHAR},
+      USER_RIGHT = #{userRight,jdbcType=INTEGER},
+      AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      SUPER_USER = #{superUser,jdbcType=INTEGER},
+      SUPER_START = #{superStart,jdbcType=TIMESTAMP},
+      SUPER_END = #{superEnd,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updatePhoneNum" parameterType="java.util.Map">
+  	update fun_reg_info 
+  	set user_mobile = #{newNum} 
+  	where user_mobile =#{oldNum} 
+  </update>
+</mapper>

@@ -1,0 +1,108 @@
+.agileUploaderFilePreview {float:left;position: relative; display: block; height:56px; width: 82px; font-size:12px;overflow: hidden;}
+.agileUploaderFilePreview img{height:56px; width: 82px;}
+.agileUploaderFilePreview cite.hx {background: #111; filter:alpha(opacity=50); opacity:.5;
+	color: red; font-weight:bold; position: absolute; bottom: 0; right: 0;width: 100%;height:25px;line-height:25px;
+	border-top: 1px solid #999; text-align:left;
+}
+.showLabel cite.firstlabel{z-index:100;background:url(firstlabel.gif) no-repeat;position: absolute; bottom: 0; right: 0;width: 40px;height:40px;}
+.agileUploaderFileSize {
+	text-align: left;
+	font-size:12px;
+	margin:10px 0;
+	overflow:hidden;
+}
+.agileUploaderFileName {
+	text-align:left;
+	text-indent:5px;
+	margin-left:5px
+}
+#agileUploaderInfo {width:100%;overflow:hidden;/**overflow-y: scroll;*/}
+#agileUploaderFileList {
+	table-layout: fixed;
+	border-collapse: separate;
+	border-spacing: 2px;
+	/*list-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-indent: 0px;
+	display: block;*/
+}
+#agileUploaderFileList td {
+	height:60px;
+	border: solid 1px #dedede;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden
+}
+#agileUploaderFileList .item_huxing {
+    background-color: #f8f8f8;
+}
+.agileUploaderCurrentProgress {
+	height: 6px;
+	width: 1%;
+	background: #f90;
+	margin-top:5px;
+}
+.setCover{color:#666;}
+.setCover:hover{color:#d00;text-decoration: none;}
+.agileUploaderRemoveFile {}
+.agileUploaderRemoveFile a{background: url(trash-icon.png) no-repeat;width:20px;height:20px;display: block;float:right;margin-right:10px;}
+.only .agileUploaderRemoveFile a{filter:alpha(opacity=50);opacity:.5;outline:none;cursor:default;}
+.only .agileUploaderRemoveFile a:hover{background-position: 0 0;}
+.only .setCover{filter:alpha(opacity=50);opacity:.5;outline:none;cursor:default;text-decoration: none;color:#666;}
+.agileUploaderRemoveFile a:hover {background-position: 0 -20px;text-decoration: none;outline:none}
+#agileUploaderAttachArea {border-top: 1px solid #DEDEDE;height: 28px;padding: 7px 5px 0;}
+#agileUploaderMessages {
+	font-size: 12px;
+	color: #FFF;
+	font-family: Helvetica, sans-serif;
+	padding: 8px 0px 8px 10px;
+	text-align: left;
+	position: fixed;
+	_position: absolute;
+	width:100%;
+	background: #666; filter:alpha(opacity=70); opacity:.7;
+	top:0;
+}
+#agileUploaderSWF, #agileUploaderEMBED {
+	float: left;
+}
+#agileUploaderRemoveAll {
+	display:none;
+	float:left;margin-top:8px;
+	height: 14px;
+	text-align: right;
+	width: 100px;
+	font-family: Helvetica, sans-serif;
+}
+#agileUploaderRemoveAll a {
+	color: #555;
+	font-size: 12px;
+}
+#agileUploaderRemoveAll a:hover {
+	color: #000;
+}
+.agileUploaderSingleMessages {
+	clear: left !important;
+	text-align: left !important;
+}
+#agileUploaderInfoContainer {
+	float: left;
+	width: 148px;
+	margin-right: 5px;
+}
+#agileUploaderProgressBar {
+	clear: left;
+	width: 0px;
+	height: 2px;
+	margin: 0px;
+	padding: 0px;
+}
+#agileUploaderFileInputText {
+	width: 100%;
+}
+
+.agileUploaderInfo_desc{margin-left:90px;height:56px;overflow: hidden;position:relative;}
+.filesize{height: 18px;vertical-align: left;margin:0 5px;display:block;float:left}
+object{outline:none}
+.fixbtm{position: absolute;bottom:5px;width:100%;}

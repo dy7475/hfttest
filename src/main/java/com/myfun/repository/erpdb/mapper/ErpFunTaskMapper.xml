@@ -1,0 +1,1517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunTaskMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunTask">
+    <!--@mbggenerated-->
+    <id column="TASK_ID" jdbcType="INTEGER" property="taskId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="TRACK_ID" jdbcType="INTEGER" property="trackId" />
+    <result column="TRACK_TYPE" jdbcType="TINYINT" property="trackType" />
+    <result column="USEAGE" jdbcType="TINYINT" property="useage" />
+    <result column="KEY_ID" jdbcType="INTEGER" property="keyId" />
+    <result column="TASK_OWNER" jdbcType="INTEGER" property="taskOwner" />
+    <result column="TASK_SUBJECT" jdbcType="VARCHAR" property="taskSubject" />
+    <result column="TASK_DESC" jdbcType="VARCHAR" property="taskDesc" />
+    <result column="TRACK_WARM" jdbcType="BIT" property="trackWarm" />
+    <result column="TASK_TYPE" jdbcType="TINYINT" property="taskType" />
+    <result column="TYPE_FLAG" jdbcType="TINYINT" property="typeFlag" />
+    <result column="WARM_TIME" jdbcType="VARCHAR" property="warmTime" />
+    <result column="IS_READ" jdbcType="BIT" property="isRead" />
+    <result column="TASK_STATUS" jdbcType="TINYINT" property="taskStatus" />
+    <result column="TASK_SOLUTE" jdbcType="VARCHAR" property="taskSolute" />
+    <result column="TASK_RESULT" jdbcType="TINYINT" property="taskResult" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="CREATION_TIME" jdbcType="VARCHAR" property="creationTime" />
+    <result column="CC_ID" jdbcType="INTEGER" property="ccId" />
+    <result column="CASE_NO" jdbcType="VARCHAR" property="caseNo" />
+    <result column="UPDATE_UID" jdbcType="INTEGER" property="updateUid" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="TAG" jdbcType="VARCHAR" property="tag" />
+    <result column="INDEX_SHOW" jdbcType="INTEGER" property="indexShow" />
+    <result column="AUTO_ADUIT" jdbcType="TINYINT" property="autoAduit" />
+    <result column="EXAMINE_SOURCE" jdbcType="TINYINT" property="examineSource" />
+    <result column="TASK_SOURCE" jdbcType="TINYINT" property="taskSource" />
+    <result column="IS_SEND" jdbcType="TINYINT" property="isSend" />
+    <result column="WARM_USERS" jdbcType="VARCHAR" property="warmUsers" />
+    <result column="NEW_TYPE_FLAG" jdbcType="TINYINT" property="newTypeFlag" />
+    <result column="ORGANIZATION_PATH" jdbcType="VARCHAR" property="organizationPath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    TASK_ID, COMP_ID, DEPT_ID, CASE_TYPE, CASE_ID, TRACK_ID, TRACK_TYPE, USEAGE, KEY_ID, 
+    TASK_OWNER, TASK_SUBJECT, TASK_DESC, TRACK_WARM, TASK_TYPE, TYPE_FLAG, WARM_TIME, 
+    IS_READ, TASK_STATUS, TASK_SOLUTE, TASK_RESULT, CREATOR_UID, CREATION_TIME, CC_ID, 
+    CASE_NO, UPDATE_UID, UPDATE_TIME, TAG, INDEX_SHOW, AUTO_ADUIT, EXAMINE_SOURCE, TASK_SOURCE, 
+    IS_SEND, WARM_USERS, NEW_TYPE_FLAG, ORGANIZATION_PATH
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunTaskExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_TASK
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_TASK
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunTaskExample">
+    <!--@mbggenerated-->
+    delete from FUN_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunTask">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="taskId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_TASK_TASK_ID
+    </selectKey>
+    insert into FUN_TASK (TASK_ID, COMP_ID, DEPT_ID, 
+      CASE_TYPE, CASE_ID, TRACK_ID, 
+      TRACK_TYPE, USEAGE, KEY_ID, 
+      TASK_OWNER, TASK_SUBJECT, TASK_DESC, 
+      TRACK_WARM, TASK_TYPE, TYPE_FLAG, 
+      WARM_TIME, IS_READ, TASK_STATUS, 
+      TASK_SOLUTE, TASK_RESULT, CREATOR_UID, 
+      CREATION_TIME, CC_ID, CASE_NO, 
+      UPDATE_UID, UPDATE_TIME, TAG, 
+      INDEX_SHOW, AUTO_ADUIT, EXAMINE_SOURCE, 
+      TASK_SOURCE, IS_SEND, WARM_USERS, 
+      NEW_TYPE_FLAG, ORGANIZATION_PATH)
+    values (#{taskId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{caseType,jdbcType=TINYINT}, #{caseId,jdbcType=INTEGER}, #{trackId,jdbcType=INTEGER}, 
+      #{trackType,jdbcType=TINYINT}, #{useage,jdbcType=TINYINT}, #{keyId,jdbcType=INTEGER}, 
+      #{taskOwner,jdbcType=INTEGER}, #{taskSubject,jdbcType=VARCHAR}, #{taskDesc,jdbcType=VARCHAR}, 
+      #{trackWarm,jdbcType=BIT}, #{taskType,jdbcType=TINYINT}, #{typeFlag,jdbcType=TINYINT}, 
+      #{warmTime,jdbcType=VARCHAR}, #{isRead,jdbcType=BIT}, #{taskStatus,jdbcType=TINYINT}, 
+      #{taskSolute,jdbcType=VARCHAR}, #{taskResult,jdbcType=TINYINT}, #{creatorUid,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=VARCHAR}, #{ccId,jdbcType=INTEGER}, #{caseNo,jdbcType=VARCHAR}, 
+      #{updateUid,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{tag,jdbcType=VARCHAR}, 
+      #{indexShow,jdbcType=INTEGER}, #{autoAduit,jdbcType=TINYINT}, #{examineSource,jdbcType=TINYINT}, 
+      #{taskSource,jdbcType=TINYINT}, #{isSend,jdbcType=TINYINT}, #{warmUsers,jdbcType=VARCHAR}, 
+      #{newTypeFlag,jdbcType=TINYINT}, #{organizationPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunTask">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="taskId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_TASK_TASK_ID
+    </selectKey>
+    insert into FUN_TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      TASK_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="trackId != null">
+        TRACK_ID,
+      </if>
+      <if test="trackType != null">
+        TRACK_TYPE,
+      </if>
+      <if test="useage != null">
+        USEAGE,
+      </if>
+      <if test="keyId != null">
+        KEY_ID,
+      </if>
+      <if test="taskOwner != null">
+        TASK_OWNER,
+      </if>
+      <if test="taskSubject != null">
+        TASK_SUBJECT,
+      </if>
+      <if test="taskDesc != null">
+        TASK_DESC,
+      </if>
+      <if test="trackWarm != null">
+        TRACK_WARM,
+      </if>
+      <if test="taskType != null">
+        TASK_TYPE,
+      </if>
+      <if test="typeFlag != null">
+        TYPE_FLAG,
+      </if>
+      <if test="warmTime != null">
+        WARM_TIME,
+      </if>
+      <if test="isRead != null">
+        IS_READ,
+      </if>
+      <if test="taskStatus != null">
+        TASK_STATUS,
+      </if>
+      <if test="taskSolute != null">
+        TASK_SOLUTE,
+      </if>
+      <if test="taskResult != null">
+        TASK_RESULT,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="ccId != null">
+        CC_ID,
+      </if>
+      <if test="caseNo != null">
+        CASE_NO,
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="tag != null">
+        TAG,
+      </if>
+      <if test="indexShow != null">
+        INDEX_SHOW,
+      </if>
+      <if test="autoAduit != null">
+        AUTO_ADUIT,
+      </if>
+      <if test="examineSource != null">
+        EXAMINE_SOURCE,
+      </if>
+      <if test="taskSource != null">
+        TASK_SOURCE,
+      </if>
+      <if test="isSend != null">
+        IS_SEND,
+      </if>
+      <if test="warmUsers != null">
+        WARM_USERS,
+      </if>
+      <if test="newTypeFlag != null">
+        NEW_TYPE_FLAG,
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{taskId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="trackId != null">
+        #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="trackType != null">
+        #{trackType,jdbcType=TINYINT},
+      </if>
+      <if test="useage != null">
+        #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="keyId != null">
+        #{keyId,jdbcType=INTEGER},
+      </if>
+      <if test="taskOwner != null">
+        #{taskOwner,jdbcType=INTEGER},
+      </if>
+      <if test="taskSubject != null">
+        #{taskSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDesc != null">
+        #{taskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="trackWarm != null">
+        #{trackWarm,jdbcType=BIT},
+      </if>
+      <if test="taskType != null">
+        #{taskType,jdbcType=TINYINT},
+      </if>
+      <if test="typeFlag != null">
+        #{typeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="warmTime != null">
+        #{warmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isRead != null">
+        #{isRead,jdbcType=BIT},
+      </if>
+      <if test="taskStatus != null">
+        #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="taskSolute != null">
+        #{taskSolute,jdbcType=VARCHAR},
+      </if>
+      <if test="taskResult != null">
+        #{taskResult,jdbcType=TINYINT},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="ccId != null">
+        #{ccId,jdbcType=INTEGER},
+      </if>
+      <if test="caseNo != null">
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUid != null">
+        #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="indexShow != null">
+        #{indexShow,jdbcType=INTEGER},
+      </if>
+      <if test="autoAduit != null">
+        #{autoAduit,jdbcType=TINYINT},
+      </if>
+      <if test="examineSource != null">
+        #{examineSource,jdbcType=TINYINT},
+      </if>
+      <if test="taskSource != null">
+        #{taskSource,jdbcType=TINYINT},
+      </if>
+      <if test="isSend != null">
+        #{isSend,jdbcType=TINYINT},
+      </if>
+      <if test="warmUsers != null">
+        #{warmUsers,jdbcType=VARCHAR},
+      </if>
+      <if test="newTypeFlag != null">
+        #{newTypeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="organizationPath != null">
+        #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunTaskExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_TASK
+    <set>
+      <if test="record.taskId != null">
+        TASK_ID = #{record.taskId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackId != null">
+        TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackType != null">
+        TRACK_TYPE = #{record.trackType,jdbcType=TINYINT},
+      </if>
+      <if test="record.useage != null">
+        USEAGE = #{record.useage,jdbcType=TINYINT},
+      </if>
+      <if test="record.keyId != null">
+        KEY_ID = #{record.keyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskOwner != null">
+        TASK_OWNER = #{record.taskOwner,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskSubject != null">
+        TASK_SUBJECT = #{record.taskSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskDesc != null">
+        TASK_DESC = #{record.taskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trackWarm != null">
+        TRACK_WARM = #{record.trackWarm,jdbcType=BIT},
+      </if>
+      <if test="record.taskType != null">
+        TASK_TYPE = #{record.taskType,jdbcType=TINYINT},
+      </if>
+      <if test="record.typeFlag != null">
+        TYPE_FLAG = #{record.typeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.warmTime != null">
+        WARM_TIME = #{record.warmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isRead != null">
+        IS_READ = #{record.isRead,jdbcType=BIT},
+      </if>
+      <if test="record.taskStatus != null">
+        TASK_STATUS = #{record.taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.taskSolute != null">
+        TASK_SOLUTE = #{record.taskSolute,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskResult != null">
+        TASK_RESULT = #{record.taskResult,jdbcType=TINYINT},
+      </if>
+      <if test="record.creatorUid != null">
+        CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ccId != null">
+        CC_ID = #{record.ccId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseNo != null">
+        CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUid != null">
+        UPDATE_UID = #{record.updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tag != null">
+        TAG = #{record.tag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexShow != null">
+        INDEX_SHOW = #{record.indexShow,jdbcType=INTEGER},
+      </if>
+      <if test="record.autoAduit != null">
+        AUTO_ADUIT = #{record.autoAduit,jdbcType=TINYINT},
+      </if>
+      <if test="record.examineSource != null">
+        EXAMINE_SOURCE = #{record.examineSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.taskSource != null">
+        TASK_SOURCE = #{record.taskSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.isSend != null">
+        IS_SEND = #{record.isSend,jdbcType=TINYINT},
+      </if>
+      <if test="record.warmUsers != null">
+        WARM_USERS = #{record.warmUsers,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newTypeFlag != null">
+        NEW_TYPE_FLAG = #{record.newTypeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.organizationPath != null">
+        ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_TASK
+    set TASK_ID = #{record.taskId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      TRACK_TYPE = #{record.trackType,jdbcType=TINYINT},
+      USEAGE = #{record.useage,jdbcType=TINYINT},
+      KEY_ID = #{record.keyId,jdbcType=INTEGER},
+      TASK_OWNER = #{record.taskOwner,jdbcType=INTEGER},
+      TASK_SUBJECT = #{record.taskSubject,jdbcType=VARCHAR},
+      TASK_DESC = #{record.taskDesc,jdbcType=VARCHAR},
+      TRACK_WARM = #{record.trackWarm,jdbcType=BIT},
+      TASK_TYPE = #{record.taskType,jdbcType=TINYINT},
+      TYPE_FLAG = #{record.typeFlag,jdbcType=TINYINT},
+      WARM_TIME = #{record.warmTime,jdbcType=VARCHAR},
+      IS_READ = #{record.isRead,jdbcType=BIT},
+      TASK_STATUS = #{record.taskStatus,jdbcType=TINYINT},
+      TASK_SOLUTE = #{record.taskSolute,jdbcType=VARCHAR},
+      TASK_RESULT = #{record.taskResult,jdbcType=TINYINT},
+      CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=VARCHAR},
+      CC_ID = #{record.ccId,jdbcType=INTEGER},
+      CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      UPDATE_UID = #{record.updateUid,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      TAG = #{record.tag,jdbcType=VARCHAR},
+      INDEX_SHOW = #{record.indexShow,jdbcType=INTEGER},
+      AUTO_ADUIT = #{record.autoAduit,jdbcType=TINYINT},
+      EXAMINE_SOURCE = #{record.examineSource,jdbcType=TINYINT},
+      TASK_SOURCE = #{record.taskSource,jdbcType=TINYINT},
+      IS_SEND = #{record.isSend,jdbcType=TINYINT},
+      WARM_USERS = #{record.warmUsers,jdbcType=VARCHAR},
+      NEW_TYPE_FLAG = #{record.newTypeFlag,jdbcType=TINYINT},
+      ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunTask">
+    <!--@mbggenerated-->
+    update FUN_TASK
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="trackId != null">
+        TRACK_ID = #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="trackType != null">
+        TRACK_TYPE = #{trackType,jdbcType=TINYINT},
+      </if>
+      <if test="useage != null">
+        USEAGE = #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="keyId != null">
+        KEY_ID = #{keyId,jdbcType=INTEGER},
+      </if>
+      <if test="taskOwner != null">
+        TASK_OWNER = #{taskOwner,jdbcType=INTEGER},
+      </if>
+      <if test="taskSubject != null">
+        TASK_SUBJECT = #{taskSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDesc != null">
+        TASK_DESC = #{taskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="trackWarm != null">
+        TRACK_WARM = #{trackWarm,jdbcType=BIT},
+      </if>
+      <if test="taskType != null">
+        TASK_TYPE = #{taskType,jdbcType=TINYINT},
+      </if>
+      <if test="typeFlag != null">
+        TYPE_FLAG = #{typeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="warmTime != null">
+        WARM_TIME = #{warmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isRead != null">
+        IS_READ = #{isRead,jdbcType=BIT},
+      </if>
+      <if test="taskStatus != null">
+        TASK_STATUS = #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="taskSolute != null">
+        TASK_SOLUTE = #{taskSolute,jdbcType=VARCHAR},
+      </if>
+      <if test="taskResult != null">
+        TASK_RESULT = #{taskResult,jdbcType=TINYINT},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="ccId != null">
+        CC_ID = #{ccId,jdbcType=INTEGER},
+      </if>
+      <if test="caseNo != null">
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tag != null">
+        TAG = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="indexShow != null">
+        INDEX_SHOW = #{indexShow,jdbcType=INTEGER},
+      </if>
+      <if test="autoAduit != null">
+        AUTO_ADUIT = #{autoAduit,jdbcType=TINYINT},
+      </if>
+      <if test="examineSource != null">
+        EXAMINE_SOURCE = #{examineSource,jdbcType=TINYINT},
+      </if>
+      <if test="taskSource != null">
+        TASK_SOURCE = #{taskSource,jdbcType=TINYINT},
+      </if>
+      <if test="isSend != null">
+        IS_SEND = #{isSend,jdbcType=TINYINT},
+      </if>
+      <if test="warmUsers != null">
+        WARM_USERS = #{warmUsers,jdbcType=VARCHAR},
+      </if>
+      <if test="newTypeFlag != null">
+        NEW_TYPE_FLAG = #{newTypeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunTask">
+    <!--@mbggenerated-->
+    update FUN_TASK
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      TRACK_ID = #{trackId,jdbcType=INTEGER},
+      TRACK_TYPE = #{trackType,jdbcType=TINYINT},
+      USEAGE = #{useage,jdbcType=TINYINT},
+      KEY_ID = #{keyId,jdbcType=INTEGER},
+      TASK_OWNER = #{taskOwner,jdbcType=INTEGER},
+      TASK_SUBJECT = #{taskSubject,jdbcType=VARCHAR},
+      TASK_DESC = #{taskDesc,jdbcType=VARCHAR},
+      TRACK_WARM = #{trackWarm,jdbcType=BIT},
+      TASK_TYPE = #{taskType,jdbcType=TINYINT},
+      TYPE_FLAG = #{typeFlag,jdbcType=TINYINT},
+      WARM_TIME = #{warmTime,jdbcType=VARCHAR},
+      IS_READ = #{isRead,jdbcType=BIT},
+      TASK_STATUS = #{taskStatus,jdbcType=TINYINT},
+      TASK_SOLUTE = #{taskSolute,jdbcType=VARCHAR},
+      TASK_RESULT = #{taskResult,jdbcType=TINYINT},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      CC_ID = #{ccId,jdbcType=INTEGER},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      TAG = #{tag,jdbcType=VARCHAR},
+      INDEX_SHOW = #{indexShow,jdbcType=INTEGER},
+      AUTO_ADUIT = #{autoAduit,jdbcType=TINYINT},
+      EXAMINE_SOURCE = #{examineSource,jdbcType=TINYINT},
+      TASK_SOURCE = #{taskSource,jdbcType=TINYINT},
+      IS_SEND = #{isSend,jdbcType=TINYINT},
+      WARM_USERS = #{warmUsers,jdbcType=VARCHAR},
+      NEW_TYPE_FLAG = #{newTypeFlag,jdbcType=TINYINT},
+      ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR}
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </update>
+    
+  <resultMap extends="BaseResultMap" id="exResultMap" type="com.myfun.repository.erpdb.dto.ErpFunTaskDto">
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="TRACK_USER" jdbcType="VARCHAR" property="trackUser" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="KEY_NUM" jdbcType="VARCHAR" property="keyNum" />
+    <result column="BIDDING_STATUS" jdbcType="INTEGER" property="biddingStatus" />
+    <result column="CASE_USER_ID" jdbcType="INTEGER" property="caseUserId" />
+    <result column="CASE_DEPT_ID" jdbcType="INTEGER" property="caseDeptId" />
+    <result column="PROXY_URL" jdbcType="VARCHAR" property="proxyUrl" />
+    <result column="CASE_STATUS" jdbcType="TINYINT" property="caseStatus" />
+    <result column="DK_PHOTO_COUNT" jdbcType="INTEGER" property="dkPhotoCount" />
+    <result column="FK_PHOTO_COUNT" jdbcType="INTEGER" property="fkPhotoCount" />
+    <result column="IS_DELTRACK" jdbcType="TINYINT" property="isDeltrack" />
+    <result column="IS_USER_TRACK" jdbcType="INTEGER" property="isUserTrack" />
+    <result column="TARGET_DEPT" jdbcType="INTEGER" property="targetDept" />
+    <result column="TARGET_FLAG" jdbcType="BIT" property="targetFlag" />
+    <result column="TARGET_ID" jdbcType="INTEGER" property="targetId" />
+    <result column="TARGET_NO" jdbcType="VARCHAR" property="targetNo" />
+    <result column="TARGET_TYPE" jdbcType="TINYINT" property="targetType" />
+    <result column="TARGET_USEAGE" jdbcType="TINYINT" property="targetUseage" />
+    <result column="TARGET_USER_ID" jdbcType="INTEGER" property="targetUserId" />
+    <result column="TRACK_CLASSIC" jdbcType="VARCHAR" property="trackClassic" />
+    <result column="TRACK_CONTENT" jdbcType="VARCHAR" property="trackContent" />
+    <result column="TRACK_NO" jdbcType="VARCHAR" property="trackNo" />
+    <result column="TRACK_RESULT" jdbcType="TINYINT" property="trackResult" />
+    <result column="TRACK_KEY" jdbcType="BIT" property="trackKey" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+    <result column="CASE_NAME" jdbcType="VARCHAR" property="caseName" />
+    <result column="CASE_AREA" jdbcType="VARCHAR" property="caseArea" />
+    <result column="CASE_PRICE" jdbcType="VARCHAR" property="casePrice" />
+    <result column="ROOM" jdbcType="TINYINT" property="room" />
+    <result column="PRICE_UNIT" jdbcType="TINYINT" property="priceUnit" />
+    <result column="CASE_SEX" jdbcType="BIT" property="caseSex" />
+    <result column="CREATOR_ORG_NAME" jdbcType="VARCHAR" property="creatorCompName" />
+    <result column="CREATOR_USER_NAME" jdbcType="VARCHAR" property="creatorUserName" />
+  </resultMap>
+  <select id="selectFunTaskByConditionModel" parameterType="com.myfun.repository.erpdb.po.ErpFunTask" resultMap="BaseResultMap">
+    select 
+	CREATOR_UID
+    from FUN_TASK
+    where COMP_ID = #{conditionModel.compId}
+    and CASE_ID = #{conditionModel.caseId}
+    and CASE_TYPE = #{conditionModel.caseType}
+    and TASK_TYPE = #{conditionModel.taskType}
+    and TASK_STATUS = #{conditionModel.taskStatus}
+    and TRACK_TYPE = #{conditionModel.trackType}
+  </select>
+  <select id="countFunTask" resultType="java.lang.Integer">
+    select 
+	count(1) as attr
+    from FUN_TASK
+    where COMP_ID = #{conditionModel.compId,jdbcType=INTEGER}
+    <if test="conditionModel.taskId != null">
+    AND TASK_ID = #{conditionModel.taskId,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.deptId != null">
+     AND DEPT_ID = #{conditionModel.deptId,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.caseType != null">
+      AND CASE_TYPE = #{conditionModel.caseType,jdbcType=TINYINT}
+      </if>
+      <if test="conditionModel.caseId != null">
+      AND CASE_ID = #{conditionModel.caseId,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.trackId != null">
+      AND TRACK_ID = #{conditionModel.trackId,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.trackType != null">
+      AND TRACK_TYPE = #{conditionModel.trackType,jdbcType=TINYINT}
+      </if>
+      <if test="conditionModel.useage != null">
+      AND USEAGE = #{conditionModel.useage,jdbcType=TINYINT}
+      </if>
+      <if test="conditionModel.keyId != null">
+      AND KEY_ID = #{conditionModel.keyId,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.taskOwner != null">
+      AND TASK_OWNER = #{conditionModel.taskOwner,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.taskSubject != null">
+      AND TASK_SUBJECT = #{conditionModel.taskSubject,jdbcType=VARCHAR}
+      </if>
+      <if test="conditionModel.taskDesc != null">
+      AND TASK_DESC = #{conditionModel.taskDesc,jdbcType=VARCHAR}
+      </if>
+      <if test="conditionModel.trackWarm != null">
+      AND TRACK_WARM = #{conditionModel.trackWarm,jdbcType=BIT}
+      </if>
+      <if test="conditionModel.taskType != null">
+      AND TASK_TYPE = #{conditionModel.taskType,jdbcType=TINYINT}
+      </if>
+      <if test="conditionModel.typeFlag != null">
+      AND TYPE_FLAG = #{conditionModel.typeFlag,jdbcType=BIT}
+      </if>
+      <if test="conditionModel.warmTime != null">
+      AND WARM_TIME = #{conditionModel.warmTime,jdbcType=VARCHAR}
+      </if>
+      <if test="conditionModel.isRead != null">
+      AND IS_READ = #{conditionModel.isRead,jdbcType=BIT}
+      </if>
+      <if test="conditionModel.taskStatus != null">
+      AND TASK_STATUS = #{conditionModel.taskStatus,jdbcType=TINYINT}
+      </if>
+      <if test="conditionModel.taskSolute != null">
+      AND TASK_SOLUTE = #{conditionModel.taskSolute,jdbcType=VARCHAR}
+      </if>
+      <if test="conditionModel.taskResult != null">
+      AND TASK_RESULT = #{conditionModel.taskResult,jdbcType=TINYINT}
+      </if>
+      <if test="conditionModel.creatorUid != null">
+      AND CREATOR_UID = #{conditionModel.creatorUid,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.creationTime != null">
+      AND CREATION_TIME = #{conditionModel.creationTime,jdbcType=VARCHAR}
+      </if>
+      <if test="conditionModel.ccId != null">
+      AND CC_ID = #{conditionModel.ccId,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.caseNo != null">
+     AND CASE_NO = #{conditionModel.caseNo,jdbcType=VARCHAR}
+      </if>
+      <if test="conditionModel.updateUid != null">
+      AND UPDATE_UID = #{conditionModel.updateUid,jdbcType=INTEGER}
+      </if>
+      <if test="conditionModel.updateTime != null">
+      AND UPDATE_TIME = #{conditionModel.updateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="conditionModel.tag != null">
+      AND TAG = #{conditionModel.tag,jdbcType=VARCHAR}
+      </if>
+      <if test="conditionModel.indexShow != null">
+      AND INDEX_SHOW = #{conditionModel.indexShow,jdbcType=INTEGER}
+      </if>
+  </select>
+
+	<insert id="insertModel" parameterType="com.myfun.repository.erpdb.po.ErpFunTask">
+		<selectKey keyProperty="taskId" order="BEFORE" resultType="java.lang.Integer">
+			SELECT next value for SEQ_FUN_TASK_TASK_ID
+		</selectKey>
+		insert into FUN_TASK
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			TASK_ID,
+			<if test="insertModel.compId != null">
+				COMP_ID,
+			</if>
+			<if test="insertModel.deptId != null">
+				DEPT_ID,
+			</if>
+			<if test="insertModel.caseType != null">
+				CASE_TYPE,
+			</if>
+			<if test="insertModel.caseId != null">
+				CASE_ID,
+			</if>
+			<if test="insertModel.trackId != null">
+				TRACK_ID,
+			</if>
+			<if test="insertModel.trackType != null">
+				TRACK_TYPE,
+			</if>
+			<if test="insertModel.useage != null">
+				USEAGE,
+			</if>
+			<if test="insertModel.keyId != null">
+				KEY_ID,
+			</if>
+			<if test="insertModel.taskOwner != null">
+				TASK_OWNER,
+			</if>
+			<if test="insertModel.taskSubject != null">
+				TASK_SUBJECT,
+			</if>
+			<if test="insertModel.taskDesc != null">
+				TASK_DESC,
+			</if>
+			<if test="insertModel.trackWarm != null">
+				TRACK_WARM,
+			</if>
+			<if test="insertModel.taskType != null">
+				TASK_TYPE,
+			</if>
+			<if test="insertModel.typeFlag != null">
+				TYPE_FLAG,
+			</if>
+			<if test="insertModel.warmTime != null">
+				WARM_TIME,
+			</if>
+			<if test="insertModel.isRead != null">
+				IS_READ,
+			</if>
+			<if test="insertModel.taskStatus != null">
+				TASK_STATUS,
+			</if>
+			<if test="insertModel.taskSolute != null">
+				TASK_SOLUTE,
+			</if>
+			<if test="insertModel.taskResult != null">
+				TASK_RESULT,
+			</if>
+			<if test="insertModel.creatorUid != null">
+				CREATOR_UID,
+			</if>
+			<if test="insertModel.creationTime != null">
+				CREATION_TIME,
+			</if>
+			<if test="insertModel.ccId != null">
+				CC_ID,
+			</if>
+			<if test="insertModel.caseNo != null">
+				CASE_NO,
+			</if>
+			<if test="insertModel.updateUid != null">
+				UPDATE_UID,
+			</if>
+			<if test="insertModel.updateTime != null">
+				UPDATE_TIME,
+			</if>
+			<if test="insertModel.tag != null">
+				TAG,
+			</if>
+			<if test="insertModel.indexShow != null">
+				INDEX_SHOW,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{taskId,jdbcType=INTEGER},
+			<if test="insertModel.compId != null">
+				#{insertModel.compId,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.deptId != null">
+				#{insertModel.deptId,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.caseType != null">
+				#{insertModel.caseType,jdbcType=TINYINT},
+			</if>
+			<if test="insertModel.caseId != null">
+				#{insertModel.caseId,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.trackId != null">
+				#{insertModel.trackId,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.trackType != null">
+				#{insertModel.trackType,jdbcType=TINYINT},
+			</if>
+			<if test="insertModel.useage != null">
+				#{insertModel.useage,jdbcType=TINYINT},
+			</if>
+			<if test="insertModel.keyId != null">
+				#{insertModel.keyId,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.taskOwner != null">
+				#{insertModel.taskOwner,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.taskSubject != null">
+				#{insertModel.taskSubject,jdbcType=VARCHAR},
+			</if>
+			<if test="insertModel.taskDesc != null">
+				#{insertModel.taskDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="insertModel.trackWarm != null">
+				#{insertModel.trackWarm,jdbcType=BIT},
+			</if>
+			<if test="insertModel.taskType != null">
+				#{insertModel.taskType,jdbcType=TINYINT},
+			</if>
+			<if test="insertModel.typeFlag != null">
+				#{insertModel.typeFlag,jdbcType=BIT},
+			</if>
+			<if test="insertModel.warmTime != null">
+				#{insertModel.warmTime,jdbcType=VARCHAR},
+			</if>
+			<if test="insertModel.isRead != null">
+				#{insertModel.isRead,jdbcType=BIT},
+			</if>
+			<if test="insertModel.taskStatus != null">
+				#{insertModel.taskStatus,jdbcType=TINYINT},
+			</if>
+			<if test="insertModel.taskSolute != null">
+				#{insertModel.taskSolute,jdbcType=VARCHAR},
+			</if>
+			<if test="insertModel.taskResult != null">
+				#{insertModel.taskResult,jdbcType=TINYINT},
+			</if>
+			<if test="insertModel.creatorUid != null">
+				#{insertModel.creatorUid,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.creationTime != null">
+				#{insertModel.creationTime,jdbcType=VARCHAR},
+			</if>
+			<if test="insertModel.ccId != null">
+				#{insertModel.ccId,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.caseNo != null">
+				#{insertModel.caseNo,jdbcType=VARCHAR},
+			</if>
+			<if test="insertModel.updateUid != null">
+				#{insertModel.updateUid,jdbcType=INTEGER},
+			</if>
+			<if test="insertModel.updateTime != null">
+				#{insertModel.updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="insertModel.tag != null">
+				#{insertModel.tag,jdbcType=VARCHAR},
+			</if>
+			<if test="insertModel.indexShow != null">
+				#{insertModel.indexShow,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	
+	<update id="updateFunTask">
+		update FUN_TASK
+		<set>
+			<if test="updateModel.compId != null">
+				COMP_ID = #{updateModel.compId,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.deptId != null">
+				DEPT_ID = #{updateModel.deptId,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.caseType != null">
+				CASE_TYPE = #{updateModel.caseType,jdbcType=TINYINT},
+			</if>
+			<if test="updateModel.caseId != null">
+				CASE_ID = #{updateModel.caseId,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.trackId != null">
+				TRACK_ID = #{updateModel.trackId,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.trackType != null">
+				TRACK_TYPE = #{updateModel.trackType,jdbcType=TINYINT},
+			</if>
+			<if test="updateModel.useage != null">
+				USEAGE = #{updateModel.useage,jdbcType=TINYINT},
+			</if>
+			<if test="updateModel.keyId != null">
+				KEY_ID = #{updateModel.keyId,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.taskOwner != null">
+				TASK_OWNER = #{updateModel.taskOwner,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.taskSubject != null">
+				TASK_SUBJECT = #{updateModel.taskSubject,jdbcType=VARCHAR},
+			</if>
+			<if test="updateModel.taskDesc != null">
+				TASK_DESC = #{updateModel.taskDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="updateModel.trackWarm != null">
+				TRACK_WARM = #{updateModel.trackWarm,jdbcType=BIT},
+			</if>
+			<if test="updateModel.taskType != null">
+				TASK_TYPE = #{updateModel.taskType,jdbcType=TINYINT},
+			</if>
+			<if test="updateModel.typeFlag != null">
+				TYPE_FLAG = #{updateModel.typeFlag,jdbcType=BIT},
+			</if>
+			<if test="updateModel.warmTime != null">
+				WARM_TIME = #{updateModel.warmTime,jdbcType=VARCHAR},
+			</if>
+			<if test="updateModel.isRead != null">
+				IS_READ = #{updateModel.isRead,jdbcType=BIT},
+			</if>
+			<if test="updateModel.taskStatus != null">
+				TASK_STATUS = #{updateModel.taskStatus,jdbcType=TINYINT},
+			</if>
+			<if test="updateModel.taskSolute != null">
+				TASK_SOLUTE = #{updateModel.taskSolute,jdbcType=VARCHAR},
+			</if>
+			<if test="updateModel.taskResult != null">
+				TASK_RESULT = #{updateModel.taskResult,jdbcType=TINYINT},
+			</if>
+			<if test="updateModel.creatorUid != null">
+				CREATOR_UID = #{updateModel.creatorUid,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.creationTime != null">
+				CREATION_TIME = #{updateModel.creationTime,jdbcType=VARCHAR},
+			</if>
+			<if test="updateModel.ccId != null">
+				CC_ID = #{updateModel.ccId,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.caseNo != null">
+				CASE_NO = #{updateModel.caseNo,jdbcType=VARCHAR},
+			</if>
+			<if test="updateModel.updateUid != null">
+				UPDATE_UID = #{updateModel.updateUid,jdbcType=INTEGER},
+			</if>
+			<if test="updateModel.updateTime != null">
+				UPDATE_TIME = #{updateModel.updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateModel.tag != null">
+				TAG = #{updateModel.tag,jdbcType=VARCHAR},
+			</if>
+			<if test="updateModel.indexShow != null">
+				INDEX_SHOW = #{updateModel.indexShow,jdbcType=INTEGER},
+			</if>
+		</set>
+		where CASE_ID = #{conditionModel.caseId,jdbcType=INTEGER}
+		and CASE_TYPE = #{conditionModel.caseType,jdbcType=TINYINT}
+		and TASK_TYPE IN
+		<foreach close=")" collection="trackTypes" item="val" open="(" separator=",">#{val}</foreach>
+		and TASK_STATUS = #{conditionModel.taskStatus}
+	</update>
+
+	<!-- buniess -->
+	<select id="getId" resultType="java.lang.Integer">
+		select max(TASK_ID) from FUN_TASK
+	</select>
+
+	<select id="getNewExaminTask" resultMap="exResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_TASK
+		<where>
+			<if test="null != param.pubColCreatorUid and '' != param.pubColCreatorUid">
+				AND CREATOR_UID = #{param.pubColCreatorUid}
+			</if>
+			<if test="null != param.pubColTaskOwner and '' != param.pubColTaskOwner">
+				AND TASK_OWNER = #{param.pubColTaskOwner}
+			</if>
+			<if test="null != param.pubSqlCreatorUidInDeptId">
+				AND CREATOR_UID IN (select user_id from fun_users where dept_id =
+				#{param.pubSqlCreatorUidInDeptId})
+			</if>
+			<if test="null != param.pubSqlCreatorUidInDepts">
+				AND CREATOR_UID IN (SELECT USER_ID FROM FUN_USERS WHERE DEPT_ID IN
+				<foreach close=")" collection="param.pubSqlCreatorUidInDepts" item="dept" open="(" separator=",">
+					#{dept}
+				</foreach>
+				)
+			</if>
+			<if test="null != param.pubSqlCreatorUidInGrId">
+				AND CREATOR_UID IN (SELECT USER_ID FROM FUN_USERS WHERE GR_ID = #{param.pubSqlCreatorUidInGrId})
+			</if>
+			<if test="null != param.pubColDeptId">
+				AND DEPT_ID = #{param.pubColDeptId}
+			</if>
+			<if test="null != param.pubSqlTaskOwnerInDeptId">
+				AND TASK_OWNER IN (select user_id from fun_users where dept_id = #{param.pubSqlTaskOwnerInDeptId})
+			</if>
+			<if test="null != param.pubSqlDeptIdInDepts">
+				AND DEPT_ID IN
+				<foreach close=")" collection="param.pubSqlDeptIdInDepts" item="dept" open="(" separator=",">
+					#{dept}
+				</foreach>
+			</if>
+			<if test="null != param.pubSqlTaskOwnerInDepts">
+				AND TASK_OWNER IN (select user_id from fun_users where dept_id in
+				<foreach close=")" collection="param.pubSqlTaskOwnerInDepts" item="dept" open="(" separator=",">
+					#{dept}
+				</foreach>
+				)
+			</if>
+			<if test="null != param.pubSqlTaskOwnerInGrId">
+				AND TASK_OWNER IN (select user_id from fun_users where gr_id =
+				#{param.pubSqlTaskOwnerInGrId})
+			</if>
+			<if test="null != param.pubSqlCaseTypeInArr">
+				AND CASE_TYPE IN
+				<foreach close=")" collection="param.pubSqlCaseTypeInArr" item="caseType" open="(" separator=",">
+					#{caseType}
+				</foreach>
+			</if>
+			<if test="null != param.pubColCaseType and '' != param.pubColCaseType">
+				AND CASE_TYPE = #{param.pubColCaseType}
+			</if>
+
+			<if test="null != param.colCreationTime1 and '' != param.colCreationTime1">
+				AND CREATION_TIME &gt;= #{param.colCreationTime1}
+			</if>
+			<if test="null != param.colCreationTime2 and '' != param.colCreationTime2">
+				AND CREATION_TIME &lt;= #{param.colCreationTime2}
+			</if>
+			<if test="null != param.colTaskStatus and '' != param.colTaskStatus">
+				AND TASK_STATUS = #{param.colTaskStatus}
+			</if>
+			<if test="null != param.colCaseNo and '' != param.colCaseNo">
+				AND CASE_NO = #{param.colCaseNo}
+			</if>
+			<if test="null != param.sqlTrackTypeInKey">
+				AND TRACK_TYPE IN
+				<foreach close=")" collection="param.sqlTrackTypeInKey" item="trackType" open="(" separator=",">
+					#{trackType}
+				</foreach>
+			</if>
+			<if test="null != param.colTrackType1">
+				AND TRACK_TYPE &gt;= #{param.colTrackType1}
+			</if>
+			<if test="null != param.colTrackType2">
+				AND TRACK_TYPE &lt;= #{param.colTrackType2}
+			</if>
+			<if test="null != param.colTrackType3">
+				AND TRACK_TYPE IN
+				<foreach close=")" collection="param.colTrackType3" item="trackType" open="(" separator=",">
+					#{trackType}
+				</foreach>
+			</if>
+			<if test="null != param.colTrackType4 and '' != param.colTrackType4">
+				AND TASK_TYPE = #{param.colTrackType4}
+			</if>
+			<if test="null != param.colTrackType5">
+				AND TRACK_TYPE = #{param.colTrackType5}
+			</if>
+			<if test="null != param.colTrackType6 ">
+				AND TRACK_TYPE = #{param.colTrackType6}
+			</if>
+			<if test="null != param.colTrackType7 ">
+				AND TRACK_TYPE = #{param.colTrackType7}
+			</if>
+			<if test="null != param.colTrackType8 and '' != param.colTrackType8">
+				AND TRACK_TYPE = #{param.colTrackType8}
+			</if>
+			<if test="null != param.colTypeFlag and '' != param.colTypeFlag">
+				AND TYPE_FLAG = #{param.colTypeFlag}
+			</if>
+			<if test="null != param.colCompId">
+				AND COMP_ID = #{param.colCompId}
+			</if>
+			<if test="null != param.colCreatorUid">
+				AND CREATOR_UID = #{param.colCreatorUid}
+			</if>
+		</where>
+		order by CREATION_TIME DESC
+	</select>
+
+	<select id="getNotReadUserCount" resultType="java.util.Map">
+		SELECT A.TASK_ID AS taskId, COUNT(1) AS counts
+		FROM FUN_TASK A
+		JOIN FUN_TASK_TIMED B ON A.TASK_ID = B.TASK_ID
+		WHERE A.TASK_ID IN
+		<foreach close=")" collection="taskIdSet" item="taskId" open="(" separator=",">
+			#{taskId}
+		</foreach>
+		AND B.READ_FLAG = 0
+		GROUP BY A.TASK_ID
+	</select>
+
+	<select id="getWarmTaskList" resultMap="exResultMap">
+      SELECT
+      A.TASK_ID, A.COMP_ID, A.DEPT_ID, A.CASE_TYPE, A.CASE_ID, A.TRACK_ID, A.TRACK_TYPE, A.USEAGE, A.KEY_ID,
+      A.TASK_OWNER, A.TASK_SUBJECT, A.TASK_DESC, A.TRACK_WARM, A.TASK_TYPE, A.TYPE_FLAG, A.WARM_TIME,
+      <if test="param.needUseFunUser == 1 or param.organizationType == 1">
+        C.ORGANIZATION_ID,
+      </if>
+      <choose>
+        <when test="param.remindType == 1">B.READ_FLAG IS_READ,</when>
+        <otherwise>A.IS_READ,</otherwise>
+      </choose>
+      A.TASK_STATUS, A.TASK_SOLUTE, A.TASK_RESULT, A.CREATOR_UID, A.CREATION_TIME, A.CC_ID,
+      A.CASE_NO, A.UPDATE_UID, A.UPDATE_TIME, A.TAG, A.INDEX_SHOW, A.AUTO_ADUIT, A.EXAMINE_SOURCE, A.TASK_SOURCE,
+      A.IS_SEND, A.WARM_USERS, A.CREATOR_ORG_NAME, A.CREATOR_USER_NAME
+      FROM FUN_TASK A
+      <if test="param.needUseFunUser == 1 or param.organizationType == 1">
+        <!-- 有可能是系统，必须LEFT JOIN -->
+        LEFT JOIN FUN_USERS C ON A.COMP_ID=C.COMP_ID AND C.USER_ID = A.CREATOR_UID
+      </if>
+      <!-- 提醒我的才JOIN FUN_USERS和FUN_TASK_TIMED -->
+      <!-- 提醒我的 -->
+      <if test="param.remindType == 1">
+        JOIN FUN_TASK_TIMED B ON A.COMP_ID=B.COMP_ID AND A.TASK_ID = B.TASK_ID AND B.USER_ID=#{param.curUserId}
+        <if test="param.isRead != null">
+          AND B.READ_FLAG = #{param.isRead}
+        </if>
+      </if>
+      WHERE A.COMP_ID = #{param.curCompId}
+      <!-- 我发起的 -->
+      <if test="param.remindType == 2">
+        AND A.CREATOR_UID = #{param.curUserId}
+      </if>
+      <if test="param.remindType == 2 or param.remindType == 3">
+        <choose>
+          <when test="param.isRead == null or param.isRead == ''" />
+          <when test="param.isRead == 0">AND A.TASK_STATUS &lt;= 2 </when>
+          <when test="param.isRead == 1">AND A.TASK_STATUS &gt;= 3</when>
+        </choose>
+      </if>
+      <!-- 提醒我的、所有提醒-查询发起人所在门店等 -->
+      <if test="param.needUseFunUser == 1 or param.organizationType == 1">
+        <if test="null != param.userId and '' != param.userId">
+          AND C.USER_ID = #{param.userId}
+        </if>
+        <if test="null != param.grId and '' != param.grId">
+          AND C.GR_ID = #{param.grId}
+        </if>
+        <if test="null != param.deptId and '' != param.deptId">
+          AND C.DEPT_ID = #{param.deptId}
+        </if>
+        <if test="null != param.regId and '' != param.regId">
+          AND C.REG_ID = #{param.regId}
+        </if>
+        <if test="null != param.areaId and '' != param.areaId">
+          AND C.AREA_ID = #{param.areaId}
+        </if>
+        <if test="null != param.organizationId and param.organizationId != '' ">
+          AND C.TISSUE_LINE LIKE '%:${param.organizationId}:%'
+        </if>
+      </if>
+      <if test="null != param.startTime and '' != param.startTime">
+        AND A.WARM_TIME &gt;= #{param.startTime}
+      </if>
+      <if test="null != param.endTime and '' != param.endTime">
+        AND A.WARM_TIME &lt;= #{param.endTime}
+      </if>
+      <if test="null != param.caseNo and '' != param.caseNo">
+        AND A.CASE_NO = #{param.caseNo}
+      </if>
+      <if test="null != param.keyword and '' != param.keyword">
+        AND A.TASK_SUBJECT like #{param.keyword}
+      </if>
+      <if test="null != param.taskTypeNotIn">
+        AND A.TASK_TYPE NOT IN
+        <foreach close=")" collection="param.taskTypeNotIn" item="taskType" open="(" separator=",">
+          #{taskType}
+        </foreach>
+      </if>
+      <if test="null != param.caseTypes">
+        AND A.CASE_TYPE IN
+        <foreach close=")" collection="param.caseTypes" item="caseType" open="(" separator=",">
+          #{caseType}
+        </foreach>
+      </if>
+      <if test="null != param.caseTypeNotIn">
+        AND A.CASE_TYPE NOT IN
+        <foreach close=")" collection="param.caseTypeNotIn" item="caseType" open="(" separator=",">
+          #{caseType}
+        </foreach>
+      </if>
+      <if test="null != param.taskType and '' != param.taskType">
+        AND A.TASK_TYPE = #{param.taskType}
+      </if>
+      <if test="null != param.indexShow and '' != param.indexShow">
+        AND A.INDEX_SHOW = #{param.indexShow}
+      </if>
+      <if test="null != param.typeFlag">
+        AND A.TYPE_FLAG = #{param.typeFlag}
+      </if>
+      <if test="null != param.trackWarm">
+        AND A.TRACK_WARM = #{param.trackWarm}
+      </if>
+      ORDER BY A.WARM_TIME DESC
+    </select>
+
+	<select id="selectDtoByPrimaryKey" resultMap="exResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_TASK
+		where TASK_ID = #{taskId}
+	</select>
+
+	<update id="updateFunTaskByTrackIds">
+		UPDATE FUN_TASK
+		SET TASK_STATUS=#{taskStatus},
+		TASK_SOLUTE=#{content}
+		WHERE COMP_ID = #{compId}
+		AND TYPE_FLAG = #{typeFlag} AND TASK_STATUS = 1
+		AND TASK_TYPE IN
+		<foreach close=")" collection="taskTypes" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+		AND TRACK_ID IN
+		<foreach close=")" collection="trackIds" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</update>
+
+	<update id="updateStatusToCancelByPhone">
+		UPDATE FUN_TASK 
+		SET TASK_STATUS=#{nweTaskStatus},TASK_SOLUTE=#{content} 
+		WHERE TYPE_FLAG = #{typeFlag} AND TASK_STATUS = #{taskStatus} 
+		AND CASE_TYPE = #{caseType} AND COMP_ID = #{compId}
+		AND CASE_ID IN
+		<foreach close=")" collection="caseIds" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+		AND TASK_TYPE IN
+		<foreach close=")" collection="taskType" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</update>
+	
+	<update id="updateErpFunTask">
+		UPDATE FUN_TASK 
+		SET TASK_STATUS=#{updateTypeStatus},TASK_SOLUTE=#{content} 
+		WHERE  COMP_ID = #{compId} and TYPE_FLAG = #{typeFlag} and TASK_STATUS = #{typeStatus} 
+		and TASK_TYPE IN
+		<foreach close=")" collection="taskType" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+		AND TRACK_ID IN
+		<foreach close=")" collection="idArr" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</update>
+	
+	<update id="updateKeyTaskByKeyId">
+		update FUN_TASK SET KEY_ID = null
+		where COMP_ID = #{compId}
+		AND KEY_ID IN
+		<foreach close=")" collection="keyIds" item="keyId" open="(" separator=",">
+			#{keyId}
+		</foreach>
+	</update>
+	
+	<update id="updateKeyTaskToClose">
+		update FUN_TASK SET TASK_STATUS = 4,TASK_SOLUTE=#{taskSolute}
+		where COMP_ID = #{compId}
+		AND CASE_TYPE = #{caseType} AND CASE_ID = #{caseId}
+		AND TASK_STATUS != 3 AND TRACK_TYPE IN (5, 105, 106)
+	</update>
+	
+	<select id="getErpFunTaskList" resultMap="BaseResultMap">
+		SELECT TASK_ID,IS_READ,TASK_SUBJECT,TASK_TYPE,TRACK_ID,TASK_STATUS,CASE_ID,CASE_NO,CASE_TYPE,WARM_TIME,TASK_OWNER,CREATOR_UID,CREATION_TIME	
+		FROM FUN_TASK 
+		WHERE  COMP_ID = #{compId} AND TYPE_FLAG = '0' AND WARM_TIME &gt;= #{param.startTime} AND WARM_TIME &lt;= #{param.endTime} 
+		<if test=" param.isRed  = 1 ">
+			AND TASK_STATUS IN (3 ,4)
+		</if>
+		<if test=" param.isRed  = 0 ">
+			AND TASK_STATUS IN (1 ,2 )
+		</if> 
+		<if test="null != param.taskOwner and param.isPerLogin ==0">  
+		AND TASK_OWNER = #{param.taskOwner}
+		</if>
+		<if test="param.isPerLogin ==0 and param.caseTypeList !=null">
+			and CASE_TYPE in
+			<foreach close=")" collection="param.caseTypeList" item="caseTypeList" open="(" separator=","> 
+					 #{caseTypeList}
+			</foreach>
+			and TASK_OWNER = #{param.getuserId} and CASE_TYPE not in (101,102) and CASE_TYPE <![CDATA[ <> ]]> 9
+		</if>
+		<if test="param.isPerLogin ==0 and param.caseTypeList == null">
+			and CASE_TYPE =#{param.caseType}
+			and TASK_OWNER = #{param.getuserId} and CASE_TYPE not in (101,102) and CASE_TYPE <![CDATA[ <> ]]> 9
+		</if>
+		<if test="null != param.taskOwner and param.isPerLogin ==0">
+		 AND TASK_OWNER = #{param.taskOwner}
+		</if>
+		<if test="param.isPerLogin ==1">
+		 AND TASK_OWNER = #{param.taskOwner}
+		</if>
+		ORDER BY WARM_TIME DESC,CREATION_TIME DESC 
+	</select> 
+	
+	<select id="getErpFunTaskById" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		from FUN_TASK
+		WHERE TASK_ID = #{taskId} AND COMP_ID = #{compId}
+	</select>
+
+	<select id="getBulletinWarmTask" resultMap="BaseResultMap">
+		SELECT TOP 10 A.TASK_ID,A.TASK_SUBJECT,A.WARM_TIME,A.TASK_TYPE FROM FUN_TASK A
+		JOIN FUN_TASK_TIMED B ON A.TASK_ID = B.TASK_ID AND B.USER_ID = #{userId} AND B.READ_FLAG = 0
+		WHERE A.COMP_ID = #{compId} AND A.WARM_TIME &gt;= #{startTime} AND A.WARM_TIME &lt;= #{endTime} AND INDEX_SHOW=1
+		ORDER BY WARM_TIME DESC
+	</select>
+
+	<select id="">
+		SELECT 
+		TRACK_WARM TITLE,A.TASK_ID BOUND,A.TRACK_ID BOUND,A.TASK_SUBJECT CONTENT,'系统' SENDUSER,SUBSTRING(CONVERT(VARCHAR(20), A.CREATION_TIME,121), 6, 5) SENDTIME
+		FROM
+		FUN_TASK A JOIN FUN_TASK_TIMED B ON A.TASK_ID = B.TASK_ID AND B.READ_FLAG = 0 AND B.USER_ID=#{userId}
+		WHERE A.TYPE_FLAG = 0 AND A.TRACK_WARM = 1 AND A.WARM_TIME &gt;= #{startTime} AND A.WARM_TIME &lt;= #{endTime} A.COMP_ID = #{compId}
+	</select>
+	
+	<update id="updateTaskStatus">
+		update FUN_TASK set TASK_STATUS = 3,IS_READ = 1
+		where COMP_ID = #{param.compId} and TYPE_FLAG = 0
+		<if test="param.operType == 'BAT_TASK'">
+			 and TASK_ID in
+			<foreach close=")" collection="param.taskIds" item="taskId" open="(" separator=",">
+				#{taskId}
+			</foreach>
+		</if>
+		<if test="param.operType == 'BAT_USER_TASK'">
+			and TASK_OWNER = #{param.userId}
+			and WARM_TIME &lt;= #{param.warmTime}
+		</if>
+	</update>
+	
+	<update id="updateTaskReadFlag">
+		UPDATE FUN_TASK SET IS_READ = 1,TASK_STATUS =3
+		where TASK_ID IN (SELECT A.TASK_ID from ( SELECT TASK_ID,SUM(iif(READ_FLAG=0,1,0)) AS NOT_READ_COUNT from FUN_TASK_TIMED
+		where COMP_ID = #{param.compId}
+		<if test="param.operType == 'BAT_TASK'">
+			and TASK_ID in
+			<foreach close=")" collection="param.taskIds" item="taskId" open="(" separator=",">
+				#{taskId}
+			</foreach>
+		</if>
+		<if test="param.operType == 'BAT_USER_TASK'">
+			and TASK_ID in (select TASK_ID from FUN_TASK_TIMED where
+			USER_ID = #{param.userId}
+			<if test="param.operType == 'BAT_TASK'">
+				and TASK_ID in
+				<foreach close=")" collection="param.taskIds" item="taskId" open="(" separator=",">
+					#{taskId}
+				</foreach>
+			</if>
+			<if test="param.operType == 'BAT_USER_TASK'">
+				and TASK_TIME &lt;= #{param.warmTime}
+			</if>
+			)
+		</if>
+		group by TASK_ID having SUM(iif(READ_FLAG=0,1,0))=0 ) A)
+	</update>
+	
+	<select id="getWarmTaskCount" resultType="java.lang.Integer">
+		SELECT COUNT(1) FROM FUN_TASK A JOIN FUN_TASK_TIMED B ON A.TASK_ID = B.TASK_ID AND B.USER_ID = #{userId} AND B.READ_FLAG = 0
+		WHERE A.COMP_ID = #{compId} AND A.WARM_TIME &gt;= #{time1} AND A.WARM_TIME &lt;= #{time2}
+	</select>
+ 
+ 
+</mapper>

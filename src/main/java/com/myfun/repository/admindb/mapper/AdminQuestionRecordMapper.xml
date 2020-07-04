@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminQuestionRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminQuestionRecord" >
+    <!--@mbggenerated-->
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="QUESTION_LEVEL" property="questionLevel" jdbcType="INTEGER" />
+    <result column="SCORE" property="score" jdbcType="INTEGER" />
+    <result column="IS_SHARE" property="isShare" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminQuestionRecord" >
+    <!--@mbggenerated-->
+    insert into QUESTION_RECORD (ARCHIVE_ID, QUESTION_LEVEL, SCORE, 
+      IS_SHARE, CREATE_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{questionLevel,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
+      #{isShare,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminQuestionRecord" >
+    <!--@mbggenerated-->
+    insert into QUESTION_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="questionLevel != null" >
+        QUESTION_LEVEL,
+      </if>
+      <if test="score != null" >
+        SCORE,
+      </if>
+      <if test="isShare != null" >
+        IS_SHARE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="questionLevel != null" >
+        #{questionLevel,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="isShare != null" >
+        #{isShare,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

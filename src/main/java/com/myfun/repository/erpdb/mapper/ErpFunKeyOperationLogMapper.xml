@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunKeyOperationLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunKeyOperationLog">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="KEY_ID" jdbcType="INTEGER" property="keyId" />
+    <result column="KEY_NUM" jdbcType="VARCHAR" property="keyNum" />
+    <result column="OPERATION_USER" jdbcType="INTEGER" property="operationUser" />
+    <result column="CONFIRM_USER" jdbcType="INTEGER" property="confirmUser" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="OPERATION_DESC" jdbcType="VARCHAR" property="operationDesc" />
+    <result column="KEY_STATUS" jdbcType="TINYINT" property="keyStatus" />
+    <result column="CASE_NO" jdbcType="VARCHAR" property="caseNo" />
+    <result column="BORROW_TYPE" jdbcType="INTEGER" property="borrowType" />
+    <result column="BORROW_USER" jdbcType="VARCHAR" property="borrowUser" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, DEPT_ID, KEY_ID, KEY_NUM, OPERATION_USER, CONFIRM_USER, CREATION_TIME, 
+    OPERATION_DESC, KEY_STATUS, CASE_NO, BORROW_TYPE, BORROW_USER
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyOperationLogExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_KEY_OPERATION_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_KEY_OPERATION_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_KEY_OPERATION_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyOperationLogExample">
+    <!--@mbggenerated-->
+    delete from FUN_KEY_OPERATION_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyOperationLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_KEY_OPERATION_LOG (COMP_ID, DEPT_ID, KEY_ID, 
+      KEY_NUM, OPERATION_USER, CONFIRM_USER, 
+      CREATION_TIME, OPERATION_DESC, KEY_STATUS, 
+      CASE_NO, BORROW_TYPE, BORROW_USER
+      )
+    values (#{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{keyId,jdbcType=INTEGER}, 
+      #{keyNum,jdbcType=VARCHAR}, #{operationUser,jdbcType=INTEGER}, #{confirmUser,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{operationDesc,jdbcType=VARCHAR}, #{keyStatus,jdbcType=TINYINT}, 
+      #{caseNo,jdbcType=VARCHAR}, #{borrowType,jdbcType=INTEGER}, #{borrowUser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyOperationLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_KEY_OPERATION_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="keyId != null">
+        KEY_ID,
+      </if>
+      <if test="keyNum != null">
+        KEY_NUM,
+      </if>
+      <if test="operationUser != null">
+        OPERATION_USER,
+      </if>
+      <if test="confirmUser != null">
+        CONFIRM_USER,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="operationDesc != null">
+        OPERATION_DESC,
+      </if>
+      <if test="keyStatus != null">
+        KEY_STATUS,
+      </if>
+      <if test="caseNo != null">
+        CASE_NO,
+      </if>
+      <if test="borrowType != null">
+        BORROW_TYPE,
+      </if>
+      <if test="borrowUser != null">
+        BORROW_USER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="keyId != null">
+        #{keyId,jdbcType=INTEGER},
+      </if>
+      <if test="keyNum != null">
+        #{keyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUser != null">
+        #{operationUser,jdbcType=INTEGER},
+      </if>
+      <if test="confirmUser != null">
+        #{confirmUser,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operationDesc != null">
+        #{operationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="keyStatus != null">
+        #{keyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="caseNo != null">
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowType != null">
+        #{borrowType,jdbcType=INTEGER},
+      </if>
+      <if test="borrowUser != null">
+        #{borrowUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyOperationLogExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_KEY_OPERATION_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_KEY_OPERATION_LOG
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.keyId != null">
+        KEY_ID = #{record.keyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.keyNum != null">
+        KEY_NUM = #{record.keyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationUser != null">
+        OPERATION_USER = #{record.operationUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.confirmUser != null">
+        CONFIRM_USER = #{record.confirmUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operationDesc != null">
+        OPERATION_DESC = #{record.operationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keyStatus != null">
+        KEY_STATUS = #{record.keyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.caseNo != null">
+        CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.borrowType != null">
+        BORROW_TYPE = #{record.borrowType,jdbcType=INTEGER},
+      </if>
+      <if test="record.borrowUser != null">
+        BORROW_USER = #{record.borrowUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_KEY_OPERATION_LOG
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      KEY_ID = #{record.keyId,jdbcType=INTEGER},
+      KEY_NUM = #{record.keyNum,jdbcType=VARCHAR},
+      OPERATION_USER = #{record.operationUser,jdbcType=INTEGER},
+      CONFIRM_USER = #{record.confirmUser,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      OPERATION_DESC = #{record.operationDesc,jdbcType=VARCHAR},
+      KEY_STATUS = #{record.keyStatus,jdbcType=TINYINT},
+      CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      BORROW_TYPE = #{record.borrowType,jdbcType=INTEGER},
+      BORROW_USER = #{record.borrowUser,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyOperationLog">
+    <!--@mbggenerated-->
+    update FUN_KEY_OPERATION_LOG
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="keyId != null">
+        KEY_ID = #{keyId,jdbcType=INTEGER},
+      </if>
+      <if test="keyNum != null">
+        KEY_NUM = #{keyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUser != null">
+        OPERATION_USER = #{operationUser,jdbcType=INTEGER},
+      </if>
+      <if test="confirmUser != null">
+        CONFIRM_USER = #{confirmUser,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operationDesc != null">
+        OPERATION_DESC = #{operationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="keyStatus != null">
+        KEY_STATUS = #{keyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="caseNo != null">
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowType != null">
+        BORROW_TYPE = #{borrowType,jdbcType=INTEGER},
+      </if>
+      <if test="borrowUser != null">
+        BORROW_USER = #{borrowUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyOperationLog">
+    <!--@mbggenerated-->
+    update FUN_KEY_OPERATION_LOG
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      KEY_ID = #{keyId,jdbcType=INTEGER},
+      KEY_NUM = #{keyNum,jdbcType=VARCHAR},
+      OPERATION_USER = #{operationUser,jdbcType=INTEGER},
+      CONFIRM_USER = #{confirmUser,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      OPERATION_DESC = #{operationDesc,jdbcType=VARCHAR},
+      KEY_STATUS = #{keyStatus,jdbcType=TINYINT},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      BORROW_TYPE = #{borrowType,jdbcType=INTEGER},
+      BORROW_USER = #{borrowUser,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="BaseResultMapDto" type="com.myfun.erpWeb.usercenter.vo.ErpFunKeyOperationLogDto">
+  <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+  <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+  </resultMap>
+
+	<delete id="deleteFunKeyOperationLogByKeyIds">
+		update FUN_KEY_OPERATION_LOG set KEY_STATUS = 3
+		where KEY_ID IN
+		<foreach close=")" collection="keyIds" item="keyId" open="(" separator=",">
+			#{keyId}
+		</foreach>
+		and COMP_ID = #{compId}
+	</delete>
+	
+	<select id="getFunKeyOperationLogList" resultMap="BaseResultMapDto">
+        select * from (
+        SELECT A.*, B.CASE_TYPE, B.CASE_ID
+        FROM FUN_KEY_OPERATION_LOG A
+        JOIN FUN_KEY B ON A.KEY_ID = B.KEY_ID
+        JOIN FUN_USERS C ON C.USER_ID = B.USER_ID
+        JOIN FUN_SALE l ON B.CASE_ID = l.SALE_ID
+        <where>
+			<if test="1==1">
+				AND A.COMP_ID = #{paramMap.compId} AND B.CASE_TYPE = 1
+			</if>
+            <if test="null != paramMap.partnerId and '' != paramMap.partnerId">
+              and l.PARTNER_ID = #{paramMap.partnerId}
+            </if>
+            <if test="paramMap.newOrganizationType == 1 and '' != paramMap.organizationId and null != paramMap.organizationId and 0 != paramMap.organizationId">
+              AND l.TISSUE_LINE LIKE CONCAT('%:', #{paramMap.organizationId}, ':%')
+            </if>
+			<if test="null != paramMap.sCaseType and '' != paramMap.sCaseType">
+				AND B.CASE_TYPE = #{paramMap.sCaseType}
+			</if>
+			<if test="null != paramMap.keyStatus and '' != paramMap.keyStatus">
+				AND A.KEY_STATUS = #{paramMap.keyStatus}
+			</if>
+			<if test="null != paramMap.deptId and '' != paramMap.deptId">
+				AND A.DEPT_ID = #{paramMap.deptId}
+			</if>
+			<if test="null != paramMap.cUserId and '' != paramMap.cUserId">
+				AND C.USER_ID = #{paramMap.cUserId}
+			</if>
+			<if test="null != paramMap.grId and '' != paramMap.grId">
+				AND C.GR_ID = #{paramMap.grId}
+			</if>
+			<if test="null != paramMap.houseNo and '' != paramMap.houseNo">
+				AND A.CASE_NO = #{paramMap.houseNo}
+			</if>
+			<if test="null != paramMap.sDate1 and '' != paramMap.sDate1 and null != paramMap.sDate2 and '' != paramMap.sDate2">
+				AND CONVERT (VARCHAR(10), A.CREATION_TIME, 120 ) BETWEEN #{paramMap.sDate1} AND #{paramMap.sDate2}
+			</if>
+        </where>
+
+        union all
+        SELECT A.*, B.CASE_TYPE, B.CASE_ID
+        FROM FUN_KEY_OPERATION_LOG A
+        JOIN FUN_KEY B ON A.KEY_ID = B.KEY_ID
+        JOIN FUN_USERS C ON C.USER_ID = B.USER_ID
+        JOIN FUN_LEASE l ON B.CASE_ID = l.LEASE_ID
+        <where>
+        <if test="1==1">
+            AND A.COMP_ID = #{paramMap.compId} AND B.CASE_TYPE = 2
+        </if>
+        <if test="null != paramMap.partnerId and '' != paramMap.partnerId">
+            and l.PARTNER_ID = #{paramMap.partnerId}
+        </if>
+        <if test="paramMap.newOrganizationType == 1 and '' != paramMap.organizationId and null != paramMap.organizationId and 0 != paramMap.organizationId">
+          AND l.TISSUE_LINE LIKE CONCAT('%:', #{paramMap.organizationId}, ':%')
+        </if>
+        <if test="null != paramMap.sCaseType and '' != paramMap.sCaseType">
+            AND B.CASE_TYPE = #{paramMap.sCaseType}
+        </if>
+        <if test="null != paramMap.keyStatus and '' != paramMap.keyStatus">
+            AND A.KEY_STATUS = #{paramMap.keyStatus}
+        </if>
+        <if test="null != paramMap.deptId and '' != paramMap.deptId">
+            AND A.DEPT_ID = #{paramMap.deptId}
+        </if>
+        <if test="null != paramMap.cUserId and '' != paramMap.cUserId">
+            AND C.USER_ID = #{paramMap.cUserId}
+        </if>
+        <if test="null != paramMap.grId and '' != paramMap.grId">
+            AND C.GR_ID = #{paramMap.grId}
+        </if>
+        <if test="null != paramMap.houseNo and '' != paramMap.houseNo">
+            AND A.CASE_NO = #{paramMap.houseNo}
+        </if>
+        <if test="null != paramMap.sDate1 and '' != paramMap.sDate1 and null != paramMap.sDate2 and '' != paramMap.sDate2">
+            AND CONVERT (VARCHAR(10), A.CREATION_TIME, 120 ) BETWEEN #{paramMap.sDate1} AND #{paramMap.sDate2}
+        </if>
+        </where>
+        ) a
+		ORDER BY A.CREATION_TIME DESC
+	</select>
+	
+	<select id="getFunKeyOperationLogRecordList" resultMap="BaseResultMapDto">
+		SELECT A.*, B.CASE_TYPE, B.CASE_ID
+		FROM FUN_KEY_OPERATION_LOG A JOIN FUN_KEY B ON A.KEY_ID = B.KEY_ID 
+		WHERE A.COMP_ID = #{compId} AND A.KEY_ID = #{keyId}
+		ORDER BY CREATION_TIME DESC
+	</select>
+	
+	<select id="getFunKeyOperationLogByKeyId" resultMap="BaseResultMap">
+		SELECT TOP 1
+		<include refid="Base_Column_List" />
+		FROM
+		FUN_KEY_OPERATION_LOG
+		WHERE KEY_ID = #{keyId} and KEY_STATUS = 1
+		ORDER BY ID DESC
+	</select>
+	
+	<select id="getListByKeyIds" resultMap="BaseResultMap">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM FUN_KEY_OPERATION_LOG WHERE KEY_ID IN (
+		SELECT MAX(KEY_ID) AS KEY_ID
+		FROM
+		FUN_KEY_OPERATION_LOG
+		WHERE COMP_ID = #{compId} AND KEY_ID IN
+		<foreach close=")" collection="keyIds" index="index" item="keyId" open="(" separator=",">
+			#{keyId}
+		</foreach>
+		AND KEY_STATUS = 1 GROUP BY KEY_ID
+		)
+	</select>
+</mapper>

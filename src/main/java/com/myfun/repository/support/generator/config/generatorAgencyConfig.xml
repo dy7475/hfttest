@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 驱动路径 -->
+	<classPathEntry location="D:\mavenRepository\net\sourceforge\jtds\jtds\1.2.2\jtds-1.2.2.jar" />
+<!-- 	<classPathEntry location="D:/mavenRepository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar" /> -->
+	<context id="context1" targetRuntime="MyBatis3" defaultModelType="flat">
+		<property name="autoDelimitKeywords" value="true"/>
+		<property name="beginningDelimiter" value="["/>
+		<property name="endingDelimiter" value="]"/>
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="com.myfun.repository.support.generator.BaseMapperGeneratorPlugin"/>
+		<plugin type="com.myfun.repository.support.generator.FiledPropertyGeneratorPlugin">
+			<property name="filedPropertyClass" value="io.swagger.annotations.ApiModelProperty" />
+		</plugin>
+		<commentGenerator type="com.myfun.repository.support.generator.CustCommentGenerator">
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="false" />
+			<property name="suppressDate" value="true" />
+			<property name="driverClass" value="net.sourceforge.jtds.jdbc.Driver"/>
+			<property name="connectionURL" value="jdbc:jtds:sqlserver://172.16.140.249:33434;appName=openService;DatabaseName=hft_agencydb"/>
+			<property name="userId" value="user_fafa"/>
+			<property name="password" value="user_fafa123456"/>
+			<property name="classPathEntry" value="D:/mavenRepository/net/sourceforge/jtds/jtds/1.2.2/jtds-1.2.2.jar"/>
+			<!-- <property name="classPathEntry" value="G:/Repository/net/sourceforge/jtds/jtds/1.3.1/jtds-1.3.1.jar"/> -->
+<!-- 		<property name="classPathEntry" value="D:/mavenRepository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/> -->
+		</commentGenerator>
+		<jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
+			connectionURL="jdbc:jtds:sqlserver://172.16.140.249:33434;appName=openService;DatabaseName=hft_agencydb"
+			userId="user_fafa" password="user_fafa123456">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.myfun.repository.agencydb.po"
+			targetProject="erpWeb">
+			<property name="trimStrings" value="true" />
+			<property name="defaultModelType" value="flat" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.myfun.repository.agencydb.mapper"
+			targetProject="erpWeb">
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.myfun.repository.agencydb.dao" targetProject="erpWeb">
+		</javaClientGenerator>
+		<!-- <table tableName="FUN_CUST_MEMO" domainObjectName="AgencyFunCustMemo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_COMP_AGENCY" domainObjectName="AgencyFunCompAgency"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_PROVINCE" domainObjectName="AgencyFunProvince"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TMP_FINALC_COMP" domainObjectName="AgencyTmpFinalcComp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILDING_INFO2" domainObjectName="AgencyBuildingInfo2"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_REWARD_LOG" domainObjectName="AgencyFunRewardLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="LOG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_COLLECT" domainObjectName="AgencyWfCollect"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_FLOW_COUNT" domainObjectName="AgencyWfFlowCount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="LOG_400_ERR" domainObjectName="AgencyLog400Err"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="LOG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_ASSESSMENT" domainObjectName="AgencyRfAssessment"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SALE_CTRL" domainObjectName="AgencyFunSaleCtrl"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WEB_CLIENT_ERR_15" domainObjectName="AgencyWebClientErr15"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PROJECT_TRACK" domainObjectName="AgencyProjectTrack"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_REALHOUSE_DEPOSIT_ORDERS" domainObjectName="AgencyWfRealhouseDepositOrders"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ORDER_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_FLOWMAPPERSON" domainObjectName="AgencyRfFlowmapperson"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_PROC_RELA" domainObjectName="AgencyRfProcRela"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHARE_AGENCY" domainObjectName="AgencyShareAgency"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="SHARE_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="AGENCY_LOGIN" domainObjectName="AgencyAgencyLogin"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SPREAD_DEPT" domainObjectName="AgencySpreadDept"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_BROKERAGE" domainObjectName="AgencyWfBrokerage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="BROKERAGE_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="COOPERATION_RULE" domainObjectName="AgencyCooperationRule"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_SN" domainObjectName="AgencyWfSn"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="SN_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="TRACE_XE_ACTION_MAP" domainObjectName="AgencyTraceXeActionMap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_AGENCY_ACCOUNT" domainObjectName="AgencyFunAgencyAccount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="UA_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_REFUSE_DEAL" domainObjectName="AgencyWfRefuseDeal"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="BORKER_COMPLAINT" domainObjectName="AgencyBorkerComplaint"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_USER" domainObjectName="AgencyWfUser"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WX_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_ROLE" domainObjectName="AgencyFunRole"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_BUSINESS_VISIT_FLAGS" domainObjectName="AgencyWfBusinessVisitFlags"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="VISIT_FLAG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_REDPACKAGES" domainObjectName="AgencyWfRedpackages"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="REDPACKAGE_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="REMIT_ACCOUNT_LOG" domainObjectName="AgencyRemitAccountLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_CITY" domainObjectName="AgencyFunCity"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_FILTER" domainObjectName="AgencyWfFilter"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_DEPTS_DISTRI" domainObjectName="AgencyFunDeptsDistri"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SYS_PARA" domainObjectName="AgencySysPara"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="ST_REGIOIN" domainObjectName="AgencyStRegioin"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="CALL_400_NUM" domainObjectName="AgencyCall400Num"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="CALL_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="SPREAD_ERP" domainObjectName="AgencySpreadErp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_HISTORY" domainObjectName="AgencyWfHistory"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_SERVICE_SETTING" domainObjectName="AgencyWfServiceSetting"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SPREAD_PHOTO" domainObjectName="AgencySpreadPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_WEIXIN_SETTING" domainObjectName="AgencyWfWeixinSetting"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="VOIP_AMOUNT_LOG" domainObjectName="AgencyVoipAmountLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="MY_BUILDING_INFO" domainObjectName="AgencyMyBuildingInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_CUST" domainObjectName="AgencyFunCust"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="RF_FLOW_DEFINE" domainObjectName="AgencyRfFlowDefine"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="RF_APPLY_RELA" domainObjectName="AgencyRfApplyRela"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_BONUS_LOG" domainObjectName="AgencyWfBonusLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="DIC_DEFINITIONS" domainObjectName="AgencyDicDefinitions"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_OPER" domainObjectName="AgencyFunOper"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PBCATTBL" domainObjectName="AgencyPbcattbl"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_RECOM_HOUSE" domainObjectName="AgencyWfRecomHouse"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="VOIP_CALL_LOG" domainObjectName="AgencyVoipCallLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="PBCATEDT" domainObjectName="AgencyPbcatedt"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILD_MSG" domainObjectName="AgencyBuildMsg"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_ERROR_ACCOUNT" domainObjectName="AgencyWfErrorAccount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_BROKER_INFO" domainObjectName="AgencyMyBrokerInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_BROKER_STATUS" domainObjectName="AgencyMyBrokerStatus"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SPREAD" domainObjectName="AgencySpread"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="RF_FLOW_PROC" domainObjectName="AgencyRfFlowProc"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="CUST_TRACK" domainObjectName="AgencyCustTrack"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_PAY" domainObjectName="AgencyWfPay"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PAY_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_BUSINESS_TRADING_LOGS" domainObjectName="AgencyWfBusinessTradingLogs"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="TRADING_LOG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="COMP_MESSAGE" domainObjectName="AgencyCompMessage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_CUST_STROKE" domainObjectName="AgencyFunCustStroke"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SYSTEM_MESSAGE" domainObjectName="AgencySystemMessage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILDING_COMP" domainObjectName="AgencyBuildingComp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_FAFA_INFO" domainObjectName="AgencyFunFafaInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_BUILD_RULE" domainObjectName="AgencyMyBuildRule"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_HFT_ACTIVITYMAP" domainObjectName="AgencyMyHftActivitymap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="VIP_SALE_ERR_15" domainObjectName="AgencyVipSaleErr15"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_HFT_CUSTMAP" domainObjectName="AgencyMyHftCustmap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SEE_VIPDATA_RECORD" domainObjectName="AgencySeeVipdataRecord"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_ARCHIVE_TOTAL" domainObjectName="AgencyWfArchiveTotal"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="CLIENT_400" domainObjectName="AgencyClient400"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_CHAT_USER" domainObjectName="AgencyWfChatUser"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="USER_CHAT_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_DOCUMENT" domainObjectName="AgencyRfDocument"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_ACTIVE_TUCAO" domainObjectName="AgencyWfActiveTucao"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_RECORD" domainObjectName="AgencyRfRecord"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHOW_BUILDING_COUNT" domainObjectName="AgencyShowBuildingCount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="SHOW_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_BROKER_ACCOUNT" domainObjectName="AgencyFunBrokerAccount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PHONE_VIEW_LOG" domainObjectName="AgencyPhoneViewLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="VIEW_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="PBCATVLD" domainObjectName="AgencyPbcatvld"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="RECHARGE_LOG" domainObjectName="AgencyRechargeLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="RECHARGE_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_BANK_INFO" domainObjectName="AgencyRfBankInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILD_ACTIVITY_TMP" domainObjectName="AgencyBuildActivityTmp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILDING_BOUND" domainObjectName="AgencyBuildingBound"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_EXTEND" domainObjectName="AgencyWfExtend"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_APPLY_INFO" domainObjectName="AgencyRfApplyInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_COMPLETE_EVA" domainObjectName="AgencyWfCompleteEva"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BROKER_COMP_RATE" domainObjectName="AgencyBrokerCompRate"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILDING_INFO" domainObjectName="AgencyBuildingInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TELE_BW" domainObjectName="AgencyTeleBw"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PBCATCOL" domainObjectName="AgencyPbcatcol"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILD_LAYOUT" domainObjectName="AgencyBuildLayout"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILDING_PHOTO" domainObjectName="AgencyBuildingPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_CUST_TRACK" domainObjectName="AgencyFunCustTrack"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="TRACK_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="MY_BUILDING_DYNAMIC" domainObjectName="AgencyMyBuildingDynamic"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="ROLE_OPERS" domainObjectName="AgencyRoleOpers"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_REFUND_ORDER" domainObjectName="AgencyWfRefundOrder"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ORDER_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_REFUSE" domainObjectName="AgencyWfRefuse"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="RF_DATA_AGENCY" domainObjectName="AgencyRfDataAgency"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_ROAN_RELA" domainObjectName="AgencyRfRoanRela"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="VIP_PHOTO" domainObjectName="AgencyVipPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_TELEPHONE" domainObjectName="AgencyWfTelephone"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_COMP_WD_HISTORYS" domainObjectName="AgencyWfCompWdHistorys"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="HISTORY_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="AGENCY_AMOUNT_HISTORY" domainObjectName="AgencyAgencyAmountHistory"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PBCATFMT" domainObjectName="AgencyPbcatfmt"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_COMP_WD_CARDS" domainObjectName="AgencyWfCompWdCards"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="CARD_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_USER_ACCOUNTS" domainObjectName="AgencyWfUserAccounts"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DDUA_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_ADMIN_PARAM" domainObjectName="AgencyWfAdminParam"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="BUILD_ACTIVITY_PHOTO" domainObjectName="AgencyBuildActivityPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_SIGN_BROKER" domainObjectName="AgencyWfSignBroker"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="VOIP_CARD" domainObjectName="AgencyVoipCard"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_BUILDING_LAYOUT" domainObjectName="AgencyMyBuildingLayout"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TELE_WORKGOUR" domainObjectName="AgencyTeleWorkgour"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WEB_CLIENT" domainObjectName="AgencyWebClient"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SMS_CHECK" domainObjectName="AgencyFunSmsCheck"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="VOIP_PAY" domainObjectName="AgencyVoipPay"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_BROKER_TRADE" domainObjectName="AgencyMyBrokerTrade"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FINANCIAL_TRACK" domainObjectName="AgencyFinancialTrack"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="TRACK_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_COMP_ACCOUNTS" domainObjectName="AgencyWfCompAccounts"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DDCA_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="VIP_MONITOR_FIX2013_12_09" domainObjectName="AgencyVipMonitorFix20131209"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="VIP_MONITOR" domainObjectName="AgencyVipMonitor"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="VOIP_AMOUNT" domainObjectName="AgencyVoipAmount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_SYS_RECOM" domainObjectName="AgencyWfSysRecom"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="MY_BUILD_PICTURE" domainObjectName="AgencyMyBuildPicture"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_HFT_LAYOUTMAP" domainObjectName="AgencyMyHftLayoutmap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="USER_OPERS" domainObjectName="AgencyUserOpers"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_CLIENT_TRADING_LOGS" domainObjectName="AgencyWfClientTradingLogs"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="TRADING_LOG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="BUILDING_INFO_TMP" domainObjectName="AgencyBuildingInfoTmp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_HFT_PHOTOMAP" domainObjectName="AgencyMyHftPhotomap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_EXTEND_LOG" domainObjectName="AgencyWfExtendLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_BONUS" domainObjectName="AgencyWfBonus"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="BONUS_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="USER_RELATE" domainObjectName="AgencyUserRelate"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="CASE_TRACK" domainObjectName="AgencyCaseTrack"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_BUILD_RATE" domainObjectName="AgencyFunBuildRate"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_DIDI_SETTING" domainObjectName="AgencyWfDidiSetting"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="BEUSE_400" domainObjectName="AgencyBeuse400"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="CLIENT_ACCOUNT" domainObjectName="AgencyClientAccount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_FITMENT" domainObjectName="AgencyWfFitment"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="TRACE_XE_EVENT_MAP" domainObjectName="AgencyTraceXeEventMap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TELE_USER" domainObjectName="AgencyTeleUser"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="DAY_DETAIL" domainObjectName="AgencyDayDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="LOG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_NEWHOUSE" domainObjectName="AgencyFunNewhouse"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="RF_BANK_DOC" domainObjectName="AgencyRfBankDoc"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_TASK" domainObjectName="AgencyWfTask"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="TASK_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_TRACK" domainObjectName="AgencyWfTrack"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_SMS_MSG" domainObjectName="AgencyWfSmsMsg"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="MSG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="TELE_CUSTS" domainObjectName="AgencyTeleCusts"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_REDPACKAGE_ISSUES" domainObjectName="AgencyWfRedpackageIssues"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ISSUE_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="RF_SUB_PROC" domainObjectName="AgencyRfSubProc"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="DISTRIBUTE_ADS" domainObjectName="AgencyDistributeAds"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILD_LAYOUT_TMP" domainObjectName="AgencyBuildLayoutTmp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MY_HFT_USERMAP" domainObjectName="AgencyMyHftUsermap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="ACCOUNT_LOG" domainObjectName="AgencyAccountLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="AL_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="BUILD_ACTIVITY" domainObjectName="AgencyBuildActivity"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="WF_REFUND" domainObjectName="AgencyWfRefund"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="REFUND_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WF_RECOM_HOUSE_EVA" domainObjectName="AgencyWfRecomHouseEva"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="MY_HFT_BUILDMAP" domainObjectName="AgencyMyHftBuildmap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="AGENCY_LOGIN_LOG" domainObjectName="AgencyAgencyLoginLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="MY_BROKER_RAGE" domainObjectName="AgencyMyBrokerRage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="MESSAGE_FAV" domainObjectName="AgencyMessageFav"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> 
+		<table tableName="FUN_SMS_CHECK" domainObjectName="AgencyFunSmsCheck"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+		</table> 
+		<table tableName="CRM_TASK" domainObjectName="AgencyCrmTask"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID"
+				sqlStatement="SqlServer" identity="true" />
+		</table>
+		<table tableName="FUN_COMP_REAL" domainObjectName="AgencyFunCompReal"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DEVLOPER_ID"
+				sqlStatement="select next value for SEQ_FUN_COMP_REAL_DEVLOPER_ID" />
+		</table>
+		<table tableName="FUN_DEPTS" domainObjectName="AgencyFunDepts"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DEPT_ID"
+				sqlStatement="select next value for SEQ_FUN_DEPTS_DEPT_ID" />
+		</table>
+		<table tableName="FUN_USERS" domainObjectName="AgencyFunUsers"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="USER_ID" sqlStatement="select next value for SEQ_FUN_USERS_USER_ID" />
+		</table>
+		<table tableName="SPREAD" domainObjectName="AgencySpread"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="DISTRIBUTE_ADS" domainObjectName="AgencyDistributeAds"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="AGENCY_AMOUNT_HISTORY" domainObjectName="AgencyAmountHistory"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DETAIL_ID" sqlStatement="SELECT MAX(DETAIL_ID)+1 FROM AGENCY_AMOUNT_HISTORY" identity="false" />
+		</table>
+		<table tableName="FUN_CUST_DEAL" domainObjectName="AgencyFunCustDeal"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="CD_ID" sqlStatement="SELECT MAX(CD_ID)+1 FROM FUN_CUST_DEAL" identity="false" />
+		</table>
+		<table tableName="WF_COMPLETE_EVA" domainObjectName="AgencyWfCompleteEva"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			//<generatedKey column="REDPACKAGE_ID" sqlStatement="SqlServer" identity="true" />
+		</table>
+		<table tableName="PURCHASE_BORKER" domainObjectName="AgencyPurchaseBorker"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PB_ID" sqlStatement="SELECT MAX(PB_ID)+1 FROM PURCHASE_BORKER" identity="false" />
+		</table>
+		<table tableName="VIP_LEASE" domainObjectName="AgencyVipLease"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="LEASE_ID" sqlStatement="SELECT MAX(LEASE_ID)+1 FROM VIP_LEASE" identity="false" />
+		</table>
+		<table tableName="VIP_SALE" domainObjectName="AgencyVipSale"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="SALE_ID" sqlStatement="SELECT MAX(SALE_ID)+1 FROM VIP_SALE" identity="false" />
+		</table>
+		<table tableName="VIP_RENT" domainObjectName="AgencyVipRent"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="RENT_ID" sqlStatement="SELECT MAX(RENT_ID)+1 FROM VIP_RENT" identity="false" />
+		</table>
+		<table tableName="VIP_BUY" domainObjectName="AgencyVipBuy"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="BUY_ID" sqlStatement="SELECT MAX(BUY_ID)+1 FROM VIP_BUY" identity="false" />
+		</table>
+		<table tableName="VIP_QUEUE" domainObjectName="AgencyVipQueue"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WF_ID" sqlStatement="SqlServer" identity="true" />
+		</table>
+		
+		<table tableName="WF_USER" domainObjectName="AgencyWfUser"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WX_ID" sqlStatement="SqlServer" identity="true" />
+		</table>
+		<table tableName="BUILD_LAYOUT" domainObjectName="AgencyBuildLayout">
+		<generatedKey column="LAYOUT_ID" sqlStatement="SELECT isnull(max(LAYOUT_ID), 0) +1 from BUILD_LAYOUT" identity="false" />
+		</table>
+		<table tableName="YOUJIA_USER" domainObjectName="AgencyYoujiaUser">
+		<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_NEW_BUILDING_BIDDING" domainObjectName="AgencyFunNewBuildingBidding">
+			<generatedKey column="BIDDING_ID" sqlStatement="SELECT isnull(max(BIDDING_ID), 0) +1 from FUN_NEW_BUILDING_BIDDING" identity="false" />
+		</table>
+		<table tableName="WF_USERB" domainObjectName="AgencyWfUserb">
+			<generatedKey column="WF_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="PA_FINANCE" domainObjectName="AgencyPaFinance">
+			<generatedKey column="FINANCE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="PA_FINANCE_CASHAUDIT" domainObjectName="AgencyPaFinanceCashaudit">
+			<generatedKey column="CASH_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="WF_DIDI_TRACK" domainObjectName="AgencyWfDidiTrack">
+			<generatedKey column="WF_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="WF_PUSH_LOG" domainObjectName="AgencyWfPushLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		-->
+		<table tableName="PROPERTY_RELATED_PERSON" domainObjectName="AgencyPropertyRelatedPerson"> 
+	       <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+	    </table> 
+		
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpAttendanceChangeRecordMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpAttendanceChangeRecord">
+    <!--@mbggenerated-->
+    <id column="RECORD_ID" jdbcType="INTEGER" property="recordId" />
+    <result column="ATTENDANCE_ID" jdbcType="INTEGER" property="attendanceId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="WORK_TYPE" jdbcType="TINYINT" property="workType" />
+    <result column="WORK_DETAIL_TYPE" jdbcType="TINYINT" property="workDetailType" />
+    <result column="SOURCE_USER_ID" jdbcType="INTEGER" property="sourceUserId" />
+    <result column="SOURCE_DEPT_ID" jdbcType="INTEGER" property="sourceDeptId" />
+    <result column="SOURCE_USER_NAME" jdbcType="VARCHAR" property="sourceUserName" />
+    <result column="CHANGE_USER_ID" jdbcType="INTEGER" property="changeUserId" />
+    <result column="CHANGE_USER_NAME" jdbcType="VARCHAR" property="changeUserName" />
+    <result column="CHANGE_STATE" jdbcType="VARCHAR" property="changeState" />
+    <result column="CHANGE_REASON" jdbcType="VARCHAR" property="changeReason" />
+    <result column="SOURCE_CREATE_TIME" jdbcType="TIMESTAMP" property="sourceCreateTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="ORGANIZATION_PATH" jdbcType="VARCHAR" property="organizationPath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    RECORD_ID, ATTENDANCE_ID, COMP_ID, WORK_TYPE, WORK_DETAIL_TYPE, SOURCE_USER_ID, SOURCE_DEPT_ID, 
+    SOURCE_USER_NAME, CHANGE_USER_ID, CHANGE_USER_NAME, CHANGE_STATE, CHANGE_REASON, 
+    SOURCE_CREATE_TIME, CREATE_TIME, ORGANIZATION_PATH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ATTENDANCE_CHANGE_RECORD
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from ATTENDANCE_CHANGE_RECORD
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="recordId" parameterType="com.myfun.repository.erpdb.po.ErpAttendanceChangeRecord" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ATTENDANCE_CHANGE_RECORD (ATTENDANCE_ID, COMP_ID, WORK_TYPE, 
+      WORK_DETAIL_TYPE, SOURCE_USER_ID, SOURCE_DEPT_ID, 
+      SOURCE_USER_NAME, CHANGE_USER_ID, CHANGE_USER_NAME, 
+      CHANGE_STATE, CHANGE_REASON, SOURCE_CREATE_TIME, 
+      CREATE_TIME, ORGANIZATION_PATH)
+    values (#{attendanceId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{workType,jdbcType=TINYINT}, 
+      #{workDetailType,jdbcType=TINYINT}, #{sourceUserId,jdbcType=INTEGER}, #{sourceDeptId,jdbcType=INTEGER}, 
+      #{sourceUserName,jdbcType=VARCHAR}, #{changeUserId,jdbcType=INTEGER}, #{changeUserName,jdbcType=VARCHAR}, 
+      #{changeState,jdbcType=VARCHAR}, #{changeReason,jdbcType=VARCHAR}, #{sourceCreateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{organizationPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="recordId" parameterType="com.myfun.repository.erpdb.po.ErpAttendanceChangeRecord" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ATTENDANCE_CHANGE_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="attendanceId != null">
+        ATTENDANCE_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="workType != null">
+        WORK_TYPE,
+      </if>
+      <if test="workDetailType != null">
+        WORK_DETAIL_TYPE,
+      </if>
+      <if test="sourceUserId != null">
+        SOURCE_USER_ID,
+      </if>
+      <if test="sourceDeptId != null">
+        SOURCE_DEPT_ID,
+      </if>
+      <if test="sourceUserName != null">
+        SOURCE_USER_NAME,
+      </if>
+      <if test="changeUserId != null">
+        CHANGE_USER_ID,
+      </if>
+      <if test="changeUserName != null">
+        CHANGE_USER_NAME,
+      </if>
+      <if test="changeState != null">
+        CHANGE_STATE,
+      </if>
+      <if test="changeReason != null">
+        CHANGE_REASON,
+      </if>
+      <if test="sourceCreateTime != null">
+        SOURCE_CREATE_TIME,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="attendanceId != null">
+        #{attendanceId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="workType != null">
+        #{workType,jdbcType=TINYINT},
+      </if>
+      <if test="workDetailType != null">
+        #{workDetailType,jdbcType=TINYINT},
+      </if>
+      <if test="sourceUserId != null">
+        #{sourceUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceDeptId != null">
+        #{sourceDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceUserName != null">
+        #{sourceUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeUserId != null">
+        #{changeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="changeUserName != null">
+        #{changeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeState != null">
+        #{changeState,jdbcType=VARCHAR},
+      </if>
+      <if test="changeReason != null">
+        #{changeReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceCreateTime != null">
+        #{sourceCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organizationPath != null">
+        #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpAttendanceChangeRecord">
+    <!--@mbggenerated-->
+    update ATTENDANCE_CHANGE_RECORD
+    <set>
+      <if test="attendanceId != null">
+        ATTENDANCE_ID = #{attendanceId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="workType != null">
+        WORK_TYPE = #{workType,jdbcType=TINYINT},
+      </if>
+      <if test="workDetailType != null">
+        WORK_DETAIL_TYPE = #{workDetailType,jdbcType=TINYINT},
+      </if>
+      <if test="sourceUserId != null">
+        SOURCE_USER_ID = #{sourceUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceDeptId != null">
+        SOURCE_DEPT_ID = #{sourceDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceUserName != null">
+        SOURCE_USER_NAME = #{sourceUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeUserId != null">
+        CHANGE_USER_ID = #{changeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="changeUserName != null">
+        CHANGE_USER_NAME = #{changeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="changeState != null">
+        CHANGE_STATE = #{changeState,jdbcType=VARCHAR},
+      </if>
+      <if test="changeReason != null">
+        CHANGE_REASON = #{changeReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceCreateTime != null">
+        SOURCE_CREATE_TIME = #{sourceCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpAttendanceChangeRecord">
+    <!--@mbggenerated-->
+    update ATTENDANCE_CHANGE_RECORD
+    set ATTENDANCE_ID = #{attendanceId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      WORK_TYPE = #{workType,jdbcType=TINYINT},
+      WORK_DETAIL_TYPE = #{workDetailType,jdbcType=TINYINT},
+      SOURCE_USER_ID = #{sourceUserId,jdbcType=INTEGER},
+      SOURCE_DEPT_ID = #{sourceDeptId,jdbcType=INTEGER},
+      SOURCE_USER_NAME = #{sourceUserName,jdbcType=VARCHAR},
+      CHANGE_USER_ID = #{changeUserId,jdbcType=INTEGER},
+      CHANGE_USER_NAME = #{changeUserName,jdbcType=VARCHAR},
+      CHANGE_STATE = #{changeState,jdbcType=VARCHAR},
+      CHANGE_REASON = #{changeReason,jdbcType=VARCHAR},
+      SOURCE_CREATE_TIME = #{sourceCreateTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR}
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="DtoBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpAttendanceChangeRecordDto">
+    <id column="RECORD_ID" jdbcType="INTEGER" property="recordId" />
+    <result column="ATTENDANCE_ID" jdbcType="INTEGER" property="attendanceId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="WORK_TYPE" jdbcType="TINYINT" property="workType" />
+    <result column="WORK_DETAIL_TYPE" jdbcType="TINYINT" property="workDetailType" />
+    <result column="SOURCE_USER_ID" jdbcType="INTEGER" property="sourceUserId" />
+    <result column="SOURCE_DEPT_ID" jdbcType="INTEGER" property="sourceDeptId" />
+    <result column="SOURCE_USER_NAME" jdbcType="VARCHAR" property="sourceUserName" />
+    <result column="CHANGE_USER_ID" jdbcType="INTEGER" property="changeUserId" />
+    <result column="CHANGE_USER_NAME" jdbcType="VARCHAR" property="changeUserName" />
+    <result column="CHANGE_STATE" jdbcType="VARCHAR" property="changeState" />
+    <result column="CHANGE_REASON" jdbcType="VARCHAR" property="changeReason" />
+    <result column="SOURCE_CREATE_TIME" jdbcType="TIMESTAMP" property="sourceCreateTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+	<select id="getAttendanceRecordList" resultMap="DtoBaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from ATTENDANCE_CHANGE_RECORD
+		<where>
+			AND COMP_ID = #{pMap.compId}
+		<if test="null != pMap.workType">
+			AND WORK_TYPE = #{pMap.workType}
+		</if>
+		<if test="null != pMap.sourceDeptId">
+			AND SOURCE_DEPT_ID = #{pMap.sourceDeptId}
+		</if>
+		<if test="null != pMap.sourceUserId">
+			AND SOURCE_USER_ID = #{pMap.sourceUserId}
+		</if>
+		<if test="null != pMap.date1 and ''!= pMap.date1">
+			AND <![CDATA[SOURCE_CREATE_TIME >= #{pMap.date1}]]>
+		</if>
+		<if test="null != pMap.date2 and ''!= pMap.date2">
+			AND <![CDATA[SOURCE_CREATE_TIME <= #{pMap.date2}]]>
+		</if>
+        <if test="null != pMap.organizationId">
+          and ORGANIZATION_PATH LIKE '%:${pMap.organizationId}:%'
+        </if>
+		</where>
+		ORDER BY CREATE_TIME DESC
+	</select>
+</mapper>

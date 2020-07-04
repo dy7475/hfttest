@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunBrandMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunBrand" >
+    <!--@mbggenerated-->
+    <id column="BRAND_ID" property="brandId" jdbcType="INTEGER" />
+    <result column="BRAND_NAME" property="brandName" jdbcType="VARCHAR" />
+    <result column="BRAND_ADDR" property="brandAddr" jdbcType="VARCHAR" />
+    <result column="WRITE_OFF" property="writeOff" jdbcType="TINYINT" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.admindb.dto.AdminFunBrandDto" extends="BaseResultMap" id="extResultMap" >
+    <result column="SEQ_NO" property="seqNo" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    BRAND_ID, BRAND_NAME, BRAND_ADDR, WRITE_OFF, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_BRAND
+    where BRAND_ID = #{brandId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_BRAND
+    where BRAND_ID = #{brandId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunBrand" >
+    <!--@mbggenerated-->
+    insert into FUN_BRAND (BRAND_ID, BRAND_NAME, BRAND_ADDR, 
+      WRITE_OFF, UPDATE_TIME)
+    values (#{brandId,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR}, #{brandAddr,jdbcType=VARCHAR}, 
+      #{writeOff,jdbcType=TINYINT}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunBrand" >
+    <selectKey keyProperty="brandId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT isnull(max(BRAND_ID), 0) +1 from FUN_BRAND
+    </selectKey>
+    insert into FUN_BRAND
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brandId != null" >
+        BRAND_ID,
+      </if>
+      <if test="brandName != null" >
+        BRAND_NAME,
+      </if>
+      <if test="brandAddr != null" >
+        BRAND_ADDR,
+      </if>
+      <if test="writeOff != null" >
+        WRITE_OFF,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandAddr != null" >
+        #{brandAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="writeOff != null" >
+        #{writeOff,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunBrand" >
+    <!--@mbggenerated-->
+    update FUN_BRAND
+    <set >
+      <if test="brandName != null" >
+        BRAND_NAME = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandAddr != null" >
+        BRAND_ADDR = #{brandAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="writeOff != null" >
+        WRITE_OFF = #{writeOff,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BRAND_ID = #{brandId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunBrand" >
+    <!--@mbggenerated-->
+    update FUN_BRAND
+    set BRAND_NAME = #{brandName,jdbcType=VARCHAR},
+      BRAND_ADDR = #{brandAddr,jdbcType=VARCHAR},
+      WRITE_OFF = #{writeOff,jdbcType=TINYINT},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where BRAND_ID = #{brandId,jdbcType=INTEGER}
+  </update>
+  <select id="getAdminFunBrandList" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.param.AdminFunBrandParam">
+  	  SELECT <include refid="Base_Column_List" /> from FUN_BRAND
+  	  <where>
+  	  	<if test="null != writeOff">
+  	  		AND WRITE_OFF = #{writeOff}
+  	  	</if>
+  	  	<if test="null != brandName and '' != brandName">
+  	  		AND BRAND_NAME = #{brandName}
+  	  	</if>
+  	  	<if test="null != sInTime and '' != sInTime">
+  	  		<![CDATA[ AND UPDATE_TIME >= #{sInTime} ]]>
+  	  	</if>
+  	  	<if test="null != eInTime and '' != eInTime">
+  	  		<![CDATA[ AND UPDATE_TIME <= #{eInTime} ]]>
+  	  	</if>
+  	  </where>
+  	  ORDER BY UPDATE_TIME DESC
+  </select>
+  <select id="getAdminFunBrandCityOrder" parameterType="java.lang.Integer" resultMap="extResultMap">
+		SELECT  fb.UPDATE_TIME as UPDATE_TIME,
+				fb.brand_id as BRAND_ID,
+		        fb.brand_name as BRAND_NAME,
+		        fbc.CITY_ID as CITY_ID,
+		        fb.BRAND_ADDR as BRAND_ADDR,
+		        fb.WRITE_OFF AS WRITE_OFF,
+		        fbc.SEQ_NO as SEQ_NO 
+		FROM fun_brand_city fbc 
+		LEFT JOIN fun_brand fb ON fbc.brand_id = fb.brand_id 
+		WHERE fbc.city_id = #{cityId} and fb.write_off = 0 and fbc.online_flag = 1 order by SEQ_NO ASC
+  </select>
+</mapper>

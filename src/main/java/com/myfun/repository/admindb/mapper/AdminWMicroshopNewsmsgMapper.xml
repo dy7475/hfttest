@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopNewsmsgMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsg">
+    <!--@mbggenerated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="weixin_id" jdbcType="INTEGER" property="weixinId" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="media_id" jdbcType="VARCHAR" property="mediaId" />
+    <result column="thumb_media_id" jdbcType="VARCHAR" property="thumbMediaId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="CHAR" property="author" />
+    <result column="picurl" jdbcType="VARCHAR" property="picurl" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="outer_url" jdbcType="VARCHAR" property="outerUrl" />
+    <result column="is_first" jdbcType="TINYINT" property="isFirst" />
+    <result column="ctime" jdbcType="INTEGER" property="ctime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsg">
+    <!--@mbggenerated-->
+    <result column="desc" jdbcType="CLOB" property="desc" />
+    <result column="content" jdbcType="CLOB" property="content" />
+    <result column="content_bak" jdbcType="CLOB" property="contentBak" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    id, weixin_id, pid, media_id, thumb_media_id, title, author, picurl, source_url, 
+    outer_url, is_first, ctime
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    [desc], content, content_bak
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsgExample" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from w_microshop_newsmsg
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsgExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from w_microshop_newsmsg
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from w_microshop_newsmsg
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from w_microshop_newsmsg
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsgExample">
+    <!--@mbggenerated-->
+    delete from w_microshop_newsmsg
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsg">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_newsmsg (weixin_id, pid, media_id, 
+      thumb_media_id, title, author, 
+      picurl, source_url, outer_url, 
+      is_first, ctime, [desc], 
+      content, content_bak)
+    values (#{weixinId,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{mediaId,jdbcType=VARCHAR}, 
+      #{thumbMediaId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=CHAR}, 
+      #{picurl,jdbcType=VARCHAR}, #{sourceUrl,jdbcType=VARCHAR}, #{outerUrl,jdbcType=VARCHAR}, 
+      #{isFirst,jdbcType=TINYINT}, #{ctime,jdbcType=INTEGER}, #{desc,jdbcType=CLOB}, 
+      #{content,jdbcType=CLOB}, #{contentBak,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsg">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_newsmsg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="weixinId != null">
+        weixin_id,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="mediaId != null">
+        media_id,
+      </if>
+      <if test="thumbMediaId != null">
+        thumb_media_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="picurl != null">
+        picurl,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="outerUrl != null">
+        outer_url,
+      </if>
+      <if test="isFirst != null">
+        is_first,
+      </if>
+      <if test="ctime != null">
+        ctime,
+      </if>
+      <if test="desc != null">
+        [desc],
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="contentBak != null">
+        content_bak,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="weixinId != null">
+        #{weixinId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null">
+        #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbMediaId != null">
+        #{thumbMediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=CHAR},
+      </if>
+      <if test="picurl != null">
+        #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="outerUrl != null">
+        #{outerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirst != null">
+        #{isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=INTEGER},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=CLOB},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=CLOB},
+      </if>
+      <if test="contentBak != null">
+        #{contentBak,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsgExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from w_microshop_newsmsg
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update w_microshop_newsmsg
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.weixinId != null">
+        weixin_id = #{record.weixinId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pid != null">
+        pid = #{record.pid,jdbcType=INTEGER},
+      </if>
+      <if test="record.mediaId != null">
+        media_id = #{record.mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thumbMediaId != null">
+        thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.author != null">
+        author = #{record.author,jdbcType=CHAR},
+      </if>
+      <if test="record.picurl != null">
+        picurl = #{record.picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceUrl != null">
+        source_url = #{record.sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outerUrl != null">
+        outer_url = #{record.outerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isFirst != null">
+        is_first = #{record.isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="record.ctime != null">
+        ctime = #{record.ctime,jdbcType=INTEGER},
+      </if>
+      <if test="record.desc != null">
+        [desc] = #{record.desc,jdbcType=CLOB},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=CLOB},
+      </if>
+      <if test="record.contentBak != null">
+        content_bak = #{record.contentBak,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--@mbggenerated-->
+    update w_microshop_newsmsg
+    set id = #{record.id,jdbcType=INTEGER},
+      weixin_id = #{record.weixinId,jdbcType=INTEGER},
+      pid = #{record.pid,jdbcType=INTEGER},
+      media_id = #{record.mediaId,jdbcType=VARCHAR},
+      thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=CHAR},
+      picurl = #{record.picurl,jdbcType=VARCHAR},
+      source_url = #{record.sourceUrl,jdbcType=VARCHAR},
+      outer_url = #{record.outerUrl,jdbcType=VARCHAR},
+      is_first = #{record.isFirst,jdbcType=TINYINT},
+      ctime = #{record.ctime,jdbcType=INTEGER},
+      [desc] = #{record.desc,jdbcType=CLOB},
+      content = #{record.content,jdbcType=CLOB},
+      content_bak = #{record.contentBak,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update w_microshop_newsmsg
+    set id = #{record.id,jdbcType=INTEGER},
+      weixin_id = #{record.weixinId,jdbcType=INTEGER},
+      pid = #{record.pid,jdbcType=INTEGER},
+      media_id = #{record.mediaId,jdbcType=VARCHAR},
+      thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=CHAR},
+      picurl = #{record.picurl,jdbcType=VARCHAR},
+      source_url = #{record.sourceUrl,jdbcType=VARCHAR},
+      outer_url = #{record.outerUrl,jdbcType=VARCHAR},
+      is_first = #{record.isFirst,jdbcType=TINYINT},
+      ctime = #{record.ctime,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsg">
+    <!--@mbggenerated-->
+    update w_microshop_newsmsg
+    <set>
+      <if test="weixinId != null">
+        weixin_id = #{weixinId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null">
+        media_id = #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbMediaId != null">
+        thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=CHAR},
+      </if>
+      <if test="picurl != null">
+        picurl = #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="outerUrl != null">
+        outer_url = #{outerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirst != null">
+        is_first = #{isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="ctime != null">
+        ctime = #{ctime,jdbcType=INTEGER},
+      </if>
+      <if test="desc != null">
+        [desc] = #{desc,jdbcType=CLOB},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=CLOB},
+      </if>
+      <if test="contentBak != null">
+        content_bak = #{contentBak,jdbcType=CLOB},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsg">
+    <!--@mbggenerated-->
+    update w_microshop_newsmsg
+    set weixin_id = #{weixinId,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=INTEGER},
+      media_id = #{mediaId,jdbcType=VARCHAR},
+      thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=CHAR},
+      picurl = #{picurl,jdbcType=VARCHAR},
+      source_url = #{sourceUrl,jdbcType=VARCHAR},
+      outer_url = #{outerUrl,jdbcType=VARCHAR},
+      is_first = #{isFirst,jdbcType=TINYINT},
+      ctime = #{ctime,jdbcType=INTEGER},
+      [desc] = #{desc,jdbcType=CLOB},
+      content = #{content,jdbcType=CLOB},
+      content_bak = #{contentBak,jdbcType=CLOB}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopNewsmsg">
+    <!--@mbggenerated-->
+    update w_microshop_newsmsg
+    set weixin_id = #{weixinId,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=INTEGER},
+      media_id = #{mediaId,jdbcType=VARCHAR},
+      thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=CHAR},
+      picurl = #{picurl,jdbcType=VARCHAR},
+      source_url = #{sourceUrl,jdbcType=VARCHAR},
+      outer_url = #{outerUrl,jdbcType=VARCHAR},
+      is_first = #{isFirst,jdbcType=TINYINT},
+      ctime = #{ctime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <insert id="insertForFastDfs">
+    <foreach collection="dfsParamList" item="dfsParam" separator=";">
+      INSERT  INTO  w_microshop_newsmsg_FASTDFS_TMP(WM_ID, PIC_URL_OLD,PIC_URL_NEW)
+      VALUES (#{dfsParam.wmId}, #{dfsParam.picUrlOld}, #{dfsParam.picUrlNew})
+    </foreach>
+  </insert>
+</mapper>

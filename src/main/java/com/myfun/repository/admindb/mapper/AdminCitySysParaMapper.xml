@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminCitySysParaMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminCitySysPara" >
+    <!--@mbggenerated-->
+    <id column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <id column="PARAM_ID" property="paramId" jdbcType="VARCHAR" />
+    <result column="PARAM_VALUE" property="paramValue" jdbcType="VARCHAR" />
+    <result column="PARAM_TYPE" property="paramType" jdbcType="VARCHAR" />
+    <result column="PARAM_PROFILES" property="paramProfiles" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CITY_ID, PARAM_ID, PARAM_VALUE, PARAM_TYPE, PARAM_PROFILES
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.po.AdminCitySysParaKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CITY_SYS_PARA
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminCitySysParaKey" >
+    <!--@mbggenerated-->
+    delete from CITY_SYS_PARA
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminCitySysPara" >
+    <!--@mbggenerated-->
+    insert into CITY_SYS_PARA (CITY_ID, PARAM_ID, PARAM_VALUE, 
+      PARAM_TYPE, PARAM_PROFILES)
+    values (#{cityId,jdbcType=SMALLINT}, #{paramId,jdbcType=VARCHAR}, #{paramValue,jdbcType=VARCHAR}, 
+      #{paramType,jdbcType=VARCHAR}, #{paramProfiles,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminCitySysPara" >
+    <!--@mbggenerated-->
+    insert into CITY_SYS_PARA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="paramId != null" >
+        PARAM_ID,
+      </if>
+      <if test="paramValue != null" >
+        PARAM_VALUE,
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE,
+      </if>
+      <if test="paramProfiles != null" >
+        PARAM_PROFILES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="paramId != null" >
+        #{paramId,jdbcType=VARCHAR},
+      </if>
+      <if test="paramValue != null" >
+        #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="paramType != null" >
+        #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="paramProfiles != null" >
+        #{paramProfiles,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminCitySysPara" >
+    <!--@mbggenerated-->
+    update CITY_SYS_PARA
+    <set >
+      <if test="paramValue != null" >
+        PARAM_VALUE = #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="paramProfiles != null" >
+        PARAM_PROFILES = #{paramProfiles,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminCitySysPara" >
+    <!--@mbggenerated-->
+    update CITY_SYS_PARA
+    set PARAM_VALUE = #{paramValue,jdbcType=VARCHAR},
+      PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      PARAM_PROFILES = #{paramProfiles,jdbcType=VARCHAR}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PARAM_ID = #{paramId,jdbcType=VARCHAR}
+  </update>
+</mapper>

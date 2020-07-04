@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunPersonalIntentMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunPersonalIntent" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="SEX" property="sex" jdbcType="TINYINT" />
+    <result column="QQ" property="qq" jdbcType="VARCHAR" />
+    <result column="DESCRIBE" property="describe" jdbcType="VARCHAR" />
+    <result column="DEPT_NAME_DESCRIBE" property="deptNameDescribe" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="CRM_COMP_ID" property="crmCompId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CREATE_USER" property="createUser" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, PROVINCE_ID, CITY_ID, SEX, QQ, DESCRIBE, DEPT_NAME_DESCRIBE, USER_NAME, USER_MOBILE, 
+    CRM_COMP_ID, ARCHIVE_ID, CREATE_USER, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PERSONAL_INTENT
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_PERSONAL_INTENT
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunPersonalIntent" >
+    <!--@mbggenerated-->
+    insert into FUN_PERSONAL_INTENT (ID, PROVINCE_ID, CITY_ID, 
+      SEX, QQ, DESCRIBE, 
+      DEPT_NAME_DESCRIBE, USER_NAME, USER_MOBILE, 
+      CRM_COMP_ID, ARCHIVE_ID, CREATE_USER, 
+      CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{sex,jdbcType=TINYINT}, #{qq,jdbcType=VARCHAR}, #{describe,jdbcType=VARCHAR}, 
+      #{deptNameDescribe,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR}, 
+      #{crmCompId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunPersonalIntent" >
+    <!--@mbggenerated-->
+    insert into FUN_PERSONAL_INTENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="qq != null" >
+        QQ,
+      </if>
+      <if test="describe != null" >
+        DESCRIBE,
+      </if>
+      <if test="deptNameDescribe != null" >
+        DEPT_NAME_DESCRIBE,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="crmCompId != null" >
+        CRM_COMP_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="createUser != null" >
+        CREATE_USER,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNameDescribe != null" >
+        #{deptNameDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCompId != null" >
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunPersonalIntent" >
+    <!--@mbggenerated-->
+    update FUN_PERSONAL_INTENT
+    <set >
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="qq != null" >
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        DESCRIBE = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNameDescribe != null" >
+        DEPT_NAME_DESCRIBE = #{deptNameDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCompId != null" >
+        CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        CREATE_USER = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunPersonalIntent" >
+    <!--@mbggenerated-->
+    update FUN_PERSONAL_INTENT
+    set PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      SEX = #{sex,jdbcType=TINYINT},
+      QQ = #{qq,jdbcType=VARCHAR},
+      DESCRIBE = #{describe,jdbcType=VARCHAR},
+      DEPT_NAME_DESCRIBE = #{deptNameDescribe,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATE_USER = #{createUser,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- @business -->
+  <update id="translateDataByArchiveId" parameterType="java.lang.String" >
+    update FUN_PERSONAL_INTENT
+    set CREATE_USER = #{sellId}
+    where ARCHIVE_ID in 
+	<foreach item="item" index="index" collection="funArchiveIds" open="(" separator="," close=")">  
+		#{item}  
+	</foreach> 
+  </update>
+  <update id="translateDataById" parameterType="java.lang.String" >
+    update FUN_PERSONAL_INTENT
+    set CREATE_USER = #{sellId}
+    where ID in 
+	<foreach item="item" index="index" collection="personalIds" open="(" separator="," close=")">  
+		#{item}  
+	</foreach> 
+  </update>
+  <update id="translateDataByCreateUser" parameterType="java.lang.String" >
+    update FUN_PERSONAL_INTENT
+    set CREATE_USER = #{sellId}
+    where CREATE_USER = #{oldSellId} 
+  </update>
+</mapper>

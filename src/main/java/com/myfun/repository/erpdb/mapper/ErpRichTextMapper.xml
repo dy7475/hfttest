@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpRichTextMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpRichText">
+    <!--@mbggenerated-->
+    <id column="sale_lease" jdbcType="INTEGER" property="saleLease" />
+    <id column="house_id" jdbcType="INTEGER" property="houseId" />
+    <id column="house_useAge" jdbcType="TINYINT" property="houseUseage" />
+    <result column="house_no" jdbcType="VARCHAR" property="houseNo" />
+    <result column="LOCK" jdbcType="TINYINT" property="lock" />
+    <result column="ENCODE_FLAG" jdbcType="TINYINT" property="encodeFlag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.erpdb.po.ErpRichText">
+    <!--@mbggenerated-->
+    <result column="rich_text" jdbcType="CLOB" property="richText" />
+    <result column="RICH_TEXT_FITMENT" jdbcType="CLOB" property="richTextFitment" />
+    <result column="RICH_TEXT_LAYOUT" jdbcType="CLOB" property="richTextLayout" />
+    <result column="RICH_TEXT_RIGHTS" jdbcType="CLOB" property="richTextRights" />
+    <result column="ONLY_TEXT_CORE" jdbcType="CLOB" property="onlyTextCore" />
+    <result column="ONLY_TEXT_FITMENT" jdbcType="CLOB" property="onlyTextFitment" />
+    <result column="ONLY_TEXT_LAYOUT" jdbcType="CLOB" property="onlyTextLayout" />
+    <result column="ONLY_TEXT_RIGHTS" jdbcType="CLOB" property="onlyTextRights" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    sale_lease, house_id, house_useAge, house_no, [LOCK], ENCODE_FLAG
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    rich_text, RICH_TEXT_FITMENT, RICH_TEXT_LAYOUT, RICH_TEXT_RIGHTS, ONLY_TEXT_CORE, 
+    ONLY_TEXT_FITMENT, ONLY_TEXT_LAYOUT, ONLY_TEXT_RIGHTS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from rich_text
+    where sale_lease = #{saleLease,jdbcType=INTEGER}
+      and house_id = #{houseId,jdbcType=INTEGER}
+      and house_useAge = #{houseUseage,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbggenerated-->
+    delete from rich_text
+    where sale_lease = #{saleLease,jdbcType=INTEGER}
+      and house_id = #{houseId,jdbcType=INTEGER}
+      and house_useAge = #{houseUseage,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpRichText">
+    <!--@mbggenerated-->
+    insert into rich_text (sale_lease, house_id, house_useAge, 
+      house_no, [LOCK], ENCODE_FLAG, 
+      rich_text, RICH_TEXT_FITMENT, RICH_TEXT_LAYOUT, 
+      RICH_TEXT_RIGHTS, ONLY_TEXT_CORE, ONLY_TEXT_FITMENT, 
+      ONLY_TEXT_LAYOUT, ONLY_TEXT_RIGHTS)
+    values (#{saleLease,jdbcType=INTEGER}, #{houseId,jdbcType=INTEGER}, #{houseUseage,jdbcType=TINYINT}, 
+      #{houseNo,jdbcType=VARCHAR}, #{lock,jdbcType=TINYINT}, #{encodeFlag,jdbcType=TINYINT}, 
+      #{richText,jdbcType=CLOB}, #{richTextFitment,jdbcType=CLOB}, #{richTextLayout,jdbcType=CLOB}, 
+      #{richTextRights,jdbcType=CLOB}, #{onlyTextCore,jdbcType=CLOB}, #{onlyTextFitment,jdbcType=CLOB}, 
+      #{onlyTextLayout,jdbcType=CLOB}, #{onlyTextRights,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpRichText">
+    <!--@mbggenerated-->
+    insert into rich_text
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="saleLease != null">
+        sale_lease,
+      </if>
+      <if test="houseId != null">
+        house_id,
+      </if>
+      <if test="houseUseage != null">
+        house_useAge,
+      </if>
+      <if test="houseNo != null">
+        house_no,
+      </if>
+      <if test="lock != null">
+        [LOCK],
+      </if>
+      <if test="encodeFlag != null">
+        ENCODE_FLAG,
+      </if>
+      <if test="richText != null">
+        rich_text,
+      </if>
+      <if test="richTextFitment != null">
+        RICH_TEXT_FITMENT,
+      </if>
+      <if test="richTextLayout != null">
+        RICH_TEXT_LAYOUT,
+      </if>
+      <if test="richTextRights != null">
+        RICH_TEXT_RIGHTS,
+      </if>
+      <if test="onlyTextCore != null">
+        ONLY_TEXT_CORE,
+      </if>
+      <if test="onlyTextFitment != null">
+        ONLY_TEXT_FITMENT,
+      </if>
+      <if test="onlyTextLayout != null">
+        ONLY_TEXT_LAYOUT,
+      </if>
+      <if test="onlyTextRights != null">
+        ONLY_TEXT_RIGHTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="saleLease != null">
+        #{saleLease,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="houseNo != null">
+        #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lock != null">
+        #{lock,jdbcType=TINYINT},
+      </if>
+      <if test="encodeFlag != null">
+        #{encodeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="richText != null">
+        #{richText,jdbcType=CLOB},
+      </if>
+      <if test="richTextFitment != null">
+        #{richTextFitment,jdbcType=CLOB},
+      </if>
+      <if test="richTextLayout != null">
+        #{richTextLayout,jdbcType=CLOB},
+      </if>
+      <if test="richTextRights != null">
+        #{richTextRights,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextCore != null">
+        #{onlyTextCore,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextFitment != null">
+        #{onlyTextFitment,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextLayout != null">
+        #{onlyTextLayout,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextRights != null">
+        #{onlyTextRights,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpRichText">
+    <!--@mbggenerated-->
+    update rich_text
+    <set>
+      <if test="houseNo != null">
+        house_no = #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lock != null">
+        [LOCK] = #{lock,jdbcType=TINYINT},
+      </if>
+      <if test="encodeFlag != null">
+        ENCODE_FLAG = #{encodeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="richText != null">
+        rich_text = #{richText,jdbcType=CLOB},
+      </if>
+      <if test="richTextFitment != null">
+        RICH_TEXT_FITMENT = #{richTextFitment,jdbcType=CLOB},
+      </if>
+      <if test="richTextLayout != null">
+        RICH_TEXT_LAYOUT = #{richTextLayout,jdbcType=CLOB},
+      </if>
+      <if test="richTextRights != null">
+        RICH_TEXT_RIGHTS = #{richTextRights,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextCore != null">
+        ONLY_TEXT_CORE = #{onlyTextCore,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextFitment != null">
+        ONLY_TEXT_FITMENT = #{onlyTextFitment,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextLayout != null">
+        ONLY_TEXT_LAYOUT = #{onlyTextLayout,jdbcType=CLOB},
+      </if>
+      <if test="onlyTextRights != null">
+        ONLY_TEXT_RIGHTS = #{onlyTextRights,jdbcType=CLOB},
+      </if>
+    </set>
+    where sale_lease = #{saleLease,jdbcType=INTEGER}
+      and house_id = #{houseId,jdbcType=INTEGER}
+      and house_useAge = #{houseUseage,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpRichText">
+    <!--@mbggenerated-->
+    update rich_text
+    set house_no = #{houseNo,jdbcType=VARCHAR},
+      [LOCK] = #{lock,jdbcType=TINYINT},
+      ENCODE_FLAG = #{encodeFlag,jdbcType=TINYINT},
+      rich_text = #{richText,jdbcType=CLOB},
+      RICH_TEXT_FITMENT = #{richTextFitment,jdbcType=CLOB},
+      RICH_TEXT_LAYOUT = #{richTextLayout,jdbcType=CLOB},
+      RICH_TEXT_RIGHTS = #{richTextRights,jdbcType=CLOB},
+      ONLY_TEXT_CORE = #{onlyTextCore,jdbcType=CLOB},
+      ONLY_TEXT_FITMENT = #{onlyTextFitment,jdbcType=CLOB},
+      ONLY_TEXT_LAYOUT = #{onlyTextLayout,jdbcType=CLOB},
+      ONLY_TEXT_RIGHTS = #{onlyTextRights,jdbcType=CLOB}
+    where sale_lease = #{saleLease,jdbcType=INTEGER}
+      and house_id = #{houseId,jdbcType=INTEGER}
+      and house_useAge = #{houseUseage,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpRichText">
+    <!--@mbggenerated-->
+    update rich_text
+    set house_no = #{houseNo,jdbcType=VARCHAR},
+      [LOCK] = #{lock,jdbcType=TINYINT},
+      ENCODE_FLAG = #{encodeFlag,jdbcType=TINYINT}
+    where sale_lease = #{saleLease,jdbcType=INTEGER}
+      and house_id = #{houseId,jdbcType=INTEGER}
+      and house_useAge = #{houseUseage,jdbcType=TINYINT}
+  </update>
+
+  <select id="getHouseRichText" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from rich_text
+    where HOUSE_ID = #{caseId} AND SALE_LEASE = #{caseType}
+  </select>
+
+</mapper>

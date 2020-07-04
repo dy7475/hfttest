@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminBulletMiniMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminBulletMini" >
+    <!--@mbggenerated-->
+    <id column="MINI_ID" property="miniId" jdbcType="INTEGER" />
+    <result column="BULLET_ID" property="bulletId" jdbcType="INTEGER" />
+    <result column="BTYPE_ID" property="btypeId" jdbcType="INTEGER" />
+    <result column="MINI_TITLE" property="miniTitle" jdbcType="VARCHAR" />
+    <result column="MINI_DESCRIPTION" property="miniDescription" jdbcType="VARCHAR" />
+    <result column="MINI_PIC" property="miniPic" jdbcType="VARCHAR" />
+    <result column="MINI_LINK" property="miniLink" jdbcType="VARCHAR" />
+    <result column="USE_LINK" property="useLink" jdbcType="BIT" />
+    <result column="MINI_COLOR" property="miniColor" jdbcType="VARCHAR" />
+    <result column="GRADE" property="grade" jdbcType="TINYINT" />
+    <result column="SEQ" property="seq" jdbcType="TINYINT" />
+    <result column="VISIBLE" property="visible" jdbcType="TINYINT" />
+    <result column="TARGET" property="target" jdbcType="VARCHAR" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_UID" property="updateUid" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    MINI_ID, BULLET_ID, BTYPE_ID, MINI_TITLE, MINI_DESCRIPTION, MINI_PIC, MINI_LINK, 
+    USE_LINK, MINI_COLOR, GRADE, SEQ, VISIBLE, TARGET, CREATOR_UID, CREATION_TIME, UPDATE_UID, 
+    UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BULLET_MINI
+    where MINI_ID = #{miniId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from BULLET_MINI
+    where MINI_ID = #{miniId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminBulletMini" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="miniId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BULLET_MINI (BULLET_ID, BTYPE_ID, MINI_TITLE, 
+      MINI_DESCRIPTION, MINI_PIC, MINI_LINK, 
+      USE_LINK, MINI_COLOR, GRADE, 
+      SEQ, VISIBLE, TARGET, 
+      CREATOR_UID, CREATION_TIME, UPDATE_UID, 
+      UPDATE_TIME)
+    values (#{bulletId,jdbcType=INTEGER}, #{btypeId,jdbcType=INTEGER}, #{miniTitle,jdbcType=VARCHAR}, 
+      #{miniDescription,jdbcType=VARCHAR}, #{miniPic,jdbcType=VARCHAR}, #{miniLink,jdbcType=VARCHAR}, 
+      #{useLink,jdbcType=BIT}, #{miniColor,jdbcType=VARCHAR}, #{grade,jdbcType=TINYINT}, 
+      #{seq,jdbcType=TINYINT}, #{visible,jdbcType=TINYINT}, #{target,jdbcType=VARCHAR}, 
+      #{creatorUid,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminBulletMini" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="miniId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BULLET_MINI
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bulletId != null" >
+        BULLET_ID,
+      </if>
+      <if test="btypeId != null" >
+        BTYPE_ID,
+      </if>
+      <if test="miniTitle != null" >
+        MINI_TITLE,
+      </if>
+      <if test="miniDescription != null" >
+        MINI_DESCRIPTION,
+      </if>
+      <if test="miniPic != null" >
+        MINI_PIC,
+      </if>
+      <if test="miniLink != null" >
+        MINI_LINK,
+      </if>
+      <if test="useLink != null" >
+        USE_LINK,
+      </if>
+      <if test="miniColor != null" >
+        MINI_COLOR,
+      </if>
+      <if test="grade != null" >
+        GRADE,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+      <if test="visible != null" >
+        VISIBLE,
+      </if>
+      <if test="target != null" >
+        TARGET,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bulletId != null" >
+        #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="btypeId != null" >
+        #{btypeId,jdbcType=INTEGER},
+      </if>
+      <if test="miniTitle != null" >
+        #{miniTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="miniDescription != null" >
+        #{miniDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="miniPic != null" >
+        #{miniPic,jdbcType=VARCHAR},
+      </if>
+      <if test="miniLink != null" >
+        #{miniLink,jdbcType=VARCHAR},
+      </if>
+      <if test="useLink != null" >
+        #{useLink,jdbcType=BIT},
+      </if>
+      <if test="miniColor != null" >
+        #{miniColor,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=TINYINT},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=TINYINT},
+      </if>
+      <if test="visible != null" >
+        #{visible,jdbcType=TINYINT},
+      </if>
+      <if test="target != null" >
+        #{target,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null" >
+        #{updateUid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminBulletMini" >
+    <!--@mbggenerated-->
+    update BULLET_MINI
+    <set >
+      <if test="bulletId != null" >
+        BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="btypeId != null" >
+        BTYPE_ID = #{btypeId,jdbcType=INTEGER},
+      </if>
+      <if test="miniTitle != null" >
+        MINI_TITLE = #{miniTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="miniDescription != null" >
+        MINI_DESCRIPTION = #{miniDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="miniPic != null" >
+        MINI_PIC = #{miniPic,jdbcType=VARCHAR},
+      </if>
+      <if test="miniLink != null" >
+        MINI_LINK = #{miniLink,jdbcType=VARCHAR},
+      </if>
+      <if test="useLink != null" >
+        USE_LINK = #{useLink,jdbcType=BIT},
+      </if>
+      <if test="miniColor != null" >
+        MINI_COLOR = #{miniColor,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        GRADE = #{grade,jdbcType=TINYINT},
+      </if>
+      <if test="seq != null" >
+        SEQ = #{seq,jdbcType=TINYINT},
+      </if>
+      <if test="visible != null" >
+        VISIBLE = #{visible,jdbcType=TINYINT},
+      </if>
+      <if test="target != null" >
+        TARGET = #{target,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID = #{updateUid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where MINI_ID = #{miniId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminBulletMini" >
+    <!--@mbggenerated-->
+    update BULLET_MINI
+    set BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      BTYPE_ID = #{btypeId,jdbcType=INTEGER},
+      MINI_TITLE = #{miniTitle,jdbcType=VARCHAR},
+      MINI_DESCRIPTION = #{miniDescription,jdbcType=VARCHAR},
+      MINI_PIC = #{miniPic,jdbcType=VARCHAR},
+      MINI_LINK = #{miniLink,jdbcType=VARCHAR},
+      USE_LINK = #{useLink,jdbcType=BIT},
+      MINI_COLOR = #{miniColor,jdbcType=VARCHAR},
+      GRADE = #{grade,jdbcType=TINYINT},
+      SEQ = #{seq,jdbcType=TINYINT},
+      VISIBLE = #{visible,jdbcType=TINYINT},
+      TARGET = #{target,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{updateUid,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where MINI_ID = #{miniId,jdbcType=INTEGER}
+  </update>
+</mapper>

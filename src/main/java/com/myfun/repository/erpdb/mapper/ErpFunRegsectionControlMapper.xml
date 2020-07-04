@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunRegsectionControlMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunRegsectionControl">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="CREATE_UID" jdbcType="INTEGER" property="createUid" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="REGION_ID" jdbcType="INTEGER" property="regionId" />
+    <result column="SECTION_ID" jdbcType="INTEGER" property="sectionId" />
+    <result column="CONTROL_TYPE" jdbcType="INTEGER" property="controlType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, AREA_ID, REG_ID, CREATE_UID, CREATION_TIME, DEPT_ID, REGION_ID, SECTION_ID, 
+    CONTROL_TYPE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRegsectionControlExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_REGSECTION_CONTROL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_REGSECTION_CONTROL
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_REGSECTION_CONTROL
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRegsectionControlExample">
+    <!--@mbggenerated-->
+    delete from FUN_REGSECTION_CONTROL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunRegsectionControl" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_REGSECTION_CONTROL (COMP_ID, AREA_ID, REG_ID, 
+      CREATE_UID, CREATION_TIME, DEPT_ID, 
+      REGION_ID, SECTION_ID, CONTROL_TYPE
+      )
+    values (#{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, 
+      #{createUid,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{deptId,jdbcType=INTEGER}, 
+      #{regionId,jdbcType=INTEGER}, #{sectionId,jdbcType=INTEGER}, #{controlType,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunRegsectionControl" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_REGSECTION_CONTROL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="createUid != null">
+        CREATE_UID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="regionId != null">
+        REGION_ID,
+      </if>
+      <if test="sectionId != null">
+        SECTION_ID,
+      </if>
+      <if test="controlType != null">
+        CONTROL_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="createUid != null">
+        #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionId != null">
+        #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="controlType != null">
+        #{controlType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRegsectionControlExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_REGSECTION_CONTROL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_REGSECTION_CONTROL
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null">
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null">
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUid != null">
+        CREATE_UID = #{record.createUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regionId != null">
+        REGION_ID = #{record.regionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionId != null">
+        SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.controlType != null">
+        CONTROL_TYPE = #{record.controlType,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_REGSECTION_CONTROL
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      CREATE_UID = #{record.createUid,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      REGION_ID = #{record.regionId,jdbcType=INTEGER},
+      SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      CONTROL_TYPE = #{record.controlType,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunRegsectionControl">
+    <!--@mbggenerated-->
+    update FUN_REGSECTION_CONTROL
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="createUid != null">
+        CREATE_UID = #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        REGION_ID = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionId != null">
+        SECTION_ID = #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="controlType != null">
+        CONTROL_TYPE = #{controlType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunRegsectionControl">
+    <!--@mbggenerated-->
+    update FUN_REGSECTION_CONTROL
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      CREATE_UID = #{createUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      REGION_ID = #{regionId,jdbcType=INTEGER},
+      SECTION_ID = #{sectionId,jdbcType=INTEGER},
+      CONTROL_TYPE = #{controlType,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="countOneCaseInfoAndCaseType" resultType="int">
+    select count(1) from FUN_REGSECTION_CONTROL
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+     and DEPT_ID = #{deptId,jdbcType=INTEGER}
+     and( (REGION_ID = #{regionId,jdbcType=INTEGER}
+     and SECTION_ID = #{sectionId,jdbcType=INTEGER})
+     or (REGION_ID = #{regionId,jdbcType=INTEGER} and SECTION_ID is null)
+     )
+     and CONTROL_TYPE = '1'
+  </select>
+
+	<select id="getRegsectionControlList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		FROM FUN_REGSECTION_CONTROL
+		where COMP_ID = #{compId}
+		and DEPT_ID = #{deptId}
+	</select>
+
+	<select id="getRegionAndSection" resultMap="BaseResultMap">
+		SELECT REGION_ID,SECTION_ID
+		from FUN_REGSECTION_CONTROL WHERE
+		COMP_ID = #{compId}
+		AND DEPT_ID= #{deptId}
+		AND CONTROL_TYPE = 0
+		ORDER BY CASE WHEN SECTION_ID IS null THEN 300 WHEN SECTION_ID>0 THEN 200 END
+	</select>
+	<select id="getUsersByOperRange" resultType="java.util.Map">
+		select top 1 <include refid="Base_Column_List" /> from FUN_USERS
+		where COMP_ID= #{compId} and ${queryRange}=#{queryRangeId} and ${operRange} =#{operRangeAtt}
+		<if test="deptId != null">
+			and deptId=#{deptId}
+		</if>
+	</select>
+
+	<select id="getRegsectionControl" resultType="java.util.Map">
+		SELECT CONCAT(REGION_ID,'_',SECTION_ID) as REG_SECTION,REGION_ID,SECTION_ID  from FUN_REGSECTION_CONTROL
+		WHERE COMP_ID=#{compId} and DEPT_ID=#{deptId} and CONTROL_TYPE=0
+		order by CASE WHEN SECTION_ID is null THEN 300 WHEN SECTION_ID>0 THEN 200 END
+	</select>
+</mapper>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopRequirementMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopRequirement" >
+    <!--@mbggenerated-->
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="weixinId" property="weixinid" jdbcType="VARCHAR" />
+    <result column="FBrokerId" property="fbrokerid" jdbcType="INTEGER" />
+    <result column="FDeptId" property="fdeptid" jdbcType="INTEGER" />
+    <result column="FCompId" property="fcompid" jdbcType="INTEGER" />
+    <result column="FCityId" property="fcityid" jdbcType="INTEGER" />
+    <result column="FCreateTime" property="fcreatetime" jdbcType="TIMESTAMP" />
+    <result column="FDataType" property="fdatatype" jdbcType="INTEGER" />
+    <result column="FCallName" property="fcallname" jdbcType="VARCHAR" />
+    <result column="FPhone" property="fphone" jdbcType="CHAR" />
+    <result column="FStatus" property="fstatus" jdbcType="VARCHAR" />
+    <result column="FDESC" property="fdesc" jdbcType="VARCHAR" />
+    <result column="CityId" property="cityid" jdbcType="INTEGER" />
+    <result column="HouseId" property="houseid" jdbcType="INTEGER" />
+    <result column="FSwitch" property="fswitch" jdbcType="TINYINT" />
+    <result column="FUpdateTime" property="fupdatetime" jdbcType="VARCHAR" />
+    <result column="Type" property="type" jdbcType="TINYINT" />
+    <result column="FType" property="ftype" jdbcType="TINYINT" />
+    <result column="show_phone" property="showPhone" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminWMicroshopRequirementWithBLOBs" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="TrailContent" property="trailcontent" jdbcType="CLOB" />
+    <result column="Content" property="content" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    uid, weixinId, FBrokerId, FDeptId, FCompId, FCityId, FCreateTime, FDataType, FCallName, 
+    FPhone, FStatus, FDESC, CityId, HouseId, FSwitch, FUpdateTime, Type, FType, show_phone
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    TrailContent, Content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from w_microshop_requirement
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_requirement
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopRequirementWithBLOBs" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="uid" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_requirement (weixinId, FBrokerId, FDeptId, 
+      FCompId, FCityId, FCreateTime, 
+      FDataType, FCallName, FPhone, 
+      FStatus, FDESC, CityId, 
+      HouseId, FSwitch, FUpdateTime, 
+      Type, FType, show_phone, 
+      TrailContent, Content)
+    values (#{weixinid,jdbcType=VARCHAR}, #{fbrokerid,jdbcType=INTEGER}, #{fdeptid,jdbcType=INTEGER}, 
+      #{fcompid,jdbcType=INTEGER}, #{fcityid,jdbcType=INTEGER}, #{fcreatetime,jdbcType=TIMESTAMP}, 
+      #{fdatatype,jdbcType=INTEGER}, #{fcallname,jdbcType=VARCHAR}, #{fphone,jdbcType=CHAR}, 
+      #{fstatus,jdbcType=VARCHAR}, #{fdesc,jdbcType=VARCHAR}, #{cityid,jdbcType=INTEGER}, 
+      #{houseid,jdbcType=INTEGER}, #{fswitch,jdbcType=TINYINT}, #{fupdatetime,jdbcType=VARCHAR}, 
+      #{type,jdbcType=TINYINT}, #{ftype,jdbcType=TINYINT}, #{showPhone,jdbcType=TINYINT}, 
+      #{trailcontent,jdbcType=CLOB}, #{content,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopRequirementWithBLOBs" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="uid" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_requirement
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="weixinid != null" >
+        weixinId,
+      </if>
+      <if test="fbrokerid != null" >
+        FBrokerId,
+      </if>
+      <if test="fdeptid != null" >
+        FDeptId,
+      </if>
+      <if test="fcompid != null" >
+        FCompId,
+      </if>
+      <if test="fcityid != null" >
+        FCityId,
+      </if>
+      <if test="fcreatetime != null" >
+        FCreateTime,
+      </if>
+      <if test="fdatatype != null" >
+        FDataType,
+      </if>
+      <if test="fcallname != null" >
+        FCallName,
+      </if>
+      <if test="fphone != null" >
+        FPhone,
+      </if>
+      <if test="fstatus != null" >
+        FStatus,
+      </if>
+      <if test="fdesc != null" >
+        FDESC,
+      </if>
+      <if test="cityid != null" >
+        CityId,
+      </if>
+      <if test="houseid != null" >
+        HouseId,
+      </if>
+      <if test="fswitch != null" >
+        FSwitch,
+      </if>
+      <if test="fupdatetime != null" >
+        FUpdateTime,
+      </if>
+      <if test="type != null" >
+        Type,
+      </if>
+      <if test="ftype != null" >
+        FType,
+      </if>
+      <if test="showPhone != null" >
+        show_phone,
+      </if>
+      <if test="trailcontent != null" >
+        TrailContent,
+      </if>
+      <if test="content != null" >
+        Content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="weixinid != null" >
+        #{weixinid,jdbcType=VARCHAR},
+      </if>
+      <if test="fbrokerid != null" >
+        #{fbrokerid,jdbcType=INTEGER},
+      </if>
+      <if test="fdeptid != null" >
+        #{fdeptid,jdbcType=INTEGER},
+      </if>
+      <if test="fcompid != null" >
+        #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fcityid != null" >
+        #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="fcreatetime != null" >
+        #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fdatatype != null" >
+        #{fdatatype,jdbcType=INTEGER},
+      </if>
+      <if test="fcallname != null" >
+        #{fcallname,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null" >
+        #{fphone,jdbcType=CHAR},
+      </if>
+      <if test="fstatus != null" >
+        #{fstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fdesc != null" >
+        #{fdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="houseid != null" >
+        #{houseid,jdbcType=INTEGER},
+      </if>
+      <if test="fswitch != null" >
+        #{fswitch,jdbcType=TINYINT},
+      </if>
+      <if test="fupdatetime != null" >
+        #{fupdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="ftype != null" >
+        #{ftype,jdbcType=TINYINT},
+      </if>
+      <if test="showPhone != null" >
+        #{showPhone,jdbcType=TINYINT},
+      </if>
+      <if test="trailcontent != null" >
+        #{trailcontent,jdbcType=CLOB},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopRequirementWithBLOBs" >
+    <!--@mbggenerated-->
+    update w_microshop_requirement
+    <set >
+      <if test="weixinid != null" >
+        weixinId = #{weixinid,jdbcType=VARCHAR},
+      </if>
+      <if test="fbrokerid != null" >
+        FBrokerId = #{fbrokerid,jdbcType=INTEGER},
+      </if>
+      <if test="fdeptid != null" >
+        FDeptId = #{fdeptid,jdbcType=INTEGER},
+      </if>
+      <if test="fcompid != null" >
+        FCompId = #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fcityid != null" >
+        FCityId = #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="fcreatetime != null" >
+        FCreateTime = #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fdatatype != null" >
+        FDataType = #{fdatatype,jdbcType=INTEGER},
+      </if>
+      <if test="fcallname != null" >
+        FCallName = #{fcallname,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null" >
+        FPhone = #{fphone,jdbcType=CHAR},
+      </if>
+      <if test="fstatus != null" >
+        FStatus = #{fstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fdesc != null" >
+        FDESC = #{fdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        CityId = #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="houseid != null" >
+        HouseId = #{houseid,jdbcType=INTEGER},
+      </if>
+      <if test="fswitch != null" >
+        FSwitch = #{fswitch,jdbcType=TINYINT},
+      </if>
+      <if test="fupdatetime != null" >
+        FUpdateTime = #{fupdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        Type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="ftype != null" >
+        FType = #{ftype,jdbcType=TINYINT},
+      </if>
+      <if test="showPhone != null" >
+        show_phone = #{showPhone,jdbcType=TINYINT},
+      </if>
+      <if test="trailcontent != null" >
+        TrailContent = #{trailcontent,jdbcType=CLOB},
+      </if>
+      <if test="content != null" >
+        Content = #{content,jdbcType=CLOB},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopRequirementWithBLOBs" >
+    <!--@mbggenerated-->
+    update w_microshop_requirement
+    set weixinId = #{weixinid,jdbcType=VARCHAR},
+      FBrokerId = #{fbrokerid,jdbcType=INTEGER},
+      FDeptId = #{fdeptid,jdbcType=INTEGER},
+      FCompId = #{fcompid,jdbcType=INTEGER},
+      FCityId = #{fcityid,jdbcType=INTEGER},
+      FCreateTime = #{fcreatetime,jdbcType=TIMESTAMP},
+      FDataType = #{fdatatype,jdbcType=INTEGER},
+      FCallName = #{fcallname,jdbcType=VARCHAR},
+      FPhone = #{fphone,jdbcType=CHAR},
+      FStatus = #{fstatus,jdbcType=VARCHAR},
+      FDESC = #{fdesc,jdbcType=VARCHAR},
+      CityId = #{cityid,jdbcType=INTEGER},
+      HouseId = #{houseid,jdbcType=INTEGER},
+      FSwitch = #{fswitch,jdbcType=TINYINT},
+      FUpdateTime = #{fupdatetime,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=TINYINT},
+      FType = #{ftype,jdbcType=TINYINT},
+      show_phone = #{showPhone,jdbcType=TINYINT},
+      TrailContent = #{trailcontent,jdbcType=CLOB},
+      Content = #{content,jdbcType=CLOB}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopRequirement" >
+    <!--@mbggenerated-->
+    update w_microshop_requirement
+    set weixinId = #{weixinid,jdbcType=VARCHAR},
+      FBrokerId = #{fbrokerid,jdbcType=INTEGER},
+      FDeptId = #{fdeptid,jdbcType=INTEGER},
+      FCompId = #{fcompid,jdbcType=INTEGER},
+      FCityId = #{fcityid,jdbcType=INTEGER},
+      FCreateTime = #{fcreatetime,jdbcType=TIMESTAMP},
+      FDataType = #{fdatatype,jdbcType=INTEGER},
+      FCallName = #{fcallname,jdbcType=VARCHAR},
+      FPhone = #{fphone,jdbcType=CHAR},
+      FStatus = #{fstatus,jdbcType=VARCHAR},
+      FDESC = #{fdesc,jdbcType=VARCHAR},
+      CityId = #{cityid,jdbcType=INTEGER},
+      HouseId = #{houseid,jdbcType=INTEGER},
+      FSwitch = #{fswitch,jdbcType=TINYINT},
+      FUpdateTime = #{fupdatetime,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=TINYINT},
+      FType = #{ftype,jdbcType=TINYINT},
+      show_phone = #{showPhone,jdbcType=TINYINT}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

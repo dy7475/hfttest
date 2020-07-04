@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyBuildActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyBuildActivity" >
+    <!--@mbggenerated-->
+    <id column="ACT_ID" property="actId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="INTEGER" />
+    <result column="ACT_STATUS" property="actStatus" jdbcType="TINYINT" />
+    <result column="EDIT_FLAG" property="editFlag" jdbcType="TINYINT" />
+    <result column="ACT_TITLE" property="actTitle" jdbcType="VARCHAR" />
+    <result column="BOUND" property="bound" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyBuildActivity" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="ACT_CONTENT" property="actContent" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ACT_ID, CITY_ID, BUILD_ID, END_TIME, CREATION_TIME, CREATOR_UID, ACT_STATUS, EDIT_FLAG, 
+    ACT_TITLE, BOUND
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    ACT_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BUILD_ACTIVITY
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from BUILD_ACTIVITY
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivity" >
+    <!--@mbggenerated-->
+    insert into BUILD_ACTIVITY (ACT_ID, CITY_ID, BUILD_ID, 
+      END_TIME, CREATION_TIME, CREATOR_UID, 
+      ACT_STATUS, EDIT_FLAG, ACT_TITLE, 
+      BOUND, ACT_CONTENT)
+    values (#{actId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{buildId,jdbcType=INTEGER}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{creationTime,jdbcType=TIMESTAMP}, #{creatorUid,jdbcType=INTEGER}, 
+      #{actStatus,jdbcType=TINYINT}, #{editFlag,jdbcType=TINYINT}, #{actTitle,jdbcType=VARCHAR}, 
+      #{bound,jdbcType=TINYINT}, #{actContent,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivity" >
+    <!--@mbggenerated-->
+    insert into BUILD_ACTIVITY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="actId != null" >
+        ACT_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="actStatus != null" >
+        ACT_STATUS,
+      </if>
+      <if test="editFlag != null" >
+        EDIT_FLAG,
+      </if>
+      <if test="actTitle != null" >
+        ACT_TITLE,
+      </if>
+      <if test="bound != null" >
+        BOUND,
+      </if>
+      <if test="actContent != null" >
+        ACT_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="actId != null" >
+        #{actId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="actStatus != null" >
+        #{actStatus,jdbcType=TINYINT},
+      </if>
+      <if test="editFlag != null" >
+        #{editFlag,jdbcType=TINYINT},
+      </if>
+      <if test="actTitle != null" >
+        #{actTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="bound != null" >
+        #{bound,jdbcType=TINYINT},
+      </if>
+      <if test="actContent != null" >
+        #{actContent,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivity" >
+    <!--@mbggenerated-->
+    update BUILD_ACTIVITY
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="actStatus != null" >
+        ACT_STATUS = #{actStatus,jdbcType=TINYINT},
+      </if>
+      <if test="editFlag != null" >
+        EDIT_FLAG = #{editFlag,jdbcType=TINYINT},
+      </if>
+      <if test="actTitle != null" >
+        ACT_TITLE = #{actTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="bound != null" >
+        BOUND = #{bound,jdbcType=TINYINT},
+      </if>
+      <if test="actContent != null" >
+        ACT_CONTENT = #{actContent,jdbcType=CLOB},
+      </if>
+    </set>
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivity" >
+    <!--@mbggenerated-->
+    update BUILD_ACTIVITY
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      ACT_STATUS = #{actStatus,jdbcType=TINYINT},
+      EDIT_FLAG = #{editFlag,jdbcType=TINYINT},
+      ACT_TITLE = #{actTitle,jdbcType=VARCHAR},
+      BOUND = #{bound,jdbcType=TINYINT},
+      ACT_CONTENT = #{actContent,jdbcType=CLOB}
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivity" >
+    <!--@mbggenerated-->
+    update BUILD_ACTIVITY
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      ACT_STATUS = #{actStatus,jdbcType=TINYINT},
+      EDIT_FLAG = #{editFlag,jdbcType=TINYINT},
+      ACT_TITLE = #{actTitle,jdbcType=VARCHAR},
+      BOUND = #{bound,jdbcType=TINYINT}
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </update>
+</mapper>

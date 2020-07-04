@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunHousePublishLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunHousePublishLog">
+    <!--@mbggenerated-->
+    <id column="P_LOG_ID" jdbcType="INTEGER" property="pLogId" />
+    <result column="F_PUB_ID" jdbcType="INTEGER" property="fPubId" />
+    <result column="PUBLISH_SITE" jdbcType="INTEGER" property="publishSite" />
+    <result column="CITY_PUBLISH" jdbcType="TINYINT" property="cityPublish" />
+    <result column="CHECK_STATUS" jdbcType="TINYINT" property="checkStatus" />
+    <result column="CHECK_USER" jdbcType="INTEGER" property="checkUser" />
+    <result column="CHECK_DESC" jdbcType="VARCHAR" property="checkDesc" />
+    <result column="CHECK_DATE" jdbcType="TIMESTAMP" property="checkDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    P_LOG_ID, F_PUB_ID, PUBLISH_SITE, CITY_PUBLISH, CHECK_STATUS, CHECK_USER, CHECK_DESC, 
+    CHECK_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_HOUSE_PUBLISH_LOG
+    where P_LOG_ID = #{pLogId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_HOUSE_PUBLISH_LOG
+    where P_LOG_ID = #{pLogId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="pLogId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_HOUSE_PUBLISH_LOG (F_PUB_ID, PUBLISH_SITE, CITY_PUBLISH, 
+      CHECK_STATUS, CHECK_USER, CHECK_DESC, 
+      CHECK_DATE)
+    values (#{fPubId,jdbcType=INTEGER}, #{publishSite,jdbcType=INTEGER}, #{cityPublish,jdbcType=TINYINT}, 
+      #{checkStatus,jdbcType=TINYINT}, #{checkUser,jdbcType=INTEGER}, #{checkDesc,jdbcType=VARCHAR}, 
+      #{checkDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="pLogId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_HOUSE_PUBLISH_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fPubId != null">
+        F_PUB_ID,
+      </if>
+      <if test="publishSite != null">
+        PUBLISH_SITE,
+      </if>
+      <if test="cityPublish != null">
+        CITY_PUBLISH,
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS,
+      </if>
+      <if test="checkUser != null">
+        CHECK_USER,
+      </if>
+      <if test="checkDesc != null">
+        CHECK_DESC,
+      </if>
+      <if test="checkDate != null">
+        CHECK_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fPubId != null">
+        #{fPubId,jdbcType=INTEGER},
+      </if>
+      <if test="publishSite != null">
+        #{publishSite,jdbcType=INTEGER},
+      </if>
+      <if test="cityPublish != null">
+        #{cityPublish,jdbcType=TINYINT},
+      </if>
+      <if test="checkStatus != null">
+        #{checkStatus,jdbcType=TINYINT},
+      </if>
+      <if test="checkUser != null">
+        #{checkUser,jdbcType=INTEGER},
+      </if>
+      <if test="checkDesc != null">
+        #{checkDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null">
+        #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishLog">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_PUBLISH_LOG
+    <set>
+      <if test="fPubId != null">
+        F_PUB_ID = #{fPubId,jdbcType=INTEGER},
+      </if>
+      <if test="publishSite != null">
+        PUBLISH_SITE = #{publishSite,jdbcType=INTEGER},
+      </if>
+      <if test="cityPublish != null">
+        CITY_PUBLISH = #{cityPublish,jdbcType=TINYINT},
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS = #{checkStatus,jdbcType=TINYINT},
+      </if>
+      <if test="checkUser != null">
+        CHECK_USER = #{checkUser,jdbcType=INTEGER},
+      </if>
+      <if test="checkDesc != null">
+        CHECK_DESC = #{checkDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null">
+        CHECK_DATE = #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where P_LOG_ID = #{pLogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishLog">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_PUBLISH_LOG
+    set F_PUB_ID = #{fPubId,jdbcType=INTEGER},
+      PUBLISH_SITE = #{publishSite,jdbcType=INTEGER},
+      CITY_PUBLISH = #{cityPublish,jdbcType=TINYINT},
+      CHECK_STATUS = #{checkStatus,jdbcType=TINYINT},
+      CHECK_USER = #{checkUser,jdbcType=INTEGER},
+      CHECK_DESC = #{checkDesc,jdbcType=VARCHAR},
+      CHECK_DATE = #{checkDate,jdbcType=TIMESTAMP}
+    where P_LOG_ID = #{pLogId,jdbcType=INTEGER}
+  </update>
+  
+  <!-- buniess -->
+  <select id="getListInfo" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+    from FUN_HOUSE_PUBLISH_LOG
+    where F_PUB_ID = #{pubId}
+  </select>
+</mapper>

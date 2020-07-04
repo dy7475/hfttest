@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminLandlordTrackMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminLandlordTrack" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="MOBILE" property="mobile" jdbcType="CHAR" />
+    <result column="TRACK_CONTENT" property="trackContent" jdbcType="CHAR" />
+    <result column="TRACK_USER_ID" property="trackUserId" jdbcType="INTEGER" />
+    <result column="TRACK_USER_NAME" property="trackUserName" jdbcType="CHAR" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="TIMESTAMP" />
+    <result column="TRACK_TYPE" property="trackType" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, MOBILE, TRACK_CONTENT, TRACK_USER_ID, TRACK_USER_NAME, TRACK_TIME, TRACK_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LANDLORD_TRACK
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from LANDLORD_TRACK
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminLandlordTrack" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into LANDLORD_TRACK (MOBILE, TRACK_CONTENT, TRACK_USER_ID, 
+      TRACK_USER_NAME, TRACK_TIME, TRACK_TYPE
+      )
+    values (#{mobile,jdbcType=CHAR}, #{trackContent,jdbcType=CHAR}, #{trackUserId,jdbcType=INTEGER}, 
+      #{trackUserName,jdbcType=CHAR}, #{trackTime,jdbcType=TIMESTAMP}, #{trackType,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminLandlordTrack" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into LANDLORD_TRACK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="trackContent != null" >
+        TRACK_CONTENT,
+      </if>
+      <if test="trackUserId != null" >
+        TRACK_USER_ID,
+      </if>
+      <if test="trackUserName != null" >
+        TRACK_USER_NAME,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+      <if test="trackType != null" >
+        TRACK_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mobile != null" >
+        #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="trackContent != null" >
+        #{trackContent,jdbcType=CHAR},
+      </if>
+      <if test="trackUserId != null" >
+        #{trackUserId,jdbcType=INTEGER},
+      </if>
+      <if test="trackUserName != null" >
+        #{trackUserName,jdbcType=CHAR},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackType != null" >
+        #{trackType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminLandlordTrack" >
+    <!--@mbggenerated-->
+    update LANDLORD_TRACK
+    <set >
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=CHAR},
+      </if>
+      <if test="trackContent != null" >
+        TRACK_CONTENT = #{trackContent,jdbcType=CHAR},
+      </if>
+      <if test="trackUserId != null" >
+        TRACK_USER_ID = #{trackUserId,jdbcType=INTEGER},
+      </if>
+      <if test="trackUserName != null" >
+        TRACK_USER_NAME = #{trackUserName,jdbcType=CHAR},
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackType != null" >
+        TRACK_TYPE = #{trackType,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminLandlordTrack" >
+    <!--@mbggenerated-->
+    update LANDLORD_TRACK
+    set MOBILE = #{mobile,jdbcType=CHAR},
+      TRACK_CONTENT = #{trackContent,jdbcType=CHAR},
+      TRACK_USER_ID = #{trackUserId,jdbcType=INTEGER},
+      TRACK_USER_NAME = #{trackUserName,jdbcType=CHAR},
+      TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      TRACK_TYPE = #{trackType,jdbcType=CHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

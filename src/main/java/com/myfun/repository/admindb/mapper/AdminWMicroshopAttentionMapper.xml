@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopAttentionMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopAttention" >
+    <!--@mbggenerated-->
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="weixinId" property="weixinid" jdbcType="VARCHAR" />
+    <result column="FBrokerId" property="fbrokerid" jdbcType="INTEGER" />
+    <result column="FDataType" property="fdatatype" jdbcType="INTEGER" />
+    <result column="FCreateTime" property="fcreatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    uid, weixinId, FBrokerId, FDataType, FCreateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from w_microshop_attention
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_attention
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopAttention" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="uid" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_attention (weixinId, FBrokerId, FDataType, 
+      FCreateTime)
+    values (#{weixinid,jdbcType=VARCHAR}, #{fbrokerid,jdbcType=INTEGER}, #{fdatatype,jdbcType=INTEGER}, 
+      #{fcreatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopAttention" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="uid" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_attention
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="weixinid != null" >
+        weixinId,
+      </if>
+      <if test="fbrokerid != null" >
+        FBrokerId,
+      </if>
+      <if test="fdatatype != null" >
+        FDataType,
+      </if>
+      <if test="fcreatetime != null" >
+        FCreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="weixinid != null" >
+        #{weixinid,jdbcType=VARCHAR},
+      </if>
+      <if test="fbrokerid != null" >
+        #{fbrokerid,jdbcType=INTEGER},
+      </if>
+      <if test="fdatatype != null" >
+        #{fdatatype,jdbcType=INTEGER},
+      </if>
+      <if test="fcreatetime != null" >
+        #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopAttention" >
+    <!--@mbggenerated-->
+    update w_microshop_attention
+    <set >
+      <if test="weixinid != null" >
+        weixinId = #{weixinid,jdbcType=VARCHAR},
+      </if>
+      <if test="fbrokerid != null" >
+        FBrokerId = #{fbrokerid,jdbcType=INTEGER},
+      </if>
+      <if test="fdatatype != null" >
+        FDataType = #{fdatatype,jdbcType=INTEGER},
+      </if>
+      <if test="fcreatetime != null" >
+        FCreateTime = #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopAttention" >
+    <!--@mbggenerated-->
+    update w_microshop_attention
+    set weixinId = #{weixinid,jdbcType=VARCHAR},
+      FBrokerId = #{fbrokerid,jdbcType=INTEGER},
+      FDataType = #{fdatatype,jdbcType=INTEGER},
+      FCreateTime = #{fcreatetime,jdbcType=TIMESTAMP}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunScoreRecoredMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunScoreRecored">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="TOTAL_SCORE" jdbcType="INTEGER" property="totalScore" />
+    <result column="FDJ_SCORE" jdbcType="INTEGER" property="fdjScore" />
+    <result column="FK_SCORE" jdbcType="INTEGER" property="fkScore" />
+    <result column="KFDP_SCORE" jdbcType="INTEGER" property="kfdpScore" />
+    <result column="SPSC_SCORE" jdbcType="INTEGER" property="spscScore" />
+    <result column="VR_SCORE" jdbcType="INTEGER" property="vrScore" />
+    <result column="TPSC_SCORE" jdbcType="INTEGER" property="tpscScore" />
+    <result column="YSTJ_SCORE" jdbcType="INTEGER" property="ystjScore" />
+    <result column="FXG_SCORE" jdbcType="INTEGER" property="fxgScore" />
+    <result column="FGJ_SCORE" jdbcType="INTEGER" property="fgjScore" />
+    <result column="KDJ_SCORE" jdbcType="INTEGER" property="kdjScore" />
+    <result column="DK_SCORE" jdbcType="INTEGER" property="dkScore" />
+    <result column="SPDK_SCORE" jdbcType="INTEGER" property="spdkScore" />
+    <result column="KXG_SCORE" jdbcType="INTEGER" property="kxgScore" />
+    <result column="KGJ_SCORE" jdbcType="INTEGER" property="kgjScore" />
+    <result column="XQZJ_SCORE" jdbcType="INTEGER" property="xqzjScore" />
+    <result column="FYTG_SCORE" jdbcType="INTEGER" property="fytgScore" />
+    <result column="ZFY_SCORE" jdbcType="INTEGER" property="zfyScore" />
+    <result column="YXTG_SCORE" jdbcType="INTEGER" property="yxtgScore" />
+    <result column="YYHF_SCORE" jdbcType="INTEGER" property="yyhfScore" />
+    <result column="FYQF_SCORE" jdbcType="INTEGER" property="fyqfScore" />
+    <result column="DTFX_SCORE" jdbcType="INTEGER" property="dtfxScore" />
+    <result column="GXHZ_SCORE" jdbcType="INTEGER" property="gxhzScore" />
+    <result column="WXHP_SCORE" jdbcType="INTEGER" property="wxhpScore" />
+    <result column="PAPH_SCORE" jdbcType="INTEGER" property="paphScore" />
+    <result column="CJ_SCORE" jdbcType="INTEGER" property="cjScore" />
+    <result column="YXYG_SCORE" jdbcType="INTEGER" property="yxygScore" />
+    <result column="YJDB_SCORE" jdbcType="INTEGER" property="yjdbScore" />
+    <result column="SMRZ_SCORE" jdbcType="INTEGER" property="smrzScore" />
+    <result column="SJDL_SCORE" jdbcType="INTEGER" property="sjdlScore" />
+    <result column="FSDB_SCORE" jdbcType="INTEGER" property="fsdbScore" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, CITY_ID, COMP_NO, DEPT_NO, COMP_ID, DEPT_ID, USER_ID, ARCHIVE_ID, CREATE_TIME, 
+    TOTAL_SCORE, FDJ_SCORE, FK_SCORE, KFDP_SCORE, SPSC_SCORE, VR_SCORE, TPSC_SCORE, YSTJ_SCORE, 
+    FXG_SCORE, FGJ_SCORE, KDJ_SCORE, DK_SCORE, SPDK_SCORE, KXG_SCORE, KGJ_SCORE, XQZJ_SCORE, 
+    FYTG_SCORE, ZFY_SCORE, YXTG_SCORE, YYHF_SCORE, FYQF_SCORE, DTFX_SCORE, GXHZ_SCORE, 
+    WXHP_SCORE, PAPH_SCORE, CJ_SCORE, YXYG_SCORE, YJDB_SCORE, SMRZ_SCORE, SJDL_SCORE, 
+    FSDB_SCORE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_SCORE_RECORED
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_SCORE_RECORED
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunScoreRecored">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_SCORE_RECORED (CITY_ID, COMP_NO, DEPT_NO, 
+      COMP_ID, DEPT_ID, USER_ID, 
+      ARCHIVE_ID, CREATE_TIME, TOTAL_SCORE, 
+      FDJ_SCORE, FK_SCORE, KFDP_SCORE, 
+      SPSC_SCORE, VR_SCORE, TPSC_SCORE, 
+      YSTJ_SCORE, FXG_SCORE, FGJ_SCORE, 
+      KDJ_SCORE, DK_SCORE, SPDK_SCORE, 
+      KXG_SCORE, KGJ_SCORE, XQZJ_SCORE, 
+      FYTG_SCORE, ZFY_SCORE, YXTG_SCORE, 
+      YYHF_SCORE, FYQF_SCORE, DTFX_SCORE, 
+      GXHZ_SCORE, WXHP_SCORE, PAPH_SCORE, 
+      CJ_SCORE, YXYG_SCORE, YJDB_SCORE, 
+      SMRZ_SCORE, SJDL_SCORE, FSDB_SCORE
+      )
+    values (#{cityId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, #{deptNo,jdbcType=VARCHAR}, 
+      #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{archiveId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{totalScore,jdbcType=INTEGER}, 
+      #{fdjScore,jdbcType=INTEGER}, #{fkScore,jdbcType=INTEGER}, #{kfdpScore,jdbcType=INTEGER}, 
+      #{spscScore,jdbcType=INTEGER}, #{vrScore,jdbcType=INTEGER}, #{tpscScore,jdbcType=INTEGER}, 
+      #{ystjScore,jdbcType=INTEGER}, #{fxgScore,jdbcType=INTEGER}, #{fgjScore,jdbcType=INTEGER}, 
+      #{kdjScore,jdbcType=INTEGER}, #{dkScore,jdbcType=INTEGER}, #{spdkScore,jdbcType=INTEGER}, 
+      #{kxgScore,jdbcType=INTEGER}, #{kgjScore,jdbcType=INTEGER}, #{xqzjScore,jdbcType=INTEGER}, 
+      #{fytgScore,jdbcType=INTEGER}, #{zfyScore,jdbcType=INTEGER}, #{yxtgScore,jdbcType=INTEGER}, 
+      #{yyhfScore,jdbcType=INTEGER}, #{fyqfScore,jdbcType=INTEGER}, #{dtfxScore,jdbcType=INTEGER}, 
+      #{gxhzScore,jdbcType=INTEGER}, #{wxhpScore,jdbcType=INTEGER}, #{paphScore,jdbcType=INTEGER}, 
+      #{cjScore,jdbcType=INTEGER}, #{yxygScore,jdbcType=INTEGER}, #{yjdbScore,jdbcType=INTEGER}, 
+      #{smrzScore,jdbcType=INTEGER}, #{sjdlScore,jdbcType=INTEGER}, #{fsdbScore,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunScoreRecored">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_SCORE_RECORED
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compNo != null">
+        COMP_NO,
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="totalScore != null">
+        TOTAL_SCORE,
+      </if>
+      <if test="fdjScore != null">
+        FDJ_SCORE,
+      </if>
+      <if test="fkScore != null">
+        FK_SCORE,
+      </if>
+      <if test="kfdpScore != null">
+        KFDP_SCORE,
+      </if>
+      <if test="spscScore != null">
+        SPSC_SCORE,
+      </if>
+      <if test="vrScore != null">
+        VR_SCORE,
+      </if>
+      <if test="tpscScore != null">
+        TPSC_SCORE,
+      </if>
+      <if test="ystjScore != null">
+        YSTJ_SCORE,
+      </if>
+      <if test="fxgScore != null">
+        FXG_SCORE,
+      </if>
+      <if test="fgjScore != null">
+        FGJ_SCORE,
+      </if>
+      <if test="kdjScore != null">
+        KDJ_SCORE,
+      </if>
+      <if test="dkScore != null">
+        DK_SCORE,
+      </if>
+      <if test="spdkScore != null">
+        SPDK_SCORE,
+      </if>
+      <if test="kxgScore != null">
+        KXG_SCORE,
+      </if>
+      <if test="kgjScore != null">
+        KGJ_SCORE,
+      </if>
+      <if test="xqzjScore != null">
+        XQZJ_SCORE,
+      </if>
+      <if test="fytgScore != null">
+        FYTG_SCORE,
+      </if>
+      <if test="zfyScore != null">
+        ZFY_SCORE,
+      </if>
+      <if test="yxtgScore != null">
+        YXTG_SCORE,
+      </if>
+      <if test="yyhfScore != null">
+        YYHF_SCORE,
+      </if>
+      <if test="fyqfScore != null">
+        FYQF_SCORE,
+      </if>
+      <if test="dtfxScore != null">
+        DTFX_SCORE,
+      </if>
+      <if test="gxhzScore != null">
+        GXHZ_SCORE,
+      </if>
+      <if test="wxhpScore != null">
+        WXHP_SCORE,
+      </if>
+      <if test="paphScore != null">
+        PAPH_SCORE,
+      </if>
+      <if test="cjScore != null">
+        CJ_SCORE,
+      </if>
+      <if test="yxygScore != null">
+        YXYG_SCORE,
+      </if>
+      <if test="yjdbScore != null">
+        YJDB_SCORE,
+      </if>
+      <if test="smrzScore != null">
+        SMRZ_SCORE,
+      </if>
+      <if test="sjdlScore != null">
+        SJDL_SCORE,
+      </if>
+      <if test="fsdbScore != null">
+        FSDB_SCORE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalScore != null">
+        #{totalScore,jdbcType=INTEGER},
+      </if>
+      <if test="fdjScore != null">
+        #{fdjScore,jdbcType=INTEGER},
+      </if>
+      <if test="fkScore != null">
+        #{fkScore,jdbcType=INTEGER},
+      </if>
+      <if test="kfdpScore != null">
+        #{kfdpScore,jdbcType=INTEGER},
+      </if>
+      <if test="spscScore != null">
+        #{spscScore,jdbcType=INTEGER},
+      </if>
+      <if test="vrScore != null">
+        #{vrScore,jdbcType=INTEGER},
+      </if>
+      <if test="tpscScore != null">
+        #{tpscScore,jdbcType=INTEGER},
+      </if>
+      <if test="ystjScore != null">
+        #{ystjScore,jdbcType=INTEGER},
+      </if>
+      <if test="fxgScore != null">
+        #{fxgScore,jdbcType=INTEGER},
+      </if>
+      <if test="fgjScore != null">
+        #{fgjScore,jdbcType=INTEGER},
+      </if>
+      <if test="kdjScore != null">
+        #{kdjScore,jdbcType=INTEGER},
+      </if>
+      <if test="dkScore != null">
+        #{dkScore,jdbcType=INTEGER},
+      </if>
+      <if test="spdkScore != null">
+        #{spdkScore,jdbcType=INTEGER},
+      </if>
+      <if test="kxgScore != null">
+        #{kxgScore,jdbcType=INTEGER},
+      </if>
+      <if test="kgjScore != null">
+        #{kgjScore,jdbcType=INTEGER},
+      </if>
+      <if test="xqzjScore != null">
+        #{xqzjScore,jdbcType=INTEGER},
+      </if>
+      <if test="fytgScore != null">
+        #{fytgScore,jdbcType=INTEGER},
+      </if>
+      <if test="zfyScore != null">
+        #{zfyScore,jdbcType=INTEGER},
+      </if>
+      <if test="yxtgScore != null">
+        #{yxtgScore,jdbcType=INTEGER},
+      </if>
+      <if test="yyhfScore != null">
+        #{yyhfScore,jdbcType=INTEGER},
+      </if>
+      <if test="fyqfScore != null">
+        #{fyqfScore,jdbcType=INTEGER},
+      </if>
+      <if test="dtfxScore != null">
+        #{dtfxScore,jdbcType=INTEGER},
+      </if>
+      <if test="gxhzScore != null">
+        #{gxhzScore,jdbcType=INTEGER},
+      </if>
+      <if test="wxhpScore != null">
+        #{wxhpScore,jdbcType=INTEGER},
+      </if>
+      <if test="paphScore != null">
+        #{paphScore,jdbcType=INTEGER},
+      </if>
+      <if test="cjScore != null">
+        #{cjScore,jdbcType=INTEGER},
+      </if>
+      <if test="yxygScore != null">
+        #{yxygScore,jdbcType=INTEGER},
+      </if>
+      <if test="yjdbScore != null">
+        #{yjdbScore,jdbcType=INTEGER},
+      </if>
+      <if test="smrzScore != null">
+        #{smrzScore,jdbcType=INTEGER},
+      </if>
+      <if test="sjdlScore != null">
+        #{sjdlScore,jdbcType=INTEGER},
+      </if>
+      <if test="fsdbScore != null">
+        #{fsdbScore,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunScoreRecored">
+    <!--@mbggenerated-->
+    update FUN_SCORE_RECORED
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalScore != null">
+        TOTAL_SCORE = #{totalScore,jdbcType=INTEGER},
+      </if>
+      <if test="fdjScore != null">
+        FDJ_SCORE = #{fdjScore,jdbcType=INTEGER},
+      </if>
+      <if test="fkScore != null">
+        FK_SCORE = #{fkScore,jdbcType=INTEGER},
+      </if>
+      <if test="kfdpScore != null">
+        KFDP_SCORE = #{kfdpScore,jdbcType=INTEGER},
+      </if>
+      <if test="spscScore != null">
+        SPSC_SCORE = #{spscScore,jdbcType=INTEGER},
+      </if>
+      <if test="vrScore != null">
+        VR_SCORE = #{vrScore,jdbcType=INTEGER},
+      </if>
+      <if test="tpscScore != null">
+        TPSC_SCORE = #{tpscScore,jdbcType=INTEGER},
+      </if>
+      <if test="ystjScore != null">
+        YSTJ_SCORE = #{ystjScore,jdbcType=INTEGER},
+      </if>
+      <if test="fxgScore != null">
+        FXG_SCORE = #{fxgScore,jdbcType=INTEGER},
+      </if>
+      <if test="fgjScore != null">
+        FGJ_SCORE = #{fgjScore,jdbcType=INTEGER},
+      </if>
+      <if test="kdjScore != null">
+        KDJ_SCORE = #{kdjScore,jdbcType=INTEGER},
+      </if>
+      <if test="dkScore != null">
+        DK_SCORE = #{dkScore,jdbcType=INTEGER},
+      </if>
+      <if test="spdkScore != null">
+        SPDK_SCORE = #{spdkScore,jdbcType=INTEGER},
+      </if>
+      <if test="kxgScore != null">
+        KXG_SCORE = #{kxgScore,jdbcType=INTEGER},
+      </if>
+      <if test="kgjScore != null">
+        KGJ_SCORE = #{kgjScore,jdbcType=INTEGER},
+      </if>
+      <if test="xqzjScore != null">
+        XQZJ_SCORE = #{xqzjScore,jdbcType=INTEGER},
+      </if>
+      <if test="fytgScore != null">
+        FYTG_SCORE = #{fytgScore,jdbcType=INTEGER},
+      </if>
+      <if test="zfyScore != null">
+        ZFY_SCORE = #{zfyScore,jdbcType=INTEGER},
+      </if>
+      <if test="yxtgScore != null">
+        YXTG_SCORE = #{yxtgScore,jdbcType=INTEGER},
+      </if>
+      <if test="yyhfScore != null">
+        YYHF_SCORE = #{yyhfScore,jdbcType=INTEGER},
+      </if>
+      <if test="fyqfScore != null">
+        FYQF_SCORE = #{fyqfScore,jdbcType=INTEGER},
+      </if>
+      <if test="dtfxScore != null">
+        DTFX_SCORE = #{dtfxScore,jdbcType=INTEGER},
+      </if>
+      <if test="gxhzScore != null">
+        GXHZ_SCORE = #{gxhzScore,jdbcType=INTEGER},
+      </if>
+      <if test="wxhpScore != null">
+        WXHP_SCORE = #{wxhpScore,jdbcType=INTEGER},
+      </if>
+      <if test="paphScore != null">
+        PAPH_SCORE = #{paphScore,jdbcType=INTEGER},
+      </if>
+      <if test="cjScore != null">
+        CJ_SCORE = #{cjScore,jdbcType=INTEGER},
+      </if>
+      <if test="yxygScore != null">
+        YXYG_SCORE = #{yxygScore,jdbcType=INTEGER},
+      </if>
+      <if test="yjdbScore != null">
+        YJDB_SCORE = #{yjdbScore,jdbcType=INTEGER},
+      </if>
+      <if test="smrzScore != null">
+        SMRZ_SCORE = #{smrzScore,jdbcType=INTEGER},
+      </if>
+      <if test="sjdlScore != null">
+        SJDL_SCORE = #{sjdlScore,jdbcType=INTEGER},
+      </if>
+      <if test="fsdbScore != null">
+        FSDB_SCORE = #{fsdbScore,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunScoreRecored">
+    <!--@mbggenerated-->
+    update FUN_SCORE_RECORED
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      TOTAL_SCORE = #{totalScore,jdbcType=INTEGER},
+      FDJ_SCORE = #{fdjScore,jdbcType=INTEGER},
+      FK_SCORE = #{fkScore,jdbcType=INTEGER},
+      KFDP_SCORE = #{kfdpScore,jdbcType=INTEGER},
+      SPSC_SCORE = #{spscScore,jdbcType=INTEGER},
+      VR_SCORE = #{vrScore,jdbcType=INTEGER},
+      TPSC_SCORE = #{tpscScore,jdbcType=INTEGER},
+      YSTJ_SCORE = #{ystjScore,jdbcType=INTEGER},
+      FXG_SCORE = #{fxgScore,jdbcType=INTEGER},
+      FGJ_SCORE = #{fgjScore,jdbcType=INTEGER},
+      KDJ_SCORE = #{kdjScore,jdbcType=INTEGER},
+      DK_SCORE = #{dkScore,jdbcType=INTEGER},
+      SPDK_SCORE = #{spdkScore,jdbcType=INTEGER},
+      KXG_SCORE = #{kxgScore,jdbcType=INTEGER},
+      KGJ_SCORE = #{kgjScore,jdbcType=INTEGER},
+      XQZJ_SCORE = #{xqzjScore,jdbcType=INTEGER},
+      FYTG_SCORE = #{fytgScore,jdbcType=INTEGER},
+      ZFY_SCORE = #{zfyScore,jdbcType=INTEGER},
+      YXTG_SCORE = #{yxtgScore,jdbcType=INTEGER},
+      YYHF_SCORE = #{yyhfScore,jdbcType=INTEGER},
+      FYQF_SCORE = #{fyqfScore,jdbcType=INTEGER},
+      DTFX_SCORE = #{dtfxScore,jdbcType=INTEGER},
+      GXHZ_SCORE = #{gxhzScore,jdbcType=INTEGER},
+      WXHP_SCORE = #{wxhpScore,jdbcType=INTEGER},
+      PAPH_SCORE = #{paphScore,jdbcType=INTEGER},
+      CJ_SCORE = #{cjScore,jdbcType=INTEGER},
+      YXYG_SCORE = #{yxygScore,jdbcType=INTEGER},
+      YJDB_SCORE = #{yjdbScore,jdbcType=INTEGER},
+      SMRZ_SCORE = #{smrzScore,jdbcType=INTEGER},
+      SJDL_SCORE = #{sjdlScore,jdbcType=INTEGER},
+      FSDB_SCORE = #{fsdbScore,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMapForMap" type="java.util.Map">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="TOTAL_SCORE" jdbcType="INTEGER" property="totalScore" />
+    <result column="FDJ_SCORE" jdbcType="INTEGER" property="fdjScore" />
+    <result column="FK_SCORE" jdbcType="INTEGER" property="fkScore" />
+    <result column="KFDP_SCORE" jdbcType="INTEGER" property="kfdpScore" />
+    <result column="SPSC_SCORE" jdbcType="INTEGER" property="spscScore" />
+    <result column="VR_SCORE" jdbcType="INTEGER" property="vrScore" />
+    <result column="TPSC_SCORE" jdbcType="INTEGER" property="tpscScore" />
+    <result column="YSTJ_SCORE" jdbcType="INTEGER" property="ystjScore" />
+    <result column="FXG_SCORE" jdbcType="INTEGER" property="fxgScore" />
+    <result column="FGJ_SCORE" jdbcType="INTEGER" property="fgjScore" />
+    <result column="KDJ_SCORE" jdbcType="INTEGER" property="kdjScore" />
+    <result column="DK_SCORE" jdbcType="INTEGER" property="dkScore" />
+    <result column="SPDK_SCORE" jdbcType="INTEGER" property="spdkScore" />
+    <result column="KXG_SCORE" jdbcType="INTEGER" property="kxgScore" />
+    <result column="KGJ_SCORE" jdbcType="INTEGER" property="kgjScore" />
+    <result column="XQZJ_SCORE" jdbcType="INTEGER" property="xqzjScore" />
+    <result column="FYTG_SCORE" jdbcType="INTEGER" property="fytgScore" />
+    <result column="ZFY_SCORE" jdbcType="INTEGER" property="zfyScore" />
+    <result column="YXTG_SCORE" jdbcType="INTEGER" property="yxtgScore" />
+    <result column="YYHF_SCORE" jdbcType="INTEGER" property="yyhfScore" />
+    <result column="FYQF_SCORE" jdbcType="INTEGER" property="fyqfScore" />
+    <result column="DTFX_SCORE" jdbcType="INTEGER" property="dtfxScore" />
+    <result column="GXHZ_SCORE" jdbcType="INTEGER" property="gxhzScore" />
+    <result column="WXHP_SCORE" jdbcType="INTEGER" property="wxhpScore" />
+    <result column="PAPH_SCORE" jdbcType="INTEGER" property="paphScore" />
+    <result column="CJ_SCORE" jdbcType="INTEGER" property="cjScore" />
+    <result column="YXYG_SCORE" jdbcType="INTEGER" property="yxygScore" />
+    <result column="YJDB_SCORE" jdbcType="INTEGER" property="yjdbScore" />
+    <result column="SMRZ_SCORE" jdbcType="INTEGER" property="smrzScore" />
+    <result column="SJDL_SCORE" jdbcType="INTEGER" property="sjdlScore" />
+    <result column="FSDB_SCORE" jdbcType="INTEGER" property="fsdbScore" />
+  </resultMap>
+	
+	<select id="getSelfScore" resultMap="BaseResultMapForMap">
+		SELECT TOP 1
+		<include refid="Base_Column_List" />
+		FROM FUN_SCORE_RECORED WHERE 
+		CITY_ID = #{cityId} and ARCHIVE_ID=#{archiveId} AND CREATE_TIME BETWEEN #{startMonth} AND #{endMonth}
+	</select>
+	
+	<select id="getSelfRanking" resultMap="BaseResultMapForMap">
+		SELECT COUNT(1)+1 as ranking FROM FUN_SCORE_RECORED WHERE 
+		TOTAL_SCORE &gt; #{totalScore} AND CREATE_TIME BETWEEN #{startMonth} AND #{endMonth}
+	</select>
+	
+	<select id="getScoreTotalRanking" resultMap="BaseResultMapForMap">
+		WITH T1 AS (
+			<choose>
+				<when test="userCreateTime != null">
+					select top 50 A.ARCHIVE_ID,ROW_NUMBER() OVER(ORDER BY SCORE_RANKING asc) as scoreRanking 
+					from FUN_SCORE_RANKING A JOIN FUN_ARCHIVE B ON B.ARCHIVE_ID=A.ARCHIVE_ID
+					where A.CREATE_TIME BETWEEN #{startMonth} AND #{endMonth}
+					AND B.CREATION_TIME &gt; #{userCreateTime}
+					ORDER BY SCORE_RANKING ASC
+				</when>
+				<when test="compNo != null">
+					select top 50 ARCHIVE_ID,ROW_NUMBER() OVER(ORDER BY SCORE_RANKING asc) as scoreRanking 
+					from FUN_SCORE_RANKING
+					where CREATE_TIME BETWEEN #{startMonth} AND #{endMonth}
+					AND COMP_NO = #{compNo}
+					ORDER BY SCORE_RANKING ASC
+				</when>
+				<otherwise>
+					select top 50 ARCHIVE_ID,SCORE_RANKING as scoreRanking 
+					from FUN_SCORE_RANKING
+					where CREATE_TIME BETWEEN #{startMonth} AND #{endMonth}
+					ORDER BY SCORE_RANKING ASC
+				</otherwise>
+			</choose>
+		)
+		SELECT TOP 30 
+		TOTAL_SCORE,B.USER_NAME as userName,
+		B.USER_PHOTO as bbsPhoto,
+		T1.scoreRanking,
+		FDJ_SCORE, FK_SCORE, KFDP_SCORE, SPSC_SCORE, VR_SCORE, TPSC_SCORE, YSTJ_SCORE, FXG_SCORE,
+		FGJ_SCORE, KDJ_SCORE, DK_SCORE, SPDK_SCORE, KXG_SCORE, KGJ_SCORE, XQZJ_SCORE, FYTG_SCORE,
+		ZFY_SCORE, YXTG_SCORE, YYHF_SCORE, FYQF_SCORE, DTFX_SCORE, GXHZ_SCORE, WXHP_SCORE,
+		PAPH_SCORE, CJ_SCORE, YXYG_SCORE, YJDB_SCORE, SMRZ_SCORE, SJDL_SCORE, FSDB_SCORE
+		FROM FUN_SCORE_RECORED A
+		JOIN FUN_ARCHIVE B ON B.ARCHIVE_ID=A.ARCHIVE_ID
+		LEFT JOIN T1 ON T1.ARCHIVE_ID=A.ARCHIVE_ID
+		WHERE A.CREATE_TIME BETWEEN #{startMonth} AND #{endMonth}
+		<if test="userCreateTime != null">
+			AND B.ARCHIVE_ID > (
+				SELECT TOP 1 ARCHIVE_ID FROM FUN_ARCHIVE WHERE CREATION_TIME &gt; #{userCreateTime} ORDER BY ARCHIVE_ID ASC
+			)
+		</if>
+		<if test="compNo != null">
+			AND A.COMP_NO = #{compNo}
+		</if>
+		ORDER BY TOTAL_SCORE DESC
+	</select>
+	
+</mapper>

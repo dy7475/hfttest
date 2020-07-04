@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunSubwayMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunSubway">
+    <!--@mbggenerated-->
+    <id column="SW_ID" jdbcType="INTEGER" property="swId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="SW_NAME" jdbcType="VARCHAR" property="swName" />
+    <result column="SEQ_NO" jdbcType="INTEGER" property="seqNo" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="BaseResultMapSubwayListVO" type="com.myfun.erpWeb.common.vo.SubwayVO" />
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    SW_ID, CITY_ID, SW_NAME, SEQ_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_SUBWAY
+    where SW_ID = #{swId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_SUBWAY
+    where SW_ID = #{swId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunSubway">
+    <!--@mbggenerated-->
+    insert into FUN_SUBWAY (SW_ID, CITY_ID, SW_NAME, 
+      SEQ_NO)
+    values (#{swId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{swName,jdbcType=VARCHAR}, 
+      #{seqNo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSubway">
+    <!--@mbggenerated-->
+    insert into FUN_SUBWAY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="swId != null">
+        SW_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="swName != null">
+        SW_NAME,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="swId != null">
+        #{swId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="swName != null">
+        #{swName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSubway">
+    <!--@mbggenerated-->
+    update FUN_SUBWAY
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="swName != null">
+        SW_NAME = #{swName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SW_ID = #{swId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunSubway">
+    <!--@mbggenerated-->
+    update FUN_SUBWAY
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      SW_NAME = #{swName,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER}
+    where SW_ID = #{swId,jdbcType=INTEGER}
+  </update>
+  
+  <!-- buniess -->
+  <select id="getSubwayList" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from FUN_SUBWAY
+    where CITY_ID = #{shardCityId}
+  </select>
+  
+  <select id="getSubwayListByCityIdAndSubId" resultMap="BaseResultMap">
+  		select 
+    <include refid="Base_Column_List" />
+    from FUN_SUBWAY
+    where CITY_ID = #{shardCityId}
+    and SW_ID in 
+   	<foreach collection="subIds" open="(" separator="," close=")" index="index" item="item">
+    	#{item}
+    </foreach>
+  </select>
+  <select id="getSubwayVOList"  resultMap="BaseResultMapSubwayListVO">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_SUBWAY
+    where CITY_ID=#{param.cityId}
+    ORDER BY SEQ_NO
+  </select>
+</mapper>

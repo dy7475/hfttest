@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunStationMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunStation" >
+    <!--@mbggenerated-->
+    <id column="STATION_ID" property="stationId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="SW_ID" property="swId" jdbcType="INTEGER" />
+    <result column="STATION_NAME" property="stationName" jdbcType="VARCHAR" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="INTEGER" />
+    <result column="CAPITAL" property="capital" jdbcType="VARCHAR" />
+    <result column="FSTATUS" property="fstatus" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    STATION_ID, CITY_ID, SW_ID, STATION_NAME, SEQ_NO, CAPITAL, FSTATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_STATION
+    where STATION_ID = #{stationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_STATION
+    where STATION_ID = #{stationId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunStation" >
+    <!--@mbggenerated-->
+    insert into FUN_STATION (STATION_ID, CITY_ID, SW_ID, 
+      STATION_NAME, SEQ_NO, CAPITAL, 
+      FSTATUS)
+    values (#{stationId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{swId,jdbcType=INTEGER}, 
+      #{stationName,jdbcType=VARCHAR}, #{seqNo,jdbcType=INTEGER}, #{capital,jdbcType=VARCHAR}, 
+      #{fstatus,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunStation" >
+    <!--@mbggenerated-->
+    insert into FUN_STATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stationId != null" >
+        STATION_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="swId != null" >
+        SW_ID,
+      </if>
+      <if test="stationName != null" >
+        STATION_NAME,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="capital != null" >
+        CAPITAL,
+      </if>
+      <if test="fstatus != null" >
+        FSTATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stationId != null" >
+        #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="swId != null" >
+        #{swId,jdbcType=INTEGER},
+      </if>
+      <if test="stationName != null" >
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null" >
+        #{fstatus,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunStation" >
+    <!--@mbggenerated-->
+    update FUN_STATION
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="swId != null" >
+        SW_ID = #{swId,jdbcType=INTEGER},
+      </if>
+      <if test="stationName != null" >
+        STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="capital != null" >
+        CAPITAL = #{capital,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null" >
+        FSTATUS = #{fstatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    where STATION_ID = #{stationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunStation" >
+    <!--@mbggenerated-->
+    update FUN_STATION
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      SW_ID = #{swId,jdbcType=INTEGER},
+      STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      CAPITAL = #{capital,jdbcType=VARCHAR},
+      FSTATUS = #{fstatus,jdbcType=TINYINT}
+    where STATION_ID = #{stationId,jdbcType=INTEGER}
+  </update>
+</mapper>

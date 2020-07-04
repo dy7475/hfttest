@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunMlTaskTimeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunMlTaskTime">
+    <!--@mbggenerated-->
+    <id column="TASK_TIME_ID" jdbcType="INTEGER" property="taskTimeId" />
+    <result column="RECIEVE_TASK_ID" jdbcType="INTEGER" property="recieveTaskId" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="RECIEVE_USER_ID" jdbcType="INTEGER" property="recieveUserId" />
+    <result column="RECIEVE_ARCHIVE_ID" jdbcType="INTEGER" property="recieveArchiveId" />
+    <result column="RECIEVE_TIME" jdbcType="TIMESTAMP" property="recieveTime" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    TASK_TIME_ID, RECIEVE_TASK_ID, CREATED_TIME, RECIEVE_USER_ID, RECIEVE_ARCHIVE_ID, 
+    RECIEVE_TIME, COMP_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunMlTaskTimeExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ML_TASK_TIME
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ML_TASK_TIME
+    where TASK_TIME_ID = #{taskTimeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ML_TASK_TIME
+    where TASK_TIME_ID = #{taskTimeId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunMlTaskTimeExample">
+    <!--@mbggenerated-->
+    delete from FUN_ML_TASK_TIME
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="taskTimeId" parameterType="com.myfun.repository.erpdb.po.ErpFunMlTaskTime" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ML_TASK_TIME (RECIEVE_TASK_ID, CREATED_TIME, RECIEVE_USER_ID, 
+      RECIEVE_ARCHIVE_ID, RECIEVE_TIME, COMP_ID
+      )
+    values (#{recieveTaskId,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, #{recieveUserId,jdbcType=INTEGER}, 
+      #{recieveArchiveId,jdbcType=INTEGER}, #{recieveTime,jdbcType=TIMESTAMP}, #{compId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="taskTimeId" parameterType="com.myfun.repository.erpdb.po.ErpFunMlTaskTime" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ML_TASK_TIME
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recieveTaskId != null">
+        RECIEVE_TASK_ID,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="recieveUserId != null">
+        RECIEVE_USER_ID,
+      </if>
+      <if test="recieveArchiveId != null">
+        RECIEVE_ARCHIVE_ID,
+      </if>
+      <if test="recieveTime != null">
+        RECIEVE_TIME,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recieveTaskId != null">
+        #{recieveTaskId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recieveUserId != null">
+        #{recieveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="recieveArchiveId != null">
+        #{recieveArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="recieveTime != null">
+        #{recieveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunMlTaskTimeExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ML_TASK_TIME
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ML_TASK_TIME
+    <set>
+      <if test="record.taskTimeId != null">
+        TASK_TIME_ID = #{record.taskTimeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.recieveTaskId != null">
+        RECIEVE_TASK_ID = #{record.recieveTaskId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdTime != null">
+        CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.recieveUserId != null">
+        RECIEVE_USER_ID = #{record.recieveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.recieveArchiveId != null">
+        RECIEVE_ARCHIVE_ID = #{record.recieveArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.recieveTime != null">
+        RECIEVE_TIME = #{record.recieveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ML_TASK_TIME
+    set TASK_TIME_ID = #{record.taskTimeId,jdbcType=INTEGER},
+      RECIEVE_TASK_ID = #{record.recieveTaskId,jdbcType=INTEGER},
+      CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      RECIEVE_USER_ID = #{record.recieveUserId,jdbcType=INTEGER},
+      RECIEVE_ARCHIVE_ID = #{record.recieveArchiveId,jdbcType=INTEGER},
+      RECIEVE_TIME = #{record.recieveTime,jdbcType=TIMESTAMP},
+      COMP_ID = #{record.compId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunMlTaskTime">
+    <!--@mbggenerated-->
+    update FUN_ML_TASK_TIME
+    <set>
+      <if test="recieveTaskId != null">
+        RECIEVE_TASK_ID = #{recieveTaskId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recieveUserId != null">
+        RECIEVE_USER_ID = #{recieveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="recieveArchiveId != null">
+        RECIEVE_ARCHIVE_ID = #{recieveArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="recieveTime != null">
+        RECIEVE_TIME = #{recieveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where TASK_TIME_ID = #{taskTimeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunMlTaskTime">
+    <!--@mbggenerated-->
+    update FUN_ML_TASK_TIME
+    set RECIEVE_TASK_ID = #{recieveTaskId,jdbcType=INTEGER},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      RECIEVE_USER_ID = #{recieveUserId,jdbcType=INTEGER},
+      RECIEVE_ARCHIVE_ID = #{recieveArchiveId,jdbcType=INTEGER},
+      RECIEVE_TIME = #{recieveTime,jdbcType=TIMESTAMP},
+      COMP_ID = #{compId,jdbcType=INTEGER}
+    where TASK_TIME_ID = #{taskTimeId,jdbcType=INTEGER}
+  </update>
+  <insert id="insertBatch" parameterType="java.util.List">
+    insert into FUN_ML_TASK_TIME (
+    RECIEVE_TASK_ID, CREATED_TIME, RECIEVE_USER_ID, RECIEVE_ARCHIVE_ID,
+    RECIEVE_TIME, COMP_ID
+    )
+    values
+    <foreach collection="erpFunMlTaskTimeList" index="index" item="task" separator=",">
+      (
+       #{task.recieveTaskId,jdbcType=INTEGER},
+       #{task.createdTime,jdbcType=TIMESTAMP},
+      #{task.recieveUserId,jdbcType=INTEGER},
+       #{task.recieveArchiveId,jdbcType=INTEGER},
+       #{task.recieveTime,jdbcType=TIMESTAMP},
+      #{task.compId,jdbcType=INTEGER}
+      )
+    </foreach>
+  </insert>
+</mapper>

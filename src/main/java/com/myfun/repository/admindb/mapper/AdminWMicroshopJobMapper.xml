@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopJobMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopJob" >
+    <!--@mbggenerated-->
+    <id column="job_id" property="jobId" jdbcType="INTEGER" />
+    <result column="comp_id" property="compId" jdbcType="INTEGER" />
+    <result column="caption" property="caption" jdbcType="VARCHAR" />
+    <result column="salary" property="salary" jdbcType="VARCHAR" />
+    <result column="ctime" property="ctime" jdbcType="INTEGER" />
+    <result column="mtime" property="mtime" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminWMicroshopJob" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="detail" property="detail" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    job_id, comp_id, caption, salary, ctime, mtime
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    detail
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from w_microshop_job
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_job
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopJob" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="jobId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_job (comp_id, caption, salary, 
+      ctime, mtime, detail)
+    values (#{compId,jdbcType=INTEGER}, #{caption,jdbcType=VARCHAR}, #{salary,jdbcType=VARCHAR}, 
+      #{ctime,jdbcType=INTEGER}, #{mtime,jdbcType=INTEGER}, #{detail,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopJob" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="jobId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_job
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        comp_id,
+      </if>
+      <if test="caption != null" >
+        caption,
+      </if>
+      <if test="salary != null" >
+        salary,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+      <if test="mtime != null" >
+        mtime,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caption != null" >
+        #{caption,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null" >
+        #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=INTEGER},
+      </if>
+      <if test="mtime != null" >
+        #{mtime,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopJob" >
+    <!--@mbggenerated-->
+    update w_microshop_job
+    <set >
+      <if test="compId != null" >
+        comp_id = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caption != null" >
+        caption = #{caption,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null" >
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=INTEGER},
+      </if>
+      <if test="mtime != null" >
+        mtime = #{mtime,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=CLOB},
+      </if>
+    </set>
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopJob" >
+    <!--@mbggenerated-->
+    update w_microshop_job
+    set comp_id = #{compId,jdbcType=INTEGER},
+      caption = #{caption,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=VARCHAR},
+      ctime = #{ctime,jdbcType=INTEGER},
+      mtime = #{mtime,jdbcType=INTEGER},
+      detail = #{detail,jdbcType=CLOB}
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopJob" >
+    <!--@mbggenerated-->
+    update w_microshop_job
+    set comp_id = #{compId,jdbcType=INTEGER},
+      caption = #{caption,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=VARCHAR},
+      ctime = #{ctime,jdbcType=INTEGER},
+      mtime = #{mtime,jdbcType=INTEGER}
+    where job_id = #{jobId,jdbcType=INTEGER}
+  </update>
+</mapper>

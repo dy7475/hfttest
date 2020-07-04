@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunProfitDynamicShareDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetail" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="DEAL_ID" property="dealId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="REG_ID" property="regId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="GR_ID" property="grId" jdbcType="INTEGER" />
+    <result column="SIGN_MONTH" property="signMonth" jdbcType="VARCHAR" />
+    <result column="INCOME_MONTH" property="incomeMonth" jdbcType="VARCHAR" />
+    <result column="SETTLEMENT_MONTH" property="settlementMonth" jdbcType="VARCHAR" />
+    <result column="PLANNED_DISTRIBUTION" property="plannedDistribution" jdbcType="NUMERIC" />
+    <result column="DISTRIBUTION_PERCENT" property="distributionPercent" jdbcType="NUMERIC" />
+    <result column="INCOME_AMOUNT" property="incomeAmount" jdbcType="NUMERIC" />
+    <result column="PERFORMANCE_AMOUNT" property="performanceAmount" jdbcType="NUMERIC" />
+    <result column="INCOME_AMOUNT_TYPE" property="incomeAmountType" jdbcType="TINYINT" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="PERFORMANCE_ID" property="performanceId" jdbcType="INTEGER" />
+    <result column="PERFORMANCE_NAME" property="performanceName" jdbcType="VARCHAR" />
+    <result column="INCOME_TIME" property="incomeTime" jdbcType="TIMESTAMP" />
+    <result column="ISSUED_AMOUNT" property="issuedAmount" jdbcType="NUMERIC" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="PF_ID" property="pfId" jdbcType="INTEGER" />
+    <result column="NEED_INCOME_AMOUNT" property="needIncomeAmount" jdbcType="NUMERIC" />
+    <result column="DEL_FLAG" property="delFlag" jdbcType="TINYINT" />
+    <result column="DEL_DATA" property="delData" jdbcType="TIMESTAMP" />
+    <result column="ASSESSMENT_MONTH" property="assessmentMonth" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="PROFIT_ID" property="profitId" jdbcType="INTEGER" />
+    <result column="UP_LEADER_USER" property="upLeaderUser" jdbcType="INTEGER" />
+    <result column="UP_LEADER_TYPE" property="upLeaderType" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, DEAL_ID, COMP_ID, AREA_ID, REG_ID, DEPT_ID, GR_ID, SIGN_MONTH, INCOME_MONTH, 
+    SETTLEMENT_MONTH, PLANNED_DISTRIBUTION, DISTRIBUTION_PERCENT, INCOME_AMOUNT, PERFORMANCE_AMOUNT, 
+    INCOME_AMOUNT_TYPE, USER_ID, PERFORMANCE_ID, PERFORMANCE_NAME, INCOME_TIME, ISSUED_AMOUNT, 
+    CREATE_TIME, PF_ID, NEED_INCOME_AMOUNT, DEL_FLAG, DEL_DATA, ASSESSMENT_MONTH, ARCHIVE_ID, 
+    PROFIT_ID, UP_LEADER_USER, UP_LEADER_TYPE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetailExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetailExample" >
+    <!--@mbggenerated-->
+    delete from FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetail" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_PROFIT_DYNAMIC_SHARE_DETAIL (DEAL_ID, COMP_ID, AREA_ID, 
+      REG_ID, DEPT_ID, GR_ID, 
+      SIGN_MONTH, INCOME_MONTH, SETTLEMENT_MONTH, 
+      PLANNED_DISTRIBUTION, DISTRIBUTION_PERCENT, 
+      INCOME_AMOUNT, PERFORMANCE_AMOUNT, INCOME_AMOUNT_TYPE, 
+      USER_ID, PERFORMANCE_ID, PERFORMANCE_NAME, 
+      INCOME_TIME, ISSUED_AMOUNT, CREATE_TIME, 
+      PF_ID, NEED_INCOME_AMOUNT, DEL_FLAG, 
+      DEL_DATA, ASSESSMENT_MONTH, ARCHIVE_ID, 
+      PROFIT_ID, UP_LEADER_USER, UP_LEADER_TYPE
+      )
+    values (#{dealId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{regId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, 
+      #{signMonth,jdbcType=VARCHAR}, #{incomeMonth,jdbcType=VARCHAR}, #{settlementMonth,jdbcType=VARCHAR}, 
+      #{plannedDistribution,jdbcType=NUMERIC}, #{distributionPercent,jdbcType=NUMERIC}, 
+      #{incomeAmount,jdbcType=NUMERIC}, #{performanceAmount,jdbcType=NUMERIC}, #{incomeAmountType,jdbcType=TINYINT}, 
+      #{userId,jdbcType=INTEGER}, #{performanceId,jdbcType=INTEGER}, #{performanceName,jdbcType=VARCHAR}, 
+      #{incomeTime,jdbcType=TIMESTAMP}, #{issuedAmount,jdbcType=NUMERIC}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{pfId,jdbcType=INTEGER}, #{needIncomeAmount,jdbcType=NUMERIC}, #{delFlag,jdbcType=TINYINT}, 
+      #{delData,jdbcType=TIMESTAMP}, #{assessmentMonth,jdbcType=VARCHAR}, #{archiveId,jdbcType=INTEGER}, 
+      #{profitId,jdbcType=INTEGER}, #{upLeaderUser,jdbcType=INTEGER}, #{upLeaderType,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetail" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dealId != null" >
+        DEAL_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="regId != null" >
+        REG_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="grId != null" >
+        GR_ID,
+      </if>
+      <if test="signMonth != null" >
+        SIGN_MONTH,
+      </if>
+      <if test="incomeMonth != null" >
+        INCOME_MONTH,
+      </if>
+      <if test="settlementMonth != null" >
+        SETTLEMENT_MONTH,
+      </if>
+      <if test="plannedDistribution != null" >
+        PLANNED_DISTRIBUTION,
+      </if>
+      <if test="distributionPercent != null" >
+        DISTRIBUTION_PERCENT,
+      </if>
+      <if test="incomeAmount != null" >
+        INCOME_AMOUNT,
+      </if>
+      <if test="performanceAmount != null" >
+        PERFORMANCE_AMOUNT,
+      </if>
+      <if test="incomeAmountType != null" >
+        INCOME_AMOUNT_TYPE,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="performanceId != null" >
+        PERFORMANCE_ID,
+      </if>
+      <if test="performanceName != null" >
+        PERFORMANCE_NAME,
+      </if>
+      <if test="incomeTime != null" >
+        INCOME_TIME,
+      </if>
+      <if test="issuedAmount != null" >
+        ISSUED_AMOUNT,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="pfId != null" >
+        PF_ID,
+      </if>
+      <if test="needIncomeAmount != null" >
+        NEED_INCOME_AMOUNT,
+      </if>
+      <if test="delFlag != null" >
+        DEL_FLAG,
+      </if>
+      <if test="delData != null" >
+        DEL_DATA,
+      </if>
+      <if test="assessmentMonth != null" >
+        ASSESSMENT_MONTH,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="profitId != null" >
+        PROFIT_ID,
+      </if>
+      <if test="upLeaderUser != null" >
+        UP_LEADER_USER,
+      </if>
+      <if test="upLeaderType != null" >
+        UP_LEADER_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dealId != null" >
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="signMonth != null" >
+        #{signMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeMonth != null" >
+        #{incomeMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementMonth != null" >
+        #{settlementMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="plannedDistribution != null" >
+        #{plannedDistribution,jdbcType=NUMERIC},
+      </if>
+      <if test="distributionPercent != null" >
+        #{distributionPercent,jdbcType=NUMERIC},
+      </if>
+      <if test="incomeAmount != null" >
+        #{incomeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="performanceAmount != null" >
+        #{performanceAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="incomeAmountType != null" >
+        #{incomeAmountType,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="performanceId != null" >
+        #{performanceId,jdbcType=INTEGER},
+      </if>
+      <if test="performanceName != null" >
+        #{performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeTime != null" >
+        #{incomeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issuedAmount != null" >
+        #{issuedAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pfId != null" >
+        #{pfId,jdbcType=INTEGER},
+      </if>
+      <if test="needIncomeAmount != null" >
+        #{needIncomeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="delData != null" >
+        #{delData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assessmentMonth != null" >
+        #{assessmentMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="profitId != null" >
+        #{profitId,jdbcType=INTEGER},
+      </if>
+      <if test="upLeaderUser != null" >
+        #{upLeaderUser,jdbcType=INTEGER},
+      </if>
+      <if test="upLeaderType != null" >
+        #{upLeaderType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetailExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.dealId != null" >
+        DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null" >
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null" >
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.grId != null" >
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.signMonth != null" >
+        SIGN_MONTH = #{record.signMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.incomeMonth != null" >
+        INCOME_MONTH = #{record.incomeMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlementMonth != null" >
+        SETTLEMENT_MONTH = #{record.settlementMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.plannedDistribution != null" >
+        PLANNED_DISTRIBUTION = #{record.plannedDistribution,jdbcType=NUMERIC},
+      </if>
+      <if test="record.distributionPercent != null" >
+        DISTRIBUTION_PERCENT = #{record.distributionPercent,jdbcType=NUMERIC},
+      </if>
+      <if test="record.incomeAmount != null" >
+        INCOME_AMOUNT = #{record.incomeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.performanceAmount != null" >
+        PERFORMANCE_AMOUNT = #{record.performanceAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.incomeAmountType != null" >
+        INCOME_AMOUNT_TYPE = #{record.incomeAmountType,jdbcType=TINYINT},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.performanceId != null" >
+        PERFORMANCE_ID = #{record.performanceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.performanceName != null" >
+        PERFORMANCE_NAME = #{record.performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.incomeTime != null" >
+        INCOME_TIME = #{record.incomeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.issuedAmount != null" >
+        ISSUED_AMOUNT = #{record.issuedAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pfId != null" >
+        PF_ID = #{record.pfId,jdbcType=INTEGER},
+      </if>
+      <if test="record.needIncomeAmount != null" >
+        NEED_INCOME_AMOUNT = #{record.needIncomeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.delFlag != null" >
+        DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.delData != null" >
+        DEL_DATA = #{record.delData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.assessmentMonth != null" >
+        ASSESSMENT_MONTH = #{record.assessmentMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.profitId != null" >
+        PROFIT_ID = #{record.profitId,jdbcType=INTEGER},
+      </if>
+      <if test="record.upLeaderUser != null" >
+        UP_LEADER_USER = #{record.upLeaderUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.upLeaderType != null" >
+        UP_LEADER_TYPE = #{record.upLeaderType,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    set ID = #{record.id,jdbcType=INTEGER},
+      DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      SIGN_MONTH = #{record.signMonth,jdbcType=VARCHAR},
+      INCOME_MONTH = #{record.incomeMonth,jdbcType=VARCHAR},
+      SETTLEMENT_MONTH = #{record.settlementMonth,jdbcType=VARCHAR},
+      PLANNED_DISTRIBUTION = #{record.plannedDistribution,jdbcType=NUMERIC},
+      DISTRIBUTION_PERCENT = #{record.distributionPercent,jdbcType=NUMERIC},
+      INCOME_AMOUNT = #{record.incomeAmount,jdbcType=NUMERIC},
+      PERFORMANCE_AMOUNT = #{record.performanceAmount,jdbcType=NUMERIC},
+      INCOME_AMOUNT_TYPE = #{record.incomeAmountType,jdbcType=TINYINT},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      PERFORMANCE_ID = #{record.performanceId,jdbcType=INTEGER},
+      PERFORMANCE_NAME = #{record.performanceName,jdbcType=VARCHAR},
+      INCOME_TIME = #{record.incomeTime,jdbcType=TIMESTAMP},
+      ISSUED_AMOUNT = #{record.issuedAmount,jdbcType=NUMERIC},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      PF_ID = #{record.pfId,jdbcType=INTEGER},
+      NEED_INCOME_AMOUNT = #{record.needIncomeAmount,jdbcType=NUMERIC},
+      DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      DEL_DATA = #{record.delData,jdbcType=TIMESTAMP},
+      ASSESSMENT_MONTH = #{record.assessmentMonth,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      PROFIT_ID = #{record.profitId,jdbcType=INTEGER},
+      UP_LEADER_USER = #{record.upLeaderUser,jdbcType=INTEGER},
+      UP_LEADER_TYPE = #{record.upLeaderType,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetail" >
+    <!--@mbggenerated-->
+    update FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    <set >
+      <if test="dealId != null" >
+        DEAL_ID = #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="signMonth != null" >
+        SIGN_MONTH = #{signMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeMonth != null" >
+        INCOME_MONTH = #{incomeMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementMonth != null" >
+        SETTLEMENT_MONTH = #{settlementMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="plannedDistribution != null" >
+        PLANNED_DISTRIBUTION = #{plannedDistribution,jdbcType=NUMERIC},
+      </if>
+      <if test="distributionPercent != null" >
+        DISTRIBUTION_PERCENT = #{distributionPercent,jdbcType=NUMERIC},
+      </if>
+      <if test="incomeAmount != null" >
+        INCOME_AMOUNT = #{incomeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="performanceAmount != null" >
+        PERFORMANCE_AMOUNT = #{performanceAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="incomeAmountType != null" >
+        INCOME_AMOUNT_TYPE = #{incomeAmountType,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="performanceId != null" >
+        PERFORMANCE_ID = #{performanceId,jdbcType=INTEGER},
+      </if>
+      <if test="performanceName != null" >
+        PERFORMANCE_NAME = #{performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeTime != null" >
+        INCOME_TIME = #{incomeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issuedAmount != null" >
+        ISSUED_AMOUNT = #{issuedAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pfId != null" >
+        PF_ID = #{pfId,jdbcType=INTEGER},
+      </if>
+      <if test="needIncomeAmount != null" >
+        NEED_INCOME_AMOUNT = #{needIncomeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="delFlag != null" >
+        DEL_FLAG = #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="delData != null" >
+        DEL_DATA = #{delData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assessmentMonth != null" >
+        ASSESSMENT_MONTH = #{assessmentMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="profitId != null" >
+        PROFIT_ID = #{profitId,jdbcType=INTEGER},
+      </if>
+      <if test="upLeaderUser != null" >
+        UP_LEADER_USER = #{upLeaderUser,jdbcType=INTEGER},
+      </if>
+      <if test="upLeaderType != null" >
+        UP_LEADER_TYPE = #{upLeaderType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunProfitDynamicShareDetail" >
+    <!--@mbggenerated-->
+    update FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+    set DEAL_ID = #{dealId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      SIGN_MONTH = #{signMonth,jdbcType=VARCHAR},
+      INCOME_MONTH = #{incomeMonth,jdbcType=VARCHAR},
+      SETTLEMENT_MONTH = #{settlementMonth,jdbcType=VARCHAR},
+      PLANNED_DISTRIBUTION = #{plannedDistribution,jdbcType=NUMERIC},
+      DISTRIBUTION_PERCENT = #{distributionPercent,jdbcType=NUMERIC},
+      INCOME_AMOUNT = #{incomeAmount,jdbcType=NUMERIC},
+      PERFORMANCE_AMOUNT = #{performanceAmount,jdbcType=NUMERIC},
+      INCOME_AMOUNT_TYPE = #{incomeAmountType,jdbcType=TINYINT},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      PERFORMANCE_ID = #{performanceId,jdbcType=INTEGER},
+      PERFORMANCE_NAME = #{performanceName,jdbcType=VARCHAR},
+      INCOME_TIME = #{incomeTime,jdbcType=TIMESTAMP},
+      ISSUED_AMOUNT = #{issuedAmount,jdbcType=NUMERIC},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      PF_ID = #{pfId,jdbcType=INTEGER},
+      NEED_INCOME_AMOUNT = #{needIncomeAmount,jdbcType=NUMERIC},
+      DEL_FLAG = #{delFlag,jdbcType=TINYINT},
+      DEL_DATA = #{delData,jdbcType=TIMESTAMP},
+      ASSESSMENT_MONTH = #{assessmentMonth,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      PROFIT_ID = #{profitId,jdbcType=INTEGER},
+      UP_LEADER_USER = #{upLeaderUser,jdbcType=INTEGER},
+      UP_LEADER_TYPE = #{upLeaderType,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <resultMap id="BaseLeaderAssessCountDataMap" type="com.myfun.repository.erpdb.dto.ErpLeaderAssessCountDataDto">
+	   <result column="UP_LEADER_USER" jdbcType="INTEGER" property="upLeaderUser" />
+	   <result column="SUM_INCOME_AMOUNT" jdbcType="NUMERIC" property="sumIncomeAmount" />
+	   <result column="COUNT_TYPE" jdbcType="VARCHAR" property="countType" />
+	   <result column="UP_LEADER_TYPE" jdbcType="TINYINT" property="upLeaderType" />
+  </resultMap>
+  <!-- 这里注意 只查询UP_LEADER_TYPE 为0,2的为1的数据需要在程序中判断重复后再累加-陈文超 -->
+  <select id="getLeaderAssessCountData" resultMap="BaseLeaderAssessCountDataMap">
+		select * from (
+			select UP_LEADER_USER, sum(isnull(INCOME_AMOUNT, 0)) as SUM_INCOME_AMOUNT, 'SIGN_VALUE' as COUNT_TYPE, (case when UP_LEADER_TYPE = 0 then 1 else UP_LEADER_TYPE end) as UP_LEADER_TYPE 
+				from FUN_PROFIT_DYNAMIC_SHARE_DETAIL 
+					where COMP_ID = #{compId} and DEL_FLAG = 0 and SIGN_MONTH = #{queryMonth} 
+							and INCOME_AMOUNT_TYPE = 0 and UP_LEADER_USER &gt; 0 and UP_LEADER_TYPE in (0, 2)
+								group by UP_LEADER_USER, (case when UP_LEADER_TYPE = 0 then 1 else UP_LEADER_TYPE end)
+			union all
+				select UP_LEADER_USER, sum(isnull(INCOME_AMOUNT, 0)) as SUM_INCOME_AMOUNT, 'INCOME_VALUE' as COUNT_TYPE, (case when UP_LEADER_TYPE = 0 then 1 else UP_LEADER_TYPE end) as UP_LEADER_TYPE 
+					from FUN_PROFIT_DYNAMIC_SHARE_DETAIL 
+						where COMP_ID = #{compId} and DEL_FLAG = 0 and INCOME_MONTH = #{queryMonth} 
+							and INCOME_AMOUNT_TYPE = 1 and UP_LEADER_USER &gt; 0 and UP_LEADER_TYPE in (0, 2)
+								group by UP_LEADER_USER, (case when UP_LEADER_TYPE = 0 then 1 else UP_LEADER_TYPE end)
+			union all
+				select UP_LEADER_USER, sum(isnull(INCOME_AMOUNT, 0)) as SUM_INCOME_AMOUNT, 'SETTLEMENT_VALUE' as COUNT_TYPE, (case when UP_LEADER_TYPE = 0 then 1 else UP_LEADER_TYPE end) as UP_LEADER_TYPE   
+					from FUN_PROFIT_DYNAMIC_SHARE_DETAIL 
+						where COMP_ID = #{compId} and DEL_FLAG = 0 and SETTLEMENT_MONTH = #{queryMonth} 
+							and INCOME_AMOUNT_TYPE = 1 and UP_LEADER_USER &gt; 0 and UP_LEADER_TYPE in (0, 2)
+								group by UP_LEADER_USER, (case when UP_LEADER_TYPE = 0 then 1 else UP_LEADER_TYPE end)
+		) tmp
+   </select>
+  
+  <select id="selectSumDirectIncome" resultType="java.math.BigDecimal">
+      select sum(isnull(INCOME_AMOUNT, 0)) as sumDirectIncome FROM FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+      where COMP_ID = #{compId} and DEL_FLAG = 0 and INCOME_AMOUNT_TYPE = 1 and UP_LEADER_TYPE IN (0,1) AND SETTLEMENT_MONTH = #{queryMonth} and UP_LEADER_USER = #{userId}
+  </select>
+
+  <select id="selectSumIndirectIncome" resultType="java.math.BigDecimal">
+      	select sum(isnull(INCOME_AMOUNT, 0)) as sumIndirectIncome FROM FUN_PROFIT_DYNAMIC_SHARE_DETAIL
+	 where COMP_ID = #{compId} and DEL_FLAG = 0 and INCOME_AMOUNT_TYPE = 1 and UP_LEADER_TYPE = 2 AND SETTLEMENT_MONTH = #{queryMonth} and UP_LEADER_USER = #{userId}
+  </select>
+
+
+
+</mapper>

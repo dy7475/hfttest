@@ -1,0 +1,3747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminJrFinanceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminJrFinanceInfo">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="RIGHT_ADDR" jdbcType="VARCHAR" property="rightAddr" />
+    <result column="RIGHT_NUM" jdbcType="VARCHAR" property="rightNum" />
+    <result column="AREA" jdbcType="NUMERIC" property="area" />
+    <result column="USEAGE" jdbcType="TINYINT" property="useage" />
+    <result column="HOUSE_PHONE" jdbcType="VARCHAR" property="housePhone" />
+    <result column="HOUSE_DESC" jdbcType="VARCHAR" property="houseDesc" />
+    <result column="MAIN_APPLY_NAME" jdbcType="VARCHAR" property="mainApplyName" />
+    <result column="MAIN_APPLY_IDCARD" jdbcType="VARCHAR" property="mainApplyIdcard" />
+    <result column="MAIN_APPLY_PHONE" jdbcType="VARCHAR" property="mainApplyPhone" />
+    <result column="MAIN_MARRY_STATUS" jdbcType="TINYINT" property="mainMarryStatus" />
+    <result column="MAIN_OWNER_HOUSE" jdbcType="TINYINT" property="mainOwnerHouse" />
+    <result column="MAIN_CREDIT_STATUS" jdbcType="TINYINT" property="mainCreditStatus" />
+    <result column="MAIN_WORK_UNIT" jdbcType="VARCHAR" property="mainWorkUnit" />
+    <result column="SECOND_APPLY_NAME" jdbcType="VARCHAR" property="secondApplyName" />
+    <result column="SECOND_APPLY_IDCARD" jdbcType="VARCHAR" property="secondApplyIdcard" />
+    <result column="SECOND_APPLY_PHONE" jdbcType="VARCHAR" property="secondApplyPhone" />
+    <result column="UNDERWRITER_NAME" jdbcType="VARCHAR" property="underwriterName" />
+    <result column="UNDERWRITER_PHONE" jdbcType="VARCHAR" property="underwriterPhone" />
+    <result column="FINANCE_METHOD" jdbcType="TINYINT" property="financeMethod" />
+    <result column="BANK_RECORD" jdbcType="TINYINT" property="bankRecord" />
+    <result column="FINANCE_INFO_DESC" jdbcType="VARCHAR" property="financeInfoDesc" />
+    <result column="CONTRACT_SIGN_TIME" jdbcType="TIMESTAMP" property="contractSignTime" />
+    <result column="DEAL_PRICE" jdbcType="NUMERIC" property="dealPrice" />
+    <result column="APPLY_PRICE" jdbcType="NUMERIC" property="applyPrice" />
+    <result column="FINANCE_YEAR" jdbcType="TINYINT" property="financeYear" />
+    <result column="FINANCE_RATE" jdbcType="VARCHAR" property="financeRate" />
+    <result column="FUND_SUPERVISION_FLAG" jdbcType="TINYINT" property="fundSupervisionFlag" />
+    <result column="TRUST_SERVICE_FLAG" jdbcType="TINYINT" property="trustServiceFlag" />
+    <result column="DOUBLE_BANK_FLAG" jdbcType="TINYINT" property="doubleBankFlag" />
+    <result column="MAIN_BANK_ID" jdbcType="INTEGER" property="mainBankId" />
+    <result column="SECOND_BANK_ID" jdbcType="INTEGER" property="secondBankId" />
+    <result column="PREVIEWS_TIME" jdbcType="TIMESTAMP" property="previewsTime" />
+    <result column="FINANCE_METHOD_DESC" jdbcType="VARCHAR" property="financeMethodDesc" />
+    <result column="CHARGE_FLAG" jdbcType="TINYINT" property="chargeFlag" />
+    <result column="CHARGE_METHOD" jdbcType="VARCHAR" property="chargeMethod" />
+    <result column="BASE_CHARGE" jdbcType="NUMERIC" property="baseCharge" />
+    <result column="HFT_CHARGE" jdbcType="NUMERIC" property="hftCharge" />
+    <result column="PROXY_CHARGE" jdbcType="NUMERIC" property="proxyCharge" />
+    <result column="OTHER_CHARGE" jdbcType="NUMERIC" property="otherCharge" />
+    <result column="CHARGE_DESC" jdbcType="VARCHAR" property="chargeDesc" />
+    <result column="BUSINESS_USER_ID" jdbcType="INTEGER" property="businessUserId" />
+    <result column="DEAL_USER_ID" jdbcType="INTEGER" property="dealUserId" />
+    <result column="ASSESSMENT_USER_ID" jdbcType="INTEGER" property="assessmentUserId" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="ERP_COMP_ID" jdbcType="INTEGER" property="erpCompId" />
+    <result column="ERP_DEPT_ID" jdbcType="INTEGER" property="erpDeptId" />
+    <result column="BROKER_DEPT_NAME" jdbcType="VARCHAR" property="brokerDeptName" />
+    <result column="BROKER_REG_NAME" jdbcType="VARCHAR" property="brokerRegName" />
+    <result column="BROKER_REG_ID" jdbcType="INTEGER" property="brokerRegId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="BROKER_USER_NAME" jdbcType="VARCHAR" property="brokerUserName" />
+    <result column="BROKER_USER_MOBILE" jdbcType="VARCHAR" property="brokerUserMobile" />
+    <result column="FINANCE_NO" jdbcType="VARCHAR" property="financeNo" />
+    <result column="CRM_AUDIT" jdbcType="TINYINT" property="crmAudit" />
+    <result column="ERP_AUDIT" jdbcType="TINYINT" property="erpAudit" />
+    <result column="FINANCE_STATUS" jdbcType="INTEGER" property="financeStatus" />
+    <result column="CUST_TYPE" jdbcType="TINYINT" property="custType" />
+    <result column="SOURCE" jdbcType="TINYINT" property="source" />
+    <result column="CREATE_USER_ID" jdbcType="INTEGER" property="createUserId" />
+    <result column="CREATE_USER_NAME" jdbcType="VARCHAR" property="createUserName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="FITMENT_STATUS" jdbcType="TINYINT" property="fitmentStatus" />
+    <result column="HOUSE_YEARS" jdbcType="VARCHAR" property="houseYears" />
+    <result column="ASSESS_AMOUNT" jdbcType="NUMERIC" property="assessAmount" />
+    <result column="ASSESSED_DATE" jdbcType="TIMESTAMP" property="assessedDate" />
+    <result column="IF_ADJUST" jdbcType="TINYINT" property="ifAdjust" />
+    <result column="ADJUSTED_PRICE" jdbcType="NUMERIC" property="adjustedPrice" />
+    <result column="ADJUST_CHARGE" jdbcType="INTEGER" property="adjustCharge" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="IF_NET_SIGN" jdbcType="TINYINT" property="ifNetSign" />
+    <result column="IF_SUBMIT_PLEDGE" jdbcType="TINYINT" property="ifSubmitPledge" />
+    <result column="PLEDGE_DATE" jdbcType="TIMESTAMP" property="pledgeDate" />
+    <result column="DOWN_PAYMENT" jdbcType="NUMERIC" property="downPayment" />
+    <result column="REPAYMENT_TYPE" jdbcType="TINYINT" property="repaymentType" />
+    <result column="MONTHLY_PAYMENT" jdbcType="INTEGER" property="monthlyPayment" />
+    <result column="IF_SUBMIT_ZPREPORT" jdbcType="TINYINT" property="ifSubmitZpreport" />
+    <result column="IF_LENDED" jdbcType="TINYINT" property="ifLended" />
+    <result column="PLEDGE_REMARK" jdbcType="VARCHAR" property="pledgeRemark" />
+    <result column="ERP_AREA_ID" jdbcType="INTEGER" property="erpAreaId" />
+    <result column="ERP_REG_ID" jdbcType="INTEGER" property="erpRegId" />
+    <result column="REAL_LOAN_PRICE" jdbcType="NUMERIC" property="realLoanPrice" />
+    <result column="HOUSE_SOURCE" jdbcType="TINYINT" property="houseSource" />
+    <result column="MAIN_ASSESSMENT" jdbcType="INTEGER" property="mainAssessment" />
+    <result column="SECOND_ASSESSMENT" jdbcType="INTEGER" property="secondAssessment" />
+    <result column="DATA_RESOURCE" jdbcType="TINYINT" property="dataResource" />
+    <result column="CREATOR_TYPE" jdbcType="TINYINT" property="creatorType" />
+    <result column="INCOME_PROOF" jdbcType="TINYINT" property="incomeProof" />
+    <result column="ERP_GR_ID" jdbcType="INTEGER" property="erpGrId" />
+    <result column="MAIN_BANK_NAME" jdbcType="VARCHAR" property="mainBankName" />
+    <result column="SECOND_BANK_NAME" jdbcType="VARCHAR" property="secondBankName" />
+    <result column="MAIN_ASSESS_NAME" jdbcType="VARCHAR" property="mainAssessName" />
+    <result column="SECOND_ASSESS_NAME" jdbcType="VARCHAR" property="secondAssessName" />
+    <result column="TRANCEFER_PLEDGE_DESC" jdbcType="VARCHAR" property="tranceferPledgeDesc" />
+    <result column="IF_ADDRESS_CHANGE" jdbcType="TINYINT" property="ifAddressChange" />
+    <result column="ASSESS_UNIT_PRICE" jdbcType="NUMERIC" property="assessUnitPrice" />
+    <result column="IF_REDEEM_HOUSE" jdbcType="TINYINT" property="ifRedeemHouse" />
+    <result column="SENT_APPROVAL_TIME" jdbcType="TIMESTAMP" property="sentApprovalTime" />
+    <result column="BANK_ATTENTION_MATTERS" jdbcType="VARCHAR" property="bankAttentionMatters" />
+    <result column="TRANSFER_EMPLOYEE" jdbcType="INTEGER" property="transferEmployee" />
+    <result column="PLEDGE_EMPLOYEE" jdbcType="INTEGER" property="pledgeEmployee" />
+    <result column="IF_RELEVANCE" jdbcType="TINYINT" property="ifRelevance" />
+    <result column="RELEVANCE_TIME" jdbcType="TIMESTAMP" property="relevanceTime" />
+    <result column="TRANSACTION_TRANSFER_TIME" jdbcType="TIMESTAMP" property="transactionTransferTime" />
+    <result column="IF_VENDOR_ENTRUST" jdbcType="TINYINT" property="ifVendorEntrust" />
+    <result column="IF_VENDEE_ENTRUST" jdbcType="TINYINT" property="ifVendeeEntrust" />
+    <result column="REVEICER" jdbcType="INTEGER" property="reveicer" />
+    <result column="ZHENGPING_TIME" jdbcType="TIMESTAMP" property="zhengpingTime" />
+    <result column="TRANSFER_TAX_PRICE" jdbcType="VARCHAR" property="transferTaxPrice" />
+    <result column="PAPERS_TYPE" jdbcType="TINYINT" property="papersType" />
+    <result column="IF_HAND_OVER_INFORMATION" jdbcType="TINYINT" property="ifHandOverInformation" />
+    <result column="IF_GATHER_ORIGINAL_CHANQUAN" jdbcType="TINYINT" property="ifGatherOriginalChanquan" />
+    <result column="IF_GATHER_ORIGINAL_GUOTU" jdbcType="TINYINT" property="ifGatherOriginalGuotu" />
+    <result column="IF_PUBLISH_HOUSE" jdbcType="TINYINT" property="ifPublishHouse" />
+    <result column="NET_SIGN_TRANSACTOR" jdbcType="INTEGER" property="netSignTransactor" />
+    <result column="OWNSHIP_TYPE" jdbcType="TINYINT" property="ownshipType" />
+    <result column="TRANSFER_ATTENTION_MATTERS" jdbcType="VARCHAR" property="transferAttentionMatters" />
+    <result column="PAY_FOR_ANOTHER_TYPE" jdbcType="TINYINT" property="payForAnotherType" />
+    <result column="HAVE_PAID_YEARS" jdbcType="INTEGER" property="havePaidYears" />
+    <result column="PLEDGE_CONDITION" jdbcType="TINYINT" property="pledgeCondition" />
+    <result column="FIRST_PAY_ORGANIZATION" jdbcType="VARCHAR" property="firstPayOrganization" />
+    <result column="FIRST_ANOTHER_PAY_PRICE" jdbcType="NUMERIC" property="firstAnotherPayPrice" />
+    <result column="FIRST_TRANSACTION_TIME_PREDICT" jdbcType="TIMESTAMP" property="firstTransactionTimePredict" />
+    <result column="FIRST_TRANSACTION_TIME_REAL" jdbcType="TIMESTAMP" property="firstTransactionTimeReal" />
+    <result column="FIRST_PAY_TIME_PREDICT" jdbcType="TIMESTAMP" property="firstPayTimePredict" />
+    <result column="FIRST_PAY_TIME_REAL" jdbcType="TIMESTAMP" property="firstPayTimeReal" />
+    <result column="SECOND_PAY_ORGANIZATION" jdbcType="VARCHAR" property="secondPayOrganization" />
+    <result column="SECOND_ANOTHER_PAY_PRICE" jdbcType="NUMERIC" property="secondAnotherPayPrice" />
+    <result column="SECOND_TRANSACTION_TIME_PREDICT" jdbcType="TIMESTAMP" property="secondTransactionTimePredict" />
+    <result column="SECOND_TRANSACTION_TIME_REAL" jdbcType="TIMESTAMP" property="secondTransactionTimeReal" />
+    <result column="SECOND_PAY_TIME_PREDICT" jdbcType="TIMESTAMP" property="secondPayTimePredict" />
+    <result column="SECOND_PAY_TIME_REAL" jdbcType="TIMESTAMP" property="secondPayTimeReal" />
+    <result column="SEQUENCE_POSITON_TIME_PREDICT" jdbcType="TIMESTAMP" property="sequencePositonTimePredict" />
+    <result column="SEQUENCE_POSITON_TIME_REAL" jdbcType="TIMESTAMP" property="sequencePositonTimeReal" />
+    <result column="SIGNOUT_TIME_PREDICT" jdbcType="TIMESTAMP" property="signoutTimePredict" />
+    <result column="SIGNOUT_TIME_REAL" jdbcType="TIMESTAMP" property="signoutTimeReal" />
+    <result column="ANOTHER_PAY_TIME_PREDICT" jdbcType="TIMESTAMP" property="anotherPayTimePredict" />
+    <result column="ANOTHER_PAY_TIME_REAL" jdbcType="TIMESTAMP" property="anotherPayTimeReal" />
+    <result column="ANOTHER_PAY_BALANCE" jdbcType="NUMERIC" property="anotherPayBalance" />
+    <result column="SUPERVISE_DRAW_RESTRICT" jdbcType="VARCHAR" property="superviseDrawRestrict" />
+    <result column="IF_QUTA_RIGHT" jdbcType="TINYINT" property="ifQutaRight" />
+    <result column="IF_HAND_OVER_BANK" jdbcType="TINYINT" property="ifHandOverBank" />
+    <result column="HAND_OVER_EMPLOYEE" jdbcType="INTEGER" property="handOverEmployee" />
+    <result column="LOAN_TIME" jdbcType="TIMESTAMP" property="loanTime" />
+    <result column="VENDOR_NAME" jdbcType="VARCHAR" property="vendorName" />
+    <result column="VENDOR_ID_NUMBER" jdbcType="VARCHAR" property="vendorIdNumber" />
+    <result column="VENDOR_PHONE" jdbcType="VARCHAR" property="vendorPhone" />
+    <result column="VENDOR_COMMON_OWNER_NAME" jdbcType="VARCHAR" property="vendorCommonOwnerName" />
+    <result column="VENDOR_COMMON_OWNER_ID_NUMBER" jdbcType="VARCHAR" property="vendorCommonOwnerIdNumber" />
+    <result column="VENDOR_COMMON_OWNER_PHONE" jdbcType="VARCHAR" property="vendorCommonOwnerPhone" />
+    <result column="VENDOR_SURETY_NAME" jdbcType="VARCHAR" property="vendorSuretyName" />
+    <result column="VENDOR_SURETY_ID_NUMBER" jdbcType="VARCHAR" property="vendorSuretyIdNumber" />
+    <result column="VENDOR_SURETY_PHONE" jdbcType="VARCHAR" property="vendorSuretyPhone" />
+    <result column="APPROVAL_PASS_TIME" jdbcType="TIMESTAMP" property="approvalPassTime" />
+    <result column="VENDOR_CONDITION_DESCRIPTION" jdbcType="VARCHAR" property="vendorConditionDescription" />
+    <result column="VENDEE_CONDITION_DESCRIPTION" jdbcType="VARCHAR" property="vendeeConditionDescription" />
+    <result column="VENDEE_SURETY_IDCARD" jdbcType="VARCHAR" property="vendeeSuretyIdcard" />
+    <result column="TF_TRANSACTION_TIME_PREDICT" jdbcType="TIMESTAMP" property="tfTransactionTimePredict" />
+    <result column="TF_TRANSACTION_TIME_REAL" jdbcType="TIMESTAMP" property="tfTransactionTimeReal" />
+    <result column="SIGN_OUT_CLIENT" jdbcType="TINYINT" property="signOutClient" />
+    <result column="DEL_STATUS" jdbcType="TINYINT" property="delStatus" />
+    <result column="FINANCE_MODEL" jdbcType="TINYINT" property="financeModel" />
+    <result column="DOWN_PAYMENT_PRICE" jdbcType="NUMERIC" property="downPaymentPrice" />
+    <result column="DEPOSIT_PRICE" jdbcType="NUMERIC" property="depositPrice" />
+    <result column="FUND_SUPERVISION_PRICE" jdbcType="NUMERIC" property="fundSupervisionPrice" />
+    <result column="RISK_LEVEL" jdbcType="VARCHAR" property="riskLevel" />
+    <result column="PAYMENT_SOURCE" jdbcType="VARCHAR" property="paymentSource" />
+    <result column="ENTRUSTED_NAME" jdbcType="VARCHAR" property="entrustedName" />
+    <result column="ENTRUSTED_ICCARD" jdbcType="VARCHAR" property="entrustedIccard" />
+    <result column="REPAYMENT_BANK_NAME" jdbcType="VARCHAR" property="repaymentBankName" />
+    <result column="HAS_PAID_YEARS" jdbcType="INTEGER" property="hasPaidYears" />
+    <result column="IS_APPOINTMENT" jdbcType="BIT" property="isAppointment" />
+    <result column="IS_REPAYMENT_ANYTIME" jdbcType="BIT" property="isRepaymentAnytime" />
+    <result column="ACCEPT_CHANNEL_REPAYMENT_TIME" jdbcType="BIT" property="acceptChannelRepaymentTime" />
+    <result column="IF_TRANSFER_PARKING" jdbcType="BIT" property="ifTransferParking" />
+    <result column="IF_REPLACE_CREDENTIALS" jdbcType="BIT" property="ifReplaceCredentials" />
+    <result column="REPAYMENT_PRICE" jdbcType="INTEGER" property="repaymentPrice" />
+    <result column="REPAYMENT_TIME" jdbcType="TIMESTAMP" property="repaymentTime" />
+    <result column="REPAYMENT_CHANNEL" jdbcType="VARCHAR" property="repaymentChannel" />
+    <result column="REPAYMENT_DESC" jdbcType="VARCHAR" property="repaymentDesc" />
+    <result column="COPY_SOURCE_ID" jdbcType="INTEGER" property="copySourceId" />
+    <result column="DELIVERY_TIME" jdbcType="TIMESTAMP" property="deliveryTime" />
+    <result column="REDELIVERY_TIME" jdbcType="TIMESTAMP" property="redeliveryTime" />
+    <result column="RECEIVABLES_NO" jdbcType="VARCHAR" property="receivablesNo" />
+    <result column="DOUBLE_DEPT_FLAG" jdbcType="BIT" property="doubleDeptFlag" />
+    <result column="SECOND_DEPT_CUST_TYPE" jdbcType="TINYINT" property="secondDeptCustType" />
+    <result column="SECOND_DEPT_CITY_ID" jdbcType="INTEGER" property="secondDeptCityId" />
+    <result column="SECOND_DEPT_REG_ID" jdbcType="INTEGER" property="secondDeptRegId" />
+    <result column="SECOND_COMP_NO" jdbcType="VARCHAR" property="secondCompNo" />
+    <result column="SECOND_DEPT_NO" jdbcType="VARCHAR" property="secondDeptNo" />
+    <result column="SECOND_ERP_COMP_ID" jdbcType="INTEGER" property="secondErpCompId" />
+    <result column="SECOND_ERP_DEPT_ID" jdbcType="INTEGER" property="secondErpDeptId" />
+    <result column="SECOND_BROKER_DEPT_NAME" jdbcType="VARCHAR" property="secondBrokerDeptName" />
+    <result column="SECOND_BROKER_REG_NAME" jdbcType="VARCHAR" property="secondBrokerRegName" />
+    <result column="SECOND_BROKER_REG_ID" jdbcType="INTEGER" property="secondBrokerRegId" />
+    <result column="SECOND_ARCHIVE_ID" jdbcType="INTEGER" property="secondArchiveId" />
+    <result column="SECOND_BROKER_USER_NAME" jdbcType="VARCHAR" property="secondBrokerUserName" />
+    <result column="SECOND_BROKER_USER_MOBILE" jdbcType="VARCHAR" property="secondBrokerUserMobile" />
+    <result column="IS_PRINT_BROKER_SERVICE_CONTRACT" jdbcType="BIT" property="isPrintBrokerServiceContract" />
+    <result column="PROPERTY_RIGHT_TYPE" jdbcType="TINYINT" property="propertyRightType" />
+    <result column="COMP_PROPERTY_RIGHT_AGENT" jdbcType="VARCHAR" property="compPropertyRightAgent" />
+    <result column="TRANSFER_TIME_PREDICT" jdbcType="TIMESTAMP" property="transferTimePredict" />
+    <result column="HQ_PIGEONHOLE_FLAG" jdbcType="BIT" property="hqPigeonholeFlag" />
+    <result column="BUILD_CITY_ID" jdbcType="INTEGER" property="buildCityId" />
+    <result column="HOUSE_INVOICE" jdbcType="BIT" property="houseInvoice" />
+    <result column="PIGEONHOLE_TIME" jdbcType="TIMESTAMP" property="pigeonholeTime" />
+    <result column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+    <result column="CRM_COMP_ID" jdbcType="INTEGER" property="crmCompId" />
+    <result column="VENDOR_BANK_NAME" jdbcType="VARCHAR" property="vendorBankName" />
+    <result column="VENDOR_BANK_CARD_NUMBER" jdbcType="VARCHAR" property="vendorBankCardNumber" />
+    <result column="TERRITORIAL_NATURE" jdbcType="TINYINT" property="territorialNature" />
+    <result column="MORTGAGE_BANK" jdbcType="INTEGER" property="mortgageBank" />
+    <result column="MORTGAGE_AMOUNT" jdbcType="NUMERIC" property="mortgageAmount" />
+    <result column="MORTGAGE_BANK_NAME" jdbcType="VARCHAR" property="mortgageBankName" />
+    <result column="MORTGAGE_ASSESSMENT_NAME" jdbcType="VARCHAR" property="mortgageAssessmentName" />
+    <result column="MORTGAGE_ASSESSMENT" jdbcType="INTEGER" property="mortgageAssessment" />
+    <result column="RECEIVABLE_TIME" jdbcType="TIMESTAMP" property="receivableTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, BUILD_NAME, BUILD_ID, RIGHT_ADDR, RIGHT_NUM, AREA, USEAGE, HOUSE_PHONE, HOUSE_DESC, 
+    MAIN_APPLY_NAME, MAIN_APPLY_IDCARD, MAIN_APPLY_PHONE, MAIN_MARRY_STATUS, MAIN_OWNER_HOUSE, 
+    MAIN_CREDIT_STATUS, MAIN_WORK_UNIT, SECOND_APPLY_NAME, SECOND_APPLY_IDCARD, SECOND_APPLY_PHONE, 
+    UNDERWRITER_NAME, UNDERWRITER_PHONE, FINANCE_METHOD, BANK_RECORD, FINANCE_INFO_DESC, 
+    CONTRACT_SIGN_TIME, DEAL_PRICE, APPLY_PRICE, FINANCE_YEAR, FINANCE_RATE, FUND_SUPERVISION_FLAG, 
+    TRUST_SERVICE_FLAG, DOUBLE_BANK_FLAG, MAIN_BANK_ID, SECOND_BANK_ID, PREVIEWS_TIME, 
+    FINANCE_METHOD_DESC, CHARGE_FLAG, CHARGE_METHOD, BASE_CHARGE, HFT_CHARGE, PROXY_CHARGE, 
+    OTHER_CHARGE, CHARGE_DESC, BUSINESS_USER_ID, DEAL_USER_ID, ASSESSMENT_USER_ID, COMP_NO, 
+    DEPT_NO, ERP_COMP_ID, ERP_DEPT_ID, BROKER_DEPT_NAME, BROKER_REG_NAME, BROKER_REG_ID, 
+    ARCHIVE_ID, BROKER_USER_NAME, BROKER_USER_MOBILE, FINANCE_NO, CRM_AUDIT, ERP_AUDIT, 
+    FINANCE_STATUS, CUST_TYPE, [SOURCE], CREATE_USER_ID, CREATE_USER_NAME, CREATE_TIME, 
+    FITMENT_STATUS, HOUSE_YEARS, ASSESS_AMOUNT, ASSESSED_DATE, IF_ADJUST, ADJUSTED_PRICE, 
+    ADJUST_CHARGE, CITY_ID, IF_NET_SIGN, IF_SUBMIT_PLEDGE, PLEDGE_DATE, DOWN_PAYMENT, 
+    REPAYMENT_TYPE, MONTHLY_PAYMENT, IF_SUBMIT_ZPREPORT, IF_LENDED, PLEDGE_REMARK, ERP_AREA_ID, 
+    ERP_REG_ID, REAL_LOAN_PRICE, HOUSE_SOURCE, MAIN_ASSESSMENT, SECOND_ASSESSMENT, DATA_RESOURCE, 
+    CREATOR_TYPE, INCOME_PROOF, ERP_GR_ID, MAIN_BANK_NAME, SECOND_BANK_NAME, MAIN_ASSESS_NAME, 
+    SECOND_ASSESS_NAME, TRANCEFER_PLEDGE_DESC, IF_ADDRESS_CHANGE, ASSESS_UNIT_PRICE, 
+    IF_REDEEM_HOUSE, SENT_APPROVAL_TIME, BANK_ATTENTION_MATTERS, TRANSFER_EMPLOYEE, PLEDGE_EMPLOYEE, 
+    IF_RELEVANCE, RELEVANCE_TIME, TRANSACTION_TRANSFER_TIME, IF_VENDOR_ENTRUST, IF_VENDEE_ENTRUST, 
+    REVEICER, ZHENGPING_TIME, TRANSFER_TAX_PRICE, PAPERS_TYPE, IF_HAND_OVER_INFORMATION, 
+    IF_GATHER_ORIGINAL_CHANQUAN, IF_GATHER_ORIGINAL_GUOTU, IF_PUBLISH_HOUSE, NET_SIGN_TRANSACTOR, 
+    OWNSHIP_TYPE, TRANSFER_ATTENTION_MATTERS, PAY_FOR_ANOTHER_TYPE, HAVE_PAID_YEARS, 
+    PLEDGE_CONDITION, FIRST_PAY_ORGANIZATION, FIRST_ANOTHER_PAY_PRICE, FIRST_TRANSACTION_TIME_PREDICT, 
+    FIRST_TRANSACTION_TIME_REAL, FIRST_PAY_TIME_PREDICT, FIRST_PAY_TIME_REAL, SECOND_PAY_ORGANIZATION, 
+    SECOND_ANOTHER_PAY_PRICE, SECOND_TRANSACTION_TIME_PREDICT, SECOND_TRANSACTION_TIME_REAL, 
+    SECOND_PAY_TIME_PREDICT, SECOND_PAY_TIME_REAL, SEQUENCE_POSITON_TIME_PREDICT, SEQUENCE_POSITON_TIME_REAL, 
+    SIGNOUT_TIME_PREDICT, SIGNOUT_TIME_REAL, ANOTHER_PAY_TIME_PREDICT, ANOTHER_PAY_TIME_REAL, 
+    ANOTHER_PAY_BALANCE, SUPERVISE_DRAW_RESTRICT, IF_QUTA_RIGHT, IF_HAND_OVER_BANK, HAND_OVER_EMPLOYEE, 
+    LOAN_TIME, VENDOR_NAME, VENDOR_ID_NUMBER, VENDOR_PHONE, VENDOR_COMMON_OWNER_NAME, 
+    VENDOR_COMMON_OWNER_ID_NUMBER, VENDOR_COMMON_OWNER_PHONE, VENDOR_SURETY_NAME, VENDOR_SURETY_ID_NUMBER, 
+    VENDOR_SURETY_PHONE, APPROVAL_PASS_TIME, VENDOR_CONDITION_DESCRIPTION, VENDEE_CONDITION_DESCRIPTION, 
+    VENDEE_SURETY_IDCARD, TF_TRANSACTION_TIME_PREDICT, TF_TRANSACTION_TIME_REAL, SIGN_OUT_CLIENT, 
+    DEL_STATUS, FINANCE_MODEL, DOWN_PAYMENT_PRICE, DEPOSIT_PRICE, FUND_SUPERVISION_PRICE, 
+    RISK_LEVEL, PAYMENT_SOURCE, ENTRUSTED_NAME, ENTRUSTED_ICCARD, REPAYMENT_BANK_NAME, 
+    HAS_PAID_YEARS, IS_APPOINTMENT, IS_REPAYMENT_ANYTIME, ACCEPT_CHANNEL_REPAYMENT_TIME, 
+    IF_TRANSFER_PARKING, IF_REPLACE_CREDENTIALS, REPAYMENT_PRICE, REPAYMENT_TIME, REPAYMENT_CHANNEL, 
+    REPAYMENT_DESC, COPY_SOURCE_ID, DELIVERY_TIME, REDELIVERY_TIME, RECEIVABLES_NO, DOUBLE_DEPT_FLAG, 
+    SECOND_DEPT_CUST_TYPE, SECOND_DEPT_CITY_ID, SECOND_DEPT_REG_ID, SECOND_COMP_NO, SECOND_DEPT_NO, 
+    SECOND_ERP_COMP_ID, SECOND_ERP_DEPT_ID, SECOND_BROKER_DEPT_NAME, SECOND_BROKER_REG_NAME, 
+    SECOND_BROKER_REG_ID, SECOND_ARCHIVE_ID, SECOND_BROKER_USER_NAME, SECOND_BROKER_USER_MOBILE, 
+    IS_PRINT_BROKER_SERVICE_CONTRACT, PROPERTY_RIGHT_TYPE, COMP_PROPERTY_RIGHT_AGENT, 
+    TRANSFER_TIME_PREDICT, HQ_PIGEONHOLE_FLAG, BUILD_CITY_ID, HOUSE_INVOICE, PIGEONHOLE_TIME, 
+    DEAL_ID, CRM_COMP_ID, VENDOR_BANK_NAME, VENDOR_BANK_CARD_NUMBER, TERRITORIAL_NATURE, 
+    MORTGAGE_BANK, MORTGAGE_AMOUNT, MORTGAGE_BANK_NAME, MORTGAGE_ASSESSMENT_NAME, MORTGAGE_ASSESSMENT, 
+    RECEIVABLE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminJrFinanceInfoExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from JR_FINANCE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from JR_FINANCE_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from JR_FINANCE_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminJrFinanceInfoExample">
+    <!--@mbggenerated-->
+    delete from JR_FINANCE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminJrFinanceInfo" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into JR_FINANCE_INFO (BUILD_NAME, BUILD_ID, RIGHT_ADDR, 
+      RIGHT_NUM, AREA, USEAGE, 
+      HOUSE_PHONE, HOUSE_DESC, MAIN_APPLY_NAME, 
+      MAIN_APPLY_IDCARD, MAIN_APPLY_PHONE, MAIN_MARRY_STATUS, 
+      MAIN_OWNER_HOUSE, MAIN_CREDIT_STATUS, MAIN_WORK_UNIT, 
+      SECOND_APPLY_NAME, SECOND_APPLY_IDCARD, SECOND_APPLY_PHONE, 
+      UNDERWRITER_NAME, UNDERWRITER_PHONE, FINANCE_METHOD, 
+      BANK_RECORD, FINANCE_INFO_DESC, CONTRACT_SIGN_TIME, 
+      DEAL_PRICE, APPLY_PRICE, FINANCE_YEAR, 
+      FINANCE_RATE, FUND_SUPERVISION_FLAG, TRUST_SERVICE_FLAG, 
+      DOUBLE_BANK_FLAG, MAIN_BANK_ID, SECOND_BANK_ID, 
+      PREVIEWS_TIME, FINANCE_METHOD_DESC, CHARGE_FLAG, 
+      CHARGE_METHOD, BASE_CHARGE, HFT_CHARGE, 
+      PROXY_CHARGE, OTHER_CHARGE, CHARGE_DESC, 
+      BUSINESS_USER_ID, DEAL_USER_ID, ASSESSMENT_USER_ID, 
+      COMP_NO, DEPT_NO, ERP_COMP_ID, 
+      ERP_DEPT_ID, BROKER_DEPT_NAME, BROKER_REG_NAME, 
+      BROKER_REG_ID, ARCHIVE_ID, BROKER_USER_NAME, 
+      BROKER_USER_MOBILE, FINANCE_NO, CRM_AUDIT, 
+      ERP_AUDIT, FINANCE_STATUS, CUST_TYPE, 
+      [SOURCE], CREATE_USER_ID, CREATE_USER_NAME, 
+      CREATE_TIME, FITMENT_STATUS, HOUSE_YEARS, 
+      ASSESS_AMOUNT, ASSESSED_DATE, IF_ADJUST, 
+      ADJUSTED_PRICE, ADJUST_CHARGE, CITY_ID, 
+      IF_NET_SIGN, IF_SUBMIT_PLEDGE, PLEDGE_DATE, 
+      DOWN_PAYMENT, REPAYMENT_TYPE, MONTHLY_PAYMENT, 
+      IF_SUBMIT_ZPREPORT, IF_LENDED, PLEDGE_REMARK, 
+      ERP_AREA_ID, ERP_REG_ID, REAL_LOAN_PRICE, 
+      HOUSE_SOURCE, MAIN_ASSESSMENT, SECOND_ASSESSMENT, 
+      DATA_RESOURCE, CREATOR_TYPE, INCOME_PROOF, 
+      ERP_GR_ID, MAIN_BANK_NAME, SECOND_BANK_NAME, 
+      MAIN_ASSESS_NAME, SECOND_ASSESS_NAME, TRANCEFER_PLEDGE_DESC, 
+      IF_ADDRESS_CHANGE, ASSESS_UNIT_PRICE, IF_REDEEM_HOUSE, 
+      SENT_APPROVAL_TIME, BANK_ATTENTION_MATTERS, 
+      TRANSFER_EMPLOYEE, PLEDGE_EMPLOYEE, IF_RELEVANCE, 
+      RELEVANCE_TIME, TRANSACTION_TRANSFER_TIME, 
+      IF_VENDOR_ENTRUST, IF_VENDEE_ENTRUST, REVEICER, 
+      ZHENGPING_TIME, TRANSFER_TAX_PRICE, PAPERS_TYPE, 
+      IF_HAND_OVER_INFORMATION, IF_GATHER_ORIGINAL_CHANQUAN, 
+      IF_GATHER_ORIGINAL_GUOTU, IF_PUBLISH_HOUSE, 
+      NET_SIGN_TRANSACTOR, OWNSHIP_TYPE, TRANSFER_ATTENTION_MATTERS, 
+      PAY_FOR_ANOTHER_TYPE, HAVE_PAID_YEARS, PLEDGE_CONDITION, 
+      FIRST_PAY_ORGANIZATION, FIRST_ANOTHER_PAY_PRICE, 
+      FIRST_TRANSACTION_TIME_PREDICT, FIRST_TRANSACTION_TIME_REAL, 
+      FIRST_PAY_TIME_PREDICT, FIRST_PAY_TIME_REAL, 
+      SECOND_PAY_ORGANIZATION, SECOND_ANOTHER_PAY_PRICE, 
+      SECOND_TRANSACTION_TIME_PREDICT, SECOND_TRANSACTION_TIME_REAL, 
+      SECOND_PAY_TIME_PREDICT, SECOND_PAY_TIME_REAL, 
+      SEQUENCE_POSITON_TIME_PREDICT, SEQUENCE_POSITON_TIME_REAL, 
+      SIGNOUT_TIME_PREDICT, SIGNOUT_TIME_REAL, 
+      ANOTHER_PAY_TIME_PREDICT, ANOTHER_PAY_TIME_REAL, 
+      ANOTHER_PAY_BALANCE, SUPERVISE_DRAW_RESTRICT, 
+      IF_QUTA_RIGHT, IF_HAND_OVER_BANK, HAND_OVER_EMPLOYEE, 
+      LOAN_TIME, VENDOR_NAME, VENDOR_ID_NUMBER, 
+      VENDOR_PHONE, VENDOR_COMMON_OWNER_NAME, VENDOR_COMMON_OWNER_ID_NUMBER, 
+      VENDOR_COMMON_OWNER_PHONE, VENDOR_SURETY_NAME, 
+      VENDOR_SURETY_ID_NUMBER, VENDOR_SURETY_PHONE, 
+      APPROVAL_PASS_TIME, VENDOR_CONDITION_DESCRIPTION, 
+      VENDEE_CONDITION_DESCRIPTION, VENDEE_SURETY_IDCARD, 
+      TF_TRANSACTION_TIME_PREDICT, TF_TRANSACTION_TIME_REAL, 
+      SIGN_OUT_CLIENT, DEL_STATUS, FINANCE_MODEL, 
+      DOWN_PAYMENT_PRICE, DEPOSIT_PRICE, FUND_SUPERVISION_PRICE, 
+      RISK_LEVEL, PAYMENT_SOURCE, ENTRUSTED_NAME, 
+      ENTRUSTED_ICCARD, REPAYMENT_BANK_NAME, HAS_PAID_YEARS, 
+      IS_APPOINTMENT, IS_REPAYMENT_ANYTIME, ACCEPT_CHANNEL_REPAYMENT_TIME, 
+      IF_TRANSFER_PARKING, IF_REPLACE_CREDENTIALS, REPAYMENT_PRICE, 
+      REPAYMENT_TIME, REPAYMENT_CHANNEL, REPAYMENT_DESC, 
+      COPY_SOURCE_ID, DELIVERY_TIME, REDELIVERY_TIME, 
+      RECEIVABLES_NO, DOUBLE_DEPT_FLAG, SECOND_DEPT_CUST_TYPE, 
+      SECOND_DEPT_CITY_ID, SECOND_DEPT_REG_ID, SECOND_COMP_NO, 
+      SECOND_DEPT_NO, SECOND_ERP_COMP_ID, SECOND_ERP_DEPT_ID, 
+      SECOND_BROKER_DEPT_NAME, SECOND_BROKER_REG_NAME, 
+      SECOND_BROKER_REG_ID, SECOND_ARCHIVE_ID, SECOND_BROKER_USER_NAME, 
+      SECOND_BROKER_USER_MOBILE, IS_PRINT_BROKER_SERVICE_CONTRACT, 
+      PROPERTY_RIGHT_TYPE, COMP_PROPERTY_RIGHT_AGENT, 
+      TRANSFER_TIME_PREDICT, HQ_PIGEONHOLE_FLAG, BUILD_CITY_ID, 
+      HOUSE_INVOICE, PIGEONHOLE_TIME, DEAL_ID, 
+      CRM_COMP_ID, VENDOR_BANK_NAME, VENDOR_BANK_CARD_NUMBER, 
+      TERRITORIAL_NATURE, MORTGAGE_BANK, MORTGAGE_AMOUNT, 
+      MORTGAGE_BANK_NAME, MORTGAGE_ASSESSMENT_NAME, 
+      MORTGAGE_ASSESSMENT, RECEIVABLE_TIME)
+    values (#{buildName,jdbcType=VARCHAR}, #{buildId,jdbcType=INTEGER}, #{rightAddr,jdbcType=VARCHAR}, 
+      #{rightNum,jdbcType=VARCHAR}, #{area,jdbcType=NUMERIC}, #{useage,jdbcType=TINYINT}, 
+      #{housePhone,jdbcType=VARCHAR}, #{houseDesc,jdbcType=VARCHAR}, #{mainApplyName,jdbcType=VARCHAR}, 
+      #{mainApplyIdcard,jdbcType=VARCHAR}, #{mainApplyPhone,jdbcType=VARCHAR}, #{mainMarryStatus,jdbcType=TINYINT}, 
+      #{mainOwnerHouse,jdbcType=TINYINT}, #{mainCreditStatus,jdbcType=TINYINT}, #{mainWorkUnit,jdbcType=VARCHAR}, 
+      #{secondApplyName,jdbcType=VARCHAR}, #{secondApplyIdcard,jdbcType=VARCHAR}, #{secondApplyPhone,jdbcType=VARCHAR}, 
+      #{underwriterName,jdbcType=VARCHAR}, #{underwriterPhone,jdbcType=VARCHAR}, #{financeMethod,jdbcType=TINYINT}, 
+      #{bankRecord,jdbcType=TINYINT}, #{financeInfoDesc,jdbcType=VARCHAR}, #{contractSignTime,jdbcType=TIMESTAMP}, 
+      #{dealPrice,jdbcType=NUMERIC}, #{applyPrice,jdbcType=NUMERIC}, #{financeYear,jdbcType=TINYINT}, 
+      #{financeRate,jdbcType=VARCHAR}, #{fundSupervisionFlag,jdbcType=TINYINT}, #{trustServiceFlag,jdbcType=TINYINT}, 
+      #{doubleBankFlag,jdbcType=TINYINT}, #{mainBankId,jdbcType=INTEGER}, #{secondBankId,jdbcType=INTEGER}, 
+      #{previewsTime,jdbcType=TIMESTAMP}, #{financeMethodDesc,jdbcType=VARCHAR}, #{chargeFlag,jdbcType=TINYINT}, 
+      #{chargeMethod,jdbcType=VARCHAR}, #{baseCharge,jdbcType=NUMERIC}, #{hftCharge,jdbcType=NUMERIC}, 
+      #{proxyCharge,jdbcType=NUMERIC}, #{otherCharge,jdbcType=NUMERIC}, #{chargeDesc,jdbcType=VARCHAR}, 
+      #{businessUserId,jdbcType=INTEGER}, #{dealUserId,jdbcType=INTEGER}, #{assessmentUserId,jdbcType=INTEGER}, 
+      #{compNo,jdbcType=VARCHAR}, #{deptNo,jdbcType=VARCHAR}, #{erpCompId,jdbcType=INTEGER}, 
+      #{erpDeptId,jdbcType=INTEGER}, #{brokerDeptName,jdbcType=VARCHAR}, #{brokerRegName,jdbcType=VARCHAR}, 
+      #{brokerRegId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{brokerUserName,jdbcType=VARCHAR}, 
+      #{brokerUserMobile,jdbcType=VARCHAR}, #{financeNo,jdbcType=VARCHAR}, #{crmAudit,jdbcType=TINYINT}, 
+      #{erpAudit,jdbcType=TINYINT}, #{financeStatus,jdbcType=INTEGER}, #{custType,jdbcType=TINYINT}, 
+      #{source,jdbcType=TINYINT}, #{createUserId,jdbcType=INTEGER}, #{createUserName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{fitmentStatus,jdbcType=TINYINT}, #{houseYears,jdbcType=VARCHAR}, 
+      #{assessAmount,jdbcType=NUMERIC}, #{assessedDate,jdbcType=TIMESTAMP}, #{ifAdjust,jdbcType=TINYINT}, 
+      #{adjustedPrice,jdbcType=NUMERIC}, #{adjustCharge,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{ifNetSign,jdbcType=TINYINT}, #{ifSubmitPledge,jdbcType=TINYINT}, #{pledgeDate,jdbcType=TIMESTAMP}, 
+      #{downPayment,jdbcType=NUMERIC}, #{repaymentType,jdbcType=TINYINT}, #{monthlyPayment,jdbcType=INTEGER}, 
+      #{ifSubmitZpreport,jdbcType=TINYINT}, #{ifLended,jdbcType=TINYINT}, #{pledgeRemark,jdbcType=VARCHAR}, 
+      #{erpAreaId,jdbcType=INTEGER}, #{erpRegId,jdbcType=INTEGER}, #{realLoanPrice,jdbcType=NUMERIC}, 
+      #{houseSource,jdbcType=TINYINT}, #{mainAssessment,jdbcType=INTEGER}, #{secondAssessment,jdbcType=INTEGER}, 
+      #{dataResource,jdbcType=TINYINT}, #{creatorType,jdbcType=TINYINT}, #{incomeProof,jdbcType=TINYINT}, 
+      #{erpGrId,jdbcType=INTEGER}, #{mainBankName,jdbcType=VARCHAR}, #{secondBankName,jdbcType=VARCHAR}, 
+      #{mainAssessName,jdbcType=VARCHAR}, #{secondAssessName,jdbcType=VARCHAR}, #{tranceferPledgeDesc,jdbcType=VARCHAR}, 
+      #{ifAddressChange,jdbcType=TINYINT}, #{assessUnitPrice,jdbcType=NUMERIC}, #{ifRedeemHouse,jdbcType=TINYINT}, 
+      #{sentApprovalTime,jdbcType=TIMESTAMP}, #{bankAttentionMatters,jdbcType=VARCHAR}, 
+      #{transferEmployee,jdbcType=INTEGER}, #{pledgeEmployee,jdbcType=INTEGER}, #{ifRelevance,jdbcType=TINYINT}, 
+      #{relevanceTime,jdbcType=TIMESTAMP}, #{transactionTransferTime,jdbcType=TIMESTAMP}, 
+      #{ifVendorEntrust,jdbcType=TINYINT}, #{ifVendeeEntrust,jdbcType=TINYINT}, #{reveicer,jdbcType=INTEGER}, 
+      #{zhengpingTime,jdbcType=TIMESTAMP}, #{transferTaxPrice,jdbcType=VARCHAR}, #{papersType,jdbcType=TINYINT}, 
+      #{ifHandOverInformation,jdbcType=TINYINT}, #{ifGatherOriginalChanquan,jdbcType=TINYINT}, 
+      #{ifGatherOriginalGuotu,jdbcType=TINYINT}, #{ifPublishHouse,jdbcType=TINYINT}, 
+      #{netSignTransactor,jdbcType=INTEGER}, #{ownshipType,jdbcType=TINYINT}, #{transferAttentionMatters,jdbcType=VARCHAR}, 
+      #{payForAnotherType,jdbcType=TINYINT}, #{havePaidYears,jdbcType=INTEGER}, #{pledgeCondition,jdbcType=TINYINT}, 
+      #{firstPayOrganization,jdbcType=VARCHAR}, #{firstAnotherPayPrice,jdbcType=NUMERIC}, 
+      #{firstTransactionTimePredict,jdbcType=TIMESTAMP}, #{firstTransactionTimeReal,jdbcType=TIMESTAMP}, 
+      #{firstPayTimePredict,jdbcType=TIMESTAMP}, #{firstPayTimeReal,jdbcType=TIMESTAMP}, 
+      #{secondPayOrganization,jdbcType=VARCHAR}, #{secondAnotherPayPrice,jdbcType=NUMERIC}, 
+      #{secondTransactionTimePredict,jdbcType=TIMESTAMP}, #{secondTransactionTimeReal,jdbcType=TIMESTAMP}, 
+      #{secondPayTimePredict,jdbcType=TIMESTAMP}, #{secondPayTimeReal,jdbcType=TIMESTAMP}, 
+      #{sequencePositonTimePredict,jdbcType=TIMESTAMP}, #{sequencePositonTimeReal,jdbcType=TIMESTAMP}, 
+      #{signoutTimePredict,jdbcType=TIMESTAMP}, #{signoutTimeReal,jdbcType=TIMESTAMP}, 
+      #{anotherPayTimePredict,jdbcType=TIMESTAMP}, #{anotherPayTimeReal,jdbcType=TIMESTAMP}, 
+      #{anotherPayBalance,jdbcType=NUMERIC}, #{superviseDrawRestrict,jdbcType=VARCHAR}, 
+      #{ifQutaRight,jdbcType=TINYINT}, #{ifHandOverBank,jdbcType=TINYINT}, #{handOverEmployee,jdbcType=INTEGER}, 
+      #{loanTime,jdbcType=TIMESTAMP}, #{vendorName,jdbcType=VARCHAR}, #{vendorIdNumber,jdbcType=VARCHAR}, 
+      #{vendorPhone,jdbcType=VARCHAR}, #{vendorCommonOwnerName,jdbcType=VARCHAR}, #{vendorCommonOwnerIdNumber,jdbcType=VARCHAR}, 
+      #{vendorCommonOwnerPhone,jdbcType=VARCHAR}, #{vendorSuretyName,jdbcType=VARCHAR}, 
+      #{vendorSuretyIdNumber,jdbcType=VARCHAR}, #{vendorSuretyPhone,jdbcType=VARCHAR}, 
+      #{approvalPassTime,jdbcType=TIMESTAMP}, #{vendorConditionDescription,jdbcType=VARCHAR}, 
+      #{vendeeConditionDescription,jdbcType=VARCHAR}, #{vendeeSuretyIdcard,jdbcType=VARCHAR}, 
+      #{tfTransactionTimePredict,jdbcType=TIMESTAMP}, #{tfTransactionTimeReal,jdbcType=TIMESTAMP}, 
+      #{signOutClient,jdbcType=TINYINT}, #{delStatus,jdbcType=TINYINT}, #{financeModel,jdbcType=TINYINT}, 
+      #{downPaymentPrice,jdbcType=NUMERIC}, #{depositPrice,jdbcType=NUMERIC}, #{fundSupervisionPrice,jdbcType=NUMERIC}, 
+      #{riskLevel,jdbcType=VARCHAR}, #{paymentSource,jdbcType=VARCHAR}, #{entrustedName,jdbcType=VARCHAR}, 
+      #{entrustedIccard,jdbcType=VARCHAR}, #{repaymentBankName,jdbcType=VARCHAR}, #{hasPaidYears,jdbcType=INTEGER}, 
+      #{isAppointment,jdbcType=BIT}, #{isRepaymentAnytime,jdbcType=BIT}, #{acceptChannelRepaymentTime,jdbcType=BIT}, 
+      #{ifTransferParking,jdbcType=BIT}, #{ifReplaceCredentials,jdbcType=BIT}, #{repaymentPrice,jdbcType=INTEGER}, 
+      #{repaymentTime,jdbcType=TIMESTAMP}, #{repaymentChannel,jdbcType=VARCHAR}, #{repaymentDesc,jdbcType=VARCHAR}, 
+      #{copySourceId,jdbcType=INTEGER}, #{deliveryTime,jdbcType=TIMESTAMP}, #{redeliveryTime,jdbcType=TIMESTAMP}, 
+      #{receivablesNo,jdbcType=VARCHAR}, #{doubleDeptFlag,jdbcType=BIT}, #{secondDeptCustType,jdbcType=TINYINT}, 
+      #{secondDeptCityId,jdbcType=INTEGER}, #{secondDeptRegId,jdbcType=INTEGER}, #{secondCompNo,jdbcType=VARCHAR}, 
+      #{secondDeptNo,jdbcType=VARCHAR}, #{secondErpCompId,jdbcType=INTEGER}, #{secondErpDeptId,jdbcType=INTEGER}, 
+      #{secondBrokerDeptName,jdbcType=VARCHAR}, #{secondBrokerRegName,jdbcType=VARCHAR}, 
+      #{secondBrokerRegId,jdbcType=INTEGER}, #{secondArchiveId,jdbcType=INTEGER}, #{secondBrokerUserName,jdbcType=VARCHAR}, 
+      #{secondBrokerUserMobile,jdbcType=VARCHAR}, #{isPrintBrokerServiceContract,jdbcType=BIT}, 
+      #{propertyRightType,jdbcType=TINYINT}, #{compPropertyRightAgent,jdbcType=VARCHAR}, 
+      #{transferTimePredict,jdbcType=TIMESTAMP}, #{hqPigeonholeFlag,jdbcType=BIT}, #{buildCityId,jdbcType=INTEGER}, 
+      #{houseInvoice,jdbcType=BIT}, #{pigeonholeTime,jdbcType=TIMESTAMP}, #{dealId,jdbcType=INTEGER}, 
+      #{crmCompId,jdbcType=INTEGER}, #{vendorBankName,jdbcType=VARCHAR}, #{vendorBankCardNumber,jdbcType=VARCHAR}, 
+      #{territorialNature,jdbcType=TINYINT}, #{mortgageBank,jdbcType=INTEGER}, #{mortgageAmount,jdbcType=NUMERIC}, 
+      #{mortgageBankName,jdbcType=VARCHAR}, #{mortgageAssessmentName,jdbcType=VARCHAR}, 
+      #{mortgageAssessment,jdbcType=INTEGER}, #{receivableTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminJrFinanceInfo" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into JR_FINANCE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="rightAddr != null">
+        RIGHT_ADDR,
+      </if>
+      <if test="rightNum != null">
+        RIGHT_NUM,
+      </if>
+      <if test="area != null">
+        AREA,
+      </if>
+      <if test="useage != null">
+        USEAGE,
+      </if>
+      <if test="housePhone != null">
+        HOUSE_PHONE,
+      </if>
+      <if test="houseDesc != null">
+        HOUSE_DESC,
+      </if>
+      <if test="mainApplyName != null">
+        MAIN_APPLY_NAME,
+      </if>
+      <if test="mainApplyIdcard != null">
+        MAIN_APPLY_IDCARD,
+      </if>
+      <if test="mainApplyPhone != null">
+        MAIN_APPLY_PHONE,
+      </if>
+      <if test="mainMarryStatus != null">
+        MAIN_MARRY_STATUS,
+      </if>
+      <if test="mainOwnerHouse != null">
+        MAIN_OWNER_HOUSE,
+      </if>
+      <if test="mainCreditStatus != null">
+        MAIN_CREDIT_STATUS,
+      </if>
+      <if test="mainWorkUnit != null">
+        MAIN_WORK_UNIT,
+      </if>
+      <if test="secondApplyName != null">
+        SECOND_APPLY_NAME,
+      </if>
+      <if test="secondApplyIdcard != null">
+        SECOND_APPLY_IDCARD,
+      </if>
+      <if test="secondApplyPhone != null">
+        SECOND_APPLY_PHONE,
+      </if>
+      <if test="underwriterName != null">
+        UNDERWRITER_NAME,
+      </if>
+      <if test="underwriterPhone != null">
+        UNDERWRITER_PHONE,
+      </if>
+      <if test="financeMethod != null">
+        FINANCE_METHOD,
+      </if>
+      <if test="bankRecord != null">
+        BANK_RECORD,
+      </if>
+      <if test="financeInfoDesc != null">
+        FINANCE_INFO_DESC,
+      </if>
+      <if test="contractSignTime != null">
+        CONTRACT_SIGN_TIME,
+      </if>
+      <if test="dealPrice != null">
+        DEAL_PRICE,
+      </if>
+      <if test="applyPrice != null">
+        APPLY_PRICE,
+      </if>
+      <if test="financeYear != null">
+        FINANCE_YEAR,
+      </if>
+      <if test="financeRate != null">
+        FINANCE_RATE,
+      </if>
+      <if test="fundSupervisionFlag != null">
+        FUND_SUPERVISION_FLAG,
+      </if>
+      <if test="trustServiceFlag != null">
+        TRUST_SERVICE_FLAG,
+      </if>
+      <if test="doubleBankFlag != null">
+        DOUBLE_BANK_FLAG,
+      </if>
+      <if test="mainBankId != null">
+        MAIN_BANK_ID,
+      </if>
+      <if test="secondBankId != null">
+        SECOND_BANK_ID,
+      </if>
+      <if test="previewsTime != null">
+        PREVIEWS_TIME,
+      </if>
+      <if test="financeMethodDesc != null">
+        FINANCE_METHOD_DESC,
+      </if>
+      <if test="chargeFlag != null">
+        CHARGE_FLAG,
+      </if>
+      <if test="chargeMethod != null">
+        CHARGE_METHOD,
+      </if>
+      <if test="baseCharge != null">
+        BASE_CHARGE,
+      </if>
+      <if test="hftCharge != null">
+        HFT_CHARGE,
+      </if>
+      <if test="proxyCharge != null">
+        PROXY_CHARGE,
+      </if>
+      <if test="otherCharge != null">
+        OTHER_CHARGE,
+      </if>
+      <if test="chargeDesc != null">
+        CHARGE_DESC,
+      </if>
+      <if test="businessUserId != null">
+        BUSINESS_USER_ID,
+      </if>
+      <if test="dealUserId != null">
+        DEAL_USER_ID,
+      </if>
+      <if test="assessmentUserId != null">
+        ASSESSMENT_USER_ID,
+      </if>
+      <if test="compNo != null">
+        COMP_NO,
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO,
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID,
+      </if>
+      <if test="erpDeptId != null">
+        ERP_DEPT_ID,
+      </if>
+      <if test="brokerDeptName != null">
+        BROKER_DEPT_NAME,
+      </if>
+      <if test="brokerRegName != null">
+        BROKER_REG_NAME,
+      </if>
+      <if test="brokerRegId != null">
+        BROKER_REG_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="brokerUserName != null">
+        BROKER_USER_NAME,
+      </if>
+      <if test="brokerUserMobile != null">
+        BROKER_USER_MOBILE,
+      </if>
+      <if test="financeNo != null">
+        FINANCE_NO,
+      </if>
+      <if test="crmAudit != null">
+        CRM_AUDIT,
+      </if>
+      <if test="erpAudit != null">
+        ERP_AUDIT,
+      </if>
+      <if test="financeStatus != null">
+        FINANCE_STATUS,
+      </if>
+      <if test="custType != null">
+        CUST_TYPE,
+      </if>
+      <if test="source != null">
+        [SOURCE],
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID,
+      </if>
+      <if test="createUserName != null">
+        CREATE_USER_NAME,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="fitmentStatus != null">
+        FITMENT_STATUS,
+      </if>
+      <if test="houseYears != null">
+        HOUSE_YEARS,
+      </if>
+      <if test="assessAmount != null">
+        ASSESS_AMOUNT,
+      </if>
+      <if test="assessedDate != null">
+        ASSESSED_DATE,
+      </if>
+      <if test="ifAdjust != null">
+        IF_ADJUST,
+      </if>
+      <if test="adjustedPrice != null">
+        ADJUSTED_PRICE,
+      </if>
+      <if test="adjustCharge != null">
+        ADJUST_CHARGE,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="ifNetSign != null">
+        IF_NET_SIGN,
+      </if>
+      <if test="ifSubmitPledge != null">
+        IF_SUBMIT_PLEDGE,
+      </if>
+      <if test="pledgeDate != null">
+        PLEDGE_DATE,
+      </if>
+      <if test="downPayment != null">
+        DOWN_PAYMENT,
+      </if>
+      <if test="repaymentType != null">
+        REPAYMENT_TYPE,
+      </if>
+      <if test="monthlyPayment != null">
+        MONTHLY_PAYMENT,
+      </if>
+      <if test="ifSubmitZpreport != null">
+        IF_SUBMIT_ZPREPORT,
+      </if>
+      <if test="ifLended != null">
+        IF_LENDED,
+      </if>
+      <if test="pledgeRemark != null">
+        PLEDGE_REMARK,
+      </if>
+      <if test="erpAreaId != null">
+        ERP_AREA_ID,
+      </if>
+      <if test="erpRegId != null">
+        ERP_REG_ID,
+      </if>
+      <if test="realLoanPrice != null">
+        REAL_LOAN_PRICE,
+      </if>
+      <if test="houseSource != null">
+        HOUSE_SOURCE,
+      </if>
+      <if test="mainAssessment != null">
+        MAIN_ASSESSMENT,
+      </if>
+      <if test="secondAssessment != null">
+        SECOND_ASSESSMENT,
+      </if>
+      <if test="dataResource != null">
+        DATA_RESOURCE,
+      </if>
+      <if test="creatorType != null">
+        CREATOR_TYPE,
+      </if>
+      <if test="incomeProof != null">
+        INCOME_PROOF,
+      </if>
+      <if test="erpGrId != null">
+        ERP_GR_ID,
+      </if>
+      <if test="mainBankName != null">
+        MAIN_BANK_NAME,
+      </if>
+      <if test="secondBankName != null">
+        SECOND_BANK_NAME,
+      </if>
+      <if test="mainAssessName != null">
+        MAIN_ASSESS_NAME,
+      </if>
+      <if test="secondAssessName != null">
+        SECOND_ASSESS_NAME,
+      </if>
+      <if test="tranceferPledgeDesc != null">
+        TRANCEFER_PLEDGE_DESC,
+      </if>
+      <if test="ifAddressChange != null">
+        IF_ADDRESS_CHANGE,
+      </if>
+      <if test="assessUnitPrice != null">
+        ASSESS_UNIT_PRICE,
+      </if>
+      <if test="ifRedeemHouse != null">
+        IF_REDEEM_HOUSE,
+      </if>
+      <if test="sentApprovalTime != null">
+        SENT_APPROVAL_TIME,
+      </if>
+      <if test="bankAttentionMatters != null">
+        BANK_ATTENTION_MATTERS,
+      </if>
+      <if test="transferEmployee != null">
+        TRANSFER_EMPLOYEE,
+      </if>
+      <if test="pledgeEmployee != null">
+        PLEDGE_EMPLOYEE,
+      </if>
+      <if test="ifRelevance != null">
+        IF_RELEVANCE,
+      </if>
+      <if test="relevanceTime != null">
+        RELEVANCE_TIME,
+      </if>
+      <if test="transactionTransferTime != null">
+        TRANSACTION_TRANSFER_TIME,
+      </if>
+      <if test="ifVendorEntrust != null">
+        IF_VENDOR_ENTRUST,
+      </if>
+      <if test="ifVendeeEntrust != null">
+        IF_VENDEE_ENTRUST,
+      </if>
+      <if test="reveicer != null">
+        REVEICER,
+      </if>
+      <if test="zhengpingTime != null">
+        ZHENGPING_TIME,
+      </if>
+      <if test="transferTaxPrice != null">
+        TRANSFER_TAX_PRICE,
+      </if>
+      <if test="papersType != null">
+        PAPERS_TYPE,
+      </if>
+      <if test="ifHandOverInformation != null">
+        IF_HAND_OVER_INFORMATION,
+      </if>
+      <if test="ifGatherOriginalChanquan != null">
+        IF_GATHER_ORIGINAL_CHANQUAN,
+      </if>
+      <if test="ifGatherOriginalGuotu != null">
+        IF_GATHER_ORIGINAL_GUOTU,
+      </if>
+      <if test="ifPublishHouse != null">
+        IF_PUBLISH_HOUSE,
+      </if>
+      <if test="netSignTransactor != null">
+        NET_SIGN_TRANSACTOR,
+      </if>
+      <if test="ownshipType != null">
+        OWNSHIP_TYPE,
+      </if>
+      <if test="transferAttentionMatters != null">
+        TRANSFER_ATTENTION_MATTERS,
+      </if>
+      <if test="payForAnotherType != null">
+        PAY_FOR_ANOTHER_TYPE,
+      </if>
+      <if test="havePaidYears != null">
+        HAVE_PAID_YEARS,
+      </if>
+      <if test="pledgeCondition != null">
+        PLEDGE_CONDITION,
+      </if>
+      <if test="firstPayOrganization != null">
+        FIRST_PAY_ORGANIZATION,
+      </if>
+      <if test="firstAnotherPayPrice != null">
+        FIRST_ANOTHER_PAY_PRICE,
+      </if>
+      <if test="firstTransactionTimePredict != null">
+        FIRST_TRANSACTION_TIME_PREDICT,
+      </if>
+      <if test="firstTransactionTimeReal != null">
+        FIRST_TRANSACTION_TIME_REAL,
+      </if>
+      <if test="firstPayTimePredict != null">
+        FIRST_PAY_TIME_PREDICT,
+      </if>
+      <if test="firstPayTimeReal != null">
+        FIRST_PAY_TIME_REAL,
+      </if>
+      <if test="secondPayOrganization != null">
+        SECOND_PAY_ORGANIZATION,
+      </if>
+      <if test="secondAnotherPayPrice != null">
+        SECOND_ANOTHER_PAY_PRICE,
+      </if>
+      <if test="secondTransactionTimePredict != null">
+        SECOND_TRANSACTION_TIME_PREDICT,
+      </if>
+      <if test="secondTransactionTimeReal != null">
+        SECOND_TRANSACTION_TIME_REAL,
+      </if>
+      <if test="secondPayTimePredict != null">
+        SECOND_PAY_TIME_PREDICT,
+      </if>
+      <if test="secondPayTimeReal != null">
+        SECOND_PAY_TIME_REAL,
+      </if>
+      <if test="sequencePositonTimePredict != null">
+        SEQUENCE_POSITON_TIME_PREDICT,
+      </if>
+      <if test="sequencePositonTimeReal != null">
+        SEQUENCE_POSITON_TIME_REAL,
+      </if>
+      <if test="signoutTimePredict != null">
+        SIGNOUT_TIME_PREDICT,
+      </if>
+      <if test="signoutTimeReal != null">
+        SIGNOUT_TIME_REAL,
+      </if>
+      <if test="anotherPayTimePredict != null">
+        ANOTHER_PAY_TIME_PREDICT,
+      </if>
+      <if test="anotherPayTimeReal != null">
+        ANOTHER_PAY_TIME_REAL,
+      </if>
+      <if test="anotherPayBalance != null">
+        ANOTHER_PAY_BALANCE,
+      </if>
+      <if test="superviseDrawRestrict != null">
+        SUPERVISE_DRAW_RESTRICT,
+      </if>
+      <if test="ifQutaRight != null">
+        IF_QUTA_RIGHT,
+      </if>
+      <if test="ifHandOverBank != null">
+        IF_HAND_OVER_BANK,
+      </if>
+      <if test="handOverEmployee != null">
+        HAND_OVER_EMPLOYEE,
+      </if>
+      <if test="loanTime != null">
+        LOAN_TIME,
+      </if>
+      <if test="vendorName != null">
+        VENDOR_NAME,
+      </if>
+      <if test="vendorIdNumber != null">
+        VENDOR_ID_NUMBER,
+      </if>
+      <if test="vendorPhone != null">
+        VENDOR_PHONE,
+      </if>
+      <if test="vendorCommonOwnerName != null">
+        VENDOR_COMMON_OWNER_NAME,
+      </if>
+      <if test="vendorCommonOwnerIdNumber != null">
+        VENDOR_COMMON_OWNER_ID_NUMBER,
+      </if>
+      <if test="vendorCommonOwnerPhone != null">
+        VENDOR_COMMON_OWNER_PHONE,
+      </if>
+      <if test="vendorSuretyName != null">
+        VENDOR_SURETY_NAME,
+      </if>
+      <if test="vendorSuretyIdNumber != null">
+        VENDOR_SURETY_ID_NUMBER,
+      </if>
+      <if test="vendorSuretyPhone != null">
+        VENDOR_SURETY_PHONE,
+      </if>
+      <if test="approvalPassTime != null">
+        APPROVAL_PASS_TIME,
+      </if>
+      <if test="vendorConditionDescription != null">
+        VENDOR_CONDITION_DESCRIPTION,
+      </if>
+      <if test="vendeeConditionDescription != null">
+        VENDEE_CONDITION_DESCRIPTION,
+      </if>
+      <if test="vendeeSuretyIdcard != null">
+        VENDEE_SURETY_IDCARD,
+      </if>
+      <if test="tfTransactionTimePredict != null">
+        TF_TRANSACTION_TIME_PREDICT,
+      </if>
+      <if test="tfTransactionTimeReal != null">
+        TF_TRANSACTION_TIME_REAL,
+      </if>
+      <if test="signOutClient != null">
+        SIGN_OUT_CLIENT,
+      </if>
+      <if test="delStatus != null">
+        DEL_STATUS,
+      </if>
+      <if test="financeModel != null">
+        FINANCE_MODEL,
+      </if>
+      <if test="downPaymentPrice != null">
+        DOWN_PAYMENT_PRICE,
+      </if>
+      <if test="depositPrice != null">
+        DEPOSIT_PRICE,
+      </if>
+      <if test="fundSupervisionPrice != null">
+        FUND_SUPERVISION_PRICE,
+      </if>
+      <if test="riskLevel != null">
+        RISK_LEVEL,
+      </if>
+      <if test="paymentSource != null">
+        PAYMENT_SOURCE,
+      </if>
+      <if test="entrustedName != null">
+        ENTRUSTED_NAME,
+      </if>
+      <if test="entrustedIccard != null">
+        ENTRUSTED_ICCARD,
+      </if>
+      <if test="repaymentBankName != null">
+        REPAYMENT_BANK_NAME,
+      </if>
+      <if test="hasPaidYears != null">
+        HAS_PAID_YEARS,
+      </if>
+      <if test="isAppointment != null">
+        IS_APPOINTMENT,
+      </if>
+      <if test="isRepaymentAnytime != null">
+        IS_REPAYMENT_ANYTIME,
+      </if>
+      <if test="acceptChannelRepaymentTime != null">
+        ACCEPT_CHANNEL_REPAYMENT_TIME,
+      </if>
+      <if test="ifTransferParking != null">
+        IF_TRANSFER_PARKING,
+      </if>
+      <if test="ifReplaceCredentials != null">
+        IF_REPLACE_CREDENTIALS,
+      </if>
+      <if test="repaymentPrice != null">
+        REPAYMENT_PRICE,
+      </if>
+      <if test="repaymentTime != null">
+        REPAYMENT_TIME,
+      </if>
+      <if test="repaymentChannel != null">
+        REPAYMENT_CHANNEL,
+      </if>
+      <if test="repaymentDesc != null">
+        REPAYMENT_DESC,
+      </if>
+      <if test="copySourceId != null">
+        COPY_SOURCE_ID,
+      </if>
+      <if test="deliveryTime != null">
+        DELIVERY_TIME,
+      </if>
+      <if test="redeliveryTime != null">
+        REDELIVERY_TIME,
+      </if>
+      <if test="receivablesNo != null">
+        RECEIVABLES_NO,
+      </if>
+      <if test="doubleDeptFlag != null">
+        DOUBLE_DEPT_FLAG,
+      </if>
+      <if test="secondDeptCustType != null">
+        SECOND_DEPT_CUST_TYPE,
+      </if>
+      <if test="secondDeptCityId != null">
+        SECOND_DEPT_CITY_ID,
+      </if>
+      <if test="secondDeptRegId != null">
+        SECOND_DEPT_REG_ID,
+      </if>
+      <if test="secondCompNo != null">
+        SECOND_COMP_NO,
+      </if>
+      <if test="secondDeptNo != null">
+        SECOND_DEPT_NO,
+      </if>
+      <if test="secondErpCompId != null">
+        SECOND_ERP_COMP_ID,
+      </if>
+      <if test="secondErpDeptId != null">
+        SECOND_ERP_DEPT_ID,
+      </if>
+      <if test="secondBrokerDeptName != null">
+        SECOND_BROKER_DEPT_NAME,
+      </if>
+      <if test="secondBrokerRegName != null">
+        SECOND_BROKER_REG_NAME,
+      </if>
+      <if test="secondBrokerRegId != null">
+        SECOND_BROKER_REG_ID,
+      </if>
+      <if test="secondArchiveId != null">
+        SECOND_ARCHIVE_ID,
+      </if>
+      <if test="secondBrokerUserName != null">
+        SECOND_BROKER_USER_NAME,
+      </if>
+      <if test="secondBrokerUserMobile != null">
+        SECOND_BROKER_USER_MOBILE,
+      </if>
+      <if test="isPrintBrokerServiceContract != null">
+        IS_PRINT_BROKER_SERVICE_CONTRACT,
+      </if>
+      <if test="propertyRightType != null">
+        PROPERTY_RIGHT_TYPE,
+      </if>
+      <if test="compPropertyRightAgent != null">
+        COMP_PROPERTY_RIGHT_AGENT,
+      </if>
+      <if test="transferTimePredict != null">
+        TRANSFER_TIME_PREDICT,
+      </if>
+      <if test="hqPigeonholeFlag != null">
+        HQ_PIGEONHOLE_FLAG,
+      </if>
+      <if test="buildCityId != null">
+        BUILD_CITY_ID,
+      </if>
+      <if test="houseInvoice != null">
+        HOUSE_INVOICE,
+      </if>
+      <if test="pigeonholeTime != null">
+        PIGEONHOLE_TIME,
+      </if>
+      <if test="dealId != null">
+        DEAL_ID,
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID,
+      </if>
+      <if test="vendorBankName != null">
+        VENDOR_BANK_NAME,
+      </if>
+      <if test="vendorBankCardNumber != null">
+        VENDOR_BANK_CARD_NUMBER,
+      </if>
+      <if test="territorialNature != null">
+        TERRITORIAL_NATURE,
+      </if>
+      <if test="mortgageBank != null">
+        MORTGAGE_BANK,
+      </if>
+      <if test="mortgageAmount != null">
+        MORTGAGE_AMOUNT,
+      </if>
+      <if test="mortgageBankName != null">
+        MORTGAGE_BANK_NAME,
+      </if>
+      <if test="mortgageAssessmentName != null">
+        MORTGAGE_ASSESSMENT_NAME,
+      </if>
+      <if test="mortgageAssessment != null">
+        MORTGAGE_ASSESSMENT,
+      </if>
+      <if test="receivableTime != null">
+        RECEIVABLE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="rightAddr != null">
+        #{rightAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rightNum != null">
+        #{rightNum,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=NUMERIC},
+      </if>
+      <if test="useage != null">
+        #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="housePhone != null">
+        #{housePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDesc != null">
+        #{houseDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mainApplyName != null">
+        #{mainApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainApplyIdcard != null">
+        #{mainApplyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="mainApplyPhone != null">
+        #{mainApplyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mainMarryStatus != null">
+        #{mainMarryStatus,jdbcType=TINYINT},
+      </if>
+      <if test="mainOwnerHouse != null">
+        #{mainOwnerHouse,jdbcType=TINYINT},
+      </if>
+      <if test="mainCreditStatus != null">
+        #{mainCreditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="mainWorkUnit != null">
+        #{mainWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApplyName != null">
+        #{secondApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApplyIdcard != null">
+        #{secondApplyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApplyPhone != null">
+        #{secondApplyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="underwriterName != null">
+        #{underwriterName,jdbcType=VARCHAR},
+      </if>
+      <if test="underwriterPhone != null">
+        #{underwriterPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="financeMethod != null">
+        #{financeMethod,jdbcType=TINYINT},
+      </if>
+      <if test="bankRecord != null">
+        #{bankRecord,jdbcType=TINYINT},
+      </if>
+      <if test="financeInfoDesc != null">
+        #{financeInfoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="contractSignTime != null">
+        #{contractSignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealPrice != null">
+        #{dealPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="applyPrice != null">
+        #{applyPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="financeYear != null">
+        #{financeYear,jdbcType=TINYINT},
+      </if>
+      <if test="financeRate != null">
+        #{financeRate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundSupervisionFlag != null">
+        #{fundSupervisionFlag,jdbcType=TINYINT},
+      </if>
+      <if test="trustServiceFlag != null">
+        #{trustServiceFlag,jdbcType=TINYINT},
+      </if>
+      <if test="doubleBankFlag != null">
+        #{doubleBankFlag,jdbcType=TINYINT},
+      </if>
+      <if test="mainBankId != null">
+        #{mainBankId,jdbcType=INTEGER},
+      </if>
+      <if test="secondBankId != null">
+        #{secondBankId,jdbcType=INTEGER},
+      </if>
+      <if test="previewsTime != null">
+        #{previewsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="financeMethodDesc != null">
+        #{financeMethodDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeFlag != null">
+        #{chargeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="chargeMethod != null">
+        #{chargeMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="baseCharge != null">
+        #{baseCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="hftCharge != null">
+        #{hftCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="proxyCharge != null">
+        #{proxyCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="otherCharge != null">
+        #{otherCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="chargeDesc != null">
+        #{chargeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="businessUserId != null">
+        #{businessUserId,jdbcType=INTEGER},
+      </if>
+      <if test="dealUserId != null">
+        #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="assessmentUserId != null">
+        #{assessmentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="erpCompId != null">
+        #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="erpDeptId != null">
+        #{erpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerDeptName != null">
+        #{brokerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerRegName != null">
+        #{brokerRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerRegId != null">
+        #{brokerRegId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerUserName != null">
+        #{brokerUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerUserMobile != null">
+        #{brokerUserMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null">
+        #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crmAudit != null">
+        #{crmAudit,jdbcType=TINYINT},
+      </if>
+      <if test="erpAudit != null">
+        #{erpAudit,jdbcType=TINYINT},
+      </if>
+      <if test="financeStatus != null">
+        #{financeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="custType != null">
+        #{custType,jdbcType=TINYINT},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fitmentStatus != null">
+        #{fitmentStatus,jdbcType=TINYINT},
+      </if>
+      <if test="houseYears != null">
+        #{houseYears,jdbcType=VARCHAR},
+      </if>
+      <if test="assessAmount != null">
+        #{assessAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="assessedDate != null">
+        #{assessedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifAdjust != null">
+        #{ifAdjust,jdbcType=TINYINT},
+      </if>
+      <if test="adjustedPrice != null">
+        #{adjustedPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="adjustCharge != null">
+        #{adjustCharge,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="ifNetSign != null">
+        #{ifNetSign,jdbcType=TINYINT},
+      </if>
+      <if test="ifSubmitPledge != null">
+        #{ifSubmitPledge,jdbcType=TINYINT},
+      </if>
+      <if test="pledgeDate != null">
+        #{pledgeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downPayment != null">
+        #{downPayment,jdbcType=NUMERIC},
+      </if>
+      <if test="repaymentType != null">
+        #{repaymentType,jdbcType=TINYINT},
+      </if>
+      <if test="monthlyPayment != null">
+        #{monthlyPayment,jdbcType=INTEGER},
+      </if>
+      <if test="ifSubmitZpreport != null">
+        #{ifSubmitZpreport,jdbcType=TINYINT},
+      </if>
+      <if test="ifLended != null">
+        #{ifLended,jdbcType=TINYINT},
+      </if>
+      <if test="pledgeRemark != null">
+        #{pledgeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="erpAreaId != null">
+        #{erpAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="erpRegId != null">
+        #{erpRegId,jdbcType=INTEGER},
+      </if>
+      <if test="realLoanPrice != null">
+        #{realLoanPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="houseSource != null">
+        #{houseSource,jdbcType=TINYINT},
+      </if>
+      <if test="mainAssessment != null">
+        #{mainAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="secondAssessment != null">
+        #{secondAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="dataResource != null">
+        #{dataResource,jdbcType=TINYINT},
+      </if>
+      <if test="creatorType != null">
+        #{creatorType,jdbcType=TINYINT},
+      </if>
+      <if test="incomeProof != null">
+        #{incomeProof,jdbcType=TINYINT},
+      </if>
+      <if test="erpGrId != null">
+        #{erpGrId,jdbcType=INTEGER},
+      </if>
+      <if test="mainBankName != null">
+        #{mainBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBankName != null">
+        #{secondBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainAssessName != null">
+        #{mainAssessName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAssessName != null">
+        #{secondAssessName,jdbcType=VARCHAR},
+      </if>
+      <if test="tranceferPledgeDesc != null">
+        #{tranceferPledgeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ifAddressChange != null">
+        #{ifAddressChange,jdbcType=TINYINT},
+      </if>
+      <if test="assessUnitPrice != null">
+        #{assessUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="ifRedeemHouse != null">
+        #{ifRedeemHouse,jdbcType=TINYINT},
+      </if>
+      <if test="sentApprovalTime != null">
+        #{sentApprovalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankAttentionMatters != null">
+        #{bankAttentionMatters,jdbcType=VARCHAR},
+      </if>
+      <if test="transferEmployee != null">
+        #{transferEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="pledgeEmployee != null">
+        #{pledgeEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="ifRelevance != null">
+        #{ifRelevance,jdbcType=TINYINT},
+      </if>
+      <if test="relevanceTime != null">
+        #{relevanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transactionTransferTime != null">
+        #{transactionTransferTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifVendorEntrust != null">
+        #{ifVendorEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="ifVendeeEntrust != null">
+        #{ifVendeeEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="reveicer != null">
+        #{reveicer,jdbcType=INTEGER},
+      </if>
+      <if test="zhengpingTime != null">
+        #{zhengpingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transferTaxPrice != null">
+        #{transferTaxPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="papersType != null">
+        #{papersType,jdbcType=TINYINT},
+      </if>
+      <if test="ifHandOverInformation != null">
+        #{ifHandOverInformation,jdbcType=TINYINT},
+      </if>
+      <if test="ifGatherOriginalChanquan != null">
+        #{ifGatherOriginalChanquan,jdbcType=TINYINT},
+      </if>
+      <if test="ifGatherOriginalGuotu != null">
+        #{ifGatherOriginalGuotu,jdbcType=TINYINT},
+      </if>
+      <if test="ifPublishHouse != null">
+        #{ifPublishHouse,jdbcType=TINYINT},
+      </if>
+      <if test="netSignTransactor != null">
+        #{netSignTransactor,jdbcType=INTEGER},
+      </if>
+      <if test="ownshipType != null">
+        #{ownshipType,jdbcType=TINYINT},
+      </if>
+      <if test="transferAttentionMatters != null">
+        #{transferAttentionMatters,jdbcType=VARCHAR},
+      </if>
+      <if test="payForAnotherType != null">
+        #{payForAnotherType,jdbcType=TINYINT},
+      </if>
+      <if test="havePaidYears != null">
+        #{havePaidYears,jdbcType=INTEGER},
+      </if>
+      <if test="pledgeCondition != null">
+        #{pledgeCondition,jdbcType=TINYINT},
+      </if>
+      <if test="firstPayOrganization != null">
+        #{firstPayOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="firstAnotherPayPrice != null">
+        #{firstAnotherPayPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="firstTransactionTimePredict != null">
+        #{firstTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstTransactionTimeReal != null">
+        #{firstTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstPayTimePredict != null">
+        #{firstPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstPayTimeReal != null">
+        #{firstPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondPayOrganization != null">
+        #{secondPayOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAnotherPayPrice != null">
+        #{secondAnotherPayPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="secondTransactionTimePredict != null">
+        #{secondTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondTransactionTimeReal != null">
+        #{secondTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondPayTimePredict != null">
+        #{secondPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondPayTimeReal != null">
+        #{secondPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sequencePositonTimePredict != null">
+        #{sequencePositonTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sequencePositonTimeReal != null">
+        #{sequencePositonTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signoutTimePredict != null">
+        #{signoutTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signoutTimeReal != null">
+        #{signoutTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anotherPayTimePredict != null">
+        #{anotherPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anotherPayTimeReal != null">
+        #{anotherPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anotherPayBalance != null">
+        #{anotherPayBalance,jdbcType=NUMERIC},
+      </if>
+      <if test="superviseDrawRestrict != null">
+        #{superviseDrawRestrict,jdbcType=VARCHAR},
+      </if>
+      <if test="ifQutaRight != null">
+        #{ifQutaRight,jdbcType=TINYINT},
+      </if>
+      <if test="ifHandOverBank != null">
+        #{ifHandOverBank,jdbcType=TINYINT},
+      </if>
+      <if test="handOverEmployee != null">
+        #{handOverEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="loanTime != null">
+        #{loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vendorName != null">
+        #{vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorIdNumber != null">
+        #{vendorIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorPhone != null">
+        #{vendorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCommonOwnerName != null">
+        #{vendorCommonOwnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCommonOwnerIdNumber != null">
+        #{vendorCommonOwnerIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCommonOwnerPhone != null">
+        #{vendorCommonOwnerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorSuretyName != null">
+        #{vendorSuretyName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorSuretyIdNumber != null">
+        #{vendorSuretyIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorSuretyPhone != null">
+        #{vendorSuretyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalPassTime != null">
+        #{approvalPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vendorConditionDescription != null">
+        #{vendorConditionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="vendeeConditionDescription != null">
+        #{vendeeConditionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="vendeeSuretyIdcard != null">
+        #{vendeeSuretyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="tfTransactionTimePredict != null">
+        #{tfTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tfTransactionTimeReal != null">
+        #{tfTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signOutClient != null">
+        #{signOutClient,jdbcType=TINYINT},
+      </if>
+      <if test="delStatus != null">
+        #{delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="financeModel != null">
+        #{financeModel,jdbcType=TINYINT},
+      </if>
+      <if test="downPaymentPrice != null">
+        #{downPaymentPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="depositPrice != null">
+        #{depositPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="fundSupervisionPrice != null">
+        #{fundSupervisionPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="riskLevel != null">
+        #{riskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentSource != null">
+        #{paymentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustedName != null">
+        #{entrustedName,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustedIccard != null">
+        #{entrustedIccard,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentBankName != null">
+        #{repaymentBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPaidYears != null">
+        #{hasPaidYears,jdbcType=INTEGER},
+      </if>
+      <if test="isAppointment != null">
+        #{isAppointment,jdbcType=BIT},
+      </if>
+      <if test="isRepaymentAnytime != null">
+        #{isRepaymentAnytime,jdbcType=BIT},
+      </if>
+      <if test="acceptChannelRepaymentTime != null">
+        #{acceptChannelRepaymentTime,jdbcType=BIT},
+      </if>
+      <if test="ifTransferParking != null">
+        #{ifTransferParking,jdbcType=BIT},
+      </if>
+      <if test="ifReplaceCredentials != null">
+        #{ifReplaceCredentials,jdbcType=BIT},
+      </if>
+      <if test="repaymentPrice != null">
+        #{repaymentPrice,jdbcType=INTEGER},
+      </if>
+      <if test="repaymentTime != null">
+        #{repaymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repaymentChannel != null">
+        #{repaymentChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentDesc != null">
+        #{repaymentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="copySourceId != null">
+        #{copySourceId,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryTime != null">
+        #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="redeliveryTime != null">
+        #{redeliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receivablesNo != null">
+        #{receivablesNo,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleDeptFlag != null">
+        #{doubleDeptFlag,jdbcType=BIT},
+      </if>
+      <if test="secondDeptCustType != null">
+        #{secondDeptCustType,jdbcType=TINYINT},
+      </if>
+      <if test="secondDeptCityId != null">
+        #{secondDeptCityId,jdbcType=INTEGER},
+      </if>
+      <if test="secondDeptRegId != null">
+        #{secondDeptRegId,jdbcType=INTEGER},
+      </if>
+      <if test="secondCompNo != null">
+        #{secondCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="secondDeptNo != null">
+        #{secondDeptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="secondErpCompId != null">
+        #{secondErpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="secondErpDeptId != null">
+        #{secondErpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="secondBrokerDeptName != null">
+        #{secondBrokerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBrokerRegName != null">
+        #{secondBrokerRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBrokerRegId != null">
+        #{secondBrokerRegId,jdbcType=INTEGER},
+      </if>
+      <if test="secondArchiveId != null">
+        #{secondArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="secondBrokerUserName != null">
+        #{secondBrokerUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBrokerUserMobile != null">
+        #{secondBrokerUserMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="isPrintBrokerServiceContract != null">
+        #{isPrintBrokerServiceContract,jdbcType=BIT},
+      </if>
+      <if test="propertyRightType != null">
+        #{propertyRightType,jdbcType=TINYINT},
+      </if>
+      <if test="compPropertyRightAgent != null">
+        #{compPropertyRightAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="transferTimePredict != null">
+        #{transferTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hqPigeonholeFlag != null">
+        #{hqPigeonholeFlag,jdbcType=BIT},
+      </if>
+      <if test="buildCityId != null">
+        #{buildCityId,jdbcType=INTEGER},
+      </if>
+      <if test="houseInvoice != null">
+        #{houseInvoice,jdbcType=BIT},
+      </if>
+      <if test="pigeonholeTime != null">
+        #{pigeonholeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealId != null">
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="crmCompId != null">
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="vendorBankName != null">
+        #{vendorBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorBankCardNumber != null">
+        #{vendorBankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="territorialNature != null">
+        #{territorialNature,jdbcType=TINYINT},
+      </if>
+      <if test="mortgageBank != null">
+        #{mortgageBank,jdbcType=INTEGER},
+      </if>
+      <if test="mortgageAmount != null">
+        #{mortgageAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="mortgageBankName != null">
+        #{mortgageBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgageAssessmentName != null">
+        #{mortgageAssessmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgageAssessment != null">
+        #{mortgageAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="receivableTime != null">
+        #{receivableTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminJrFinanceInfoExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from JR_FINANCE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update JR_FINANCE_INFO
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildName != null">
+        BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.rightAddr != null">
+        RIGHT_ADDR = #{record.rightAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rightNum != null">
+        RIGHT_NUM = #{record.rightNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.area != null">
+        AREA = #{record.area,jdbcType=NUMERIC},
+      </if>
+      <if test="record.useage != null">
+        USEAGE = #{record.useage,jdbcType=TINYINT},
+      </if>
+      <if test="record.housePhone != null">
+        HOUSE_PHONE = #{record.housePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseDesc != null">
+        HOUSE_DESC = #{record.houseDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainApplyName != null">
+        MAIN_APPLY_NAME = #{record.mainApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainApplyIdcard != null">
+        MAIN_APPLY_IDCARD = #{record.mainApplyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainApplyPhone != null">
+        MAIN_APPLY_PHONE = #{record.mainApplyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainMarryStatus != null">
+        MAIN_MARRY_STATUS = #{record.mainMarryStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.mainOwnerHouse != null">
+        MAIN_OWNER_HOUSE = #{record.mainOwnerHouse,jdbcType=TINYINT},
+      </if>
+      <if test="record.mainCreditStatus != null">
+        MAIN_CREDIT_STATUS = #{record.mainCreditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.mainWorkUnit != null">
+        MAIN_WORK_UNIT = #{record.mainWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondApplyName != null">
+        SECOND_APPLY_NAME = #{record.secondApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondApplyIdcard != null">
+        SECOND_APPLY_IDCARD = #{record.secondApplyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondApplyPhone != null">
+        SECOND_APPLY_PHONE = #{record.secondApplyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.underwriterName != null">
+        UNDERWRITER_NAME = #{record.underwriterName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.underwriterPhone != null">
+        UNDERWRITER_PHONE = #{record.underwriterPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financeMethod != null">
+        FINANCE_METHOD = #{record.financeMethod,jdbcType=TINYINT},
+      </if>
+      <if test="record.bankRecord != null">
+        BANK_RECORD = #{record.bankRecord,jdbcType=TINYINT},
+      </if>
+      <if test="record.financeInfoDesc != null">
+        FINANCE_INFO_DESC = #{record.financeInfoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractSignTime != null">
+        CONTRACT_SIGN_TIME = #{record.contractSignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dealPrice != null">
+        DEAL_PRICE = #{record.dealPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.applyPrice != null">
+        APPLY_PRICE = #{record.applyPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.financeYear != null">
+        FINANCE_YEAR = #{record.financeYear,jdbcType=TINYINT},
+      </if>
+      <if test="record.financeRate != null">
+        FINANCE_RATE = #{record.financeRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundSupervisionFlag != null">
+        FUND_SUPERVISION_FLAG = #{record.fundSupervisionFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.trustServiceFlag != null">
+        TRUST_SERVICE_FLAG = #{record.trustServiceFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.doubleBankFlag != null">
+        DOUBLE_BANK_FLAG = #{record.doubleBankFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.mainBankId != null">
+        MAIN_BANK_ID = #{record.mainBankId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondBankId != null">
+        SECOND_BANK_ID = #{record.secondBankId,jdbcType=INTEGER},
+      </if>
+      <if test="record.previewsTime != null">
+        PREVIEWS_TIME = #{record.previewsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.financeMethodDesc != null">
+        FINANCE_METHOD_DESC = #{record.financeMethodDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chargeFlag != null">
+        CHARGE_FLAG = #{record.chargeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.chargeMethod != null">
+        CHARGE_METHOD = #{record.chargeMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseCharge != null">
+        BASE_CHARGE = #{record.baseCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="record.hftCharge != null">
+        HFT_CHARGE = #{record.hftCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="record.proxyCharge != null">
+        PROXY_CHARGE = #{record.proxyCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="record.otherCharge != null">
+        OTHER_CHARGE = #{record.otherCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="record.chargeDesc != null">
+        CHARGE_DESC = #{record.chargeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessUserId != null">
+        BUSINESS_USER_ID = #{record.businessUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dealUserId != null">
+        DEAL_USER_ID = #{record.dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.assessmentUserId != null">
+        ASSESSMENT_USER_ID = #{record.assessmentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compNo != null">
+        COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptNo != null">
+        DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.erpCompId != null">
+        ERP_COMP_ID = #{record.erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.erpDeptId != null">
+        ERP_DEPT_ID = #{record.erpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.brokerDeptName != null">
+        BROKER_DEPT_NAME = #{record.brokerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brokerRegName != null">
+        BROKER_REG_NAME = #{record.brokerRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brokerRegId != null">
+        BROKER_REG_ID = #{record.brokerRegId,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.brokerUserName != null">
+        BROKER_USER_NAME = #{record.brokerUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brokerUserMobile != null">
+        BROKER_USER_MOBILE = #{record.brokerUserMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financeNo != null">
+        FINANCE_NO = #{record.financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.crmAudit != null">
+        CRM_AUDIT = #{record.crmAudit,jdbcType=TINYINT},
+      </if>
+      <if test="record.erpAudit != null">
+        ERP_AUDIT = #{record.erpAudit,jdbcType=TINYINT},
+      </if>
+      <if test="record.financeStatus != null">
+        FINANCE_STATUS = #{record.financeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.custType != null">
+        CUST_TYPE = #{record.custType,jdbcType=TINYINT},
+      </if>
+      <if test="record.source != null">
+        [SOURCE] = #{record.source,jdbcType=TINYINT},
+      </if>
+      <if test="record.createUserId != null">
+        CREATE_USER_ID = #{record.createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUserName != null">
+        CREATE_USER_NAME = #{record.createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fitmentStatus != null">
+        FITMENT_STATUS = #{record.fitmentStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseYears != null">
+        HOUSE_YEARS = #{record.houseYears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assessAmount != null">
+        ASSESS_AMOUNT = #{record.assessAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.assessedDate != null">
+        ASSESSED_DATE = #{record.assessedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ifAdjust != null">
+        IF_ADJUST = #{record.ifAdjust,jdbcType=TINYINT},
+      </if>
+      <if test="record.adjustedPrice != null">
+        ADJUSTED_PRICE = #{record.adjustedPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.adjustCharge != null">
+        ADJUST_CHARGE = #{record.adjustCharge,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.ifNetSign != null">
+        IF_NET_SIGN = #{record.ifNetSign,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifSubmitPledge != null">
+        IF_SUBMIT_PLEDGE = #{record.ifSubmitPledge,jdbcType=TINYINT},
+      </if>
+      <if test="record.pledgeDate != null">
+        PLEDGE_DATE = #{record.pledgeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.downPayment != null">
+        DOWN_PAYMENT = #{record.downPayment,jdbcType=NUMERIC},
+      </if>
+      <if test="record.repaymentType != null">
+        REPAYMENT_TYPE = #{record.repaymentType,jdbcType=TINYINT},
+      </if>
+      <if test="record.monthlyPayment != null">
+        MONTHLY_PAYMENT = #{record.monthlyPayment,jdbcType=INTEGER},
+      </if>
+      <if test="record.ifSubmitZpreport != null">
+        IF_SUBMIT_ZPREPORT = #{record.ifSubmitZpreport,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifLended != null">
+        IF_LENDED = #{record.ifLended,jdbcType=TINYINT},
+      </if>
+      <if test="record.pledgeRemark != null">
+        PLEDGE_REMARK = #{record.pledgeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.erpAreaId != null">
+        ERP_AREA_ID = #{record.erpAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.erpRegId != null">
+        ERP_REG_ID = #{record.erpRegId,jdbcType=INTEGER},
+      </if>
+      <if test="record.realLoanPrice != null">
+        REAL_LOAN_PRICE = #{record.realLoanPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.houseSource != null">
+        HOUSE_SOURCE = #{record.houseSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.mainAssessment != null">
+        MAIN_ASSESSMENT = #{record.mainAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondAssessment != null">
+        SECOND_ASSESSMENT = #{record.secondAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="record.dataResource != null">
+        DATA_RESOURCE = #{record.dataResource,jdbcType=TINYINT},
+      </if>
+      <if test="record.creatorType != null">
+        CREATOR_TYPE = #{record.creatorType,jdbcType=TINYINT},
+      </if>
+      <if test="record.incomeProof != null">
+        INCOME_PROOF = #{record.incomeProof,jdbcType=TINYINT},
+      </if>
+      <if test="record.erpGrId != null">
+        ERP_GR_ID = #{record.erpGrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.mainBankName != null">
+        MAIN_BANK_NAME = #{record.mainBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondBankName != null">
+        SECOND_BANK_NAME = #{record.secondBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainAssessName != null">
+        MAIN_ASSESS_NAME = #{record.mainAssessName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondAssessName != null">
+        SECOND_ASSESS_NAME = #{record.secondAssessName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tranceferPledgeDesc != null">
+        TRANCEFER_PLEDGE_DESC = #{record.tranceferPledgeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ifAddressChange != null">
+        IF_ADDRESS_CHANGE = #{record.ifAddressChange,jdbcType=TINYINT},
+      </if>
+      <if test="record.assessUnitPrice != null">
+        ASSESS_UNIT_PRICE = #{record.assessUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.ifRedeemHouse != null">
+        IF_REDEEM_HOUSE = #{record.ifRedeemHouse,jdbcType=TINYINT},
+      </if>
+      <if test="record.sentApprovalTime != null">
+        SENT_APPROVAL_TIME = #{record.sentApprovalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bankAttentionMatters != null">
+        BANK_ATTENTION_MATTERS = #{record.bankAttentionMatters,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transferEmployee != null">
+        TRANSFER_EMPLOYEE = #{record.transferEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="record.pledgeEmployee != null">
+        PLEDGE_EMPLOYEE = #{record.pledgeEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="record.ifRelevance != null">
+        IF_RELEVANCE = #{record.ifRelevance,jdbcType=TINYINT},
+      </if>
+      <if test="record.relevanceTime != null">
+        RELEVANCE_TIME = #{record.relevanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.transactionTransferTime != null">
+        TRANSACTION_TRANSFER_TIME = #{record.transactionTransferTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ifVendorEntrust != null">
+        IF_VENDOR_ENTRUST = #{record.ifVendorEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifVendeeEntrust != null">
+        IF_VENDEE_ENTRUST = #{record.ifVendeeEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="record.reveicer != null">
+        REVEICER = #{record.reveicer,jdbcType=INTEGER},
+      </if>
+      <if test="record.zhengpingTime != null">
+        ZHENGPING_TIME = #{record.zhengpingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.transferTaxPrice != null">
+        TRANSFER_TAX_PRICE = #{record.transferTaxPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.papersType != null">
+        PAPERS_TYPE = #{record.papersType,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifHandOverInformation != null">
+        IF_HAND_OVER_INFORMATION = #{record.ifHandOverInformation,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifGatherOriginalChanquan != null">
+        IF_GATHER_ORIGINAL_CHANQUAN = #{record.ifGatherOriginalChanquan,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifGatherOriginalGuotu != null">
+        IF_GATHER_ORIGINAL_GUOTU = #{record.ifGatherOriginalGuotu,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifPublishHouse != null">
+        IF_PUBLISH_HOUSE = #{record.ifPublishHouse,jdbcType=TINYINT},
+      </if>
+      <if test="record.netSignTransactor != null">
+        NET_SIGN_TRANSACTOR = #{record.netSignTransactor,jdbcType=INTEGER},
+      </if>
+      <if test="record.ownshipType != null">
+        OWNSHIP_TYPE = #{record.ownshipType,jdbcType=TINYINT},
+      </if>
+      <if test="record.transferAttentionMatters != null">
+        TRANSFER_ATTENTION_MATTERS = #{record.transferAttentionMatters,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payForAnotherType != null">
+        PAY_FOR_ANOTHER_TYPE = #{record.payForAnotherType,jdbcType=TINYINT},
+      </if>
+      <if test="record.havePaidYears != null">
+        HAVE_PAID_YEARS = #{record.havePaidYears,jdbcType=INTEGER},
+      </if>
+      <if test="record.pledgeCondition != null">
+        PLEDGE_CONDITION = #{record.pledgeCondition,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstPayOrganization != null">
+        FIRST_PAY_ORGANIZATION = #{record.firstPayOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstAnotherPayPrice != null">
+        FIRST_ANOTHER_PAY_PRICE = #{record.firstAnotherPayPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.firstTransactionTimePredict != null">
+        FIRST_TRANSACTION_TIME_PREDICT = #{record.firstTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firstTransactionTimeReal != null">
+        FIRST_TRANSACTION_TIME_REAL = #{record.firstTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firstPayTimePredict != null">
+        FIRST_PAY_TIME_PREDICT = #{record.firstPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firstPayTimeReal != null">
+        FIRST_PAY_TIME_REAL = #{record.firstPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondPayOrganization != null">
+        SECOND_PAY_ORGANIZATION = #{record.secondPayOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondAnotherPayPrice != null">
+        SECOND_ANOTHER_PAY_PRICE = #{record.secondAnotherPayPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.secondTransactionTimePredict != null">
+        SECOND_TRANSACTION_TIME_PREDICT = #{record.secondTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondTransactionTimeReal != null">
+        SECOND_TRANSACTION_TIME_REAL = #{record.secondTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondPayTimePredict != null">
+        SECOND_PAY_TIME_PREDICT = #{record.secondPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondPayTimeReal != null">
+        SECOND_PAY_TIME_REAL = #{record.secondPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sequencePositonTimePredict != null">
+        SEQUENCE_POSITON_TIME_PREDICT = #{record.sequencePositonTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sequencePositonTimeReal != null">
+        SEQUENCE_POSITON_TIME_REAL = #{record.sequencePositonTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signoutTimePredict != null">
+        SIGNOUT_TIME_PREDICT = #{record.signoutTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signoutTimeReal != null">
+        SIGNOUT_TIME_REAL = #{record.signoutTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.anotherPayTimePredict != null">
+        ANOTHER_PAY_TIME_PREDICT = #{record.anotherPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.anotherPayTimeReal != null">
+        ANOTHER_PAY_TIME_REAL = #{record.anotherPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.anotherPayBalance != null">
+        ANOTHER_PAY_BALANCE = #{record.anotherPayBalance,jdbcType=NUMERIC},
+      </if>
+      <if test="record.superviseDrawRestrict != null">
+        SUPERVISE_DRAW_RESTRICT = #{record.superviseDrawRestrict,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ifQutaRight != null">
+        IF_QUTA_RIGHT = #{record.ifQutaRight,jdbcType=TINYINT},
+      </if>
+      <if test="record.ifHandOverBank != null">
+        IF_HAND_OVER_BANK = #{record.ifHandOverBank,jdbcType=TINYINT},
+      </if>
+      <if test="record.handOverEmployee != null">
+        HAND_OVER_EMPLOYEE = #{record.handOverEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="record.loanTime != null">
+        LOAN_TIME = #{record.loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vendorName != null">
+        VENDOR_NAME = #{record.vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorIdNumber != null">
+        VENDOR_ID_NUMBER = #{record.vendorIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorPhone != null">
+        VENDOR_PHONE = #{record.vendorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorCommonOwnerName != null">
+        VENDOR_COMMON_OWNER_NAME = #{record.vendorCommonOwnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorCommonOwnerIdNumber != null">
+        VENDOR_COMMON_OWNER_ID_NUMBER = #{record.vendorCommonOwnerIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorCommonOwnerPhone != null">
+        VENDOR_COMMON_OWNER_PHONE = #{record.vendorCommonOwnerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorSuretyName != null">
+        VENDOR_SURETY_NAME = #{record.vendorSuretyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorSuretyIdNumber != null">
+        VENDOR_SURETY_ID_NUMBER = #{record.vendorSuretyIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorSuretyPhone != null">
+        VENDOR_SURETY_PHONE = #{record.vendorSuretyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalPassTime != null">
+        APPROVAL_PASS_TIME = #{record.approvalPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vendorConditionDescription != null">
+        VENDOR_CONDITION_DESCRIPTION = #{record.vendorConditionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendeeConditionDescription != null">
+        VENDEE_CONDITION_DESCRIPTION = #{record.vendeeConditionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendeeSuretyIdcard != null">
+        VENDEE_SURETY_IDCARD = #{record.vendeeSuretyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tfTransactionTimePredict != null">
+        TF_TRANSACTION_TIME_PREDICT = #{record.tfTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tfTransactionTimeReal != null">
+        TF_TRANSACTION_TIME_REAL = #{record.tfTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signOutClient != null">
+        SIGN_OUT_CLIENT = #{record.signOutClient,jdbcType=TINYINT},
+      </if>
+      <if test="record.delStatus != null">
+        DEL_STATUS = #{record.delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.financeModel != null">
+        FINANCE_MODEL = #{record.financeModel,jdbcType=TINYINT},
+      </if>
+      <if test="record.downPaymentPrice != null">
+        DOWN_PAYMENT_PRICE = #{record.downPaymentPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.depositPrice != null">
+        DEPOSIT_PRICE = #{record.depositPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.fundSupervisionPrice != null">
+        FUND_SUPERVISION_PRICE = #{record.fundSupervisionPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.riskLevel != null">
+        RISK_LEVEL = #{record.riskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentSource != null">
+        PAYMENT_SOURCE = #{record.paymentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustedName != null">
+        ENTRUSTED_NAME = #{record.entrustedName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustedIccard != null">
+        ENTRUSTED_ICCARD = #{record.entrustedIccard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repaymentBankName != null">
+        REPAYMENT_BANK_NAME = #{record.repaymentBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasPaidYears != null">
+        HAS_PAID_YEARS = #{record.hasPaidYears,jdbcType=INTEGER},
+      </if>
+      <if test="record.isAppointment != null">
+        IS_APPOINTMENT = #{record.isAppointment,jdbcType=BIT},
+      </if>
+      <if test="record.isRepaymentAnytime != null">
+        IS_REPAYMENT_ANYTIME = #{record.isRepaymentAnytime,jdbcType=BIT},
+      </if>
+      <if test="record.acceptChannelRepaymentTime != null">
+        ACCEPT_CHANNEL_REPAYMENT_TIME = #{record.acceptChannelRepaymentTime,jdbcType=BIT},
+      </if>
+      <if test="record.ifTransferParking != null">
+        IF_TRANSFER_PARKING = #{record.ifTransferParking,jdbcType=BIT},
+      </if>
+      <if test="record.ifReplaceCredentials != null">
+        IF_REPLACE_CREDENTIALS = #{record.ifReplaceCredentials,jdbcType=BIT},
+      </if>
+      <if test="record.repaymentPrice != null">
+        REPAYMENT_PRICE = #{record.repaymentPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.repaymentTime != null">
+        REPAYMENT_TIME = #{record.repaymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.repaymentChannel != null">
+        REPAYMENT_CHANNEL = #{record.repaymentChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repaymentDesc != null">
+        REPAYMENT_DESC = #{record.repaymentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.copySourceId != null">
+        COPY_SOURCE_ID = #{record.copySourceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deliveryTime != null">
+        DELIVERY_TIME = #{record.deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.redeliveryTime != null">
+        REDELIVERY_TIME = #{record.redeliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.receivablesNo != null">
+        RECEIVABLES_NO = #{record.receivablesNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doubleDeptFlag != null">
+        DOUBLE_DEPT_FLAG = #{record.doubleDeptFlag,jdbcType=BIT},
+      </if>
+      <if test="record.secondDeptCustType != null">
+        SECOND_DEPT_CUST_TYPE = #{record.secondDeptCustType,jdbcType=TINYINT},
+      </if>
+      <if test="record.secondDeptCityId != null">
+        SECOND_DEPT_CITY_ID = #{record.secondDeptCityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondDeptRegId != null">
+        SECOND_DEPT_REG_ID = #{record.secondDeptRegId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondCompNo != null">
+        SECOND_COMP_NO = #{record.secondCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondDeptNo != null">
+        SECOND_DEPT_NO = #{record.secondDeptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondErpCompId != null">
+        SECOND_ERP_COMP_ID = #{record.secondErpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondErpDeptId != null">
+        SECOND_ERP_DEPT_ID = #{record.secondErpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondBrokerDeptName != null">
+        SECOND_BROKER_DEPT_NAME = #{record.secondBrokerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondBrokerRegName != null">
+        SECOND_BROKER_REG_NAME = #{record.secondBrokerRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondBrokerRegId != null">
+        SECOND_BROKER_REG_ID = #{record.secondBrokerRegId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondArchiveId != null">
+        SECOND_ARCHIVE_ID = #{record.secondArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondBrokerUserName != null">
+        SECOND_BROKER_USER_NAME = #{record.secondBrokerUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondBrokerUserMobile != null">
+        SECOND_BROKER_USER_MOBILE = #{record.secondBrokerUserMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPrintBrokerServiceContract != null">
+        IS_PRINT_BROKER_SERVICE_CONTRACT = #{record.isPrintBrokerServiceContract,jdbcType=BIT},
+      </if>
+      <if test="record.propertyRightType != null">
+        PROPERTY_RIGHT_TYPE = #{record.propertyRightType,jdbcType=TINYINT},
+      </if>
+      <if test="record.compPropertyRightAgent != null">
+        COMP_PROPERTY_RIGHT_AGENT = #{record.compPropertyRightAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transferTimePredict != null">
+        TRANSFER_TIME_PREDICT = #{record.transferTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hqPigeonholeFlag != null">
+        HQ_PIGEONHOLE_FLAG = #{record.hqPigeonholeFlag,jdbcType=BIT},
+      </if>
+      <if test="record.buildCityId != null">
+        BUILD_CITY_ID = #{record.buildCityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseInvoice != null">
+        HOUSE_INVOICE = #{record.houseInvoice,jdbcType=BIT},
+      </if>
+      <if test="record.pigeonholeTime != null">
+        PIGEONHOLE_TIME = #{record.pigeonholeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dealId != null">
+        DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      </if>
+      <if test="record.crmCompId != null">
+        CRM_COMP_ID = #{record.crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.vendorBankName != null">
+        VENDOR_BANK_NAME = #{record.vendorBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorBankCardNumber != null">
+        VENDOR_BANK_CARD_NUMBER = #{record.vendorBankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.territorialNature != null">
+        TERRITORIAL_NATURE = #{record.territorialNature,jdbcType=TINYINT},
+      </if>
+      <if test="record.mortgageBank != null">
+        MORTGAGE_BANK = #{record.mortgageBank,jdbcType=INTEGER},
+      </if>
+      <if test="record.mortgageAmount != null">
+        MORTGAGE_AMOUNT = #{record.mortgageAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.mortgageBankName != null">
+        MORTGAGE_BANK_NAME = #{record.mortgageBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mortgageAssessmentName != null">
+        MORTGAGE_ASSESSMENT_NAME = #{record.mortgageAssessmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mortgageAssessment != null">
+        MORTGAGE_ASSESSMENT = #{record.mortgageAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="record.receivableTime != null">
+        RECEIVABLE_TIME = #{record.receivableTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update JR_FINANCE_INFO
+    set ID = #{record.id,jdbcType=INTEGER},
+      BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      RIGHT_ADDR = #{record.rightAddr,jdbcType=VARCHAR},
+      RIGHT_NUM = #{record.rightNum,jdbcType=VARCHAR},
+      AREA = #{record.area,jdbcType=NUMERIC},
+      USEAGE = #{record.useage,jdbcType=TINYINT},
+      HOUSE_PHONE = #{record.housePhone,jdbcType=VARCHAR},
+      HOUSE_DESC = #{record.houseDesc,jdbcType=VARCHAR},
+      MAIN_APPLY_NAME = #{record.mainApplyName,jdbcType=VARCHAR},
+      MAIN_APPLY_IDCARD = #{record.mainApplyIdcard,jdbcType=VARCHAR},
+      MAIN_APPLY_PHONE = #{record.mainApplyPhone,jdbcType=VARCHAR},
+      MAIN_MARRY_STATUS = #{record.mainMarryStatus,jdbcType=TINYINT},
+      MAIN_OWNER_HOUSE = #{record.mainOwnerHouse,jdbcType=TINYINT},
+      MAIN_CREDIT_STATUS = #{record.mainCreditStatus,jdbcType=TINYINT},
+      MAIN_WORK_UNIT = #{record.mainWorkUnit,jdbcType=VARCHAR},
+      SECOND_APPLY_NAME = #{record.secondApplyName,jdbcType=VARCHAR},
+      SECOND_APPLY_IDCARD = #{record.secondApplyIdcard,jdbcType=VARCHAR},
+      SECOND_APPLY_PHONE = #{record.secondApplyPhone,jdbcType=VARCHAR},
+      UNDERWRITER_NAME = #{record.underwriterName,jdbcType=VARCHAR},
+      UNDERWRITER_PHONE = #{record.underwriterPhone,jdbcType=VARCHAR},
+      FINANCE_METHOD = #{record.financeMethod,jdbcType=TINYINT},
+      BANK_RECORD = #{record.bankRecord,jdbcType=TINYINT},
+      FINANCE_INFO_DESC = #{record.financeInfoDesc,jdbcType=VARCHAR},
+      CONTRACT_SIGN_TIME = #{record.contractSignTime,jdbcType=TIMESTAMP},
+      DEAL_PRICE = #{record.dealPrice,jdbcType=NUMERIC},
+      APPLY_PRICE = #{record.applyPrice,jdbcType=NUMERIC},
+      FINANCE_YEAR = #{record.financeYear,jdbcType=TINYINT},
+      FINANCE_RATE = #{record.financeRate,jdbcType=VARCHAR},
+      FUND_SUPERVISION_FLAG = #{record.fundSupervisionFlag,jdbcType=TINYINT},
+      TRUST_SERVICE_FLAG = #{record.trustServiceFlag,jdbcType=TINYINT},
+      DOUBLE_BANK_FLAG = #{record.doubleBankFlag,jdbcType=TINYINT},
+      MAIN_BANK_ID = #{record.mainBankId,jdbcType=INTEGER},
+      SECOND_BANK_ID = #{record.secondBankId,jdbcType=INTEGER},
+      PREVIEWS_TIME = #{record.previewsTime,jdbcType=TIMESTAMP},
+      FINANCE_METHOD_DESC = #{record.financeMethodDesc,jdbcType=VARCHAR},
+      CHARGE_FLAG = #{record.chargeFlag,jdbcType=TINYINT},
+      CHARGE_METHOD = #{record.chargeMethod,jdbcType=VARCHAR},
+      BASE_CHARGE = #{record.baseCharge,jdbcType=NUMERIC},
+      HFT_CHARGE = #{record.hftCharge,jdbcType=NUMERIC},
+      PROXY_CHARGE = #{record.proxyCharge,jdbcType=NUMERIC},
+      OTHER_CHARGE = #{record.otherCharge,jdbcType=NUMERIC},
+      CHARGE_DESC = #{record.chargeDesc,jdbcType=VARCHAR},
+      BUSINESS_USER_ID = #{record.businessUserId,jdbcType=INTEGER},
+      DEAL_USER_ID = #{record.dealUserId,jdbcType=INTEGER},
+      ASSESSMENT_USER_ID = #{record.assessmentUserId,jdbcType=INTEGER},
+      COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      ERP_COMP_ID = #{record.erpCompId,jdbcType=INTEGER},
+      ERP_DEPT_ID = #{record.erpDeptId,jdbcType=INTEGER},
+      BROKER_DEPT_NAME = #{record.brokerDeptName,jdbcType=VARCHAR},
+      BROKER_REG_NAME = #{record.brokerRegName,jdbcType=VARCHAR},
+      BROKER_REG_ID = #{record.brokerRegId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      BROKER_USER_NAME = #{record.brokerUserName,jdbcType=VARCHAR},
+      BROKER_USER_MOBILE = #{record.brokerUserMobile,jdbcType=VARCHAR},
+      FINANCE_NO = #{record.financeNo,jdbcType=VARCHAR},
+      CRM_AUDIT = #{record.crmAudit,jdbcType=TINYINT},
+      ERP_AUDIT = #{record.erpAudit,jdbcType=TINYINT},
+      FINANCE_STATUS = #{record.financeStatus,jdbcType=INTEGER},
+      CUST_TYPE = #{record.custType,jdbcType=TINYINT},
+      [SOURCE] = #{record.source,jdbcType=TINYINT},
+      CREATE_USER_ID = #{record.createUserId,jdbcType=INTEGER},
+      CREATE_USER_NAME = #{record.createUserName,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      FITMENT_STATUS = #{record.fitmentStatus,jdbcType=TINYINT},
+      HOUSE_YEARS = #{record.houseYears,jdbcType=VARCHAR},
+      ASSESS_AMOUNT = #{record.assessAmount,jdbcType=NUMERIC},
+      ASSESSED_DATE = #{record.assessedDate,jdbcType=TIMESTAMP},
+      IF_ADJUST = #{record.ifAdjust,jdbcType=TINYINT},
+      ADJUSTED_PRICE = #{record.adjustedPrice,jdbcType=NUMERIC},
+      ADJUST_CHARGE = #{record.adjustCharge,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      IF_NET_SIGN = #{record.ifNetSign,jdbcType=TINYINT},
+      IF_SUBMIT_PLEDGE = #{record.ifSubmitPledge,jdbcType=TINYINT},
+      PLEDGE_DATE = #{record.pledgeDate,jdbcType=TIMESTAMP},
+      DOWN_PAYMENT = #{record.downPayment,jdbcType=NUMERIC},
+      REPAYMENT_TYPE = #{record.repaymentType,jdbcType=TINYINT},
+      MONTHLY_PAYMENT = #{record.monthlyPayment,jdbcType=INTEGER},
+      IF_SUBMIT_ZPREPORT = #{record.ifSubmitZpreport,jdbcType=TINYINT},
+      IF_LENDED = #{record.ifLended,jdbcType=TINYINT},
+      PLEDGE_REMARK = #{record.pledgeRemark,jdbcType=VARCHAR},
+      ERP_AREA_ID = #{record.erpAreaId,jdbcType=INTEGER},
+      ERP_REG_ID = #{record.erpRegId,jdbcType=INTEGER},
+      REAL_LOAN_PRICE = #{record.realLoanPrice,jdbcType=NUMERIC},
+      HOUSE_SOURCE = #{record.houseSource,jdbcType=TINYINT},
+      MAIN_ASSESSMENT = #{record.mainAssessment,jdbcType=INTEGER},
+      SECOND_ASSESSMENT = #{record.secondAssessment,jdbcType=INTEGER},
+      DATA_RESOURCE = #{record.dataResource,jdbcType=TINYINT},
+      CREATOR_TYPE = #{record.creatorType,jdbcType=TINYINT},
+      INCOME_PROOF = #{record.incomeProof,jdbcType=TINYINT},
+      ERP_GR_ID = #{record.erpGrId,jdbcType=INTEGER},
+      MAIN_BANK_NAME = #{record.mainBankName,jdbcType=VARCHAR},
+      SECOND_BANK_NAME = #{record.secondBankName,jdbcType=VARCHAR},
+      MAIN_ASSESS_NAME = #{record.mainAssessName,jdbcType=VARCHAR},
+      SECOND_ASSESS_NAME = #{record.secondAssessName,jdbcType=VARCHAR},
+      TRANCEFER_PLEDGE_DESC = #{record.tranceferPledgeDesc,jdbcType=VARCHAR},
+      IF_ADDRESS_CHANGE = #{record.ifAddressChange,jdbcType=TINYINT},
+      ASSESS_UNIT_PRICE = #{record.assessUnitPrice,jdbcType=NUMERIC},
+      IF_REDEEM_HOUSE = #{record.ifRedeemHouse,jdbcType=TINYINT},
+      SENT_APPROVAL_TIME = #{record.sentApprovalTime,jdbcType=TIMESTAMP},
+      BANK_ATTENTION_MATTERS = #{record.bankAttentionMatters,jdbcType=VARCHAR},
+      TRANSFER_EMPLOYEE = #{record.transferEmployee,jdbcType=INTEGER},
+      PLEDGE_EMPLOYEE = #{record.pledgeEmployee,jdbcType=INTEGER},
+      IF_RELEVANCE = #{record.ifRelevance,jdbcType=TINYINT},
+      RELEVANCE_TIME = #{record.relevanceTime,jdbcType=TIMESTAMP},
+      TRANSACTION_TRANSFER_TIME = #{record.transactionTransferTime,jdbcType=TIMESTAMP},
+      IF_VENDOR_ENTRUST = #{record.ifVendorEntrust,jdbcType=TINYINT},
+      IF_VENDEE_ENTRUST = #{record.ifVendeeEntrust,jdbcType=TINYINT},
+      REVEICER = #{record.reveicer,jdbcType=INTEGER},
+      ZHENGPING_TIME = #{record.zhengpingTime,jdbcType=TIMESTAMP},
+      TRANSFER_TAX_PRICE = #{record.transferTaxPrice,jdbcType=VARCHAR},
+      PAPERS_TYPE = #{record.papersType,jdbcType=TINYINT},
+      IF_HAND_OVER_INFORMATION = #{record.ifHandOverInformation,jdbcType=TINYINT},
+      IF_GATHER_ORIGINAL_CHANQUAN = #{record.ifGatherOriginalChanquan,jdbcType=TINYINT},
+      IF_GATHER_ORIGINAL_GUOTU = #{record.ifGatherOriginalGuotu,jdbcType=TINYINT},
+      IF_PUBLISH_HOUSE = #{record.ifPublishHouse,jdbcType=TINYINT},
+      NET_SIGN_TRANSACTOR = #{record.netSignTransactor,jdbcType=INTEGER},
+      OWNSHIP_TYPE = #{record.ownshipType,jdbcType=TINYINT},
+      TRANSFER_ATTENTION_MATTERS = #{record.transferAttentionMatters,jdbcType=VARCHAR},
+      PAY_FOR_ANOTHER_TYPE = #{record.payForAnotherType,jdbcType=TINYINT},
+      HAVE_PAID_YEARS = #{record.havePaidYears,jdbcType=INTEGER},
+      PLEDGE_CONDITION = #{record.pledgeCondition,jdbcType=TINYINT},
+      FIRST_PAY_ORGANIZATION = #{record.firstPayOrganization,jdbcType=VARCHAR},
+      FIRST_ANOTHER_PAY_PRICE = #{record.firstAnotherPayPrice,jdbcType=NUMERIC},
+      FIRST_TRANSACTION_TIME_PREDICT = #{record.firstTransactionTimePredict,jdbcType=TIMESTAMP},
+      FIRST_TRANSACTION_TIME_REAL = #{record.firstTransactionTimeReal,jdbcType=TIMESTAMP},
+      FIRST_PAY_TIME_PREDICT = #{record.firstPayTimePredict,jdbcType=TIMESTAMP},
+      FIRST_PAY_TIME_REAL = #{record.firstPayTimeReal,jdbcType=TIMESTAMP},
+      SECOND_PAY_ORGANIZATION = #{record.secondPayOrganization,jdbcType=VARCHAR},
+      SECOND_ANOTHER_PAY_PRICE = #{record.secondAnotherPayPrice,jdbcType=NUMERIC},
+      SECOND_TRANSACTION_TIME_PREDICT = #{record.secondTransactionTimePredict,jdbcType=TIMESTAMP},
+      SECOND_TRANSACTION_TIME_REAL = #{record.secondTransactionTimeReal,jdbcType=TIMESTAMP},
+      SECOND_PAY_TIME_PREDICT = #{record.secondPayTimePredict,jdbcType=TIMESTAMP},
+      SECOND_PAY_TIME_REAL = #{record.secondPayTimeReal,jdbcType=TIMESTAMP},
+      SEQUENCE_POSITON_TIME_PREDICT = #{record.sequencePositonTimePredict,jdbcType=TIMESTAMP},
+      SEQUENCE_POSITON_TIME_REAL = #{record.sequencePositonTimeReal,jdbcType=TIMESTAMP},
+      SIGNOUT_TIME_PREDICT = #{record.signoutTimePredict,jdbcType=TIMESTAMP},
+      SIGNOUT_TIME_REAL = #{record.signoutTimeReal,jdbcType=TIMESTAMP},
+      ANOTHER_PAY_TIME_PREDICT = #{record.anotherPayTimePredict,jdbcType=TIMESTAMP},
+      ANOTHER_PAY_TIME_REAL = #{record.anotherPayTimeReal,jdbcType=TIMESTAMP},
+      ANOTHER_PAY_BALANCE = #{record.anotherPayBalance,jdbcType=NUMERIC},
+      SUPERVISE_DRAW_RESTRICT = #{record.superviseDrawRestrict,jdbcType=VARCHAR},
+      IF_QUTA_RIGHT = #{record.ifQutaRight,jdbcType=TINYINT},
+      IF_HAND_OVER_BANK = #{record.ifHandOverBank,jdbcType=TINYINT},
+      HAND_OVER_EMPLOYEE = #{record.handOverEmployee,jdbcType=INTEGER},
+      LOAN_TIME = #{record.loanTime,jdbcType=TIMESTAMP},
+      VENDOR_NAME = #{record.vendorName,jdbcType=VARCHAR},
+      VENDOR_ID_NUMBER = #{record.vendorIdNumber,jdbcType=VARCHAR},
+      VENDOR_PHONE = #{record.vendorPhone,jdbcType=VARCHAR},
+      VENDOR_COMMON_OWNER_NAME = #{record.vendorCommonOwnerName,jdbcType=VARCHAR},
+      VENDOR_COMMON_OWNER_ID_NUMBER = #{record.vendorCommonOwnerIdNumber,jdbcType=VARCHAR},
+      VENDOR_COMMON_OWNER_PHONE = #{record.vendorCommonOwnerPhone,jdbcType=VARCHAR},
+      VENDOR_SURETY_NAME = #{record.vendorSuretyName,jdbcType=VARCHAR},
+      VENDOR_SURETY_ID_NUMBER = #{record.vendorSuretyIdNumber,jdbcType=VARCHAR},
+      VENDOR_SURETY_PHONE = #{record.vendorSuretyPhone,jdbcType=VARCHAR},
+      APPROVAL_PASS_TIME = #{record.approvalPassTime,jdbcType=TIMESTAMP},
+      VENDOR_CONDITION_DESCRIPTION = #{record.vendorConditionDescription,jdbcType=VARCHAR},
+      VENDEE_CONDITION_DESCRIPTION = #{record.vendeeConditionDescription,jdbcType=VARCHAR},
+      VENDEE_SURETY_IDCARD = #{record.vendeeSuretyIdcard,jdbcType=VARCHAR},
+      TF_TRANSACTION_TIME_PREDICT = #{record.tfTransactionTimePredict,jdbcType=TIMESTAMP},
+      TF_TRANSACTION_TIME_REAL = #{record.tfTransactionTimeReal,jdbcType=TIMESTAMP},
+      SIGN_OUT_CLIENT = #{record.signOutClient,jdbcType=TINYINT},
+      DEL_STATUS = #{record.delStatus,jdbcType=TINYINT},
+      FINANCE_MODEL = #{record.financeModel,jdbcType=TINYINT},
+      DOWN_PAYMENT_PRICE = #{record.downPaymentPrice,jdbcType=NUMERIC},
+      DEPOSIT_PRICE = #{record.depositPrice,jdbcType=NUMERIC},
+      FUND_SUPERVISION_PRICE = #{record.fundSupervisionPrice,jdbcType=NUMERIC},
+      RISK_LEVEL = #{record.riskLevel,jdbcType=VARCHAR},
+      PAYMENT_SOURCE = #{record.paymentSource,jdbcType=VARCHAR},
+      ENTRUSTED_NAME = #{record.entrustedName,jdbcType=VARCHAR},
+      ENTRUSTED_ICCARD = #{record.entrustedIccard,jdbcType=VARCHAR},
+      REPAYMENT_BANK_NAME = #{record.repaymentBankName,jdbcType=VARCHAR},
+      HAS_PAID_YEARS = #{record.hasPaidYears,jdbcType=INTEGER},
+      IS_APPOINTMENT = #{record.isAppointment,jdbcType=BIT},
+      IS_REPAYMENT_ANYTIME = #{record.isRepaymentAnytime,jdbcType=BIT},
+      ACCEPT_CHANNEL_REPAYMENT_TIME = #{record.acceptChannelRepaymentTime,jdbcType=BIT},
+      IF_TRANSFER_PARKING = #{record.ifTransferParking,jdbcType=BIT},
+      IF_REPLACE_CREDENTIALS = #{record.ifReplaceCredentials,jdbcType=BIT},
+      REPAYMENT_PRICE = #{record.repaymentPrice,jdbcType=INTEGER},
+      REPAYMENT_TIME = #{record.repaymentTime,jdbcType=TIMESTAMP},
+      REPAYMENT_CHANNEL = #{record.repaymentChannel,jdbcType=VARCHAR},
+      REPAYMENT_DESC = #{record.repaymentDesc,jdbcType=VARCHAR},
+      COPY_SOURCE_ID = #{record.copySourceId,jdbcType=INTEGER},
+      DELIVERY_TIME = #{record.deliveryTime,jdbcType=TIMESTAMP},
+      REDELIVERY_TIME = #{record.redeliveryTime,jdbcType=TIMESTAMP},
+      RECEIVABLES_NO = #{record.receivablesNo,jdbcType=VARCHAR},
+      DOUBLE_DEPT_FLAG = #{record.doubleDeptFlag,jdbcType=BIT},
+      SECOND_DEPT_CUST_TYPE = #{record.secondDeptCustType,jdbcType=TINYINT},
+      SECOND_DEPT_CITY_ID = #{record.secondDeptCityId,jdbcType=INTEGER},
+      SECOND_DEPT_REG_ID = #{record.secondDeptRegId,jdbcType=INTEGER},
+      SECOND_COMP_NO = #{record.secondCompNo,jdbcType=VARCHAR},
+      SECOND_DEPT_NO = #{record.secondDeptNo,jdbcType=VARCHAR},
+      SECOND_ERP_COMP_ID = #{record.secondErpCompId,jdbcType=INTEGER},
+      SECOND_ERP_DEPT_ID = #{record.secondErpDeptId,jdbcType=INTEGER},
+      SECOND_BROKER_DEPT_NAME = #{record.secondBrokerDeptName,jdbcType=VARCHAR},
+      SECOND_BROKER_REG_NAME = #{record.secondBrokerRegName,jdbcType=VARCHAR},
+      SECOND_BROKER_REG_ID = #{record.secondBrokerRegId,jdbcType=INTEGER},
+      SECOND_ARCHIVE_ID = #{record.secondArchiveId,jdbcType=INTEGER},
+      SECOND_BROKER_USER_NAME = #{record.secondBrokerUserName,jdbcType=VARCHAR},
+      SECOND_BROKER_USER_MOBILE = #{record.secondBrokerUserMobile,jdbcType=VARCHAR},
+      IS_PRINT_BROKER_SERVICE_CONTRACT = #{record.isPrintBrokerServiceContract,jdbcType=BIT},
+      PROPERTY_RIGHT_TYPE = #{record.propertyRightType,jdbcType=TINYINT},
+      COMP_PROPERTY_RIGHT_AGENT = #{record.compPropertyRightAgent,jdbcType=VARCHAR},
+      TRANSFER_TIME_PREDICT = #{record.transferTimePredict,jdbcType=TIMESTAMP},
+      HQ_PIGEONHOLE_FLAG = #{record.hqPigeonholeFlag,jdbcType=BIT},
+      BUILD_CITY_ID = #{record.buildCityId,jdbcType=INTEGER},
+      HOUSE_INVOICE = #{record.houseInvoice,jdbcType=BIT},
+      PIGEONHOLE_TIME = #{record.pigeonholeTime,jdbcType=TIMESTAMP},
+      DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      CRM_COMP_ID = #{record.crmCompId,jdbcType=INTEGER},
+      VENDOR_BANK_NAME = #{record.vendorBankName,jdbcType=VARCHAR},
+      VENDOR_BANK_CARD_NUMBER = #{record.vendorBankCardNumber,jdbcType=VARCHAR},
+      TERRITORIAL_NATURE = #{record.territorialNature,jdbcType=TINYINT},
+      MORTGAGE_BANK = #{record.mortgageBank,jdbcType=INTEGER},
+      MORTGAGE_AMOUNT = #{record.mortgageAmount,jdbcType=NUMERIC},
+      MORTGAGE_BANK_NAME = #{record.mortgageBankName,jdbcType=VARCHAR},
+      MORTGAGE_ASSESSMENT_NAME = #{record.mortgageAssessmentName,jdbcType=VARCHAR},
+      MORTGAGE_ASSESSMENT = #{record.mortgageAssessment,jdbcType=INTEGER},
+      RECEIVABLE_TIME = #{record.receivableTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminJrFinanceInfo">
+    <!--@mbggenerated-->
+    update JR_FINANCE_INFO
+    <set>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="rightAddr != null">
+        RIGHT_ADDR = #{rightAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rightNum != null">
+        RIGHT_NUM = #{rightNum,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        AREA = #{area,jdbcType=NUMERIC},
+      </if>
+      <if test="useage != null">
+        USEAGE = #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="housePhone != null">
+        HOUSE_PHONE = #{housePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDesc != null">
+        HOUSE_DESC = #{houseDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mainApplyName != null">
+        MAIN_APPLY_NAME = #{mainApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainApplyIdcard != null">
+        MAIN_APPLY_IDCARD = #{mainApplyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="mainApplyPhone != null">
+        MAIN_APPLY_PHONE = #{mainApplyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mainMarryStatus != null">
+        MAIN_MARRY_STATUS = #{mainMarryStatus,jdbcType=TINYINT},
+      </if>
+      <if test="mainOwnerHouse != null">
+        MAIN_OWNER_HOUSE = #{mainOwnerHouse,jdbcType=TINYINT},
+      </if>
+      <if test="mainCreditStatus != null">
+        MAIN_CREDIT_STATUS = #{mainCreditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="mainWorkUnit != null">
+        MAIN_WORK_UNIT = #{mainWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApplyName != null">
+        SECOND_APPLY_NAME = #{secondApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApplyIdcard != null">
+        SECOND_APPLY_IDCARD = #{secondApplyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="secondApplyPhone != null">
+        SECOND_APPLY_PHONE = #{secondApplyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="underwriterName != null">
+        UNDERWRITER_NAME = #{underwriterName,jdbcType=VARCHAR},
+      </if>
+      <if test="underwriterPhone != null">
+        UNDERWRITER_PHONE = #{underwriterPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="financeMethod != null">
+        FINANCE_METHOD = #{financeMethod,jdbcType=TINYINT},
+      </if>
+      <if test="bankRecord != null">
+        BANK_RECORD = #{bankRecord,jdbcType=TINYINT},
+      </if>
+      <if test="financeInfoDesc != null">
+        FINANCE_INFO_DESC = #{financeInfoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="contractSignTime != null">
+        CONTRACT_SIGN_TIME = #{contractSignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealPrice != null">
+        DEAL_PRICE = #{dealPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="applyPrice != null">
+        APPLY_PRICE = #{applyPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="financeYear != null">
+        FINANCE_YEAR = #{financeYear,jdbcType=TINYINT},
+      </if>
+      <if test="financeRate != null">
+        FINANCE_RATE = #{financeRate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundSupervisionFlag != null">
+        FUND_SUPERVISION_FLAG = #{fundSupervisionFlag,jdbcType=TINYINT},
+      </if>
+      <if test="trustServiceFlag != null">
+        TRUST_SERVICE_FLAG = #{trustServiceFlag,jdbcType=TINYINT},
+      </if>
+      <if test="doubleBankFlag != null">
+        DOUBLE_BANK_FLAG = #{doubleBankFlag,jdbcType=TINYINT},
+      </if>
+      <if test="mainBankId != null">
+        MAIN_BANK_ID = #{mainBankId,jdbcType=INTEGER},
+      </if>
+      <if test="secondBankId != null">
+        SECOND_BANK_ID = #{secondBankId,jdbcType=INTEGER},
+      </if>
+      <if test="previewsTime != null">
+        PREVIEWS_TIME = #{previewsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="financeMethodDesc != null">
+        FINANCE_METHOD_DESC = #{financeMethodDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeFlag != null">
+        CHARGE_FLAG = #{chargeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="chargeMethod != null">
+        CHARGE_METHOD = #{chargeMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="baseCharge != null">
+        BASE_CHARGE = #{baseCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="hftCharge != null">
+        HFT_CHARGE = #{hftCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="proxyCharge != null">
+        PROXY_CHARGE = #{proxyCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="otherCharge != null">
+        OTHER_CHARGE = #{otherCharge,jdbcType=NUMERIC},
+      </if>
+      <if test="chargeDesc != null">
+        CHARGE_DESC = #{chargeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="businessUserId != null">
+        BUSINESS_USER_ID = #{businessUserId,jdbcType=INTEGER},
+      </if>
+      <if test="dealUserId != null">
+        DEAL_USER_ID = #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="assessmentUserId != null">
+        ASSESSMENT_USER_ID = #{assessmentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="erpDeptId != null">
+        ERP_DEPT_ID = #{erpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerDeptName != null">
+        BROKER_DEPT_NAME = #{brokerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerRegName != null">
+        BROKER_REG_NAME = #{brokerRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerRegId != null">
+        BROKER_REG_ID = #{brokerRegId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerUserName != null">
+        BROKER_USER_NAME = #{brokerUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerUserMobile != null">
+        BROKER_USER_MOBILE = #{brokerUserMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null">
+        FINANCE_NO = #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crmAudit != null">
+        CRM_AUDIT = #{crmAudit,jdbcType=TINYINT},
+      </if>
+      <if test="erpAudit != null">
+        ERP_AUDIT = #{erpAudit,jdbcType=TINYINT},
+      </if>
+      <if test="financeStatus != null">
+        FINANCE_STATUS = #{financeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="custType != null">
+        CUST_TYPE = #{custType,jdbcType=TINYINT},
+      </if>
+      <if test="source != null">
+        [SOURCE] = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID = #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserName != null">
+        CREATE_USER_NAME = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fitmentStatus != null">
+        FITMENT_STATUS = #{fitmentStatus,jdbcType=TINYINT},
+      </if>
+      <if test="houseYears != null">
+        HOUSE_YEARS = #{houseYears,jdbcType=VARCHAR},
+      </if>
+      <if test="assessAmount != null">
+        ASSESS_AMOUNT = #{assessAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="assessedDate != null">
+        ASSESSED_DATE = #{assessedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifAdjust != null">
+        IF_ADJUST = #{ifAdjust,jdbcType=TINYINT},
+      </if>
+      <if test="adjustedPrice != null">
+        ADJUSTED_PRICE = #{adjustedPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="adjustCharge != null">
+        ADJUST_CHARGE = #{adjustCharge,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="ifNetSign != null">
+        IF_NET_SIGN = #{ifNetSign,jdbcType=TINYINT},
+      </if>
+      <if test="ifSubmitPledge != null">
+        IF_SUBMIT_PLEDGE = #{ifSubmitPledge,jdbcType=TINYINT},
+      </if>
+      <if test="pledgeDate != null">
+        PLEDGE_DATE = #{pledgeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downPayment != null">
+        DOWN_PAYMENT = #{downPayment,jdbcType=NUMERIC},
+      </if>
+      <if test="repaymentType != null">
+        REPAYMENT_TYPE = #{repaymentType,jdbcType=TINYINT},
+      </if>
+      <if test="monthlyPayment != null">
+        MONTHLY_PAYMENT = #{monthlyPayment,jdbcType=INTEGER},
+      </if>
+      <if test="ifSubmitZpreport != null">
+        IF_SUBMIT_ZPREPORT = #{ifSubmitZpreport,jdbcType=TINYINT},
+      </if>
+      <if test="ifLended != null">
+        IF_LENDED = #{ifLended,jdbcType=TINYINT},
+      </if>
+      <if test="pledgeRemark != null">
+        PLEDGE_REMARK = #{pledgeRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="erpAreaId != null">
+        ERP_AREA_ID = #{erpAreaId,jdbcType=INTEGER},
+      </if>
+      <if test="erpRegId != null">
+        ERP_REG_ID = #{erpRegId,jdbcType=INTEGER},
+      </if>
+      <if test="realLoanPrice != null">
+        REAL_LOAN_PRICE = #{realLoanPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="houseSource != null">
+        HOUSE_SOURCE = #{houseSource,jdbcType=TINYINT},
+      </if>
+      <if test="mainAssessment != null">
+        MAIN_ASSESSMENT = #{mainAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="secondAssessment != null">
+        SECOND_ASSESSMENT = #{secondAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="dataResource != null">
+        DATA_RESOURCE = #{dataResource,jdbcType=TINYINT},
+      </if>
+      <if test="creatorType != null">
+        CREATOR_TYPE = #{creatorType,jdbcType=TINYINT},
+      </if>
+      <if test="incomeProof != null">
+        INCOME_PROOF = #{incomeProof,jdbcType=TINYINT},
+      </if>
+      <if test="erpGrId != null">
+        ERP_GR_ID = #{erpGrId,jdbcType=INTEGER},
+      </if>
+      <if test="mainBankName != null">
+        MAIN_BANK_NAME = #{mainBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBankName != null">
+        SECOND_BANK_NAME = #{secondBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainAssessName != null">
+        MAIN_ASSESS_NAME = #{mainAssessName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAssessName != null">
+        SECOND_ASSESS_NAME = #{secondAssessName,jdbcType=VARCHAR},
+      </if>
+      <if test="tranceferPledgeDesc != null">
+        TRANCEFER_PLEDGE_DESC = #{tranceferPledgeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ifAddressChange != null">
+        IF_ADDRESS_CHANGE = #{ifAddressChange,jdbcType=TINYINT},
+      </if>
+      <if test="assessUnitPrice != null">
+        ASSESS_UNIT_PRICE = #{assessUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="ifRedeemHouse != null">
+        IF_REDEEM_HOUSE = #{ifRedeemHouse,jdbcType=TINYINT},
+      </if>
+      <if test="sentApprovalTime != null">
+        SENT_APPROVAL_TIME = #{sentApprovalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankAttentionMatters != null">
+        BANK_ATTENTION_MATTERS = #{bankAttentionMatters,jdbcType=VARCHAR},
+      </if>
+      <if test="transferEmployee != null">
+        TRANSFER_EMPLOYEE = #{transferEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="pledgeEmployee != null">
+        PLEDGE_EMPLOYEE = #{pledgeEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="ifRelevance != null">
+        IF_RELEVANCE = #{ifRelevance,jdbcType=TINYINT},
+      </if>
+      <if test="relevanceTime != null">
+        RELEVANCE_TIME = #{relevanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transactionTransferTime != null">
+        TRANSACTION_TRANSFER_TIME = #{transactionTransferTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifVendorEntrust != null">
+        IF_VENDOR_ENTRUST = #{ifVendorEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="ifVendeeEntrust != null">
+        IF_VENDEE_ENTRUST = #{ifVendeeEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="reveicer != null">
+        REVEICER = #{reveicer,jdbcType=INTEGER},
+      </if>
+      <if test="zhengpingTime != null">
+        ZHENGPING_TIME = #{zhengpingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transferTaxPrice != null">
+        TRANSFER_TAX_PRICE = #{transferTaxPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="papersType != null">
+        PAPERS_TYPE = #{papersType,jdbcType=TINYINT},
+      </if>
+      <if test="ifHandOverInformation != null">
+        IF_HAND_OVER_INFORMATION = #{ifHandOverInformation,jdbcType=TINYINT},
+      </if>
+      <if test="ifGatherOriginalChanquan != null">
+        IF_GATHER_ORIGINAL_CHANQUAN = #{ifGatherOriginalChanquan,jdbcType=TINYINT},
+      </if>
+      <if test="ifGatherOriginalGuotu != null">
+        IF_GATHER_ORIGINAL_GUOTU = #{ifGatherOriginalGuotu,jdbcType=TINYINT},
+      </if>
+      <if test="ifPublishHouse != null">
+        IF_PUBLISH_HOUSE = #{ifPublishHouse,jdbcType=TINYINT},
+      </if>
+      <if test="netSignTransactor != null">
+        NET_SIGN_TRANSACTOR = #{netSignTransactor,jdbcType=INTEGER},
+      </if>
+      <if test="ownshipType != null">
+        OWNSHIP_TYPE = #{ownshipType,jdbcType=TINYINT},
+      </if>
+      <if test="transferAttentionMatters != null">
+        TRANSFER_ATTENTION_MATTERS = #{transferAttentionMatters,jdbcType=VARCHAR},
+      </if>
+      <if test="payForAnotherType != null">
+        PAY_FOR_ANOTHER_TYPE = #{payForAnotherType,jdbcType=TINYINT},
+      </if>
+      <if test="havePaidYears != null">
+        HAVE_PAID_YEARS = #{havePaidYears,jdbcType=INTEGER},
+      </if>
+      <if test="pledgeCondition != null">
+        PLEDGE_CONDITION = #{pledgeCondition,jdbcType=TINYINT},
+      </if>
+      <if test="firstPayOrganization != null">
+        FIRST_PAY_ORGANIZATION = #{firstPayOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="firstAnotherPayPrice != null">
+        FIRST_ANOTHER_PAY_PRICE = #{firstAnotherPayPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="firstTransactionTimePredict != null">
+        FIRST_TRANSACTION_TIME_PREDICT = #{firstTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstTransactionTimeReal != null">
+        FIRST_TRANSACTION_TIME_REAL = #{firstTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstPayTimePredict != null">
+        FIRST_PAY_TIME_PREDICT = #{firstPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstPayTimeReal != null">
+        FIRST_PAY_TIME_REAL = #{firstPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondPayOrganization != null">
+        SECOND_PAY_ORGANIZATION = #{secondPayOrganization,jdbcType=VARCHAR},
+      </if>
+      <if test="secondAnotherPayPrice != null">
+        SECOND_ANOTHER_PAY_PRICE = #{secondAnotherPayPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="secondTransactionTimePredict != null">
+        SECOND_TRANSACTION_TIME_PREDICT = #{secondTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondTransactionTimeReal != null">
+        SECOND_TRANSACTION_TIME_REAL = #{secondTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondPayTimePredict != null">
+        SECOND_PAY_TIME_PREDICT = #{secondPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondPayTimeReal != null">
+        SECOND_PAY_TIME_REAL = #{secondPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sequencePositonTimePredict != null">
+        SEQUENCE_POSITON_TIME_PREDICT = #{sequencePositonTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sequencePositonTimeReal != null">
+        SEQUENCE_POSITON_TIME_REAL = #{sequencePositonTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signoutTimePredict != null">
+        SIGNOUT_TIME_PREDICT = #{signoutTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signoutTimeReal != null">
+        SIGNOUT_TIME_REAL = #{signoutTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anotherPayTimePredict != null">
+        ANOTHER_PAY_TIME_PREDICT = #{anotherPayTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anotherPayTimeReal != null">
+        ANOTHER_PAY_TIME_REAL = #{anotherPayTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anotherPayBalance != null">
+        ANOTHER_PAY_BALANCE = #{anotherPayBalance,jdbcType=NUMERIC},
+      </if>
+      <if test="superviseDrawRestrict != null">
+        SUPERVISE_DRAW_RESTRICT = #{superviseDrawRestrict,jdbcType=VARCHAR},
+      </if>
+      <if test="ifQutaRight != null">
+        IF_QUTA_RIGHT = #{ifQutaRight,jdbcType=TINYINT},
+      </if>
+      <if test="ifHandOverBank != null">
+        IF_HAND_OVER_BANK = #{ifHandOverBank,jdbcType=TINYINT},
+      </if>
+      <if test="handOverEmployee != null">
+        HAND_OVER_EMPLOYEE = #{handOverEmployee,jdbcType=INTEGER},
+      </if>
+      <if test="loanTime != null">
+        LOAN_TIME = #{loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vendorName != null">
+        VENDOR_NAME = #{vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorIdNumber != null">
+        VENDOR_ID_NUMBER = #{vendorIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorPhone != null">
+        VENDOR_PHONE = #{vendorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCommonOwnerName != null">
+        VENDOR_COMMON_OWNER_NAME = #{vendorCommonOwnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCommonOwnerIdNumber != null">
+        VENDOR_COMMON_OWNER_ID_NUMBER = #{vendorCommonOwnerIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCommonOwnerPhone != null">
+        VENDOR_COMMON_OWNER_PHONE = #{vendorCommonOwnerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorSuretyName != null">
+        VENDOR_SURETY_NAME = #{vendorSuretyName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorSuretyIdNumber != null">
+        VENDOR_SURETY_ID_NUMBER = #{vendorSuretyIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorSuretyPhone != null">
+        VENDOR_SURETY_PHONE = #{vendorSuretyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalPassTime != null">
+        APPROVAL_PASS_TIME = #{approvalPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vendorConditionDescription != null">
+        VENDOR_CONDITION_DESCRIPTION = #{vendorConditionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="vendeeConditionDescription != null">
+        VENDEE_CONDITION_DESCRIPTION = #{vendeeConditionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="vendeeSuretyIdcard != null">
+        VENDEE_SURETY_IDCARD = #{vendeeSuretyIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="tfTransactionTimePredict != null">
+        TF_TRANSACTION_TIME_PREDICT = #{tfTransactionTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tfTransactionTimeReal != null">
+        TF_TRANSACTION_TIME_REAL = #{tfTransactionTimeReal,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signOutClient != null">
+        SIGN_OUT_CLIENT = #{signOutClient,jdbcType=TINYINT},
+      </if>
+      <if test="delStatus != null">
+        DEL_STATUS = #{delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="financeModel != null">
+        FINANCE_MODEL = #{financeModel,jdbcType=TINYINT},
+      </if>
+      <if test="downPaymentPrice != null">
+        DOWN_PAYMENT_PRICE = #{downPaymentPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="depositPrice != null">
+        DEPOSIT_PRICE = #{depositPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="fundSupervisionPrice != null">
+        FUND_SUPERVISION_PRICE = #{fundSupervisionPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="riskLevel != null">
+        RISK_LEVEL = #{riskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentSource != null">
+        PAYMENT_SOURCE = #{paymentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustedName != null">
+        ENTRUSTED_NAME = #{entrustedName,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustedIccard != null">
+        ENTRUSTED_ICCARD = #{entrustedIccard,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentBankName != null">
+        REPAYMENT_BANK_NAME = #{repaymentBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPaidYears != null">
+        HAS_PAID_YEARS = #{hasPaidYears,jdbcType=INTEGER},
+      </if>
+      <if test="isAppointment != null">
+        IS_APPOINTMENT = #{isAppointment,jdbcType=BIT},
+      </if>
+      <if test="isRepaymentAnytime != null">
+        IS_REPAYMENT_ANYTIME = #{isRepaymentAnytime,jdbcType=BIT},
+      </if>
+      <if test="acceptChannelRepaymentTime != null">
+        ACCEPT_CHANNEL_REPAYMENT_TIME = #{acceptChannelRepaymentTime,jdbcType=BIT},
+      </if>
+      <if test="ifTransferParking != null">
+        IF_TRANSFER_PARKING = #{ifTransferParking,jdbcType=BIT},
+      </if>
+      <if test="ifReplaceCredentials != null">
+        IF_REPLACE_CREDENTIALS = #{ifReplaceCredentials,jdbcType=BIT},
+      </if>
+      <if test="repaymentPrice != null">
+        REPAYMENT_PRICE = #{repaymentPrice,jdbcType=INTEGER},
+      </if>
+      <if test="repaymentTime != null">
+        REPAYMENT_TIME = #{repaymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repaymentChannel != null">
+        REPAYMENT_CHANNEL = #{repaymentChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentDesc != null">
+        REPAYMENT_DESC = #{repaymentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="copySourceId != null">
+        COPY_SOURCE_ID = #{copySourceId,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryTime != null">
+        DELIVERY_TIME = #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="redeliveryTime != null">
+        REDELIVERY_TIME = #{redeliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receivablesNo != null">
+        RECEIVABLES_NO = #{receivablesNo,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleDeptFlag != null">
+        DOUBLE_DEPT_FLAG = #{doubleDeptFlag,jdbcType=BIT},
+      </if>
+      <if test="secondDeptCustType != null">
+        SECOND_DEPT_CUST_TYPE = #{secondDeptCustType,jdbcType=TINYINT},
+      </if>
+      <if test="secondDeptCityId != null">
+        SECOND_DEPT_CITY_ID = #{secondDeptCityId,jdbcType=INTEGER},
+      </if>
+      <if test="secondDeptRegId != null">
+        SECOND_DEPT_REG_ID = #{secondDeptRegId,jdbcType=INTEGER},
+      </if>
+      <if test="secondCompNo != null">
+        SECOND_COMP_NO = #{secondCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="secondDeptNo != null">
+        SECOND_DEPT_NO = #{secondDeptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="secondErpCompId != null">
+        SECOND_ERP_COMP_ID = #{secondErpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="secondErpDeptId != null">
+        SECOND_ERP_DEPT_ID = #{secondErpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="secondBrokerDeptName != null">
+        SECOND_BROKER_DEPT_NAME = #{secondBrokerDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBrokerRegName != null">
+        SECOND_BROKER_REG_NAME = #{secondBrokerRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBrokerRegId != null">
+        SECOND_BROKER_REG_ID = #{secondBrokerRegId,jdbcType=INTEGER},
+      </if>
+      <if test="secondArchiveId != null">
+        SECOND_ARCHIVE_ID = #{secondArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="secondBrokerUserName != null">
+        SECOND_BROKER_USER_NAME = #{secondBrokerUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondBrokerUserMobile != null">
+        SECOND_BROKER_USER_MOBILE = #{secondBrokerUserMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="isPrintBrokerServiceContract != null">
+        IS_PRINT_BROKER_SERVICE_CONTRACT = #{isPrintBrokerServiceContract,jdbcType=BIT},
+      </if>
+      <if test="propertyRightType != null">
+        PROPERTY_RIGHT_TYPE = #{propertyRightType,jdbcType=TINYINT},
+      </if>
+      <if test="compPropertyRightAgent != null">
+        COMP_PROPERTY_RIGHT_AGENT = #{compPropertyRightAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="transferTimePredict != null">
+        TRANSFER_TIME_PREDICT = #{transferTimePredict,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hqPigeonholeFlag != null">
+        HQ_PIGEONHOLE_FLAG = #{hqPigeonholeFlag,jdbcType=BIT},
+      </if>
+      <if test="buildCityId != null">
+        BUILD_CITY_ID = #{buildCityId,jdbcType=INTEGER},
+      </if>
+      <if test="houseInvoice != null">
+        HOUSE_INVOICE = #{houseInvoice,jdbcType=BIT},
+      </if>
+      <if test="pigeonholeTime != null">
+        PIGEONHOLE_TIME = #{pigeonholeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealId != null">
+        DEAL_ID = #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="vendorBankName != null">
+        VENDOR_BANK_NAME = #{vendorBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorBankCardNumber != null">
+        VENDOR_BANK_CARD_NUMBER = #{vendorBankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="territorialNature != null">
+        TERRITORIAL_NATURE = #{territorialNature,jdbcType=TINYINT},
+      </if>
+      <if test="mortgageBank != null">
+        MORTGAGE_BANK = #{mortgageBank,jdbcType=INTEGER},
+      </if>
+      <if test="mortgageAmount != null">
+        MORTGAGE_AMOUNT = #{mortgageAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="mortgageBankName != null">
+        MORTGAGE_BANK_NAME = #{mortgageBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgageAssessmentName != null">
+        MORTGAGE_ASSESSMENT_NAME = #{mortgageAssessmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgageAssessment != null">
+        MORTGAGE_ASSESSMENT = #{mortgageAssessment,jdbcType=INTEGER},
+      </if>
+      <if test="receivableTime != null">
+        RECEIVABLE_TIME = #{receivableTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminJrFinanceInfo">
+    <!--@mbggenerated-->
+    update JR_FINANCE_INFO
+    set BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      RIGHT_ADDR = #{rightAddr,jdbcType=VARCHAR},
+      RIGHT_NUM = #{rightNum,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=NUMERIC},
+      USEAGE = #{useage,jdbcType=TINYINT},
+      HOUSE_PHONE = #{housePhone,jdbcType=VARCHAR},
+      HOUSE_DESC = #{houseDesc,jdbcType=VARCHAR},
+      MAIN_APPLY_NAME = #{mainApplyName,jdbcType=VARCHAR},
+      MAIN_APPLY_IDCARD = #{mainApplyIdcard,jdbcType=VARCHAR},
+      MAIN_APPLY_PHONE = #{mainApplyPhone,jdbcType=VARCHAR},
+      MAIN_MARRY_STATUS = #{mainMarryStatus,jdbcType=TINYINT},
+      MAIN_OWNER_HOUSE = #{mainOwnerHouse,jdbcType=TINYINT},
+      MAIN_CREDIT_STATUS = #{mainCreditStatus,jdbcType=TINYINT},
+      MAIN_WORK_UNIT = #{mainWorkUnit,jdbcType=VARCHAR},
+      SECOND_APPLY_NAME = #{secondApplyName,jdbcType=VARCHAR},
+      SECOND_APPLY_IDCARD = #{secondApplyIdcard,jdbcType=VARCHAR},
+      SECOND_APPLY_PHONE = #{secondApplyPhone,jdbcType=VARCHAR},
+      UNDERWRITER_NAME = #{underwriterName,jdbcType=VARCHAR},
+      UNDERWRITER_PHONE = #{underwriterPhone,jdbcType=VARCHAR},
+      FINANCE_METHOD = #{financeMethod,jdbcType=TINYINT},
+      BANK_RECORD = #{bankRecord,jdbcType=TINYINT},
+      FINANCE_INFO_DESC = #{financeInfoDesc,jdbcType=VARCHAR},
+      CONTRACT_SIGN_TIME = #{contractSignTime,jdbcType=TIMESTAMP},
+      DEAL_PRICE = #{dealPrice,jdbcType=NUMERIC},
+      APPLY_PRICE = #{applyPrice,jdbcType=NUMERIC},
+      FINANCE_YEAR = #{financeYear,jdbcType=TINYINT},
+      FINANCE_RATE = #{financeRate,jdbcType=VARCHAR},
+      FUND_SUPERVISION_FLAG = #{fundSupervisionFlag,jdbcType=TINYINT},
+      TRUST_SERVICE_FLAG = #{trustServiceFlag,jdbcType=TINYINT},
+      DOUBLE_BANK_FLAG = #{doubleBankFlag,jdbcType=TINYINT},
+      MAIN_BANK_ID = #{mainBankId,jdbcType=INTEGER},
+      SECOND_BANK_ID = #{secondBankId,jdbcType=INTEGER},
+      PREVIEWS_TIME = #{previewsTime,jdbcType=TIMESTAMP},
+      FINANCE_METHOD_DESC = #{financeMethodDesc,jdbcType=VARCHAR},
+      CHARGE_FLAG = #{chargeFlag,jdbcType=TINYINT},
+      CHARGE_METHOD = #{chargeMethod,jdbcType=VARCHAR},
+      BASE_CHARGE = #{baseCharge,jdbcType=NUMERIC},
+      HFT_CHARGE = #{hftCharge,jdbcType=NUMERIC},
+      PROXY_CHARGE = #{proxyCharge,jdbcType=NUMERIC},
+      OTHER_CHARGE = #{otherCharge,jdbcType=NUMERIC},
+      CHARGE_DESC = #{chargeDesc,jdbcType=VARCHAR},
+      BUSINESS_USER_ID = #{businessUserId,jdbcType=INTEGER},
+      DEAL_USER_ID = #{dealUserId,jdbcType=INTEGER},
+      ASSESSMENT_USER_ID = #{assessmentUserId,jdbcType=INTEGER},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      ERP_DEPT_ID = #{erpDeptId,jdbcType=INTEGER},
+      BROKER_DEPT_NAME = #{brokerDeptName,jdbcType=VARCHAR},
+      BROKER_REG_NAME = #{brokerRegName,jdbcType=VARCHAR},
+      BROKER_REG_ID = #{brokerRegId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      BROKER_USER_NAME = #{brokerUserName,jdbcType=VARCHAR},
+      BROKER_USER_MOBILE = #{brokerUserMobile,jdbcType=VARCHAR},
+      FINANCE_NO = #{financeNo,jdbcType=VARCHAR},
+      CRM_AUDIT = #{crmAudit,jdbcType=TINYINT},
+      ERP_AUDIT = #{erpAudit,jdbcType=TINYINT},
+      FINANCE_STATUS = #{financeStatus,jdbcType=INTEGER},
+      CUST_TYPE = #{custType,jdbcType=TINYINT},
+      [SOURCE] = #{source,jdbcType=TINYINT},
+      CREATE_USER_ID = #{createUserId,jdbcType=INTEGER},
+      CREATE_USER_NAME = #{createUserName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      FITMENT_STATUS = #{fitmentStatus,jdbcType=TINYINT},
+      HOUSE_YEARS = #{houseYears,jdbcType=VARCHAR},
+      ASSESS_AMOUNT = #{assessAmount,jdbcType=NUMERIC},
+      ASSESSED_DATE = #{assessedDate,jdbcType=TIMESTAMP},
+      IF_ADJUST = #{ifAdjust,jdbcType=TINYINT},
+      ADJUSTED_PRICE = #{adjustedPrice,jdbcType=NUMERIC},
+      ADJUST_CHARGE = #{adjustCharge,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      IF_NET_SIGN = #{ifNetSign,jdbcType=TINYINT},
+      IF_SUBMIT_PLEDGE = #{ifSubmitPledge,jdbcType=TINYINT},
+      PLEDGE_DATE = #{pledgeDate,jdbcType=TIMESTAMP},
+      DOWN_PAYMENT = #{downPayment,jdbcType=NUMERIC},
+      REPAYMENT_TYPE = #{repaymentType,jdbcType=TINYINT},
+      MONTHLY_PAYMENT = #{monthlyPayment,jdbcType=INTEGER},
+      IF_SUBMIT_ZPREPORT = #{ifSubmitZpreport,jdbcType=TINYINT},
+      IF_LENDED = #{ifLended,jdbcType=TINYINT},
+      PLEDGE_REMARK = #{pledgeRemark,jdbcType=VARCHAR},
+      ERP_AREA_ID = #{erpAreaId,jdbcType=INTEGER},
+      ERP_REG_ID = #{erpRegId,jdbcType=INTEGER},
+      REAL_LOAN_PRICE = #{realLoanPrice,jdbcType=NUMERIC},
+      HOUSE_SOURCE = #{houseSource,jdbcType=TINYINT},
+      MAIN_ASSESSMENT = #{mainAssessment,jdbcType=INTEGER},
+      SECOND_ASSESSMENT = #{secondAssessment,jdbcType=INTEGER},
+      DATA_RESOURCE = #{dataResource,jdbcType=TINYINT},
+      CREATOR_TYPE = #{creatorType,jdbcType=TINYINT},
+      INCOME_PROOF = #{incomeProof,jdbcType=TINYINT},
+      ERP_GR_ID = #{erpGrId,jdbcType=INTEGER},
+      MAIN_BANK_NAME = #{mainBankName,jdbcType=VARCHAR},
+      SECOND_BANK_NAME = #{secondBankName,jdbcType=VARCHAR},
+      MAIN_ASSESS_NAME = #{mainAssessName,jdbcType=VARCHAR},
+      SECOND_ASSESS_NAME = #{secondAssessName,jdbcType=VARCHAR},
+      TRANCEFER_PLEDGE_DESC = #{tranceferPledgeDesc,jdbcType=VARCHAR},
+      IF_ADDRESS_CHANGE = #{ifAddressChange,jdbcType=TINYINT},
+      ASSESS_UNIT_PRICE = #{assessUnitPrice,jdbcType=NUMERIC},
+      IF_REDEEM_HOUSE = #{ifRedeemHouse,jdbcType=TINYINT},
+      SENT_APPROVAL_TIME = #{sentApprovalTime,jdbcType=TIMESTAMP},
+      BANK_ATTENTION_MATTERS = #{bankAttentionMatters,jdbcType=VARCHAR},
+      TRANSFER_EMPLOYEE = #{transferEmployee,jdbcType=INTEGER},
+      PLEDGE_EMPLOYEE = #{pledgeEmployee,jdbcType=INTEGER},
+      IF_RELEVANCE = #{ifRelevance,jdbcType=TINYINT},
+      RELEVANCE_TIME = #{relevanceTime,jdbcType=TIMESTAMP},
+      TRANSACTION_TRANSFER_TIME = #{transactionTransferTime,jdbcType=TIMESTAMP},
+      IF_VENDOR_ENTRUST = #{ifVendorEntrust,jdbcType=TINYINT},
+      IF_VENDEE_ENTRUST = #{ifVendeeEntrust,jdbcType=TINYINT},
+      REVEICER = #{reveicer,jdbcType=INTEGER},
+      ZHENGPING_TIME = #{zhengpingTime,jdbcType=TIMESTAMP},
+      TRANSFER_TAX_PRICE = #{transferTaxPrice,jdbcType=VARCHAR},
+      PAPERS_TYPE = #{papersType,jdbcType=TINYINT},
+      IF_HAND_OVER_INFORMATION = #{ifHandOverInformation,jdbcType=TINYINT},
+      IF_GATHER_ORIGINAL_CHANQUAN = #{ifGatherOriginalChanquan,jdbcType=TINYINT},
+      IF_GATHER_ORIGINAL_GUOTU = #{ifGatherOriginalGuotu,jdbcType=TINYINT},
+      IF_PUBLISH_HOUSE = #{ifPublishHouse,jdbcType=TINYINT},
+      NET_SIGN_TRANSACTOR = #{netSignTransactor,jdbcType=INTEGER},
+      OWNSHIP_TYPE = #{ownshipType,jdbcType=TINYINT},
+      TRANSFER_ATTENTION_MATTERS = #{transferAttentionMatters,jdbcType=VARCHAR},
+      PAY_FOR_ANOTHER_TYPE = #{payForAnotherType,jdbcType=TINYINT},
+      HAVE_PAID_YEARS = #{havePaidYears,jdbcType=INTEGER},
+      PLEDGE_CONDITION = #{pledgeCondition,jdbcType=TINYINT},
+      FIRST_PAY_ORGANIZATION = #{firstPayOrganization,jdbcType=VARCHAR},
+      FIRST_ANOTHER_PAY_PRICE = #{firstAnotherPayPrice,jdbcType=NUMERIC},
+      FIRST_TRANSACTION_TIME_PREDICT = #{firstTransactionTimePredict,jdbcType=TIMESTAMP},
+      FIRST_TRANSACTION_TIME_REAL = #{firstTransactionTimeReal,jdbcType=TIMESTAMP},
+      FIRST_PAY_TIME_PREDICT = #{firstPayTimePredict,jdbcType=TIMESTAMP},
+      FIRST_PAY_TIME_REAL = #{firstPayTimeReal,jdbcType=TIMESTAMP},
+      SECOND_PAY_ORGANIZATION = #{secondPayOrganization,jdbcType=VARCHAR},
+      SECOND_ANOTHER_PAY_PRICE = #{secondAnotherPayPrice,jdbcType=NUMERIC},
+      SECOND_TRANSACTION_TIME_PREDICT = #{secondTransactionTimePredict,jdbcType=TIMESTAMP},
+      SECOND_TRANSACTION_TIME_REAL = #{secondTransactionTimeReal,jdbcType=TIMESTAMP},
+      SECOND_PAY_TIME_PREDICT = #{secondPayTimePredict,jdbcType=TIMESTAMP},
+      SECOND_PAY_TIME_REAL = #{secondPayTimeReal,jdbcType=TIMESTAMP},
+      SEQUENCE_POSITON_TIME_PREDICT = #{sequencePositonTimePredict,jdbcType=TIMESTAMP},
+      SEQUENCE_POSITON_TIME_REAL = #{sequencePositonTimeReal,jdbcType=TIMESTAMP},
+      SIGNOUT_TIME_PREDICT = #{signoutTimePredict,jdbcType=TIMESTAMP},
+      SIGNOUT_TIME_REAL = #{signoutTimeReal,jdbcType=TIMESTAMP},
+      ANOTHER_PAY_TIME_PREDICT = #{anotherPayTimePredict,jdbcType=TIMESTAMP},
+      ANOTHER_PAY_TIME_REAL = #{anotherPayTimeReal,jdbcType=TIMESTAMP},
+      ANOTHER_PAY_BALANCE = #{anotherPayBalance,jdbcType=NUMERIC},
+      SUPERVISE_DRAW_RESTRICT = #{superviseDrawRestrict,jdbcType=VARCHAR},
+      IF_QUTA_RIGHT = #{ifQutaRight,jdbcType=TINYINT},
+      IF_HAND_OVER_BANK = #{ifHandOverBank,jdbcType=TINYINT},
+      HAND_OVER_EMPLOYEE = #{handOverEmployee,jdbcType=INTEGER},
+      LOAN_TIME = #{loanTime,jdbcType=TIMESTAMP},
+      VENDOR_NAME = #{vendorName,jdbcType=VARCHAR},
+      VENDOR_ID_NUMBER = #{vendorIdNumber,jdbcType=VARCHAR},
+      VENDOR_PHONE = #{vendorPhone,jdbcType=VARCHAR},
+      VENDOR_COMMON_OWNER_NAME = #{vendorCommonOwnerName,jdbcType=VARCHAR},
+      VENDOR_COMMON_OWNER_ID_NUMBER = #{vendorCommonOwnerIdNumber,jdbcType=VARCHAR},
+      VENDOR_COMMON_OWNER_PHONE = #{vendorCommonOwnerPhone,jdbcType=VARCHAR},
+      VENDOR_SURETY_NAME = #{vendorSuretyName,jdbcType=VARCHAR},
+      VENDOR_SURETY_ID_NUMBER = #{vendorSuretyIdNumber,jdbcType=VARCHAR},
+      VENDOR_SURETY_PHONE = #{vendorSuretyPhone,jdbcType=VARCHAR},
+      APPROVAL_PASS_TIME = #{approvalPassTime,jdbcType=TIMESTAMP},
+      VENDOR_CONDITION_DESCRIPTION = #{vendorConditionDescription,jdbcType=VARCHAR},
+      VENDEE_CONDITION_DESCRIPTION = #{vendeeConditionDescription,jdbcType=VARCHAR},
+      VENDEE_SURETY_IDCARD = #{vendeeSuretyIdcard,jdbcType=VARCHAR},
+      TF_TRANSACTION_TIME_PREDICT = #{tfTransactionTimePredict,jdbcType=TIMESTAMP},
+      TF_TRANSACTION_TIME_REAL = #{tfTransactionTimeReal,jdbcType=TIMESTAMP},
+      SIGN_OUT_CLIENT = #{signOutClient,jdbcType=TINYINT},
+      DEL_STATUS = #{delStatus,jdbcType=TINYINT},
+      FINANCE_MODEL = #{financeModel,jdbcType=TINYINT},
+      DOWN_PAYMENT_PRICE = #{downPaymentPrice,jdbcType=NUMERIC},
+      DEPOSIT_PRICE = #{depositPrice,jdbcType=NUMERIC},
+      FUND_SUPERVISION_PRICE = #{fundSupervisionPrice,jdbcType=NUMERIC},
+      RISK_LEVEL = #{riskLevel,jdbcType=VARCHAR},
+      PAYMENT_SOURCE = #{paymentSource,jdbcType=VARCHAR},
+      ENTRUSTED_NAME = #{entrustedName,jdbcType=VARCHAR},
+      ENTRUSTED_ICCARD = #{entrustedIccard,jdbcType=VARCHAR},
+      REPAYMENT_BANK_NAME = #{repaymentBankName,jdbcType=VARCHAR},
+      HAS_PAID_YEARS = #{hasPaidYears,jdbcType=INTEGER},
+      IS_APPOINTMENT = #{isAppointment,jdbcType=BIT},
+      IS_REPAYMENT_ANYTIME = #{isRepaymentAnytime,jdbcType=BIT},
+      ACCEPT_CHANNEL_REPAYMENT_TIME = #{acceptChannelRepaymentTime,jdbcType=BIT},
+      IF_TRANSFER_PARKING = #{ifTransferParking,jdbcType=BIT},
+      IF_REPLACE_CREDENTIALS = #{ifReplaceCredentials,jdbcType=BIT},
+      REPAYMENT_PRICE = #{repaymentPrice,jdbcType=INTEGER},
+      REPAYMENT_TIME = #{repaymentTime,jdbcType=TIMESTAMP},
+      REPAYMENT_CHANNEL = #{repaymentChannel,jdbcType=VARCHAR},
+      REPAYMENT_DESC = #{repaymentDesc,jdbcType=VARCHAR},
+      COPY_SOURCE_ID = #{copySourceId,jdbcType=INTEGER},
+      DELIVERY_TIME = #{deliveryTime,jdbcType=TIMESTAMP},
+      REDELIVERY_TIME = #{redeliveryTime,jdbcType=TIMESTAMP},
+      RECEIVABLES_NO = #{receivablesNo,jdbcType=VARCHAR},
+      DOUBLE_DEPT_FLAG = #{doubleDeptFlag,jdbcType=BIT},
+      SECOND_DEPT_CUST_TYPE = #{secondDeptCustType,jdbcType=TINYINT},
+      SECOND_DEPT_CITY_ID = #{secondDeptCityId,jdbcType=INTEGER},
+      SECOND_DEPT_REG_ID = #{secondDeptRegId,jdbcType=INTEGER},
+      SECOND_COMP_NO = #{secondCompNo,jdbcType=VARCHAR},
+      SECOND_DEPT_NO = #{secondDeptNo,jdbcType=VARCHAR},
+      SECOND_ERP_COMP_ID = #{secondErpCompId,jdbcType=INTEGER},
+      SECOND_ERP_DEPT_ID = #{secondErpDeptId,jdbcType=INTEGER},
+      SECOND_BROKER_DEPT_NAME = #{secondBrokerDeptName,jdbcType=VARCHAR},
+      SECOND_BROKER_REG_NAME = #{secondBrokerRegName,jdbcType=VARCHAR},
+      SECOND_BROKER_REG_ID = #{secondBrokerRegId,jdbcType=INTEGER},
+      SECOND_ARCHIVE_ID = #{secondArchiveId,jdbcType=INTEGER},
+      SECOND_BROKER_USER_NAME = #{secondBrokerUserName,jdbcType=VARCHAR},
+      SECOND_BROKER_USER_MOBILE = #{secondBrokerUserMobile,jdbcType=VARCHAR},
+      IS_PRINT_BROKER_SERVICE_CONTRACT = #{isPrintBrokerServiceContract,jdbcType=BIT},
+      PROPERTY_RIGHT_TYPE = #{propertyRightType,jdbcType=TINYINT},
+      COMP_PROPERTY_RIGHT_AGENT = #{compPropertyRightAgent,jdbcType=VARCHAR},
+      TRANSFER_TIME_PREDICT = #{transferTimePredict,jdbcType=TIMESTAMP},
+      HQ_PIGEONHOLE_FLAG = #{hqPigeonholeFlag,jdbcType=BIT},
+      BUILD_CITY_ID = #{buildCityId,jdbcType=INTEGER},
+      HOUSE_INVOICE = #{houseInvoice,jdbcType=BIT},
+      PIGEONHOLE_TIME = #{pigeonholeTime,jdbcType=TIMESTAMP},
+      DEAL_ID = #{dealId,jdbcType=INTEGER},
+      CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      VENDOR_BANK_NAME = #{vendorBankName,jdbcType=VARCHAR},
+      VENDOR_BANK_CARD_NUMBER = #{vendorBankCardNumber,jdbcType=VARCHAR},
+      TERRITORIAL_NATURE = #{territorialNature,jdbcType=TINYINT},
+      MORTGAGE_BANK = #{mortgageBank,jdbcType=INTEGER},
+      MORTGAGE_AMOUNT = #{mortgageAmount,jdbcType=NUMERIC},
+      MORTGAGE_BANK_NAME = #{mortgageBankName,jdbcType=VARCHAR},
+      MORTGAGE_ASSESSMENT_NAME = #{mortgageAssessmentName,jdbcType=VARCHAR},
+      MORTGAGE_ASSESSMENT = #{mortgageAssessment,jdbcType=INTEGER},
+      RECEIVABLE_TIME = #{receivableTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getFinanceRecordList" resultType="java.util.Map">
+   SELECT DISTINCT
+	JI.ID as id,
+	JI.FINANCE_NO as financeNo,
+	JI.MAIN_APPLY_NAME as mainApplyName,
+	JI.APPLY_PRICE as applyPrice,
+	JI.FINANCE_METHOD as financeMethod,
+	JI.RIGHT_ADDR as rightAddr,
+	JI.FINANCE_STATUS as financeStatus,
+	CU.USER_NAME AS dealUserName,
+	CU.USER_MOBILE AS dealUserPhone,
+	JI.BROKER_USER_NAME as brokerUserName,
+	JI.ARCHIVE_ID as archiveId,
+	JI.CREATE_TIME as createTime,
+	JI.BUILD_ID as buildId,
+	JI.BUILD_NAME as buildName,
+	JI.ERP_DEPT_ID as erpDeptId,
+	JI.ERP_REG_ID as erpRegId,
+	JI.VENDOR_NAME as vendorName,
+	JI.DEAL_PRICE as dealPrice
+FROM
+	JR_FINANCE_INFO JI
+LEFT JOIN FUN_DEPTS FD ON JI.COMP_NO = FD.COMP_NO
+AND JI.DEPT_NO = FD.DEPT_NO
+LEFT JOIN CRM_USER CU ON CU.USER_ID = JI.DEAL_USER_ID
+WHERE
+	JI.FINANCE_MODEL = '1'
+	<if test="areaId != null">
+		and JI.ERP_AREA_ID=#{areaId}
+    </if>
+	<if test="regId != null">
+		and JI.ERP_REG_ID=#{areaId}
+    </if>
+	<if test="deptId != null">
+		and JI.ERP_DEPT_ID=#{deptId}
+    </if>
+	<if test="grId != null">
+		and JI.ERP_GR_ID=#{grId}
+    </if>
+	<if test="startTime != null">
+		and JI.CREATE_TIME&gt;=#{startTime}
+    </if>
+	<if test="endTime != null">
+		and JI.CREATE_TIME&lt;=#{endTime}
+    </if>
+	<if test="archiveId != null">
+		and JI.ARCHIVE_ID=#{archiveId}
+    </if>
+	<if test="buildIdList == null and buildName!=null and ''!=buildName">
+		and JI.BUILD_NAME like #{buildName}
+    </if>
+	<if test="loadUserName!=null and ''!=loadUserName">
+		and JI.MAIN_APPLY_NAME like #{loadUserName}
+    </if>
+	<if test="financeStatus!=null and financeStatus =='8'">
+		and JI.FINANCE_STATUS IN ('8','7')
+    </if>
+    <if test="financeStatus!=null and ''!=financeStatus and financeStatus !='8'">
+		and JI.FINANCE_STATUS = #{financeStatus}
+    </if>
+    <if test="priceMin!=null">
+		and JI.APPLY_PRICE &gt;= #{priceMin}
+    </if>
+    <if test="priceMax!=null">
+		and JI.APPLY_PRICE &lt;= #{priceMax}
+    </if>
+    <if test="buildIdList!=null">
+		and JI.BUILD_ID IN
+		<foreach close=")" collection="buildIdList" item="buildId" open="(" separator=",">
+		#{buildId}
+		</foreach>
+    </if>
+	AND (
+		(
+			JI.COMP_NO = #{compNo}
+			AND JI.ERP_COMP_ID = #{compId}
+		)
+		OR (
+			JI.SECOND_COMP_NO = #{compNo}
+			AND JI.SECOND_DEPT_NO = #{deptNo}
+		)
+	)
+	ORDER BY
+		JI.ID DESC 
+  </select>
+
+  <resultMap extends="BaseResultMap" id="extBaseResultMap" type="com.myfun.repository.admindb.dto.AdminJrFinanceInfoDto">
+    <result column="TRANSFER_USER_NAME" jdbcType="VARCHAR" property="transferUserName" />
+    <result column="TRANSFER_USER_DEPT_NAME" jdbcType="VARCHAR" property="transferUserDeptName" />
+    <result column="TRANSFER_USER_MOBILE" jdbcType="VARCHAR" property="transferUserMobile" />
+  </resultMap>
+
+  <select id="getTransferInfoByDealId" resultMap="extBaseResultMap">
+      SELECT JI.FINANCE_STATUS,JI.TRANSFER_EMPLOYEE,JI.ID, JI.DEAL_ID,JI.TRANSACTION_TRANSFER_TIME,JI.TRANSFER_TIME_PREDICT,
+        CU.USER_NAME as TRANSFER_USER_NAME ,CD.DEPT_NAME AS  TRANSFER_USER_DEPT_NAME, CU.USER_MOBILE as TRANSFER_USER_MOBILE  FROM
+      JR_FINANCE_INFO JI
+      LEFT JOIN CRM_USER CU ON CU.USER_ID = JI.TRANSFER_EMPLOYEE
+      LEFT JOIN CRM_DEPT CD ON CU.DEPT_ID = CD.DEPT_ID
+      WHERE  JI.CITY_ID=#{cityId} and JI.COMP_NO=#{compNo} and JI.DEPT_NO=#{deptNo} and DEAL_ID=#{dealId} and FINANCE_MODEL=2
+  </select>
+</mapper>

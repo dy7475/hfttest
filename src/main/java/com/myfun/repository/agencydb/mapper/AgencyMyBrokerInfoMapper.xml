@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyMyBrokerInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyMyBrokerInfo" >
+    <!--@mbggenerated-->
+    <id column="my_broker_id" property="myBrokerId" jdbcType="INTEGER" />
+    <result column="broker_id" property="brokerId" jdbcType="VARCHAR" />
+    <result column="building_id" property="buildingId" jdbcType="VARCHAR" />
+    <result column="check_status" property="checkStatus" jdbcType="INTEGER" />
+    <result column="cst_id" property="cstId" jdbcType="VARCHAR" />
+    <result column="cst_status" property="cstStatus" jdbcType="INTEGER" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="save_enddate" property="saveEnddate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    my_broker_id, broker_id, building_id, check_status, cst_id, cst_status, reason, save_enddate, 
+    update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from MY_BROKER_INFO
+    where my_broker_id = #{myBrokerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from MY_BROKER_INFO
+    where my_broker_id = #{myBrokerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyMyBrokerInfo" >
+    <!--@mbggenerated-->
+    insert into MY_BROKER_INFO (my_broker_id, broker_id, building_id, 
+      check_status, cst_id, cst_status, 
+      reason, save_enddate, update_date
+      )
+    values (#{myBrokerId,jdbcType=INTEGER}, #{brokerId,jdbcType=VARCHAR}, #{buildingId,jdbcType=VARCHAR}, 
+      #{checkStatus,jdbcType=INTEGER}, #{cstId,jdbcType=VARCHAR}, #{cstStatus,jdbcType=INTEGER}, 
+      #{reason,jdbcType=VARCHAR}, #{saveEnddate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyMyBrokerInfo" >
+    <!--@mbggenerated-->
+    insert into MY_BROKER_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="myBrokerId != null" >
+        my_broker_id,
+      </if>
+      <if test="brokerId != null" >
+        broker_id,
+      </if>
+      <if test="buildingId != null" >
+        building_id,
+      </if>
+      <if test="checkStatus != null" >
+        check_status,
+      </if>
+      <if test="cstId != null" >
+        cst_id,
+      </if>
+      <if test="cstStatus != null" >
+        cst_status,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="saveEnddate != null" >
+        save_enddate,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="myBrokerId != null" >
+        #{myBrokerId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerId != null" >
+        #{brokerId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null" >
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null" >
+        #{checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cstId != null" >
+        #{cstId,jdbcType=VARCHAR},
+      </if>
+      <if test="cstStatus != null" >
+        #{cstStatus,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="saveEnddate != null" >
+        #{saveEnddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyMyBrokerInfo" >
+    <!--@mbggenerated-->
+    update MY_BROKER_INFO
+    <set >
+      <if test="brokerId != null" >
+        broker_id = #{brokerId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null" >
+        building_id = #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null" >
+        check_status = #{checkStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cstId != null" >
+        cst_id = #{cstId,jdbcType=VARCHAR},
+      </if>
+      <if test="cstStatus != null" >
+        cst_status = #{cstStatus,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="saveEnddate != null" >
+        save_enddate = #{saveEnddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where my_broker_id = #{myBrokerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyMyBrokerInfo" >
+    <!--@mbggenerated-->
+    update MY_BROKER_INFO
+    set broker_id = #{brokerId,jdbcType=VARCHAR},
+      building_id = #{buildingId,jdbcType=VARCHAR},
+      check_status = #{checkStatus,jdbcType=INTEGER},
+      cst_id = #{cstId,jdbcType=VARCHAR},
+      cst_status = #{cstStatus,jdbcType=INTEGER},
+      reason = #{reason,jdbcType=VARCHAR},
+      save_enddate = #{saveEnddate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where my_broker_id = #{myBrokerId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunEvaluationMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunEvaluation">
+    <!--@mbggenerated-->
+    <id column="EVAL_ID" jdbcType="INTEGER" property="evalId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="ST_ID1" jdbcType="DECIMAL" property="stId1" />
+    <result column="ST_ID2" jdbcType="DECIMAL" property="stId2" />
+    <result column="ST_ID3" jdbcType="DECIMAL" property="stId3" />
+    <result column="ST_ID4" jdbcType="DECIMAL" property="stId4" />
+    <result column="ST_ID5" jdbcType="DECIMAL" property="stId5" />
+    <result column="ST_ID6" jdbcType="DECIMAL" property="stId6" />
+    <result column="ST_ID7" jdbcType="DECIMAL" property="stId7" />
+    <result column="ST_ID8" jdbcType="DECIMAL" property="stId8" />
+    <result column="ST_ID9" jdbcType="DECIMAL" property="stId9" />
+    <result column="ST_ID10" jdbcType="DECIMAL" property="stId10" />
+    <result column="EVAL_TIME" jdbcType="VARCHAR" property="evalTime" />
+    <result column="EVAL_STATUS" jdbcType="TINYINT" property="evalStatus" />
+    <result column="EVAL_USER_ID" jdbcType="INTEGER" property="evalUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    EVAL_ID, COMP_ID, DEPT_ID, USER_ID, ST_ID1, ST_ID2, ST_ID3, ST_ID4, ST_ID5, ST_ID6, 
+    ST_ID7, ST_ID8, ST_ID9, ST_ID10, EVAL_TIME, EVAL_STATUS, EVAL_USER_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_EVALUATION
+    where EVAL_ID = #{evalId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_EVALUATION
+    where EVAL_ID = #{evalId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunEvaluation">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="evalId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_EVALUATION_EVAL_ID
+    </selectKey>
+    insert into FUN_EVALUATION (EVAL_ID, COMP_ID, DEPT_ID, 
+      USER_ID, ST_ID1, ST_ID2, 
+      ST_ID3, ST_ID4, ST_ID5, 
+      ST_ID6, ST_ID7, ST_ID8, 
+      ST_ID9, ST_ID10, EVAL_TIME, 
+      EVAL_STATUS, EVAL_USER_ID)
+    values (#{evalId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{stId1,jdbcType=DECIMAL}, #{stId2,jdbcType=DECIMAL}, 
+      #{stId3,jdbcType=DECIMAL}, #{stId4,jdbcType=DECIMAL}, #{stId5,jdbcType=DECIMAL}, 
+      #{stId6,jdbcType=DECIMAL}, #{stId7,jdbcType=DECIMAL}, #{stId8,jdbcType=DECIMAL}, 
+      #{stId9,jdbcType=DECIMAL}, #{stId10,jdbcType=DECIMAL}, #{evalTime,jdbcType=VARCHAR}, 
+      #{evalStatus,jdbcType=TINYINT}, #{evalUserId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEvaluation">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="evalId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_EVALUATION_EVAL_ID
+    </selectKey>
+    insert into FUN_EVALUATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      EVAL_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="stId1 != null">
+        ST_ID1,
+      </if>
+      <if test="stId2 != null">
+        ST_ID2,
+      </if>
+      <if test="stId3 != null">
+        ST_ID3,
+      </if>
+      <if test="stId4 != null">
+        ST_ID4,
+      </if>
+      <if test="stId5 != null">
+        ST_ID5,
+      </if>
+      <if test="stId6 != null">
+        ST_ID6,
+      </if>
+      <if test="stId7 != null">
+        ST_ID7,
+      </if>
+      <if test="stId8 != null">
+        ST_ID8,
+      </if>
+      <if test="stId9 != null">
+        ST_ID9,
+      </if>
+      <if test="stId10 != null">
+        ST_ID10,
+      </if>
+      <if test="evalTime != null">
+        EVAL_TIME,
+      </if>
+      <if test="evalStatus != null">
+        EVAL_STATUS,
+      </if>
+      <if test="evalUserId != null">
+        EVAL_USER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{evalId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="stId1 != null">
+        #{stId1,jdbcType=DECIMAL},
+      </if>
+      <if test="stId2 != null">
+        #{stId2,jdbcType=DECIMAL},
+      </if>
+      <if test="stId3 != null">
+        #{stId3,jdbcType=DECIMAL},
+      </if>
+      <if test="stId4 != null">
+        #{stId4,jdbcType=DECIMAL},
+      </if>
+      <if test="stId5 != null">
+        #{stId5,jdbcType=DECIMAL},
+      </if>
+      <if test="stId6 != null">
+        #{stId6,jdbcType=DECIMAL},
+      </if>
+      <if test="stId7 != null">
+        #{stId7,jdbcType=DECIMAL},
+      </if>
+      <if test="stId8 != null">
+        #{stId8,jdbcType=DECIMAL},
+      </if>
+      <if test="stId9 != null">
+        #{stId9,jdbcType=DECIMAL},
+      </if>
+      <if test="stId10 != null">
+        #{stId10,jdbcType=DECIMAL},
+      </if>
+      <if test="evalTime != null">
+        #{evalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="evalStatus != null">
+        #{evalStatus,jdbcType=TINYINT},
+      </if>
+      <if test="evalUserId != null">
+        #{evalUserId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEvaluation">
+    <!--@mbggenerated-->
+    update FUN_EVALUATION
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="stId1 != null">
+        ST_ID1 = #{stId1,jdbcType=DECIMAL},
+      </if>
+      <if test="stId2 != null">
+        ST_ID2 = #{stId2,jdbcType=DECIMAL},
+      </if>
+      <if test="stId3 != null">
+        ST_ID3 = #{stId3,jdbcType=DECIMAL},
+      </if>
+      <if test="stId4 != null">
+        ST_ID4 = #{stId4,jdbcType=DECIMAL},
+      </if>
+      <if test="stId5 != null">
+        ST_ID5 = #{stId5,jdbcType=DECIMAL},
+      </if>
+      <if test="stId6 != null">
+        ST_ID6 = #{stId6,jdbcType=DECIMAL},
+      </if>
+      <if test="stId7 != null">
+        ST_ID7 = #{stId7,jdbcType=DECIMAL},
+      </if>
+      <if test="stId8 != null">
+        ST_ID8 = #{stId8,jdbcType=DECIMAL},
+      </if>
+      <if test="stId9 != null">
+        ST_ID9 = #{stId9,jdbcType=DECIMAL},
+      </if>
+      <if test="stId10 != null">
+        ST_ID10 = #{stId10,jdbcType=DECIMAL},
+      </if>
+      <if test="evalTime != null">
+        EVAL_TIME = #{evalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="evalStatus != null">
+        EVAL_STATUS = #{evalStatus,jdbcType=TINYINT},
+      </if>
+      <if test="evalUserId != null">
+        EVAL_USER_ID = #{evalUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where EVAL_ID = #{evalId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEvaluation">
+    <!--@mbggenerated-->
+    update FUN_EVALUATION
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ST_ID1 = #{stId1,jdbcType=DECIMAL},
+      ST_ID2 = #{stId2,jdbcType=DECIMAL},
+      ST_ID3 = #{stId3,jdbcType=DECIMAL},
+      ST_ID4 = #{stId4,jdbcType=DECIMAL},
+      ST_ID5 = #{stId5,jdbcType=DECIMAL},
+      ST_ID6 = #{stId6,jdbcType=DECIMAL},
+      ST_ID7 = #{stId7,jdbcType=DECIMAL},
+      ST_ID8 = #{stId8,jdbcType=DECIMAL},
+      ST_ID9 = #{stId9,jdbcType=DECIMAL},
+      ST_ID10 = #{stId10,jdbcType=DECIMAL},
+      EVAL_TIME = #{evalTime,jdbcType=VARCHAR},
+      EVAL_STATUS = #{evalStatus,jdbcType=TINYINT},
+      EVAL_USER_ID = #{evalUserId,jdbcType=INTEGER}
+    where EVAL_ID = #{evalId,jdbcType=INTEGER}
+  </update>
+</mapper>

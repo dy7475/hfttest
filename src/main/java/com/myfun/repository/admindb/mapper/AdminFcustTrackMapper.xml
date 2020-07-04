@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFcustTrackMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFcustTrack" >
+    <!--@mbggenerated-->
+    <id column="TRACK_ID" property="trackId" jdbcType="INTEGER" />
+    <result column="FI_ID" property="fiId" jdbcType="INTEGER" />
+    <result column="TRACK_TYPE" property="trackType" jdbcType="VARCHAR" />
+    <result column="TRACK_CONTENT" property="trackContent" jdbcType="VARCHAR" />
+    <result column="TRACK_USER" property="trackUser" jdbcType="INTEGER" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    TRACK_ID, FI_ID, TRACK_TYPE, TRACK_CONTENT, TRACK_USER, TRACK_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FCUST_TRACK
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FCUST_TRACK
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFcustTrack" >
+    <!--@mbggenerated-->
+    insert into FCUST_TRACK (TRACK_ID, FI_ID, TRACK_TYPE, 
+      TRACK_CONTENT, TRACK_USER, TRACK_TIME
+      )
+    values (#{trackId,jdbcType=INTEGER}, #{fiId,jdbcType=INTEGER}, #{trackType,jdbcType=VARCHAR}, 
+      #{trackContent,jdbcType=VARCHAR}, #{trackUser,jdbcType=INTEGER}, #{trackTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFcustTrack" >
+    <!--@mbggenerated-->
+    insert into FCUST_TRACK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="trackId != null" >
+        TRACK_ID,
+      </if>
+      <if test="fiId != null" >
+        FI_ID,
+      </if>
+      <if test="trackType != null" >
+        TRACK_TYPE,
+      </if>
+      <if test="trackContent != null" >
+        TRACK_CONTENT,
+      </if>
+      <if test="trackUser != null" >
+        TRACK_USER,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="trackId != null" >
+        #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="fiId != null" >
+        #{fiId,jdbcType=INTEGER},
+      </if>
+      <if test="trackType != null" >
+        #{trackType,jdbcType=VARCHAR},
+      </if>
+      <if test="trackContent != null" >
+        #{trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trackUser != null" >
+        #{trackUser,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFcustTrack" >
+    <!--@mbggenerated-->
+    update FCUST_TRACK
+    <set >
+      <if test="fiId != null" >
+        FI_ID = #{fiId,jdbcType=INTEGER},
+      </if>
+      <if test="trackType != null" >
+        TRACK_TYPE = #{trackType,jdbcType=VARCHAR},
+      </if>
+      <if test="trackContent != null" >
+        TRACK_CONTENT = #{trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trackUser != null" >
+        TRACK_USER = #{trackUser,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFcustTrack" >
+    <!--@mbggenerated-->
+    update FCUST_TRACK
+    set FI_ID = #{fiId,jdbcType=INTEGER},
+      TRACK_TYPE = #{trackType,jdbcType=VARCHAR},
+      TRACK_CONTENT = #{trackContent,jdbcType=VARCHAR},
+      TRACK_USER = #{trackUser,jdbcType=INTEGER},
+      TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP}
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </update>
+</mapper>

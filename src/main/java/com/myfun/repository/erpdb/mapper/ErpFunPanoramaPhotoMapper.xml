@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunPanoramaPhotoMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunPanoramaPhoto">
+    <!--@mbggenerated-->
+    <id column="PHOTO_ID" jdbcType="INTEGER" property="photoId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="PHOTO_ADDR" jdbcType="VARCHAR" property="photoAddr" />
+    <result column="UPLOAD_USER" jdbcType="INTEGER" property="uploadUser" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="UPLOAD_DATE" jdbcType="TIMESTAMP" property="uploadDate" />
+    <result column="SCENE" jdbcType="VARCHAR" property="scene" />
+    <result column="CFOV" jdbcType="VARCHAR" property="cfov" />
+    <result column="PHOTO_STATUS" jdbcType="TINYINT" property="photoStatus" />
+    <result column="DEVICE_NUM" jdbcType="VARCHAR" property="deviceNum" />
+    <result column="CASE_NO" jdbcType="VARCHAR" property="caseNo" />
+    <result column="SOURCE" jdbcType="TINYINT" property="source" />
+    <result column="VR_REVIEW_FLAG" jdbcType="TINYINT" property="vrReviewFlag" />
+    <result column="VR_REVIEW_UID" jdbcType="INTEGER" property="vrReviewUid" />
+    <result column="VR_REVIEW_TIME" jdbcType="TIMESTAMP" property="vrReviewTime" />
+    <result column="VR_REVIEW_DESC" jdbcType="VARCHAR" property="vrReviewDesc" />
+    <result column="UPLOAD_CLIENT_ID" jdbcType="VARCHAR" property="uploadClientId" />
+    <result column="TRACK_ID" jdbcType="INTEGER" property="trackId" />
+    <result column="SERVICE_ID" jdbcType="INTEGER" property="serviceId" />
+    <result column="FILE_ADDR" jdbcType="VARCHAR" property="fileAddr" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="CAMERA_TYPE" jdbcType="TINYINT" property="cameraType" />
+    <result column="SCENE_CN" jdbcType="VARCHAR" property="sceneCn" />
+    <result column="HOUSE_INNER_FLOOR" jdbcType="TINYINT" property="houseInnerFloor" />
+    <result column="FK_PANORAMA" jdbcType="TINYINT" property="fkPanorama" />
+    <result column="VR_COORDINATE_JSON" jdbcType="VARCHAR" property="vrCoordinateJson" />
+    <result column="ORGANIZATION_ID" jdbcType="INTEGER" property="organizationId" />
+    <result column="ORGANIZATION_NAME" jdbcType="VARCHAR" property="organizationName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PHOTO_ID, COMP_ID, CASE_ID, CASE_TYPE, PHOTO_ADDR, UPLOAD_USER, ARCHIVE_ID, UPLOAD_DATE, 
+    SCENE, CFOV, PHOTO_STATUS, DEVICE_NUM, CASE_NO, [SOURCE], VR_REVIEW_FLAG, VR_REVIEW_UID, 
+    VR_REVIEW_TIME, VR_REVIEW_DESC, UPLOAD_CLIENT_ID, TRACK_ID, SERVICE_ID, FILE_ADDR, 
+    DEPT_ID, DEPT_NAME, CAMERA_TYPE, SCENE_CN, HOUSE_INNER_FLOOR, FK_PANORAMA, VR_COORDINATE_JSON, 
+    ORGANIZATION_ID, ORGANIZATION_NAME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhotoExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_PANORAMA_PHOTO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PANORAMA_PHOTO
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_PANORAMA_PHOTO
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhotoExample">
+    <!--@mbggenerated-->
+    delete from FUN_PANORAMA_PHOTO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhoto">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="photoId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_PANORAMA_PHOTO_PHOTO_ID
+    </selectKey>
+    insert into FUN_PANORAMA_PHOTO (PHOTO_ID, COMP_ID, CASE_ID, 
+      CASE_TYPE, PHOTO_ADDR, UPLOAD_USER, 
+      ARCHIVE_ID, UPLOAD_DATE, SCENE, 
+      CFOV, PHOTO_STATUS, DEVICE_NUM, 
+      CASE_NO, [SOURCE], VR_REVIEW_FLAG, 
+      VR_REVIEW_UID, VR_REVIEW_TIME, VR_REVIEW_DESC, 
+      UPLOAD_CLIENT_ID, TRACK_ID, SERVICE_ID, 
+      FILE_ADDR, DEPT_ID, DEPT_NAME, 
+      CAMERA_TYPE, SCENE_CN, HOUSE_INNER_FLOOR, 
+      FK_PANORAMA, VR_COORDINATE_JSON, ORGANIZATION_ID, 
+      ORGANIZATION_NAME)
+    values (#{photoId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, 
+      #{caseType,jdbcType=TINYINT}, #{photoAddr,jdbcType=VARCHAR}, #{uploadUser,jdbcType=INTEGER}, 
+      #{archiveId,jdbcType=INTEGER}, #{uploadDate,jdbcType=TIMESTAMP}, #{scene,jdbcType=VARCHAR}, 
+      #{cfov,jdbcType=VARCHAR}, #{photoStatus,jdbcType=TINYINT}, #{deviceNum,jdbcType=VARCHAR}, 
+      #{caseNo,jdbcType=VARCHAR}, #{source,jdbcType=TINYINT}, #{vrReviewFlag,jdbcType=TINYINT}, 
+      #{vrReviewUid,jdbcType=INTEGER}, #{vrReviewTime,jdbcType=TIMESTAMP}, #{vrReviewDesc,jdbcType=VARCHAR}, 
+      #{uploadClientId,jdbcType=VARCHAR}, #{trackId,jdbcType=INTEGER}, #{serviceId,jdbcType=INTEGER}, 
+      #{fileAddr,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{deptName,jdbcType=VARCHAR}, 
+      #{cameraType,jdbcType=TINYINT}, #{sceneCn,jdbcType=VARCHAR}, #{houseInnerFloor,jdbcType=TINYINT}, 
+      #{fkPanorama,jdbcType=TINYINT}, #{vrCoordinateJson,jdbcType=VARCHAR}, #{organizationId,jdbcType=INTEGER}, 
+      #{organizationName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhoto">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="photoId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_PANORAMA_PHOTO_PHOTO_ID
+    </selectKey>
+    insert into FUN_PANORAMA_PHOTO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      PHOTO_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR,
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="uploadDate != null">
+        UPLOAD_DATE,
+      </if>
+      <if test="scene != null">
+        SCENE,
+      </if>
+      <if test="cfov != null">
+        CFOV,
+      </if>
+      <if test="photoStatus != null">
+        PHOTO_STATUS,
+      </if>
+      <if test="deviceNum != null">
+        DEVICE_NUM,
+      </if>
+      <if test="caseNo != null">
+        CASE_NO,
+      </if>
+      <if test="source != null">
+        [SOURCE],
+      </if>
+      <if test="vrReviewFlag != null">
+        VR_REVIEW_FLAG,
+      </if>
+      <if test="vrReviewUid != null">
+        VR_REVIEW_UID,
+      </if>
+      <if test="vrReviewTime != null">
+        VR_REVIEW_TIME,
+      </if>
+      <if test="vrReviewDesc != null">
+        VR_REVIEW_DESC,
+      </if>
+      <if test="uploadClientId != null">
+        UPLOAD_CLIENT_ID,
+      </if>
+      <if test="trackId != null">
+        TRACK_ID,
+      </if>
+      <if test="serviceId != null">
+        SERVICE_ID,
+      </if>
+      <if test="fileAddr != null">
+        FILE_ADDR,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="cameraType != null">
+        CAMERA_TYPE,
+      </if>
+      <if test="sceneCn != null">
+        SCENE_CN,
+      </if>
+      <if test="houseInnerFloor != null">
+        HOUSE_INNER_FLOOR,
+      </if>
+      <if test="fkPanorama != null">
+        FK_PANORAMA,
+      </if>
+      <if test="vrCoordinateJson != null">
+        VR_COORDINATE_JSON,
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID,
+      </if>
+      <if test="organizationName != null">
+        ORGANIZATION_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{photoId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="photoAddr != null">
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null">
+        #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null">
+        #{uploadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scene != null">
+        #{scene,jdbcType=VARCHAR},
+      </if>
+      <if test="cfov != null">
+        #{cfov,jdbcType=VARCHAR},
+      </if>
+      <if test="photoStatus != null">
+        #{photoStatus,jdbcType=TINYINT},
+      </if>
+      <if test="deviceNum != null">
+        #{deviceNum,jdbcType=VARCHAR},
+      </if>
+      <if test="caseNo != null">
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="vrReviewFlag != null">
+        #{vrReviewFlag,jdbcType=TINYINT},
+      </if>
+      <if test="vrReviewUid != null">
+        #{vrReviewUid,jdbcType=INTEGER},
+      </if>
+      <if test="vrReviewTime != null">
+        #{vrReviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vrReviewDesc != null">
+        #{vrReviewDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadClientId != null">
+        #{uploadClientId,jdbcType=VARCHAR},
+      </if>
+      <if test="trackId != null">
+        #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="serviceId != null">
+        #{serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="fileAddr != null">
+        #{fileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraType != null">
+        #{cameraType,jdbcType=TINYINT},
+      </if>
+      <if test="sceneCn != null">
+        #{sceneCn,jdbcType=VARCHAR},
+      </if>
+      <if test="houseInnerFloor != null">
+        #{houseInnerFloor,jdbcType=TINYINT},
+      </if>
+      <if test="fkPanorama != null">
+        #{fkPanorama,jdbcType=TINYINT},
+      </if>
+      <if test="vrCoordinateJson != null">
+        #{vrCoordinateJson,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null">
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null">
+        #{organizationName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhotoExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_PANORAMA_PHOTO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_PANORAMA_PHOTO
+    <set>
+      <if test="record.photoId != null">
+        PHOTO_ID = #{record.photoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.photoAddr != null">
+        PHOTO_ADDR = #{record.photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uploadUser != null">
+        UPLOAD_USER = #{record.uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uploadDate != null">
+        UPLOAD_DATE = #{record.uploadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scene != null">
+        SCENE = #{record.scene,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfov != null">
+        CFOV = #{record.cfov,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoStatus != null">
+        PHOTO_STATUS = #{record.photoStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.deviceNum != null">
+        DEVICE_NUM = #{record.deviceNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caseNo != null">
+        CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null">
+        [SOURCE] = #{record.source,jdbcType=TINYINT},
+      </if>
+      <if test="record.vrReviewFlag != null">
+        VR_REVIEW_FLAG = #{record.vrReviewFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.vrReviewUid != null">
+        VR_REVIEW_UID = #{record.vrReviewUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.vrReviewTime != null">
+        VR_REVIEW_TIME = #{record.vrReviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vrReviewDesc != null">
+        VR_REVIEW_DESC = #{record.vrReviewDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uploadClientId != null">
+        UPLOAD_CLIENT_ID = #{record.uploadClientId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trackId != null">
+        TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceId != null">
+        SERVICE_ID = #{record.serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.fileAddr != null">
+        FILE_ADDR = #{record.fileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptName != null">
+        DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cameraType != null">
+        CAMERA_TYPE = #{record.cameraType,jdbcType=TINYINT},
+      </if>
+      <if test="record.sceneCn != null">
+        SCENE_CN = #{record.sceneCn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseInnerFloor != null">
+        HOUSE_INNER_FLOOR = #{record.houseInnerFloor,jdbcType=TINYINT},
+      </if>
+      <if test="record.fkPanorama != null">
+        FK_PANORAMA = #{record.fkPanorama,jdbcType=TINYINT},
+      </if>
+      <if test="record.vrCoordinateJson != null">
+        VR_COORDINATE_JSON = #{record.vrCoordinateJson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationId != null">
+        ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationName != null">
+        ORGANIZATION_NAME = #{record.organizationName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_PANORAMA_PHOTO
+    set PHOTO_ID = #{record.photoId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      PHOTO_ADDR = #{record.photoAddr,jdbcType=VARCHAR},
+      UPLOAD_USER = #{record.uploadUser,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      UPLOAD_DATE = #{record.uploadDate,jdbcType=TIMESTAMP},
+      SCENE = #{record.scene,jdbcType=VARCHAR},
+      CFOV = #{record.cfov,jdbcType=VARCHAR},
+      PHOTO_STATUS = #{record.photoStatus,jdbcType=TINYINT},
+      DEVICE_NUM = #{record.deviceNum,jdbcType=VARCHAR},
+      CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      [SOURCE] = #{record.source,jdbcType=TINYINT},
+      VR_REVIEW_FLAG = #{record.vrReviewFlag,jdbcType=TINYINT},
+      VR_REVIEW_UID = #{record.vrReviewUid,jdbcType=INTEGER},
+      VR_REVIEW_TIME = #{record.vrReviewTime,jdbcType=TIMESTAMP},
+      VR_REVIEW_DESC = #{record.vrReviewDesc,jdbcType=VARCHAR},
+      UPLOAD_CLIENT_ID = #{record.uploadClientId,jdbcType=VARCHAR},
+      TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      SERVICE_ID = #{record.serviceId,jdbcType=INTEGER},
+      FILE_ADDR = #{record.fileAddr,jdbcType=VARCHAR},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      CAMERA_TYPE = #{record.cameraType,jdbcType=TINYINT},
+      SCENE_CN = #{record.sceneCn,jdbcType=VARCHAR},
+      HOUSE_INNER_FLOOR = #{record.houseInnerFloor,jdbcType=TINYINT},
+      FK_PANORAMA = #{record.fkPanorama,jdbcType=TINYINT},
+      VR_COORDINATE_JSON = #{record.vrCoordinateJson,jdbcType=VARCHAR},
+      ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      ORGANIZATION_NAME = #{record.organizationName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhoto">
+    <!--@mbggenerated-->
+    update FUN_PANORAMA_PHOTO
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null">
+        UPLOAD_DATE = #{uploadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scene != null">
+        SCENE = #{scene,jdbcType=VARCHAR},
+      </if>
+      <if test="cfov != null">
+        CFOV = #{cfov,jdbcType=VARCHAR},
+      </if>
+      <if test="photoStatus != null">
+        PHOTO_STATUS = #{photoStatus,jdbcType=TINYINT},
+      </if>
+      <if test="deviceNum != null">
+        DEVICE_NUM = #{deviceNum,jdbcType=VARCHAR},
+      </if>
+      <if test="caseNo != null">
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        [SOURCE] = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="vrReviewFlag != null">
+        VR_REVIEW_FLAG = #{vrReviewFlag,jdbcType=TINYINT},
+      </if>
+      <if test="vrReviewUid != null">
+        VR_REVIEW_UID = #{vrReviewUid,jdbcType=INTEGER},
+      </if>
+      <if test="vrReviewTime != null">
+        VR_REVIEW_TIME = #{vrReviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vrReviewDesc != null">
+        VR_REVIEW_DESC = #{vrReviewDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadClientId != null">
+        UPLOAD_CLIENT_ID = #{uploadClientId,jdbcType=VARCHAR},
+      </if>
+      <if test="trackId != null">
+        TRACK_ID = #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="serviceId != null">
+        SERVICE_ID = #{serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="fileAddr != null">
+        FILE_ADDR = #{fileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraType != null">
+        CAMERA_TYPE = #{cameraType,jdbcType=TINYINT},
+      </if>
+      <if test="sceneCn != null">
+        SCENE_CN = #{sceneCn,jdbcType=VARCHAR},
+      </if>
+      <if test="houseInnerFloor != null">
+        HOUSE_INNER_FLOOR = #{houseInnerFloor,jdbcType=TINYINT},
+      </if>
+      <if test="fkPanorama != null">
+        FK_PANORAMA = #{fkPanorama,jdbcType=TINYINT},
+      </if>
+      <if test="vrCoordinateJson != null">
+        VR_COORDINATE_JSON = #{vrCoordinateJson,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null">
+        ORGANIZATION_NAME = #{organizationName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhoto">
+    <!--@mbggenerated-->
+    update FUN_PANORAMA_PHOTO
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      UPLOAD_DATE = #{uploadDate,jdbcType=TIMESTAMP},
+      SCENE = #{scene,jdbcType=VARCHAR},
+      CFOV = #{cfov,jdbcType=VARCHAR},
+      PHOTO_STATUS = #{photoStatus,jdbcType=TINYINT},
+      DEVICE_NUM = #{deviceNum,jdbcType=VARCHAR},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      [SOURCE] = #{source,jdbcType=TINYINT},
+      VR_REVIEW_FLAG = #{vrReviewFlag,jdbcType=TINYINT},
+      VR_REVIEW_UID = #{vrReviewUid,jdbcType=INTEGER},
+      VR_REVIEW_TIME = #{vrReviewTime,jdbcType=TIMESTAMP},
+      VR_REVIEW_DESC = #{vrReviewDesc,jdbcType=VARCHAR},
+      UPLOAD_CLIENT_ID = #{uploadClientId,jdbcType=VARCHAR},
+      TRACK_ID = #{trackId,jdbcType=INTEGER},
+      SERVICE_ID = #{serviceId,jdbcType=INTEGER},
+      FILE_ADDR = #{fileAddr,jdbcType=VARCHAR},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      CAMERA_TYPE = #{cameraType,jdbcType=TINYINT},
+      SCENE_CN = #{sceneCn,jdbcType=VARCHAR},
+      HOUSE_INNER_FLOOR = #{houseInnerFloor,jdbcType=TINYINT},
+      FK_PANORAMA = #{fkPanorama,jdbcType=TINYINT},
+      VR_COORDINATE_JSON = #{vrCoordinateJson,jdbcType=VARCHAR},
+      ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      ORGANIZATION_NAME = #{organizationName,jdbcType=VARCHAR}
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getPanoramaPhotosByCondition" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhoto" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from FUN_PANORAMA_PHOTO
+     <where>
+    	<if test="null != photoId">
+			and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+		</if>
+		<if test="null != caseId">
+			and CASE_ID = #{caseId,jdbcType=INTEGER}
+		</if>
+		<if test="null != caseType">
+			and CASE_TYPE = #{caseType,jdbcType=TINYINT}
+		</if>
+		and PHOTO_STATUS = 0
+	</where>
+  </select>
+  
+	<select id="getPanoramaCountByCondition" parameterType="com.myfun.repository.erpdb.po.ErpFunPanoramaPhoto" resultType="java.lang.Integer">
+		select count(1) from FUN_PANORAMA_PHOTO
+		<where>
+			<if test="null != photoId">
+				and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+			</if>
+			<if test="null != caseId">
+				and CASE_ID = #{caseId,jdbcType=INTEGER}
+			</if>
+			<if test="null != caseType">
+				and CASE_TYPE = #{caseType,jdbcType=TINYINT}
+			</if>
+			<if test="null != vrReviewFlag">
+				<if test="vrReviewFlag &lt; 0">
+					and VR_REVIEW_FLAG &lt; 2
+				</if>
+				<if test="vrReviewFlag &gt;= 0">
+					and VR_REVIEW_FLAG = #{vrReviewFlag}
+				</if>
+			</if>
+			and PHOTO_STATUS = 0
+		</where>
+	</select>
+
+<resultMap extends="BaseResultMap" id="BaseResultVO" type="com.myfun.erpWeb.house.vo.ErpFunPanoramaPhotoVo">
+ 	</resultMap>
+  <select id="getPanoramaPhotoList" resultMap="BaseResultVO">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_PANORAMA_PHOTO
+    where CASE_ID = #{param.caseId} and CASE_TYPE = #{param.caseType} 
+    <choose>
+    	<when test="param.isMeiLian !=null and param.isMeiLian == 1">
+    		AND PHOTO_STATUS in (0,5)
+    	</when>
+    	<otherwise>
+    		AND PHOTO_STATUS = 0
+    	</otherwise>
+    </choose>
+  </select>
+
+  <select id="getNotDelPanoramaCount" resultType="java.lang.Integer">
+    select count(*) from FUN_PANORAMA_PHOTO
+    where COMP_ID = #{param.compId} 
+    <if test="param.saleLeaseId!=null">
+    	and ((CASE_ID = #{param.caseId} and CASE_TYPE = #{param.caseType}) or (CASE_ID = #{param.saleLeaseId} and CASE_TYPE = #{param.saleLeaseType}))
+    </if>
+    <if test="param.saleLeaseId==null">
+   		and (CASE_ID = #{param.caseId} and CASE_TYPE = #{param.caseType})
+    </if>
+    and PHOTO_STATUS = 0
+  </select>
+
+  <update id="deletePanoramaPhoto">
+    update FUN_PANORAMA_PHOTO set PHOTO_STATUS = 1
+    where COMP_ID = #{param.compId} 
+    and PHOTO_STATUS = 0 and PHOTO_ID in
+    <foreach close=")" collection="param.photoIds" item="photoId" open="(" separator=",">
+      #{photoId}
+    </foreach>
+  </update>
+</mapper>

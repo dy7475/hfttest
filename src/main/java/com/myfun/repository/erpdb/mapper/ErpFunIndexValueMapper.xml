@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunIndexValueMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunIndexValue">
+    <!--@mbggenerated-->
+    <id column="VALUE_ID" jdbcType="INTEGER" property="valueId" />
+    <result column="INDEX_ID" jdbcType="INTEGER" property="indexId" />
+    <result column="CONTRACT_ID" jdbcType="INTEGER" property="contractId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="INDEX_VALUE_ORIGINAL" jdbcType="VARCHAR" property="indexValueOriginal" />
+    <result column="UNIQUE_KEY" jdbcType="VARCHAR" property="uniqueKey" />
+    <result column="FUN_DEAL_FIELD" jdbcType="VARCHAR" property="funDealField" />
+    <result column="INDEX_NAME" jdbcType="VARCHAR" property="indexName" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.erpdb.po.ErpFunIndexValue">
+    <!--@mbggenerated-->
+    <result column="INDEX_VALUE" jdbcType="CLOB" property="indexValue" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    VALUE_ID, INDEX_ID, CONTRACT_ID, CREATION_TIME, INDEX_VALUE_ORIGINAL, UNIQUE_KEY, 
+    FUN_DEAL_FIELD, INDEX_NAME
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    INDEX_VALUE
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValueExample" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_INDEX_VALUE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValueExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_INDEX_VALUE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_INDEX_VALUE
+    where VALUE_ID = #{valueId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_INDEX_VALUE
+    where VALUE_ID = #{valueId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValueExample">
+    <!--@mbggenerated-->
+    delete from FUN_INDEX_VALUE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="valueId" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValue" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_INDEX_VALUE (INDEX_ID, CONTRACT_ID, CREATION_TIME, 
+      INDEX_VALUE_ORIGINAL, UNIQUE_KEY, FUN_DEAL_FIELD, 
+      INDEX_NAME, INDEX_VALUE)
+    values (#{indexId,jdbcType=INTEGER}, #{contractId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{indexValueOriginal,jdbcType=VARCHAR}, #{uniqueKey,jdbcType=VARCHAR}, #{funDealField,jdbcType=VARCHAR}, 
+      #{indexName,jdbcType=VARCHAR}, #{indexValue,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" keyProperty="valueId" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValue" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_INDEX_VALUE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="indexId != null">
+        INDEX_ID,
+      </if>
+      <if test="contractId != null">
+        CONTRACT_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="indexValueOriginal != null">
+        INDEX_VALUE_ORIGINAL,
+      </if>
+      <if test="uniqueKey != null">
+        UNIQUE_KEY,
+      </if>
+      <if test="funDealField != null">
+        FUN_DEAL_FIELD,
+      </if>
+      <if test="indexName != null">
+        INDEX_NAME,
+      </if>
+      <if test="indexValue != null">
+        INDEX_VALUE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="indexId != null">
+        #{indexId,jdbcType=INTEGER},
+      </if>
+      <if test="contractId != null">
+        #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="indexValueOriginal != null">
+        #{indexValueOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="uniqueKey != null">
+        #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="funDealField != null">
+        #{funDealField,jdbcType=VARCHAR},
+      </if>
+      <if test="indexName != null">
+        #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexValue != null">
+        #{indexValue,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValueExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_INDEX_VALUE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_INDEX_VALUE
+    <set>
+      <if test="record.valueId != null">
+        VALUE_ID = #{record.valueId,jdbcType=INTEGER},
+      </if>
+      <if test="record.indexId != null">
+        INDEX_ID = #{record.indexId,jdbcType=INTEGER},
+      </if>
+      <if test="record.contractId != null">
+        CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.indexValueOriginal != null">
+        INDEX_VALUE_ORIGINAL = #{record.indexValueOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uniqueKey != null">
+        UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.funDealField != null">
+        FUN_DEAL_FIELD = #{record.funDealField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexName != null">
+        INDEX_NAME = #{record.indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexValue != null">
+        INDEX_VALUE = #{record.indexValue,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_INDEX_VALUE
+    set VALUE_ID = #{record.valueId,jdbcType=INTEGER},
+      INDEX_ID = #{record.indexId,jdbcType=INTEGER},
+      CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      INDEX_VALUE_ORIGINAL = #{record.indexValueOriginal,jdbcType=VARCHAR},
+      UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      FUN_DEAL_FIELD = #{record.funDealField,jdbcType=VARCHAR},
+      INDEX_NAME = #{record.indexName,jdbcType=VARCHAR},
+      INDEX_VALUE = #{record.indexValue,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_INDEX_VALUE
+    set VALUE_ID = #{record.valueId,jdbcType=INTEGER},
+      INDEX_ID = #{record.indexId,jdbcType=INTEGER},
+      CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      INDEX_VALUE_ORIGINAL = #{record.indexValueOriginal,jdbcType=VARCHAR},
+      UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      FUN_DEAL_FIELD = #{record.funDealField,jdbcType=VARCHAR},
+      INDEX_NAME = #{record.indexName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValue">
+    <!--@mbggenerated-->
+    update FUN_INDEX_VALUE
+    <set>
+      <if test="indexId != null">
+        INDEX_ID = #{indexId,jdbcType=INTEGER},
+      </if>
+      <if test="contractId != null">
+        CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="indexValueOriginal != null">
+        INDEX_VALUE_ORIGINAL = #{indexValueOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="uniqueKey != null">
+        UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="funDealField != null">
+        FUN_DEAL_FIELD = #{funDealField,jdbcType=VARCHAR},
+      </if>
+      <if test="indexName != null">
+        INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexValue != null">
+        INDEX_VALUE = #{indexValue,jdbcType=CLOB},
+      </if>
+    </set>
+    where VALUE_ID = #{valueId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValue">
+    <!--@mbggenerated-->
+    update FUN_INDEX_VALUE
+    set INDEX_ID = #{indexId,jdbcType=INTEGER},
+      CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      INDEX_VALUE_ORIGINAL = #{indexValueOriginal,jdbcType=VARCHAR},
+      UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      FUN_DEAL_FIELD = #{funDealField,jdbcType=VARCHAR},
+      INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+      INDEX_VALUE = #{indexValue,jdbcType=CLOB}
+    where VALUE_ID = #{valueId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunIndexValue">
+    <!--@mbggenerated-->
+    update FUN_INDEX_VALUE
+    set INDEX_ID = #{indexId,jdbcType=INTEGER},
+      CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      INDEX_VALUE_ORIGINAL = #{indexValueOriginal,jdbcType=VARCHAR},
+      UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      FUN_DEAL_FIELD = #{funDealField,jdbcType=VARCHAR},
+      INDEX_NAME = #{indexName,jdbcType=VARCHAR}
+    where VALUE_ID = #{valueId,jdbcType=INTEGER}
+  </update>
+	
+	<resultMap id="INDEX_VALUE_MAP" type="java.util.Map">
+		<result column="VALUE_ID" property="valueid" />
+		<result column="INDEX_ID" property="indexid" />
+		<result column="CONTRACT_ID" property="contractId" />
+		<result column="UNIQUE_KEY" property="uniqueKey" />
+		<result column="FUN_DEAL_FIELD" property="funDealField" />
+		<result column="INDEX_NAME" property="indexName" />
+		<result column="INDEX_VALUE" property="indexValue" />
+	</resultMap>
+	
+	<select id="getIndexValue" resultMap="INDEX_VALUE_MAP">
+		SELECT 
+		A.VALUE_ID,A.INDEX_ID,A.CONTRACT_ID,A.UNIQUE_KEY,A.FUN_DEAL_FIELD,
+		A.INDEX_NAME,A.INDEX_VALUE
+		FROM FUN_INDEX_VALUE A
+		WHERE A.CONTRACT_ID = #{contractId} ORDER BY A.INDEX_ID DESC
+	</select>
+  <resultMap extends="ResultMapWithBLOBs" id="extBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunIndexValueDto">
+
+    <result column="INDEX_NAME" jdbcType="VARCHAR" property="indexName" />
+    <result column="INDEX_TYPE" jdbcType="VARCHAR" property="indexType" />
+    <result column="INDEX_FORMAT" jdbcType="VARCHAR" property="indexFormat" />
+    <result column="INDEX_UNIT" jdbcType="VARCHAR" property="indexUnit" />
+    <result column="OTHER" jdbcType="VARCHAR" property="other" />
+    <result column="UNIQUE_KEY" jdbcType="VARCHAR" property="uniqueKey" />
+    <result column="FUN_DEAL_FIELD" jdbcType="VARCHAR" property="funDealField" />
+    <result column="UNDER_LINE" jdbcType="INTEGER" property="underLine" />
+    <result column="REQUIRED" jdbcType="INTEGER" property="required" />
+  </resultMap>
+  <select id="getIndexValueList" resultMap="extBaseResultMap">
+      select A.VALUE_ID, A.INDEX_ID,A.CONTRACT_ID, A.UNIQUE_KEY, A.FUN_DEAL_FIELD,A.INDEX_NAME
+      <choose>
+        <when test="null != contractEdition and 1 == contractEdition">
+          ,A.INDEX_VALUE_ORIGINAL INDEX_VALUE
+        </when>
+        <otherwise>
+          ,A.INDEX_VALUE
+        </otherwise>
+      </choose>
+      from FUN_INDEX_VALUE A
+      WHERE A.CONTRACT_ID IN <foreach close=")" collection="contractId" item="c" open="(" separator=",">
+          #{c}
+        </foreach>
+      ORDER BY A.INDEX_ID DESC
+
+  </select>
+  
+  
+</mapper>

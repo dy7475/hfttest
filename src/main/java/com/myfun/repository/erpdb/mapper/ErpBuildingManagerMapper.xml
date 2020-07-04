@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBuildingManagerMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBuildingManager">
+    <!--@mbggenerated-->
+    <id column="BUILDING_MANAGER_ID" jdbcType="INTEGER" property="buildingManagerId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="MANAGER_TYPE" jdbcType="TINYINT" property="managerType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    BUILDING_MANAGER_ID, CITY_ID, COMP_ID, BUILD_ID, USER_ID, CREATION_TIME, UPDATE_TIME, 
+    MANAGER_TYPE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManagerExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BUILDING_MANAGER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_MANAGER
+    where BUILDING_MANAGER_ID = #{buildingManagerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from BUILDING_MANAGER
+    where BUILDING_MANAGER_ID = #{buildingManagerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManagerExample">
+    <!--@mbggenerated-->
+    delete from BUILDING_MANAGER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="buildingManagerId" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManager" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILDING_MANAGER (CITY_ID, COMP_ID, BUILD_ID, 
+      USER_ID, CREATION_TIME, UPDATE_TIME, 
+      MANAGER_TYPE)
+    values (#{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{managerType,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyProperty="buildingManagerId" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManager" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILDING_MANAGER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="managerType != null">
+        MANAGER_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="managerType != null">
+        #{managerType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManagerExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from BUILDING_MANAGER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILDING_MANAGER
+    <set>
+      <if test="record.buildingManagerId != null">
+        BUILDING_MANAGER_ID = #{record.buildingManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.managerType != null">
+        MANAGER_TYPE = #{record.managerType,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILDING_MANAGER
+    set BUILDING_MANAGER_ID = #{record.buildingManagerId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      MANAGER_TYPE = #{record.managerType,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManager">
+    <!--@mbggenerated-->
+    update BUILDING_MANAGER
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="managerType != null">
+        MANAGER_TYPE = #{managerType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where BUILDING_MANAGER_ID = #{buildingManagerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManager">
+    <!--@mbggenerated-->
+    update BUILDING_MANAGER
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      MANAGER_TYPE = #{managerType,jdbcType=TINYINT}
+    where BUILDING_MANAGER_ID = #{buildingManagerId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getBuildingManagers" resultMap="BaseResultMap">
+    select BUILD_ID,USER_ID
+    from BUILDING_MANAGER
+    where COMP_ID = #{compId}
+    and BUILD_ID in
+    <foreach close=")" collection="buildIds" item="buildId" open="(" separator=",">
+      #{buildId}
+    </foreach>
+    and MANAGER_TYPE = 1
+    AND USER_ID IS NOT NULL
+  </select>
+
+  <select id="getRoofManagers" resultMap="BaseResultMap">
+    select DISTINCT A.BUILD_ID,A.USER_ID
+    from BUILDING_MANAGER A JOIN BUILDING_SET_ROOF B on A.BUILDING_MANAGER_ID = B.BUILDING_MANAGER_ID
+    where A.COMP_ID = #{compId}
+    and A.BUILD_ID in
+    <foreach close=")" collection="buildIds" item="buildId" open="(" separator=",">
+      #{buildId}
+    </foreach>
+    and A.MANAGER_TYPE = 2
+    AND A.USER_ID IS NOT NULL
+  </select>
+
+  <select id="getBuildManageUserId" resultType="java.lang.Integer">
+      select USER_ID from BUILDING_MANAGER
+      where COMP_ID = #{compId}
+      and BUILD_ID = #{buildId}
+      and MANAGER_TYPE = 1
+      AND USER_ID IS NOT NULL
+  </select>
+
+  <select id="getRoofManagerById" resultType="java.lang.Integer">
+      select USER_ID from BUILDING_MANAGER
+      where COMP_ID = #{compId} and BUILDING_MANAGER_ID = #{managerId}
+  </select>
+
+  <insert id="insertManager"  keyProperty="buildingManagerId" parameterType="com.myfun.repository.erpdb.po.ErpBuildingManager" useGeneratedKeys="true">
+    insert into BUILDING_MANAGER (CITY_ID, COMP_ID, BUILD_ID,
+      USER_ID, CREATION_TIME, UPDATE_TIME, MANAGER_TYPE)
+    values (#{cityId}, #{compId}, #{buildId},
+      #{userId}, #{creationTime}, #{updateTime}, #{managerType})
+  </insert>
+
+  <update id="updateManager">
+      update BUILDING_MANAGER set USER_ID = #{userId} where COMP_ID = #{compId} and BUILD_ID = #{buildId} and MANAGER_TYPE = 1
+  </update>
+
+  <select id="ckeckHaveManager" resultType="java.lang.Integer">
+        select count(1) from BUILDING_MANAGER where COMP_ID = #{compId} and BUILD_ID = #{buildId}
+  </select>
+
+  <select id="getRoofManagerByUserId" resultType="java.lang.Integer">
+    select BUILDING_MANAGER_ID from BUILDING_MANAGER where COMP_ID = #{compId} and BUILD_ID = #{buildId} and USER_ID = #{userId} and MANAGER_TYPE = 2
+  </select>
+  <select id="getBuildListByUserId" resultMap="BaseResultMap">
+    select DISTINCT A.BUILD_ID,A.USER_ID
+    from BUILDING_MANAGER A JOIN BUILDING_SET_ROOF B on A.BUILDING_MANAGER_ID = B.BUILDING_MANAGER_ID
+    where A.COMP_ID = #{compId}
+    <choose>
+      <when test="userIdList != null and userIdList.size() > 0">
+        and A.USER_ID in
+        <foreach collection="userIdList" item="userId" open="(" close=")" separator=",">
+          #{userId}
+        </foreach>
+      </when>
+      <otherwise>
+        and 1 != 1
+      </otherwise>
+    </choose>
+    and A.MANAGER_TYPE = #{mType}
+  </select>
+</mapper>

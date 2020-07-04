@@ -1,0 +1,27 @@
+
+1、统一注释模板，在这里修改模板后所有的注释时都会使用设置的模板
+window->preferences->java->code style->code template->comments
+例：配置的
+/**
+ * @author 张宏利
+ * @since ${date}
+ * ${tags}
+ */
+实现的：
+/**
+ * 
+ * @author 张宏利
+ * @since 2016年8月18日
+ * @return
+ */
+2、设置 xml 文件的代码提示功能：
+打开 Eclipse 依次选择 Window > Preferences > Xml > Xml Files > Editor > Content Assist
+> Auto activation > Prompt when these characters are inserted
+设置框中默认是 <=: ，现在将它改为：<=:.abcdefghijklmnopqrstuvwxyz(,
+
+
+3、Ctrl+Shift+R忽略class、target等不想要展示的文件夹
+右击目标文件夹->选择 属性->在弹出窗口中将Derived勾选上
+
+
+

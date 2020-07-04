@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpWorkPlanMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpWorkPlan">
+    <!--@mbggenerated-->
+    <id column="WP_ID" jdbcType="INTEGER" property="wpId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="WL_ID" jdbcType="INTEGER" property="wlId" />
+    <result column="WP_TIME" jdbcType="VARCHAR" property="wpTime" />
+    <result column="WP_PROJECT" jdbcType="VARCHAR" property="wpProject" />
+    <result column="WP_FINALLY" jdbcType="VARCHAR" property="wpFinally" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="CREATION_TIME" jdbcType="VARCHAR" property="creationTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    WP_ID, COMP_ID, WL_ID, WP_TIME, WP_PROJECT, WP_FINALLY, CREATOR_UID, CREATION_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WORK_PLAN
+    where WP_ID = #{wpId,jdbcType=INTEGER}
+  </select>
+  <select id="selectWorKPlanListByWlid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WORK_PLAN
+    where WL_ID = #{wlId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from WORK_PLAN
+    where WP_ID = #{wpId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteOldWorkPlan" parameterType="java.lang.Integer">
+  	delete from WORK_PLAN
+    where WL_ID = #{wlId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpWorkPlan">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="wpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_WORK_PLAN_WP_ID
+    </selectKey>
+    insert into WORK_PLAN (WP_ID, COMP_ID, WL_ID, 
+      WP_TIME, WP_PROJECT, WP_FINALLY, 
+      CREATOR_UID, CREATION_TIME)
+    values (#{wpId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{wlId,jdbcType=INTEGER}, 
+      #{wpTime,jdbcType=VARCHAR}, #{wpProject,jdbcType=VARCHAR}, #{wpFinally,jdbcType=VARCHAR}, 
+      #{creatorUid,jdbcType=INTEGER}, #{creationTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpWorkPlan">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="wpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_WORK_PLAN_WP_ID
+    </selectKey>
+    insert into WORK_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      WP_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="wlId != null">
+        WL_ID,
+      </if>
+      <if test="wpTime != null">
+        WP_TIME,
+      </if>
+      <if test="wpProject != null">
+        WP_PROJECT,
+      </if>
+      <if test="wpFinally != null">
+        WP_FINALLY,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{wpId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="wlId != null">
+        #{wlId,jdbcType=INTEGER},
+      </if>
+      <if test="wpTime != null">
+        #{wpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wpProject != null">
+        #{wpProject,jdbcType=VARCHAR},
+      </if>
+      <if test="wpFinally != null">
+        #{wpFinally,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpWorkPlan">
+    <!--@mbggenerated-->
+    update WORK_PLAN
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="wlId != null">
+        WL_ID = #{wlId,jdbcType=INTEGER},
+      </if>
+      <if test="wpTime != null">
+        WP_TIME = #{wpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wpProject != null">
+        WP_PROJECT = #{wpProject,jdbcType=VARCHAR},
+      </if>
+      <if test="wpFinally != null">
+        WP_FINALLY = #{wpFinally,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WP_ID = #{wpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpWorkPlan">
+    <!--@mbggenerated-->
+    update WORK_PLAN
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      WL_ID = #{wlId,jdbcType=INTEGER},
+      WP_TIME = #{wpTime,jdbcType=VARCHAR},
+      WP_PROJECT = #{wpProject,jdbcType=VARCHAR},
+      WP_FINALLY = #{wpFinally,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=VARCHAR}
+    where WP_ID = #{wpId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBuildingPhotoMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBuildingPhoto">
+    <!--@mbggenerated-->
+    <id column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <id column="PHOTO_ID" jdbcType="INTEGER" property="photoId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="PHOTO_ADDR" jdbcType="VARCHAR" property="photoAddr" />
+    <result column="UPLOAD_USER" jdbcType="INTEGER" property="uploadUser" />
+    <result column="UPLOAD_DATE" jdbcType="VARCHAR" property="uploadDate" />
+    <result column="VERTIFY_FLAG" jdbcType="BIT" property="vertifyFlag" />
+    <result column="RELATIVE_ID" jdbcType="INTEGER" property="relativeId" />
+    <result column="IS_FIRST" jdbcType="BIT" property="isFirst" />
+    <result column="PHOTO_TYPE" jdbcType="TINYINT" property="photoType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CITY_ID, PHOTO_ID, BUILD_ID, PHOTO_ADDR, UPLOAD_USER, UPLOAD_DATE, VERTIFY_FLAG, 
+    RELATIVE_ID, IS_FIRST, PHOTO_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhotoKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_PHOTO
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </select>
+  <select id="selectBuildDicPhotoList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_PHOTO
+    where CITY_ID = #{shardCityId}
+    and BUILD_ID = #{buildId}
+    and DELETE_FLAG = 0
+    and VERTIFY_FLAG = 1
+    ORDER BY IS_FIRST DESC
+  </select>
+
+  <select id="getBuildDicPhotoList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from BUILDING_PHOTO
+    where CITY_ID = #{shardCityId}
+    and BUILD_ID = #{buildId}
+    and DELETE_FLAG = 0
+    ORDER BY IS_FIRST DESC
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhotoKey">
+    <!--@mbggenerated-->
+    delete from BUILDING_PHOTO
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhoto">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="photoId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_BUILDING_PHOTO_PHOTO_ID
+    </selectKey>
+    insert into BUILDING_PHOTO (CITY_ID, PHOTO_ID, BUILD_ID, 
+      PHOTO_ADDR, UPLOAD_USER, UPLOAD_DATE, 
+      VERTIFY_FLAG, RELATIVE_ID, IS_FIRST, 
+      PHOTO_TYPE)
+    values (#{cityId,jdbcType=SMALLINT}, #{photoId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, 
+      #{photoAddr,jdbcType=VARCHAR}, #{uploadUser,jdbcType=INTEGER}, #{uploadDate,jdbcType=VARCHAR}, 
+      #{vertifyFlag,jdbcType=BIT}, #{relativeId,jdbcType=INTEGER}, #{isFirst,jdbcType=BIT}, 
+      #{photoType,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhoto">
+   <!--  <selectKey keyProperty="photoId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_BUILDING_PHOTO_PHOTO_ID
+    </selectKey> 图片单独处理不允许自动生成ID-->
+    insert into BUILDING_PHOTO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      PHOTO_ID,
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR,
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER,
+      </if>
+      <if test="uploadDate != null">
+        UPLOAD_DATE,
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG,
+      </if>
+      <if test="relativeId != null">
+        RELATIVE_ID,
+      </if>
+      <if test="isFirst != null">
+        IS_FIRST,
+      </if>
+      <if test="photoType != null">
+        PHOTO_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      #{photoId,jdbcType=INTEGER},
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null">
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null">
+        #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null">
+        #{uploadDate,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null">
+        #{vertifyFlag,jdbcType=BIT},
+      </if>
+      <if test="relativeId != null">
+        #{relativeId,jdbcType=INTEGER},
+      </if>
+      <if test="isFirst != null">
+        #{isFirst,jdbcType=BIT},
+      </if>
+      <if test="photoType != null">
+        #{photoType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhoto">
+    <!--@mbggenerated-->
+    update BUILDING_PHOTO
+    <set>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null">
+        UPLOAD_DATE = #{uploadDate,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG = #{vertifyFlag,jdbcType=BIT},
+      </if>
+      <if test="relativeId != null">
+        RELATIVE_ID = #{relativeId,jdbcType=INTEGER},
+      </if>
+      <if test="isFirst != null">
+        IS_FIRST = #{isFirst,jdbcType=BIT},
+      </if>
+      <if test="photoType != null">
+        PHOTO_TYPE = #{photoType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhoto">
+    <!--@mbggenerated-->
+    update BUILDING_PHOTO
+    set BUILD_ID = #{buildId,jdbcType=INTEGER},
+      PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      UPLOAD_DATE = #{uploadDate,jdbcType=VARCHAR},
+      VERTIFY_FLAG = #{vertifyFlag,jdbcType=BIT},
+      RELATIVE_ID = #{relativeId,jdbcType=INTEGER},
+      IS_FIRST = #{isFirst,jdbcType=BIT},
+      PHOTO_TYPE = #{photoType,jdbcType=TINYINT}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+   <resultMap id="picDto" type="com.myfun.repository.erpdb.dto.ErpBuildingPhotoDto">
+    <result column="PHOTO_TYPE" jdbcType="VARCHAR" property="picType" />
+    <result column="picNum" jdbcType="VARCHAR" property="picNum" />
+  </resultMap>
+  
+  <!-- buniess -->
+  <select id="getRecords" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_PHOTO
+    where CITY_ID = #{shardCityId}
+      and BUILD_ID = #{buildId}
+      <if test="type !=null and type != ''">
+      	and PHOTO_TYPE = #{type}
+      </if>
+  </select>
+  <select id="getId" resultType="java.lang.Integer">
+  	select next value for SEQ_BUILDING_PHOTO_PHOTO_ID id
+  </select>
+  <delete id="deleteByBuildId"> 
+    delete from BUILDING_PHOTO
+    where CITY_ID = #{shardCityId}
+       and BUILD_ID = #{oldBuildId}
+  </delete>
+  <select id="getPicNumAndPicType" resultMap="picDto">
+    select PHOTO_TYPE, count(*) as picNum from BUILDING_PHOTO
+	WHERE BUILD_ID = #{buildId} and CITY_ID = #{shardCityId} 
+	GROUP BY PHOTO_TYPE
+  </select>
+  <select id="getPhotosByids" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from  BUILDING_PHOTO
+  	where BUILD_ID = #{buildId} and PHOTO_ID in
+  	<foreach close=")" collection="ids" index="index" item="item" open="(" separator=",">  
+	 	 #{item}  
+	 </foreach>  
+  </select>
+  <select id="countByBuildAndPhotoType" resultType="java.lang.Integer">
+  select count(*) from BUILDING_PHOTO 
+  where BUILD_ID  = #{buildId} and PHOTO_TYPE != 3
+  </select>
+	
+  <select id="getPhotoListOrderByPhotoIdDesc" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+      select top 50 PHOTO_ID,PHOTO_ADDR
+      from BUILDING_PHOTO
+      where photo_addr not like 'group%'
+      <if test="photoId != null and photoId > 0">AND PHOTO_ID &lt; #{photoId}</if>
+      order by PHOTO_ID desc
+  </select>
+  <select id = "selectBuildingPhotoAddr" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select PHOTO_ADDR from BUILDING_PHOTO where BUILD_ID  = #{buildId} and  IS_FIRST = 1 and DELETE_FLAG = 1
+  </select>
+  
+  <select id = "getOneRandomBuildPic" resultMap="BaseResultMap">
+		select BUILD_ID,MAX(PHOTO_ADDR) as PHOTO_ADDR 
+		from BUILDING_PHOTO where VERTIFY_FLAG = 1 
+		<if test ="null != param.isFirst">
+			and IS_FIRST = 1 
+		</if>
+		AND BUILD_ID IN
+		<foreach close=")" collection="ids" index="index" item="item" open="(" separator=",">  
+			#{item}  
+		</foreach> 
+		and CITY_ID = #{shardCityId}
+		GROUP BY BUILD_ID
+	</select>
+  <select id="getFirstPhotoAddr" resultType="com.myfun.repository.erpdb.po.ErpBuildingPhoto">
+    SELECT   BUILD_ID as buildId,PHOTO_ADDR as photoAddr FROM BUILDING_PHOTO WHERE IS_FIRST =1 AND DELETE_FLAG = 0 AND  PHOTO_ID IN
+    (SELECT MIN
+    ( PHOTO_ID )
+    FROM
+    BUILDING_PHOTO
+    WHERE
+    BUILD_ID IN
+      <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+          #{item}
+      </foreach>
+    GROUP BY
+    BUILD_ID
+    )
+  </select>
+    <select id="getMaxPhotoId" resultType="java.lang.Integer">
+	select isnull(max(PHOTO_ID), 0) + 1 as MAX_ID from BUILDING_PHOTO
+  </select>
+  <delete id="deleteByPhotoIds">
+    delete from BUILDING_PHOTO where PHOTO_ID in
+    <foreach collection="photoIdSet" open="(" item="item" separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
+</mapper>

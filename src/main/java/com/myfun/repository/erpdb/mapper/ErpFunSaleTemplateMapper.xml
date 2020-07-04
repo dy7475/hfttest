@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunSaleTemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunSaleTemplate" >
+    <!--@mbggenerated-->
+    <result column="SALE_ID" property="saleId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="VARCHAR" />
+    <result column="SALE_NO" property="saleNo" jdbcType="VARCHAR" />
+    <result column="SALE_OWNER" property="saleOwner" jdbcType="VARCHAR" />
+    <result column="CELL_PHONE" property="cellPhone" jdbcType="VARCHAR" />
+    <result column="ID_CARD" property="idCard" jdbcType="VARCHAR" />
+    <result column="SALE_SUBJECT" property="saleSubject" jdbcType="VARCHAR" />
+    <result column="TRADE_ADDR" property="tradeAddr" jdbcType="VARCHAR" />
+    <result column="SALE_ROOF" property="saleRoof" jdbcType="VARCHAR" />
+    <result column="SALE_UNIT" property="saleUnit" jdbcType="VARCHAR" />
+    <result column="UNIT_FLOOR" property="unitFloor" jdbcType="VARCHAR" />
+    <result column="SALE_NUM" property="saleNum" jdbcType="VARCHAR" />
+    <result column="SALE_ROOF_R" property="saleRoofR" jdbcType="VARCHAR" />
+    <result column="SALE_UNIT_R" property="saleUnitR" jdbcType="VARCHAR" />
+    <result column="UNIT_FLOOR_R" property="unitFloorR" jdbcType="VARCHAR" />
+    <result column="SALE_NUM_R" property="saleNumR" jdbcType="VARCHAR" />
+    <result column="SALE_LADDER" property="saleLadder" jdbcType="TINYINT" />
+    <result column="SALE_DOORS" property="saleDoors" jdbcType="TINYINT" />
+    <result column="SALE_ROOM" property="saleRoom" jdbcType="TINYINT" />
+    <result column="SALE_HALL" property="saleHall" jdbcType="TINYINT" />
+    <result column="SALE_WEI" property="saleWei" jdbcType="TINYINT" />
+    <result column="SALE_YANG" property="saleYang" jdbcType="TINYINT" />
+    <result column="SALE_TYPE" property="saleType" jdbcType="TINYINT" />
+    <result column="SALE_FLOOR" property="saleFloor" jdbcType="SMALLINT" />
+    <result column="SALE_FLOORS" property="saleFloors" jdbcType="TINYINT" />
+    <result column="SALE_FITMENT" property="saleFitment" jdbcType="TINYINT" />
+    <result column="SALE_DIRECT" property="saleDirect" jdbcType="TINYINT" />
+    <result column="SALE_YEAR" property="saleYear" jdbcType="SMALLINT" />
+    <result column="SALE_STRUCT" property="saleStruct" jdbcType="TINYINT" />
+    <result column="SALE_USEAGE" property="saleUseage" jdbcType="TINYINT" />
+    <result column="SHOP_USAGE" property="shopUsage" jdbcType="VARCHAR" />
+    <result column="OWNER_TYPE" property="ownerType" jdbcType="TINYINT" />
+    <result column="OFFICE_LEVEL" property="officeLevel" jdbcType="TINYINT" />
+    <result column="SALE_STREET" property="saleStreet" jdbcType="BIT" />
+    <result column="SALE_RIGHT" property="saleRight" jdbcType="TINYINT" />
+    <result column="SALE_MORTGAGE" property="saleMortgage" jdbcType="VARCHAR" />
+    <result column="SALE_ACCOUNT" property="saleAccount" jdbcType="TINYINT" />
+    <result column="SALE_AREA" property="saleArea" jdbcType="NUMERIC" />
+    <result column="SALE_INNERAREA" property="saleInnerarea" jdbcType="NUMERIC" />
+    <result column="SALE_TOTAL_PRICE" property="saleTotalPrice" jdbcType="NUMERIC" />
+    <result column="SALE_UNIT_PRICE" property="saleUnitPrice" jdbcType="NUMERIC" />
+    <result column="SALE_LOWEST_PRICE" property="saleLowestPrice" jdbcType="NUMERIC" />
+    <result column="SALE_PROPERTY" property="saleProperty" jdbcType="NUMERIC" />
+    <result column="IS_SEPERATOR" property="isSeperator" jdbcType="BIT" />
+    <result column="SALE_LEAVE_TIME" property="saleLeaveTime" jdbcType="VARCHAR" />
+    <result column="HALL_STRUCTURE" property="hallStructure" jdbcType="TINYINT" />
+    <result column="UG_AREA" property="ugArea" jdbcType="NUMERIC" />
+    <result column="UG_TYPE" property="ugType" jdbcType="TINYINT" />
+    <result column="GARDEN_AREA" property="gardenArea" jdbcType="NUMERIC" />
+    <result column="GARAGE_AMOUNT" property="garageAmount" jdbcType="TINYINT" />
+    <result column="TAG_IDS" property="tagIds" jdbcType="VARCHAR" />
+    <result column="SALE_CHARACT" property="saleCharact" jdbcType="VARCHAR" />
+    <result column="SALE_MEMO" property="saleMemo" jdbcType="VARCHAR" />
+    <result column="SALE_SOURCE" property="saleSource" jdbcType="TINYINT" />
+    <result column="SALE_KEY" property="saleKey" jdbcType="BIT" />
+    <result column="SALE_KEY_NUM" property="saleKeyNum" jdbcType="VARCHAR" />
+    <result column="KEY_TIME" property="keyTime" jdbcType="VARCHAR" />
+    <result column="SALE_EXPLRTH" property="saleExplrth" jdbcType="BIT" />
+    <result column="EXPLRTH_DATETIME" property="explrthDatetime" jdbcType="VARCHAR" />
+    <result column="SALE_CONSIGN" property="saleConsign" jdbcType="TINYINT" />
+    <result column="SALE_CONSIGN_NO" property="saleConsignNo" jdbcType="VARCHAR" />
+    <result column="WEITUO_TIME" property="weituoTime" jdbcType="VARCHAR" />
+    <result column="SALE_COOPERATE" property="saleCooperate" jdbcType="BIT" />
+    <result column="SALE_PUBLISH" property="salePublish" jdbcType="BIT" />
+    <result column="SALE_MAP" property="saleMap" jdbcType="TINYINT" />
+    <result column="THUMB_URL" property="thumbUrl" jdbcType="VARCHAR" />
+    <result column="VIDEO_NUM" property="videoNum" jdbcType="TINYINT" />
+    <result column="SALE_ROOF_T" property="saleRoofT" jdbcType="VARCHAR" />
+    <result column="SALE_UNIT_T" property="saleUnitT" jdbcType="VARCHAR" />
+    <result column="SALE_NUM_T" property="saleNumT" jdbcType="VARCHAR" />
+    <result column="SALE_LEVEL" property="saleLevel" jdbcType="TINYINT" />
+    <result column="PLATE_TYPE" property="plateType" jdbcType="TINYINT" />
+    <result column="SALE_STATUS" property="saleStatus" jdbcType="TINYINT" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="VARCHAR" />
+    <result column="ACTION_TIME" property="actionTime" jdbcType="VARCHAR" />
+    <result column="FROM_SOSO" property="fromSoso" jdbcType="BIT" />
+    <result column="REPEAT_FLAG" property="repeatFlag" jdbcType="TINYINT" />
+    <result column="COMPLAINT_FLAG" property="complaintFlag" jdbcType="BIT" />
+    <result column="PUBLISH_TIME" property="publishTime" jdbcType="VARCHAR" />
+    <result column="PUBLISH_SITES" property="publishSites" jdbcType="INTEGER" />
+    <result column="PHOTO_TIME" property="photoTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunSaleTemplate" >
+    <!--@mbggenerated-->
+    insert into FUN_SALE_TEMPLATE (SALE_ID, CREATION_TIME, UPDATE_TIME, 
+      SALE_NO, SALE_OWNER, CELL_PHONE, 
+      ID_CARD, SALE_SUBJECT, TRADE_ADDR, 
+      SALE_ROOF, SALE_UNIT, UNIT_FLOOR, 
+      SALE_NUM, SALE_ROOF_R, SALE_UNIT_R, 
+      UNIT_FLOOR_R, SALE_NUM_R, SALE_LADDER, 
+      SALE_DOORS, SALE_ROOM, SALE_HALL, 
+      SALE_WEI, SALE_YANG, SALE_TYPE, 
+      SALE_FLOOR, SALE_FLOORS, SALE_FITMENT, 
+      SALE_DIRECT, SALE_YEAR, SALE_STRUCT, 
+      SALE_USEAGE, SHOP_USAGE, OWNER_TYPE, 
+      OFFICE_LEVEL, SALE_STREET, SALE_RIGHT, 
+      SALE_MORTGAGE, SALE_ACCOUNT, SALE_AREA, 
+      SALE_INNERAREA, SALE_TOTAL_PRICE, SALE_UNIT_PRICE, 
+      SALE_LOWEST_PRICE, SALE_PROPERTY, IS_SEPERATOR, 
+      SALE_LEAVE_TIME, HALL_STRUCTURE, UG_AREA, 
+      UG_TYPE, GARDEN_AREA, GARAGE_AMOUNT, 
+      TAG_IDS, SALE_CHARACT, SALE_MEMO, 
+      SALE_SOURCE, SALE_KEY, SALE_KEY_NUM, 
+      KEY_TIME, SALE_EXPLRTH, EXPLRTH_DATETIME, 
+      SALE_CONSIGN, SALE_CONSIGN_NO, WEITUO_TIME, 
+      SALE_COOPERATE, SALE_PUBLISH, SALE_MAP, 
+      THUMB_URL, VIDEO_NUM, SALE_ROOF_T, 
+      SALE_UNIT_T, SALE_NUM_T, SALE_LEVEL, 
+      PLATE_TYPE, SALE_STATUS, TRACK_TIME, 
+      ACTION_TIME, FROM_SOSO, REPEAT_FLAG, 
+      COMPLAINT_FLAG, PUBLISH_TIME, PUBLISH_SITES, 
+      PHOTO_TIME)
+    values (#{saleId,jdbcType=INTEGER}, #{creationTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
+      #{saleNo,jdbcType=VARCHAR}, #{saleOwner,jdbcType=VARCHAR}, #{cellPhone,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{saleSubject,jdbcType=VARCHAR}, #{tradeAddr,jdbcType=VARCHAR}, 
+      #{saleRoof,jdbcType=VARCHAR}, #{saleUnit,jdbcType=VARCHAR}, #{unitFloor,jdbcType=VARCHAR}, 
+      #{saleNum,jdbcType=VARCHAR}, #{saleRoofR,jdbcType=VARCHAR}, #{saleUnitR,jdbcType=VARCHAR}, 
+      #{unitFloorR,jdbcType=VARCHAR}, #{saleNumR,jdbcType=VARCHAR}, #{saleLadder,jdbcType=TINYINT}, 
+      #{saleDoors,jdbcType=TINYINT}, #{saleRoom,jdbcType=TINYINT}, #{saleHall,jdbcType=TINYINT}, 
+      #{saleWei,jdbcType=TINYINT}, #{saleYang,jdbcType=TINYINT}, #{saleType,jdbcType=TINYINT}, 
+      #{saleFloor,jdbcType=SMALLINT}, #{saleFloors,jdbcType=TINYINT}, #{saleFitment,jdbcType=TINYINT}, 
+      #{saleDirect,jdbcType=TINYINT}, #{saleYear,jdbcType=SMALLINT}, #{saleStruct,jdbcType=TINYINT}, 
+      #{saleUseage,jdbcType=TINYINT}, #{shopUsage,jdbcType=VARCHAR}, #{ownerType,jdbcType=TINYINT}, 
+      #{officeLevel,jdbcType=TINYINT}, #{saleStreet,jdbcType=BIT}, #{saleRight,jdbcType=TINYINT}, 
+      #{saleMortgage,jdbcType=VARCHAR}, #{saleAccount,jdbcType=TINYINT}, #{saleArea,jdbcType=NUMERIC}, 
+      #{saleInnerarea,jdbcType=NUMERIC}, #{saleTotalPrice,jdbcType=NUMERIC}, #{saleUnitPrice,jdbcType=NUMERIC}, 
+      #{saleLowestPrice,jdbcType=NUMERIC}, #{saleProperty,jdbcType=NUMERIC}, #{isSeperator,jdbcType=BIT}, 
+      #{saleLeaveTime,jdbcType=VARCHAR}, #{hallStructure,jdbcType=TINYINT}, #{ugArea,jdbcType=NUMERIC}, 
+      #{ugType,jdbcType=TINYINT}, #{gardenArea,jdbcType=NUMERIC}, #{garageAmount,jdbcType=TINYINT}, 
+      #{tagIds,jdbcType=VARCHAR}, #{saleCharact,jdbcType=VARCHAR}, #{saleMemo,jdbcType=VARCHAR}, 
+      #{saleSource,jdbcType=TINYINT}, #{saleKey,jdbcType=BIT}, #{saleKeyNum,jdbcType=VARCHAR}, 
+      #{keyTime,jdbcType=VARCHAR}, #{saleExplrth,jdbcType=BIT}, #{explrthDatetime,jdbcType=VARCHAR}, 
+      #{saleConsign,jdbcType=TINYINT}, #{saleConsignNo,jdbcType=VARCHAR}, #{weituoTime,jdbcType=VARCHAR}, 
+      #{saleCooperate,jdbcType=BIT}, #{salePublish,jdbcType=BIT}, #{saleMap,jdbcType=TINYINT}, 
+      #{thumbUrl,jdbcType=VARCHAR}, #{videoNum,jdbcType=TINYINT}, #{saleRoofT,jdbcType=VARCHAR}, 
+      #{saleUnitT,jdbcType=VARCHAR}, #{saleNumT,jdbcType=VARCHAR}, #{saleLevel,jdbcType=TINYINT}, 
+      #{plateType,jdbcType=TINYINT}, #{saleStatus,jdbcType=TINYINT}, #{trackTime,jdbcType=VARCHAR}, 
+      #{actionTime,jdbcType=VARCHAR}, #{fromSoso,jdbcType=BIT}, #{repeatFlag,jdbcType=TINYINT}, 
+      #{complaintFlag,jdbcType=BIT}, #{publishTime,jdbcType=VARCHAR}, #{publishSites,jdbcType=INTEGER}, 
+      #{photoTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSaleTemplate" >
+    <!--@mbggenerated-->
+    insert into FUN_SALE_TEMPLATE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="saleId != null" >
+        SALE_ID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="saleNo != null" >
+        SALE_NO,
+      </if>
+      <if test="saleOwner != null" >
+        SALE_OWNER,
+      </if>
+      <if test="cellPhone != null" >
+        CELL_PHONE,
+      </if>
+      <if test="idCard != null" >
+        ID_CARD,
+      </if>
+      <if test="saleSubject != null" >
+        SALE_SUBJECT,
+      </if>
+      <if test="tradeAddr != null" >
+        TRADE_ADDR,
+      </if>
+      <if test="saleRoof != null" >
+        SALE_ROOF,
+      </if>
+      <if test="saleUnit != null" >
+        SALE_UNIT,
+      </if>
+      <if test="unitFloor != null" >
+        UNIT_FLOOR,
+      </if>
+      <if test="saleNum != null" >
+        SALE_NUM,
+      </if>
+      <if test="saleRoofR != null" >
+        SALE_ROOF_R,
+      </if>
+      <if test="saleUnitR != null" >
+        SALE_UNIT_R,
+      </if>
+      <if test="unitFloorR != null" >
+        UNIT_FLOOR_R,
+      </if>
+      <if test="saleNumR != null" >
+        SALE_NUM_R,
+      </if>
+      <if test="saleLadder != null" >
+        SALE_LADDER,
+      </if>
+      <if test="saleDoors != null" >
+        SALE_DOORS,
+      </if>
+      <if test="saleRoom != null" >
+        SALE_ROOM,
+      </if>
+      <if test="saleHall != null" >
+        SALE_HALL,
+      </if>
+      <if test="saleWei != null" >
+        SALE_WEI,
+      </if>
+      <if test="saleYang != null" >
+        SALE_YANG,
+      </if>
+      <if test="saleType != null" >
+        SALE_TYPE,
+      </if>
+      <if test="saleFloor != null" >
+        SALE_FLOOR,
+      </if>
+      <if test="saleFloors != null" >
+        SALE_FLOORS,
+      </if>
+      <if test="saleFitment != null" >
+        SALE_FITMENT,
+      </if>
+      <if test="saleDirect != null" >
+        SALE_DIRECT,
+      </if>
+      <if test="saleYear != null" >
+        SALE_YEAR,
+      </if>
+      <if test="saleStruct != null" >
+        SALE_STRUCT,
+      </if>
+      <if test="saleUseage != null" >
+        SALE_USEAGE,
+      </if>
+      <if test="shopUsage != null" >
+        SHOP_USAGE,
+      </if>
+      <if test="ownerType != null" >
+        OWNER_TYPE,
+      </if>
+      <if test="officeLevel != null" >
+        OFFICE_LEVEL,
+      </if>
+      <if test="saleStreet != null" >
+        SALE_STREET,
+      </if>
+      <if test="saleRight != null" >
+        SALE_RIGHT,
+      </if>
+      <if test="saleMortgage != null" >
+        SALE_MORTGAGE,
+      </if>
+      <if test="saleAccount != null" >
+        SALE_ACCOUNT,
+      </if>
+      <if test="saleArea != null" >
+        SALE_AREA,
+      </if>
+      <if test="saleInnerarea != null" >
+        SALE_INNERAREA,
+      </if>
+      <if test="saleTotalPrice != null" >
+        SALE_TOTAL_PRICE,
+      </if>
+      <if test="saleUnitPrice != null" >
+        SALE_UNIT_PRICE,
+      </if>
+      <if test="saleLowestPrice != null" >
+        SALE_LOWEST_PRICE,
+      </if>
+      <if test="saleProperty != null" >
+        SALE_PROPERTY,
+      </if>
+      <if test="isSeperator != null" >
+        IS_SEPERATOR,
+      </if>
+      <if test="saleLeaveTime != null" >
+        SALE_LEAVE_TIME,
+      </if>
+      <if test="hallStructure != null" >
+        HALL_STRUCTURE,
+      </if>
+      <if test="ugArea != null" >
+        UG_AREA,
+      </if>
+      <if test="ugType != null" >
+        UG_TYPE,
+      </if>
+      <if test="gardenArea != null" >
+        GARDEN_AREA,
+      </if>
+      <if test="garageAmount != null" >
+        GARAGE_AMOUNT,
+      </if>
+      <if test="tagIds != null" >
+        TAG_IDS,
+      </if>
+      <if test="saleCharact != null" >
+        SALE_CHARACT,
+      </if>
+      <if test="saleMemo != null" >
+        SALE_MEMO,
+      </if>
+      <if test="saleSource != null" >
+        SALE_SOURCE,
+      </if>
+      <if test="saleKey != null" >
+        SALE_KEY,
+      </if>
+      <if test="saleKeyNum != null" >
+        SALE_KEY_NUM,
+      </if>
+      <if test="keyTime != null" >
+        KEY_TIME,
+      </if>
+      <if test="saleExplrth != null" >
+        SALE_EXPLRTH,
+      </if>
+      <if test="explrthDatetime != null" >
+        EXPLRTH_DATETIME,
+      </if>
+      <if test="saleConsign != null" >
+        SALE_CONSIGN,
+      </if>
+      <if test="saleConsignNo != null" >
+        SALE_CONSIGN_NO,
+      </if>
+      <if test="weituoTime != null" >
+        WEITUO_TIME,
+      </if>
+      <if test="saleCooperate != null" >
+        SALE_COOPERATE,
+      </if>
+      <if test="salePublish != null" >
+        SALE_PUBLISH,
+      </if>
+      <if test="saleMap != null" >
+        SALE_MAP,
+      </if>
+      <if test="thumbUrl != null" >
+        THUMB_URL,
+      </if>
+      <if test="videoNum != null" >
+        VIDEO_NUM,
+      </if>
+      <if test="saleRoofT != null" >
+        SALE_ROOF_T,
+      </if>
+      <if test="saleUnitT != null" >
+        SALE_UNIT_T,
+      </if>
+      <if test="saleNumT != null" >
+        SALE_NUM_T,
+      </if>
+      <if test="saleLevel != null" >
+        SALE_LEVEL,
+      </if>
+      <if test="plateType != null" >
+        PLATE_TYPE,
+      </if>
+      <if test="saleStatus != null" >
+        SALE_STATUS,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+      <if test="actionTime != null" >
+        ACTION_TIME,
+      </if>
+      <if test="fromSoso != null" >
+        FROM_SOSO,
+      </if>
+      <if test="repeatFlag != null" >
+        REPEAT_FLAG,
+      </if>
+      <if test="complaintFlag != null" >
+        COMPLAINT_FLAG,
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME,
+      </if>
+      <if test="publishSites != null" >
+        PUBLISH_SITES,
+      </if>
+      <if test="photoTime != null" >
+        PHOTO_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="saleId != null" >
+        #{saleId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="saleNo != null" >
+        #{saleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="saleOwner != null" >
+        #{saleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="cellPhone != null" >
+        #{cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="saleSubject != null" >
+        #{saleSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeAddr != null" >
+        #{tradeAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="saleRoof != null" >
+        #{saleRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="saleUnit != null" >
+        #{saleUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="unitFloor != null" >
+        #{unitFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="saleNum != null" >
+        #{saleNum,jdbcType=VARCHAR},
+      </if>
+      <if test="saleRoofR != null" >
+        #{saleRoofR,jdbcType=VARCHAR},
+      </if>
+      <if test="saleUnitR != null" >
+        #{saleUnitR,jdbcType=VARCHAR},
+      </if>
+      <if test="unitFloorR != null" >
+        #{unitFloorR,jdbcType=VARCHAR},
+      </if>
+      <if test="saleNumR != null" >
+        #{saleNumR,jdbcType=VARCHAR},
+      </if>
+      <if test="saleLadder != null" >
+        #{saleLadder,jdbcType=TINYINT},
+      </if>
+      <if test="saleDoors != null" >
+        #{saleDoors,jdbcType=TINYINT},
+      </if>
+      <if test="saleRoom != null" >
+        #{saleRoom,jdbcType=TINYINT},
+      </if>
+      <if test="saleHall != null" >
+        #{saleHall,jdbcType=TINYINT},
+      </if>
+      <if test="saleWei != null" >
+        #{saleWei,jdbcType=TINYINT},
+      </if>
+      <if test="saleYang != null" >
+        #{saleYang,jdbcType=TINYINT},
+      </if>
+      <if test="saleType != null" >
+        #{saleType,jdbcType=TINYINT},
+      </if>
+      <if test="saleFloor != null" >
+        #{saleFloor,jdbcType=SMALLINT},
+      </if>
+      <if test="saleFloors != null" >
+        #{saleFloors,jdbcType=TINYINT},
+      </if>
+      <if test="saleFitment != null" >
+        #{saleFitment,jdbcType=TINYINT},
+      </if>
+      <if test="saleDirect != null" >
+        #{saleDirect,jdbcType=TINYINT},
+      </if>
+      <if test="saleYear != null" >
+        #{saleYear,jdbcType=SMALLINT},
+      </if>
+      <if test="saleStruct != null" >
+        #{saleStruct,jdbcType=TINYINT},
+      </if>
+      <if test="saleUseage != null" >
+        #{saleUseage,jdbcType=TINYINT},
+      </if>
+      <if test="shopUsage != null" >
+        #{shopUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerType != null" >
+        #{ownerType,jdbcType=TINYINT},
+      </if>
+      <if test="officeLevel != null" >
+        #{officeLevel,jdbcType=TINYINT},
+      </if>
+      <if test="saleStreet != null" >
+        #{saleStreet,jdbcType=BIT},
+      </if>
+      <if test="saleRight != null" >
+        #{saleRight,jdbcType=TINYINT},
+      </if>
+      <if test="saleMortgage != null" >
+        #{saleMortgage,jdbcType=VARCHAR},
+      </if>
+      <if test="saleAccount != null" >
+        #{saleAccount,jdbcType=TINYINT},
+      </if>
+      <if test="saleArea != null" >
+        #{saleArea,jdbcType=NUMERIC},
+      </if>
+      <if test="saleInnerarea != null" >
+        #{saleInnerarea,jdbcType=NUMERIC},
+      </if>
+      <if test="saleTotalPrice != null" >
+        #{saleTotalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleUnitPrice != null" >
+        #{saleUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleLowestPrice != null" >
+        #{saleLowestPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleProperty != null" >
+        #{saleProperty,jdbcType=NUMERIC},
+      </if>
+      <if test="isSeperator != null" >
+        #{isSeperator,jdbcType=BIT},
+      </if>
+      <if test="saleLeaveTime != null" >
+        #{saleLeaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="hallStructure != null" >
+        #{hallStructure,jdbcType=TINYINT},
+      </if>
+      <if test="ugArea != null" >
+        #{ugArea,jdbcType=NUMERIC},
+      </if>
+      <if test="ugType != null" >
+        #{ugType,jdbcType=TINYINT},
+      </if>
+      <if test="gardenArea != null" >
+        #{gardenArea,jdbcType=NUMERIC},
+      </if>
+      <if test="garageAmount != null" >
+        #{garageAmount,jdbcType=TINYINT},
+      </if>
+      <if test="tagIds != null" >
+        #{tagIds,jdbcType=VARCHAR},
+      </if>
+      <if test="saleCharact != null" >
+        #{saleCharact,jdbcType=VARCHAR},
+      </if>
+      <if test="saleMemo != null" >
+        #{saleMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="saleSource != null" >
+        #{saleSource,jdbcType=TINYINT},
+      </if>
+      <if test="saleKey != null" >
+        #{saleKey,jdbcType=BIT},
+      </if>
+      <if test="saleKeyNum != null" >
+        #{saleKeyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="keyTime != null" >
+        #{keyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="saleExplrth != null" >
+        #{saleExplrth,jdbcType=BIT},
+      </if>
+      <if test="explrthDatetime != null" >
+        #{explrthDatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="saleConsign != null" >
+        #{saleConsign,jdbcType=TINYINT},
+      </if>
+      <if test="saleConsignNo != null" >
+        #{saleConsignNo,jdbcType=VARCHAR},
+      </if>
+      <if test="weituoTime != null" >
+        #{weituoTime,jdbcType=VARCHAR},
+      </if>
+      <if test="saleCooperate != null" >
+        #{saleCooperate,jdbcType=BIT},
+      </if>
+      <if test="salePublish != null" >
+        #{salePublish,jdbcType=BIT},
+      </if>
+      <if test="saleMap != null" >
+        #{saleMap,jdbcType=TINYINT},
+      </if>
+      <if test="thumbUrl != null" >
+        #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoNum != null" >
+        #{videoNum,jdbcType=TINYINT},
+      </if>
+      <if test="saleRoofT != null" >
+        #{saleRoofT,jdbcType=VARCHAR},
+      </if>
+      <if test="saleUnitT != null" >
+        #{saleUnitT,jdbcType=VARCHAR},
+      </if>
+      <if test="saleNumT != null" >
+        #{saleNumT,jdbcType=VARCHAR},
+      </if>
+      <if test="saleLevel != null" >
+        #{saleLevel,jdbcType=TINYINT},
+      </if>
+      <if test="plateType != null" >
+        #{plateType,jdbcType=TINYINT},
+      </if>
+      <if test="saleStatus != null" >
+        #{saleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="actionTime != null" >
+        #{actionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSoso != null" >
+        #{fromSoso,jdbcType=BIT},
+      </if>
+      <if test="repeatFlag != null" >
+        #{repeatFlag,jdbcType=TINYINT},
+      </if>
+      <if test="complaintFlag != null" >
+        #{complaintFlag,jdbcType=BIT},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="publishSites != null" >
+        #{publishSites,jdbcType=INTEGER},
+      </if>
+      <if test="photoTime != null" >
+        #{photoTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminOnlinePaymentReceiptFileMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFile" >
+    <!--@mbggenerated-->
+    <id column="FILE_ID" property="fileId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="ORDER_ID" property="orderId" jdbcType="INTEGER" />
+    <result column="FILE_PATH" property="filePath" jdbcType="VARCHAR" />
+    <result column="DOWN_COMPLETED" property="downCompleted" jdbcType="TINYINT" />
+    <result column="DOWN_TIME" property="downTime" jdbcType="TIMESTAMP" />
+    <result column="DOWN_FAIL_TIMES" property="downFailTimes" jdbcType="INTEGER" />
+    <result column="BUSINESS_ID" property="businessId" jdbcType="INTEGER" />
+    <result column="BUSINESS_TYPE" property="businessType" jdbcType="TINYINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="XW_FILE_CODE" property="xwFileCode" jdbcType="VARCHAR" />
+    <result column="ORDER_NO" property="orderNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    FILE_ID, CREATION_TIME, ORDER_ID, FILE_PATH, DOWN_COMPLETED, DOWN_TIME, DOWN_FAIL_TIMES, 
+    BUSINESS_ID, BUSINESS_TYPE, CITY_ID, XW_FILE_CODE, ORDER_NO
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFileExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ONLINE_PAYMENT_RECEIPT_FILE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ONLINE_PAYMENT_RECEIPT_FILE
+    where FILE_ID = #{fileId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from ONLINE_PAYMENT_RECEIPT_FILE
+    where FILE_ID = #{fileId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFileExample" >
+    <!--@mbggenerated-->
+    delete from ONLINE_PAYMENT_RECEIPT_FILE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFile" useGeneratedKeys="true" keyProperty="fileId" >
+    <!--@mbggenerated-->
+    insert into ONLINE_PAYMENT_RECEIPT_FILE (CREATION_TIME, ORDER_ID, FILE_PATH, 
+      DOWN_COMPLETED, DOWN_TIME, DOWN_FAIL_TIMES, 
+      BUSINESS_ID, BUSINESS_TYPE, CITY_ID, 
+      XW_FILE_CODE, ORDER_NO)
+    values (#{creationTime,jdbcType=TIMESTAMP}, #{orderId,jdbcType=INTEGER}, #{filePath,jdbcType=VARCHAR}, 
+      #{downCompleted,jdbcType=TINYINT}, #{downTime,jdbcType=TIMESTAMP}, #{downFailTimes,jdbcType=INTEGER}, 
+      #{businessId,jdbcType=INTEGER}, #{businessType,jdbcType=TINYINT}, #{cityId,jdbcType=INTEGER}, 
+      #{xwFileCode,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFile" useGeneratedKeys="true" keyProperty="fileId" >
+    <!--@mbggenerated-->
+    insert into ONLINE_PAYMENT_RECEIPT_FILE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="orderId != null" >
+        ORDER_ID,
+      </if>
+      <if test="filePath != null" >
+        FILE_PATH,
+      </if>
+      <if test="downCompleted != null" >
+        DOWN_COMPLETED,
+      </if>
+      <if test="downTime != null" >
+        DOWN_TIME,
+      </if>
+      <if test="downFailTimes != null" >
+        DOWN_FAIL_TIMES,
+      </if>
+      <if test="businessId != null" >
+        BUSINESS_ID,
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="xwFileCode != null" >
+        XW_FILE_CODE,
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="filePath != null" >
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="downCompleted != null" >
+        #{downCompleted,jdbcType=TINYINT},
+      </if>
+      <if test="downTime != null" >
+        #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downFailTimes != null" >
+        #{downFailTimes,jdbcType=INTEGER},
+      </if>
+      <if test="businessId != null" >
+        #{businessId,jdbcType=INTEGER},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="xwFileCode != null" >
+        #{xwFileCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFileExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from ONLINE_PAYMENT_RECEIPT_FILE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update ONLINE_PAYMENT_RECEIPT_FILE
+    <set >
+      <if test="record.fileId != null" >
+        FILE_ID = #{record.fileId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null" >
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.orderId != null" >
+        ORDER_ID = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.filePath != null" >
+        FILE_PATH = #{record.filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.downCompleted != null" >
+        DOWN_COMPLETED = #{record.downCompleted,jdbcType=TINYINT},
+      </if>
+      <if test="record.downTime != null" >
+        DOWN_TIME = #{record.downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.downFailTimes != null" >
+        DOWN_FAIL_TIMES = #{record.downFailTimes,jdbcType=INTEGER},
+      </if>
+      <if test="record.businessId != null" >
+        BUSINESS_ID = #{record.businessId,jdbcType=INTEGER},
+      </if>
+      <if test="record.businessType != null" >
+        BUSINESS_TYPE = #{record.businessType,jdbcType=TINYINT},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.xwFileCode != null" >
+        XW_FILE_CODE = #{record.xwFileCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderNo != null" >
+        ORDER_NO = #{record.orderNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update ONLINE_PAYMENT_RECEIPT_FILE
+    set FILE_ID = #{record.fileId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      ORDER_ID = #{record.orderId,jdbcType=INTEGER},
+      FILE_PATH = #{record.filePath,jdbcType=VARCHAR},
+      DOWN_COMPLETED = #{record.downCompleted,jdbcType=TINYINT},
+      DOWN_TIME = #{record.downTime,jdbcType=TIMESTAMP},
+      DOWN_FAIL_TIMES = #{record.downFailTimes,jdbcType=INTEGER},
+      BUSINESS_ID = #{record.businessId,jdbcType=INTEGER},
+      BUSINESS_TYPE = #{record.businessType,jdbcType=TINYINT},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      XW_FILE_CODE = #{record.xwFileCode,jdbcType=VARCHAR},
+      ORDER_NO = #{record.orderNo,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFile" >
+    <!--@mbggenerated-->
+    update ONLINE_PAYMENT_RECEIPT_FILE
+    <set >
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null" >
+        ORDER_ID = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="filePath != null" >
+        FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="downCompleted != null" >
+        DOWN_COMPLETED = #{downCompleted,jdbcType=TINYINT},
+      </if>
+      <if test="downTime != null" >
+        DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downFailTimes != null" >
+        DOWN_FAIL_TIMES = #{downFailTimes,jdbcType=INTEGER},
+      </if>
+      <if test="businessId != null" >
+        BUSINESS_ID = #{businessId,jdbcType=INTEGER},
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE = #{businessType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="xwFileCode != null" >
+        XW_FILE_CODE = #{xwFileCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FILE_ID = #{fileId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminOnlinePaymentReceiptFile" >
+    <!--@mbggenerated-->
+    update ONLINE_PAYMENT_RECEIPT_FILE
+    set CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      ORDER_ID = #{orderId,jdbcType=INTEGER},
+      FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      DOWN_COMPLETED = #{downCompleted,jdbcType=TINYINT},
+      DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      DOWN_FAIL_TIMES = #{downFailTimes,jdbcType=INTEGER},
+      BUSINESS_ID = #{businessId,jdbcType=INTEGER},
+      BUSINESS_TYPE = #{businessType,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      XW_FILE_CODE = #{xwFileCode,jdbcType=VARCHAR},
+      ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+    where FILE_ID = #{fileId,jdbcType=INTEGER}
+  </update>
+</mapper>

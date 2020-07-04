@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpTrackUsersMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpTrackUsers">
+    <!--@mbggenerated-->
+    <id column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <id column="TRACK_ID" jdbcType="INTEGER" property="trackId" />
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <id column="TRACK_TIME" jdbcType="VARCHAR" property="trackTime" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+  </resultMap>
+  <resultMap id="DtoBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpTrackUsersDto">
+    <id column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <id column="TRACK_ID" jdbcType="INTEGER" property="trackId" />
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <id column="TRACK_TIME" jdbcType="VARCHAR" property="trackTime" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    COMP_ID, TRACK_ID, USER_ID, TRACK_TIME, DEPT_NAME, USER_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpTrackUsersKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TRACK_USERS
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and TRACK_ID = #{trackId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and TRACK_TIME = #{trackTime,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpTrackUsersKey">
+    <!--@mbggenerated-->
+    delete from TRACK_USERS
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and TRACK_ID = #{trackId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and TRACK_TIME = #{trackTime,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpTrackUsers">
+    <!--@mbggenerated-->
+    insert into TRACK_USERS (COMP_ID, TRACK_ID, USER_ID, 
+      TRACK_TIME, DEPT_NAME, USER_NAME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{trackId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{trackTime,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpTrackUsers">
+    <!--@mbggenerated-->
+    insert into TRACK_USERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="trackId != null">
+        TRACK_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="trackId != null">
+        #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null">
+        #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpTrackUsers">
+    <!--@mbggenerated-->
+    update TRACK_USERS
+    <set>
+      <if test="deptName != null">
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and TRACK_ID = #{trackId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and TRACK_TIME = #{trackTime,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpTrackUsers">
+    <!--@mbggenerated-->
+    update TRACK_USERS
+    set DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR}
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and TRACK_ID = #{trackId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and TRACK_TIME = #{trackTime,jdbcType=VARCHAR}
+  </update>
+  <select id="getListByTrackIdAndCompId" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TRACK_USERS
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </select>
+</mapper>

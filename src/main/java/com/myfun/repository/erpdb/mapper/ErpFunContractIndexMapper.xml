@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunContractIndexMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunContractIndex">
+    <!--@mbggenerated-->
+    <id column="INDEX_ID" jdbcType="INTEGER" property="indexId" />
+    <result column="INDEX_NAME" jdbcType="VARCHAR" property="indexName" />
+    <result column="INDEX_TYPE" jdbcType="VARCHAR" property="indexType" />
+    <result column="INDEX_FORMAT" jdbcType="VARCHAR" property="indexFormat" />
+    <result column="INDEX_UNIT" jdbcType="VARCHAR" property="indexUnit" />
+    <result column="UNDER_LINE" jdbcType="TINYINT" property="underLine" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="OTHER" jdbcType="VARCHAR" property="other" />
+    <result column="REQUIRED" jdbcType="TINYINT" property="required" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="INDEX_STATUS" jdbcType="TINYINT" property="indexStatus" />
+    <result column="FUN_DEAL_FIELD" jdbcType="VARCHAR" property="funDealField" />
+    <result column="INDEX_GROUP" jdbcType="TINYINT" property="indexGroup" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="UNIQUE_KEY" jdbcType="VARCHAR" property="uniqueKey" />
+    <result column="TEMPLATE_ID" jdbcType="INTEGER" property="templateId" />
+    <result column="INDEX_SEQ" jdbcType="INTEGER" property="indexSeq" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    INDEX_ID, INDEX_NAME, INDEX_TYPE, INDEX_FORMAT, INDEX_UNIT, UNDER_LINE, CREATION_TIME, 
+    OTHER, REQUIRED, COMP_ID, INDEX_STATUS, FUN_DEAL_FIELD, INDEX_GROUP, CASE_TYPE, UNIQUE_KEY, 
+    TEMPLATE_ID, INDEX_SEQ
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractIndexExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_CONTRACT_INDEX
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_CONTRACT_INDEX
+    where INDEX_ID = #{indexId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_CONTRACT_INDEX
+    where INDEX_ID = #{indexId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractIndexExample">
+    <!--@mbggenerated-->
+    delete from FUN_CONTRACT_INDEX
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="indexId" parameterType="com.myfun.repository.erpdb.po.ErpFunContractIndex" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_CONTRACT_INDEX (INDEX_NAME, INDEX_TYPE, INDEX_FORMAT, 
+      INDEX_UNIT, UNDER_LINE, CREATION_TIME, 
+      OTHER, REQUIRED, COMP_ID, 
+      INDEX_STATUS, FUN_DEAL_FIELD, INDEX_GROUP, 
+      CASE_TYPE, UNIQUE_KEY, TEMPLATE_ID, 
+      INDEX_SEQ)
+    values (#{indexName,jdbcType=VARCHAR}, #{indexType,jdbcType=VARCHAR}, #{indexFormat,jdbcType=VARCHAR}, 
+      #{indexUnit,jdbcType=VARCHAR}, #{underLine,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{other,jdbcType=VARCHAR}, #{required,jdbcType=TINYINT}, #{compId,jdbcType=INTEGER}, 
+      #{indexStatus,jdbcType=TINYINT}, #{funDealField,jdbcType=VARCHAR}, #{indexGroup,jdbcType=TINYINT}, 
+      #{caseType,jdbcType=TINYINT}, #{uniqueKey,jdbcType=VARCHAR}, #{templateId,jdbcType=INTEGER}, 
+      #{indexSeq,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="indexId" parameterType="com.myfun.repository.erpdb.po.ErpFunContractIndex" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_CONTRACT_INDEX
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="indexName != null">
+        INDEX_NAME,
+      </if>
+      <if test="indexType != null">
+        INDEX_TYPE,
+      </if>
+      <if test="indexFormat != null">
+        INDEX_FORMAT,
+      </if>
+      <if test="indexUnit != null">
+        INDEX_UNIT,
+      </if>
+      <if test="underLine != null">
+        UNDER_LINE,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="other != null">
+        OTHER,
+      </if>
+      <if test="required != null">
+        REQUIRED,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="indexStatus != null">
+        INDEX_STATUS,
+      </if>
+      <if test="funDealField != null">
+        FUN_DEAL_FIELD,
+      </if>
+      <if test="indexGroup != null">
+        INDEX_GROUP,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="uniqueKey != null">
+        UNIQUE_KEY,
+      </if>
+      <if test="templateId != null">
+        TEMPLATE_ID,
+      </if>
+      <if test="indexSeq != null">
+        INDEX_SEQ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="indexName != null">
+        #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexType != null">
+        #{indexType,jdbcType=VARCHAR},
+      </if>
+      <if test="indexFormat != null">
+        #{indexFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="indexUnit != null">
+        #{indexUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="underLine != null">
+        #{underLine,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="required != null">
+        #{required,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="indexStatus != null">
+        #{indexStatus,jdbcType=TINYINT},
+      </if>
+      <if test="funDealField != null">
+        #{funDealField,jdbcType=VARCHAR},
+      </if>
+      <if test="indexGroup != null">
+        #{indexGroup,jdbcType=TINYINT},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="uniqueKey != null">
+        #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="templateId != null">
+        #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="indexSeq != null">
+        #{indexSeq,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractIndexExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_CONTRACT_INDEX
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_INDEX
+    <set>
+      <if test="record.indexId != null">
+        INDEX_ID = #{record.indexId,jdbcType=INTEGER},
+      </if>
+      <if test="record.indexName != null">
+        INDEX_NAME = #{record.indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexType != null">
+        INDEX_TYPE = #{record.indexType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexFormat != null">
+        INDEX_FORMAT = #{record.indexFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexUnit != null">
+        INDEX_UNIT = #{record.indexUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.underLine != null">
+        UNDER_LINE = #{record.underLine,jdbcType=TINYINT},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.other != null">
+        OTHER = #{record.other,jdbcType=VARCHAR},
+      </if>
+      <if test="record.required != null">
+        REQUIRED = #{record.required,jdbcType=TINYINT},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.indexStatus != null">
+        INDEX_STATUS = #{record.indexStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.funDealField != null">
+        FUN_DEAL_FIELD = #{record.funDealField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexGroup != null">
+        INDEX_GROUP = #{record.indexGroup,jdbcType=TINYINT},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.uniqueKey != null">
+        UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.templateId != null">
+        TEMPLATE_ID = #{record.templateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.indexSeq != null">
+        INDEX_SEQ = #{record.indexSeq,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_INDEX
+    set INDEX_ID = #{record.indexId,jdbcType=INTEGER},
+      INDEX_NAME = #{record.indexName,jdbcType=VARCHAR},
+      INDEX_TYPE = #{record.indexType,jdbcType=VARCHAR},
+      INDEX_FORMAT = #{record.indexFormat,jdbcType=VARCHAR},
+      INDEX_UNIT = #{record.indexUnit,jdbcType=VARCHAR},
+      UNDER_LINE = #{record.underLine,jdbcType=TINYINT},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      OTHER = #{record.other,jdbcType=VARCHAR},
+      REQUIRED = #{record.required,jdbcType=TINYINT},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      INDEX_STATUS = #{record.indexStatus,jdbcType=TINYINT},
+      FUN_DEAL_FIELD = #{record.funDealField,jdbcType=VARCHAR},
+      INDEX_GROUP = #{record.indexGroup,jdbcType=TINYINT},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      TEMPLATE_ID = #{record.templateId,jdbcType=INTEGER},
+      INDEX_SEQ = #{record.indexSeq,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunContractIndex">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_INDEX
+    <set>
+      <if test="indexName != null">
+        INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="indexType != null">
+        INDEX_TYPE = #{indexType,jdbcType=VARCHAR},
+      </if>
+      <if test="indexFormat != null">
+        INDEX_FORMAT = #{indexFormat,jdbcType=VARCHAR},
+      </if>
+      <if test="indexUnit != null">
+        INDEX_UNIT = #{indexUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="underLine != null">
+        UNDER_LINE = #{underLine,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="other != null">
+        OTHER = #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="required != null">
+        REQUIRED = #{required,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="indexStatus != null">
+        INDEX_STATUS = #{indexStatus,jdbcType=TINYINT},
+      </if>
+      <if test="funDealField != null">
+        FUN_DEAL_FIELD = #{funDealField,jdbcType=VARCHAR},
+      </if>
+      <if test="indexGroup != null">
+        INDEX_GROUP = #{indexGroup,jdbcType=TINYINT},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="uniqueKey != null">
+        UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="templateId != null">
+        TEMPLATE_ID = #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="indexSeq != null">
+        INDEX_SEQ = #{indexSeq,jdbcType=INTEGER},
+      </if>
+    </set>
+    where INDEX_ID = #{indexId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunContractIndex">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_INDEX
+    set INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+      INDEX_TYPE = #{indexType,jdbcType=VARCHAR},
+      INDEX_FORMAT = #{indexFormat,jdbcType=VARCHAR},
+      INDEX_UNIT = #{indexUnit,jdbcType=VARCHAR},
+      UNDER_LINE = #{underLine,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      OTHER = #{other,jdbcType=VARCHAR},
+      REQUIRED = #{required,jdbcType=TINYINT},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      INDEX_STATUS = #{indexStatus,jdbcType=TINYINT},
+      FUN_DEAL_FIELD = #{funDealField,jdbcType=VARCHAR},
+      INDEX_GROUP = #{indexGroup,jdbcType=TINYINT},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      TEMPLATE_ID = #{templateId,jdbcType=INTEGER},
+      INDEX_SEQ = #{indexSeq,jdbcType=INTEGER}
+    where INDEX_ID = #{indexId,jdbcType=INTEGER}
+  </update>
+  <select id="getList" resultMap="BaseResultMap">
+    select a.* from FUN_CONTRACT_INDEX a
+    left join FUN_CONTRACT_TEMPLAE b on a.TEMPLATE_ID = b.TEMPLATE_ID
+    where  IS_YOUJIA_TEMPLATE=1 and TEMPLATE_TYPE=#{caseType} and b.city_id=#{shardCityId}
+  </select>
+</mapper>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyPurchaseBorkerMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyPurchaseBorker">
+    <!--@mbggenerated-->
+    <id column="PB_ID" jdbcType="INTEGER" property="pbId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="VARCHAR" property="caseType" />
+    <result column="CLIENT_ID" jdbcType="INTEGER" property="clientId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="UA_ID" jdbcType="INTEGER" property="uaId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="CUST_ID" jdbcType="INTEGER" property="custId" />
+    <result column="PB_MONEY" jdbcType="INTEGER" property="pbMoney" />
+    <result column="PB_TIME" jdbcType="TIMESTAMP" property="pbTime" />
+    <result column="CALL_DURATION" jdbcType="INTEGER" property="callDuration" />
+    <result column="CALL_TIMES" jdbcType="INTEGER" property="callTimes" />
+    <result column="PB_FLAG" jdbcType="TINYINT" property="pbFlag" />
+    <result column="REFUND_FLAG" jdbcType="TINYINT" property="refundFlag" />
+    <result column="REFUND_REASON" jdbcType="VARCHAR" property="refundReason" />
+    <result column="REFUND_USER" jdbcType="INTEGER" property="refundUser" />
+    <result column="REFUND_TIME" jdbcType="TIMESTAMP" property="refundTime" />
+    <result column="IS_USED" jdbcType="TINYINT" property="isUsed" />
+    <result column="PAY_FLAG" jdbcType="TINYINT" property="payFlag" />
+    <result column="PB_STATUS" jdbcType="TINYINT" property="pbStatus" />
+    <result column="GIFT_CION" jdbcType="INTEGER" property="giftCion" />
+    <result column="GIFT_PERIOD" jdbcType="INTEGER" property="giftPeriod" />
+    <result column="GIFT_TIMES" jdbcType="TINYINT" property="giftTimes" />
+    <result column="VISIT_UID" jdbcType="INTEGER" property="visitUid" />
+    <result column="VISIT_TIME" jdbcType="TIMESTAMP" property="visitTime" />
+    <result column="UA_TYPE" jdbcType="TINYINT" property="uaType" />
+    <result column="PB_COMP_MONEY" jdbcType="INTEGER" property="pbCompMoney" />
+    <result column="COMP_UAID" jdbcType="INTEGER" property="compUaid" />
+    <result column="CALL_COUNT" jdbcType="INTEGER" property="callCount" />
+    <result column="BUY_COUNT" jdbcType="INTEGER" property="buyCount" />
+    <result column="PERPETUAL_FLAG" jdbcType="TINYINT" property="perpetualFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PB_ID, CASE_ID, CASE_TYPE, CLIENT_ID, CITY_ID, ARCHIVE_ID, UA_ID, USER_NAME, USER_MOBILE, 
+    CUST_ID, PB_MONEY, PB_TIME, CALL_DURATION, CALL_TIMES, PB_FLAG, REFUND_FLAG, REFUND_REASON, 
+    REFUND_USER, REFUND_TIME, IS_USED, PAY_FLAG, PB_STATUS, GIFT_CION, GIFT_PERIOD, GIFT_TIMES, 
+    VISIT_UID, VISIT_TIME, UA_TYPE, PB_COMP_MONEY, COMP_UAID, CALL_COUNT, BUY_COUNT, 
+    PERPETUAL_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from PURCHASE_BORKER
+    where PB_ID = #{pbId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from PURCHASE_BORKER
+    where PB_ID = #{pbId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyPurchaseBorker">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="pbId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(PB_ID)+1 FROM PURCHASE_BORKER
+    </selectKey>
+    insert into PURCHASE_BORKER (PB_ID, CASE_ID, CASE_TYPE, 
+      CLIENT_ID, CITY_ID, ARCHIVE_ID, 
+      UA_ID, USER_NAME, USER_MOBILE, 
+      CUST_ID, PB_MONEY, PB_TIME, 
+      CALL_DURATION, CALL_TIMES, PB_FLAG, 
+      REFUND_FLAG, REFUND_REASON, REFUND_USER, 
+      REFUND_TIME, IS_USED, PAY_FLAG, 
+      PB_STATUS, GIFT_CION, GIFT_PERIOD, 
+      GIFT_TIMES, VISIT_UID, VISIT_TIME, 
+      UA_TYPE, PB_COMP_MONEY, COMP_UAID, 
+      CALL_COUNT, BUY_COUNT, PERPETUAL_FLAG
+      )
+    values (#{pbId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=VARCHAR}, 
+      #{clientId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, 
+      #{uaId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR}, 
+      #{custId,jdbcType=INTEGER}, #{pbMoney,jdbcType=INTEGER}, #{pbTime,jdbcType=TIMESTAMP}, 
+      #{callDuration,jdbcType=INTEGER}, #{callTimes,jdbcType=INTEGER}, #{pbFlag,jdbcType=TINYINT}, 
+      #{refundFlag,jdbcType=TINYINT}, #{refundReason,jdbcType=VARCHAR}, #{refundUser,jdbcType=INTEGER}, 
+      #{refundTime,jdbcType=TIMESTAMP}, #{isUsed,jdbcType=TINYINT}, #{payFlag,jdbcType=TINYINT}, 
+      #{pbStatus,jdbcType=TINYINT}, #{giftCion,jdbcType=INTEGER}, #{giftPeriod,jdbcType=INTEGER}, 
+      #{giftTimes,jdbcType=TINYINT}, #{visitUid,jdbcType=INTEGER}, #{visitTime,jdbcType=TIMESTAMP}, 
+      #{uaType,jdbcType=TINYINT}, #{pbCompMoney,jdbcType=INTEGER}, #{compUaid,jdbcType=INTEGER}, 
+      #{callCount,jdbcType=INTEGER}, #{buyCount,jdbcType=INTEGER}, #{perpetualFlag,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyPurchaseBorker">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="pbId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(PB_ID)+1 FROM PURCHASE_BORKER
+    </selectKey>
+    insert into PURCHASE_BORKER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      PB_ID,
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="clientId != null">
+        CLIENT_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="uaId != null">
+        UA_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="pbMoney != null">
+        PB_MONEY,
+      </if>
+      <if test="pbTime != null">
+        PB_TIME,
+      </if>
+      <if test="callDuration != null">
+        CALL_DURATION,
+      </if>
+      <if test="callTimes != null">
+        CALL_TIMES,
+      </if>
+      <if test="pbFlag != null">
+        PB_FLAG,
+      </if>
+      <if test="refundFlag != null">
+        REFUND_FLAG,
+      </if>
+      <if test="refundReason != null">
+        REFUND_REASON,
+      </if>
+      <if test="refundUser != null">
+        REFUND_USER,
+      </if>
+      <if test="refundTime != null">
+        REFUND_TIME,
+      </if>
+      <if test="isUsed != null">
+        IS_USED,
+      </if>
+      <if test="payFlag != null">
+        PAY_FLAG,
+      </if>
+      <if test="pbStatus != null">
+        PB_STATUS,
+      </if>
+      <if test="giftCion != null">
+        GIFT_CION,
+      </if>
+      <if test="giftPeriod != null">
+        GIFT_PERIOD,
+      </if>
+      <if test="giftTimes != null">
+        GIFT_TIMES,
+      </if>
+      <if test="visitUid != null">
+        VISIT_UID,
+      </if>
+      <if test="visitTime != null">
+        VISIT_TIME,
+      </if>
+      <if test="uaType != null">
+        UA_TYPE,
+      </if>
+      <if test="pbCompMoney != null">
+        PB_COMP_MONEY,
+      </if>
+      <if test="compUaid != null">
+        COMP_UAID,
+      </if>
+      <if test="callCount != null">
+        CALL_COUNT,
+      </if>
+      <if test="buyCount != null">
+        BUY_COUNT,
+      </if>
+      <if test="perpetualFlag != null">
+        PERPETUAL_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{pbId,jdbcType=INTEGER},
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null">
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="pbMoney != null">
+        #{pbMoney,jdbcType=INTEGER},
+      </if>
+      <if test="pbTime != null">
+        #{pbTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="callDuration != null">
+        #{callDuration,jdbcType=INTEGER},
+      </if>
+      <if test="callTimes != null">
+        #{callTimes,jdbcType=INTEGER},
+      </if>
+      <if test="pbFlag != null">
+        #{pbFlag,jdbcType=TINYINT},
+      </if>
+      <if test="refundFlag != null">
+        #{refundFlag,jdbcType=TINYINT},
+      </if>
+      <if test="refundReason != null">
+        #{refundReason,jdbcType=VARCHAR},
+      </if>
+      <if test="refundUser != null">
+        #{refundUser,jdbcType=INTEGER},
+      </if>
+      <if test="refundTime != null">
+        #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isUsed != null">
+        #{isUsed,jdbcType=TINYINT},
+      </if>
+      <if test="payFlag != null">
+        #{payFlag,jdbcType=TINYINT},
+      </if>
+      <if test="pbStatus != null">
+        #{pbStatus,jdbcType=TINYINT},
+      </if>
+      <if test="giftCion != null">
+        #{giftCion,jdbcType=INTEGER},
+      </if>
+      <if test="giftPeriod != null">
+        #{giftPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="giftTimes != null">
+        #{giftTimes,jdbcType=TINYINT},
+      </if>
+      <if test="visitUid != null">
+        #{visitUid,jdbcType=INTEGER},
+      </if>
+      <if test="visitTime != null">
+        #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uaType != null">
+        #{uaType,jdbcType=TINYINT},
+      </if>
+      <if test="pbCompMoney != null">
+        #{pbCompMoney,jdbcType=INTEGER},
+      </if>
+      <if test="compUaid != null">
+        #{compUaid,jdbcType=INTEGER},
+      </if>
+      <if test="callCount != null">
+        #{callCount,jdbcType=INTEGER},
+      </if>
+      <if test="buyCount != null">
+        #{buyCount,jdbcType=INTEGER},
+      </if>
+      <if test="perpetualFlag != null">
+        #{perpetualFlag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyPurchaseBorker">
+    <!--@mbggenerated-->
+    update PURCHASE_BORKER
+    <set>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="clientId != null">
+        CLIENT_ID = #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null">
+        UA_ID = #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="pbMoney != null">
+        PB_MONEY = #{pbMoney,jdbcType=INTEGER},
+      </if>
+      <if test="pbTime != null">
+        PB_TIME = #{pbTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="callDuration != null">
+        CALL_DURATION = #{callDuration,jdbcType=INTEGER},
+      </if>
+      <if test="callTimes != null">
+        CALL_TIMES = #{callTimes,jdbcType=INTEGER},
+      </if>
+      <if test="pbFlag != null">
+        PB_FLAG = #{pbFlag,jdbcType=TINYINT},
+      </if>
+      <if test="refundFlag != null">
+        REFUND_FLAG = #{refundFlag,jdbcType=TINYINT},
+      </if>
+      <if test="refundReason != null">
+        REFUND_REASON = #{refundReason,jdbcType=VARCHAR},
+      </if>
+      <if test="refundUser != null">
+        REFUND_USER = #{refundUser,jdbcType=INTEGER},
+      </if>
+      <if test="refundTime != null">
+        REFUND_TIME = #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isUsed != null">
+        IS_USED = #{isUsed,jdbcType=TINYINT},
+      </if>
+      <if test="payFlag != null">
+        PAY_FLAG = #{payFlag,jdbcType=TINYINT},
+      </if>
+      <if test="pbStatus != null">
+        PB_STATUS = #{pbStatus,jdbcType=TINYINT},
+      </if>
+      <if test="giftCion != null">
+        GIFT_CION = #{giftCion,jdbcType=INTEGER},
+      </if>
+      <if test="giftPeriod != null">
+        GIFT_PERIOD = #{giftPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="giftTimes != null">
+        GIFT_TIMES = #{giftTimes,jdbcType=TINYINT},
+      </if>
+      <if test="visitUid != null">
+        VISIT_UID = #{visitUid,jdbcType=INTEGER},
+      </if>
+      <if test="visitTime != null">
+        VISIT_TIME = #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uaType != null">
+        UA_TYPE = #{uaType,jdbcType=TINYINT},
+      </if>
+      <if test="pbCompMoney != null">
+        PB_COMP_MONEY = #{pbCompMoney,jdbcType=INTEGER},
+      </if>
+      <if test="compUaid != null">
+        COMP_UAID = #{compUaid,jdbcType=INTEGER},
+      </if>
+      <if test="callCount != null">
+        CALL_COUNT = #{callCount,jdbcType=INTEGER},
+      </if>
+      <if test="buyCount != null">
+        BUY_COUNT = #{buyCount,jdbcType=INTEGER},
+      </if>
+      <if test="perpetualFlag != null">
+        PERPETUAL_FLAG = #{perpetualFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PB_ID = #{pbId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyPurchaseBorker">
+    <!--@mbggenerated-->
+    update PURCHASE_BORKER
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=VARCHAR},
+      CLIENT_ID = #{clientId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      UA_ID = #{uaId,jdbcType=INTEGER},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      CUST_ID = #{custId,jdbcType=INTEGER},
+      PB_MONEY = #{pbMoney,jdbcType=INTEGER},
+      PB_TIME = #{pbTime,jdbcType=TIMESTAMP},
+      CALL_DURATION = #{callDuration,jdbcType=INTEGER},
+      CALL_TIMES = #{callTimes,jdbcType=INTEGER},
+      PB_FLAG = #{pbFlag,jdbcType=TINYINT},
+      REFUND_FLAG = #{refundFlag,jdbcType=TINYINT},
+      REFUND_REASON = #{refundReason,jdbcType=VARCHAR},
+      REFUND_USER = #{refundUser,jdbcType=INTEGER},
+      REFUND_TIME = #{refundTime,jdbcType=TIMESTAMP},
+      IS_USED = #{isUsed,jdbcType=TINYINT},
+      PAY_FLAG = #{payFlag,jdbcType=TINYINT},
+      PB_STATUS = #{pbStatus,jdbcType=TINYINT},
+      GIFT_CION = #{giftCion,jdbcType=INTEGER},
+      GIFT_PERIOD = #{giftPeriod,jdbcType=INTEGER},
+      GIFT_TIMES = #{giftTimes,jdbcType=TINYINT},
+      VISIT_UID = #{visitUid,jdbcType=INTEGER},
+      VISIT_TIME = #{visitTime,jdbcType=TIMESTAMP},
+      UA_TYPE = #{uaType,jdbcType=TINYINT},
+      PB_COMP_MONEY = #{pbCompMoney,jdbcType=INTEGER},
+      COMP_UAID = #{compUaid,jdbcType=INTEGER},
+      CALL_COUNT = #{callCount,jdbcType=INTEGER},
+      BUY_COUNT = #{buyCount,jdbcType=INTEGER},
+      PERPETUAL_FLAG = #{perpetualFlag,jdbcType=TINYINT}
+    where PB_ID = #{pbId,jdbcType=INTEGER}
+  </update>
+  <select id="count" parameterType="com.myfun.repository.agencydb.po.AgencyPurchaseBorker" resultType="java.lang.Integer">
+  	select count(*) from PURCHASE_BORKER
+  	where CITY_ID = #{cityId}
+  		And CASE_ID = #{caseId,jdbcType=INTEGER}
+  		And CASE_TYPE = #{caseType,jdbcType=VARCHAR}
+  		And PAY_FLAG = #{payFlag,jdbcType=TINYINT}
+  		And REFUND_FLAG = #{refundFlag,jdbcType=TINYINT}
+  </select>
+  
+  <update id="updatePbFlagAndIsUsed" parameterType="com.myfun.repository.agencydb.po.AgencyPurchaseBorker">
+ 	 update PURCHASE_BORKER set PB_FLAG = #{pbFlag}, IS_USED = #{isUsed}
+ 	 where CITY_ID = #{cityId} and CASE_ID = #{caseId} and CASE_TYPE = #{caseType}
+ 	 and ARCHIVE_ID = #{archiveId}
+  </update>
+  
+  <select id="getPurchaseList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PURCHASE_BORKER
+    where CITY_ID = #{cityId}
+    and CASE_ID = #{caseId}
+    and CASE_TYPE = #{caseType}
+  </select>
+  
+  <select id="getPurchaseBorker" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PURCHASE_BORKER
+    where CITY_ID = #{cityId}
+    and CASE_ID = #{caseId}
+    and CASE_TYPE = #{caseType}
+    and ARCHIVE_ID = #{archiveId}
+  </select>
+	<update id="procPurchaseVipinfo" parameterType="com.myfun.repository.agencydb.po.AgencyPurchaseBorker">
+		update PURCHASE_BORKER 
+		set
+		PERPETUAL_FLAG=1,
+		PB_MONEY = #{pbMoney},
+		BUY_COUNT = ISNULL(BUY_COUNT,0)+1,
+		CALL_COUNT = ISNULL(CALL_COUNT,0) + #{callCount}
+		where
+		CASE_ID = #{caseId}
+		and CASE_TYPE = #{caseType}
+		and CITY_ID = #{cityId}
+		and ARCHIVE_ID = #{archiveId}
+	</update>
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminCityAdsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminCityAds" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="AD_ID" property="adId" jdbcType="INTEGER" />
+    <result column="CITY_NAME" property="cityName" jdbcType="VARCHAR" />
+    <result column="AD_LIMIT" property="adLimit" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_UID" property="updateUid" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CITY_ID, AD_ID, CITY_NAME, AD_LIMIT, UPDATE_UID, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CITY_ADS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from CITY_ADS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminCityAds" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into CITY_ADS (CITY_ID, AD_ID, CITY_NAME, 
+      AD_LIMIT, UPDATE_UID, UPDATE_TIME
+      )
+    values (#{cityId,jdbcType=INTEGER}, #{adId,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, 
+      #{adLimit,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminCityAds" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into CITY_ADS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="adId != null" >
+        AD_ID,
+      </if>
+      <if test="cityName != null" >
+        CITY_NAME,
+      </if>
+      <if test="adLimit != null" >
+        AD_LIMIT,
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="adId != null" >
+        #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="adLimit != null" >
+        #{adLimit,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null" >
+        #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminCityAds" >
+    <!--@mbggenerated-->
+    update CITY_ADS
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="adId != null" >
+        AD_ID = #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null" >
+        CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="adLimit != null" >
+        AD_LIMIT = #{adLimit,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminCityAds" >
+    <!--@mbggenerated-->
+    update CITY_ADS
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      AD_ID = #{adId,jdbcType=INTEGER},
+      CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      AD_LIMIT = #{adLimit,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

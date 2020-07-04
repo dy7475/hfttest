@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyLog400ErrMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyLog400Err" >
+    <!--@mbggenerated-->
+    <id column="LOG_ID" property="logId" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="TINYINT" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="LOG_DESC" property="logDesc" jdbcType="VARCHAR" />
+    <result column="DEAL_FLAG" property="dealFlag" jdbcType="TINYINT" />
+    <result column="ERR_TIME" property="errTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    LOG_ID, TYPE, CASE_ID, LOG_DESC, DEAL_FLAG, ERR_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LOG_400_ERR
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from LOG_400_ERR
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyLog400Err" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="logId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into LOG_400_ERR (TYPE, CASE_ID, LOG_DESC, 
+      DEAL_FLAG, ERR_TIME)
+    values (#{type,jdbcType=TINYINT}, #{caseId,jdbcType=INTEGER}, #{logDesc,jdbcType=VARCHAR}, 
+      #{dealFlag,jdbcType=TINYINT}, #{errTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyLog400Err" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="logId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into LOG_400_ERR
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="logDesc != null" >
+        LOG_DESC,
+      </if>
+      <if test="dealFlag != null" >
+        DEAL_FLAG,
+      </if>
+      <if test="errTime != null" >
+        ERR_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="logDesc != null" >
+        #{logDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dealFlag != null" >
+        #{dealFlag,jdbcType=TINYINT},
+      </if>
+      <if test="errTime != null" >
+        #{errTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyLog400Err" >
+    <!--@mbggenerated-->
+    update LOG_400_ERR
+    <set >
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="logDesc != null" >
+        LOG_DESC = #{logDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dealFlag != null" >
+        DEAL_FLAG = #{dealFlag,jdbcType=TINYINT},
+      </if>
+      <if test="errTime != null" >
+        ERR_TIME = #{errTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyLog400Err" >
+    <!--@mbggenerated-->
+    update LOG_400_ERR
+    set TYPE = #{type,jdbcType=TINYINT},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      LOG_DESC = #{logDesc,jdbcType=VARCHAR},
+      DEAL_FLAG = #{dealFlag,jdbcType=TINYINT},
+      ERR_TIME = #{errTime,jdbcType=TIMESTAMP}
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </update>
+</mapper>

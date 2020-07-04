@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyBuildLayoutTmpMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyBuildLayoutTmp" >
+    <!--@mbggenerated-->
+    <id column="LAYOUT_ID" property="layoutId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="LAYOUT_NO" property="layoutNo" jdbcType="VARCHAR" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="SMALLINT" />
+    <result column="ROOMS" property="rooms" jdbcType="TINYINT" />
+    <result column="HALLS" property="halls" jdbcType="TINYINT" />
+    <result column="WEIS" property="weis" jdbcType="TINYINT" />
+    <result column="YANGS" property="yangs" jdbcType="TINYINT" />
+    <result column="BUILD_AREA" property="buildArea" jdbcType="NUMERIC" />
+    <result column="INSIDE_AREA" property="insideArea" jdbcType="NUMERIC" />
+    <result column="PRICE" property="price" jdbcType="INTEGER" />
+    <result column="LAYOUT_TYPE" property="layoutType" jdbcType="VARCHAR" />
+    <result column="HOUSES" property="houses" jdbcType="INTEGER" />
+    <result column="ISMAIN" property="ismain" jdbcType="SMALLINT" />
+    <result column="CHARACT" property="charact" jdbcType="VARCHAR" />
+    <result column="LAYOUT_PIC1" property="layoutPic1" jdbcType="VARCHAR" />
+    <result column="LAYOUT_PIC2" property="layoutPic2" jdbcType="VARCHAR" />
+    <result column="LAYOUT_NAME" property="layoutName" jdbcType="VARCHAR" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="SMALLINT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="EXAM_UID" property="examUid" jdbcType="INTEGER" />
+    <result column="EXAM_TIME" property="examTime" jdbcType="TIMESTAMP" />
+    <result column="EXAM_FLAG" property="examFlag" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyBuildLayoutTmp" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="CHARACT_RICH_TEXT" property="charactRichText" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    LAYOUT_ID, CITY_ID, BUILD_ID, LAYOUT_NO, SEQ_NO, ROOMS, HALLS, WEIS, YANGS, BUILD_AREA, 
+    INSIDE_AREA, PRICE, LAYOUT_TYPE, HOUSES, ISMAIN, CHARACT, LAYOUT_PIC1, LAYOUT_PIC2, 
+    LAYOUT_NAME, CREATOR_UID, CREATION_TIME, EXAM_UID, EXAM_TIME, EXAM_FLAG
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    CHARACT_RICH_TEXT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BUILD_LAYOUT_TMP
+    where LAYOUT_ID = #{layoutId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from BUILD_LAYOUT_TMP
+    where LAYOUT_ID = #{layoutId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyBuildLayoutTmp" >
+    <!--@mbggenerated-->
+    insert into BUILD_LAYOUT_TMP (LAYOUT_ID, CITY_ID, BUILD_ID, 
+      LAYOUT_NO, SEQ_NO, ROOMS, 
+      HALLS, WEIS, YANGS, 
+      BUILD_AREA, INSIDE_AREA, PRICE, 
+      LAYOUT_TYPE, HOUSES, ISMAIN, 
+      CHARACT, LAYOUT_PIC1, LAYOUT_PIC2, 
+      LAYOUT_NAME, CREATOR_UID, CREATION_TIME, 
+      EXAM_UID, EXAM_TIME, EXAM_FLAG, 
+      CHARACT_RICH_TEXT)
+    values (#{layoutId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{buildId,jdbcType=INTEGER}, 
+      #{layoutNo,jdbcType=VARCHAR}, #{seqNo,jdbcType=SMALLINT}, #{rooms,jdbcType=TINYINT}, 
+      #{halls,jdbcType=TINYINT}, #{weis,jdbcType=TINYINT}, #{yangs,jdbcType=TINYINT}, 
+      #{buildArea,jdbcType=NUMERIC}, #{insideArea,jdbcType=NUMERIC}, #{price,jdbcType=INTEGER}, 
+      #{layoutType,jdbcType=VARCHAR}, #{houses,jdbcType=INTEGER}, #{ismain,jdbcType=SMALLINT}, 
+      #{charact,jdbcType=VARCHAR}, #{layoutPic1,jdbcType=VARCHAR}, #{layoutPic2,jdbcType=VARCHAR}, 
+      #{layoutName,jdbcType=VARCHAR}, #{creatorUid,jdbcType=SMALLINT}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{examUid,jdbcType=INTEGER}, #{examTime,jdbcType=TIMESTAMP}, #{examFlag,jdbcType=TINYINT}, 
+      #{charactRichText,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildLayoutTmp" >
+    <!--@mbggenerated-->
+    insert into BUILD_LAYOUT_TMP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="layoutId != null" >
+        LAYOUT_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="layoutNo != null" >
+        LAYOUT_NO,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="rooms != null" >
+        ROOMS,
+      </if>
+      <if test="halls != null" >
+        HALLS,
+      </if>
+      <if test="weis != null" >
+        WEIS,
+      </if>
+      <if test="yangs != null" >
+        YANGS,
+      </if>
+      <if test="buildArea != null" >
+        BUILD_AREA,
+      </if>
+      <if test="insideArea != null" >
+        INSIDE_AREA,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="layoutType != null" >
+        LAYOUT_TYPE,
+      </if>
+      <if test="houses != null" >
+        HOUSES,
+      </if>
+      <if test="ismain != null" >
+        ISMAIN,
+      </if>
+      <if test="charact != null" >
+        CHARACT,
+      </if>
+      <if test="layoutPic1 != null" >
+        LAYOUT_PIC1,
+      </if>
+      <if test="layoutPic2 != null" >
+        LAYOUT_PIC2,
+      </if>
+      <if test="layoutName != null" >
+        LAYOUT_NAME,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="examUid != null" >
+        EXAM_UID,
+      </if>
+      <if test="examTime != null" >
+        EXAM_TIME,
+      </if>
+      <if test="examFlag != null" >
+        EXAM_FLAG,
+      </if>
+      <if test="charactRichText != null" >
+        CHARACT_RICH_TEXT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="layoutId != null" >
+        #{layoutId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="layoutNo != null" >
+        #{layoutNo,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=SMALLINT},
+      </if>
+      <if test="rooms != null" >
+        #{rooms,jdbcType=TINYINT},
+      </if>
+      <if test="halls != null" >
+        #{halls,jdbcType=TINYINT},
+      </if>
+      <if test="weis != null" >
+        #{weis,jdbcType=TINYINT},
+      </if>
+      <if test="yangs != null" >
+        #{yangs,jdbcType=TINYINT},
+      </if>
+      <if test="buildArea != null" >
+        #{buildArea,jdbcType=NUMERIC},
+      </if>
+      <if test="insideArea != null" >
+        #{insideArea,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="layoutType != null" >
+        #{layoutType,jdbcType=VARCHAR},
+      </if>
+      <if test="houses != null" >
+        #{houses,jdbcType=INTEGER},
+      </if>
+      <if test="ismain != null" >
+        #{ismain,jdbcType=SMALLINT},
+      </if>
+      <if test="charact != null" >
+        #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutPic1 != null" >
+        #{layoutPic1,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutPic2 != null" >
+        #{layoutPic2,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutName != null" >
+        #{layoutName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=SMALLINT},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examUid != null" >
+        #{examUid,jdbcType=INTEGER},
+      </if>
+      <if test="examTime != null" >
+        #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examFlag != null" >
+        #{examFlag,jdbcType=TINYINT},
+      </if>
+      <if test="charactRichText != null" >
+        #{charactRichText,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildLayoutTmp" >
+    <!--@mbggenerated-->
+    update BUILD_LAYOUT_TMP
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="layoutNo != null" >
+        LAYOUT_NO = #{layoutNo,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=SMALLINT},
+      </if>
+      <if test="rooms != null" >
+        ROOMS = #{rooms,jdbcType=TINYINT},
+      </if>
+      <if test="halls != null" >
+        HALLS = #{halls,jdbcType=TINYINT},
+      </if>
+      <if test="weis != null" >
+        WEIS = #{weis,jdbcType=TINYINT},
+      </if>
+      <if test="yangs != null" >
+        YANGS = #{yangs,jdbcType=TINYINT},
+      </if>
+      <if test="buildArea != null" >
+        BUILD_AREA = #{buildArea,jdbcType=NUMERIC},
+      </if>
+      <if test="insideArea != null" >
+        INSIDE_AREA = #{insideArea,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="layoutType != null" >
+        LAYOUT_TYPE = #{layoutType,jdbcType=VARCHAR},
+      </if>
+      <if test="houses != null" >
+        HOUSES = #{houses,jdbcType=INTEGER},
+      </if>
+      <if test="ismain != null" >
+        ISMAIN = #{ismain,jdbcType=SMALLINT},
+      </if>
+      <if test="charact != null" >
+        CHARACT = #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutPic1 != null" >
+        LAYOUT_PIC1 = #{layoutPic1,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutPic2 != null" >
+        LAYOUT_PIC2 = #{layoutPic2,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutName != null" >
+        LAYOUT_NAME = #{layoutName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=SMALLINT},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examUid != null" >
+        EXAM_UID = #{examUid,jdbcType=INTEGER},
+      </if>
+      <if test="examTime != null" >
+        EXAM_TIME = #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examFlag != null" >
+        EXAM_FLAG = #{examFlag,jdbcType=TINYINT},
+      </if>
+      <if test="charactRichText != null" >
+        CHARACT_RICH_TEXT = #{charactRichText,jdbcType=CLOB},
+      </if>
+    </set>
+    where LAYOUT_ID = #{layoutId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyBuildLayoutTmp" >
+    <!--@mbggenerated-->
+    update BUILD_LAYOUT_TMP
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      LAYOUT_NO = #{layoutNo,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=SMALLINT},
+      ROOMS = #{rooms,jdbcType=TINYINT},
+      HALLS = #{halls,jdbcType=TINYINT},
+      WEIS = #{weis,jdbcType=TINYINT},
+      YANGS = #{yangs,jdbcType=TINYINT},
+      BUILD_AREA = #{buildArea,jdbcType=NUMERIC},
+      INSIDE_AREA = #{insideArea,jdbcType=NUMERIC},
+      PRICE = #{price,jdbcType=INTEGER},
+      LAYOUT_TYPE = #{layoutType,jdbcType=VARCHAR},
+      HOUSES = #{houses,jdbcType=INTEGER},
+      ISMAIN = #{ismain,jdbcType=SMALLINT},
+      CHARACT = #{charact,jdbcType=VARCHAR},
+      LAYOUT_PIC1 = #{layoutPic1,jdbcType=VARCHAR},
+      LAYOUT_PIC2 = #{layoutPic2,jdbcType=VARCHAR},
+      LAYOUT_NAME = #{layoutName,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=SMALLINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      EXAM_UID = #{examUid,jdbcType=INTEGER},
+      EXAM_TIME = #{examTime,jdbcType=TIMESTAMP},
+      EXAM_FLAG = #{examFlag,jdbcType=TINYINT},
+      CHARACT_RICH_TEXT = #{charactRichText,jdbcType=CLOB}
+    where LAYOUT_ID = #{layoutId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBuildLayoutTmp" >
+    <!--@mbggenerated-->
+    update BUILD_LAYOUT_TMP
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      LAYOUT_NO = #{layoutNo,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=SMALLINT},
+      ROOMS = #{rooms,jdbcType=TINYINT},
+      HALLS = #{halls,jdbcType=TINYINT},
+      WEIS = #{weis,jdbcType=TINYINT},
+      YANGS = #{yangs,jdbcType=TINYINT},
+      BUILD_AREA = #{buildArea,jdbcType=NUMERIC},
+      INSIDE_AREA = #{insideArea,jdbcType=NUMERIC},
+      PRICE = #{price,jdbcType=INTEGER},
+      LAYOUT_TYPE = #{layoutType,jdbcType=VARCHAR},
+      HOUSES = #{houses,jdbcType=INTEGER},
+      ISMAIN = #{ismain,jdbcType=SMALLINT},
+      CHARACT = #{charact,jdbcType=VARCHAR},
+      LAYOUT_PIC1 = #{layoutPic1,jdbcType=VARCHAR},
+      LAYOUT_PIC2 = #{layoutPic2,jdbcType=VARCHAR},
+      LAYOUT_NAME = #{layoutName,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=SMALLINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      EXAM_UID = #{examUid,jdbcType=INTEGER},
+      EXAM_TIME = #{examTime,jdbcType=TIMESTAMP},
+      EXAM_FLAG = #{examFlag,jdbcType=TINYINT}
+    where LAYOUT_ID = #{layoutId,jdbcType=INTEGER}
+  </update>
+</mapper>

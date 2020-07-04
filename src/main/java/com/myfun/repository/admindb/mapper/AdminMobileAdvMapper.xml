@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminMobileAdvMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminMobileAdv" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="ADV_LEVEL" property="advLevel" jdbcType="INTEGER" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="URL_TYPE" property="urlType" jdbcType="INTEGER" />
+    <result column="PHOTO_ADDR" property="photoAddr" jdbcType="VARCHAR" />
+    <result column="ADV_TITLE" property="advTitle" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="ADV_TYPE" property="advType" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CITY_ID, ADV_LEVEL, URL, URL_TYPE, PHOTO_ADDR, ADV_TITLE, CREATE_TIME, ARCHIVE_ID, 
+    ADV_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from MOBILE_ADV
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from MOBILE_ADV
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminMobileAdv" >
+    <!--@mbggenerated-->
+    insert into MOBILE_ADV (ID, CITY_ID, ADV_LEVEL, 
+      URL, URL_TYPE, PHOTO_ADDR, 
+      ADV_TITLE, CREATE_TIME, ARCHIVE_ID, 
+      ADV_TYPE)
+    values (#{id,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{advLevel,jdbcType=INTEGER}, 
+      #{url,jdbcType=VARCHAR}, #{urlType,jdbcType=INTEGER}, #{photoAddr,jdbcType=VARCHAR}, 
+      #{advTitle,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{archiveId,jdbcType=INTEGER}, 
+      #{advType,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminMobileAdv" >
+    <!--@mbggenerated-->
+    insert into MOBILE_ADV
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="advLevel != null" >
+        ADV_LEVEL,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+      <if test="urlType != null" >
+        URL_TYPE,
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR,
+      </if>
+      <if test="advTitle != null" >
+        ADV_TITLE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="advType != null" >
+        ADV_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="advLevel != null" >
+        #{advLevel,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="urlType != null" >
+        #{urlType,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null" >
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="advTitle != null" >
+        #{advTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="advType != null" >
+        #{advType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminMobileAdv" >
+    <!--@mbggenerated-->
+    update MOBILE_ADV
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="advLevel != null" >
+        ADV_LEVEL = #{advLevel,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="urlType != null" >
+        URL_TYPE = #{urlType,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="advTitle != null" >
+        ADV_TITLE = #{advTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="advType != null" >
+        ADV_TYPE = #{advType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminMobileAdv" >
+    <!--@mbggenerated-->
+    update MOBILE_ADV
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      ADV_LEVEL = #{advLevel,jdbcType=INTEGER},
+      URL = #{url,jdbcType=VARCHAR},
+      URL_TYPE = #{urlType,jdbcType=INTEGER},
+      PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      ADV_TITLE = #{advTitle,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      ADV_TYPE = #{advType,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

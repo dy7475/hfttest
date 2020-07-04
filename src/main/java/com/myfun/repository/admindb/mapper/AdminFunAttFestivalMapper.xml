@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunAttFestivalMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunAttFestival">
+    <!--@mbggenerated-->
+    <id column="FESTIVAL_ID" jdbcType="INTEGER" property="festivalId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="FESTIVAL_START_TIME" jdbcType="TIMESTAMP" property="festivalStartTime" />
+    <result column="FESTIVAL_END_TIME" jdbcType="TIMESTAMP" property="festivalEndTime" />
+    <result column="CRM_USER_ID" jdbcType="INTEGER" property="crmUserId" />
+    <result column="FESTIVAL_TYPE" jdbcType="TINYINT" property="festivalType" />
+    <result column="YEAR_TIME" jdbcType="TIMESTAMP" property="yearTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    FESTIVAL_ID, CREATE_TIME, UPDATE_TIME, FESTIVAL_START_TIME, FESTIVAL_END_TIME, CRM_USER_ID, 
+    FESTIVAL_TYPE, YEAR_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminFunAttFestivalExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ATT_FESTIVAL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ATT_FESTIVAL
+    where FESTIVAL_ID = #{festivalId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ATT_FESTIVAL
+    where FESTIVAL_ID = #{festivalId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminFunAttFestivalExample">
+    <!--@mbggenerated-->
+    delete from FUN_ATT_FESTIVAL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="festivalId" parameterType="com.myfun.repository.admindb.po.AdminFunAttFestival" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATT_FESTIVAL (CREATE_TIME, UPDATE_TIME, FESTIVAL_START_TIME, 
+      FESTIVAL_END_TIME, CRM_USER_ID, FESTIVAL_TYPE, 
+      YEAR_TIME)
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{festivalStartTime,jdbcType=TIMESTAMP}, 
+      #{festivalEndTime,jdbcType=TIMESTAMP}, #{crmUserId,jdbcType=INTEGER}, #{festivalType,jdbcType=TINYINT}, 
+      #{yearTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="festivalId" parameterType="com.myfun.repository.admindb.po.AdminFunAttFestival" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATT_FESTIVAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="festivalStartTime != null">
+        FESTIVAL_START_TIME,
+      </if>
+      <if test="festivalEndTime != null">
+        FESTIVAL_END_TIME,
+      </if>
+      <if test="crmUserId != null">
+        CRM_USER_ID,
+      </if>
+      <if test="festivalType != null">
+        FESTIVAL_TYPE,
+      </if>
+      <if test="yearTime != null">
+        YEAR_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="festivalStartTime != null">
+        #{festivalStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="festivalEndTime != null">
+        #{festivalEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crmUserId != null">
+        #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="festivalType != null">
+        #{festivalType,jdbcType=TINYINT},
+      </if>
+      <if test="yearTime != null">
+        #{yearTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminFunAttFestivalExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ATT_FESTIVAL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATT_FESTIVAL
+    <set>
+      <if test="record.festivalId != null">
+        FESTIVAL_ID = #{record.festivalId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.festivalStartTime != null">
+        FESTIVAL_START_TIME = #{record.festivalStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.festivalEndTime != null">
+        FESTIVAL_END_TIME = #{record.festivalEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.crmUserId != null">
+        CRM_USER_ID = #{record.crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.festivalType != null">
+        FESTIVAL_TYPE = #{record.festivalType,jdbcType=TINYINT},
+      </if>
+      <if test="record.yearTime != null">
+        YEAR_TIME = #{record.yearTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATT_FESTIVAL
+    set FESTIVAL_ID = #{record.festivalId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      FESTIVAL_START_TIME = #{record.festivalStartTime,jdbcType=TIMESTAMP},
+      FESTIVAL_END_TIME = #{record.festivalEndTime,jdbcType=TIMESTAMP},
+      CRM_USER_ID = #{record.crmUserId,jdbcType=INTEGER},
+      FESTIVAL_TYPE = #{record.festivalType,jdbcType=TINYINT},
+      YEAR_TIME = #{record.yearTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunAttFestival">
+    <!--@mbggenerated-->
+    update FUN_ATT_FESTIVAL
+    <set>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="festivalStartTime != null">
+        FESTIVAL_START_TIME = #{festivalStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="festivalEndTime != null">
+        FESTIVAL_END_TIME = #{festivalEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crmUserId != null">
+        CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="festivalType != null">
+        FESTIVAL_TYPE = #{festivalType,jdbcType=TINYINT},
+      </if>
+      <if test="yearTime != null">
+        YEAR_TIME = #{yearTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where FESTIVAL_ID = #{festivalId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunAttFestival">
+    <!--@mbggenerated-->
+    update FUN_ATT_FESTIVAL
+    set CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      FESTIVAL_START_TIME = #{festivalStartTime,jdbcType=TIMESTAMP},
+      FESTIVAL_END_TIME = #{festivalEndTime,jdbcType=TIMESTAMP},
+      CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      FESTIVAL_TYPE = #{festivalType,jdbcType=TINYINT},
+      YEAR_TIME = #{yearTime,jdbcType=TIMESTAMP}
+    where FESTIVAL_ID = #{festivalId,jdbcType=INTEGER}
+  </update>
+</mapper>

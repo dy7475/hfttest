@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminCrmParasMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminCrmParas" >
+    <!--@mbggenerated-->
+    <id column="PARAM_ID" property="paramId" jdbcType="VARCHAR" />
+    <id column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="PARAM_VALUE" property="paramValue" jdbcType="VARCHAR" />
+    <result column="DEFAULT_VALUE" property="defaultValue" jdbcType="VARCHAR" />
+    <result column="SHOW_FLAG" property="showFlag" jdbcType="TINYINT" />
+    <result column="PARAM_MSG" property="paramMsg" jdbcType="VARCHAR" />
+    <result column="PARAM_TYPE" property="paramType" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="TINYINT" />
+    <result column="RUN_PARAM_VALUE" property="runParamValue" jdbcType="VARCHAR" />
+    <result column="CTR_PARAM_VALUE" property="ctrParamValue" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    PARAM_ID, COMP_ID, PARAM_VALUE, DEFAULT_VALUE, SHOW_FLAG, PARAM_MSG, PARAM_TYPE, 
+    [STATUS], RUN_PARAM_VALUE, CTR_PARAM_VALUE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.po.AdminCrmParasExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRM_PARAS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CRM_PARAS
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    <!--@mbggenerated-->
+    delete from CRM_PARAS
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminCrmParasExample" >
+    <!--@mbggenerated-->
+    delete from CRM_PARAS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminCrmParas" >
+    <!--@mbggenerated-->
+    insert into CRM_PARAS (PARAM_ID, COMP_ID, PARAM_VALUE, 
+      DEFAULT_VALUE, SHOW_FLAG, PARAM_MSG, 
+      PARAM_TYPE, [STATUS], RUN_PARAM_VALUE, 
+      CTR_PARAM_VALUE)
+    values (#{paramId,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, #{paramValue,jdbcType=VARCHAR}, 
+      #{defaultValue,jdbcType=VARCHAR}, #{showFlag,jdbcType=TINYINT}, #{paramMsg,jdbcType=VARCHAR}, 
+      #{paramType,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{runParamValue,jdbcType=VARCHAR}, 
+      #{ctrParamValue,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminCrmParas" >
+    <!--@mbggenerated-->
+    insert into CRM_PARAS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paramId != null" >
+        PARAM_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="paramValue != null" >
+        PARAM_VALUE,
+      </if>
+      <if test="defaultValue != null" >
+        DEFAULT_VALUE,
+      </if>
+      <if test="showFlag != null" >
+        SHOW_FLAG,
+      </if>
+      <if test="paramMsg != null" >
+        PARAM_MSG,
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE,
+      </if>
+      <if test="status != null" >
+        [STATUS],
+      </if>
+      <if test="runParamValue != null" >
+        RUN_PARAM_VALUE,
+      </if>
+      <if test="ctrParamValue != null" >
+        CTR_PARAM_VALUE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paramId != null" >
+        #{paramId,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="paramValue != null" >
+        #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultValue != null" >
+        #{defaultValue,jdbcType=VARCHAR},
+      </if>
+      <if test="showFlag != null" >
+        #{showFlag,jdbcType=TINYINT},
+      </if>
+      <if test="paramMsg != null" >
+        #{paramMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="paramType != null" >
+        #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="runParamValue != null" >
+        #{runParamValue,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrParamValue != null" >
+        #{ctrParamValue,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminCrmParasExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from CRM_PARAS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update CRM_PARAS
+    <set >
+      <if test="record.paramId != null" >
+        PARAM_ID = #{record.paramId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.paramValue != null" >
+        PARAM_VALUE = #{record.paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultValue != null" >
+        DEFAULT_VALUE = #{record.defaultValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showFlag != null" >
+        SHOW_FLAG = #{record.showFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.paramMsg != null" >
+        PARAM_MSG = #{record.paramMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paramType != null" >
+        PARAM_TYPE = #{record.paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        [STATUS] = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.runParamValue != null" >
+        RUN_PARAM_VALUE = #{record.runParamValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctrParamValue != null" >
+        CTR_PARAM_VALUE = #{record.ctrParamValue,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update CRM_PARAS
+    set PARAM_ID = #{record.paramId,jdbcType=VARCHAR},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      PARAM_VALUE = #{record.paramValue,jdbcType=VARCHAR},
+      DEFAULT_VALUE = #{record.defaultValue,jdbcType=VARCHAR},
+      SHOW_FLAG = #{record.showFlag,jdbcType=TINYINT},
+      PARAM_MSG = #{record.paramMsg,jdbcType=VARCHAR},
+      PARAM_TYPE = #{record.paramType,jdbcType=VARCHAR},
+      [STATUS] = #{record.status,jdbcType=TINYINT},
+      RUN_PARAM_VALUE = #{record.runParamValue,jdbcType=VARCHAR},
+      CTR_PARAM_VALUE = #{record.ctrParamValue,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminCrmParas" >
+    <!--@mbggenerated-->
+    update CRM_PARAS
+    <set >
+      <if test="paramValue != null" >
+        PARAM_VALUE = #{paramValue,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultValue != null" >
+        DEFAULT_VALUE = #{defaultValue,jdbcType=VARCHAR},
+      </if>
+      <if test="showFlag != null" >
+        SHOW_FLAG = #{showFlag,jdbcType=TINYINT},
+      </if>
+      <if test="paramMsg != null" >
+        PARAM_MSG = #{paramMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="paramType != null" >
+        PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        [STATUS] = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="runParamValue != null" >
+        RUN_PARAM_VALUE = #{runParamValue,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrParamValue != null" >
+        CTR_PARAM_VALUE = #{ctrParamValue,jdbcType=INTEGER},
+      </if>
+    </set>
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminCrmParas" >
+    <!--@mbggenerated-->
+    update CRM_PARAS
+    set PARAM_VALUE = #{paramValue,jdbcType=VARCHAR},
+      DEFAULT_VALUE = #{defaultValue,jdbcType=VARCHAR},
+      SHOW_FLAG = #{showFlag,jdbcType=TINYINT},
+      PARAM_MSG = #{paramMsg,jdbcType=VARCHAR},
+      PARAM_TYPE = #{paramType,jdbcType=VARCHAR},
+      [STATUS] = #{status,jdbcType=TINYINT},
+      RUN_PARAM_VALUE = #{runParamValue,jdbcType=VARCHAR},
+      CTR_PARAM_VALUE = #{ctrParamValue,jdbcType=INTEGER}
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <select id="selectCrmParaValue" parameterType="com.myfun.repository.admindb.po.AdminCrmParasKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from CRM_PARAS
+    where PARAM_ID = #{paramId,jdbcType=VARCHAR}
+    and COMP_ID = #{compId,jdbcType=INTEGER}
+  </select>
+</mapper>

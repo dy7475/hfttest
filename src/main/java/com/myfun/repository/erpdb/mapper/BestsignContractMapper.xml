@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myfun.repository.erpdb.dao.BestsignContractMapper">
+	
+	<sql id="Base_Column_List">
+		id, contractId, tid, bestsignPerAccount, bestsignPerPhone, MLuri, shortUrl, longUrl, signState, expireTime, createTime,SMS
+	</sql>
+
+	<resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.BestsignContract">
+	    <result column="id" jdbcType="VARCHAR" property="id" />
+	    <result column="contractId" jdbcType="VARCHAR" property="contractId" />
+	    <result column="tid" jdbcType="VARCHAR" property="tid" />
+	    <result column="bestsignPerAccount" jdbcType="VARCHAR" property="bestsignPerAccount" />
+	    <result column="bestsignPerPhone" jdbcType="VARCHAR" property="bestsignPerPhone" />
+	    <result column="MLuri" jdbcType="VARCHAR" property="MLuri" />
+	    <result column="shortUrl" jdbcType="VARCHAR" property="shortUrl" />
+	    <result column="longUrl" jdbcType="VARCHAR" property="longUrl" />
+	    <result column="signState" jdbcType="VARCHAR" property="signState" />
+	    <result column="expireTime" jdbcType="DATE" property="expireTime" />
+	    <result column="createTime" jdbcType="DATE" property="createTime" />
+	    <result column="SMS" jdbcType="VARCHAR" property="SMS" />
+	</resultMap>
+
+	<select id="getListByparam" parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		FUN_bestsigncontract
+		<where>
+			<if test=" id !=null and id !='' ">
+				and id = #{id, jdbcType=VARCHAR}
+			</if>
+			<if test=" account !=null and account !='' ">
+				and bestsignPerAccount = #{account, jdbcType=VARCHAR}
+			</if>
+			<if test=" contractId !=null and contractId !='' ">
+				and contractId = #{contractId, jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getByContractId" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		FUN_bestsigncontract 
+		where contractId = #{contractId} 
+		and bestsignPerAccount= #{ownerCardNo}
+	</select>
+	
+	<select id="getById" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		FUN_bestsigncontract
+		<where>
+			<if test=" id !=null and id !='' ">
+				and id = #{id, jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	
+	
+	<insert id="insert" parameterType="com.myfun.repository.erpdb.po.BestsignContract">
+		insert into FUN_bestsigncontract (
+			 contractId, tid, bestsignPerAccount, bestsignPerPhone, MLuri, shortUrl, longUrl, signState, expireTime,SMS,createTime
+		)
+		values (
+			#{contractId,jdbcType=VARCHAR},
+			#{tid,jdbcType=VARCHAR},
+			#{bestsignPerAccount,jdbcType=VARCHAR}, 
+			#{bestsignPerPhone,jdbcType=VARCHAR},
+			#{MLuri,jdbcType=VARCHAR},
+			#{shortUrl,jdbcType=VARCHAR},
+			#{longUrl,jdbcType=VARCHAR},
+			#{signState,jdbcType=VARCHAR},
+			#{expireTime,jdbcType=TIMESTAMP},
+			#{SMS,jdbcType=VARCHAR},
+			#{createTime,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	
+	<update id="updateSignState" parameterType="java.util.Map">
+		UPDATE FUN_bestsigncontract set signState='1' where 1=1 and id = #{id, jdbcType=VARCHAR}
+	</update>
+	 
+	 
+	 <update id="updateSMS" parameterType="java.util.Map">
+		UPDATE FUN_bestsigncontract set SMS=#{sms, jdbcType=VARCHAR} where 1=1 
+		<if test=" id !=null and id !='' ">
+			and id = #{id, jdbcType=VARCHAR}
+		</if>
+	</update>
+	 	
+	 	
+</mapper>

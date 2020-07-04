@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfRefundOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfRefundOrder" >
+    <!--@mbggenerated-->
+    <id column="ORDER_ID" property="orderId" jdbcType="INTEGER" />
+    <result column="REFUND_ID" property="refundId" jdbcType="INTEGER" />
+    <result column="WX_ID" property="wxId" jdbcType="INTEGER" />
+    <result column="WX_OPEN_ID" property="wxOpenId" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="TRANSACTION_ID" property="transactionId" jdbcType="VARCHAR" />
+    <result column="OUT_TRADE_NO" property="outTradeNo" jdbcType="VARCHAR" />
+    <result column="ORDER_MONEY" property="orderMoney" jdbcType="DECIMAL" />
+    <result column="ORDER_STATUS" property="orderStatus" jdbcType="TINYINT" />
+    <result column="REFUND_TRANSACTION_ID" property="refundTransactionId" jdbcType="VARCHAR" />
+    <result column="REFUND_TRADE_NO" property="refundTradeNo" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="REFUND_TIMES" property="refundTimes" jdbcType="TINYINT" />
+    <result column="ACT_TIME" property="actTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ORDER_ID, REFUND_ID, WX_ID, WX_OPEN_ID, CITY_ID, TRANSACTION_ID, OUT_TRADE_NO, ORDER_MONEY, 
+    ORDER_STATUS, REFUND_TRANSACTION_ID, REFUND_TRADE_NO, REMARK, REFUND_TIMES, ACT_TIME, 
+    CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_REFUND_ORDER
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_REFUND_ORDER
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefundOrder" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="orderId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REFUND_ORDER (REFUND_ID, WX_ID, WX_OPEN_ID, 
+      CITY_ID, TRANSACTION_ID, OUT_TRADE_NO, 
+      ORDER_MONEY, ORDER_STATUS, REFUND_TRANSACTION_ID, 
+      REFUND_TRADE_NO, REMARK, REFUND_TIMES, 
+      ACT_TIME, CREATE_TIME)
+    values (#{refundId,jdbcType=INTEGER}, #{wxId,jdbcType=INTEGER}, #{wxOpenId,jdbcType=VARCHAR}, 
+      #{cityId,jdbcType=INTEGER}, #{transactionId,jdbcType=VARCHAR}, #{outTradeNo,jdbcType=VARCHAR}, 
+      #{orderMoney,jdbcType=DECIMAL}, #{orderStatus,jdbcType=TINYINT}, #{refundTransactionId,jdbcType=VARCHAR}, 
+      #{refundTradeNo,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{refundTimes,jdbcType=TINYINT}, 
+      #{actTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefundOrder" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="orderId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REFUND_ORDER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="refundId != null" >
+        REFUND_ID,
+      </if>
+      <if test="wxId != null" >
+        WX_ID,
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="transactionId != null" >
+        TRANSACTION_ID,
+      </if>
+      <if test="outTradeNo != null" >
+        OUT_TRADE_NO,
+      </if>
+      <if test="orderMoney != null" >
+        ORDER_MONEY,
+      </if>
+      <if test="orderStatus != null" >
+        ORDER_STATUS,
+      </if>
+      <if test="refundTransactionId != null" >
+        REFUND_TRANSACTION_ID,
+      </if>
+      <if test="refundTradeNo != null" >
+        REFUND_TRADE_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="refundTimes != null" >
+        REFUND_TIMES,
+      </if>
+      <if test="actTime != null" >
+        ACT_TIME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="refundId != null" >
+        #{refundId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null" >
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null" >
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="transactionId != null" >
+        #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null" >
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderMoney != null" >
+        #{orderMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=TINYINT},
+      </if>
+      <if test="refundTransactionId != null" >
+        #{refundTransactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTradeNo != null" >
+        #{refundTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTimes != null" >
+        #{refundTimes,jdbcType=TINYINT},
+      </if>
+      <if test="actTime != null" >
+        #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefundOrder" >
+    <!--@mbggenerated-->
+    update WF_REFUND_ORDER
+    <set >
+      <if test="refundId != null" >
+        REFUND_ID = #{refundId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null" >
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="transactionId != null" >
+        TRANSACTION_ID = #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null" >
+        OUT_TRADE_NO = #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderMoney != null" >
+        ORDER_MONEY = #{orderMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null" >
+        ORDER_STATUS = #{orderStatus,jdbcType=TINYINT},
+      </if>
+      <if test="refundTransactionId != null" >
+        REFUND_TRANSACTION_ID = #{refundTransactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTradeNo != null" >
+        REFUND_TRADE_NO = #{refundTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTimes != null" >
+        REFUND_TIMES = #{refundTimes,jdbcType=TINYINT},
+      </if>
+      <if test="actTime != null" >
+        ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfRefundOrder" >
+    <!--@mbggenerated-->
+    update WF_REFUND_ORDER
+    set REFUND_ID = #{refundId,jdbcType=INTEGER},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      TRANSACTION_ID = #{transactionId,jdbcType=VARCHAR},
+      OUT_TRADE_NO = #{outTradeNo,jdbcType=VARCHAR},
+      ORDER_MONEY = #{orderMoney,jdbcType=DECIMAL},
+      ORDER_STATUS = #{orderStatus,jdbcType=TINYINT},
+      REFUND_TRANSACTION_ID = #{refundTransactionId,jdbcType=VARCHAR},
+      REFUND_TRADE_NO = #{refundTradeNo,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      REFUND_TIMES = #{refundTimes,jdbcType=TINYINT},
+      ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>

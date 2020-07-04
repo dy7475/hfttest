@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpRenovationCustomerFileMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpRenovationCustomerFile">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="FILE_TYPE" jdbcType="INTEGER" property="fileType" />
+    <result column="FILE_ADDR" jdbcType="VARCHAR" property="fileAddr" />
+    <result column="RENOVATION_CUSTOMER_ID" jdbcType="INTEGER" property="renovationCustomerId" />
+    <result column="UPLOAD_USER" jdbcType="INTEGER" property="uploadUser" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="IS_DEL" jdbcType="INTEGER" property="isDel" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, FILE_TYPE, FILE_ADDR, RENOVATION_CUSTOMER_ID, UPLOAD_USER, CREATION_TIME, 
+    IS_DEL
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpRenovationCustomerFileExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from RENOVATION_CUSTOMER_FILE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RENOVATION_CUSTOMER_FILE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from RENOVATION_CUSTOMER_FILE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpRenovationCustomerFileExample">
+    <!--@mbggenerated-->
+    delete from RENOVATION_CUSTOMER_FILE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpRenovationCustomerFile" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into RENOVATION_CUSTOMER_FILE (COMP_ID, FILE_TYPE, FILE_ADDR, 
+      RENOVATION_CUSTOMER_ID, UPLOAD_USER, CREATION_TIME, 
+      IS_DEL)
+    values (#{compId,jdbcType=INTEGER}, #{fileType,jdbcType=INTEGER}, #{fileAddr,jdbcType=VARCHAR}, 
+      #{renovationCustomerId,jdbcType=INTEGER}, #{uploadUser,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpRenovationCustomerFile" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into RENOVATION_CUSTOMER_FILE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="fileType != null">
+        FILE_TYPE,
+      </if>
+      <if test="fileAddr != null">
+        FILE_ADDR,
+      </if>
+      <if test="renovationCustomerId != null">
+        RENOVATION_CUSTOMER_ID,
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fileType != null">
+        #{fileType,jdbcType=INTEGER},
+      </if>
+      <if test="fileAddr != null">
+        #{fileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="renovationCustomerId != null">
+        #{renovationCustomerId,jdbcType=INTEGER},
+      </if>
+      <if test="uploadUser != null">
+        #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpRenovationCustomerFileExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from RENOVATION_CUSTOMER_FILE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update RENOVATION_CUSTOMER_FILE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.fileType != null">
+        FILE_TYPE = #{record.fileType,jdbcType=INTEGER},
+      </if>
+      <if test="record.fileAddr != null">
+        FILE_ADDR = #{record.fileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.renovationCustomerId != null">
+        RENOVATION_CUSTOMER_ID = #{record.renovationCustomerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uploadUser != null">
+        UPLOAD_USER = #{record.uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update RENOVATION_CUSTOMER_FILE
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      FILE_TYPE = #{record.fileType,jdbcType=INTEGER},
+      FILE_ADDR = #{record.fileAddr,jdbcType=VARCHAR},
+      RENOVATION_CUSTOMER_ID = #{record.renovationCustomerId,jdbcType=INTEGER},
+      UPLOAD_USER = #{record.uploadUser,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpRenovationCustomerFile">
+    <!--@mbggenerated-->
+    update RENOVATION_CUSTOMER_FILE
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fileType != null">
+        FILE_TYPE = #{fileType,jdbcType=INTEGER},
+      </if>
+      <if test="fileAddr != null">
+        FILE_ADDR = #{fileAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="renovationCustomerId != null">
+        RENOVATION_CUSTOMER_ID = #{renovationCustomerId,jdbcType=INTEGER},
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpRenovationCustomerFile">
+    <!--@mbggenerated-->
+    update RENOVATION_CUSTOMER_FILE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      FILE_TYPE = #{fileType,jdbcType=INTEGER},
+      FILE_ADDR = #{fileAddr,jdbcType=VARCHAR},
+      RENOVATION_CUSTOMER_ID = #{renovationCustomerId,jdbcType=INTEGER},
+      UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="BaseResultMapDto" type="com.myfun.repository.erpdb.dto.ErpRenovationCustomerFileDto">
+  </resultMap>
+
+	<update id="updateIsDelById">
+		UPDATE RENOVATION_CUSTOMER_FILE
+		SET
+		IS_DEL = 1
+		WHERE
+		ID IN
+		<foreach close=")" collection="idList" index="index" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</update>
+	
+	<select id="getFileList" resultMap="BaseResultMapDto">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM
+		RENOVATION_CUSTOMER_FILE
+		WHERE
+		COMP_ID = #{compId}
+		AND IS_DEL = 0
+		AND RENOVATION_CUSTOMER_ID = #{id}
+	</select>
+	
+	
+	<update id="updateIsDelByRenovationCustomerId">
+		UPDATE RENOVATION_CUSTOMER_FILE
+		SET
+		IS_DEL = 1
+		WHERE
+		RENOVATION_CUSTOMER_ID = #{id}
+		AND COMP_ID = #{compId}
+	</update>
+</mapper>

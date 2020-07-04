@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.searchdb.dao.SosoViewMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.searchdb.po.SosoView">
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <id column="SOSO_ID" jdbcType="INTEGER" property="sosoId" />
+    <id column="SOSO_TYPE" jdbcType="INTEGER" property="sosoType" />
+    <id column="SOSO_PROPERTY" jdbcType="INTEGER" property="sosoProperty" />
+    <id column="VIEW_TIME" jdbcType="TIMESTAMP" property="viewTime" />
+    <result column="VIEW_SOURCE" jdbcType="TINYINT" property="viewSource" />
+    <result column="PERPETUAL_FLAG" jdbcType="TINYINT" property="perpetualFlag" />
+    <result column="IS_CONVERT" jdbcType="TINYINT" property="isConvert" />
+    <result column="CONVERT_TIME" jdbcType="TIMESTAMP" property="convertTime" />
+    <result column="DATA_TYPE" jdbcType="TINYINT" property="dataType" />
+    <result column="COMPLAINT_FLAG" jdbcType="TINYINT" property="complaintFlag" />
+    <result column="COMPLAINT_TIME" jdbcType="TIMESTAMP" property="complaintTime" />
+    <result column="EXCLUSIVE_MOBILE" jdbcType="VARCHAR" property="exclusiveMobile" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="ERP_DEPT_ID" jdbcType="INTEGER" property="erpDeptId" />
+    <result column="ERP_COMP_ID" jdbcType="INTEGER" property="erpCompId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ARCHIVE_ID, SOSO_ID, SOSO_TYPE, SOSO_PROPERTY, VIEW_TIME, VIEW_SOURCE, PERPETUAL_FLAG, 
+    IS_CONVERT, CONVERT_TIME, DATA_TYPE, COMPLAINT_FLAG, COMPLAINT_TIME, EXCLUSIVE_MOBILE, 
+    DEPT_ID, COMP_ID, CASE_ID, ERP_DEPT_ID, ERP_COMP_ID, CITY_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.searchdb.po.SosoViewExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SOSO_VIEW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SosoViewKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SOSO_VIEW
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and SOSO_ID = #{sosoId,jdbcType=INTEGER}
+      and SOSO_TYPE = #{sosoType,jdbcType=INTEGER}
+      and SOSO_PROPERTY = #{sosoProperty,jdbcType=INTEGER}
+      and VIEW_TIME = #{viewTime,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SosoViewKey">
+    <!--@mbggenerated-->
+    delete from SOSO_VIEW
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and SOSO_ID = #{sosoId,jdbcType=INTEGER}
+      and SOSO_TYPE = #{sosoType,jdbcType=INTEGER}
+      and SOSO_PROPERTY = #{sosoProperty,jdbcType=INTEGER}
+      and VIEW_TIME = #{viewTime,jdbcType=TIMESTAMP}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.searchdb.po.SosoViewExample">
+    <!--@mbggenerated-->
+    delete from SOSO_VIEW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.searchdb.po.SosoView">
+    <!--@mbggenerated-->
+    insert into SOSO_VIEW (ARCHIVE_ID, SOSO_ID, SOSO_TYPE, 
+      SOSO_PROPERTY, VIEW_TIME, VIEW_SOURCE, 
+      PERPETUAL_FLAG, IS_CONVERT, CONVERT_TIME, 
+      DATA_TYPE, COMPLAINT_FLAG, COMPLAINT_TIME, 
+      EXCLUSIVE_MOBILE, DEPT_ID, COMP_ID, 
+      CASE_ID, ERP_DEPT_ID, ERP_COMP_ID, 
+      CITY_ID)
+    values (#{archiveId,jdbcType=INTEGER}, #{sosoId,jdbcType=INTEGER}, #{sosoType,jdbcType=INTEGER}, 
+      #{sosoProperty,jdbcType=INTEGER}, #{viewTime,jdbcType=TIMESTAMP}, #{viewSource,jdbcType=TINYINT}, 
+      #{perpetualFlag,jdbcType=TINYINT}, #{isConvert,jdbcType=TINYINT}, #{convertTime,jdbcType=TIMESTAMP}, 
+      #{dataType,jdbcType=TINYINT}, #{complaintFlag,jdbcType=TINYINT}, #{complaintTime,jdbcType=TIMESTAMP}, 
+      #{exclusiveMobile,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, 
+      #{caseId,jdbcType=INTEGER}, #{erpDeptId,jdbcType=INTEGER}, #{erpCompId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.searchdb.po.SosoView">
+    <!--@mbggenerated-->
+    insert into SOSO_VIEW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="sosoId != null">
+        SOSO_ID,
+      </if>
+      <if test="sosoType != null">
+        SOSO_TYPE,
+      </if>
+      <if test="sosoProperty != null">
+        SOSO_PROPERTY,
+      </if>
+      <if test="viewTime != null">
+        VIEW_TIME,
+      </if>
+      <if test="viewSource != null">
+        VIEW_SOURCE,
+      </if>
+      <if test="perpetualFlag != null">
+        PERPETUAL_FLAG,
+      </if>
+      <if test="isConvert != null">
+        IS_CONVERT,
+      </if>
+      <if test="convertTime != null">
+        CONVERT_TIME,
+      </if>
+      <if test="dataType != null">
+        DATA_TYPE,
+      </if>
+      <if test="complaintFlag != null">
+        COMPLAINT_FLAG,
+      </if>
+      <if test="complaintTime != null">
+        COMPLAINT_TIME,
+      </if>
+      <if test="exclusiveMobile != null">
+        EXCLUSIVE_MOBILE,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="erpDeptId != null">
+        ERP_DEPT_ID,
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="sosoId != null">
+        #{sosoId,jdbcType=INTEGER},
+      </if>
+      <if test="sosoType != null">
+        #{sosoType,jdbcType=INTEGER},
+      </if>
+      <if test="sosoProperty != null">
+        #{sosoProperty,jdbcType=INTEGER},
+      </if>
+      <if test="viewTime != null">
+        #{viewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="viewSource != null">
+        #{viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="perpetualFlag != null">
+        #{perpetualFlag,jdbcType=TINYINT},
+      </if>
+      <if test="isConvert != null">
+        #{isConvert,jdbcType=TINYINT},
+      </if>
+      <if test="convertTime != null">
+        #{convertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataType != null">
+        #{dataType,jdbcType=TINYINT},
+      </if>
+      <if test="complaintFlag != null">
+        #{complaintFlag,jdbcType=TINYINT},
+      </if>
+      <if test="complaintTime != null">
+        #{complaintTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exclusiveMobile != null">
+        #{exclusiveMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="erpDeptId != null">
+        #{erpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="erpCompId != null">
+        #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.searchdb.po.SosoViewExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from SOSO_VIEW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update SOSO_VIEW
+    <set>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sosoId != null">
+        SOSO_ID = #{record.sosoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sosoType != null">
+        SOSO_TYPE = #{record.sosoType,jdbcType=INTEGER},
+      </if>
+      <if test="record.sosoProperty != null">
+        SOSO_PROPERTY = #{record.sosoProperty,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewTime != null">
+        VIEW_TIME = #{record.viewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.viewSource != null">
+        VIEW_SOURCE = #{record.viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.perpetualFlag != null">
+        PERPETUAL_FLAG = #{record.perpetualFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.isConvert != null">
+        IS_CONVERT = #{record.isConvert,jdbcType=TINYINT},
+      </if>
+      <if test="record.convertTime != null">
+        CONVERT_TIME = #{record.convertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dataType != null">
+        DATA_TYPE = #{record.dataType,jdbcType=TINYINT},
+      </if>
+      <if test="record.complaintFlag != null">
+        COMPLAINT_FLAG = #{record.complaintFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.complaintTime != null">
+        COMPLAINT_TIME = #{record.complaintTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.exclusiveMobile != null">
+        EXCLUSIVE_MOBILE = #{record.exclusiveMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.erpDeptId != null">
+        ERP_DEPT_ID = #{record.erpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.erpCompId != null">
+        ERP_COMP_ID = #{record.erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update SOSO_VIEW
+    set ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      SOSO_ID = #{record.sosoId,jdbcType=INTEGER},
+      SOSO_TYPE = #{record.sosoType,jdbcType=INTEGER},
+      SOSO_PROPERTY = #{record.sosoProperty,jdbcType=INTEGER},
+      VIEW_TIME = #{record.viewTime,jdbcType=TIMESTAMP},
+      VIEW_SOURCE = #{record.viewSource,jdbcType=TINYINT},
+      PERPETUAL_FLAG = #{record.perpetualFlag,jdbcType=TINYINT},
+      IS_CONVERT = #{record.isConvert,jdbcType=TINYINT},
+      CONVERT_TIME = #{record.convertTime,jdbcType=TIMESTAMP},
+      DATA_TYPE = #{record.dataType,jdbcType=TINYINT},
+      COMPLAINT_FLAG = #{record.complaintFlag,jdbcType=TINYINT},
+      COMPLAINT_TIME = #{record.complaintTime,jdbcType=TIMESTAMP},
+      EXCLUSIVE_MOBILE = #{record.exclusiveMobile,jdbcType=VARCHAR},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      ERP_DEPT_ID = #{record.erpDeptId,jdbcType=INTEGER},
+      ERP_COMP_ID = #{record.erpCompId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.searchdb.po.SosoView">
+    <!--@mbggenerated-->
+    update SOSO_VIEW
+    <set>
+      <if test="viewSource != null">
+        VIEW_SOURCE = #{viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="perpetualFlag != null">
+        PERPETUAL_FLAG = #{perpetualFlag,jdbcType=TINYINT},
+      </if>
+      <if test="isConvert != null">
+        IS_CONVERT = #{isConvert,jdbcType=TINYINT},
+      </if>
+      <if test="convertTime != null">
+        CONVERT_TIME = #{convertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataType != null">
+        DATA_TYPE = #{dataType,jdbcType=TINYINT},
+      </if>
+      <if test="complaintFlag != null">
+        COMPLAINT_FLAG = #{complaintFlag,jdbcType=TINYINT},
+      </if>
+      <if test="complaintTime != null">
+        COMPLAINT_TIME = #{complaintTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exclusiveMobile != null">
+        EXCLUSIVE_MOBILE = #{exclusiveMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="erpDeptId != null">
+        ERP_DEPT_ID = #{erpDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and SOSO_ID = #{sosoId,jdbcType=INTEGER}
+      and SOSO_TYPE = #{sosoType,jdbcType=INTEGER}
+      and SOSO_PROPERTY = #{sosoProperty,jdbcType=INTEGER}
+      and VIEW_TIME = #{viewTime,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SosoView">
+    <!--@mbggenerated-->
+    update SOSO_VIEW
+    set VIEW_SOURCE = #{viewSource,jdbcType=TINYINT},
+      PERPETUAL_FLAG = #{perpetualFlag,jdbcType=TINYINT},
+      IS_CONVERT = #{isConvert,jdbcType=TINYINT},
+      CONVERT_TIME = #{convertTime,jdbcType=TIMESTAMP},
+      DATA_TYPE = #{dataType,jdbcType=TINYINT},
+      COMPLAINT_FLAG = #{complaintFlag,jdbcType=TINYINT},
+      COMPLAINT_TIME = #{complaintTime,jdbcType=TIMESTAMP},
+      EXCLUSIVE_MOBILE = #{exclusiveMobile,jdbcType=VARCHAR},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      ERP_DEPT_ID = #{erpDeptId,jdbcType=INTEGER},
+      ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and SOSO_ID = #{sosoId,jdbcType=INTEGER}
+      and SOSO_TYPE = #{sosoType,jdbcType=INTEGER}
+      and SOSO_PROPERTY = #{sosoProperty,jdbcType=INTEGER}
+      and VIEW_TIME = #{viewTime,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

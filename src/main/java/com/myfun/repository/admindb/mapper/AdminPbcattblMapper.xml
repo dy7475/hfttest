@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminPbcattblMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminPbcattbl" >
+    <!--@mbggenerated-->
+    <result column="pbt_tnam" property="pbtTnam" jdbcType="VARCHAR" />
+    <result column="pbt_tid" property="pbtTid" jdbcType="INTEGER" />
+    <result column="pbt_ownr" property="pbtOwnr" jdbcType="VARCHAR" />
+    <result column="pbd_fhgt" property="pbdFhgt" jdbcType="SMALLINT" />
+    <result column="pbd_fwgt" property="pbdFwgt" jdbcType="SMALLINT" />
+    <result column="pbd_fitl" property="pbdFitl" jdbcType="VARCHAR" />
+    <result column="pbd_funl" property="pbdFunl" jdbcType="VARCHAR" />
+    <result column="pbd_fchr" property="pbdFchr" jdbcType="SMALLINT" />
+    <result column="pbd_fptc" property="pbdFptc" jdbcType="SMALLINT" />
+    <result column="pbd_ffce" property="pbdFfce" jdbcType="VARCHAR" />
+    <result column="pbh_fhgt" property="pbhFhgt" jdbcType="SMALLINT" />
+    <result column="pbh_fwgt" property="pbhFwgt" jdbcType="SMALLINT" />
+    <result column="pbh_fitl" property="pbhFitl" jdbcType="VARCHAR" />
+    <result column="pbh_funl" property="pbhFunl" jdbcType="VARCHAR" />
+    <result column="pbh_fchr" property="pbhFchr" jdbcType="SMALLINT" />
+    <result column="pbh_fptc" property="pbhFptc" jdbcType="SMALLINT" />
+    <result column="pbh_ffce" property="pbhFfce" jdbcType="VARCHAR" />
+    <result column="pbl_fhgt" property="pblFhgt" jdbcType="SMALLINT" />
+    <result column="pbl_fwgt" property="pblFwgt" jdbcType="SMALLINT" />
+    <result column="pbl_fitl" property="pblFitl" jdbcType="VARCHAR" />
+    <result column="pbl_funl" property="pblFunl" jdbcType="VARCHAR" />
+    <result column="pbl_fchr" property="pblFchr" jdbcType="SMALLINT" />
+    <result column="pbl_fptc" property="pblFptc" jdbcType="SMALLINT" />
+    <result column="pbl_ffce" property="pblFfce" jdbcType="VARCHAR" />
+    <result column="pbt_cmnt" property="pbtCmnt" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminPbcattbl" >
+    <!--@mbggenerated-->
+    insert into pbcattbl (pbt_tnam, pbt_tid, pbt_ownr, 
+      pbd_fhgt, pbd_fwgt, pbd_fitl, 
+      pbd_funl, pbd_fchr, pbd_fptc, 
+      pbd_ffce, pbh_fhgt, pbh_fwgt, 
+      pbh_fitl, pbh_funl, pbh_fchr, 
+      pbh_fptc, pbh_ffce, pbl_fhgt, 
+      pbl_fwgt, pbl_fitl, pbl_funl, 
+      pbl_fchr, pbl_fptc, pbl_ffce, 
+      pbt_cmnt)
+    values (#{pbtTnam,jdbcType=VARCHAR}, #{pbtTid,jdbcType=INTEGER}, #{pbtOwnr,jdbcType=VARCHAR}, 
+      #{pbdFhgt,jdbcType=SMALLINT}, #{pbdFwgt,jdbcType=SMALLINT}, #{pbdFitl,jdbcType=VARCHAR}, 
+      #{pbdFunl,jdbcType=VARCHAR}, #{pbdFchr,jdbcType=SMALLINT}, #{pbdFptc,jdbcType=SMALLINT}, 
+      #{pbdFfce,jdbcType=VARCHAR}, #{pbhFhgt,jdbcType=SMALLINT}, #{pbhFwgt,jdbcType=SMALLINT}, 
+      #{pbhFitl,jdbcType=VARCHAR}, #{pbhFunl,jdbcType=VARCHAR}, #{pbhFchr,jdbcType=SMALLINT}, 
+      #{pbhFptc,jdbcType=SMALLINT}, #{pbhFfce,jdbcType=VARCHAR}, #{pblFhgt,jdbcType=SMALLINT}, 
+      #{pblFwgt,jdbcType=SMALLINT}, #{pblFitl,jdbcType=VARCHAR}, #{pblFunl,jdbcType=VARCHAR}, 
+      #{pblFchr,jdbcType=SMALLINT}, #{pblFptc,jdbcType=SMALLINT}, #{pblFfce,jdbcType=VARCHAR}, 
+      #{pbtCmnt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminPbcattbl" >
+    <!--@mbggenerated-->
+    insert into pbcattbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pbtTnam != null" >
+        pbt_tnam,
+      </if>
+      <if test="pbtTid != null" >
+        pbt_tid,
+      </if>
+      <if test="pbtOwnr != null" >
+        pbt_ownr,
+      </if>
+      <if test="pbdFhgt != null" >
+        pbd_fhgt,
+      </if>
+      <if test="pbdFwgt != null" >
+        pbd_fwgt,
+      </if>
+      <if test="pbdFitl != null" >
+        pbd_fitl,
+      </if>
+      <if test="pbdFunl != null" >
+        pbd_funl,
+      </if>
+      <if test="pbdFchr != null" >
+        pbd_fchr,
+      </if>
+      <if test="pbdFptc != null" >
+        pbd_fptc,
+      </if>
+      <if test="pbdFfce != null" >
+        pbd_ffce,
+      </if>
+      <if test="pbhFhgt != null" >
+        pbh_fhgt,
+      </if>
+      <if test="pbhFwgt != null" >
+        pbh_fwgt,
+      </if>
+      <if test="pbhFitl != null" >
+        pbh_fitl,
+      </if>
+      <if test="pbhFunl != null" >
+        pbh_funl,
+      </if>
+      <if test="pbhFchr != null" >
+        pbh_fchr,
+      </if>
+      <if test="pbhFptc != null" >
+        pbh_fptc,
+      </if>
+      <if test="pbhFfce != null" >
+        pbh_ffce,
+      </if>
+      <if test="pblFhgt != null" >
+        pbl_fhgt,
+      </if>
+      <if test="pblFwgt != null" >
+        pbl_fwgt,
+      </if>
+      <if test="pblFitl != null" >
+        pbl_fitl,
+      </if>
+      <if test="pblFunl != null" >
+        pbl_funl,
+      </if>
+      <if test="pblFchr != null" >
+        pbl_fchr,
+      </if>
+      <if test="pblFptc != null" >
+        pbl_fptc,
+      </if>
+      <if test="pblFfce != null" >
+        pbl_ffce,
+      </if>
+      <if test="pbtCmnt != null" >
+        pbt_cmnt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pbtTnam != null" >
+        #{pbtTnam,jdbcType=VARCHAR},
+      </if>
+      <if test="pbtTid != null" >
+        #{pbtTid,jdbcType=INTEGER},
+      </if>
+      <if test="pbtOwnr != null" >
+        #{pbtOwnr,jdbcType=VARCHAR},
+      </if>
+      <if test="pbdFhgt != null" >
+        #{pbdFhgt,jdbcType=SMALLINT},
+      </if>
+      <if test="pbdFwgt != null" >
+        #{pbdFwgt,jdbcType=SMALLINT},
+      </if>
+      <if test="pbdFitl != null" >
+        #{pbdFitl,jdbcType=VARCHAR},
+      </if>
+      <if test="pbdFunl != null" >
+        #{pbdFunl,jdbcType=VARCHAR},
+      </if>
+      <if test="pbdFchr != null" >
+        #{pbdFchr,jdbcType=SMALLINT},
+      </if>
+      <if test="pbdFptc != null" >
+        #{pbdFptc,jdbcType=SMALLINT},
+      </if>
+      <if test="pbdFfce != null" >
+        #{pbdFfce,jdbcType=VARCHAR},
+      </if>
+      <if test="pbhFhgt != null" >
+        #{pbhFhgt,jdbcType=SMALLINT},
+      </if>
+      <if test="pbhFwgt != null" >
+        #{pbhFwgt,jdbcType=SMALLINT},
+      </if>
+      <if test="pbhFitl != null" >
+        #{pbhFitl,jdbcType=VARCHAR},
+      </if>
+      <if test="pbhFunl != null" >
+        #{pbhFunl,jdbcType=VARCHAR},
+      </if>
+      <if test="pbhFchr != null" >
+        #{pbhFchr,jdbcType=SMALLINT},
+      </if>
+      <if test="pbhFptc != null" >
+        #{pbhFptc,jdbcType=SMALLINT},
+      </if>
+      <if test="pbhFfce != null" >
+        #{pbhFfce,jdbcType=VARCHAR},
+      </if>
+      <if test="pblFhgt != null" >
+        #{pblFhgt,jdbcType=SMALLINT},
+      </if>
+      <if test="pblFwgt != null" >
+        #{pblFwgt,jdbcType=SMALLINT},
+      </if>
+      <if test="pblFitl != null" >
+        #{pblFitl,jdbcType=VARCHAR},
+      </if>
+      <if test="pblFunl != null" >
+        #{pblFunl,jdbcType=VARCHAR},
+      </if>
+      <if test="pblFchr != null" >
+        #{pblFchr,jdbcType=SMALLINT},
+      </if>
+      <if test="pblFptc != null" >
+        #{pblFptc,jdbcType=SMALLINT},
+      </if>
+      <if test="pblFfce != null" >
+        #{pblFfce,jdbcType=VARCHAR},
+      </if>
+      <if test="pbtCmnt != null" >
+        #{pbtCmnt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

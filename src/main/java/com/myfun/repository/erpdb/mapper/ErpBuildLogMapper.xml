@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBuildLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBuildLog">
+    <!--@mbggenerated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="track_time" jdbcType="TIMESTAMP" property="trackTime" />
+    <result column="track_conten" jdbcType="VARCHAR" property="trackConten" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_user_id" jdbcType="INTEGER" property="updateUserId" />
+    <result column="creation_time" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="build_id" jdbcType="INTEGER" property="buildId" />
+    <result column="comp_id" jdbcType="INTEGER" property="compId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    id, track_time, track_conten, update_user, update_user_id, creation_time, build_id, 
+    comp_id
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildLogExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from build_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from build_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from build_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildLogExample">
+    <!--@mbggenerated-->
+    delete from build_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpBuildLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into build_log (track_time, track_conten, update_user, 
+      update_user_id, creation_time, build_id, 
+      comp_id)
+    values (#{trackTime,jdbcType=TIMESTAMP}, #{trackConten,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateUserId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{buildId,jdbcType=INTEGER}, 
+      #{compId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpBuildLog" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into build_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="trackTime != null">
+        track_time,
+      </if>
+      <if test="trackConten != null">
+        track_conten,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateUserId != null">
+        update_user_id,
+      </if>
+      <if test="creationTime != null">
+        creation_time,
+      </if>
+      <if test="buildId != null">
+        build_id,
+      </if>
+      <if test="compId != null">
+        comp_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="trackTime != null">
+        #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackConten != null">
+        #{trackConten,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildLogExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from build_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update build_log
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackTime != null">
+        track_time = #{record.trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.trackConten != null">
+        track_conten = #{record.trackConten,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUser != null">
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUserId != null">
+        update_user_id = #{record.updateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        creation_time = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.buildId != null">
+        build_id = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        comp_id = #{record.compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update build_log
+    set id = #{record.id,jdbcType=INTEGER},
+      track_time = #{record.trackTime,jdbcType=TIMESTAMP},
+      track_conten = #{record.trackConten,jdbcType=VARCHAR},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      update_user_id = #{record.updateUserId,jdbcType=INTEGER},
+      creation_time = #{record.creationTime,jdbcType=TIMESTAMP},
+      build_id = #{record.buildId,jdbcType=INTEGER},
+      comp_id = #{record.compId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildLog">
+    <!--@mbggenerated-->
+    update build_log
+    <set>
+      <if test="trackTime != null">
+        track_time = #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackConten != null">
+        track_conten = #{trackConten,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null">
+        update_user_id = #{updateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildId != null">
+        build_id = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        comp_id = #{compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildLog">
+    <!--@mbggenerated-->
+    update build_log
+    set track_time = #{trackTime,jdbcType=TIMESTAMP},
+      track_conten = #{trackConten,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=INTEGER},
+      creation_time = #{creationTime,jdbcType=TIMESTAMP},
+      build_id = #{buildId,jdbcType=INTEGER},
+      comp_id = #{compId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getBuildLogListByBuildIds" resultMap="BaseResultMap">
+      SELECT  <include refid="Base_Column_List" />
+      from build_log WHERE
+      COMP_ID = #{compId}
+    <choose>
+      <when test="buildIdList != null and buildIdList.size()&gt;0">
+          and id
+            IN (
+                SELECT MAX(id) from build_log where  build_id in
+                <foreach close=")" collection="buildIdList" separator="," item="buildId" open="(" >
+                  #{buildId}
+                </foreach>
+                group by  build_id
+          )
+      </when>
+      <otherwise>
+        and 1 != 1
+      </otherwise>
+    </choose>
+  </select>
+  <select id="getBuildLogList" resultMap="BaseResultMap">
+    SELECT  <include refid="Base_Column_List" />
+     FROM  build_log WHERE  COMP_ID = #{compId} and build_id = #{param.buildId}
+    <if test="param.startTime != null and param.startTime != ''">
+      and creation_time &gt; #{param.startTime}
+    </if>
+    <if test="param.endTime != null and param.endTime != ''">
+      and creation_time &lt; #{param.endTime}
+    </if>
+    order by creation_time desc
+  </select>
+  <select id="getMaxIdList" resultMap="BaseResultMap">
+    SELECT MAX(id) as buildId from build_log where  COMP_ID = #{compId} and build_id in
+    <foreach close=")" collection="buildIdList" separator="," item="buildId" open="(" >
+      #{buildId}
+    </foreach>
+    group by  build_id
+  </select>
+</mapper>

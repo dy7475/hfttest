@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminScoreConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminScoreConfig" >
+    <!--@mbggenerated-->
+    <id column="SC_ID" property="scId" jdbcType="INTEGER" />
+    <result column="SC_DESC" property="scDesc" jdbcType="VARCHAR" />
+    <result column="SCORE" property="score" jdbcType="INTEGER" />
+    <result column="PER" property="per" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    SC_ID, SC_DESC, SCORE, PER
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SCORE_CONFIG
+    where SC_ID = #{scId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from SCORE_CONFIG
+    where SC_ID = #{scId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminScoreConfig" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="scId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SCORE_CONFIG (SC_DESC, SCORE, PER
+      )
+    values (#{scDesc,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{per,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminScoreConfig" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="scId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SCORE_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="scDesc != null" >
+        SC_DESC,
+      </if>
+      <if test="score != null" >
+        SCORE,
+      </if>
+      <if test="per != null" >
+        PER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="scDesc != null" >
+        #{scDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="per != null" >
+        #{per,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminScoreConfig" >
+    <!--@mbggenerated-->
+    update SCORE_CONFIG
+    <set >
+      <if test="scDesc != null" >
+        SC_DESC = #{scDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        SCORE = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="per != null" >
+        PER = #{per,jdbcType=TINYINT},
+      </if>
+    </set>
+    where SC_ID = #{scId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminScoreConfig" >
+    <!--@mbggenerated-->
+    update SCORE_CONFIG
+    set SC_DESC = #{scDesc,jdbcType=VARCHAR},
+      SCORE = #{score,jdbcType=INTEGER},
+      PER = #{per,jdbcType=TINYINT}
+    where SC_ID = #{scId,jdbcType=INTEGER}
+  </update>
+</mapper>

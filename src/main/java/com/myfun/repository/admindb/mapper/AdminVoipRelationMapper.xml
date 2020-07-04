@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminVoipRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminVoipRelation" >
+    <!--@mbggenerated-->
+    <id column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="CLIENT_NUMBER" property="clientNumber" jdbcType="VARCHAR" />
+    <result column="CLIENT_PWD" property="clientPwd" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    USER_MOBILE, CLIENT_NUMBER, CLIENT_PWD, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from VOIP_RELATION
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    delete from VOIP_RELATION
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminVoipRelation" >
+    <!--@mbggenerated-->
+    insert into VOIP_RELATION (USER_MOBILE, CLIENT_NUMBER, CLIENT_PWD, 
+      CREATE_TIME)
+    values (#{userMobile,jdbcType=VARCHAR}, #{clientNumber,jdbcType=VARCHAR}, #{clientPwd,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminVoipRelation" >
+    <!--@mbggenerated-->
+    insert into VOIP_RELATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="clientNumber != null" >
+        CLIENT_NUMBER,
+      </if>
+      <if test="clientPwd != null" >
+        CLIENT_PWD,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="clientNumber != null" >
+        #{clientNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="clientPwd != null" >
+        #{clientPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminVoipRelation" >
+    <!--@mbggenerated-->
+    update VOIP_RELATION
+    <set >
+      <if test="clientNumber != null" >
+        CLIENT_NUMBER = #{clientNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="clientPwd != null" >
+        CLIENT_PWD = #{clientPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminVoipRelation" >
+    <!--@mbggenerated-->
+    update VOIP_RELATION
+    set CLIENT_NUMBER = #{clientNumber,jdbcType=VARCHAR},
+      CLIENT_PWD = #{clientPwd,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </update>
+</mapper>

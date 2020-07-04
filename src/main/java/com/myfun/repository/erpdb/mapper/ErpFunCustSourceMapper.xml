@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunCustSourceMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunCustSource">
+    <!--@mbggenerated-->
+    <id column="CUST_SOURCE_ID" jdbcType="INTEGER" property="custSourceId" />
+    <result column="CREATED_USER_ID" jdbcType="INTEGER" property="createdUserId" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="UPDATED_USER_ID" jdbcType="VARCHAR" property="updatedUserId" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="FORBID_STATUS" jdbcType="TINYINT" property="forbidStatus" />
+    <result column="DEL_STATUS" jdbcType="TINYINT" property="delStatus" />
+    <result column="SOURCE_NAME" jdbcType="VARCHAR" property="sourceName" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="SERIAL_NUMBER" jdbcType="INTEGER" property="serialNumber" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CUST_SOURCE_ID, CREATED_USER_ID, CREATED_TIME, UPDATED_USER_ID, UPDATED_TIME, FORBID_STATUS, 
+    DEL_STATUS, SOURCE_NAME, CODE, SERIAL_NUMBER, DESCRIPTION, COMP_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunCustSourceExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_CUST_SOURCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_CUST_SOURCE
+    where CUST_SOURCE_ID = #{custSourceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_CUST_SOURCE
+    where CUST_SOURCE_ID = #{custSourceId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunCustSourceExample">
+    <!--@mbggenerated-->
+    delete from FUN_CUST_SOURCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="custSourceId" parameterType="com.myfun.repository.erpdb.po.ErpFunCustSource" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_CUST_SOURCE (CREATED_USER_ID, CREATED_TIME, UPDATED_USER_ID, 
+      UPDATED_TIME, FORBID_STATUS, DEL_STATUS, 
+      SOURCE_NAME, CODE, SERIAL_NUMBER, 
+      DESCRIPTION, COMP_ID)
+    values (#{createdUserId,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedUserId,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{forbidStatus,jdbcType=TINYINT}, #{delStatus,jdbcType=TINYINT}, 
+      #{sourceName,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{serialNumber,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="custSourceId" parameterType="com.myfun.repository.erpdb.po.ErpFunCustSource" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_CUST_SOURCE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createdUserId != null">
+        CREATED_USER_ID,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="updatedUserId != null">
+        UPDATED_USER_ID,
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME,
+      </if>
+      <if test="forbidStatus != null">
+        FORBID_STATUS,
+      </if>
+      <if test="delStatus != null">
+        DEL_STATUS,
+      </if>
+      <if test="sourceName != null">
+        SOURCE_NAME,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="serialNumber != null">
+        SERIAL_NUMBER,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createdUserId != null">
+        #{createdUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUserId != null">
+        #{updatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forbidStatus != null">
+        #{forbidStatus,jdbcType=TINYINT},
+      </if>
+      <if test="delStatus != null">
+        #{delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="sourceName != null">
+        #{sourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null">
+        #{serialNumber,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunCustSourceExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_CUST_SOURCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_CUST_SOURCE
+    <set>
+      <if test="record.custSourceId != null">
+        CUST_SOURCE_ID = #{record.custSourceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdUserId != null">
+        CREATED_USER_ID = #{record.createdUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdTime != null">
+        CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedUserId != null">
+        UPDATED_USER_ID = #{record.updatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatedTime != null">
+        UPDATED_TIME = #{record.updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.forbidStatus != null">
+        FORBID_STATUS = #{record.forbidStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.delStatus != null">
+        DEL_STATUS = #{record.delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.sourceName != null">
+        SOURCE_NAME = #{record.sourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.code != null">
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serialNumber != null">
+        SERIAL_NUMBER = #{record.serialNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.description != null">
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_CUST_SOURCE
+    set CUST_SOURCE_ID = #{record.custSourceId,jdbcType=INTEGER},
+      CREATED_USER_ID = #{record.createdUserId,jdbcType=INTEGER},
+      CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      UPDATED_USER_ID = #{record.updatedUserId,jdbcType=VARCHAR},
+      UPDATED_TIME = #{record.updatedTime,jdbcType=TIMESTAMP},
+      FORBID_STATUS = #{record.forbidStatus,jdbcType=TINYINT},
+      DEL_STATUS = #{record.delStatus,jdbcType=TINYINT},
+      SOURCE_NAME = #{record.sourceName,jdbcType=VARCHAR},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      SERIAL_NUMBER = #{record.serialNumber,jdbcType=INTEGER},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      COMP_ID = #{record.compId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunCustSource">
+    <!--@mbggenerated-->
+    update FUN_CUST_SOURCE
+    <set>
+      <if test="createdUserId != null">
+        CREATED_USER_ID = #{createdUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUserId != null">
+        UPDATED_USER_ID = #{updatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forbidStatus != null">
+        FORBID_STATUS = #{forbidStatus,jdbcType=TINYINT},
+      </if>
+      <if test="delStatus != null">
+        DEL_STATUS = #{delStatus,jdbcType=TINYINT},
+      </if>
+      <if test="sourceName != null">
+        SOURCE_NAME = #{sourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null">
+        SERIAL_NUMBER = #{serialNumber,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CUST_SOURCE_ID = #{custSourceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunCustSource">
+    <!--@mbggenerated-->
+    update FUN_CUST_SOURCE
+    set CREATED_USER_ID = #{createdUserId,jdbcType=INTEGER},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_USER_ID = #{updatedUserId,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      FORBID_STATUS = #{forbidStatus,jdbcType=TINYINT},
+      DEL_STATUS = #{delStatus,jdbcType=TINYINT},
+      SOURCE_NAME = #{sourceName,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      SERIAL_NUMBER = #{serialNumber,jdbcType=INTEGER},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER}
+    where CUST_SOURCE_ID = #{custSourceId,jdbcType=INTEGER}
+  </update>
+</mapper>

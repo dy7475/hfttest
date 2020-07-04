@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyMyHftUsermapMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyMyHftUsermap" >
+    <!--@mbggenerated-->
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="MY_ID" property="myId" jdbcType="VARCHAR" />
+    <result column="REGION" property="region" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyMyHftUsermap" >
+    <!--@mbggenerated-->
+    insert into MY_HFT_USERMAP (ARCHIVE_ID, MY_ID, REGION
+      )
+    values (#{archiveId,jdbcType=INTEGER}, #{myId,jdbcType=VARCHAR}, #{region,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyMyHftUsermap" >
+    <!--@mbggenerated-->
+    insert into MY_HFT_USERMAP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="myId != null" >
+        MY_ID,
+      </if>
+      <if test="region != null" >
+        REGION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="myId != null" >
+        #{myId,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

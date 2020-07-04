@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminAppLoginLogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminAppLoginLog" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="LOGIN_TIME" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="VERSION_NAME" property="versionName" jdbcType="VARCHAR" />
+    <result column="DEVICE_TYPE" property="deviceType" jdbcType="INTEGER" />
+    <result column="PUSH_TOKEN" property="pushToken" jdbcType="VARCHAR" />
+    <result column="LOGIN_STATUS" property="loginStatus" jdbcType="INTEGER" />
+    <result column="SIMSERIAL" property="simserial" jdbcType="VARCHAR" />
+    <result column="MOBILE_MODEL" property="mobileModel" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, ARCHIVE_ID, LOGIN_TIME, USER_MOBILE, VERSION_NAME, DEVICE_TYPE, PUSH_TOKEN, LOGIN_STATUS, 
+    SIMSERIAL, MOBILE_MODEL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from APP_LOGIN_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from APP_LOGIN_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminAppLoginLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into APP_LOGIN_LOG (ARCHIVE_ID, LOGIN_TIME, USER_MOBILE, 
+      VERSION_NAME, DEVICE_TYPE, PUSH_TOKEN, 
+      LOGIN_STATUS, SIMSERIAL, MOBILE_MODEL
+      )
+    values (#{archiveId,jdbcType=INTEGER}, #{loginTime,jdbcType=TIMESTAMP}, #{userMobile,jdbcType=VARCHAR}, 
+      #{versionName,jdbcType=VARCHAR}, #{deviceType,jdbcType=INTEGER}, #{pushToken,jdbcType=VARCHAR}, 
+      #{loginStatus,jdbcType=INTEGER}, #{simserial,jdbcType=VARCHAR}, #{mobileModel,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminAppLoginLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into APP_LOGIN_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="loginTime != null" >
+        LOGIN_TIME,
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="versionName != null" >
+        VERSION_NAME,
+      </if>
+      <if test="deviceType != null" >
+        DEVICE_TYPE,
+      </if>
+      <if test="pushToken != null" >
+        PUSH_TOKEN,
+      </if>
+      <if test="loginStatus != null" >
+        LOGIN_STATUS,
+      </if>
+      <if test="simserial != null" >
+        SIMSERIAL,
+      </if>
+      <if test="mobileModel != null" >
+        MOBILE_MODEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null" >
+        #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        #{deviceType,jdbcType=INTEGER},
+      </if>
+      <if test="pushToken != null" >
+        #{pushToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginStatus != null" >
+        #{loginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="simserial != null" >
+        #{simserial,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileModel != null" >
+        #{mobileModel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminAppLoginLog" >
+    <!--@mbggenerated-->
+    update APP_LOGIN_LOG
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        LOGIN_TIME = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null" >
+        VERSION_NAME = #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        DEVICE_TYPE = #{deviceType,jdbcType=INTEGER},
+      </if>
+      <if test="pushToken != null" >
+        PUSH_TOKEN = #{pushToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginStatus != null" >
+        LOGIN_STATUS = #{loginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="simserial != null" >
+        SIMSERIAL = #{simserial,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileModel != null" >
+        MOBILE_MODEL = #{mobileModel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminAppLoginLog" >
+    <!--@mbggenerated-->
+    update APP_LOGIN_LOG
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      LOGIN_TIME = #{loginTime,jdbcType=TIMESTAMP},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      VERSION_NAME = #{versionName,jdbcType=VARCHAR},
+      DEVICE_TYPE = #{deviceType,jdbcType=INTEGER},
+      PUSH_TOKEN = #{pushToken,jdbcType=VARCHAR},
+      LOGIN_STATUS = #{loginStatus,jdbcType=INTEGER},
+      SIMSERIAL = #{simserial,jdbcType=VARCHAR},
+      MOBILE_MODEL = #{mobileModel,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- buniess -->
+  <select id="AppFirstLogin"  resultMap="BaseResultMap">
+  	SELECT MIN(LOGIN_TIME) AS LOGIN_TIME FROM APP_LOGIN_LOG 
+  	WHERE ARCHIVE_ID = #{archiveId}
+  	<if test="beginDate != null">
+  		and LOGIN_TIME > #{beginDate}
+  	</if>
+  </select>
+  
+</mapper>

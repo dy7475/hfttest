@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfPushLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfPushLog">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="WX_ID" jdbcType="INTEGER" property="wxId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="RECOM_HOUSE_ID" jdbcType="INTEGER" property="recomHouseId" />
+    <result column="BROKER_MOBILE" jdbcType="VARCHAR" property="brokerMobile" />
+    <result column="WX_MOBILE" jdbcType="VARCHAR" property="wxMobile" />
+    <result column="SETTING_FEE" jdbcType="VARCHAR" property="settingFee" />
+    <result column="PUSH_STATUS" jdbcType="TINYINT" property="pushStatus" />
+    <result column="REQUIRE_STATUS" jdbcType="TINYINT" property="requireStatus" />
+    <result column="RECEIVE_STATUS" jdbcType="TINYINT" property="receiveStatus" />
+    <result column="CANCEL_STATUS" jdbcType="TINYINT" property="cancelStatus" />
+    <result column="ACT_TIME" jdbcType="TIMESTAMP" property="actTime" />
+    <result column="PUSH_TIME" jdbcType="TIMESTAMP" property="pushTime" />
+    <result column="REFUSE_REASON" jdbcType="VARCHAR" property="refuseReason" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="DAIKAN_COUNT" jdbcType="INTEGER" property="daikanCount" />
+    <result column="LOTTERY_FLAG" jdbcType="INTEGER" property="lotteryFlag" />
+    <result column="UPDATE_FLAG_COUNT" jdbcType="TINYINT" property="updateFlagCount" />
+    <result column="CHONGDAN_FLAG" jdbcType="INTEGER" property="chongdanFlag" />
+    <result column="VIP_QUEUE_ID" jdbcType="INTEGER" property="vipQueueId" />
+    <result column="REFUSE_TAG_INDEX" jdbcType="VARCHAR" property="refuseTagIndex" />
+    <result column="CANCEL_TAG_INDEX" jdbcType="VARCHAR" property="cancelTagIndex" />
+    <result column="CANCEL_REASON" jdbcType="VARCHAR" property="cancelReason" />
+    <result column="BROKER_DEL_STATUS" jdbcType="TINYINT" property="brokerDelStatus" />
+    <result column="BROKER_DEL_STATUS_TIME" jdbcType="TIMESTAMP" property="brokerDelStatusTime" />
+    <result column="SYS_CANCEL_STATUS" jdbcType="TINYINT" property="sysCancelStatus" />
+    <result column="SYS_CANCEL_TIME" jdbcType="TIMESTAMP" property="sysCancelTime" />
+    <result column="EXPIRE_WARN_FLAG" jdbcType="TINYINT" property="expireWarnFlag" />
+    <result column="EXPIRE_WARN_TIME" jdbcType="TIMESTAMP" property="expireWarnTime" />
+    <result column="DEAL_PRIZE_FLAG" jdbcType="TINYINT" property="dealPrizeFlag" />
+    <result column="RECOM_PRIZE_FLAG" jdbcType="TINYINT" property="recomPrizeFlag" />
+    <result column="BIZ_TYPE" jdbcType="INTEGER" property="bizType" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="FANGKAN_TIME" jdbcType="TIMESTAMP" property="fangkanTime" />
+    <result column="CRM_USER_ID" jdbcType="INTEGER" property="crmUserId" />
+    <result column="ROB_PAY_JSON" jdbcType="VARCHAR" property="robPayJson" />
+    <result column="BROKER_MONEY_FEE" jdbcType="VARCHAR" property="brokerMoneyFee" />
+    <result column="IS_SCANNER" jdbcType="TINYINT" property="isScanner" />
+    <result column="PUSH_TYPE" jdbcType="INTEGER" property="pushType" />
+    <result column="ORGANIZATION_PATH" jdbcType="VARCHAR" property="organizationPath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, WX_ID, ARCHIVE_ID, CASE_ID, CITY_ID, CASE_TYPE, RECOM_HOUSE_ID, BROKER_MOBILE, 
+    WX_MOBILE, SETTING_FEE, PUSH_STATUS, REQUIRE_STATUS, RECEIVE_STATUS, CANCEL_STATUS, 
+    ACT_TIME, PUSH_TIME, REFUSE_REASON, CREATE_TIME, DAIKAN_COUNT, LOTTERY_FLAG, UPDATE_FLAG_COUNT, 
+    CHONGDAN_FLAG, VIP_QUEUE_ID, REFUSE_TAG_INDEX, CANCEL_TAG_INDEX, CANCEL_REASON, BROKER_DEL_STATUS, 
+    BROKER_DEL_STATUS_TIME, SYS_CANCEL_STATUS, SYS_CANCEL_TIME, EXPIRE_WARN_FLAG, EXPIRE_WARN_TIME, 
+    DEAL_PRIZE_FLAG, RECOM_PRIZE_FLAG, BIZ_TYPE, AREA_ID, REG_ID, DEPT_ID, GR_ID, USER_ID, 
+    COMP_ID, FANGKAN_TIME, CRM_USER_ID, ROB_PAY_JSON, BROKER_MONEY_FEE, IS_SCANNER, PUSH_TYPE, 
+    ORGANIZATION_PATH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_PUSH_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from WF_PUSH_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfPushLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_PUSH_LOG (WX_ID, ARCHIVE_ID, CASE_ID, 
+      CITY_ID, CASE_TYPE, RECOM_HOUSE_ID, 
+      BROKER_MOBILE, WX_MOBILE, SETTING_FEE, 
+      PUSH_STATUS, REQUIRE_STATUS, RECEIVE_STATUS, 
+      CANCEL_STATUS, ACT_TIME, PUSH_TIME, 
+      REFUSE_REASON, CREATE_TIME, DAIKAN_COUNT, 
+      LOTTERY_FLAG, UPDATE_FLAG_COUNT, CHONGDAN_FLAG, 
+      VIP_QUEUE_ID, REFUSE_TAG_INDEX, CANCEL_TAG_INDEX, 
+      CANCEL_REASON, BROKER_DEL_STATUS, BROKER_DEL_STATUS_TIME, 
+      SYS_CANCEL_STATUS, SYS_CANCEL_TIME, EXPIRE_WARN_FLAG, 
+      EXPIRE_WARN_TIME, DEAL_PRIZE_FLAG, RECOM_PRIZE_FLAG, 
+      BIZ_TYPE, AREA_ID, REG_ID, 
+      DEPT_ID, GR_ID, USER_ID, 
+      COMP_ID, FANGKAN_TIME, CRM_USER_ID, 
+      ROB_PAY_JSON, BROKER_MONEY_FEE, IS_SCANNER, 
+      PUSH_TYPE, ORGANIZATION_PATH)
+    values (#{wxId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{recomHouseId,jdbcType=INTEGER}, 
+      #{brokerMobile,jdbcType=VARCHAR}, #{wxMobile,jdbcType=VARCHAR}, #{settingFee,jdbcType=VARCHAR}, 
+      #{pushStatus,jdbcType=TINYINT}, #{requireStatus,jdbcType=TINYINT}, #{receiveStatus,jdbcType=TINYINT}, 
+      #{cancelStatus,jdbcType=TINYINT}, #{actTime,jdbcType=TIMESTAMP}, #{pushTime,jdbcType=TIMESTAMP}, 
+      #{refuseReason,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{daikanCount,jdbcType=INTEGER}, 
+      #{lotteryFlag,jdbcType=INTEGER}, #{updateFlagCount,jdbcType=TINYINT}, #{chongdanFlag,jdbcType=INTEGER}, 
+      #{vipQueueId,jdbcType=INTEGER}, #{refuseTagIndex,jdbcType=VARCHAR}, #{cancelTagIndex,jdbcType=VARCHAR}, 
+      #{cancelReason,jdbcType=VARCHAR}, #{brokerDelStatus,jdbcType=TINYINT}, #{brokerDelStatusTime,jdbcType=TIMESTAMP}, 
+      #{sysCancelStatus,jdbcType=TINYINT}, #{sysCancelTime,jdbcType=TIMESTAMP}, #{expireWarnFlag,jdbcType=TINYINT}, 
+      #{expireWarnTime,jdbcType=TIMESTAMP}, #{dealPrizeFlag,jdbcType=TINYINT}, #{recomPrizeFlag,jdbcType=TINYINT}, 
+      #{bizType,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{compId,jdbcType=INTEGER}, #{fangkanTime,jdbcType=TIMESTAMP}, #{crmUserId,jdbcType=INTEGER}, 
+      #{robPayJson,jdbcType=VARCHAR}, #{brokerMoneyFee,jdbcType=VARCHAR}, #{isScanner,jdbcType=TINYINT}, 
+      #{pushType,jdbcType=INTEGER}, #{organizationPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfPushLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_PUSH_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wxId != null">
+        WX_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="recomHouseId != null">
+        RECOM_HOUSE_ID,
+      </if>
+      <if test="brokerMobile != null">
+        BROKER_MOBILE,
+      </if>
+      <if test="wxMobile != null">
+        WX_MOBILE,
+      </if>
+      <if test="settingFee != null">
+        SETTING_FEE,
+      </if>
+      <if test="pushStatus != null">
+        PUSH_STATUS,
+      </if>
+      <if test="requireStatus != null">
+        REQUIRE_STATUS,
+      </if>
+      <if test="receiveStatus != null">
+        RECEIVE_STATUS,
+      </if>
+      <if test="cancelStatus != null">
+        CANCEL_STATUS,
+      </if>
+      <if test="actTime != null">
+        ACT_TIME,
+      </if>
+      <if test="pushTime != null">
+        PUSH_TIME,
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="daikanCount != null">
+        DAIKAN_COUNT,
+      </if>
+      <if test="lotteryFlag != null">
+        LOTTERY_FLAG,
+      </if>
+      <if test="updateFlagCount != null">
+        UPDATE_FLAG_COUNT,
+      </if>
+      <if test="chongdanFlag != null">
+        CHONGDAN_FLAG,
+      </if>
+      <if test="vipQueueId != null">
+        VIP_QUEUE_ID,
+      </if>
+      <if test="refuseTagIndex != null">
+        REFUSE_TAG_INDEX,
+      </if>
+      <if test="cancelTagIndex != null">
+        CANCEL_TAG_INDEX,
+      </if>
+      <if test="cancelReason != null">
+        CANCEL_REASON,
+      </if>
+      <if test="brokerDelStatus != null">
+        BROKER_DEL_STATUS,
+      </if>
+      <if test="brokerDelStatusTime != null">
+        BROKER_DEL_STATUS_TIME,
+      </if>
+      <if test="sysCancelStatus != null">
+        SYS_CANCEL_STATUS,
+      </if>
+      <if test="sysCancelTime != null">
+        SYS_CANCEL_TIME,
+      </if>
+      <if test="expireWarnFlag != null">
+        EXPIRE_WARN_FLAG,
+      </if>
+      <if test="expireWarnTime != null">
+        EXPIRE_WARN_TIME,
+      </if>
+      <if test="dealPrizeFlag != null">
+        DEAL_PRIZE_FLAG,
+      </if>
+      <if test="recomPrizeFlag != null">
+        RECOM_PRIZE_FLAG,
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="grId != null">
+        GR_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="fangkanTime != null">
+        FANGKAN_TIME,
+      </if>
+      <if test="crmUserId != null">
+        CRM_USER_ID,
+      </if>
+      <if test="robPayJson != null">
+        ROB_PAY_JSON,
+      </if>
+      <if test="brokerMoneyFee != null">
+        BROKER_MONEY_FEE,
+      </if>
+      <if test="isScanner != null">
+        IS_SCANNER,
+      </if>
+      <if test="pushType != null">
+        PUSH_TYPE,
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wxId != null">
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="recomHouseId != null">
+        #{recomHouseId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerMobile != null">
+        #{brokerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wxMobile != null">
+        #{wxMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="settingFee != null">
+        #{settingFee,jdbcType=VARCHAR},
+      </if>
+      <if test="pushStatus != null">
+        #{pushStatus,jdbcType=TINYINT},
+      </if>
+      <if test="requireStatus != null">
+        #{requireStatus,jdbcType=TINYINT},
+      </if>
+      <if test="receiveStatus != null">
+        #{receiveStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cancelStatus != null">
+        #{cancelStatus,jdbcType=TINYINT},
+      </if>
+      <if test="actTime != null">
+        #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushTime != null">
+        #{pushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refuseReason != null">
+        #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="daikanCount != null">
+        #{daikanCount,jdbcType=INTEGER},
+      </if>
+      <if test="lotteryFlag != null">
+        #{lotteryFlag,jdbcType=INTEGER},
+      </if>
+      <if test="updateFlagCount != null">
+        #{updateFlagCount,jdbcType=TINYINT},
+      </if>
+      <if test="chongdanFlag != null">
+        #{chongdanFlag,jdbcType=INTEGER},
+      </if>
+      <if test="vipQueueId != null">
+        #{vipQueueId,jdbcType=INTEGER},
+      </if>
+      <if test="refuseTagIndex != null">
+        #{refuseTagIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTagIndex != null">
+        #{cancelTagIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelReason != null">
+        #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerDelStatus != null">
+        #{brokerDelStatus,jdbcType=TINYINT},
+      </if>
+      <if test="brokerDelStatusTime != null">
+        #{brokerDelStatusTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysCancelStatus != null">
+        #{sysCancelStatus,jdbcType=TINYINT},
+      </if>
+      <if test="sysCancelTime != null">
+        #{sysCancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireWarnFlag != null">
+        #{expireWarnFlag,jdbcType=TINYINT},
+      </if>
+      <if test="expireWarnTime != null">
+        #{expireWarnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealPrizeFlag != null">
+        #{dealPrizeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="recomPrizeFlag != null">
+        #{recomPrizeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fangkanTime != null">
+        #{fangkanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crmUserId != null">
+        #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="robPayJson != null">
+        #{robPayJson,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerMoneyFee != null">
+        #{brokerMoneyFee,jdbcType=VARCHAR},
+      </if>
+      <if test="isScanner != null">
+        #{isScanner,jdbcType=TINYINT},
+      </if>
+      <if test="pushType != null">
+        #{pushType,jdbcType=INTEGER},
+      </if>
+      <if test="organizationPath != null">
+        #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfPushLog">
+    <!--@mbggenerated-->
+    update WF_PUSH_LOG
+    <set>
+      <if test="wxId != null">
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="recomHouseId != null">
+        RECOM_HOUSE_ID = #{recomHouseId,jdbcType=INTEGER},
+      </if>
+      <if test="brokerMobile != null">
+        BROKER_MOBILE = #{brokerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wxMobile != null">
+        WX_MOBILE = #{wxMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="settingFee != null">
+        SETTING_FEE = #{settingFee,jdbcType=VARCHAR},
+      </if>
+      <if test="pushStatus != null">
+        PUSH_STATUS = #{pushStatus,jdbcType=TINYINT},
+      </if>
+      <if test="requireStatus != null">
+        REQUIRE_STATUS = #{requireStatus,jdbcType=TINYINT},
+      </if>
+      <if test="receiveStatus != null">
+        RECEIVE_STATUS = #{receiveStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cancelStatus != null">
+        CANCEL_STATUS = #{cancelStatus,jdbcType=TINYINT},
+      </if>
+      <if test="actTime != null">
+        ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushTime != null">
+        PUSH_TIME = #{pushTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refuseReason != null">
+        REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="daikanCount != null">
+        DAIKAN_COUNT = #{daikanCount,jdbcType=INTEGER},
+      </if>
+      <if test="lotteryFlag != null">
+        LOTTERY_FLAG = #{lotteryFlag,jdbcType=INTEGER},
+      </if>
+      <if test="updateFlagCount != null">
+        UPDATE_FLAG_COUNT = #{updateFlagCount,jdbcType=TINYINT},
+      </if>
+      <if test="chongdanFlag != null">
+        CHONGDAN_FLAG = #{chongdanFlag,jdbcType=INTEGER},
+      </if>
+      <if test="vipQueueId != null">
+        VIP_QUEUE_ID = #{vipQueueId,jdbcType=INTEGER},
+      </if>
+      <if test="refuseTagIndex != null">
+        REFUSE_TAG_INDEX = #{refuseTagIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTagIndex != null">
+        CANCEL_TAG_INDEX = #{cancelTagIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelReason != null">
+        CANCEL_REASON = #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerDelStatus != null">
+        BROKER_DEL_STATUS = #{brokerDelStatus,jdbcType=TINYINT},
+      </if>
+      <if test="brokerDelStatusTime != null">
+        BROKER_DEL_STATUS_TIME = #{brokerDelStatusTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysCancelStatus != null">
+        SYS_CANCEL_STATUS = #{sysCancelStatus,jdbcType=TINYINT},
+      </if>
+      <if test="sysCancelTime != null">
+        SYS_CANCEL_TIME = #{sysCancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireWarnFlag != null">
+        EXPIRE_WARN_FLAG = #{expireWarnFlag,jdbcType=TINYINT},
+      </if>
+      <if test="expireWarnTime != null">
+        EXPIRE_WARN_TIME = #{expireWarnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealPrizeFlag != null">
+        DEAL_PRIZE_FLAG = #{dealPrizeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="recomPrizeFlag != null">
+        RECOM_PRIZE_FLAG = #{recomPrizeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="bizType != null">
+        BIZ_TYPE = #{bizType,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fangkanTime != null">
+        FANGKAN_TIME = #{fangkanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crmUserId != null">
+        CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="robPayJson != null">
+        ROB_PAY_JSON = #{robPayJson,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerMoneyFee != null">
+        BROKER_MONEY_FEE = #{brokerMoneyFee,jdbcType=VARCHAR},
+      </if>
+      <if test="isScanner != null">
+        IS_SCANNER = #{isScanner,jdbcType=TINYINT},
+      </if>
+      <if test="pushType != null">
+        PUSH_TYPE = #{pushType,jdbcType=INTEGER},
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfPushLog">
+    <!--@mbggenerated-->
+    update WF_PUSH_LOG
+    set WX_ID = #{wxId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      RECOM_HOUSE_ID = #{recomHouseId,jdbcType=INTEGER},
+      BROKER_MOBILE = #{brokerMobile,jdbcType=VARCHAR},
+      WX_MOBILE = #{wxMobile,jdbcType=VARCHAR},
+      SETTING_FEE = #{settingFee,jdbcType=VARCHAR},
+      PUSH_STATUS = #{pushStatus,jdbcType=TINYINT},
+      REQUIRE_STATUS = #{requireStatus,jdbcType=TINYINT},
+      RECEIVE_STATUS = #{receiveStatus,jdbcType=TINYINT},
+      CANCEL_STATUS = #{cancelStatus,jdbcType=TINYINT},
+      ACT_TIME = #{actTime,jdbcType=TIMESTAMP},
+      PUSH_TIME = #{pushTime,jdbcType=TIMESTAMP},
+      REFUSE_REASON = #{refuseReason,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      DAIKAN_COUNT = #{daikanCount,jdbcType=INTEGER},
+      LOTTERY_FLAG = #{lotteryFlag,jdbcType=INTEGER},
+      UPDATE_FLAG_COUNT = #{updateFlagCount,jdbcType=TINYINT},
+      CHONGDAN_FLAG = #{chongdanFlag,jdbcType=INTEGER},
+      VIP_QUEUE_ID = #{vipQueueId,jdbcType=INTEGER},
+      REFUSE_TAG_INDEX = #{refuseTagIndex,jdbcType=VARCHAR},
+      CANCEL_TAG_INDEX = #{cancelTagIndex,jdbcType=VARCHAR},
+      CANCEL_REASON = #{cancelReason,jdbcType=VARCHAR},
+      BROKER_DEL_STATUS = #{brokerDelStatus,jdbcType=TINYINT},
+      BROKER_DEL_STATUS_TIME = #{brokerDelStatusTime,jdbcType=TIMESTAMP},
+      SYS_CANCEL_STATUS = #{sysCancelStatus,jdbcType=TINYINT},
+      SYS_CANCEL_TIME = #{sysCancelTime,jdbcType=TIMESTAMP},
+      EXPIRE_WARN_FLAG = #{expireWarnFlag,jdbcType=TINYINT},
+      EXPIRE_WARN_TIME = #{expireWarnTime,jdbcType=TIMESTAMP},
+      DEAL_PRIZE_FLAG = #{dealPrizeFlag,jdbcType=TINYINT},
+      RECOM_PRIZE_FLAG = #{recomPrizeFlag,jdbcType=TINYINT},
+      BIZ_TYPE = #{bizType,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      FANGKAN_TIME = #{fangkanTime,jdbcType=TIMESTAMP},
+      CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      ROB_PAY_JSON = #{robPayJson,jdbcType=VARCHAR},
+      BROKER_MONEY_FEE = #{brokerMoneyFee,jdbcType=VARCHAR},
+      IS_SCANNER = #{isScanner,jdbcType=TINYINT},
+      PUSH_TYPE = #{pushType,jdbcType=INTEGER},
+      ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="BaseResultMapDto" type="com.myfun.repository.agencydb.dto.AgencyWfPushLogDto">
+    <result column="customerName" property="customerName" />
+    <result column="customerPhone" property="customerPhone" />
+    <result column="yjCount" property="yjCount" />
+    <result column="blCount" property="blCount" />
+    <result column="userName" property="userName" />
+    <result column="deptName" property="deptName" />
+    <result column="isUpload" property="isUpload" />
+  </resultMap>
+  
+  <resultMap id="entrustCountDto" type="com.myfun.repository.agencydb.dto.EntrustCountDto">
+    <result column="CASE_ID" jdbcType="VARCHAR" property="caseId" />
+    <result column="ERP_CASE_ID" jdbcType="VARCHAR" property="erpCaseId" />
+    <result column="CASE_TYPE" jdbcType="VARCHAR" property="caseType" />
+    <result column="WX_ID" jdbcType="VARCHAR" property="wxId" />
+    <result column="ARCHIVE_ID" jdbcType="VARCHAR" property="archiveId" />
+    <result column="BROKER_MOBILE" jdbcType="VARCHAR" property="brokerMobile" />
+    <result column="PUSH_STATUS" jdbcType="VARCHAR" property="pushStatus" />
+    <result column="REQUIRE_STATUS" jdbcType="VARCHAR" property="requireStatus" />
+  </resultMap>
+  <select id="getEntrustCountInfo" resultMap="entrustCountDto">
+  	select b.CASE_ID,a.CASE_ID as ERP_CASE_ID,b.WX_ID,a.CASE_TYPE,a.ARCHIVE_ID,b.BROKER_MOBILE,b.PUSH_STATUS,b.REQUIRE_STATUS from WF_RECOM_HOUSE a 
+  	 join WF_PUSH_LOG b on a.PUSH_LOG_ID = b.ID 
+  	 where b.CITY_ID = #{cityId,jdbcType=INTEGER} and b.WX_ID = #{wxId,jdbcType=INTEGER} and b.PUSH_STATUS &gt; 0 order by b.ID
+  </select>
+	
+	<select id="getWfPushLogList" parameterType="com.myfun.erpWeb.managecenter.vstore.param.GetVStoreEntrustListParam" resultMap="BaseResultMapDto">
+		SELECT 
+		a.ID, a.WX_ID, a.ARCHIVE_ID, a.CASE_ID, a.CITY_ID, a.CASE_TYPE, a.RECOM_HOUSE_ID, a.BROKER_MOBILE, 
+		a.WX_MOBILE, a.SETTING_FEE, a.PUSH_STATUS, a.REQUIRE_STATUS, a.RECEIVE_STATUS, a.CANCEL_STATUS, 
+		a.ACT_TIME, a.PUSH_TIME, a.REFUSE_REASON, a.CREATE_TIME, a.DAIKAN_COUNT, a.LOTTERY_FLAG, a.UPDATE_FLAG_COUNT, 
+		a.CHONGDAN_FLAG, a.VIP_QUEUE_ID, a.REFUSE_TAG_INDEX, a.CANCEL_TAG_INDEX, a.CANCEL_REASON, a.BROKER_DEL_STATUS, 
+		a.BROKER_DEL_STATUS_TIME, a.SYS_CANCEL_STATUS, a.SYS_CANCEL_TIME, a.EXPIRE_WARN_FLAG, a.EXPIRE_WARN_TIME, 
+		a.DEAL_PRIZE_FLAG, a.RECOM_PRIZE_FLAG, a.BIZ_TYPE, a.AREA_ID, a.REG_ID, a.DEPT_ID, a.GR_ID, a.USER_ID, 
+		a.COMP_ID, a.FANGKAN_TIME, a.ORGANIZATION_PATH
+		FROM WF_PUSH_LOG a
+		JOIN VIP_QUEUE b ON a.VIP_QUEUE_ID = b.WF_ID and b.SOURCE_TYPE= 5
+		WHERE 
+		a.CITY_ID = #{param.cityId}
+		AND a.COMP_ID = #{param.compId} 
+		<if test="!param.newOrganization">
+			<if test="null != param.serchRange and '' != param.serchRange and null != param.serchRangeId and '' != param.serchRangeId">
+				AND a.${param.serchRange}_ID = #{param.serchRangeId} 
+			</if>
+		</if>
+		<if test="null != param.organizationId and param.organizationId &gt; 0">
+			AND a.ORGANIZATION_PATH like '%:${param.organizationId}:%'
+		</if>
+		<if test="null != param.caseType and '' != param.caseType">
+			AND a.CASE_TYPE=#{param.caseType}
+		</if>
+		<if test="null != param.wtStatus and '' != param.wtStatus">
+			AND a.PUSH_STATUS = #{param.wtStatus}
+		</if>
+		<if test="null != param.requireStatus">
+			AND a.REQUIRE_STATUS = #{param.requireStatus}
+		</if>
+		AND a.CREATE_TIME &gt;= #{param.startTime} AND a.CREATE_TIME &lt; #{param.endTime}
+		AND a.SYS_CANCEL_STATUS=0
+		ORDER BY a.CREATE_TIME DESC
+	</select>
+	
+  <select id="getWfPushLogInfo" resultMap="BaseResultMap">
+  	SELECT 
+  	a.ID,a.ARCHIVE_ID,a.FANGKAN_TIME
+  	FROM WF_PUSH_LOG a LEFT JOIN VIP_QUEUE b ON a.CASE_ID = b.CASE_ID
+	WHERE  
+	b.IS_VIP= 1
+	<if test="caseId != null and '' != caseId">
+	AND a.CASE_ID=#{caseId} 
+	</if>
+  </select>
+
+	<resultMap id="agencyWfPushLogDto" type="com.myfun.repository.agencydb.dto.AgencyWfPushLogDto">
+		<result column="archiveId" jdbcType="VARCHAR" property="archiveId" />
+		<result column="starRating" jdbcType="VARCHAR" property="starRating" />
+		<result column="jdCount" jdbcType="VARCHAR" property="jdCount" />
+		<result column="dkCount" jdbcType="VARCHAR" property="dkCount" />
+		<result column="cjCount" jdbcType="VARCHAR" property="cjCount" />
+		<result column="fkCount" jdbcType="VARCHAR" property="fkCount" />
+		<result column="yjCount" jdbcType="VARCHAR" property="yjCount" />
+	</resultMap>
+  
+	<select id="getWfPushLogListByDeptId" resultMap="agencyWfPushLogDto">
+		select
+			a.ARCHIVE_ID as archiveId, 
+			(ISNULL(max(b.EVA_STAR_SUM), 0) +0.0) / iif (ISNULL(max(b.EVA_STAR_COUNT), 0) = 0,1,max(b.EVA_STAR_COUNT)) as starRating,
+			SUM(iif(a.PUSH_STATUS &gt;= 2,1,0)) as jdCount,
+			SUM(iif(a.PUSH_STATUS &gt; 2 and a.CASE_TYPE in (3,4),1,0)) as dkCount,
+			SUM(iif(a.RECOM_HOUSE_ID &gt; 0 ,1,0)) as cjCount,
+			SUM(iif(a.PUSH_STATUS &gt;= 5 and a.CASE_TYPE in (1,2) ,1,0)) as fkCount,
+			SUM(BROKER_MONEY) as yjCount,
+			sum(iif(a.PUSH_STATUS &gt;= 2, 1, 0)+iif (a.PUSH_STATUS &gt; 2 AND a.CASE_TYPE IN (3, 4),1,0)
+			+iif (a.RECOM_HOUSE_ID &gt; 0, 1, 0)+iif (a.PUSH_STATUS &gt;= 5 AND a.CASE_TYPE IN (1, 2),1,0)) as total
+		FROM WF_PUSH_LOG a LEFT JOIN WF_ARCHIVE_TOTAL b ON a.ARCHIVE_ID = b.ARCHIVE_ID
+			 LEFT JOIN WF_RECOM_HOUSE  C ON C.ARCHIVE_ID = A.ARCHIVE_ID
+		where 
+				 COMP_ID = #{param.compId}
+			<if test="param.areaId != null and '' != param.areaId">
+				and AREA_ID = #{param.areaId}
+			</if>
+			<if test="param.regId != null and '' != param.regId">
+				and REG_ID = #{param.regId}
+			</if>
+			<if test="param.deptId != null and '' != param.deptId">
+				and DEPT_ID = #{param.deptId}
+			</if>
+			<if test="param.grId!= null and '' != param.grId">
+				and GR_ID = #{param.grId}
+			</if>
+			<if test="param.userId != null and '' != param.userId">
+				and USER_ID = #{param.userId}
+			</if>
+			<if test="null != param.organizationId and param.organizationId &gt; 0">
+				and a.ORGANIZATION_PATH like '%:${param.organizationId}:%'
+			</if>
+			 and a.CITY_ID = #{param.cityId}
+			and a.ACT_TIME &lt;= #{param.endTime} and a.ACT_TIME &gt;= #{param.startTime}
+			AND  c.CITY_ID = #{param.cityId}
+			and c.ACT_TIME &lt;= #{param.endTime} and c.ACT_TIME &gt;= #{param.startTime} and c.SEE_STATUS &gt;= 4
+		GROUP BY a.ARCHIVE_ID
+		ORDER BY total desc,a.ARCHIVE_ID desc OFFSET (${param.pageOffset}-1)*${param.pageRows} ROWS FETCH NEXT ${param.pageRows} ROWS ONLY
+		
+	</select>
+	<select id="getCountOffWfPushLogListByDeptId" resultType="int">
+		select count(1) as ATTR from 
+		(
+		select
+			a.ARCHIVE_ID as archiveId, 
+			(ISNULL(max(b.EVA_STAR_SUM), 0) +0.0) / iif (ISNULL(max(b.EVA_STAR_COUNT), 0) = 0,1,max(b.EVA_STAR_COUNT)) as starRating,
+			SUM(iif(a.PUSH_STATUS &gt;= 2,1,0)) as jdCount,
+			SUM(iif(a.PUSH_STATUS &gt; 2 and a.CASE_TYPE in (3,4),1,0)) as dkCount,
+			SUM(iif(a.RECOM_HOUSE_ID &gt; 0 ,1,0)) as cjCount,
+			SUM(iif(a.PUSH_STATUS &gt;= 5 and a.CASE_TYPE in (1,2) ,1,0)) as fkCount,
+			SUM(BROKER_MONEY) as yjCount
+		FROM WF_PUSH_LOG a LEFT JOIN WF_ARCHIVE_TOTAL b ON a.ARCHIVE_ID = b.ARCHIVE_ID
+			 LEFT JOIN WF_RECOM_HOUSE  C ON C.ARCHIVE_ID = A.ARCHIVE_ID
+		where 
+				 COMP_ID = #{param.compId}
+			<if test="null != param.areaId and '' != param.areaId">
+				and AREA_ID = #{param.areaId}
+			</if>
+			<if test="null != param.regId and '' != param.regId">
+				and REG_ID = #{param.regId}
+			</if>
+			<if test="null != param.deptId and '' != param.deptId">
+				and DEPT_ID = #{param.deptId}
+			</if>
+			<if test="null != param.grId and '' != param.grId">
+				and GR_ID = #{param.grId}
+			</if>
+			<if test="null != param.userId and '' != param.userId">
+				and USER_ID = #{param.userId}
+			</if>
+			<if test="null != param.organizationId and param.organizationId &gt; 0">
+				and a.ORGANIZATION_PATH like '%:${param.organizationId}:%'
+			</if>
+			 and a.CITY_ID = #{param.cityId}
+			and a.ACT_TIME &lt;= #{param.endTime} and a.ACT_TIME &gt;= #{param.startTime}
+			AND  c.CITY_ID = #{param.cityId}
+			and c.ACT_TIME &lt;= #{param.endTime} and c.ACT_TIME &gt;= #{param.startTime} and c.SEE_STATUS &gt;= 4
+		GROUP BY a.ARCHIVE_ID
+		) as c 
+	</select>
+
+  <select id="getWfPushLogByIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WF_PUSH_LOG
+    WHERE VIP_QUEUE_ID IN
+    <foreach close=")" collection="wfIds" item="item" open="(" separator=",">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

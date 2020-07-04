@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunSectionMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunSection">
+    <!--@mbggenerated-->
+    <id column="SECTION_ID" jdbcType="INTEGER" property="sectionId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="SECTION_CODE" jdbcType="VARCHAR" property="sectionCode" />
+    <result column="SECTION_NAME" jdbcType="VARCHAR" property="sectionName" />
+    <result column="VERTIFY_FLAG" jdbcType="TINYINT" property="vertifyFlag" />
+    <result column="FId" jdbcType="INTEGER" property="fid" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    SECTION_ID, CITY_ID, REG_ID, SECTION_CODE, SECTION_NAME, VERTIFY_FLAG, FId, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunSectionExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_SECTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_SECTION
+    where SECTION_ID = #{sectionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_SECTION
+    where SECTION_ID = #{sectionId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunSectionExample">
+    <!--@mbggenerated-->
+    delete from FUN_SECTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunSection">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="sectionId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_SECTION_SECTION_ID
+    </selectKey>
+    insert into FUN_SECTION (SECTION_ID, CITY_ID, REG_ID, 
+      SECTION_CODE, SECTION_NAME, VERTIFY_FLAG, 
+      FId, UPDATE_TIME)
+    values (#{sectionId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{regId,jdbcType=INTEGER}, 
+      #{sectionCode,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, #{vertifyFlag,jdbcType=TINYINT}, 
+      #{fid,jdbcType=INTEGER}, #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSection">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="sectionId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_SECTION_SECTION_ID
+    </selectKey>
+    insert into FUN_SECTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      SECTION_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="sectionCode != null">
+        SECTION_CODE,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG,
+      </if>
+      <if test="fid != null">
+        FId,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{sectionId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionCode != null">
+        #{sectionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null">
+        #{vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunSectionExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_SECTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_SECTION
+    <set>
+      <if test="record.sectionId != null">
+        SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.regId != null">
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionCode != null">
+        SECTION_CODE = #{record.sectionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionName != null">
+        SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vertifyFlag != null">
+        VERTIFY_FLAG = #{record.vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.fid != null">
+        FId = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_SECTION
+    set SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      SECTION_CODE = #{record.sectionCode,jdbcType=VARCHAR},
+      SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR},
+      VERTIFY_FLAG = #{record.vertifyFlag,jdbcType=TINYINT},
+      FId = #{record.fid,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSection">
+    <!--@mbggenerated-->
+    update FUN_SECTION
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionCode != null">
+        SECTION_CODE = #{sectionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG = #{vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="fid != null">
+        FId = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SECTION_ID = #{sectionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunSection">
+    <!--@mbggenerated-->
+    update FUN_SECTION
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      SECTION_CODE = #{sectionCode,jdbcType=VARCHAR},
+      SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      VERTIFY_FLAG = #{vertifyFlag,jdbcType=TINYINT},
+      FId = #{fid,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR}
+    where SECTION_ID = #{sectionId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="SectionIdBaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunSection">
+    <id column="SECTION_ID" jdbcType="INTEGER" property="sectionId" />
+  </resultMap>
+  <select id="selectSectionListByName" parameterType="java.lang.String" resultMap="SectionIdBaseResultMap">
+    select 
+    SECTION_ID
+    from FUN_SECTION
+    where SECTION_NAME = #{sectionName,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insertErpFunSection" parameterType="com.myfun.repository.erpdb.po.ErpFunSection">
+    <selectKey keyProperty="sectionId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_SECTION_SECTION_ID
+    </selectKey>
+    insert into FUN_SECTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      SECTION_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="sectionCode != null">
+        SECTION_CODE,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG,
+      </if>
+      <if test="fid != null">
+        FId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{sectionId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionCode != null">
+        #{sectionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null">
+        #{vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+  <insert id="insertDefaultSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSection">
+    insert into FUN_SECTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      SECTION_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="sectionCode != null">
+        SECTION_CODE,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="vertifyFlag != null">
+        VERTIFY_FLAG,
+      </if>
+      <if test="fid != null">
+        FId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{sectionId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionCode != null">
+        #{sectionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null">
+        #{vertifyFlag,jdbcType=TINYINT},
+      </if>
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <resultMap id="extSectionVoBaseResult" type="com.myfun.erpWeb.common.vo.ErpFunSectionVo">
+    <id column="SECTION_ID" jdbcType="INTEGER" property="sectionId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="SECTION_CODE" jdbcType="VARCHAR" property="sectionCode" />
+    <result column="SECTION_NAME" jdbcType="VARCHAR" property="sectionName" />
+    <result column="VERTIFY_FLAG" jdbcType="TINYINT" property="vertifyFlag" />
+    <result column="FId" jdbcType="INTEGER" property="fid" />
+  </resultMap>
+  <select id="getRegVoListByCityId" resultMap="extSectionVoBaseResult">
+    select <include refid="Base_Column_List" /> from  FUN_SECTION where CITY_ID = #{shardCityId} and VERTIFY_FLAG=1
+  </select>
+  <select id="getListByRegIdOrSectionId" resultMap="BaseResultMap">
+     SELECT A.SECTION_ID,A.REG_ID FROM  FUN_SECTION A LEFT JOIN FUN_REG  B on A.reg_id = B.reg_id
+     WHERE  A.CITY_ID = #{shardCityId}
+     <if test="regId != null">
+       and  B.REG_ID = #{regId}
+     </if>
+    <if test="sectionIdList != null and sectionIdList.size() > 0">
+      and  A.SECTION_ID IN <foreach collection="sectionIdList" item="sectionId" close=")" open="(" separator=",">
+       #{sectionId}
+    </foreach>
+    </if>
+  </select>
+</mapper>

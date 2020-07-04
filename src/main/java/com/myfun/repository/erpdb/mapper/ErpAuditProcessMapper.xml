@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpAuditProcessMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpAuditProcess">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="PROCESS_NAME" jdbcType="VARCHAR" property="processName" />
+    <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+    <result column="AUDIT_RESOURCE" jdbcType="TINYINT" property="auditResource" />
+    <result column="SHARE_FLAG" jdbcType="TINYINT" property="shareFlag" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+    <result column="DEL_USER" jdbcType="INTEGER" property="delUser" />
+    <result column="DEL_TIME" jdbcType="TIMESTAMP" property="delTime" />
+    <result column="CAN_DEL" jdbcType="TINYINT" property="canDel" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, PROCESS_NAME, CASE_TYPE, AUDIT_RESOURCE, SHARE_FLAG, IS_DEL, DEL_USER, 
+    DEL_TIME, CAN_DEL, CREATION_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpAuditProcessExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AUDIT_PROCESS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from AUDIT_PROCESS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from AUDIT_PROCESS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpAuditProcessExample">
+    <!--@mbggenerated-->
+    delete from AUDIT_PROCESS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpAuditProcess" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into AUDIT_PROCESS (COMP_ID, PROCESS_NAME, CASE_TYPE, 
+      AUDIT_RESOURCE, SHARE_FLAG, IS_DEL, 
+      DEL_USER, DEL_TIME, CAN_DEL, 
+      CREATION_TIME, UPDATE_TIME)
+    values (#{compId,jdbcType=INTEGER}, #{processName,jdbcType=VARCHAR}, #{caseType,jdbcType=INTEGER}, 
+      #{auditResource,jdbcType=TINYINT}, #{shareFlag,jdbcType=TINYINT}, #{isDel,jdbcType=TINYINT}, 
+      #{delUser,jdbcType=INTEGER}, #{delTime,jdbcType=TIMESTAMP}, #{canDel,jdbcType=TINYINT}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpAuditProcess" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into AUDIT_PROCESS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="processName != null">
+        PROCESS_NAME,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="auditResource != null">
+        AUDIT_RESOURCE,
+      </if>
+      <if test="shareFlag != null">
+        SHARE_FLAG,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+      <if test="delUser != null">
+        DEL_USER,
+      </if>
+      <if test="delTime != null">
+        DEL_TIME,
+      </if>
+      <if test="canDel != null">
+        CAN_DEL,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="processName != null">
+        #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="auditResource != null">
+        #{auditResource,jdbcType=TINYINT},
+      </if>
+      <if test="shareFlag != null">
+        #{shareFlag,jdbcType=TINYINT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="delUser != null">
+        #{delUser,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null">
+        #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="canDel != null">
+        #{canDel,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpAuditProcessExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from AUDIT_PROCESS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update AUDIT_PROCESS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.processName != null">
+        PROCESS_NAME = #{record.processName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditResource != null">
+        AUDIT_RESOURCE = #{record.auditResource,jdbcType=TINYINT},
+      </if>
+      <if test="record.shareFlag != null">
+        SHARE_FLAG = #{record.shareFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.delUser != null">
+        DEL_USER = #{record.delUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.delTime != null">
+        DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.canDel != null">
+        CAN_DEL = #{record.canDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update AUDIT_PROCESS
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      PROCESS_NAME = #{record.processName,jdbcType=VARCHAR},
+      CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      AUDIT_RESOURCE = #{record.auditResource,jdbcType=TINYINT},
+      SHARE_FLAG = #{record.shareFlag,jdbcType=TINYINT},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      DEL_USER = #{record.delUser,jdbcType=INTEGER},
+      DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP},
+      CAN_DEL = #{record.canDel,jdbcType=TINYINT},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpAuditProcess">
+    <!--@mbggenerated-->
+    update AUDIT_PROCESS
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="processName != null">
+        PROCESS_NAME = #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="auditResource != null">
+        AUDIT_RESOURCE = #{auditResource,jdbcType=TINYINT},
+      </if>
+      <if test="shareFlag != null">
+        SHARE_FLAG = #{shareFlag,jdbcType=TINYINT},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="delUser != null">
+        DEL_USER = #{delUser,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null">
+        DEL_TIME = #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="canDel != null">
+        CAN_DEL = #{canDel,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpAuditProcess">
+    <!--@mbggenerated-->
+    update AUDIT_PROCESS
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      PROCESS_NAME = #{processName,jdbcType=VARCHAR},
+      CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      AUDIT_RESOURCE = #{auditResource,jdbcType=TINYINT},
+      SHARE_FLAG = #{shareFlag,jdbcType=TINYINT},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      DEL_USER = #{delUser,jdbcType=INTEGER},
+      DEL_TIME = #{delTime,jdbcType=TIMESTAMP},
+      CAN_DEL = #{canDel,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

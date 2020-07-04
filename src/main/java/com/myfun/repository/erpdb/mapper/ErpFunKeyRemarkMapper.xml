@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunKeyRemarkMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunKeyRemark" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="INTEGER" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, COMP_ID, CASE_ID, CASE_TYPE, REMARK, CREATOR_UID, CREATION_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyRemarkExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_KEY_REMARK
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_KEY_REMARK
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_KEY_REMARK
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyRemarkExample" >
+    <!--@mbggenerated-->
+    delete from FUN_KEY_REMARK
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyRemark" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_KEY_REMARK (COMP_ID, CASE_ID, CASE_TYPE, 
+      REMARK, CREATOR_UID, CREATION_TIME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{creatorUid,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyRemark" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_KEY_REMARK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyRemarkExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_KEY_REMARK
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_KEY_REMARK
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null" >
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null" >
+        CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null" >
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorUid != null" >
+        CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null" >
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_KEY_REMARK
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyRemark" >
+    <!--@mbggenerated-->
+    update FUN_KEY_REMARK
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyRemark" >
+    <!--@mbggenerated-->
+    update FUN_KEY_REMARK
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getFunKeyRemarkDto" resultType="com.myfun.erpWeb.house.vo.FunKeyRemarkDto">
+     select top 1 REMARK remark,B.USER_NAME trackUserName,B.USER_MOBILE trackUserMobile
+    from FUN_KEY_REMARK A LEFT join FUN_USERS B ON A.CREATOR_UID=B.USER_ID
+    where A.CASE_ID=#{caseId} and A.CASE_TYPE=#{caseType}
+    order by A.CREATION_TIME desc
+  </select>
+
+	<select id="getFunKeyRemarkList" resultMap="BaseResultMap">
+		select REMARK,CREATOR_UID,CASE_ID
+		from FUN_KEY_REMARK
+		where CASE_TYPE=#{caseType}
+		<if test="null != compId and compId != ''">
+			AND COMP_ID = #{compId} 
+		</if>
+		and CASE_ID IN
+		<foreach collection="caseIds" index="index" item="caseId"
+			open="(" separator="," close=")">
+			#{caseId}
+		</foreach>
+		ORDER BY CREATION_TIME DESC
+	</select>
+
+  <select id="getFunKeyRemarkListByCaseIds" resultMap="BaseResultMap">
+    select top 1 REMARK,CREATOR_UID,CASE_ID
+    from FUN_KEY_REMARK
+    where CASE_TYPE=#{caseType}
+    AND COMP_ID = #{compId}
+    <if test="caseId != null">
+      and CASE_ID =#{caseId}
+    </if>
+    ORDER BY CREATION_TIME DESC
+  </select>
+</mapper>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunFinancProfitMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunFinancProfit">
+    <!--@mbggenerated-->
+    <id column="FP_ID" jdbcType="INTEGER" property="fpId" />
+    <result column="FP_TYPE" jdbcType="TINYINT" property="fpType" />
+    <result column="FP_NAME" jdbcType="VARCHAR" property="fpName" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="SEQ_NO" jdbcType="INTEGER" property="seqNo" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    FP_ID, FP_TYPE, FP_NAME, COMP_ID, SEQ_NO, UPDATE_TIME, IS_DEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_FINANC_PROFIT
+    where FP_ID = #{fpId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_FINANC_PROFIT
+    where FP_ID = #{fpId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunFinancProfit">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="fpId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_FINANC_PROFIT (FP_TYPE, FP_NAME, COMP_ID, 
+      SEQ_NO, UPDATE_TIME, IS_DEL
+      )
+    values (#{fpType,jdbcType=TINYINT}, #{fpName,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, 
+      #{seqNo,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunFinancProfit">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="fpId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_FINANC_PROFIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fpType != null">
+        FP_TYPE,
+      </if>
+      <if test="fpName != null">
+        FP_NAME,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fpType != null">
+        #{fpType,jdbcType=TINYINT},
+      </if>
+      <if test="fpName != null">
+        #{fpName,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunFinancProfit">
+    <!--@mbggenerated-->
+    update FUN_FINANC_PROFIT
+    <set>
+      <if test="fpType != null">
+        FP_TYPE = #{fpType,jdbcType=TINYINT},
+      </if>
+      <if test="fpName != null">
+        FP_NAME = #{fpName,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    where FP_ID = #{fpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunFinancProfit">
+    <!--@mbggenerated-->
+    update FUN_FINANC_PROFIT
+    set FP_TYPE = #{fpType,jdbcType=TINYINT},
+      FP_NAME = #{fpName,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=TINYINT}
+    where FP_ID = #{fpId,jdbcType=INTEGER}
+  </update>
+  <!-- buniess -->
+  <insert id="insertProfitComp" parameterType="com.myfun.repository.erpdb.po.ErpFunFinancProfit">
+    <selectKey keyProperty="fpId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_FINANC_PROFIT(FP_TYPE,FP_NAME,COMP_ID,SEQ_NO,UPDATE_TIME,IS_DEL)
+	values(1,'欠费',#{erpCompId},null,null,null),
+	(1,'未收佣金',#{erpCompId},null,null,null),
+	(2,'新房合同',#{erpCompId},null,null,null),
+	(2,'二手房合同',#{erpCompId},null,null,null),
+	(2,'代办合同',#{erpCompId},null,null,null),
+	(2,'修改合同',#{erpCompId},null,null,null);
+  </insert>
+</mapper>

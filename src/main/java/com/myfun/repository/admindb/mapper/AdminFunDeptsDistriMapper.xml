@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunDeptsDistriMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunDeptsDistri">
+    <!--@mbggenerated-->
+    <id column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <id column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="DEVLOPER_ID" jdbcType="INTEGER" property="devloperId" />
+    <result column="DISTRI_TYPE" jdbcType="TINYINT" property="distriType" />
+    <result column="CURR_DEPTID" jdbcType="INTEGER" property="currDeptid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CITY_ID, BUILD_ID, DEVLOPER_ID, DISTRI_TYPE, CURR_DEPTID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_DEPTS_DISTRI
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbggenerated-->
+    delete from FUN_DEPTS_DISTRI
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunDeptsDistri">
+    <!--@mbggenerated-->
+    insert into FUN_DEPTS_DISTRI (CITY_ID, BUILD_ID, DEVLOPER_ID, 
+      DISTRI_TYPE, CURR_DEPTID)
+    values (#{cityId,jdbcType=SMALLINT}, #{buildId,jdbcType=INTEGER}, #{devloperId,jdbcType=INTEGER}, 
+      #{distriType,jdbcType=TINYINT}, #{currDeptid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunDeptsDistri">
+    <!--@mbggenerated-->
+    insert into FUN_DEPTS_DISTRI
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="devloperId != null">
+        DEVLOPER_ID,
+      </if>
+      <if test="distriType != null">
+        DISTRI_TYPE,
+      </if>
+      <if test="currDeptid != null">
+        CURR_DEPTID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="devloperId != null">
+        #{devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="distriType != null">
+        #{distriType,jdbcType=TINYINT},
+      </if>
+      <if test="currDeptid != null">
+        #{currDeptid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunDeptsDistri">
+    <!--@mbggenerated-->
+    update FUN_DEPTS_DISTRI
+    <set>
+      <if test="devloperId != null">
+        DEVLOPER_ID = #{devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="distriType != null">
+        DISTRI_TYPE = #{distriType,jdbcType=TINYINT},
+      </if>
+      <if test="currDeptid != null">
+        CURR_DEPTID = #{currDeptid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunDeptsDistri">
+    <!--@mbggenerated-->
+    update FUN_DEPTS_DISTRI
+    set DEVLOPER_ID = #{devloperId,jdbcType=INTEGER},
+      DISTRI_TYPE = #{distriType,jdbcType=TINYINT},
+      CURR_DEPTID = #{currDeptid,jdbcType=INTEGER}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+  </update>
+</mapper>

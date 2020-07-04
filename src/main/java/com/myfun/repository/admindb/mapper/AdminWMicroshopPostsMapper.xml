@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopPostsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopPosts" >
+    <!--@mbggenerated-->
+    <id column="post_id" property="postId" jdbcType="INTEGER" />
+    <result column="broker_id" property="brokerId" jdbcType="INTEGER" />
+    <result column="comp_id" property="compId" jdbcType="INTEGER" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER" />
+    <result column="like_num" property="likeNum" jdbcType="INTEGER" />
+    <result column="ctime" property="ctime" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminWMicroshopPosts" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="content" property="content" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    post_id, broker_id, comp_id, dept_id, like_num, ctime
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from w_microshop_posts
+    where post_id = #{postId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_posts
+    where post_id = #{postId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopPosts" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="postId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_posts (broker_id, comp_id, dept_id, 
+      like_num, ctime, content
+      )
+    values (#{brokerId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{likeNum,jdbcType=INTEGER}, #{ctime,jdbcType=INTEGER}, #{content,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopPosts" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="postId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_posts
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brokerId != null" >
+        broker_id,
+      </if>
+      <if test="compId != null" >
+        comp_id,
+      </if>
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+      <if test="likeNum != null" >
+        like_num,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brokerId != null" >
+        #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="likeNum != null" >
+        #{likeNum,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopPosts" >
+    <!--@mbggenerated-->
+    update w_microshop_posts
+    <set >
+      <if test="brokerId != null" >
+        broker_id = #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        comp_id = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="likeNum != null" >
+        like_num = #{likeNum,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=CLOB},
+      </if>
+    </set>
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopPosts" >
+    <!--@mbggenerated-->
+    update w_microshop_posts
+    set broker_id = #{brokerId,jdbcType=INTEGER},
+      comp_id = #{compId,jdbcType=INTEGER},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      like_num = #{likeNum,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=INTEGER},
+      content = #{content,jdbcType=CLOB}
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopPosts" >
+    <!--@mbggenerated-->
+    update w_microshop_posts
+    set broker_id = #{brokerId,jdbcType=INTEGER},
+      comp_id = #{compId,jdbcType=INTEGER},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      like_num = #{likeNum,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=INTEGER}
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+</mapper>

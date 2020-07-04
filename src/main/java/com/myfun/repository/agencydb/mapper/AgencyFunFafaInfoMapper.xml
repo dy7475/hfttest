@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunFafaInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunFafaInfo" >
+    <!--@mbggenerated-->
+    <id column="INFO_ID" property="infoId" jdbcType="INTEGER" />
+    <result column="HOUSE_SUBJECT" property="houseSubject" jdbcType="VARCHAR" />
+    <result column="HOUSE_CHARACT" property="houseCharact" jdbcType="VARCHAR" />
+    <result column="HOUSE_UNIT_PRICE_NEW" property="houseUnitPriceNew" jdbcType="DOUBLE" />
+    <result column="HOUSE_TOTAL_PRICE_NEW" property="houseTotalPriceNew" jdbcType="DOUBLE" />
+    <result column="HOUSE_HUXING_PIC" property="houseHuxingPic" jdbcType="VARCHAR" />
+    <result column="HOUSE_SHINEI_PIC" property="houseShineiPic" jdbcType="VARCHAR" />
+    <result column="HOUSE_MAP" property="houseMap" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyFunFafaInfo" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="HOUSE_RICH_TEXT" property="houseRichText" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    INFO_ID, HOUSE_SUBJECT, HOUSE_CHARACT, HOUSE_UNIT_PRICE_NEW, HOUSE_TOTAL_PRICE_NEW, 
+    HOUSE_HUXING_PIC, HOUSE_SHINEI_PIC, HOUSE_MAP, UPDATE_TIME, HOUSE_ID, USER_ID, ARCHIVE_ID, 
+    CITY_ID, PROVINCE_ID, CREATION_TIME
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    HOUSE_RICH_TEXT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_FAFA_INFO
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_FAFA_INFO
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunFafaInfo" >
+    <!--@mbggenerated-->
+    insert into FUN_FAFA_INFO (INFO_ID, HOUSE_SUBJECT, HOUSE_CHARACT, 
+      HOUSE_UNIT_PRICE_NEW, HOUSE_TOTAL_PRICE_NEW, HOUSE_HUXING_PIC, 
+      HOUSE_SHINEI_PIC, HOUSE_MAP, UPDATE_TIME, 
+      HOUSE_ID, USER_ID, ARCHIVE_ID, 
+      CITY_ID, PROVINCE_ID, CREATION_TIME, 
+      HOUSE_RICH_TEXT)
+    values (#{infoId,jdbcType=INTEGER}, #{houseSubject,jdbcType=VARCHAR}, #{houseCharact,jdbcType=VARCHAR}, 
+      #{houseUnitPriceNew,jdbcType=DOUBLE}, #{houseTotalPriceNew,jdbcType=DOUBLE}, #{houseHuxingPic,jdbcType=VARCHAR}, 
+      #{houseShineiPic,jdbcType=VARCHAR}, #{houseMap,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{houseId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{houseRichText,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunFafaInfo" >
+    <!--@mbggenerated-->
+    insert into FUN_FAFA_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        INFO_ID,
+      </if>
+      <if test="houseSubject != null" >
+        HOUSE_SUBJECT,
+      </if>
+      <if test="houseCharact != null" >
+        HOUSE_CHARACT,
+      </if>
+      <if test="houseUnitPriceNew != null" >
+        HOUSE_UNIT_PRICE_NEW,
+      </if>
+      <if test="houseTotalPriceNew != null" >
+        HOUSE_TOTAL_PRICE_NEW,
+      </if>
+      <if test="houseHuxingPic != null" >
+        HOUSE_HUXING_PIC,
+      </if>
+      <if test="houseShineiPic != null" >
+        HOUSE_SHINEI_PIC,
+      </if>
+      <if test="houseMap != null" >
+        HOUSE_MAP,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="houseId != null" >
+        HOUSE_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="houseRichText != null" >
+        HOUSE_RICH_TEXT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="houseSubject != null" >
+        #{houseSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="houseCharact != null" >
+        #{houseCharact,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUnitPriceNew != null" >
+        #{houseUnitPriceNew,jdbcType=DOUBLE},
+      </if>
+      <if test="houseTotalPriceNew != null" >
+        #{houseTotalPriceNew,jdbcType=DOUBLE},
+      </if>
+      <if test="houseHuxingPic != null" >
+        #{houseHuxingPic,jdbcType=VARCHAR},
+      </if>
+      <if test="houseShineiPic != null" >
+        #{houseShineiPic,jdbcType=VARCHAR},
+      </if>
+      <if test="houseMap != null" >
+        #{houseMap,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseId != null" >
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseRichText != null" >
+        #{houseRichText,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunFafaInfo" >
+    <!--@mbggenerated-->
+    update FUN_FAFA_INFO
+    <set >
+      <if test="houseSubject != null" >
+        HOUSE_SUBJECT = #{houseSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="houseCharact != null" >
+        HOUSE_CHARACT = #{houseCharact,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUnitPriceNew != null" >
+        HOUSE_UNIT_PRICE_NEW = #{houseUnitPriceNew,jdbcType=DOUBLE},
+      </if>
+      <if test="houseTotalPriceNew != null" >
+        HOUSE_TOTAL_PRICE_NEW = #{houseTotalPriceNew,jdbcType=DOUBLE},
+      </if>
+      <if test="houseHuxingPic != null" >
+        HOUSE_HUXING_PIC = #{houseHuxingPic,jdbcType=VARCHAR},
+      </if>
+      <if test="houseShineiPic != null" >
+        HOUSE_SHINEI_PIC = #{houseShineiPic,jdbcType=VARCHAR},
+      </if>
+      <if test="houseMap != null" >
+        HOUSE_MAP = #{houseMap,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseId != null" >
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseRichText != null" >
+        HOUSE_RICH_TEXT = #{houseRichText,jdbcType=CLOB},
+      </if>
+    </set>
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyFunFafaInfo" >
+    <!--@mbggenerated-->
+    update FUN_FAFA_INFO
+    set HOUSE_SUBJECT = #{houseSubject,jdbcType=VARCHAR},
+      HOUSE_CHARACT = #{houseCharact,jdbcType=VARCHAR},
+      HOUSE_UNIT_PRICE_NEW = #{houseUnitPriceNew,jdbcType=DOUBLE},
+      HOUSE_TOTAL_PRICE_NEW = #{houseTotalPriceNew,jdbcType=DOUBLE},
+      HOUSE_HUXING_PIC = #{houseHuxingPic,jdbcType=VARCHAR},
+      HOUSE_SHINEI_PIC = #{houseShineiPic,jdbcType=VARCHAR},
+      HOUSE_MAP = #{houseMap,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      HOUSE_RICH_TEXT = #{houseRichText,jdbcType=CLOB}
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunFafaInfo" >
+    <!--@mbggenerated-->
+    update FUN_FAFA_INFO
+    set HOUSE_SUBJECT = #{houseSubject,jdbcType=VARCHAR},
+      HOUSE_CHARACT = #{houseCharact,jdbcType=VARCHAR},
+      HOUSE_UNIT_PRICE_NEW = #{houseUnitPriceNew,jdbcType=DOUBLE},
+      HOUSE_TOTAL_PRICE_NEW = #{houseTotalPriceNew,jdbcType=DOUBLE},
+      HOUSE_HUXING_PIC = #{houseHuxingPic,jdbcType=VARCHAR},
+      HOUSE_SHINEI_PIC = #{houseShineiPic,jdbcType=VARCHAR},
+      HOUSE_MAP = #{houseMap,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP}
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </update>
+</mapper>

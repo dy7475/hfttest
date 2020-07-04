@@ -1,0 +1,812 @@
+确认待移植接口：（优先移植，已在新版写好接口，待编写内容的接口）
+	√：代表可上线
+	--移植人：代表已移植
+
+准备移植某个接口前请先：
+1、更新代码，看别人已在移植没有
+2、在末尾写上自己名字，然后提交后再开始编码
+
+接口列表：
+--个人中心相关
+/getHomePageTaskList// 获取首页任务列表--zhl√
+/getAllUaInfo// 个人中心获取所有资金账户信息 --dyh
+/getPaidList// 获取交易记录列表，待完善 --zk
+/getUcenterVoiceList// 语音日志列表，待优化 --dyh
+/getIncomePayRecordList// 现金收支记录 --hk
+/getInvoiceNotWritedList// 获取发票与报销，待优化 --dyh
+/getInvoiceHasWritedList// 开票历史，待优化 --dyh
+/checkInvoiceCount// 获取发票条数限制，待优化 --dyh
+/addIssueInvoice// 开收据，待优化 --hk
+
+
+
+------------结束------------
+
+
+
+----------------------------------------------------------------------------
+	"getCompTransactionDistribution";break;// 获取业绩龙虎榜的成交价格分布--/statisticalAnalysis/workCount/getCompTransactionDistribution
+	"getMgrUserViewBuilds";break;/// 获取本人查看权限--/manageCenter/buildData/getUserViewBuilds
+	"getNeedGuideHouseList";break;/// 跑分页面获取符合条件的房源的列表
+	"getNeedGuideHouseCount";break;/// 跑分页面获取符合条件的房源的条数
+	"getScoreForSelf";break;////< 获取个人的经验值详情
+	"getKjlPlanInfoByPlanId";break;//根据planId获取户型图相关信息--
+	"createCppUseOperation";break;///< 好房通使用评分--/common/createCppUseOperation
+	"getCityShareSaleList";break;///< 获取城市大公盘出售列表
+	"getHouseAssessOrganizeList";break;///< 获取云房评估右侧推广信息--
+	"getCityShareLeaseList";break;///< 获取城市大公盘出租列表
+	"getHalfProfitTrend";break;///最近半年业绩走势 -- statisticalAnalysis/workCount/getHalfProfitTrend
+	"getUserMonthWorkCore";break;/// 最近一周工作情况
+	"getHouseCustRanking";break; ///获取门店/员工房客源新增排名和本门店/本人新增数量 --statisticalAnalysis/workCount/getHouseCustRanking
+	"getThisYearProfitTrend";break;//获取当年应收业绩排名 --statisticalAnalysis/workCount/getThisYearProfitTrend
+	"getDealAnalysisForExport";break;
+	"getDealContractTaskListForExport";break;//< 权证流程-获取权证流程导出列表 
+	"getDealContractTaskListOfTransactForExport";break;//< 权证流程-获取权证流程列表-已办结列表->导出
+	"counterMgrSettleDeal";break;//反结算合同
+	"updateContracNoUseRule";break;//设置合同号使用规则--/managecenter/deal/updateContracNoUseRule
+	"updateMgrDealAduitStatus";break;//更新合同审核状态--managerCenter/contract/updateMgrDealAduitStatus
+	"updateYouJiaDealAduitStatus";break;//更新律师合同审核状态--
+	"updateMgrDealAduitStatusByCounter";break;//反审核合同
+	"deleteMgrDeal";break;/// 作废合同 --managerCenter/contract/updateMgrDealAduitStatus
+	"getFafaComprehensiveStatistic";break;						//综合统计
+	"getFafaComprehensiveStatisticForExport";break;	//综合统计--用于导出
+	"getFafaSitesStatisticForExport";break;					//站点统计--用于导出
+	"getFafaAbnormityStatistic";break;								//异常统计
+	"getFafaAbnormityStatisticForExport";break;			//异常统计--用于导出
+	"getFafaResultStatisticByHousesForExport";break;	//效果统计--站点图表、列表，时间列表--用于导出
+	"getClickCountByOrgForExport";break;							//效果统计--组织图表、列表--用于导出
+	"getClickCountByHouseRoomForExport";break;				//效果统计--房源图表、列表--用于导出
+	"getFFSalePubData";break;							///< 获取发发单条出售房源数据
+	"getFFRentPubData";break;							///< 获取发发单条出租房源数据
+	"getMessageBaseInfoList";break;				//登录获取红点标记简易列表--
+	"getMessageRichInfoList";break;				//获取红点标记详细列表--
+	"deleteMessageMessage";break;					//删除本地数据中的红点--
+	"updateUserGuide";break;							//更新用户引导--
+	"getInvoiceNotWritedList";break;  --
+	"getInvoiceHasWritedList";break;//个人中心发票管理获取发票列表 1开发票列表 2历史发票列表--
+	"getDetailPaidList";break;// 获取发票明细列表--
+	"getInvoiceDetail";break;			//获取个人中心发票详情--/usercenter/getInvoiceDetail
+	"getReceiptDetail";break;			//获取个人中心收据详情--/usercenter/getReceiptDetail
+	"getInvoiceEnclosureList";break;							//获取个人中心发票附件--
+	"delFunInvoiceEnclosure";break;							//发票附件编辑时删除图片--
+	"updateInvoice";break;							//编辑发票--
+	"checkInvoiceCount";break;							// 获取发票条数限制--
+	"applyIssueInvoice";break;							// 确认申请发票--
+	"getBuildHouseCount";break;							// 推广 入住小区查询房源数量--
+
+	"delLoanBank";break;///< 获取贷款银行列表--
+	"completionProcess";break;///<反办结合同流程 --managerCenter/transaction/deal/completionProcess
+	"getViewPhoneMustTrackYouJia";break;///<获取房源强制跟进弹窗信息 优家--
+	"letAppShowVR";break;//驱动手机播放对应的720图片--/house/letAppShowVR
+	"getYouWorkCountScoreList";break;// 获取积分量化统计信息
+	"getYouWorkCountScoreListForExport";break;// 获取积分量化统计信息 导出
+	"getDealAnalysis";break;//成交分析表
+	"getPercentProfitList";break;//提成报表
+	"getPercentProfitListForExport";break;//提成报表-用于导出
+	"getPaySettlementList";break;//获取收款结算表 --/managecenter/financeModule/getPaySettlementList
+	"getPaySettlementListForExport";break;//获取收款结算表-导出
+	"getPayAccountingList";break;//获取业绩核算表 -- /managecenter/financeModule/getPayAccountingList
+	"getPayAccountingListForExport";break;//获取业绩核算表-导出
+	"getProfitAnalyse";break;//获取业绩分析--/managecenter/financeModule/getProfitAnalyse
+	"getOperationStatistics";break;//获取运营统计
+	"getMyOperationStatistics";break;//获取运营统计
+	"getOperationStatisticsForExport";break;//获取运营统计-用于导出
+	"getProfitRankingStatistics";break;//获取业绩龙虎榜统计--/statisticalAnalysis/workCount/getProfitRankingStatistics
+	"getProfitRankingStatisticsForExport";break;//获取业绩龙虎榜统计-用于导出
+	"getProfitRankingStatistics";break;//获取首页右下角简易目标业绩对比
+	"getHomePageDeptProfitRank";break;//获取首页右下角简易目标业绩对比
+	"getFunProfitCountChart";break;//获取业绩龙虎榜统计饼状图数据 -- /statisticalAnalysis/workCount/getFunProfitCountChart
+	"getCustStatistics";break;//获取客源统计数据
+	"getCustStatisticsForExport";break;//获取客源统计数据-用于导出
+	"getCustBottomInfo";break;//获取客源饼状图统计数据
+	"getHouseStatistics";break;//获取房源统计数据
+	"getHouseStatisticsForExport";break;//获取房源统计数据-用于导出
+	"getHouseBottomInfo";break;//获取房源饼状图统计数据
+	"getWorkCountStatistics";break;//获取工作量列表
+	"getWorkCountStatisticsForExport";break;//获取工作量列表-用于导出
+	"getDistSystemMessage";break;///< 获取系统消息记录
+	"getDistMsgConnllectionList";break;///< 获取收藏消息列表--
+	"updateDistMsgConnllection";break;///< 更新收藏状态---
+	"checkDistMobileRepreated";break;///< 报备客户判重电话--
+	"getDistBuildListOffIndex";break;///< 获取首页项目列表--
+	"getDistAdsOnIndex";break;///< 获取首页广告图列表--
+	"getPersonalInfo";break;/// 1、获取个人基本信息 --/usercenter/getPersonalInfo
+	"updatePersonalInfo";break;/// 编辑个人基本信息--/usercenter/updatePersonalInfo
+	"addIssueInvoice";break;/// 添加发票--
+	"checkMsgForMobile";break;/// 绑定手机号--
+	"isRegister";break;/// 获取手机号码状态--
+	"checkMsgForUA";break;/// 绑定资金账户--
+	"modifyPwd";break;/// 修改密码--/usercenter/modifyPwd
+	"askCertification";break;/// 用户认证--
+	"applyExtract";break;	///< 个人中心提现--
+	
+	"getPAFinanceRecordList";break;///< 获取金融贷款列表--
+	"getPaFinanceDetail";break;///< 获取金额贷款详情--/managecenter/financialLoan/getFinanceRecordDetail
+	"deletePicFinancePhoto";break;///< 删除金额贷款图片--
+	"getFinanceInfgetPaySettlementListoPhotoList";break;///< 获取金融贷款图片数据--/managecenter/financialLoan/getFinanceInfoPhotoList
+	
+	"getHouseAddCountData";break;///获取新增房源统计
+	"getHouseAddCountData";break;///获取新增房源统计导出
+	"getCustAddCountData";break;///获取新增客源统计
+	"getCustAddCountDataForExport";break;///获取新增客源统计导出
+	"getCurrentCityPriceOrAreaRange";break;///获取当前城市价格、面积区间
+	
+	"getPerCapitaEffectivenessCountChart";break;///获取人均效能统计图表数据数据
+	"getPerCapitaEffectivenessCountRank";break;///获取人均效能统计排行榜数据数据
+	"getPerCapitaEffectivenessCountReport";break;///获取人均效能统计报表数据数据
+	"getPerCapitaEffectivenessCountReportForExport";break;///获取人均效能统计报表数据数据导出
+	
+	"getHouseCustFlowAnalysisCountList";break;/// 获取房客源流转分析表数据
+	"getHouseCustFlowAnalysisCountListForExport";break;/// 获取房客源流转分析表数据
+	"getHouseInnerDealAnalysisCountList";break;//房源成交统计分析--/statisticalAnalysis/workCount/getHouseInnerDealAnalysisCountList
+	"getHouseInnerDealAnalysisCountForExport";break;//房源成交统计分析导出
+	"getCompUserTopRanking";break;//统计首页获取员工工作指数排名
+	"getMyHouseStatisticsInfo";break;//房源信息统计--/statisticalAnalysis/workCount/getMyHouseStatisticsInfo
+	"getWorkCountTrendList";break;//工作量走势分析表
+	"getWorkCountTrendListForExport";break;//工作量走势分析导出
+	
+	"remindConsultant";break;/// 提醒顾问联系用户--
+	"getAllUAInfo";break;///< 资金、O2O、you+相关信息--
+	"getPaidList";break;///< 最近交易记录--
+	"getCompPaidList";break;///< 公司交易明细--
+	"getUcenterVoiceList";break;///< IP电话拨打记录--/usercenter/getUcenterVoiceList
+	"getYouJiaAmountList";break;///< You+积分记录--
+	"getYouJiaVipPaidList";break;///< You+VIP使用记录--
+	"getShareMoneyPaidList";break;///<You+分享、查看费记录--/usercenter/getShareMoneyPaidList
+	"getYouShareMoney";break;			///<You+提现--/usercenter/getYouShareMoney
+	"withdrawalsYouShareMoney";break;///You+申请提现--
+	"getWithdrawalsYouShareMoneyCode";break;///<You+提现短信验证码--
+	"getDeptListForContract";break;///< 公司相关开通记录--
+	"getIncomePayRecordList";break;///< 个人中心-现金收支记录表--
+	"deleteVideo";break;--
+	"updateYPUserProtocol";break;
+	"getHfExcellentCallUserList";break;
+	"updateFunYPFalg";break;
+	"getHfExcellentHomeHasVoices";break;
+	"getHfExcellentHomeComplaintItems";break;
+	"getHfExcellentHomeComplaintList";break;
+	"getMgrFavoritesBuildingList";break;///<获取you+收藏夹楼盘列表
+	"getMgrFavoritesDoorList";break;///<获取收藏夹指定楼盘资料列表
+	"getBuyCustPrice";break;					///<获取买断价格
+	"updateYouJiaViewStatus";break;///< 更改业主名单item的操作状态
+	"showYouJiaBuildPhone";break;///< 明文显示电话
+	"checkYouJiaBuildPhone";break;///< 获取该业主是否被公司同事查看过电话
+	"getYouJiaBuildVipInfo";break;///< 获取楼盘查看vip的信息
+	"insertHfExcellentHomeComplaintInfo";break;
+	"getYPSaleFunData";break;		///< 获取YOU+出售房源详细信息	
+	"getYPBuyCustData";break;		///< 获取YOU+求购房源详细信息
+	"getYPRentCustData";break;		///< 获取YOU+求租房源详细信息
+	"getLookYouShareHouse";break;///< 获取查看详细的条件
+	"getCanLookApartment";break;///< 获取查看公寓的条件
+	"getUserYouAmount";break;		///< 获取YOU+个人积分
+	"getYPLeaseFunData";break;				///< 获取YOU+出租房源详细信息
+	"getHfExcellentHomeVoiceList";break;
+	"getHfExcellentHomeSaleList";break;//获取好房优家的出售列表
+	"getHfExcellentHomeLeaseList";break;//获取好房优家的出租列表
+	"getHfExcellentHomeBuyList";break;//获取好房优家的求购列表
+	"agreeYoukeRule";break;//同意uoko使用协议
+	"getAgentPhone";break;//获取公寓电话
+	"getApartmentList";break;//获取好房优家的公寓列表
+	"getHfExcellentHomeRentList";break;//获取好房优家的求租列表
+	"getYouJiaVertifyCode";break;	///<  获取YOU+短信验证码
+	"getYouJiaBuildingList";break;	///<  获取好房优家小区列表
+	"updataYouJiaDeptPhone";break;///<更新好房优家门店电话
+	"updateYouJiaPhoneType";break;///<更新好房优家门店电话
+	"applySoShop";break;///< 申请速销房状态
+	"writeYouJiaTrack";break;///<保存跟进
+	"getHousePhotoByFangKanTrack";break;///< 获取房勘跟进图片列表
+	"deleteFangKanPhoto";break;///< 房勘跟进时删除图片--/house/deleteFangKanPhoto
+	
+	"deleteSalaryScheme";break;// 删除薪资方案--
+	
+	"getPanoramaPhotoList";break;//< 获取全景图--
+	"deletePanoramaPhoto";break;//< 删除全景图片--
+	"createYouJiaColReq";break;//< 请求合作
+	"getApartmentDetail";break;///< 获取UOKO公寓详情数据  
+	"getApartmentPhotoList";break;///< 获取UOKO公寓图片列表
+	"createCityShareColReq";break;///< 城市大公盘请求合作
+	"getCityShareBuyCustomerList";break;///< 城市大公盘求购列表
+	"getCityShareRentCustomerList";break;///< 城市大公盘求租列表
+	
+	"getYouJiaRoofList";break;				///< 获取栋座
+	"getYouJiaUnitList";break;				///< 获取单元
+	"getYouJiaDoorList";break;				///< 获取房屋列表
+	"getHistoryBiddPrice";break;
+	"addBuildAttentionInfo";break;	//< 添加关注小区--/houseBidding/addBuildAttentionInfo
+	"deleteBuildAttentionInfo";break;//< 更换关注小区--/houseBidding/deleteBuildAttentionInfo
+	"getHouseBiddingList";break;	///< 获取腾讯推广里面的房源列表--
+	"getBuildBiddInfo";break;			///< 获取小区专家列表--/houseBidding/getBuildBiddInfo
+	"getUserInfoAndAccountInfo";break;///< 获取资金信息--
+	"getHousePubFlagAll";break;			///< 获取房源库存--/houseBidding/getHousePubFlagAll
+	"getMgrUserRoleAdvanceOpersList";break;
+	"getMgrUserRoleNormalOpersList";break;
+	"getComAddrRepeat";break;
+	"getSeverKey";break;
+	"getMgrExportDealList";break;//< 权证内成交导出列表数据
+	"saveDistBuildInfo";break;		//< 添加分销楼盘信息
+	"updateDistBuildInfo";break;	//< 更新分销楼盘信息
+	"getDistributeAdsDetailed";break; 
+	"saveOrUpdateDistributeAds";break;   
+	"deleteDistributeAds";break;   
+	"createDistCust";break;///< 报备客户
+	"getDistBuildByComp";break;///<参与楼盘
+	"getDistCustInfo";break;///< 客户详情
+	"getDistSaleCustList";break;///<售客列表
+	"getDistRentCustList";break;///<租客列表
+	"getDistCustTrackList";break;///< 客户跟进日志列表
+	"getDistCountCustInfo";break;	///< 获取客户统计信息
+	"createDistCustTrack";break;///<填写客户跟进
+	"updateDistApplyNext";break;				///< 申请认购
+	"getDistCountOfferToBuy";break;///< 认购数量统计
+	"getDistBuildPhotoList";break;//< 获取楼盘分销图片
+	"getBuildPhotoType";break;//< 获取楼盘分销图片 各种图片数量
+	"getDistCompRealAdmin";break;//< 获取分销管理-开发商-获得管理员ID及姓名
+	"getDistBuildInfoAdmin";break;//< 获取分销管理-分销楼盘-获得管理员ID及姓名
+	"updateDistBuildPhoto";break;//< 楼盘分销图片删除
+	"saveOrUpdateDistBuildLayout";break;//< 更新分销楼盘户型信息
+	"setDistCompRealAdmin";break;//< 开发商设置管理员
+	"setDistBuildInfoAdmin";break;//< 分销楼盘设置管理员
+	"transferDistFunCust";break;//< 分销客户数据移交
+	"updateDistFunCompRealInfo";break;//< 更新开发商信息
+	"insertDistFunCompRealInfo";break;//< 添加开发商信息
+	"getDistFunCompRealInfo";break;//< 开发商详细信息
+	"getDistributeAdsList";break;//< 广告管理列表
+	
+	"getRepeatIdlist";break;	//获取重复房客源ids
+	"getRepeatInfolist";break;	//获取重复房客源
+	"updateSelfServDataTransfer";break;// 数据移交跟新对方服务器数据
+	"updateSelfServEmployeeTransfer";break;// 员工调动更新对方服务器数据
+	"getDistCommissionList";break;//< 佣金管理列表
+	"getDistFunCustList";break;//< 分销客户列表
+	"getDistFunCustDetailed";break;//< 分销客户详情
+	"updateDistFunCust"; break;//< 更新分销客户详情
+	"getDistFunCustTrackList";break;//< 分销客户跟进列表
+	"getDistFunCompRealList";break;//< 开发商列表
+	"getDistBuildInfoList";break;//< 获取分销楼盘列表
+	"getDistDaikanRewardsList";break;//< 查询联动带看奖励记录
+	"getDistVoucherInfo";break;//< 查看凭证
+	"getDistCompCommissionRate";break;//< 查询当前公司的佣金设置比例
+	"getDistCustMemoList";break;//< 获取客户备注列表
+	"createDistCustMemo";break;//< 添加客户成交备注
+	"applyDistClearing";break;//< 申请结算
+	"getDistBankList";break;//< 获取银行列表
+	"getDistUserBindBankList";break;//< 获取当前用户绑定的银行卡信息
+	"delDistUserBank";break;//< 个人中心体现删除个人银行
+	"addDistUserBank";break;//< 添加银行账户
+	"getWxChatBdingStatus";break;//< 个人中心提现查询微信绑定信息
+	"unbundlingWxChat";break;//< 个人中心提现解除微信绑定
+	"getBankName";break;//<//获取所添加银行卡的信息
+	"setDistCompCommissionRate";break;//< 设置公司的佣金比例
+	"distApplyDrawCash";break;//< 提现
+	"getDistCountBorkerAmmount";break;//< 获取平台/公司分销佣金信息
+	"getDistCountMoneyOfYear";break;//< 获取最近一年的收入信息
+	"getDistAmountHistory";break;//< 充值，提现记录
+	"getDistPersonalCommList";break;//< 获取个人佣金记录
+	"getDistCustDealList";break;//< 获取佣金明细
+	"getDistBuildInfoDetailed";break;//< 获取分销楼盘详情
+	"updateDistBuildstatus";break;//< 获取分销楼盘详情
+	"getDistCooperationRuleDetailed";break;//获取分销楼盘规则
+	"getDistBuildLayoutList";break;//获取分销楼盘户型图片
+	"getDistUserRelateList";break;//< 获取分销楼盘置业顾问列表
+	"insertComCoreInfo";break;//< 保存核心信息
+	"updateComCoreInfo";break;//< 更新核心信息
+	
+	"getMgrVoiceUrl";break;//< 系统监控-获取语音播放地址--/managerCenter/voiceLog/getMgrVoiceUrl
+	"getMgrVoiceNoteLog";break;//< 系统监控-语音日志--
+	"getMgrVoiceNoteLogForExport";break;//< 系统监控-语音日志-用于导出--
+	"getAdsCaseList";break;//< 系统监控-广告房源列表--
+	"cancleAdsCase";break;//< 新增广告房源--
+	"addCaseAds";break;//< 系统监控-撤销广告房源--
+	"getAdsCaseListForExport";break;//< 系统监控-导出数据--
+	"getOperateLogDetail";break;//< 系统监控-获取操作日志对比记录列表--/managerCenter/systemMonitor/getOperateLogDetail
+	"getDealTaxesList"; break;//<<权证流程获取税费详情列表--
+	"updateOrInsertDealTaxes"; break;//<<权证流程更新税费 --/managerCenter/transaction/deal/updateOrInsertDealTaxes
+	"updateDealTaxesAuditStatus"; break;//<<审核税费--/managerCenter/transaction/deal/updateDealTaxesAuditStatus
+	"getAppInitData";break;	//< 获取程序初始化数据
+	"getAppInitDataWithSession";break;	//< 获取程序初始化数据(需要会话的)
+	//获取房客源列表表头
+	"getFunAndCustHeadList";break;	//< 获取房客源列表表头
+	//房源数据相关
+	"getBuildPriceTrend";break;			//< 云房获取价格走势--/businesstools/buildDic/getBuildPriceTrend
+	"getBuildAssess";break;			//< 云房获取估价--
+	"getHouseSaleList";break;			//< 获取房源列表--
+	"getOneHouseSaleLikeList";break;			//< 获取房源出售列表-单条信息
+	"getOneHouseLeaseLikeList";break;			//< 获取房源出租列表-单条信息
+	"getOneBuyCustomerLikeList";break;			//< 获取客源求购列表-单条信息--/customer/getOneBuyCustomerLikeList
+	"getOneRentCustomerLikeList";break;			//< 获取客源求租列表-单条信息--/customer/getOneRentCustomerLikeList
+	"getBuyCustomerDaiKanList";break;			//< 获取宽列表客源求购带看列表--/customer/getBuyCustomerDaiKanList
+	"getRentCustomerDaiKanList";break;			//< 获取宽列表客源求租带看列表--/customer/getRentCustomerDaiKanList
+	"getHouseLeaseList";break;			//< 获取出租列表
+	"getHouseSaleData";break;			//< 双击获取出售房源数据 -- /house/getHouseSaleData
+	"getHouseLeaseData";break;			//< 双击获取出租房源数据 -- /house/getHouseLeaseData
+	"getHouseSaleMateCliList";break;		//< 根据出售房源ID获得与之匹配的客户
+	"getHouseLeaseMateCliList";break;	//< 根据出租房源ID获得与之匹配的客户--/house/getHouseLeaseMateCliList
+	"getApartmentMateCliList";break;	//< 公寓匹配客户
+	"getFunRepeatSaleFunList";break;		//< 房源管理-获取重复房源
+	"getFunRepeatLeaseFunList";break;
+	"getRoadsMenu";break;						///< 获取主干道信息--
+	"getRoofUnitNumList";break;				///< 获取楼盘资料楼盘栋座单元楼的组成信息
+	"getHouseFloorMenu";break;			//< 获取楼盘菜单
+	"getHouseTags";break;				//< 获取房源标签--
+	"getVideoList";break;				//< 获取视频列表--
+	"getVideoList_DK";break;				//< 获取带看视频--
+	"getTorrentFile";break;				//< 获取种子文件
+	"getVideoPic";break;					//< 获取视频图片
+	"detectMyHouse";break;				//< 发布同城交流权限
+	"getCustomSaleCliMateHousList";break;//< 根据求购客户ID获得与之匹配的房源
+	"getCustomLeaseCliMateHousList";break;//< 根据求租客户ID获得与之匹配的房源
+	"getCustomBuyCustomerList";break;	//< 获取求购客户列表
+	"getCustomRentCustomerList";break;	//< 获取求租客户列表
+	"getCustomBuyCustom";break;			//< 获取求购数据--/customer/getCustomBuyCustom
+	"getCustomRentCustom";break;			//< 获取求租数据--/customer/getCustomRentCustom
+	"getCustRepeatBuyCustList";break;	//< 获取重复客源
+	"getCustRepeatRentCustList";break;	//< 获取重复客源
+	"getAllPubSiteList";break;			///< 获取所有站点列表(发发的站点设置)
+	"getUserSiteAccData";break;			//< 获取用户的发发站点账号信息
+	"getExistFFAccData";break;			//< 查询是否有重复的账号
+	"getFFContactData";break;			///< 获取参数 个人信息 选择 修改联系方式 修改发布信息的联系电话--/fafun/getFFContactData
+	"getFFGroupSalePubedList";break;		///< 获取出售已发布群发房源
+	"getFFGroupSaleReadyPubList";break;	///< 获取出售未发布群发房源
+	"getFFGroupRentPubedList";break;		///< 获取出租已发布群发房源
+	"getFFGroupRentReadyPubList";break;	///< 获取出租未发布群发房源
+	"getFFSingleSalePubedList";break;	///< 获取某单站点的出售房源已发布网站列表
+	"getFFSingleSaleReadyPubList";break;	///< 获取某单站点的出售房源未发布网站列表
+	"getFFSingleRentPubedList";break;	///< 获取某单站点的出租房源已发布网站列表
+	"getFFSingleRentReadyPubList";break;	///< 获取某单站点的出租房源未发布网站列表
+	"getGroupSingleHouseData";break;		///< 获取某房源已发布和未发布站点列表
+	"getFFPubedSites";break;				///< 获取多条房源已发布站点列表 
+	"getFFPubedSiteHouses";break;		///< 获取多条房源已发布站点的房源列表
+	"getFFSignalSiteAppointData";break;	///<获取单站预约刷新数据
+	"getFFSiteAppointHistoryData";break;	///<获取刷新的历史数据
+	"getGroupPubSaleHouse4New";break;	///<获取新房联动已发布群发房源
+	"getSinglePubSaleHouse4New";break;	///<获取某单站点的新房联动已发布网站列表
+	
+	"getFfOnlineSyncList";break;			///< 获取同步列表
+	"getFfOnlineSyncListTaskData";break;	///< 获取扫描同步列表的任务数据
+	"getCorrelationHouseDataList";break;	///< 获取系统中当前房源的同步数据列表
+	"getVrifyInfo";break;				///< 获取登陆验证
+	"getDeptAndUserList";break;				///< 获取登陆数据
+	///收藏房客源
+	"addCaseFavorite";break;				///<添加收藏--
+	"delCaseFavorite";break;				///<删除收藏--
+	"editRentCostomerBaseInfo";break;///<编辑求租客源基本信息
+	"editBuyCostomerBaseInfo";break;///<编辑求购客源基本信息
+	/// 跟进相关
+	"getCheckCodeFunPic";break;				//< 获取核验编号图片---
+	"getCheckCodeFunCreate";break;				//< 获取核验编号(生成)--
+	"getProxyPhoto";break;				//< 获取委托书图片--
+	"getDkPhotoList";break;				//< 获取带看确认书--
+	"getTrackList";break;				//< 获取跟进列表数据
+	"getTrackList";break;//< 获取租售房源跟进列表数据
+	"getTrackHisList";break;				//< 获取跟进历史数据
+	"getTrackDkList";break;				//< 获取跟进带看列表数据
+	"getTrackWarmList";break;			//< 获取跟进提醒列表数据
+	"getMgrVoiceNoteLogAuth";break;		//< 获取跟进语音列表数据
+	"getDeptBuyOutStatus";break;		//< 获取物业公司数据是否被买断
+	"getTrackAgentList";break;			//< 跟进中获取经纪人数据-用以查找经纪人
+	"getTrackFunBuyCustList";break;		//< 跟进中获取求购客源数据-用以查找客源
+	"getUploadSaleList";break;			//< 获取出售房源数据(可以上传户型图)
+	"getUploadLeaseList";break;			//< 获取出租房源数据(可以上传户型图)
+	"getCitySaleFunList";break;			//< 获取全程联网房源出售信息列表
+	"getCityLeaseFunList";break;			//< 获取全程联网房源出租信息列表
+	"getCityRentList";break;				//< 需求中心求租列表
+	"GetCityBuyList";break;				//< 需求中心求购列表
+	"getCityinfoDetailData";break;		//< 获取全程联网合作信息查看权
+	"getCityBuildingInfo_CityShare";break;//< 获取楼盘信息
+	"getCityFunPhoto_CityShare";break;	//< 获取图片
+	"getCityFunFKPhoto_CityShare";break;	//< 获取房勘图片
+	"getCityBuildPhoto_CityShare";break;	//< 获取楼盘小区图片
+	"getUserHeadPic";break;				//< 获取用户头像地址--businesstools/keyManage/getUserHeadPic
+	"getUserHeadPic";break;				//< 获取用户头像地址
+	
+	"getKjlFloorplanList";break;			//< 获取户型图列表-查询--/businesstools/kujialePlan/getKjlFloorplanList
+	"getCoperList";break;				//< 获取合作列表
+	"getCoperInfo";break;				//< 获取合作信息的详细信息
+	"getSOSOSaleList";break;				///< 获取未查看出售列表
+	"getSOSOViewedSaleList";break;		///< 获取已查看出售列表
+	"getSOSOLeaseList";break;			///< 获取未查看出租列表
+	"getSOSOViewedLeaseList";break;		///< 获取已查看出租列表
+	"getSOSOSaleDataById";break;			///< 获取未查看出售信息
+	"getSOSOLeaseDataById";break;		///< 获取未查看出租信息
+	"getSOSOViewCount";break;			///< 获取已查看条数
+	"getSOSOHezuList";break;				///< 获取未查看合租列表
+	"getSOSOViewedHezuList";break;		///< 获取已查看合租列表
+	"getSOSOHezuSmpInfo";break;			///< 获取合租数据详细信息
+	"getSOSOShopList";break;				///< 获取未查看转铺列表
+	"getSOSOViewedShopList";break;		///< 获取已查看转铺列表
+	"getSOSOShopSmpInfo";break;			///< 获取转铺数据详细信息
+	"getSOSOBuyList";break;				///< 获取求购未查看列表
+	"getSOSOViewedBuyList";break;		///< 获取求gou一查看列表
+	"getVipSaleData";break;
+	"getVipLeaseData";break;
+	"getVipRentData";break;
+	"getVipBuyData";break;
+	"getSOSORentList";break;				///< 获取求zu未查看列表
+	"getSOSOViewedRentList";break;		///< 获取求租已查看列表
+	"getSOSORentData";break;				///< 获取求zu详细信息
+	"getSOSOPhone";break;				///< 查看电话
+	"getSOSOAppeal";break;				///< 申诉
+	"getSoSoDirPhotoList";break;			///<获取直供数据的图片信息
+	"getSoSoQueryCondition";break;		///< 获取soso查询条件；
+	"getMgrUserList";break;				//< 权限管理-获取用户列表--/businesstools/attendance/getMgrUserList
+	"getMgrCheckedAdvanceOpersList";break;//< 权限管理-获得已有标识高级权限的列表--/manageCenter/userOpersModule/getAdvanceOpersList
+	"getMgrUserOpersList";break;			//< 权限管理-获取用户所以操作权限列表--/managerCenter/organization/getUsersOpersList
+	"getMgrRoleList";break;				//< 权限管理-获取角色列表--/businesstools/attendance/getMgrRoleList
+	"deleteCompRoles";break;				//< 权限管理-删除角色--/managerCenter/organization/deleteCompRoles
+	"getPersonnelLevelList";break;				//< 权限管理-获取职级列表 --/managerCenter/organization/getPersonnelLevelList
+	"getRecruitmentChannelList";break;				//< 权限管理-获取招聘渠道列表--/managerCenter/organization/getRecruitmentChannelList
+	"addOrEditPersonnelLevel";break;				//< 权限管理-添加或编辑职级 --/managerCenter/organization/addOrEditPersonnelLevel
+	"delRecruitmentChannel";break;				//< 删除渠道 --/managerCenter/organization/delRecruitmentChannel
+	"delPersonnelLevel";break;				//< 删除职级  --/managerCenter/organization/delPersonnelLevel
+	"changeLevelSeq";break;				//< 职级排序--
+	"addOrEditRecruitmentChannel";break;				//< 权限管理-新增入职渠道列表
+	"changeChannelSeq";break;				//< 渠道排序
+	"getMgrRoleDescription";break;		//< 权限管理-获取高级权限描述
+	"getMgrPlotSwitch";break;			//< 系统参数-获取策略参数开关 --/managerCenter/sysPara/getMgrPlotSwitch
+	"getMgrSysParaModelConvertEnable";break;//< 系统参数-获取系统模式能否转换
+	"getMgrOutLogList";break;			//< 考勤管理-获取外出登记
+	"getMgrAttendanceList";break;		//< 考勤管理-获取考勤列表
+	"getMgrStatList";break;				//< 考勤统计-获取考勤统计
+	"getMgrFineList";break;				//< 考勤统计-获取罚款日志
+	"getMgrAttendanceOnAndOff";break;	//< 考勤管理-获取门店上下班人数 --/businesstools/attendance/getAttendanceOnAndOff
+	"getMgrFloorDataList";break;			//< 楼盘资料-获取楼盘资料列表
+	"getMgrFloorDataManager";break;		//< 楼盘资料-获取楼盘资料管理员 --manageCenter/buildData/getMgrFloorDataManager
+	"getMgrSingleFloorData";break;		//< 楼盘资料-获取楼盘详细信息 --manageCenter/buildData/getMgrSingleFloorData
+	"getMgrUserViewRight";break;			//< 楼盘资料-获取用户查看权限 --manageCenter/buildData/getMgrUserViewRight
+	"getMgrFloorList";break;				//< 楼盘资料-获取楼盘列表 ----manageCenter/buildData/getMgrFloorList
+	"getDistBuildInfoLikeList";break;//< 分销楼盘-获取楼盘列表
+	"getMgrSeeTrack";break;				//< 楼盘资料-看跟进 --manageCenter/buildData/getFloorTrackList
+	"openOrCloseImplicitCall";break;//< 楼盘资料-开启或关闭隐号拨打
+	"getBuildInfoIpCallLog";break;	//< 楼盘资料-语音日志
+		/// 权证流程
+	"getMgrDealProcessCompareLogList"; break;//< 查询合同流程对比日志列表
+	"getDealInfoOld";break;				//< 权证流程-获取历史记录详情 
+	"getDealListOld";break;				//< 权证流程-获取历史记录 
+	"getBuyTaxesTypeData";break;			//< 权证流程-获取买方税费记录--managerCenter/transaction/deal/getBuyTaxesTypeData
+	"getSellTaxesTypeData";break;		//< 权证流程-获取卖方税费记录--managerCenter/transaction/deal/getSellTaxesTypeData
+	"getMgrDealListOne";break;				//< 权证流程-获取内成交记录-单条--managerCenter/contract/getMgrDealListOne
+	"getMgrOutDealList";break;			//< 权证流程-获取外成交记录
+	"updateHouseOrCustInfo";break;		//< 权证流程-更新业主客户电话 --managerCenter/contract/updateHouseOrCustInfo
+	"getMgrDealAuditList";break;			//< 权证流程-获取审核列表-历史记录
+	"editBrokerageIncome";break;			//< 权证流程-设置佣金设置 分佣比例
+	"getAchieveExportData";break;	//< 权证流程-获取导出业绩分配的信息
+	"getMgrDealNoteData";break;			//< 权证流程-获取成交日志
+	"getDealSeal";break;			//< 权证流程-获取印章
+	"updateDealLogoStatus";break;			//< 权证流程-删除合同Logo图片
+	"deleteDealSeal";break;			//< 权证流程-删除印章 --managerCenter/contract/delDealPhoto
+	"updateFunDealPhotoList";break;			//< 权证流程-删除合同资料图片--managerCenter/contract/updateFunDealPhotoList
+	"getFunDealPhotoList";break;			//< 权证流程-获取合同资料列表
+	"getMatchNotAllocatedDealCodeList";break;//< 权证流程-获取未领用合同列表--/managerCenter/transaction/deal/getMatchNotAllocatedDealCodeList
+	"getMgrWarrantStepList";break;		//< 权证流程-获取合同的子步骤列表
+	"getMgrWarrantStepData";break;		//< 权证流程-获取合同的子步骤的数据]
+	"getFunPerformanceTypeList";break;		// <权证流程--- 获取业绩类别列表 --> managerCenter/transaction/deal/getFunPerformanceTypeList
+	"getDealContractTaskList";break;//< 权证流程-获取权证流程列表 --managerCenter/transaction/deal/getDealContractTaskList
+	"getDealContractTaskListOfTransact";break;//< 权证流程-获取权证流程列表-已办结列表 --/managerCenter/transaction/deal/getDealContractTaskListOfTransact
+	"updateProcessFinancStatus";break;//应收实收款审核--/managerCenter/transaction/deal/updateProcessFinancStatus
+	"getMgrTrackList";break;				//< 系统监控-查询跟进日志的条件生成
+	"getMgrTrackListHis";break;		//< 系统监控-查询历史跟进
+	"getMgrTrackListForExport";break;	//< 系统监控-查询跟进日志的条件生成-用于导出
+	"deleteFunTrack";break;				///< 系统监控-删除跟进
+	
+	"transDataForChois";break;/// 注销员工时移交数据
+	
+	/// 财务报表-门店费用相关接口
+	"getSysDeptFeeList";break;///< 门店费用配置查询列表
+	"getDeptFeeList";break;///< 查询门店费用详细列表
+	"getDeptFeeListForExport";break;///< 查询门店费用详细列表 导出
+	"getDeptFeeRecordList";break;///< 获取门店费用日志
+	"addEditSysFunDept";break;///< 添加修改排序门店费用配置
+	"delSysDeptFee";break;///< 删除门店配置,逻辑:删除门店费用配置后,会同步删除当前月已经应用的门店配置.*当月*
+	"updateDeptFee";break;///< 修改门店费用详细--/managecenter/financeModule/updateDeptFee
+	"aduitDeptFee";break;///< 审核门店费用--/managecenter/financeModule/auditDeptFee
+	"getFinancialStatementsMonthlyShopReport";break;///<门店月报列表 -- /managecenter/financeModule/getFinancialStatementsMonthlyShopReport
+	"getFinancialStatementsMonthlyShopReportExport";break;///<门店月报列表导出
+	
+	// 组织机构
+	"getCompanyData";break;				///< 获取公司信息 --/managerCenter/organization/getCompanyData
+	"getRangeList";break;				///< 获取片区信息列表--/managerCenter/organization/getRangeList
+	"getDeptList";break;					///< 获取分店信息列表-- 未使用
+	"getDeptListByComp";break;			///< 根据公司ID获取门店列表-- 未使用
+	"getDeptListByReg";break;			///< 获取分店信息列表通过--/managerCenter/organization/getDeptListByReg
+	"getGroupList";break;				///< 获取分组信息列表 -- 未使用
+	"getUserInfoList";break;				///< 获取用户信息列表 --/managerCenter/organization/getUserInfoList
+	"getRangeData";break;				///< 获取片区信息 -- 未使用
+	"getDeptData";break;					///< 获取分店信息 -- 未使用
+	"getGroupData";break;				///< 获取分组信息 --/managerCenter/organization/getGroupData
+	"getUserInfoData";break;				///< 获取用户信息 --/managerCenter/organization/getUserInfoData
+	"getJoinCircleList";break;			///< 获取公司所有的加盟圈
+	"getJoinCompsByShareId";break;		///< 根据shareid找到加盟圈的公司 
+	"getAreaList";break;					///< 获取当前公司大区信息 --/managerCenter/organization/getAreaList
+	"getRegisterUserStatus";break;		///< 获取门店是否还能新建员工账号 --/managerCenter/organization/getRegisterUserStatus
+	"getJoinUserList";break;				///< 组织机构-获取加盟圈公司下门店的员工列表
+	"getNotJoinCircleCompList";break;	///< 获取当前没有加入任何加盟圈的公司
+	"getMgrDealStatictisList";break;		///< 成交统计-获取成交统计列表 --/managecenter/deal/getMgrDealStatictisList
+	"getMgrDealStatictisListForExport";break;///< 成交统计-获取成交统计列表-用于导出
+	"getProfitBaseInfoList";break;		///< 成交统计-获取业绩信息
+	"getProfitBaseInfoListForExport";break;///< 成交统计-获取业绩信息-用于导出
+	"getProfitDetailInfoList";break;		// 获取业绩组成详细信息
+	"getSetProfitDetailInfoList";break;	// 业绩发放
+	"getMgrDueOutWageList";break;		///< 成交统计-获取未发和待发工资
+	"getUserListByShenHe";break;			///< 成交统计-获取工资审核人--/funWage/getUserListByShenHe
+	
+	"getSalarySchemeListByType";break;			///< 成交统计-获取薪资方案类型列表
+	"getMgrProfiTarget";break;			///<   获取业绩目标
+	"GetMgrLoanDocList";break;			///< 金融贷款-获取资料列表 
+	"getComDeptList";break;				///< 分店选择-获得除管理部门外的所有部门列表
+	"getComRepeat";break;				///< 查重复信息
+	"getComPhoneRepeat";break;			///< 查重复电话
+	"getComTempletData";break;			///< 获取模板数据
+	"getComCompDefineTempletData";break;	///< 获取公司自定义模板数据
+	
+	"getComFunViewLogData";break;		//< 获取核心信息查看记录条数
+	"getComCoreInfoById";break;			//< 获取核心信息--/common/getComCoreInfoById
+	"getDDinfoList";break;				//< 返回所有数据字典信息
+	"getMyAllOpers";break;				//< 返回本人所有的操作权限
+	"getRegList";break;					//< 获取当前城市的所有区域
+	"getSectionList";break;				//< 获取当前城市片区信息
+	"getRegSectionList";break;			//< 获取当前城市的所有区域和板块
+	"getPwdCount";break;					//< 获取加密或推荐条数
+	"getSOSOPhotoInfo";break;
+	//////////////////////////任务////////////////////////////////////////////////
+	"getTaskWarmData";break;				//< 获取单条提醒任务--/houseCust/getTaskDetailInfo
+	
+	"getKeyDefaultNum";break;			//< 获取钥匙默认编号--/businesstools/keyManage/getKeyDefaultNum
+	"getTaskCount";break;				//< 获取任务数量--/usercenter/getTaskCount
+	
+	"getBizAllMnaualList";break;			//< 获取业务手册所有父节点
+	"getBizMnaualList";break;			//< 获取业务手册链表
+	"getBizMnaualData";break;			//< 获取业务手册数据
+	"getBuildingList";break;				//< 获取楼盘资料
+	//"定制功能";break;楼盘锁定规则
+	"getBuildingStatus";break;			//获取楼盘状态
+	"getBuildingRuleList";break;			//获取楼盘规则
+	////////////////////////小秘书开始//////////////////////////////////////////////////
+	"getSecList";break;					//获取普通数据（公告，提醒，发帖等）
+	"getSecFirstShowAD";break;			//获取第一次显示的广告// 获取分享列表
+	////////////////////////跑分系统//////////////////////////////////////////////////
+	"getIndexInfo";break;					//获取业务，营销，业绩指数信息
+	"getMatchSalePush";break;			//获取智能匹配出售信息列表
+	"getMatchLeasePush";break;		//获取智能匹配出租信息列表
+	"getMatchBuyCustPush";break;	//获取智能匹配求购信息列表
+	"getMatchRentCustPush";break;	//获取智能匹配求租信息列表
+	"getScoreTotalRanking";break;	//跑分排行榜 总榜
+	"getScoreNewUserRanking";break;	//跑分排行榜 新用户榜
+	"getScoreCompRanking";break;	//跑分排行榜 公司排行
+	//////////////////////公告信息////////////////////////////////////////////////////
+	"getBulletinList";break;				// 获取公告列表
+	"getBulletinWarmTask";break;			// 获取公告页面提醒列表--bulletin/getBulletinWarmTask
+	"getDealBulletList";break;				//获取喜报管理列表  --> /noticeInfo/goodNews/getDealBulletList
+	"updateReleaseStatus";break;		//更改喜报状态（删除、发布。。）
+	"getGoodNewsHtmlContent";break;	//获取喜报html富文本
+	"updateGoodNewsHtmlContent";break;//编辑喜报
+	//////////////////////////////////////////////////////////////////////////
+	"getVersionLog";break;  			// 获取更新升级日志
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"updateFunAndCustHeadList";break;		//更新房客源列表表头的排序和显示
+	"insertHouseSale";break;				//注册出售房源
+	"updateHouseSaleData";break;			//更新一条出售房源
+	"updateHosueCoopertData";break;		//更新一条房源是否合作和发布
+	"cityShareHouse";break;		//分享房源到城市公盘
+	"updateCityShareHouse";break;		//取消城市公盘下架
+	"insertHouseLeaseData";break;		//登记出租房源
+	"updateHouseLeaseData";break;		//更新出租房源
+	"updateHouseCancelWeituo";break;		//取消委托
+	////////房源数据相关////////////////////////////////////////////////////////
+	"insertCustomBuyCustom";break;		//登记求购数据
+	"updateCustomBuyCustom";break;		//更新求购数据
+	"insertCustomRentCustom";break;		//登记求租数据--/customer/insertCustomRentCustom
+	"updateCustomRentCustom";break;		//更新求租数据
+	"updateCustCoopertData";break;		//更新一条客源是否合作
+	"editSaleBaseInfo";break;///< 更新房源出售宽列表标题
+	"editLeaseBaseInfo";break;//更新房源出租宽列表标题
+	
+	////////客源数据相关////////////////////////////////////////////////////////
+	//  站点设置
+	"updateFFAccData";break;				///< 更新发发站点账号(发发的站点设置)
+	"updateFFContactData";break;			///< 参数 个人信息 选择 修改联系方式 修改发布信息的联系电话
+	"insertFFSiteRecomandData";break;	///< 参数 名称地址 站点推荐
+	"updateFFAccToEnable";break;			///<  启用发发站点账号
+	"updateFFAccToDisable";break;		///< 停用发发站点账号
+	"getCatchAccInfoFFTask";break;		///< 更新用户站点信息
+	// 群发房源
+	"updateFFPubHouseData";break;		///< 一键发布 多个站点 单房源
+	"updateFFSinglePubList";break;		///< 一键发布 多个房源 单站点 
+	// 群发主列表中的批量下架和刷新
+	"updateFFPubedSiteHouses";break;		///< 更新多条房源已发布站点的房源列表状态
+	// 预约刷新
+	"updateFFAppointRefresh";break;		///<提交预约刷新数据
+	"deleteSignalSiteAppointData";break;	///<删除单站预约刷新数据
+	// 网店同步
+	"insertFafaPubData";break;			///< 发发发布他人 编辑时，保存房源接口
+	"createFaFaHouseRelevance";break;		///< fafa执行关联房源操作
+	////////登录开始////////////////////////////////////////////////////////
+	"updateVrifyJion";break;				///< 加入注册 
+	"updateVrifyInfo";break;				///< 注册 
+	"updateResetInfo";break;				///< 删除注册重置 
+	"LoginOut";break;					///< 退出登录
+	"updateLoginUnlock";break;			///< 登录解锁
+	"updateUserLogin";break;				///< 提交用户数据
+	"updateDeviceStatus";break;		///< app登录审核
+	////////登录结束////////////////////////////////////////////////////////
+	"insertRemindTask";break;			///< 添加提醒任务（跟进中单独写提醒）
+	"deletePic";break;					//删除房源图片
+	"updateHousePhotoSEQ";break;
+	"insertKuJiaLeFunPhoto";break;		//< 上传酷家乐户型图			
+	"updateKuJiaLeFunPhoto";break;		//< 编辑时上传上传酷家乐户型图
+	"updateBatchKuJiaLeFunPhoto";break;	//< 批量上传酷家乐户型图
+	"insertCityComplaintInfo";break;		///< 投诉-保存投诉信息
+	"insertCityCooperateInfo";break;		//< 保存合作信息
+	"updateCollCooperate";break;			///< 合作回复
+	"updateCollLook";break;				///< 更新带看
+	"deleteCollCooperate";break;			///< 撤销合作
+	"writeDealInfo";break;				///<保存成交信息
+	////////全城联网///////////////////////////////////////////////////////
+	/////////////////////////////好房搜搜///////////////////////////////////
+	"callIp";break;// soso ip电话
+	"saveSoSoQueryCondition";break;///< 保存soso查询条件；
+	"complaintSoSoSale";break;///标记搜搜出售数据
+	"complaintSoSoLease";break;//标记搜搜出租数据
+	"complaintSoSoShop";break;//标记搜搜转铺数据
+	"complaintSoSoHezu";break;//标记搜搜合租数据
+	/////////////////////////////好房搜搜///////////////////////////////////
+	////////管理功能////////////////////////////////////////////////////////
+	"updateByHandProfit";break;			//< 更新手动录入业绩  --profit/updateByHandProfit
+	"getByHandProfitList";break;			//< 获取手动录入业绩的详情
+	"getByHandProfitLogList";break;			//< 获取手动录入业绩的详情
+	"insertMgrUserOpert";break;			//< 权限管理-插入用户权限--/manageCenter/userOpersModule/updateUserOpers
+	"updateMgrParameter";break;			//< 系统参数-用户系统参数设置--/managerCenter/sysPara/updateMgrParameter
+	"updateMgrPlotSwitch";break;			//< 系统参数-修改策略参数开关
+	"insertMgrOutLog";break;				//< 考勤管理-外出登记
+	"insertMgrAttendance";break;			//< 考勤管理-上班打考勤--/staffAttendance/insertAttendance
+	"updateMgrAtt";break;				//< 考勤统计-修改考勤状态
+	"setMgrFloorDataManager";break;		//< 楼盘资料-设置楼盘资料管理员
+	"setMgrUserViewRight";break;			//< 楼盘资料-设置用户查看权限 --manageCenter/buildData/setMgrUserViewRight
+	"deleteMgrUserViewRight";break;		//< 楼盘资料-删除用户查看权限 --manageCenter/buildData/deleteViewBuildRule
+	"setMgrWriteTrack";break;			//< 楼盘资料-写跟进 --manageCenter/buildData/writeTrack
+	"updateMgrSingleFloorData";break;	//< 楼盘资料-更新单条楼盘详细信息数据--/manageCenter/buildData/updateMgrSingleFloorData
+	"updateMgrMultiFloorData";break;		//< 楼盘资料-批量更新更新详细信息数据--/manageCenter/buildData/updateMgrMultiFloorData
+	"insertMgrMultiFloorData";break;		//< 楼盘资料-批量添加楼盘数据--/manageCenter/buildData/insertMgrMultiFloorData
+	"importBuildInfos";break;		//< 楼盘资料-批量导入楼盘数据--/manageCenter/buildData/importBuildInfos
+	"deleteMgrMultiFloorData";break;		//< 楼盘资料-批量删除楼盘数据--/manageCenter/buildData/deleteMgrMultiFloorData
+	//-1?
+	"updateMgrDealData";break;			//< 权证流程-更新合同信息-审核
+	"updateFinancStatus";break;			//< 更改合同财务状态  --managerCenter/contract/updateDealFinancStatus
+	"insertMgrDeal";break;				//< 权证流程-增加成交信息 --managerCenter/contract/insertIntoDealInfo
+	"deleteProcessModel";break;			//《权证流程-删除字定义流程；--managerCenter/transaction/deal/deleteProcessModel
+	"createProcessModel";break;			//《权证流程-添加字定义流程；
+	"saveBrokerageByComp";break;			//< 权证流程-设置佣金 --/managerCenter/contract/saveBrokerage
+	"settlementDeal";break;			//< 权证流程-跟新分佣比列 --managerCenter/transaction/deal/settlementDeal
+	"updateMgrFinaDataOfReceivable";break;
+	"updateMgrFinaDataOfReceive";break;///< 添加实收数据--/managerCenter/transaction/deal/updateMgrFinaDataOfReceive
+	"finaDataReceived";break;///< 财务数据收讫--/managerCenter/transaction/deal/finaDataReceived
+	"updateMrgContractLockStatus";break;	//< 权证流程-更新合同锁定状态 --/managerCenter/contract/updateDealLockFlag
+	"insertMgrWarrantProcess";break;		//< 权证流程-跟新权证信息 --managerCenter/transaction/deal/insertMgrWarrantProcess
+	"deleteMgrStepModel";break;			//< 权证流程-删除步骤模板--managerCenter/transaction/deal/deleteMgrStepModel
+	"insertMgrStepModel";break;			//< 权证流程-添加步骤模板--managerCenter/transaction/deal/insertUpdateMgrStepModel
+	"updateMgrStepModel";break;			//< 权证流程-更新步骤信息--/managerCenter/transaction/deal/insertUpdateMgrStepModel
+	"insertMgrStepModelToPro";break;		//< 权证流程-向某个流程整插入步骤--managerCenter/transaction/deal/insertMgrStepModelToPro
+	"deleteMgrStepModelFromPro";break;	//< 权证流程-删除某个流程中的步骤--managerCenter/transaction/deal/deleteMgrStepModelFromPro
+	"updateMgrProStepSort";break;		//< 权证流程-重新排序某个流程中的子流程--managerCenter/transaction/deal/updateMgrProStepSort
+	"updateMgrWarrantStepData";break;	//< 权证流程-更新合同中的子步骤的数据
+	"dynamicInsertProcessStep";break;	//< 权证流程-删除流程步骤 --managerCenter/transaction/deal/dynamicInsertProcessStep
+	"dynamicDelProcessStep";break;	//< 权证流程-动态插入流程步骤 --managerCenter/transaction/deal/dynamicDelProcessStep
+	"updateMgrWarrantCompelete";break;	//< 权证流程-办结 --managerCenter/transaction/deal/makingDeal
+	// 交易管理
+	"getDealPfActualList";break;				///<应收实收管理列表 
+	"getDealPfActualListForExport";break;///<应收实收管理列表-用于导出
+	"getDealFunEarbestMoneyList";break;///<诚意金管理-诚意金管理列表  --> /managerCenter/transaction/earbestMoney/getEarbestMoneyList
+	"getDealFunEarbestMoneyListForExport";break;///<诚意金管理-诚意金管理列表-用于导出  --> /managerCenter/transaction/earbestMoney/getEarbestMoneyListForExport
+	"createDealFunEarbestMoney";break;	///< 诚意金管理-新增诚意金
+	"deleteDealFunEarbestMoney";break;	///< 诚意金管理-删除诚意金
+	"updateDealFunEarbestMoney";break;	///< 诚意金管理-更新诚意金状态 /managerCenter/transaction/earbestMoney/updateDealFunEarbestMoney
+	"getDealFunEarbestMoneyDetail";break;///< 诚意金管理-获取诚意金详情
+	"getDealFunDealCodeList";break;///< 获取合同领用信息列表
+	"getDealFunDealCodeListForExport";break;///< 获取合同领用信息列表-用于导出
+	"getDealFunDealCodeInfo";break;///< 获取合同领用详情信息列表
+	"updateDealFunDealCode";break;///< 更新合同编号状态
+	"deleteDealFunDealCode";break;///< 删除合同号段--/managecenter/deal/deleteDealFunDealCode
+	"createDealFunDealCode";break;///< 创建合同号段
+	"getMatchInnerDealList";break;///< 关联合同列表
+	
+	// 数据移交
+	"updateDataTransfer";break;			///< 数据移交--/managerCenter/translate/dataTranslate
+	"updateEmployeeTransfer";break;		///< 员工调动  -- /managerCenter/organization/moveUserToNewDept
+	//组织机构
+	"deleteCircleByShareId";break;		///< 删除加盟圈
+	"updateCircleComps";break;			///< 更新加盟圈数据
+	"insertJoinCircle";break;			///< 插入加盟圈	
+	"updateMgrArea";break;				///< 更新大区信息--/managerCenter/organization/updateMgrArea
+	"insertMgrArea";break;				///< 新建大区 --/managerCenter/organization/insertMgrArea
+	"deleteMgrArea";break;				///< 删除大区--/managerCenter/organization/deleteMgrArea
+	"insertMgrRangeData";break;			///< 新建片区信息--/managerCenter/organization/insertMgrRangeData
+	"updateMgrRangeData";break;			///< 编辑片区信息--/managerCenter/organization/updateMgrRangeData
+	"deleteMgrRangeData";break;			///< 删除片区信息--/managerCenter/organization/deleteMgrRangeData
+	"updateMgrDeptData";break;			///< 编辑分店信息--/managerCenter/organization/updateDeptInformation
+	"insertMgrGroupData";break;			///< 新建分组信息 --/managerCenter/organization/updateGroupInformation
+	"updateMgrGroupData";break;			///< 编辑分组信息 --/managerCenter/organization/updateGroupInformation
+	"deleteMgrGroupData";break;			///< 删除分组信息--/managerCenter/organization/deleteGroupInformation
+	"inviteRegistErp";break;			///< 邀请注册信息--/managerCenter/organization/inviteRegist
+	"insertMgrUserInfoData";break;		///< 新建用户账号
+	"updateMgrUserInfoData";break;		///< 编辑用户账号
+	"updateMgrLogOffUserInfoData";break;///< 注销用户账号--/managerCenter/organization/deleteUser
+	"updateMgrResetUserPWData";break;	///< 重置用户密码--/managerCenter/organization/updateMgrResetUserPWData
+	"updateMgrVerifyPhone";break;		///< 组织结构-创建用户-验证用户电话
+	"updateMgrUserUseState";break;		///< 组织结构-更新用户使用状态 --/managerCenter/organization/updateMgrUserUseState
+	//成交统计
+	"updateMgrDelWage";break;			///< 成交统计-扣发工资--废弃
+	"saveProfitCheckFlag";break;		///< 成交统计-保存未发和待发工资列表 --废弃
+	"updateMgrUserWagePro";break;		///< 成交统计-保存员工基本提成比列
+	"updateShenheUserFlag";break;		///< 成交统计-更新工资审核人--/funWage/updateShenheUserFlag
+	"insertMgrProfiTarget";break;		///< 插入业绩目标--/profit/insertMgrProfiTarget
+	"insertMgrProfi";break;				///< 录入业绩--/profit/insertMgrProfi
+	"getWageTypeDetail";break;			///< 获取提成方案详情信息
+	"insertOrUpdateWageType";break;	///< 更新提成方案
+	////////管理功能///////////////////////////////////////////////
+	////////共用功能///////////////////////////////////////////////
+	"insertComBuild";break;				///< 新建一个楼盘 --/businesstools/buildDic/insertComBuild
+	"updateComBuild";break;				///< 楼盘纠错
+	"insertComDefineTempletData";break;	///< 插入或更新公司自定义模板数据--/house/updateOrCreateTmp
+	"deleteComDefineTempletData";break;	///< 删除自定义模板数据--/house/updateOrCreateTmp
+	////////共用功能///////////////////////////////////////////////
+	"updateTaskWarmState";break;			//< 更新提醒任务状态
+	"updateTrackWarmTask";break;			//< 完成跟进提醒任务
+	/////////////////////////任务结束/////////////////////////////////////////////////
+	
+	/////////////////////////业务工具/////////////////////////////////////////////////
+	"insertBizManualData";break;			//< 插入业务说明--
+	"updateBizManualData";break;			//< 更新业务说明--
+	"deleteBizManualData";break;			//< 删除业务说明--
+	"";break;// 获取现金列表 新版
+	"";break;// 提现现金 新版
+	
+	//楼盘字典
+	"updateLockBuildRule";break;			//< 锁定当前楼盘
+	"batchImporFunBuildRules";break;			//< 批量添加楼盘规则
+	
+	/////////////////////////业务工具结束////////////////////////////////////////////////
+	//上传、下载图片
+	"uploadPicData";break;				//< 上传图片
+	"downloadPicData";break;				//< 下载图片
+	"downloadPicData_site";break;				//< 下载图片 外网下载
+	"uploadUaPhoto";break;				//< 个人中心上传图片
+	///////////////////////////////////////////////////////////////////////////////////////
+	"deleteContractProfit";break;	// 删除合同类别
+	"deleteFunFinancStatus";break;	// 删除财务状态
+	"createOrUpdateFunContractCategory";break;// 更新合同类别
+	"deleteTaxesTypeData";break;	// 删除 税费类别--managerCenter/transaction/deal/deleteTaxesTypeData
+	"updateWarrantsDates";break;	//< 权证流程-<!-- 更新 过户日期、取证日期、放款日期 --managerCenter/transaction/deal/updateWarrantsDates
+	"insertTaxesData";break;	//< 权证流程-<!-- 更新 税费类别 --> --/managerCenter/transaction/deal/insertTaxesData
+	"updateFunPerformanceTypeList";break;	//< 权证流程-更新业绩类别列表 --/managerCenter/transaction/deal/updateFunPerformanceTypeList
+	"deleteFunPerformanceType";break;	//< 权证流程-删除业绩类别列表--managerCenter/transaction/deal/deleteFunPerformanceType
+	"changeWarrant";break;//< 权证流程-变更流程 --managerCenter/transaction/deal/changeWarrant
+	"changeProfit"; break;//<权证流程-业绩分配  修改业绩
+	"delDealProfit"; break;//<删除业绩--/managerCenter/transaction/deal/delDealProfit
+	//////////////////////////////////////////////////////////////////////////
+	"getBuildInfoSEQ"; break;			///<小区竞价预扣费
+	"createBuildBiddInfo"; break;		///<小区竞价确定竞价
+	"getBidPrice"; break;				///<小区竞价查询楼盘当前出价
+	"getHouseInfoSEQ"; break;				///<房源竞价预扣费
+	"updateHouseBidding"; break;			///<房源竞价确定竞价
+	////////////////////////////城市大公盘/////////////////////////////////
+	"getCityShareDetail";break;///< 获取房源详情页数据 -- // TODO
+	"getCityshareTrackList";break;///< 获取跟进日志列表数据
+	"getCityShareLeaseDetail";break;///< 获取出租详情页数据 -- // TODO
+	"writeCityshareTrack";break;///< 保存跟进
+	"getCityShareRentDetail";break;//获取城市公盘-求租详情页 -- // TODO
+	"getCityShareBuyDetail";break;/// 获取城市 公盘-求购详情页 -- // TODO
+	"getHouseShareMobile";break;/// 查看经纪人电话 -- /cityShare/getHouseShareMobile
+	"getCityshareHomeComplaintList";break;//查看投诉记录 -- /cityShare/getCityshareHomeComplaintList
+	"getCityshareComplaintType";break;//获取投诉项 -- 貌似没有使用这个接口了
+	"insertCityshareHomeComplaintInfo";break;//城市大公盘写投诉 -- /cityShare/createCityshareBorkerComplain
+	"getDepositDeptList";break;///<获取公司门店缴纳保证金情况列表 -- /usercenter/getDepositDeptList
+
+
+
+
+
+
+
+
+
+
+

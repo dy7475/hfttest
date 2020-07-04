@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunBuildRuleMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunBuildRule">
+    <!--@mbggenerated-->
+    <id column="ENTITY_ID" jdbcType="INTEGER" property="entityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="ROOF" jdbcType="VARCHAR" property="roof" />
+    <result column="UNIT" jdbcType="VARCHAR" property="unit" />
+    <result column="NUM" jdbcType="VARCHAR" property="num" />
+    <result column="HOUSE" jdbcType="VARCHAR" property="house" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="FLOOR" jdbcType="VARCHAR" property="floor" />
+    <result column="FLOORS" jdbcType="VARCHAR" property="floors" />
+    <result column="REGION_ID" jdbcType="INTEGER" property="regionId" />
+    <result column="REGION_NAME" jdbcType="VARCHAR" property="regionName" />
+    <result column="SECTION_ID" jdbcType="INTEGER" property="sectionId" />
+    <result column="SECTION_NAME" jdbcType="VARCHAR" property="sectionName" />
+    <result column="SECTOR_ID" jdbcType="INTEGER" property="sectorId" />
+    <result column="SECTOR_NAME" jdbcType="VARCHAR" property="sectorName" />
+    <result column="HOUSE_ROUND" jdbcType="VARCHAR" property="houseRound" />
+    <result column="ROUND_DD" jdbcType="TINYINT" property="roundDd" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="BUILD_CODE" jdbcType="VARCHAR" property="buildCode" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="USEAGE" jdbcType="TINYINT" property="useage" />
+    <result column="OWNER" jdbcType="VARCHAR" property="owner" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="HOUSE_RIGHT" jdbcType="TINYINT" property="houseRight" />
+    <result column="HOUSE_TYPE" jdbcType="TINYINT" property="houseType" />
+    <result column="HOUSE_STRUCT" jdbcType="TINYINT" property="houseStruct" />
+    <result column="HOUSE_YEAR" jdbcType="INTEGER" property="houseYear" />
+    <result column="HOUSE_DIRECT" jdbcType="TINYINT" property="houseDirect" />
+    <result column="HOUSE_STREET" jdbcType="TINYINT" property="houseStreet" />
+    <result column="HOUSE_FITMENT" jdbcType="TINYINT" property="houseFitment" />
+    <result column="HOUSE_LADDER" jdbcType="TINYINT" property="houseLadder" />
+    <result column="HOUSE_DOORS" jdbcType="TINYINT" property="houseDoors" />
+    <result column="HOUSE_STITUAT" jdbcType="VARCHAR" property="houseStituat" />
+    <result column="LEAVE_TIME" jdbcType="VARCHAR" property="leaveTime" />
+    <result column="CERT_TIME" jdbcType="VARCHAR" property="certTime" />
+    <result column="HOUSE_AREA" jdbcType="NUMERIC" property="houseArea" />
+    <result column="SALE_TOTAL_PRICE" jdbcType="NUMERIC" property="saleTotalPrice" />
+    <result column="SALE_LOWEST_PRICE" jdbcType="NUMERIC" property="saleLowestPrice" />
+    <result column="SALE_UNIT_PRICE" jdbcType="NUMERIC" property="saleUnitPrice" />
+    <result column="SALE_ACCOUNT" jdbcType="VARCHAR" property="saleAccount" />
+    <result column="LEASE_TOTAL_PRICE" jdbcType="DECIMAL" property="leaseTotalPrice" />
+    <result column="LEASE_PRICE_UNIT" jdbcType="TINYINT" property="leasePriceUnit" />
+    <result column="LEASE_LOWEST_PRICE" jdbcType="INTEGER" property="leaseLowestPrice" />
+    <result column="LEASE_ACCOUNT" jdbcType="TINYINT" property="leaseAccount" />
+    <result column="LEASE_DEPOSIT" jdbcType="INTEGER" property="leaseDeposit" />
+    <result column="LEASE_LIMITE" jdbcType="TINYINT" property="leaseLimite" />
+    <result column="ROOM" jdbcType="TINYINT" property="room" />
+    <result column="HALL" jdbcType="TINYINT" property="hall" />
+    <result column="WEI" jdbcType="TINYINT" property="wei" />
+    <result column="YANG" jdbcType="TINYINT" property="yang" />
+    <result column="CELL_PHONE" jdbcType="VARCHAR" property="cellPhone" />
+    <result column="SAME_FLAG" jdbcType="VARCHAR" property="sameFlag" />
+    <result column="LEASE_ID" jdbcType="INTEGER" property="leaseId" />
+    <result column="SALE_ID" jdbcType="INTEGER" property="saleId" />
+    <result column="CREATION_TIME" jdbcType="VARCHAR" property="creationTime" />
+    <result column="SHARE_USER" jdbcType="VARCHAR" property="shareUser" />
+    <result column="SHARE_CELL_PHONE" jdbcType="VARCHAR" property="shareCellPhone" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="CHECK_TIME" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="STATUS" jdbcType="TINYINT" property="status" />
+    <result column="PHONE_TYPE" jdbcType="TINYINT" property="phoneType" />
+    <result column="SHARE_PHONE_TYPE" jdbcType="TINYINT" property="sharePhoneType" />
+    <result column="PHONE_TYPE_TWO" jdbcType="TINYINT" property="phoneTypeTwo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ENTITY_ID, COMP_ID, DEPT_ID, ROOF, UNIT, NUM, HOUSE, ADDRESS, [FLOOR], FLOORS, REGION_ID, 
+    REGION_NAME, SECTION_ID, SECTION_NAME, SECTOR_ID, SECTOR_NAME, HOUSE_ROUND, ROUND_DD, 
+    BUILD_NAME, BUILD_CODE, BUILD_ID, USEAGE, [OWNER], ID_CARD, HOUSE_RIGHT, HOUSE_TYPE, 
+    HOUSE_STRUCT, HOUSE_YEAR, HOUSE_DIRECT, HOUSE_STREET, HOUSE_FITMENT, HOUSE_LADDER, 
+    HOUSE_DOORS, HOUSE_STITUAT, LEAVE_TIME, CERT_TIME, HOUSE_AREA, SALE_TOTAL_PRICE, 
+    SALE_LOWEST_PRICE, SALE_UNIT_PRICE, SALE_ACCOUNT, LEASE_TOTAL_PRICE, LEASE_PRICE_UNIT, 
+    LEASE_LOWEST_PRICE, LEASE_ACCOUNT, LEASE_DEPOSIT, LEASE_LIMITE, ROOM, HALL, WEI, 
+    YANG, CELL_PHONE, SAME_FLAG, LEASE_ID, SALE_ID, CREATION_TIME, SHARE_USER, SHARE_CELL_PHONE, 
+    USER_ID, CHECK_TIME, [STATUS],PHONE_TYPE,SHARE_PHONE_TYPE,PHONE_TYPE_TWO
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildRuleExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from FUN_BUILD_RULE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_BUILD_RULE
+    where ENTITY_ID = #{entityId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_BUILD_RULE
+    where ENTITY_ID = #{entityId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildRuleExample">
+    <!--@mbggenerated-->
+    delete from FUN_BUILD_RULE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildRule">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="entityId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_BUILD_RULE (COMP_ID, DEPT_ID, ROOF, 
+      UNIT, NUM, HOUSE, ADDRESS, 
+      [FLOOR], FLOORS, REGION_ID, 
+      REGION_NAME, SECTION_ID, SECTION_NAME, 
+      SECTOR_ID, SECTOR_NAME, HOUSE_ROUND, 
+      ROUND_DD, BUILD_NAME, BUILD_CODE, 
+      BUILD_ID, USEAGE, [OWNER], 
+      ID_CARD, HOUSE_RIGHT, HOUSE_TYPE, 
+      HOUSE_STRUCT, HOUSE_YEAR, HOUSE_DIRECT, 
+      HOUSE_STREET, HOUSE_FITMENT, HOUSE_LADDER, 
+      HOUSE_DOORS, HOUSE_STITUAT, LEAVE_TIME, 
+      CERT_TIME, HOUSE_AREA, SALE_TOTAL_PRICE, 
+      SALE_LOWEST_PRICE, SALE_UNIT_PRICE, SALE_ACCOUNT, 
+      LEASE_TOTAL_PRICE, LEASE_PRICE_UNIT, LEASE_LOWEST_PRICE, 
+      LEASE_ACCOUNT, LEASE_DEPOSIT, LEASE_LIMITE, 
+      ROOM, HALL, WEI, YANG, 
+      CELL_PHONE, SAME_FLAG, LEASE_ID, 
+      SALE_ID, CREATION_TIME, SHARE_USER, 
+      SHARE_CELL_PHONE, USER_ID, CHECK_TIME, 
+      [STATUS],PHONE_TYPE,SHARE_PHONE_TYPE,PHONE_TYPE_TWO)
+    values (#{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{roof,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, #{house,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{floor,jdbcType=VARCHAR}, #{floors,jdbcType=VARCHAR}, #{regionId,jdbcType=INTEGER}, 
+      #{regionName,jdbcType=VARCHAR}, #{sectionId,jdbcType=INTEGER}, #{sectionName,jdbcType=VARCHAR}, 
+      #{sectorId,jdbcType=INTEGER}, #{sectorName,jdbcType=VARCHAR}, #{houseRound,jdbcType=VARCHAR}, 
+      #{roundDd,jdbcType=TINYINT}, #{buildName,jdbcType=VARCHAR}, #{buildCode,jdbcType=VARCHAR}, 
+      #{buildId,jdbcType=INTEGER}, #{useage,jdbcType=TINYINT}, #{owner,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{houseRight,jdbcType=TINYINT}, #{houseType,jdbcType=TINYINT}, 
+      #{houseStruct,jdbcType=TINYINT}, #{houseYear,jdbcType=INTEGER}, #{houseDirect,jdbcType=TINYINT}, 
+      #{houseStreet,jdbcType=TINYINT}, #{houseFitment,jdbcType=TINYINT}, #{houseLadder,jdbcType=TINYINT}, 
+      #{houseDoors,jdbcType=TINYINT}, #{houseStituat,jdbcType=VARCHAR}, #{leaveTime,jdbcType=VARCHAR}, 
+      #{certTime,jdbcType=VARCHAR}, #{houseArea,jdbcType=NUMERIC}, #{saleTotalPrice,jdbcType=NUMERIC}, 
+      #{saleLowestPrice,jdbcType=NUMERIC}, #{saleUnitPrice,jdbcType=NUMERIC}, #{saleAccount,jdbcType=VARCHAR}, 
+      #{leaseTotalPrice,jdbcType=DECIMAL}, #{leasePriceUnit,jdbcType=TINYINT}, #{leaseLowestPrice,jdbcType=INTEGER}, 
+      #{leaseAccount,jdbcType=TINYINT}, #{leaseDeposit,jdbcType=INTEGER}, #{leaseLimite,jdbcType=TINYINT}, 
+      #{room,jdbcType=TINYINT}, #{hall,jdbcType=TINYINT}, #{wei,jdbcType=TINYINT}, #{yang,jdbcType=TINYINT}, 
+      #{cellPhone,jdbcType=VARCHAR}, #{sameFlag,jdbcType=VARCHAR}, #{leaseId,jdbcType=INTEGER}, 
+      #{saleId,jdbcType=INTEGER}, #{creationTime,jdbcType=VARCHAR}, #{shareUser,jdbcType=VARCHAR}, 
+      #{shareCellPhone,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{checkTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT},#{phoneType,jdbcType=TINYINT},#{sharePhoneType,jdbcType=TINYINT},#{phoneTypeTwo,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildRule">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="entityId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_BUILD_RULE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="roof != null">
+        ROOF,
+      </if>
+      <if test="unit != null">
+        UNIT,
+      </if>
+      <if test="num != null">
+        NUM,
+      </if>
+      <if test="house != null">
+        HOUSE,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="floor != null">
+        [FLOOR],
+      </if>
+      <if test="floors != null">
+        FLOORS,
+      </if>
+      <if test="regionId != null">
+        REGION_ID,
+      </if>
+      <if test="regionName != null">
+        REGION_NAME,
+      </if>
+      <if test="sectionId != null">
+        SECTION_ID,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="sectorId != null">
+        SECTOR_ID,
+      </if>
+      <if test="sectorName != null">
+        SECTOR_NAME,
+      </if>
+      <if test="houseRound != null">
+        HOUSE_ROUND,
+      </if>
+      <if test="roundDd != null">
+        ROUND_DD,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="buildCode != null">
+        BUILD_CODE,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="useage != null">
+        USEAGE,
+      </if>
+      <if test="owner != null">
+        [OWNER],
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="houseRight != null">
+        HOUSE_RIGHT,
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE,
+      </if>
+      <if test="houseStruct != null">
+        HOUSE_STRUCT,
+      </if>
+      <if test="houseYear != null">
+        HOUSE_YEAR,
+      </if>
+      <if test="houseDirect != null">
+        HOUSE_DIRECT,
+      </if>
+      <if test="houseStreet != null">
+        HOUSE_STREET,
+      </if>
+      <if test="houseFitment != null">
+        HOUSE_FITMENT,
+      </if>
+      <if test="houseLadder != null">
+        HOUSE_LADDER,
+      </if>
+      <if test="houseDoors != null">
+        HOUSE_DOORS,
+      </if>
+      <if test="houseStituat != null">
+        HOUSE_STITUAT,
+      </if>
+      <if test="leaveTime != null">
+        LEAVE_TIME,
+      </if>
+      <if test="certTime != null">
+        CERT_TIME,
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA,
+      </if>
+      <if test="saleTotalPrice != null">
+        SALE_TOTAL_PRICE,
+      </if>
+      <if test="saleLowestPrice != null">
+        SALE_LOWEST_PRICE,
+      </if>
+      <if test="saleUnitPrice != null">
+        SALE_UNIT_PRICE,
+      </if>
+      <if test="saleAccount != null">
+        SALE_ACCOUNT,
+      </if>
+      <if test="leaseTotalPrice != null">
+        LEASE_TOTAL_PRICE,
+      </if>
+      <if test="leasePriceUnit != null">
+        LEASE_PRICE_UNIT,
+      </if>
+      <if test="leaseLowestPrice != null">
+        LEASE_LOWEST_PRICE,
+      </if>
+      <if test="leaseAccount != null">
+        LEASE_ACCOUNT,
+      </if>
+      <if test="leaseDeposit != null">
+        LEASE_DEPOSIT,
+      </if>
+      <if test="leaseLimite != null">
+        LEASE_LIMITE,
+      </if>
+      <if test="room != null">
+        ROOM,
+      </if>
+      <if test="hall != null">
+        HALL,
+      </if>
+      <if test="wei != null">
+        WEI,
+      </if>
+      <if test="yang != null">
+        YANG,
+      </if>
+      <if test="cellPhone != null">
+        CELL_PHONE,
+      </if>
+      <if test="sameFlag != null">
+        SAME_FLAG,
+      </if>
+      <if test="leaseId != null">
+        LEASE_ID,
+      </if>
+      <if test="saleId != null">
+        SALE_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="shareUser != null">
+        SHARE_USER,
+      </if>
+      <if test="shareCellPhone != null">
+        SHARE_CELL_PHONE,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="checkTime != null">
+        CHECK_TIME,
+      </if>
+      <if test="status != null">
+        [STATUS],
+      </if>
+      <if test="phoneType != null">
+        PHONE_TYPE,
+      </if>
+      <if test="sharePhoneType != null">
+        SHARE_PHONE_TYPE,
+      </if>
+      <if test="phoneTypeTwo != null">
+        PHONE_TYPE_TWO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="roof != null">
+        #{roof,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="house != null">
+        #{house,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null">
+        #{floor,jdbcType=VARCHAR},
+      </if>
+      <if test="floors != null">
+        #{floors,jdbcType=VARCHAR},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionName != null">
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null">
+        #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectorId != null">
+        #{sectorId,jdbcType=INTEGER},
+      </if>
+      <if test="sectorName != null">
+        #{sectorName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRound != null">
+        #{houseRound,jdbcType=VARCHAR},
+      </if>
+      <if test="roundDd != null">
+        #{roundDd,jdbcType=TINYINT},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildCode != null">
+        #{buildCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="useage != null">
+        #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="owner != null">
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRight != null">
+        #{houseRight,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=TINYINT},
+      </if>
+      <if test="houseStruct != null">
+        #{houseStruct,jdbcType=TINYINT},
+      </if>
+      <if test="houseYear != null">
+        #{houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="houseDirect != null">
+        #{houseDirect,jdbcType=TINYINT},
+      </if>
+      <if test="houseStreet != null">
+        #{houseStreet,jdbcType=TINYINT},
+      </if>
+      <if test="houseFitment != null">
+        #{houseFitment,jdbcType=TINYINT},
+      </if>
+      <if test="houseLadder != null">
+        #{houseLadder,jdbcType=TINYINT},
+      </if>
+      <if test="houseDoors != null">
+        #{houseDoors,jdbcType=TINYINT},
+      </if>
+      <if test="houseStituat != null">
+        #{houseStituat,jdbcType=VARCHAR},
+      </if>
+      <if test="leaveTime != null">
+        #{leaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="certTime != null">
+        #{certTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseArea != null">
+        #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="saleTotalPrice != null">
+        #{saleTotalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleLowestPrice != null">
+        #{saleLowestPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleUnitPrice != null">
+        #{saleUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleAccount != null">
+        #{saleAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseTotalPrice != null">
+        #{leaseTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="leasePriceUnit != null">
+        #{leasePriceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="leaseLowestPrice != null">
+        #{leaseLowestPrice,jdbcType=INTEGER},
+      </if>
+      <if test="leaseAccount != null">
+        #{leaseAccount,jdbcType=TINYINT},
+      </if>
+      <if test="leaseDeposit != null">
+        #{leaseDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="leaseLimite != null">
+        #{leaseLimite,jdbcType=TINYINT},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=TINYINT},
+      </if>
+      <if test="hall != null">
+        #{hall,jdbcType=TINYINT},
+      </if>
+      <if test="wei != null">
+        #{wei,jdbcType=TINYINT},
+      </if>
+      <if test="yang != null">
+        #{yang,jdbcType=TINYINT},
+      </if>
+      <if test="cellPhone != null">
+        #{cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sameFlag != null">
+        #{sameFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseId != null">
+        #{leaseId,jdbcType=INTEGER},
+      </if>
+      <if test="saleId != null">
+        #{saleId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="shareUser != null">
+        #{shareUser,jdbcType=VARCHAR},
+      </if>
+      <if test="shareCellPhone != null">
+        #{shareCellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="phoneType != null">
+        #{phoneType,jdbcType=TINYINT},
+      </if>
+      <if test="sharePhoneType != null">
+        #{sharePhoneType,jdbcType=TINYINT},
+      </if>
+      <if test="phoneTypeTwo != null">
+        #{phoneTypeTwo,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildRuleExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_BUILD_RULE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BUILD_RULE
+    <set>
+      <if test="record.entityId != null">
+        ENTITY_ID = #{record.entityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.roof != null">
+        ROOF = #{record.roof,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unit != null">
+        UNIT = #{record.unit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.num != null">
+        NUM = #{record.num,jdbcType=VARCHAR},
+      </if>
+      <if test="record.house != null">
+        HOUSE = #{record.house,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.floor != null">
+        [FLOOR] = #{record.floor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.floors != null">
+        FLOORS = #{record.floors,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regionId != null">
+        REGION_ID = #{record.regionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regionName != null">
+        REGION_NAME = #{record.regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionId != null">
+        SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionName != null">
+        SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectorId != null">
+        SECTOR_ID = #{record.sectorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectorName != null">
+        SECTOR_NAME = #{record.sectorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseRound != null">
+        HOUSE_ROUND = #{record.houseRound,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roundDd != null">
+        ROUND_DD = #{record.roundDd,jdbcType=TINYINT},
+      </if>
+      <if test="record.buildName != null">
+        BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildCode != null">
+        BUILD_CODE = #{record.buildCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.useage != null">
+        USEAGE = #{record.useage,jdbcType=TINYINT},
+      </if>
+      <if test="record.owner != null">
+        [OWNER] = #{record.owner,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCard != null">
+        ID_CARD = #{record.idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseRight != null">
+        HOUSE_RIGHT = #{record.houseRight,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseType != null">
+        HOUSE_TYPE = #{record.houseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseStruct != null">
+        HOUSE_STRUCT = #{record.houseStruct,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseYear != null">
+        HOUSE_YEAR = #{record.houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseDirect != null">
+        HOUSE_DIRECT = #{record.houseDirect,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseStreet != null">
+        HOUSE_STREET = #{record.houseStreet,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseFitment != null">
+        HOUSE_FITMENT = #{record.houseFitment,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseLadder != null">
+        HOUSE_LADDER = #{record.houseLadder,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseDoors != null">
+        HOUSE_DOORS = #{record.houseDoors,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseStituat != null">
+        HOUSE_STITUAT = #{record.houseStituat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leaveTime != null">
+        LEAVE_TIME = #{record.leaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certTime != null">
+        CERT_TIME = #{record.certTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseArea != null">
+        HOUSE_AREA = #{record.houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="record.saleTotalPrice != null">
+        SALE_TOTAL_PRICE = #{record.saleTotalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.saleLowestPrice != null">
+        SALE_LOWEST_PRICE = #{record.saleLowestPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.saleUnitPrice != null">
+        SALE_UNIT_PRICE = #{record.saleUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.saleAccount != null">
+        SALE_ACCOUNT = #{record.saleAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leaseTotalPrice != null">
+        LEASE_TOTAL_PRICE = #{record.leaseTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.leasePriceUnit != null">
+        LEASE_PRICE_UNIT = #{record.leasePriceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="record.leaseLowestPrice != null">
+        LEASE_LOWEST_PRICE = #{record.leaseLowestPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.leaseAccount != null">
+        LEASE_ACCOUNT = #{record.leaseAccount,jdbcType=TINYINT},
+      </if>
+      <if test="record.leaseDeposit != null">
+        LEASE_DEPOSIT = #{record.leaseDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="record.leaseLimite != null">
+        LEASE_LIMITE = #{record.leaseLimite,jdbcType=TINYINT},
+      </if>
+      <if test="record.room != null">
+        ROOM = #{record.room,jdbcType=TINYINT},
+      </if>
+      <if test="record.hall != null">
+        HALL = #{record.hall,jdbcType=TINYINT},
+      </if>
+      <if test="record.wei != null">
+        WEI = #{record.wei,jdbcType=TINYINT},
+      </if>
+      <if test="record.yang != null">
+        YANG = #{record.yang,jdbcType=TINYINT},
+      </if>
+      <if test="record.cellPhone != null">
+        CELL_PHONE = #{record.cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sameFlag != null">
+        SAME_FLAG = #{record.sameFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leaseId != null">
+        LEASE_ID = #{record.leaseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleId != null">
+        SALE_ID = #{record.saleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareUser != null">
+        SHARE_USER = #{record.shareUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareCellPhone != null">
+        SHARE_CELL_PHONE = #{record.shareCellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkTime != null">
+        CHECK_TIME = #{record.checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        [STATUS] = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.phoneType != null">
+        PHONE_TYPE = #{record.phoneType,jdbcType=TINYINT},
+      </if>
+      <if test="record.sharePhoneType != null">
+        SHARE_PHONE_TYPE = #{record.sharePhoneType,jdbcType=TINYINT},
+      </if>
+      <if test="record.phoneTypeTwo != null">
+        PHONE_TYPE_TWO = #{record.phoneTypeTwo,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BUILD_RULE
+    set ENTITY_ID = #{record.entityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      ROOF = #{record.roof,jdbcType=VARCHAR},
+      UNIT = #{record.unit,jdbcType=VARCHAR},
+      NUM = #{record.num,jdbcType=VARCHAR},
+      HOUSE = #{record.house,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      [FLOOR] = #{record.floor,jdbcType=VARCHAR},
+      FLOORS = #{record.floors,jdbcType=VARCHAR},
+      REGION_ID = #{record.regionId,jdbcType=INTEGER},
+      REGION_NAME = #{record.regionName,jdbcType=VARCHAR},
+      SECTION_ID = #{record.sectionId,jdbcType=INTEGER},
+      SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR},
+      SECTOR_ID = #{record.sectorId,jdbcType=INTEGER},
+      SECTOR_NAME = #{record.sectorName,jdbcType=VARCHAR},
+      HOUSE_ROUND = #{record.houseRound,jdbcType=VARCHAR},
+      ROUND_DD = #{record.roundDd,jdbcType=TINYINT},
+      BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      BUILD_CODE = #{record.buildCode,jdbcType=VARCHAR},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      USEAGE = #{record.useage,jdbcType=TINYINT},
+      [OWNER] = #{record.owner,jdbcType=VARCHAR},
+      ID_CARD = #{record.idCard,jdbcType=VARCHAR},
+      HOUSE_RIGHT = #{record.houseRight,jdbcType=TINYINT},
+      HOUSE_TYPE = #{record.houseType,jdbcType=TINYINT},
+      HOUSE_STRUCT = #{record.houseStruct,jdbcType=TINYINT},
+      HOUSE_YEAR = #{record.houseYear,jdbcType=INTEGER},
+      HOUSE_DIRECT = #{record.houseDirect,jdbcType=TINYINT},
+      HOUSE_STREET = #{record.houseStreet,jdbcType=TINYINT},
+      HOUSE_FITMENT = #{record.houseFitment,jdbcType=TINYINT},
+      HOUSE_LADDER = #{record.houseLadder,jdbcType=TINYINT},
+      HOUSE_DOORS = #{record.houseDoors,jdbcType=TINYINT},
+      HOUSE_STITUAT = #{record.houseStituat,jdbcType=VARCHAR},
+      LEAVE_TIME = #{record.leaveTime,jdbcType=VARCHAR},
+      CERT_TIME = #{record.certTime,jdbcType=VARCHAR},
+      HOUSE_AREA = #{record.houseArea,jdbcType=NUMERIC},
+      SALE_TOTAL_PRICE = #{record.saleTotalPrice,jdbcType=NUMERIC},
+      SALE_LOWEST_PRICE = #{record.saleLowestPrice,jdbcType=NUMERIC},
+      SALE_UNIT_PRICE = #{record.saleUnitPrice,jdbcType=NUMERIC},
+      SALE_ACCOUNT = #{record.saleAccount,jdbcType=VARCHAR},
+      LEASE_TOTAL_PRICE = #{record.leaseTotalPrice,jdbcType=DECIMAL},
+      LEASE_PRICE_UNIT = #{record.leasePriceUnit,jdbcType=TINYINT},
+      LEASE_LOWEST_PRICE = #{record.leaseLowestPrice,jdbcType=INTEGER},
+      LEASE_ACCOUNT = #{record.leaseAccount,jdbcType=TINYINT},
+      LEASE_DEPOSIT = #{record.leaseDeposit,jdbcType=INTEGER},
+      LEASE_LIMITE = #{record.leaseLimite,jdbcType=TINYINT},
+      ROOM = #{record.room,jdbcType=TINYINT},
+      HALL = #{record.hall,jdbcType=TINYINT},
+      WEI = #{record.wei,jdbcType=TINYINT},
+      YANG = #{record.yang,jdbcType=TINYINT},
+      CELL_PHONE = #{record.cellPhone,jdbcType=VARCHAR},
+      SAME_FLAG = #{record.sameFlag,jdbcType=VARCHAR},
+      LEASE_ID = #{record.leaseId,jdbcType=INTEGER},
+      SALE_ID = #{record.saleId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=VARCHAR},
+      SHARE_USER = #{record.shareUser,jdbcType=VARCHAR},
+      SHARE_CELL_PHONE = #{record.shareCellPhone,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      CHECK_TIME = #{record.checkTime,jdbcType=TIMESTAMP},
+      [STATUS] = #{record.status,jdbcType=TINYINT},
+      PHONE_TYPE = #{record.phoneType,jdbcType=TINYINT},
+      SHARE_PHONE_TYPE = #{record.sharePhoneType,jdbcType=TINYINT},
+      PHONE_TYPE_TWO = #{record.phoneTypeTwo,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildRule">
+    <!--@mbggenerated-->
+    update FUN_BUILD_RULE
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="roof != null">
+        ROOF = #{roof,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        UNIT = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        NUM = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="house != null">
+        HOUSE = #{house,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null">
+        [FLOOR] = #{floor,jdbcType=VARCHAR},
+      </if>
+      <if test="floors != null">
+        FLOORS = #{floors,jdbcType=VARCHAR},
+      </if>
+      <if test="regionId != null">
+        REGION_ID = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionName != null">
+        REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null">
+        SECTION_ID = #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectorId != null">
+        SECTOR_ID = #{sectorId,jdbcType=INTEGER},
+      </if>
+      <if test="sectorName != null">
+        SECTOR_NAME = #{sectorName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRound != null">
+        HOUSE_ROUND = #{houseRound,jdbcType=VARCHAR},
+      </if>
+      <if test="roundDd != null">
+        ROUND_DD = #{roundDd,jdbcType=TINYINT},
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildCode != null">
+        BUILD_CODE = #{buildCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="useage != null">
+        USEAGE = #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="owner != null">
+        [OWNER] = #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRight != null">
+        HOUSE_RIGHT = #{houseRight,jdbcType=TINYINT},
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE = #{houseType,jdbcType=TINYINT},
+      </if>
+      <if test="houseStruct != null">
+        HOUSE_STRUCT = #{houseStruct,jdbcType=TINYINT},
+      </if>
+      <if test="houseYear != null">
+        HOUSE_YEAR = #{houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="houseDirect != null">
+        HOUSE_DIRECT = #{houseDirect,jdbcType=TINYINT},
+      </if>
+      <if test="houseStreet != null">
+        HOUSE_STREET = #{houseStreet,jdbcType=TINYINT},
+      </if>
+      <if test="houseFitment != null">
+        HOUSE_FITMENT = #{houseFitment,jdbcType=TINYINT},
+      </if>
+      <if test="houseLadder != null">
+        HOUSE_LADDER = #{houseLadder,jdbcType=TINYINT},
+      </if>
+      <if test="houseDoors != null">
+        HOUSE_DOORS = #{houseDoors,jdbcType=TINYINT},
+      </if>
+      <if test="houseStituat != null">
+        HOUSE_STITUAT = #{houseStituat,jdbcType=VARCHAR},
+      </if>
+      <if test="leaveTime != null">
+        LEAVE_TIME = #{leaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="certTime != null">
+        CERT_TIME = #{certTime,jdbcType=VARCHAR},
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="saleTotalPrice != null">
+        SALE_TOTAL_PRICE = #{saleTotalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleLowestPrice != null">
+        SALE_LOWEST_PRICE = #{saleLowestPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleUnitPrice != null">
+        SALE_UNIT_PRICE = #{saleUnitPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="saleAccount != null">
+        SALE_ACCOUNT = #{saleAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseTotalPrice != null">
+        LEASE_TOTAL_PRICE = #{leaseTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="leasePriceUnit != null">
+        LEASE_PRICE_UNIT = #{leasePriceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="leaseLowestPrice != null">
+        LEASE_LOWEST_PRICE = #{leaseLowestPrice,jdbcType=INTEGER},
+      </if>
+      <if test="leaseAccount != null">
+        LEASE_ACCOUNT = #{leaseAccount,jdbcType=TINYINT},
+      </if>
+      <if test="leaseDeposit != null">
+        LEASE_DEPOSIT = #{leaseDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="leaseLimite != null">
+        LEASE_LIMITE = #{leaseLimite,jdbcType=TINYINT},
+      </if>
+      <if test="room != null">
+        ROOM = #{room,jdbcType=TINYINT},
+      </if>
+      <if test="hall != null">
+        HALL = #{hall,jdbcType=TINYINT},
+      </if>
+      <if test="wei != null">
+        WEI = #{wei,jdbcType=TINYINT},
+      </if>
+      <if test="yang != null">
+        YANG = #{yang,jdbcType=TINYINT},
+      </if>
+      <if test="cellPhone != null">
+        CELL_PHONE = #{cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sameFlag != null">
+        SAME_FLAG = #{sameFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseId != null">
+        LEASE_ID = #{leaseId,jdbcType=INTEGER},
+      </if>
+      <if test="saleId != null">
+        SALE_ID = #{saleId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="shareUser != null">
+        SHARE_USER = #{shareUser,jdbcType=VARCHAR},
+      </if>
+      <if test="shareCellPhone != null">
+        SHARE_CELL_PHONE = #{shareCellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="checkTime != null">
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        [STATUS] = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="phoneType != null">
+        PHONE_TYPE = #{phoneType,jdbcType=TINYINT},
+      </if>
+      <if test="sharePhoneType != null">
+        SHARE_PHONE_TYPE = #{sharePhoneType,jdbcType=TINYINT},
+      </if>
+      <if test="phoneTypeTwo != null">
+        PHONE_TYPE_TWO = #{phoneTypeTwo,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ENTITY_ID = #{entityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildRule">
+    <!--@mbggenerated-->
+    update FUN_BUILD_RULE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      ROOF = #{roof,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      NUM = #{num,jdbcType=VARCHAR},
+      HOUSE = #{house,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      [FLOOR] = #{floor,jdbcType=VARCHAR},
+      FLOORS = #{floors,jdbcType=VARCHAR},
+      REGION_ID = #{regionId,jdbcType=INTEGER},
+      REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      SECTION_ID = #{sectionId,jdbcType=INTEGER},
+      SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      SECTOR_ID = #{sectorId,jdbcType=INTEGER},
+      SECTOR_NAME = #{sectorName,jdbcType=VARCHAR},
+      HOUSE_ROUND = #{houseRound,jdbcType=VARCHAR},
+      ROUND_DD = #{roundDd,jdbcType=TINYINT},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      BUILD_CODE = #{buildCode,jdbcType=VARCHAR},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      USEAGE = #{useage,jdbcType=TINYINT},
+      [OWNER] = #{owner,jdbcType=VARCHAR},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      HOUSE_RIGHT = #{houseRight,jdbcType=TINYINT},
+      HOUSE_TYPE = #{houseType,jdbcType=TINYINT},
+      HOUSE_STRUCT = #{houseStruct,jdbcType=TINYINT},
+      HOUSE_YEAR = #{houseYear,jdbcType=INTEGER},
+      HOUSE_DIRECT = #{houseDirect,jdbcType=TINYINT},
+      HOUSE_STREET = #{houseStreet,jdbcType=TINYINT},
+      HOUSE_FITMENT = #{houseFitment,jdbcType=TINYINT},
+      HOUSE_LADDER = #{houseLadder,jdbcType=TINYINT},
+      HOUSE_DOORS = #{houseDoors,jdbcType=TINYINT},
+      HOUSE_STITUAT = #{houseStituat,jdbcType=VARCHAR},
+      LEAVE_TIME = #{leaveTime,jdbcType=VARCHAR},
+      CERT_TIME = #{certTime,jdbcType=VARCHAR},
+      HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      SALE_TOTAL_PRICE = #{saleTotalPrice,jdbcType=NUMERIC},
+      SALE_LOWEST_PRICE = #{saleLowestPrice,jdbcType=NUMERIC},
+      SALE_UNIT_PRICE = #{saleUnitPrice,jdbcType=NUMERIC},
+      SALE_ACCOUNT = #{saleAccount,jdbcType=VARCHAR},
+      LEASE_TOTAL_PRICE = #{leaseTotalPrice,jdbcType=DECIMAL},
+      LEASE_PRICE_UNIT = #{leasePriceUnit,jdbcType=TINYINT},
+      LEASE_LOWEST_PRICE = #{leaseLowestPrice,jdbcType=INTEGER},
+      LEASE_ACCOUNT = #{leaseAccount,jdbcType=TINYINT},
+      LEASE_DEPOSIT = #{leaseDeposit,jdbcType=INTEGER},
+      LEASE_LIMITE = #{leaseLimite,jdbcType=TINYINT},
+      ROOM = #{room,jdbcType=TINYINT},
+      HALL = #{hall,jdbcType=TINYINT},
+      WEI = #{wei,jdbcType=TINYINT},
+      YANG = #{yang,jdbcType=TINYINT},
+      CELL_PHONE = #{cellPhone,jdbcType=VARCHAR},
+      SAME_FLAG = #{sameFlag,jdbcType=VARCHAR},
+      LEASE_ID = #{leaseId,jdbcType=INTEGER},
+      SALE_ID = #{saleId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      SHARE_USER = #{shareUser,jdbcType=VARCHAR},
+      SHARE_CELL_PHONE = #{shareCellPhone,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      [STATUS] = #{status,jdbcType=TINYINT},
+      PHONE_TYPE = #{phoneType,jdbcType=TINYINT},
+      SHARE_PHONE_TYPE = #{sharePhoneType,jdbcType=TINYINT},
+      PHONE_TYPE_TWO = #{phoneTypeTwo,jdbcType=TINYINT}
+    where ENTITY_ID = #{entityId,jdbcType=INTEGER}
+  </update>
+	<select id="getRoofUnitNumList" resultMap="BaseResultMap">
+		select ROOF,UNIT,NUM from FUN_BUILD_RULE
+		where COMP_ID = #{param.compId}
+		and BUILD_ID = #{param.buildId}
+		group by ROOF,UNIT,NUM
+		order by ROOF,UNIT,NUM
+	</select>
+	<delete id="deleteBuildRuleByBuild">
+		delete from FUN_BUILD_RULE
+		where BUILD_ID = #{param.buildId} and COMP_ID = #{param.compId}
+	</delete>
+	
+	<select id="getHouseIdList" resultType="java.lang.Integer">
+		SELECT
+		<if test="param.caseType == 1">SALE_ID</if>
+		<if test="param.caseType == 2">LEASE_ID</if>
+		FROM FUN_BUILD_TRACK A
+		JOIN FUN_BUILD_RULE B ON A.BUILD_RULE_ID=B.ENTITY_ID
+		JOIN FUN_USERS C ON C.USER_ID=A.CREATE_UID
+		WHERE A.COMP_ID = #{param.compId}
+		AND C.${param.serchRange} = #{param.serchRangeId}
+		<if test="param.userId != null and param.userId != ''">
+			AND A.CREATE_UID=#{param.userId}
+		</if>
+		<if test="param.startTime != null and param.startTime != ''">
+			AND A.TRACK_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime != null and param.endTime != ''">
+			AND A.TRACK_TIME &lt;= #{param.endTime}
+		</if>
+		ORDER BY
+		<if test="param.caseType == 1">SALE_ID</if>
+		<if test="param.caseType == 2">LEASE_ID</if>
+	</select>
+
+  <select id="getHouseIdListV2" resultType="com.myfun.erpWeb.managecenter.buildData.vo.BuildDataHouseDataVo">
+    SELECT DISTINCT A.BUILD_RULE_ID AS buildRuleId, A.TRACK_TIME AS trackTime,  B.USEAGE, B.BUILD_ID AS buildId, B.BUILD_NAME AS buildName,
+    B.ROOF, B.UNIT, B.NUM, B.HOUSE, B.ADDRESS, B.ROOM, B.HALL,
+    <if test="param.caseType == 1">B.SALE_ID AS caseId,</if>
+    <if test="param.caseType == 2">B.LEASE_ID AS caseId,</if>
+    <if test="param.caseType == 1">D.SALE_NO AS caseNo,</if>
+    <if test="param.caseType == 2">D.LEASE_NO AS caseNo,</if>
+    B.WEI
+    FROM FUN_BUILD_RULE B
+    JOIN FUN_BUILD_TRACK A ON A.BUILD_RULE_ID = B.ENTITY_ID
+    JOIN FUN_USERS C ON C.USER_ID=A.CREATE_UID
+    <if test="param.caseType == 1">JOIN FUN_SALE D ON B.SALE_ID = D.SALE_ID</if>
+    <if test="param.caseType == 2">JOIN FUN_LEASE D ON B.LEASE_ID = D.LEASE_ID</if>
+    WHERE A.COMP_ID = #{param.compId}
+    AND C.${param.serchRange} = #{param.serchRangeId}
+    <if test="param.userId != null and param.userId != ''">
+      AND A.CREATE_UID=#{param.userId}
+    </if>
+    <if test="param.startTime != null and param.startTime != ''">
+      AND A.TRACK_TIME &gt;= #{param.startTime}
+    </if>
+    <if test="param.endTime != null and param.endTime != ''">
+      AND A.TRACK_TIME &lt;= #{param.endTime}
+    </if>
+    <if test="param.caseType == 1">AND A.TRACK_TYPE = 1</if>
+    <if test="param.caseType == 2">AND A.TRACK_TYPE = 2</if>
+    ORDER BY
+    <if test="param.caseType == 1">B.SALE_ID</if>
+    <if test="param.caseType == 2">B.LEASE_ID</if>
+  </select>
+	
+	<select id="getBuildRoofUnits" resultMap="BaseResultMap">
+		select ROOF,UNIT
+		from FUN_BUILD_RULE
+		where COMP_ID = #{param.compId} and BUILD_ID = #{param.buildId}
+		group by ROOF,UNIT
+		order by ROOF,UNIT
+	</select>
+
+    <resultMap extends="BaseResultMap" id="extResultMap" type="com.myfun.erpWeb.managecenter.buildData.vo.ErpFunBuildRuleDto">
+
+    </resultMap>
+
+	<select id="getFunBuildRuleList" resultMap="extResultMap">
+      SELECT <include refid="Base_Column_List" />,
+      <choose>
+      <when test="personal">
+        (SELECT TOP 1 TRACK_CONTENT FROM FUN_BUILD_TRACK WHERE BUILD_RULE_ID = FUN_BUILD_RULE.ENTITY_ID and CREATE_UID = #{param.userId} ORDER BY
+        TRACK_TIME DESC)
+        as trackContent,
+        (SELECT TOP 1 TRACK_TIME FROM FUN_BUILD_TRACK WHERE BUILD_RULE_ID = FUN_BUILD_RULE.ENTITY_ID and CREATE_UID = #{param.userId} ORDER BY TRACK_TIME
+        DESC)
+        as trackTime,
+      </when>
+       <otherwise>
+         (SELECT TOP 1 TRACK_CONTENT FROM FUN_BUILD_TRACK WHERE BUILD_RULE_ID = FUN_BUILD_RULE.ENTITY_ID ORDER BY
+         TRACK_TIME DESC)
+         as trackContent,
+         (SELECT TOP 1 TRACK_TIME FROM FUN_BUILD_TRACK WHERE BUILD_RULE_ID = FUN_BUILD_RULE.ENTITY_ID ORDER BY TRACK_TIME
+         DESC)
+         as trackTime,
+       </otherwise>
+      </choose>
+      (SELECT count(1) FROM FUN_BUILD_RULE WHERE BUILD_ID=#{param.buildId} and COMP_ID=#{param.compId} group by BUILD_ID) as totalRoomCount
+      FROM FUN_BUILD_RULE where BUILD_ID=#{param.buildId} and COMP_ID=#{param.compId}
+      <if test="param.roof != null">
+			and ROOF=#{param.roof}
+		</if>
+		<if test="param.roofLike != null">
+			and ROOF like concat(concat('%',#{param.roofLike}),'%')
+		</if>
+		<if test="param.unit != null">
+			and UNIT=#{param.unit}
+		</if>
+		<if test="param.num != null">
+			and NUM=#{param.num}
+		</if>
+		<if test="param.house != null">
+			and HOUSE=#{param.house}
+		</if>
+		<if test="param.cellPhone != null">
+			and CELL_PHONE like concat(concat('%',#{param.cellPhone}),'%')
+		</if>
+		<if test="param.personalList != null and param.personalList.size &gt; 0">
+			<foreach close=")" collection="param.personalList" item="map" open=" AND( " separator=" OR ">
+				( 1=1
+				<if test="map.roof != null">
+					and ROOF=#{map.roof}
+				</if>
+				<if test="map.unit != null">
+					and UNIT=#{map.unit}
+				</if>
+				<if test="map.num != null">
+					and NUM=#{map.num}
+				</if>
+				)
+			</foreach>
+		</if>
+		ORDER BY CREATION_TIME DESC
+	</select>
+	<select id="countFunBuildRule" resultType="java.lang.Integer">
+      SELECT COUNT(*) AS ATTR_NAME
+      FROM FUN_BUILD_RULE WITH (NOLOCK)
+      WHERE BUILD_ID = #{buildId} AND COMP_ID =#{compId}
+    </select>
+	
+	<select id="countFunBuildRuleByCondition" resultType="java.lang.Integer">
+		select count (*)
+		from FUN_BUILD_RULE
+		where BUILD_ID = #{buildId} AND COMP_ID =#{compId} and SAME_FLAG = #{sameFlag}
+	</select>
+	
+	<select id="getFunBuildRuleOneByBuildId" resultMap="BaseResultMap">
+		select top 1 COMP_ID
+		from FUN_BUILD_RULE
+		where COMP_ID = #{compId} and BUILD_ID = #{buildId} and SAME_FLAG = #{sameFlag}
+	</select>
+	
+	<delete id="deleteBuildRuleByIds">
+		delete from FUN_BUILD_RULE where ENTITY_ID in
+		<foreach close=")" collection="entityIds" item="entityId" open="(" separator=",">
+			#{entityId}
+		</foreach>
+	</delete>
+	
+	<select id="getSamFlag" resultMap="BaseResultMap">
+		SELECT SAME_FLAG FROM FUN_BUILD_RULE
+		where COMP_ID = #{compId} and BUILD_ID = #{buildId} and SAME_FLAG IN (${samFlag})
+	</select>
+
+  <insert id="insertBatch">
+    <foreach collection="paramList" item="rule" separator=";">
+      INSERT INTO FUN_BUILD_RULE
+      (COMP_ID, DEPT_ID, ROOF,
+      UNIT, NUM, HOUSE, ADDRESS,
+      [FLOOR], FLOORS, REGION_ID,
+      REGION_NAME, SECTION_ID, SECTION_NAME,
+      SECTOR_ID, SECTOR_NAME, HOUSE_ROUND,
+      ROUND_DD, BUILD_NAME, BUILD_CODE,
+      BUILD_ID, USEAGE, [OWNER],
+      ID_CARD, HOUSE_RIGHT, HOUSE_TYPE,
+      HOUSE_STRUCT, HOUSE_YEAR, HOUSE_DIRECT,
+      HOUSE_STREET, HOUSE_FITMENT, HOUSE_LADDER,
+      HOUSE_DOORS, HOUSE_STITUAT, LEAVE_TIME,
+      CERT_TIME, HOUSE_AREA, SALE_TOTAL_PRICE,
+      SALE_LOWEST_PRICE, SALE_UNIT_PRICE, SALE_ACCOUNT,
+      LEASE_TOTAL_PRICE, LEASE_PRICE_UNIT, LEASE_LOWEST_PRICE,
+      LEASE_ACCOUNT, LEASE_DEPOSIT, LEASE_LIMITE,
+      ROOM, HALL, WEI, YANG,
+      CELL_PHONE, SAME_FLAG, LEASE_ID,
+      SALE_ID, CREATION_TIME, SHARE_USER,
+      SHARE_CELL_PHONE,STATUS,PHONE_TYPE,SHARE_PHONE_TYPE,PHONE_TYPE_TWO)
+      VALUES
+      (#{rule.compId,jdbcType=INTEGER}, #{rule.deptId,jdbcType=INTEGER}, #{rule.roof,jdbcType=VARCHAR},
+      #{rule.unit,jdbcType=VARCHAR}, #{rule.num,jdbcType=VARCHAR}, #{rule.house,jdbcType=VARCHAR}, #{rule.address,jdbcType=VARCHAR},
+      #{rule.floor,jdbcType=VARCHAR}, #{rule.floors,jdbcType=VARCHAR}, #{rule.regionId,jdbcType=INTEGER},
+      #{rule.regionName,jdbcType=VARCHAR}, #{rule.sectionId,jdbcType=INTEGER}, #{rule.sectionName,jdbcType=VARCHAR},
+      #{rule.sectorId,jdbcType=INTEGER}, #{rule.sectorName,jdbcType=VARCHAR}, #{rule.houseRound,jdbcType=VARCHAR},
+      #{rule.roundDd,jdbcType=TINYINT}, #{rule.buildName,jdbcType=VARCHAR}, #{rule.buildCode,jdbcType=VARCHAR},
+      #{rule.buildId,jdbcType=INTEGER}, #{rule.useage,jdbcType=TINYINT}, #{rule.owner,jdbcType=VARCHAR},
+      #{rule.idCard,jdbcType=VARCHAR}, #{rule.houseRight,jdbcType=TINYINT}, #{rule.houseType,jdbcType=TINYINT},
+      #{rule.houseStruct,jdbcType=TINYINT}, #{rule.houseYear,jdbcType=INTEGER}, #{rule.houseDirect,jdbcType=TINYINT},
+      #{rule.houseStreet,jdbcType=TINYINT}, #{rule.houseFitment,jdbcType=TINYINT}, #{rule.houseLadder,jdbcType=TINYINT},
+      #{rule.houseDoors,jdbcType=TINYINT}, #{rule.houseStituat,jdbcType=VARCHAR}, #{rule.leaveTime,jdbcType=VARCHAR},
+      #{rule.certTime,jdbcType=VARCHAR}, #{rule.houseArea,jdbcType=NUMERIC}, #{rule.saleTotalPrice,jdbcType=NUMERIC},
+      #{rule.saleLowestPrice,jdbcType=NUMERIC}, #{rule.saleUnitPrice,jdbcType=NUMERIC}, #{rule.saleAccount,jdbcType=VARCHAR},
+      #{rule.leaseTotalPrice,jdbcType=DECIMAL}, #{rule.leasePriceUnit,jdbcType=TINYINT}, #{rule.leaseLowestPrice,jdbcType=INTEGER},
+      #{rule.leaseAccount,jdbcType=TINYINT}, #{rule.leaseDeposit,jdbcType=INTEGER}, #{rule.leaseLimite,jdbcType=TINYINT},
+      #{rule.room,jdbcType=TINYINT}, #{rule.hall,jdbcType=TINYINT}, #{rule.wei,jdbcType=TINYINT}, #{rule.yang,jdbcType=TINYINT},
+      #{rule.cellPhone,jdbcType=VARCHAR}, #{rule.sameFlag,jdbcType=VARCHAR}, #{rule.leaseId,jdbcType=INTEGER},
+      #{rule.saleId,jdbcType=INTEGER}, #{rule.creationTime,jdbcType=VARCHAR}, #{rule.shareUser,jdbcType=VARCHAR},
+      #{rule.shareCellPhone,jdbcType=VARCHAR},null, #{rule.phoneType,jdbcType=TINYINT},#{rule.sharePhoneType,jdbcType=TINYINT},
+      #{rule.phoneTypeTwo,jdbcType=TINYINT})
+    </foreach>
+  </insert>
+  <select id="countTotalRoomAndSaleAndLease" resultType="Map">
+     SELECT sum(iif(sale_id&gt;0,1,0)) as changeSaleCount,sum(iif(lease_id&gt;0,1,0)) as changeLeaseCount, count(1) as totalRoom,
+     (sum(iif(sale_id&gt;0,1,0)) + sum(iif(lease_id&gt;0,1,0))) as yetTotal,
+     build_id FROM FUN_BUILD_RULE  WHERE
+     COMP_ID = #{compId} and BUILD_ID = #{buildId}
+    GROUP BY  build_id
+  </select>
+  <select id="countBuildTotalRoof" resultMap="BaseResultMap">
+     SELECT DISTINCT ROOF,BUILD_ID from  FUN_BUILD_RULE   WHERE
+     COMP_ID = #{compId} and BUILD_ID = #{buildId}
+  </select>
+  
+  <select id="selectByDeptId" resultMap="BaseResultMap">
+     SELECT TOP 1 <include refid="Base_Column_List" /> from FUN_BUILD_RULE
+     WHERE DEPT_ID = #{deptId} AND BUILD_ID = #{buildId}
+  </select>
+</mapper>

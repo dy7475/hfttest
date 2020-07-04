@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunBuildrulequerylimittempMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittemp">
+    <!--@mbggenerated-->
+    <id column="LIMIT_ID" jdbcType="INTEGER" property="limitId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="OLD_LIMIT_ID" jdbcType="INTEGER" property="oldLimitId" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="RULE_REG_EX" jdbcType="VARCHAR" property="ruleRegEx" />
+    <result column="RULE_STR" jdbcType="VARCHAR" property="ruleStr" />
+    <result column="START_TIME" jdbcType="VARCHAR" property="startTime" />
+    <result column="END_TIME" jdbcType="VARCHAR" property="endTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    LIMIT_ID, COMP_ID, USER_ID, BUILD_ID, OLD_LIMIT_ID, BUILD_NAME, RULE_REG_EX, RULE_STR, 
+    START_TIME, END_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittempExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_BUILDRULEQUERYLIMITTEMP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_BUILDRULEQUERYLIMITTEMP
+    where LIMIT_ID = #{limitId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_BUILDRULEQUERYLIMITTEMP
+    where LIMIT_ID = #{limitId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittempExample">
+    <!--@mbggenerated-->
+    delete from FUN_BUILDRULEQUERYLIMITTEMP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="limitId" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittemp" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_BUILDRULEQUERYLIMITTEMP (COMP_ID, USER_ID, BUILD_ID, 
+      OLD_LIMIT_ID, BUILD_NAME, RULE_REG_EX, 
+      RULE_STR, START_TIME, END_TIME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, 
+      #{oldLimitId,jdbcType=INTEGER}, #{buildName,jdbcType=VARCHAR}, #{ruleRegEx,jdbcType=VARCHAR}, 
+      #{ruleStr,jdbcType=VARCHAR}, #{startTime,jdbcType=VARCHAR}, #{endTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="limitId" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittemp" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_BUILDRULEQUERYLIMITTEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="oldLimitId != null">
+        OLD_LIMIT_ID,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="ruleRegEx != null">
+        RULE_REG_EX,
+      </if>
+      <if test="ruleStr != null">
+        RULE_STR,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="oldLimitId != null">
+        #{oldLimitId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleRegEx != null">
+        #{ruleRegEx,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleStr != null">
+        #{ruleStr,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittempExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_BUILDRULEQUERYLIMITTEMP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BUILDRULEQUERYLIMITTEMP
+    <set>
+      <if test="record.limitId != null">
+        LIMIT_ID = #{record.limitId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.oldLimitId != null">
+        OLD_LIMIT_ID = #{record.oldLimitId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildName != null">
+        BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleRegEx != null">
+        RULE_REG_EX = #{record.ruleRegEx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleStr != null">
+        RULE_STR = #{record.ruleStr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null">
+        START_TIME = #{record.startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.endTime != null">
+        END_TIME = #{record.endTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BUILDRULEQUERYLIMITTEMP
+    set LIMIT_ID = #{record.limitId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      OLD_LIMIT_ID = #{record.oldLimitId,jdbcType=INTEGER},
+      BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      RULE_REG_EX = #{record.ruleRegEx,jdbcType=VARCHAR},
+      RULE_STR = #{record.ruleStr,jdbcType=VARCHAR},
+      START_TIME = #{record.startTime,jdbcType=VARCHAR},
+      END_TIME = #{record.endTime,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittemp">
+    <!--@mbggenerated-->
+    update FUN_BUILDRULEQUERYLIMITTEMP
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="oldLimitId != null">
+        OLD_LIMIT_ID = #{oldLimitId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleRegEx != null">
+        RULE_REG_EX = #{ruleRegEx,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleStr != null">
+        RULE_STR = #{ruleStr,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        START_TIME = #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        END_TIME = #{endTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LIMIT_ID = #{limitId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildrulequerylimittemp">
+    <!--@mbggenerated-->
+    update FUN_BUILDRULEQUERYLIMITTEMP
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      OLD_LIMIT_ID = #{oldLimitId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      RULE_REG_EX = #{ruleRegEx,jdbcType=VARCHAR},
+      RULE_STR = #{ruleStr,jdbcType=VARCHAR},
+      START_TIME = #{startTime,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=VARCHAR}
+    where LIMIT_ID = #{limitId,jdbcType=INTEGER}
+  </update>
+  <select id="selectLastLimitId" resultType="java.lang.Integer">
+		select top 1 OLD_LIMIT_ID
+		from FUN_BUILDRULEQUERYLIMITTEMP order by OLD_LIMIT_ID asc
+	</select>
+	<insert id="insertList">
+		INSERT INTO FUN_BUILDRULEQUERYLIMITTEMP
+		(COMP_ID, USER_ID, BUILD_ID, OLD_LIMIT_ID,BUILD_NAME,RULE_REG_EX,RULE_STR,START_TIME,END_TIME)
+		VALUES
+		<foreach collection="limitTempList" item="item" separator=",">
+			(
+			#{item.compId},
+			#{item.userId},
+			#{item.buildId},
+			#{item.oldLimitId},
+			#{item.buildName},
+			#{item.ruleRegEx},
+			#{item.ruleStr},
+			#{item.startTime},
+			#{item.endTime}
+			)
+		</foreach>
+	</insert>
+</mapper>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunMsg" >
+    <!--@mbggenerated-->
+    <id column="MSG_ID" property="msgId" jdbcType="INTEGER" />
+    <result column="MSG_CONTENT" property="msgContent" jdbcType="VARCHAR" />
+    <result column="MSGLIST_ID" property="msglistId" jdbcType="SMALLINT" />
+    <result column="MSG_LENGTH" property="msgLength" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    MSG_ID, MSG_CONTENT, MSGLIST_ID, MSG_LENGTH
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_MSG
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_MSG
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunMsg" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="msgId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_MSG (MSG_CONTENT, MSGLIST_ID, MSG_LENGTH
+      )
+    values (#{msgContent,jdbcType=VARCHAR}, #{msglistId,jdbcType=SMALLINT}, #{msgLength,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunMsg" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="msgId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_MSG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msgContent != null" >
+        MSG_CONTENT,
+      </if>
+      <if test="msglistId != null" >
+        MSGLIST_ID,
+      </if>
+      <if test="msgLength != null" >
+        MSG_LENGTH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msgContent != null" >
+        #{msgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="msglistId != null" >
+        #{msglistId,jdbcType=SMALLINT},
+      </if>
+      <if test="msgLength != null" >
+        #{msgLength,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunMsg" >
+    <!--@mbggenerated-->
+    update FUN_MSG
+    <set >
+      <if test="msgContent != null" >
+        MSG_CONTENT = #{msgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="msglistId != null" >
+        MSGLIST_ID = #{msglistId,jdbcType=SMALLINT},
+      </if>
+      <if test="msgLength != null" >
+        MSG_LENGTH = #{msgLength,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunMsg" >
+    <!--@mbggenerated-->
+    update FUN_MSG
+    set MSG_CONTENT = #{msgContent,jdbcType=VARCHAR},
+      MSGLIST_ID = #{msglistId,jdbcType=SMALLINT},
+      MSG_LENGTH = #{msgLength,jdbcType=SMALLINT}
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </update>
+</mapper>

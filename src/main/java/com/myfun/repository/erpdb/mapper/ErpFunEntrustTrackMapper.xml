@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunEntrustTrackMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunEntrustTrack" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ENTRUST_ID" property="entrustId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="TRACK_TYPE" property="trackType" jdbcType="TINYINT" />
+    <result column="TRACK_DESC" property="trackDesc" jdbcType="VARCHAR" />
+    <result column="TRACK_UID" property="trackUid" jdbcType="INTEGER" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, ENTRUST_ID, CASE_TYPE, CASE_ID, COMP_ID, CITY_ID, TRACK_TYPE, TRACK_DESC, TRACK_UID, 
+    TRACK_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustTrackExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST_TRACK
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST_TRACK
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST_TRACK
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustTrackExample" >
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST_TRACK
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustTrack" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST_TRACK (ENTRUST_ID, CASE_TYPE, CASE_ID, 
+      COMP_ID, CITY_ID, TRACK_TYPE, 
+      TRACK_DESC, TRACK_UID, TRACK_TIME
+      )
+    values (#{entrustId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{caseId,jdbcType=INTEGER}, 
+      #{compId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{trackType,jdbcType=TINYINT}, 
+      #{trackDesc,jdbcType=VARCHAR}, #{trackUid,jdbcType=INTEGER}, #{trackTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustTrack" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST_TRACK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="entrustId != null" >
+        ENTRUST_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="trackType != null" >
+        TRACK_TYPE,
+      </if>
+      <if test="trackDesc != null" >
+        TRACK_DESC,
+      </if>
+      <if test="trackUid != null" >
+        TRACK_UID,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="entrustId != null" >
+        #{entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="trackType != null" >
+        #{trackType,jdbcType=TINYINT},
+      </if>
+      <if test="trackDesc != null" >
+        #{trackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="trackUid != null" >
+        #{trackUid,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustTrackExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_ENTRUST_TRACK
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_TRACK
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.entrustId != null" >
+        ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null" >
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.caseId != null" >
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackType != null" >
+        TRACK_TYPE = #{record.trackType,jdbcType=TINYINT},
+      </if>
+      <if test="record.trackDesc != null" >
+        TRACK_DESC = #{record.trackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trackUid != null" >
+        TRACK_UID = #{record.trackUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackTime != null" >
+        TRACK_TIME = #{record.trackTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_TRACK
+    set ID = #{record.id,jdbcType=INTEGER},
+      ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      TRACK_TYPE = #{record.trackType,jdbcType=TINYINT},
+      TRACK_DESC = #{record.trackDesc,jdbcType=VARCHAR},
+      TRACK_UID = #{record.trackUid,jdbcType=INTEGER},
+      TRACK_TIME = #{record.trackTime,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustTrack" >
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_TRACK
+    <set >
+      <if test="entrustId != null" >
+        ENTRUST_ID = #{entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="trackType != null" >
+        TRACK_TYPE = #{trackType,jdbcType=TINYINT},
+      </if>
+      <if test="trackDesc != null" >
+        TRACK_DESC = #{trackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="trackUid != null" >
+        TRACK_UID = #{trackUid,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME = #{trackTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustTrack" >
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_TRACK
+    set ENTRUST_ID = #{entrustId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      TRACK_TYPE = #{trackType,jdbcType=TINYINT},
+      TRACK_DESC = #{trackDesc,jdbcType=VARCHAR},
+      TRACK_UID = #{trackUid,jdbcType=INTEGER},
+      TRACK_TIME = #{trackTime,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

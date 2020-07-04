@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTrueHouseComplaintMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTrueHouseComplaint" >
+    <!--@mbggenerated-->
+    <id column="COMPLAINT_ID" property="complaintId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_NO" property="caseNo" jdbcType="VARCHAR" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="SOURCE_USER_ID" property="sourceUserId" jdbcType="INTEGER" />
+    <result column="SOURCE_ARCHIVE_ID" property="sourceArchiveId" jdbcType="INTEGER" />
+    <result column="TARGET_USER_ID" property="targetUserId" jdbcType="INTEGER" />
+    <result column="TARGET_ARCHIVE_ID" property="targetArchiveId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="COMPLAINT_SOURCE" property="complaintSource" jdbcType="TINYINT" />
+    <result column="COMPLAINT_TYPE" property="complaintType" jdbcType="TINYINT" />
+    <result column="DEAL_STATUS" property="dealStatus" jdbcType="TINYINT" />
+    <result column="DEAL_TYPE" property="dealType" jdbcType="TINYINT" />
+    <result column="DEAL_USER_ID" property="dealUserId" jdbcType="INTEGER" />
+    <result column="DEAL_TIME" property="dealTime" jdbcType="TIMESTAMP" />
+    <result column="APPEAL_TIME" property="appealTime" jdbcType="TIMESTAMP" />
+    <result column="APPEAL_CONTENT" property="appealContent" jdbcType="VARCHAR" />
+    <result column="COMPLAINT_CONTENT" property="complaintContent" jdbcType="VARCHAR" />
+    <result column="DEAL_CONTENT" property="dealContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    COMPLAINT_ID, CITY_ID, CASE_ID, CASE_NO, CASE_TYPE, SOURCE_USER_ID, SOURCE_ARCHIVE_ID, 
+    TARGET_USER_ID, TARGET_ARCHIVE_ID, CREATION_TIME, COMPLAINT_SOURCE, COMPLAINT_TYPE, 
+    DEAL_STATUS, DEAL_TYPE, DEAL_USER_ID, DEAL_TIME, APPEAL_TIME, APPEAL_CONTENT, COMPLAINT_CONTENT, 
+    DEAL_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TRUE_HOUSE_COMPLAINT
+    where COMPLAINT_ID = #{complaintId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from TRUE_HOUSE_COMPLAINT
+    where COMPLAINT_ID = #{complaintId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTrueHouseComplaint" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="complaintId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TRUE_HOUSE_COMPLAINT (CITY_ID, CASE_ID, CASE_NO, 
+      CASE_TYPE, SOURCE_USER_ID, SOURCE_ARCHIVE_ID, 
+      TARGET_USER_ID, TARGET_ARCHIVE_ID, CREATION_TIME, 
+      COMPLAINT_SOURCE, COMPLAINT_TYPE, DEAL_STATUS, 
+      DEAL_TYPE, DEAL_USER_ID, DEAL_TIME, 
+      APPEAL_TIME, APPEAL_CONTENT, COMPLAINT_CONTENT, 
+      DEAL_CONTENT)
+    values (#{cityId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseNo,jdbcType=VARCHAR}, 
+      #{caseType,jdbcType=TINYINT}, #{sourceUserId,jdbcType=INTEGER}, #{sourceArchiveId,jdbcType=INTEGER}, 
+      #{targetUserId,jdbcType=INTEGER}, #{targetArchiveId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{complaintSource,jdbcType=TINYINT}, #{complaintType,jdbcType=TINYINT}, #{dealStatus,jdbcType=TINYINT}, 
+      #{dealType,jdbcType=TINYINT}, #{dealUserId,jdbcType=INTEGER}, #{dealTime,jdbcType=TIMESTAMP}, 
+      #{appealTime,jdbcType=TIMESTAMP}, #{appealContent,jdbcType=VARCHAR}, #{complaintContent,jdbcType=VARCHAR}, 
+      #{dealContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTrueHouseComplaint" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="complaintId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TRUE_HOUSE_COMPLAINT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseNo != null" >
+        CASE_NO,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="sourceUserId != null" >
+        SOURCE_USER_ID,
+      </if>
+      <if test="sourceArchiveId != null" >
+        SOURCE_ARCHIVE_ID,
+      </if>
+      <if test="targetUserId != null" >
+        TARGET_USER_ID,
+      </if>
+      <if test="targetArchiveId != null" >
+        TARGET_ARCHIVE_ID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="complaintSource != null" >
+        COMPLAINT_SOURCE,
+      </if>
+      <if test="complaintType != null" >
+        COMPLAINT_TYPE,
+      </if>
+      <if test="dealStatus != null" >
+        DEAL_STATUS,
+      </if>
+      <if test="dealType != null" >
+        DEAL_TYPE,
+      </if>
+      <if test="dealUserId != null" >
+        DEAL_USER_ID,
+      </if>
+      <if test="dealTime != null" >
+        DEAL_TIME,
+      </if>
+      <if test="appealTime != null" >
+        APPEAL_TIME,
+      </if>
+      <if test="appealContent != null" >
+        APPEAL_CONTENT,
+      </if>
+      <if test="complaintContent != null" >
+        COMPLAINT_CONTENT,
+      </if>
+      <if test="dealContent != null" >
+        DEAL_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseNo != null" >
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="sourceUserId != null" >
+        #{sourceUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceArchiveId != null" >
+        #{sourceArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null" >
+        #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="targetArchiveId != null" >
+        #{targetArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="complaintSource != null" >
+        #{complaintSource,jdbcType=TINYINT},
+      </if>
+      <if test="complaintType != null" >
+        #{complaintType,jdbcType=TINYINT},
+      </if>
+      <if test="dealStatus != null" >
+        #{dealStatus,jdbcType=TINYINT},
+      </if>
+      <if test="dealType != null" >
+        #{dealType,jdbcType=TINYINT},
+      </if>
+      <if test="dealUserId != null" >
+        #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="dealTime != null" >
+        #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appealTime != null" >
+        #{appealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appealContent != null" >
+        #{appealContent,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintContent != null" >
+        #{complaintContent,jdbcType=VARCHAR},
+      </if>
+      <if test="dealContent != null" >
+        #{dealContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminTrueHouseComplaint" >
+    <!--@mbggenerated-->
+    update TRUE_HOUSE_COMPLAINT
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseNo != null" >
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="sourceUserId != null" >
+        SOURCE_USER_ID = #{sourceUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceArchiveId != null" >
+        SOURCE_ARCHIVE_ID = #{sourceArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null" >
+        TARGET_USER_ID = #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="targetArchiveId != null" >
+        TARGET_ARCHIVE_ID = #{targetArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="complaintSource != null" >
+        COMPLAINT_SOURCE = #{complaintSource,jdbcType=TINYINT},
+      </if>
+      <if test="complaintType != null" >
+        COMPLAINT_TYPE = #{complaintType,jdbcType=TINYINT},
+      </if>
+      <if test="dealStatus != null" >
+        DEAL_STATUS = #{dealStatus,jdbcType=TINYINT},
+      </if>
+      <if test="dealType != null" >
+        DEAL_TYPE = #{dealType,jdbcType=TINYINT},
+      </if>
+      <if test="dealUserId != null" >
+        DEAL_USER_ID = #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="dealTime != null" >
+        DEAL_TIME = #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appealTime != null" >
+        APPEAL_TIME = #{appealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appealContent != null" >
+        APPEAL_CONTENT = #{appealContent,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintContent != null" >
+        COMPLAINT_CONTENT = #{complaintContent,jdbcType=VARCHAR},
+      </if>
+      <if test="dealContent != null" >
+        DEAL_CONTENT = #{dealContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COMPLAINT_ID = #{complaintId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminTrueHouseComplaint" >
+    <!--@mbggenerated-->
+    update TRUE_HOUSE_COMPLAINT
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      SOURCE_USER_ID = #{sourceUserId,jdbcType=INTEGER},
+      SOURCE_ARCHIVE_ID = #{sourceArchiveId,jdbcType=INTEGER},
+      TARGET_USER_ID = #{targetUserId,jdbcType=INTEGER},
+      TARGET_ARCHIVE_ID = #{targetArchiveId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      COMPLAINT_SOURCE = #{complaintSource,jdbcType=TINYINT},
+      COMPLAINT_TYPE = #{complaintType,jdbcType=TINYINT},
+      DEAL_STATUS = #{dealStatus,jdbcType=TINYINT},
+      DEAL_TYPE = #{dealType,jdbcType=TINYINT},
+      DEAL_USER_ID = #{dealUserId,jdbcType=INTEGER},
+      DEAL_TIME = #{dealTime,jdbcType=TIMESTAMP},
+      APPEAL_TIME = #{appealTime,jdbcType=TIMESTAMP},
+      APPEAL_CONTENT = #{appealContent,jdbcType=VARCHAR},
+      COMPLAINT_CONTENT = #{complaintContent,jdbcType=VARCHAR},
+      DEAL_CONTENT = #{dealContent,jdbcType=VARCHAR}
+    where COMPLAINT_ID = #{complaintId,jdbcType=INTEGER}
+  </update>
+  <select id="getListByCondition" parameterType="com.myfun.repository.admindb.po.AdminTrueHouseComplaint" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/> from TRUE_HOUSE_COMPLAINT
+  	<where>
+  		<if test="null != complaintType">
+  			and COMPLAINT_TYPE = #{complaintType}
+  		</if>
+  		<if test="null != dealStatus">
+  			and DEAL_STATUS = #{dealStatus}
+  		</if>
+  		<if test="null != targetArchiveId">
+  			and TARGET_ARCHIVE_ID = #{targetArchiveId}
+  		</if>
+  	</where>
+  </select>
+  <update id="updateDownAll" parameterType="com.myfun.repository.admindb.po.AdminTrueHouseComplaint">
+	 UPDATE TRUE_HOUSE_COMPLAINT 
+	 SET  COMPLAINT_TYPE = #{complaintType}, DEAL_STATUS = #{dealStatus}, DEAL_TYPE = #{dealType}, DEAL_TIME = #{dealTime},
+	    DEAL_CONTENT = #{dealContent}
+	 WHERE　TARGET_ARCHIVE_ID = #{targetArchiveId} and DEAL_STATUS = 0 and DEAL_TYPE= 0
+  </update>
+
+  <select id="getComplaintList" resultMap="BaseResultMap">
+    select CASE_ID,CASE_TYPE,COMPLAINT_TYPE,APPEAL_TIME,DEAL_CONTENT,CREATION_TIME,DEAL_STATUS,DEAL_TYPE
+    from TRUE_HOUSE_COMPLAINT
+    where CASE_TYPE =#{caseType} and TARGET_USER_ID=#{srcUserId} and CITY_ID=#{cityId} and TARGET_COMP_ID=#{compId}
+    and  COMPLAINT_TYPE &lt;2 and DEAL_STATUS=0 and DOWN_TYPE=0 AND CASE_ID IN
+    <foreach collection="caseIds" item="caseId"  open="(" close=")" separator=",">
+      #{caseId}
+    </foreach>
+  </select>
+
+  <select id="getComplaintListNotDel" resultMap="BaseResultMap">
+    select CASE_ID,CASE_TYPE,COMPLAINT_TYPE,APPEAL_TIME,DEAL_CONTENT,CREATION_TIME,DEAL_STATUS,DEAL_TYPE
+    from TRUE_HOUSE_COMPLAINT
+    where CASE_TYPE =#{caseType} and TARGET_USER_ID=#{userId} and CITY_ID=#{cityId} and TARGET_COMP_ID=#{compId}
+    and DOWN_TYPE=0 AND CASE_ID IN
+    <foreach collection="caseIds" item="caseId"  open="(" close=")" separator=",">
+      #{caseId}
+    </foreach>
+  </select>
+
+</mapper>

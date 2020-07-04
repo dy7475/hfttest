@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunFriendMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunFriend">
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <id column="FRIEND_ARCHIVE_ID" jdbcType="INTEGER" property="friendArchiveId" />
+    <result column="GROUP_ID" jdbcType="INTEGER" property="groupId" />
+    <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+    <result column="FRIEND_ARCHIVE_SEX" jdbcType="INTEGER" property="friendArchiveSex" />
+    <result column="FRIEND_ARCHIVE_NAME" jdbcType="VARCHAR" property="friendArchiveName" />
+    <result column="GROUP_NAME" jdbcType="VARCHAR" property="groupName" />
+    <result column="FRIEND_ARCHIVE_PHOTO" jdbcType="VARCHAR" property="friendArchivePhoto" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ARCHIVE_ID, FRIEND_ARCHIVE_ID, GROUP_ID, CREATE_TIME, FRIEND_ARCHIVE_SEX, FRIEND_ARCHIVE_NAME, 
+    GROUP_NAME, FRIEND_ARCHIVE_PHOTO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunFriendKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_FRIEND
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and FRIEND_ARCHIVE_ID = #{friendArchiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunFriendKey">
+    <!--@mbggenerated-->
+    delete from FUN_FRIEND
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and FRIEND_ARCHIVE_ID = #{friendArchiveId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunFriend">
+    <!--@mbggenerated-->
+    insert into FUN_FRIEND (ARCHIVE_ID, FRIEND_ARCHIVE_ID, GROUP_ID, 
+      CREATE_TIME, FRIEND_ARCHIVE_SEX, FRIEND_ARCHIVE_NAME, 
+      GROUP_NAME, FRIEND_ARCHIVE_PHOTO)
+    values (#{archiveId,jdbcType=INTEGER}, #{friendArchiveId,jdbcType=INTEGER}, #{groupId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=VARCHAR}, #{friendArchiveSex,jdbcType=INTEGER}, #{friendArchiveName,jdbcType=VARCHAR}, 
+      #{groupName,jdbcType=VARCHAR}, #{friendArchivePhoto,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunFriend">
+    <!--@mbggenerated-->
+    insert into FUN_FRIEND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="friendArchiveId != null">
+        FRIEND_ARCHIVE_ID,
+      </if>
+      <if test="groupId != null">
+        GROUP_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="friendArchiveSex != null">
+        FRIEND_ARCHIVE_SEX,
+      </if>
+      <if test="friendArchiveName != null">
+        FRIEND_ARCHIVE_NAME,
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME,
+      </if>
+      <if test="friendArchivePhoto != null">
+        FRIEND_ARCHIVE_PHOTO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="friendArchiveId != null">
+        #{friendArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="friendArchiveSex != null">
+        #{friendArchiveSex,jdbcType=INTEGER},
+      </if>
+      <if test="friendArchiveName != null">
+        #{friendArchiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="friendArchivePhoto != null">
+        #{friendArchivePhoto,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunFriend">
+    <!--@mbggenerated-->
+    update FUN_FRIEND
+    <set>
+      <if test="groupId != null">
+        GROUP_ID = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="friendArchiveSex != null">
+        FRIEND_ARCHIVE_SEX = #{friendArchiveSex,jdbcType=INTEGER},
+      </if>
+      <if test="friendArchiveName != null">
+        FRIEND_ARCHIVE_NAME = #{friendArchiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="friendArchivePhoto != null">
+        FRIEND_ARCHIVE_PHOTO = #{friendArchivePhoto,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and FRIEND_ARCHIVE_ID = #{friendArchiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunFriend">
+    <!--@mbggenerated-->
+    update FUN_FRIEND
+    set GROUP_ID = #{groupId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      FRIEND_ARCHIVE_SEX = #{friendArchiveSex,jdbcType=INTEGER},
+      FRIEND_ARCHIVE_NAME = #{friendArchiveName,jdbcType=VARCHAR},
+      GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      FRIEND_ARCHIVE_PHOTO = #{friendArchivePhoto,jdbcType=VARCHAR}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and FRIEND_ARCHIVE_ID = #{friendArchiveId,jdbcType=INTEGER}
+  </update>
+</mapper>

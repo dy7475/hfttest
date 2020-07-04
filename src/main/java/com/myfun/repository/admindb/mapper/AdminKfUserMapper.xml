@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminKfUserMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminKfUser" >
+    <!--@mbggenerated-->
+    <id column="CRM_USER_ID" property="crmUserId" jdbcType="INTEGER" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
+    <result column="USER_PHOTO" property="userPhoto" jdbcType="VARCHAR" />
+    <result column="USER_WRITEOFF" property="userWriteoff" jdbcType="TINYINT" />
+    <result column="WRITEOFF_TIME" property="writeoffTime" jdbcType="TIMESTAMP" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_LOGIN" property="lastLogin" jdbcType="TIMESTAMP" />
+    <result column="CHAT_PWD" property="chatPwd" jdbcType="CHAR" />
+    <result column="CHAT_TOKEN" property="chatToken" jdbcType="CHAR" />
+    <result column="CHAT_HOST" property="chatHost" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CRM_USER_ID, USER_NAME, NICK_NAME, USER_PHOTO, USER_WRITEOFF, WRITEOFF_TIME, CREATION_TIME, 
+    LAST_LOGIN, CHAT_PWD, CHAT_TOKEN, CHAT_HOST
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from KF_USER
+    where CRM_USER_ID = #{crmUserId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from KF_USER
+    where CRM_USER_ID = #{crmUserId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminKfUser" >
+    <!--@mbggenerated-->
+    insert into KF_USER (CRM_USER_ID, USER_NAME, NICK_NAME, 
+      USER_PHOTO, USER_WRITEOFF, WRITEOFF_TIME, 
+      CREATION_TIME, LAST_LOGIN, CHAT_PWD, 
+      CHAT_TOKEN, CHAT_HOST)
+    values (#{crmUserId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{userPhoto,jdbcType=VARCHAR}, #{userWriteoff,jdbcType=TINYINT}, #{writeoffTime,jdbcType=TIMESTAMP}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, #{chatPwd,jdbcType=CHAR}, 
+      #{chatToken,jdbcType=CHAR}, #{chatHost,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminKfUser" >
+    <!--@mbggenerated-->
+    insert into KF_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="crmUserId != null" >
+        CRM_USER_ID,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME,
+      </if>
+      <if test="userPhoto != null" >
+        USER_PHOTO,
+      </if>
+      <if test="userWriteoff != null" >
+        USER_WRITEOFF,
+      </if>
+      <if test="writeoffTime != null" >
+        WRITEOFF_TIME,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="lastLogin != null" >
+        LAST_LOGIN,
+      </if>
+      <if test="chatPwd != null" >
+        CHAT_PWD,
+      </if>
+      <if test="chatToken != null" >
+        CHAT_TOKEN,
+      </if>
+      <if test="chatHost != null" >
+        CHAT_HOST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="crmUserId != null" >
+        #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null" >
+        #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userWriteoff != null" >
+        #{userWriteoff,jdbcType=TINYINT},
+      </if>
+      <if test="writeoffTime != null" >
+        #{writeoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null" >
+        #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chatPwd != null" >
+        #{chatPwd,jdbcType=CHAR},
+      </if>
+      <if test="chatToken != null" >
+        #{chatToken,jdbcType=CHAR},
+      </if>
+      <if test="chatHost != null" >
+        #{chatHost,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminKfUser" >
+    <!--@mbggenerated-->
+    update KF_USER
+    <set >
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null" >
+        USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userWriteoff != null" >
+        USER_WRITEOFF = #{userWriteoff,jdbcType=TINYINT},
+      </if>
+      <if test="writeoffTime != null" >
+        WRITEOFF_TIME = #{writeoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null" >
+        LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chatPwd != null" >
+        CHAT_PWD = #{chatPwd,jdbcType=CHAR},
+      </if>
+      <if test="chatToken != null" >
+        CHAT_TOKEN = #{chatToken,jdbcType=CHAR},
+      </if>
+      <if test="chatHost != null" >
+        CHAT_HOST = #{chatHost,jdbcType=CHAR},
+      </if>
+    </set>
+    where CRM_USER_ID = #{crmUserId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminKfUser" >
+    <!--@mbggenerated-->
+    update KF_USER
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      USER_WRITEOFF = #{userWriteoff,jdbcType=TINYINT},
+      WRITEOFF_TIME = #{writeoffTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      CHAT_PWD = #{chatPwd,jdbcType=CHAR},
+      CHAT_TOKEN = #{chatToken,jdbcType=CHAR},
+      CHAT_HOST = #{chatHost,jdbcType=CHAR}
+    where CRM_USER_ID = #{crmUserId,jdbcType=INTEGER}
+  </update>
+</mapper>

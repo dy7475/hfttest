@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTemplateFunVideoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTemplateFunVideo" >
+    <!--@mbggenerated-->
+    <result column="VIDEO_ID" property="videoId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="VIDEO_ADDR" property="videoAddr" jdbcType="VARCHAR" />
+    <result column="PHOTO_ADDR" property="photoAddr" jdbcType="VARCHAR" />
+    <result column="TORRENT_ADDR" property="torrentAddr" jdbcType="VARCHAR" />
+    <result column="VIDEO_MD5" property="videoMd5" jdbcType="VARCHAR" />
+    <result column="VIDEO_TYPE" property="videoType" jdbcType="TINYINT" />
+    <result column="VIDEO_STATUS" property="videoStatus" jdbcType="TINYINT" />
+    <result column="UPLOAD_DATE" property="uploadDate" jdbcType="TIMESTAMP" />
+    <result column="VIDEO_DESC" property="videoDesc" jdbcType="VARCHAR" />
+    <result column="TX_VID" property="txVid" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunVideo" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_VIDEO (VIDEO_ID, CASE_ID, CASE_TYPE, 
+      VIDEO_ADDR, PHOTO_ADDR, TORRENT_ADDR, 
+      VIDEO_MD5, VIDEO_TYPE, VIDEO_STATUS, 
+      UPLOAD_DATE, VIDEO_DESC, TX_VID
+      )
+    values (#{videoId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, 
+      #{videoAddr,jdbcType=VARCHAR}, #{photoAddr,jdbcType=VARCHAR}, #{torrentAddr,jdbcType=VARCHAR}, 
+      #{videoMd5,jdbcType=VARCHAR}, #{videoType,jdbcType=TINYINT}, #{videoStatus,jdbcType=TINYINT}, 
+      #{uploadDate,jdbcType=TIMESTAMP}, #{videoDesc,jdbcType=VARCHAR}, #{txVid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunVideo" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_VIDEO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        VIDEO_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="videoAddr != null" >
+        VIDEO_ADDR,
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR,
+      </if>
+      <if test="torrentAddr != null" >
+        TORRENT_ADDR,
+      </if>
+      <if test="videoMd5 != null" >
+        VIDEO_MD5,
+      </if>
+      <if test="videoType != null" >
+        VIDEO_TYPE,
+      </if>
+      <if test="videoStatus != null" >
+        VIDEO_STATUS,
+      </if>
+      <if test="uploadDate != null" >
+        UPLOAD_DATE,
+      </if>
+      <if test="videoDesc != null" >
+        VIDEO_DESC,
+      </if>
+      <if test="txVid != null" >
+        TX_VID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        #{videoId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="videoAddr != null" >
+        #{videoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAddr != null" >
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="torrentAddr != null" >
+        #{torrentAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="videoMd5 != null" >
+        #{videoMd5,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null" >
+        #{videoType,jdbcType=TINYINT},
+      </if>
+      <if test="videoStatus != null" >
+        #{videoStatus,jdbcType=TINYINT},
+      </if>
+      <if test="uploadDate != null" >
+        #{uploadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoDesc != null" >
+        #{videoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="txVid != null" >
+        #{txVid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="getList" resultMap="BaseResultMap">
+    select VIDEO_ID,VIDEO_ADDR,PHOTO_ADDR from TEMPLATE_FUN_VIDEO order by VIDEO_ID desc
+  </select>
+
+  <insert id="insertForFastDfs">
+    <foreach collection="dfsParamList" item="dfsParam" separator=";">
+      INSERT  INTO  TEMPLATE_FUN_VIDEO_FASTDFS_TMP(VIDEO_ID,VIDEO_ADDR_OLD,VIDEO_ADDR_NEW,PHOTO_ADDR_OLD,PHOTO_ADDR_NEW)
+      VALUES (#{dfsParam.videoId}, #{dfsParam.videoAddrOld}, #{dfsParam.videoAddrNew}, #{dfsParam.photoAddrOld}, #{dfsParam.photoAddrNew})
+    </foreach>
+  </insert>
+</mapper>

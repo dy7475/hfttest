@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunProcessMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunProcess">
+    <!--@mbggenerated-->
+    <id column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+    <id column="PRO_TYPE" jdbcType="TINYINT" property="proType" />
+    <result column="DEAL_NO" jdbcType="VARCHAR" property="dealNo" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="WARM_FLAG" jdbcType="TINYINT" property="warmFlag" />
+    <result column="WARM_TIME" jdbcType="VARCHAR" property="warmTime" />
+    <result column="WARM_CONTENT" jdbcType="VARCHAR" property="warmContent" />
+    <result column="UPDATE_USER" jdbcType="INTEGER" property="updateUser" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    DEAL_ID, PRO_TYPE, DEAL_NO, CONTENT, WARM_FLAG, WARM_TIME, WARM_CONTENT, UPDATE_USER, 
+    UPDATE_TIME, DEPT_ID, COMP_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunProcessKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PROCESS
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+      and PRO_TYPE = #{proType,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunProcessKey">
+    <!--@mbggenerated-->
+    delete from FUN_PROCESS
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+      and PRO_TYPE = #{proType,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunProcess">
+    <!--@mbggenerated-->
+    insert into FUN_PROCESS (DEAL_ID, PRO_TYPE, DEAL_NO, 
+      CONTENT, WARM_FLAG, WARM_TIME, 
+      WARM_CONTENT, UPDATE_USER, UPDATE_TIME, 
+      DEPT_ID, COMP_ID)
+    values (#{dealId,jdbcType=INTEGER}, #{proType,jdbcType=TINYINT}, #{dealNo,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{warmFlag,jdbcType=TINYINT}, #{warmTime,jdbcType=VARCHAR}, 
+      #{warmContent,jdbcType=VARCHAR}, #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=VARCHAR}, 
+      #{deptId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunProcess">
+    <!--@mbggenerated-->
+    insert into FUN_PROCESS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dealId != null">
+        DEAL_ID,
+      </if>
+      <if test="proType != null">
+        PRO_TYPE,
+      </if>
+      <if test="dealNo != null">
+        DEAL_NO,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+      <if test="warmFlag != null">
+        WARM_FLAG,
+      </if>
+      <if test="warmTime != null">
+        WARM_TIME,
+      </if>
+      <if test="warmContent != null">
+        WARM_CONTENT,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dealId != null">
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="proType != null">
+        #{proType,jdbcType=TINYINT},
+      </if>
+      <if test="dealNo != null">
+        #{dealNo,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="warmFlag != null">
+        #{warmFlag,jdbcType=TINYINT},
+      </if>
+      <if test="warmTime != null">
+        #{warmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="warmContent != null">
+        #{warmContent,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunProcess">
+    <!--@mbggenerated-->
+    update FUN_PROCESS
+    <set>
+      <if test="dealNo != null">
+        DEAL_NO = #{dealNo,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="warmFlag != null">
+        WARM_FLAG = #{warmFlag,jdbcType=TINYINT},
+      </if>
+      <if test="warmTime != null">
+        WARM_TIME = #{warmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="warmContent != null">
+        WARM_CONTENT = #{warmContent,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+      and PRO_TYPE = #{proType,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunProcess">
+    <!--@mbggenerated-->
+    update FUN_PROCESS
+    set DEAL_NO = #{dealNo,jdbcType=VARCHAR},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      WARM_FLAG = #{warmFlag,jdbcType=TINYINT},
+      WARM_TIME = #{warmTime,jdbcType=VARCHAR},
+      WARM_CONTENT = #{warmContent,jdbcType=VARCHAR},
+      UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER}
+    where DEAL_ID = #{dealId,jdbcType=INTEGER}
+      and PRO_TYPE = #{proType,jdbcType=TINYINT}
+  </update>
+</mapper>

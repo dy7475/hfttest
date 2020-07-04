@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunWorkcountTargetOrgTemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplate" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="ORGANIZATION_ID" property="organizationId" jdbcType="INTEGER" />
+    <result column="PARTNER_ID" property="partnerId" jdbcType="INTEGER" />
+    <result column="USER_POSITION" property="userPosition" jdbcType="VARCHAR" />
+    <result column="TARGET_TYPE" property="targetType" jdbcType="TINYINT" />
+    <result column="GJ_HOUSE_COUNT" property="gjHouseCount" jdbcType="INTEGER" />
+    <result column="GJ_CUSTOMER_COUNT" property="gjCustomerCount" jdbcType="INTEGER" />
+    <result column="VR_COUNT" property="vrCount" jdbcType="INTEGER" />
+    <result column="SP_COUNT" property="spCount" jdbcType="INTEGER" />
+    <result column="KK_COUNT" property="kkCount" jdbcType="INTEGER" />
+    <result column="HOUSE_FAFA_COUNT" property="houseFafaCount" jdbcType="INTEGER" />
+    <result column="POST_SHARE_COUNT" property="postShareCount" jdbcType="INTEGER" />
+    <result column="HOUSE_ADD" property="houseAdd" jdbcType="INTEGER" />
+    <result column="CUSTOMER_ADD" property="customerAdd" jdbcType="INTEGER" />
+    <result column="DK_COUNT" property="dkCount" jdbcType="INTEGER" />
+    <result column="FK_COUNT" property="fkCount" jdbcType="INTEGER" />
+    <result column="YS_COUNT" property="ysCount" jdbcType="INTEGER" />
+    <result column="DJWT_COUNT" property="djwtCount" jdbcType="INTEGER" />
+    <result column="SIGN_DEAL_COUNT" property="signDealCount" jdbcType="INTEGER" />
+    <result column="TPSC_COUNT" property="tpscCount" jdbcType="INTEGER" />
+    <result column="CKDH_COUNT" property="ckdhCount" jdbcType="INTEGER" />
+    <result column="XSWT_COUNT" property="xswtCount" jdbcType="INTEGER" />
+    <result column="BZWT_COUNT" property="bzwtCount" jdbcType="INTEGER" />
+    <result column="WT_COUNT" property="wtCount" jdbcType="INTEGER" />
+    <result column="MT_HOUSE_COUNT" property="mtHouseCount" jdbcType="INTEGER" />
+    <result column="MT_CUSTOMER_COUNT" property="mtCustomerCount" jdbcType="INTEGER" />
+    <result column="KYYK_COUNT" property="kyykCount" jdbcType="INTEGER" />
+    <result column="YJ_COUNT" property="yjCount" jdbcType="INTEGER" />
+    <result column="IPCALL_COUNT" property="ipcallCount" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, COMP_ID, ORGANIZATION_ID, PARTNER_ID, USER_POSITION, TARGET_TYPE, GJ_HOUSE_COUNT, 
+    GJ_CUSTOMER_COUNT, VR_COUNT, SP_COUNT, KK_COUNT, HOUSE_FAFA_COUNT, POST_SHARE_COUNT, 
+    HOUSE_ADD, CUSTOMER_ADD, DK_COUNT, FK_COUNT, YS_COUNT, DJWT_COUNT, SIGN_DEAL_COUNT, 
+    TPSC_COUNT, CKDH_COUNT, XSWT_COUNT, BZWT_COUNT, WT_COUNT, MT_HOUSE_COUNT, MT_CUSTOMER_COUNT, 
+    KYYK_COUNT, YJ_COUNT, IPCALL_COUNT, CREATE_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplateExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplateExample" >
+    <!--@mbggenerated-->
+    delete from FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplate" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_WORKCOUNT_TARGET_ORG_TEMPLATE (COMP_ID, ORGANIZATION_ID, PARTNER_ID, 
+      USER_POSITION, TARGET_TYPE, GJ_HOUSE_COUNT, 
+      GJ_CUSTOMER_COUNT, VR_COUNT, SP_COUNT, 
+      KK_COUNT, HOUSE_FAFA_COUNT, POST_SHARE_COUNT, 
+      HOUSE_ADD, CUSTOMER_ADD, DK_COUNT, 
+      FK_COUNT, YS_COUNT, DJWT_COUNT, 
+      SIGN_DEAL_COUNT, TPSC_COUNT, CKDH_COUNT, 
+      XSWT_COUNT, BZWT_COUNT, WT_COUNT, 
+      MT_HOUSE_COUNT, MT_CUSTOMER_COUNT, KYYK_COUNT, 
+      YJ_COUNT, IPCALL_COUNT, CREATE_TIME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{organizationId,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, 
+      #{userPosition,jdbcType=VARCHAR}, #{targetType,jdbcType=TINYINT}, #{gjHouseCount,jdbcType=INTEGER}, 
+      #{gjCustomerCount,jdbcType=INTEGER}, #{vrCount,jdbcType=INTEGER}, #{spCount,jdbcType=INTEGER}, 
+      #{kkCount,jdbcType=INTEGER}, #{houseFafaCount,jdbcType=INTEGER}, #{postShareCount,jdbcType=INTEGER}, 
+      #{houseAdd,jdbcType=INTEGER}, #{customerAdd,jdbcType=INTEGER}, #{dkCount,jdbcType=INTEGER}, 
+      #{fkCount,jdbcType=INTEGER}, #{ysCount,jdbcType=INTEGER}, #{djwtCount,jdbcType=INTEGER}, 
+      #{signDealCount,jdbcType=INTEGER}, #{tpscCount,jdbcType=INTEGER}, #{ckdhCount,jdbcType=INTEGER}, 
+      #{xswtCount,jdbcType=INTEGER}, #{bzwtCount,jdbcType=INTEGER}, #{wtCount,jdbcType=INTEGER}, 
+      #{mtHouseCount,jdbcType=INTEGER}, #{mtCustomerCount,jdbcType=INTEGER}, #{kyykCount,jdbcType=INTEGER}, 
+      #{yjCount,jdbcType=INTEGER}, #{ipcallCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplate" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="organizationId != null" >
+        ORGANIZATION_ID,
+      </if>
+      <if test="partnerId != null" >
+        PARTNER_ID,
+      </if>
+      <if test="userPosition != null" >
+        USER_POSITION,
+      </if>
+      <if test="targetType != null" >
+        TARGET_TYPE,
+      </if>
+      <if test="gjHouseCount != null" >
+        GJ_HOUSE_COUNT,
+      </if>
+      <if test="gjCustomerCount != null" >
+        GJ_CUSTOMER_COUNT,
+      </if>
+      <if test="vrCount != null" >
+        VR_COUNT,
+      </if>
+      <if test="spCount != null" >
+        SP_COUNT,
+      </if>
+      <if test="kkCount != null" >
+        KK_COUNT,
+      </if>
+      <if test="houseFafaCount != null" >
+        HOUSE_FAFA_COUNT,
+      </if>
+      <if test="postShareCount != null" >
+        POST_SHARE_COUNT,
+      </if>
+      <if test="houseAdd != null" >
+        HOUSE_ADD,
+      </if>
+      <if test="customerAdd != null" >
+        CUSTOMER_ADD,
+      </if>
+      <if test="dkCount != null" >
+        DK_COUNT,
+      </if>
+      <if test="fkCount != null" >
+        FK_COUNT,
+      </if>
+      <if test="ysCount != null" >
+        YS_COUNT,
+      </if>
+      <if test="djwtCount != null" >
+        DJWT_COUNT,
+      </if>
+      <if test="signDealCount != null" >
+        SIGN_DEAL_COUNT,
+      </if>
+      <if test="tpscCount != null" >
+        TPSC_COUNT,
+      </if>
+      <if test="ckdhCount != null" >
+        CKDH_COUNT,
+      </if>
+      <if test="xswtCount != null" >
+        XSWT_COUNT,
+      </if>
+      <if test="bzwtCount != null" >
+        BZWT_COUNT,
+      </if>
+      <if test="wtCount != null" >
+        WT_COUNT,
+      </if>
+      <if test="mtHouseCount != null" >
+        MT_HOUSE_COUNT,
+      </if>
+      <if test="mtCustomerCount != null" >
+        MT_CUSTOMER_COUNT,
+      </if>
+      <if test="kyykCount != null" >
+        KYYK_COUNT,
+      </if>
+      <if test="yjCount != null" >
+        YJ_COUNT,
+      </if>
+      <if test="ipcallCount != null" >
+        IPCALL_COUNT,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationId != null" >
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null" >
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="userPosition != null" >
+        #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="targetType != null" >
+        #{targetType,jdbcType=TINYINT},
+      </if>
+      <if test="gjHouseCount != null" >
+        #{gjHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="gjCustomerCount != null" >
+        #{gjCustomerCount,jdbcType=INTEGER},
+      </if>
+      <if test="vrCount != null" >
+        #{vrCount,jdbcType=INTEGER},
+      </if>
+      <if test="spCount != null" >
+        #{spCount,jdbcType=INTEGER},
+      </if>
+      <if test="kkCount != null" >
+        #{kkCount,jdbcType=INTEGER},
+      </if>
+      <if test="houseFafaCount != null" >
+        #{houseFafaCount,jdbcType=INTEGER},
+      </if>
+      <if test="postShareCount != null" >
+        #{postShareCount,jdbcType=INTEGER},
+      </if>
+      <if test="houseAdd != null" >
+        #{houseAdd,jdbcType=INTEGER},
+      </if>
+      <if test="customerAdd != null" >
+        #{customerAdd,jdbcType=INTEGER},
+      </if>
+      <if test="dkCount != null" >
+        #{dkCount,jdbcType=INTEGER},
+      </if>
+      <if test="fkCount != null" >
+        #{fkCount,jdbcType=INTEGER},
+      </if>
+      <if test="ysCount != null" >
+        #{ysCount,jdbcType=INTEGER},
+      </if>
+      <if test="djwtCount != null" >
+        #{djwtCount,jdbcType=INTEGER},
+      </if>
+      <if test="signDealCount != null" >
+        #{signDealCount,jdbcType=INTEGER},
+      </if>
+      <if test="tpscCount != null" >
+        #{tpscCount,jdbcType=INTEGER},
+      </if>
+      <if test="ckdhCount != null" >
+        #{ckdhCount,jdbcType=INTEGER},
+      </if>
+      <if test="xswtCount != null" >
+        #{xswtCount,jdbcType=INTEGER},
+      </if>
+      <if test="bzwtCount != null" >
+        #{bzwtCount,jdbcType=INTEGER},
+      </if>
+      <if test="wtCount != null" >
+        #{wtCount,jdbcType=INTEGER},
+      </if>
+      <if test="mtHouseCount != null" >
+        #{mtHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="mtCustomerCount != null" >
+        #{mtCustomerCount,jdbcType=INTEGER},
+      </if>
+      <if test="kyykCount != null" >
+        #{kyykCount,jdbcType=INTEGER},
+      </if>
+      <if test="yjCount != null" >
+        #{yjCount,jdbcType=INTEGER},
+      </if>
+      <if test="ipcallCount != null" >
+        #{ipcallCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplateExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationId != null" >
+        ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.partnerId != null" >
+        PARTNER_ID = #{record.partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userPosition != null" >
+        USER_POSITION = #{record.userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetType != null" >
+        TARGET_TYPE = #{record.targetType,jdbcType=TINYINT},
+      </if>
+      <if test="record.gjHouseCount != null" >
+        GJ_HOUSE_COUNT = #{record.gjHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.gjCustomerCount != null" >
+        GJ_CUSTOMER_COUNT = #{record.gjCustomerCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.vrCount != null" >
+        VR_COUNT = #{record.vrCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.spCount != null" >
+        SP_COUNT = #{record.spCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.kkCount != null" >
+        KK_COUNT = #{record.kkCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseFafaCount != null" >
+        HOUSE_FAFA_COUNT = #{record.houseFafaCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.postShareCount != null" >
+        POST_SHARE_COUNT = #{record.postShareCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseAdd != null" >
+        HOUSE_ADD = #{record.houseAdd,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerAdd != null" >
+        CUSTOMER_ADD = #{record.customerAdd,jdbcType=INTEGER},
+      </if>
+      <if test="record.dkCount != null" >
+        DK_COUNT = #{record.dkCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.fkCount != null" >
+        FK_COUNT = #{record.fkCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.ysCount != null" >
+        YS_COUNT = #{record.ysCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.djwtCount != null" >
+        DJWT_COUNT = #{record.djwtCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.signDealCount != null" >
+        SIGN_DEAL_COUNT = #{record.signDealCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.tpscCount != null" >
+        TPSC_COUNT = #{record.tpscCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.ckdhCount != null" >
+        CKDH_COUNT = #{record.ckdhCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.xswtCount != null" >
+        XSWT_COUNT = #{record.xswtCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.bzwtCount != null" >
+        BZWT_COUNT = #{record.bzwtCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.wtCount != null" >
+        WT_COUNT = #{record.wtCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.mtHouseCount != null" >
+        MT_HOUSE_COUNT = #{record.mtHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.mtCustomerCount != null" >
+        MT_CUSTOMER_COUNT = #{record.mtCustomerCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.kyykCount != null" >
+        KYYK_COUNT = #{record.kyykCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.yjCount != null" >
+        YJ_COUNT = #{record.yjCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.ipcallCount != null" >
+        IPCALL_COUNT = #{record.ipcallCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      PARTNER_ID = #{record.partnerId,jdbcType=INTEGER},
+      USER_POSITION = #{record.userPosition,jdbcType=VARCHAR},
+      TARGET_TYPE = #{record.targetType,jdbcType=TINYINT},
+      GJ_HOUSE_COUNT = #{record.gjHouseCount,jdbcType=INTEGER},
+      GJ_CUSTOMER_COUNT = #{record.gjCustomerCount,jdbcType=INTEGER},
+      VR_COUNT = #{record.vrCount,jdbcType=INTEGER},
+      SP_COUNT = #{record.spCount,jdbcType=INTEGER},
+      KK_COUNT = #{record.kkCount,jdbcType=INTEGER},
+      HOUSE_FAFA_COUNT = #{record.houseFafaCount,jdbcType=INTEGER},
+      POST_SHARE_COUNT = #{record.postShareCount,jdbcType=INTEGER},
+      HOUSE_ADD = #{record.houseAdd,jdbcType=INTEGER},
+      CUSTOMER_ADD = #{record.customerAdd,jdbcType=INTEGER},
+      DK_COUNT = #{record.dkCount,jdbcType=INTEGER},
+      FK_COUNT = #{record.fkCount,jdbcType=INTEGER},
+      YS_COUNT = #{record.ysCount,jdbcType=INTEGER},
+      DJWT_COUNT = #{record.djwtCount,jdbcType=INTEGER},
+      SIGN_DEAL_COUNT = #{record.signDealCount,jdbcType=INTEGER},
+      TPSC_COUNT = #{record.tpscCount,jdbcType=INTEGER},
+      CKDH_COUNT = #{record.ckdhCount,jdbcType=INTEGER},
+      XSWT_COUNT = #{record.xswtCount,jdbcType=INTEGER},
+      BZWT_COUNT = #{record.bzwtCount,jdbcType=INTEGER},
+      WT_COUNT = #{record.wtCount,jdbcType=INTEGER},
+      MT_HOUSE_COUNT = #{record.mtHouseCount,jdbcType=INTEGER},
+      MT_CUSTOMER_COUNT = #{record.mtCustomerCount,jdbcType=INTEGER},
+      KYYK_COUNT = #{record.kyykCount,jdbcType=INTEGER},
+      YJ_COUNT = #{record.yjCount,jdbcType=INTEGER},
+      IPCALL_COUNT = #{record.ipcallCount,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplate" >
+    <!--@mbggenerated-->
+    update FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationId != null" >
+        ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null" >
+        PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="userPosition != null" >
+        USER_POSITION = #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="targetType != null" >
+        TARGET_TYPE = #{targetType,jdbcType=TINYINT},
+      </if>
+      <if test="gjHouseCount != null" >
+        GJ_HOUSE_COUNT = #{gjHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="gjCustomerCount != null" >
+        GJ_CUSTOMER_COUNT = #{gjCustomerCount,jdbcType=INTEGER},
+      </if>
+      <if test="vrCount != null" >
+        VR_COUNT = #{vrCount,jdbcType=INTEGER},
+      </if>
+      <if test="spCount != null" >
+        SP_COUNT = #{spCount,jdbcType=INTEGER},
+      </if>
+      <if test="kkCount != null" >
+        KK_COUNT = #{kkCount,jdbcType=INTEGER},
+      </if>
+      <if test="houseFafaCount != null" >
+        HOUSE_FAFA_COUNT = #{houseFafaCount,jdbcType=INTEGER},
+      </if>
+      <if test="postShareCount != null" >
+        POST_SHARE_COUNT = #{postShareCount,jdbcType=INTEGER},
+      </if>
+      <if test="houseAdd != null" >
+        HOUSE_ADD = #{houseAdd,jdbcType=INTEGER},
+      </if>
+      <if test="customerAdd != null" >
+        CUSTOMER_ADD = #{customerAdd,jdbcType=INTEGER},
+      </if>
+      <if test="dkCount != null" >
+        DK_COUNT = #{dkCount,jdbcType=INTEGER},
+      </if>
+      <if test="fkCount != null" >
+        FK_COUNT = #{fkCount,jdbcType=INTEGER},
+      </if>
+      <if test="ysCount != null" >
+        YS_COUNT = #{ysCount,jdbcType=INTEGER},
+      </if>
+      <if test="djwtCount != null" >
+        DJWT_COUNT = #{djwtCount,jdbcType=INTEGER},
+      </if>
+      <if test="signDealCount != null" >
+        SIGN_DEAL_COUNT = #{signDealCount,jdbcType=INTEGER},
+      </if>
+      <if test="tpscCount != null" >
+        TPSC_COUNT = #{tpscCount,jdbcType=INTEGER},
+      </if>
+      <if test="ckdhCount != null" >
+        CKDH_COUNT = #{ckdhCount,jdbcType=INTEGER},
+      </if>
+      <if test="xswtCount != null" >
+        XSWT_COUNT = #{xswtCount,jdbcType=INTEGER},
+      </if>
+      <if test="bzwtCount != null" >
+        BZWT_COUNT = #{bzwtCount,jdbcType=INTEGER},
+      </if>
+      <if test="wtCount != null" >
+        WT_COUNT = #{wtCount,jdbcType=INTEGER},
+      </if>
+      <if test="mtHouseCount != null" >
+        MT_HOUSE_COUNT = #{mtHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="mtCustomerCount != null" >
+        MT_CUSTOMER_COUNT = #{mtCustomerCount,jdbcType=INTEGER},
+      </if>
+      <if test="kyykCount != null" >
+        KYYK_COUNT = #{kyykCount,jdbcType=INTEGER},
+      </if>
+      <if test="yjCount != null" >
+        YJ_COUNT = #{yjCount,jdbcType=INTEGER},
+      </if>
+      <if test="ipcallCount != null" >
+        IPCALL_COUNT = #{ipcallCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunWorkcountTargetOrgTemplate" >
+    <!--@mbggenerated-->
+    update FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      USER_POSITION = #{userPosition,jdbcType=VARCHAR},
+      TARGET_TYPE = #{targetType,jdbcType=TINYINT},
+      GJ_HOUSE_COUNT = #{gjHouseCount,jdbcType=INTEGER},
+      GJ_CUSTOMER_COUNT = #{gjCustomerCount,jdbcType=INTEGER},
+      VR_COUNT = #{vrCount,jdbcType=INTEGER},
+      SP_COUNT = #{spCount,jdbcType=INTEGER},
+      KK_COUNT = #{kkCount,jdbcType=INTEGER},
+      HOUSE_FAFA_COUNT = #{houseFafaCount,jdbcType=INTEGER},
+      POST_SHARE_COUNT = #{postShareCount,jdbcType=INTEGER},
+      HOUSE_ADD = #{houseAdd,jdbcType=INTEGER},
+      CUSTOMER_ADD = #{customerAdd,jdbcType=INTEGER},
+      DK_COUNT = #{dkCount,jdbcType=INTEGER},
+      FK_COUNT = #{fkCount,jdbcType=INTEGER},
+      YS_COUNT = #{ysCount,jdbcType=INTEGER},
+      DJWT_COUNT = #{djwtCount,jdbcType=INTEGER},
+      SIGN_DEAL_COUNT = #{signDealCount,jdbcType=INTEGER},
+      TPSC_COUNT = #{tpscCount,jdbcType=INTEGER},
+      CKDH_COUNT = #{ckdhCount,jdbcType=INTEGER},
+      XSWT_COUNT = #{xswtCount,jdbcType=INTEGER},
+      BZWT_COUNT = #{bzwtCount,jdbcType=INTEGER},
+      WT_COUNT = #{wtCount,jdbcType=INTEGER},
+      MT_HOUSE_COUNT = #{mtHouseCount,jdbcType=INTEGER},
+      MT_CUSTOMER_COUNT = #{mtCustomerCount,jdbcType=INTEGER},
+      KYYK_COUNT = #{kyykCount,jdbcType=INTEGER},
+      YJ_COUNT = #{yjCount,jdbcType=INTEGER},
+      IPCALL_COUNT = #{ipcallCount,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <delete id="deleteByOrgIds">
+    delete from FUN_WORKCOUNT_TARGET_ORG_TEMPLATE
+    where comp_id = #{compId}
+    <if test="userPositionSet!=null and userPositionSet.size>0">
+      and USER_POSITION in
+      <foreach close=")" collection="userPositionSet" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test="orgIds!=null and orgIds.size>0">
+      and ORGANIZATION_ID in
+      <foreach close=")" collection="orgIds" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+  </delete>
+
+</mapper>

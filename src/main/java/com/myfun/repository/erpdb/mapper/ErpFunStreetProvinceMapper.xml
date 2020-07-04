@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunStreetProvinceMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunStreetProvince" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="STREET_TERRITORY_ID" property="streetTerritoryId" jdbcType="INTEGER" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="PROVINCE_NAME" property="provinceName" jdbcType="VARCHAR" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="INTEGER" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DEL" property="isDel" jdbcType="TINYINT" />
+    <result column="DEL_USER_ID" property="delUserId" jdbcType="INTEGER" />
+    <result column="DEL_TIME" property="delTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, COMP_ID, STREET_TERRITORY_ID, PROVINCE_ID, PROVINCE_NAME, CODE, SEQ_NO, REMARK, 
+    CREATE_TIME, UPDATE_TIME, IS_DEL, DEL_USER_ID, DEL_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunStreetProvinceExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_STREET_PROVINCE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_STREET_PROVINCE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_STREET_PROVINCE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunStreetProvinceExample" >
+    <!--@mbggenerated-->
+    delete from FUN_STREET_PROVINCE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunStreetProvince" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_STREET_PROVINCE (COMP_ID, STREET_TERRITORY_ID, PROVINCE_ID, 
+      PROVINCE_NAME, CODE, SEQ_NO, 
+      REMARK, CREATE_TIME, UPDATE_TIME, 
+      IS_DEL, DEL_USER_ID, DEL_TIME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{streetTerritoryId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, 
+      #{provinceName,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{seqNo,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=TINYINT}, #{delUserId,jdbcType=INTEGER}, #{delTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunStreetProvince" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_STREET_PROVINCE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="streetTerritoryId != null" >
+        STREET_TERRITORY_ID,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="provinceName != null" >
+        PROVINCE_NAME,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+      <if test="delUserId != null" >
+        DEL_USER_ID,
+      </if>
+      <if test="delTime != null" >
+        DEL_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="streetTerritoryId != null" >
+        #{streetTerritoryId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceName != null" >
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="delUserId != null" >
+        #{delUserId,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunStreetProvinceExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_STREET_PROVINCE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_STREET_PROVINCE
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.streetTerritoryId != null" >
+        STREET_TERRITORY_ID = #{record.streetTerritoryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceId != null" >
+        PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceName != null" >
+        PROVINCE_NAME = #{record.provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.code != null" >
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seqNo != null" >
+        SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null" >
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.delUserId != null" >
+        DEL_USER_ID = #{record.delUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.delTime != null" >
+        DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_STREET_PROVINCE
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      STREET_TERRITORY_ID = #{record.streetTerritoryId,jdbcType=INTEGER},
+      PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      PROVINCE_NAME = #{record.provinceName,jdbcType=VARCHAR},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      DEL_USER_ID = #{record.delUserId,jdbcType=INTEGER},
+      DEL_TIME = #{record.delTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunStreetProvince" >
+    <!--@mbggenerated-->
+    update FUN_STREET_PROVINCE
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="streetTerritoryId != null" >
+        STREET_TERRITORY_ID = #{streetTerritoryId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceName != null" >
+        PROVINCE_NAME = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="delUserId != null" >
+        DEL_USER_ID = #{delUserId,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null" >
+        DEL_TIME = #{delTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunStreetProvince" >
+    <!--@mbggenerated-->
+    update FUN_STREET_PROVINCE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      STREET_TERRITORY_ID = #{streetTerritoryId,jdbcType=INTEGER},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      PROVINCE_NAME = #{provinceName,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      DEL_USER_ID = #{delUserId,jdbcType=INTEGER},
+      DEL_TIME = #{delTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getStreetProvinceList" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpFunStreetProvinceVO">
+    SELECT A.ID,
+           A.COMP_ID,
+           A.STREET_TERRITORY_ID,
+           A.PROVINCE_ID,
+           A.PROVINCE_NAME,
+           A.CODE,
+           A.SEQ_NO,
+           A.REMARK,
+           A.CREATE_TIME,
+           B.TERRITORY_NAME
+    FROM FUN_STREET_PROVINCE A
+           LEFT JOIN FUN_TERRITORY B ON A.STREET_TERRITORY_ID = B.ID
+    WHERE  A.STREET_TERRITORY_ID = #{streetTerritoryId}
+      AND A.IS_DEL = 0
+    ORDER BY A.SEQ_NO ASC
+  </select>
+
+  <update id="deleteStreetProvinceById">
+    UPDATE FUN_STREET_PROVINCE SET IS_DEL = 1, DEL_TIME = GETDATE(), DEL_USER_ID = #{delUserId}
+    where ID = #{id}
+  </update>
+
+  <select id="getMaxId" resultType="java.lang.Integer">
+    SELECT ISNULL(MAX(ID), 0) FROM FUN_STREET_PROVINCE
+  </select>
+
+  <select id="getStreetProvince" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpFunStreetProvinceVO">
+    SELECT A.ID,
+           A.COMP_ID,
+           A.STREET_TERRITORY_ID,
+           A.PROVINCE_ID,
+           A.PROVINCE_NAME,
+           A.CODE,
+           A.SEQ_NO,
+           A.REMARK,
+           A.CREATE_TIME,
+           B.TERRITORY_NAME
+    FROM FUN_STREET_PROVINCE A
+           LEFT JOIN FUN_TERRITORY B ON A.STREET_TERRITORY_ID = B.ID
+    WHERE  A.ID = #{streetProvinceId}
+  </select>
+
+</mapper>

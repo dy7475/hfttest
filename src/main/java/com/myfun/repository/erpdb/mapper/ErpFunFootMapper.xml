@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunFootMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunFoot">
+    <!--@mbggenerated-->
+    <id column="FOOT_ID" jdbcType="INTEGER" property="footId" />
+    <result column="FOOT_CONTENT" jdbcType="VARCHAR" property="footContent" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="PRAISE_COUNT" jdbcType="INTEGER" property="praiseCount" />
+    <result column="HAS_PHOTO" jdbcType="INTEGER" property="hasPhoto" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    FOOT_ID, FOOT_CONTENT, CREATE_TIME, PRAISE_COUNT, HAS_PHOTO, ARCHIVE_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_FOOT
+    where FOOT_ID = #{footId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_FOOT
+    where FOOT_ID = #{footId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunFoot">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="footId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_FOOT_FOOT_ID
+    </selectKey>
+    insert into FUN_FOOT (FOOT_ID, FOOT_CONTENT, CREATE_TIME, 
+      PRAISE_COUNT, HAS_PHOTO, ARCHIVE_ID
+      )
+    values (#{footId,jdbcType=INTEGER}, #{footContent,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{praiseCount,jdbcType=INTEGER}, #{hasPhoto,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunFoot">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="footId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_FOOT_FOOT_ID
+    </selectKey>
+    insert into FUN_FOOT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      FOOT_ID,
+      <if test="footContent != null">
+        FOOT_CONTENT,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="praiseCount != null">
+        PRAISE_COUNT,
+      </if>
+      <if test="hasPhoto != null">
+        HAS_PHOTO,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{footId,jdbcType=INTEGER},
+      <if test="footContent != null">
+        #{footContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="praiseCount != null">
+        #{praiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasPhoto != null">
+        #{hasPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunFoot">
+    <!--@mbggenerated-->
+    update FUN_FOOT
+    <set>
+      <if test="footContent != null">
+        FOOT_CONTENT = #{footContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="praiseCount != null">
+        PRAISE_COUNT = #{praiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasPhoto != null">
+        HAS_PHOTO = #{hasPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where FOOT_ID = #{footId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunFoot">
+    <!--@mbggenerated-->
+    update FUN_FOOT
+    set FOOT_CONTENT = #{footContent,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      PRAISE_COUNT = #{praiseCount,jdbcType=INTEGER},
+      HAS_PHOTO = #{hasPhoto,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+    where FOOT_ID = #{footId,jdbcType=INTEGER}
+  </update>
+</mapper>

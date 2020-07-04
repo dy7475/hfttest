@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyVoipAmountMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyVoipAmount" >
+    <!--@mbggenerated-->
+    <id column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="UA_ID" property="uaId" jdbcType="INTEGER" />
+    <result column="IP_AMOUNT" property="ipAmount" jdbcType="NUMERIC" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    USER_MOBILE, ARCHIVE_ID, UA_ID, IP_AMOUNT, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from VOIP_AMOUNT
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    delete from VOIP_AMOUNT
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyVoipAmount" >
+    <!--@mbggenerated-->
+    insert into VOIP_AMOUNT (USER_MOBILE, ARCHIVE_ID, UA_ID, 
+      IP_AMOUNT, CREATE_TIME)
+    values (#{userMobile,jdbcType=VARCHAR}, #{archiveId,jdbcType=INTEGER}, #{uaId,jdbcType=INTEGER}, 
+      #{ipAmount,jdbcType=NUMERIC}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyVoipAmount" >
+    <!--@mbggenerated-->
+    insert into VOIP_AMOUNT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="uaId != null" >
+        UA_ID,
+      </if>
+      <if test="ipAmount != null" >
+        IP_AMOUNT,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null" >
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="ipAmount != null" >
+        #{ipAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyVoipAmount" >
+    <!--@mbggenerated-->
+    update VOIP_AMOUNT
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null" >
+        UA_ID = #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="ipAmount != null" >
+        IP_AMOUNT = #{ipAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyVoipAmount" >
+    <!--@mbggenerated-->
+    update VOIP_AMOUNT
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      UA_ID = #{uaId,jdbcType=INTEGER},
+      IP_AMOUNT = #{ipAmount,jdbcType=NUMERIC},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+  </update>
+</mapper>

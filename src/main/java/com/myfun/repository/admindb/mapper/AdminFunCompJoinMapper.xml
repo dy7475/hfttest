@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunCompJoinMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunCompJoin" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="MAIN_COMP_NO" property="mainCompNo" jdbcType="VARCHAR" />
+    <result column="SUB_COMP_NO" property="subCompNo" jdbcType="VARCHAR" />
+    <result column="FLAG" property="flag" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, MAIN_COMP_NO, SUB_COMP_NO, FLAG, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_COMP_JOIN
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_COMP_JOIN
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunCompJoin" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_COMP_JOIN (MAIN_COMP_NO, SUB_COMP_NO, FLAG, 
+      CREATE_TIME, UPDATE_TIME)
+    values (#{mainCompNo,jdbcType=VARCHAR}, #{subCompNo,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunCompJoin" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_COMP_JOIN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mainCompNo != null" >
+        MAIN_COMP_NO,
+      </if>
+      <if test="subCompNo != null" >
+        SUB_COMP_NO,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mainCompNo != null" >
+        #{mainCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompNo != null" >
+        #{subCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunCompJoin" >
+    <!--@mbggenerated-->
+    update FUN_COMP_JOIN
+    <set >
+      <if test="mainCompNo != null" >
+        MAIN_COMP_NO = #{mainCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompNo != null" >
+        SUB_COMP_NO = #{subCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunCompJoin" >
+    <!--@mbggenerated-->
+    update FUN_COMP_JOIN
+    set MAIN_COMP_NO = #{mainCompNo,jdbcType=VARCHAR},
+      SUB_COMP_NO = #{subCompNo,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- business -->
+  <update id="updateBySubCompNo" parameterType="com.myfun.repository.admindb.po.AdminFunCompJoin" >
+    update FUN_COMP_JOIN
+    <set >
+      <if test="mainCompNo != null" >
+        MAIN_COMP_NO = #{mainCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SUB_COMP_NO = #{subCompNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBySubCompNoAndMainCompNo" parameterType="com.myfun.repository.admindb.po.AdminFunCompJoin" >
+    update FUN_COMP_JOIN
+    <set >
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SUB_COMP_NO = #{subCompNo,jdbcType=VARCHAR}
+    	and MAIN_COMP_NO = #{mainCompNo,jdbcType=VARCHAR}
+  </update>
+   <select id="selectBySubCompNo" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_COMP_JOIN
+    where SUB_COMP_NO = #{subCompNo,jdbcType=VARCHAR}
+  </select>
+</mapper>

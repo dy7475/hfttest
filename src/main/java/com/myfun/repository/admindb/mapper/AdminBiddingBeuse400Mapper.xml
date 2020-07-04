@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminBiddingBeuse400Mapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminBiddingBeuse400" >
+    <!--@mbggenerated-->
+    <id column="NEW_ID" property="newId" jdbcType="VARCHAR" />
+    <result column="BIG_CODE" property="bigCode" jdbcType="VARCHAR" />
+    <result column="EXT_CODE" property="extCode" jdbcType="VARCHAR" />
+    <result column="OCCUPY" property="occupy" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    NEW_ID, BIG_CODE, EXT_CODE, OCCUPY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BIDDING_BEUSE_400
+    where NEW_ID = #{newId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    delete from BIDDING_BEUSE_400
+    where NEW_ID = #{newId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminBiddingBeuse400" >
+    <!--@mbggenerated-->
+    insert into BIDDING_BEUSE_400 (NEW_ID, BIG_CODE, EXT_CODE, 
+      OCCUPY)
+    values (#{newId,jdbcType=VARCHAR}, #{bigCode,jdbcType=VARCHAR}, #{extCode,jdbcType=VARCHAR}, 
+      #{occupy,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminBiddingBeuse400" >
+    <!--@mbggenerated-->
+    insert into BIDDING_BEUSE_400
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="newId != null" >
+        NEW_ID,
+      </if>
+      <if test="bigCode != null" >
+        BIG_CODE,
+      </if>
+      <if test="extCode != null" >
+        EXT_CODE,
+      </if>
+      <if test="occupy != null" >
+        OCCUPY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="newId != null" >
+        #{newId,jdbcType=VARCHAR},
+      </if>
+      <if test="bigCode != null" >
+        #{bigCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extCode != null" >
+        #{extCode,jdbcType=VARCHAR},
+      </if>
+      <if test="occupy != null" >
+        #{occupy,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminBiddingBeuse400" >
+    <!--@mbggenerated-->
+    update BIDDING_BEUSE_400
+    <set >
+      <if test="bigCode != null" >
+        BIG_CODE = #{bigCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extCode != null" >
+        EXT_CODE = #{extCode,jdbcType=VARCHAR},
+      </if>
+      <if test="occupy != null" >
+        OCCUPY = #{occupy,jdbcType=TINYINT},
+      </if>
+    </set>
+    where NEW_ID = #{newId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminBiddingBeuse400" >
+    <!--@mbggenerated-->
+    update BIDDING_BEUSE_400
+    set BIG_CODE = #{bigCode,jdbcType=VARCHAR},
+      EXT_CODE = #{extCode,jdbcType=VARCHAR},
+      OCCUPY = #{occupy,jdbcType=TINYINT}
+    where NEW_ID = #{newId,jdbcType=VARCHAR}
+  </update>
+</mapper>

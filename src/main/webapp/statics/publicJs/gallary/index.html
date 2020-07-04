@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<script type="text/javascript" src="../jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="../jquery.myfun7.js"></script>
+<link rel="stylesheet" type="text/css" href="gallary.css"/>
+<script type="text/javascript">
+var imgs = "http://pic.myfun7.com.cn/pic/hftpic/house/2012/07/1_1/V91H9/SmallPic/SALE_FUN/V91H9120719002_326716518.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/2012/07/1_1/V91H9/SmallPic/SALE_FUN/V91H9120719002_326716519.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/2012/07/1_1/V91H9/SmallPic/SALE_FUN/V91H9120719002_326716520.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/2012/07/1_1/V91H9/SmallPic/SALE_FUN/V91H9120719002_326716521.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/2012/07/1_1/V91H9/SmallPic/SALE_FUN/V91H9120719002_326716522.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57892.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57893.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57894.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57895.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57896.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57897.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57890.jpg,http://pic.myfun7.com.cn/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57891.jpg";
+function initP(){
+	$(this).gallary(imgs);
+}
+$(document).ready(function(){
+//	$(this).gallary(imgs,{initPage:true,upload:function(){alert(1);}});
+	$(this).gallary(imgs,{upload:function(){alert(1);}});
+});
+</script>
+  </head>
+  
+  <body>
+<img src="http://pic.myfun7.com/pic/hftpic/house/SmallPic/BUILDING/1_1/1112992_57891.jpg" onclick="initP()"/>
+  </body>
+</html>

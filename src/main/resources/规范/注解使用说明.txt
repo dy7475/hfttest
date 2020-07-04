@@ -1,0 +1,11 @@
+
+1、参数必须使用@RequestBody注解，表示参数流中获取参数，和前端传参规范一致
+@Valid 参数需要验证使用此注解，需配合@NotEmpty @NotBlank @NotNull等注解使用
+例：
+	public ResponseJson getSOSOPhotoList(@Valid @RequestBody SoSoSaleListParam param){
+		
+	}
+
+
+
+

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyBuildingBoundMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyBuildingBound" >
+    <!--@mbggenerated-->
+    <id column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <id column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <id column="B_CITY_ID" property="bCityId" jdbcType="SMALLINT" />
+    <result column="CRM_USER_ID" property="crmUserId" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="DATE_LIMIT" property="dateLimit" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.SelectDto" id="extResultMap">
+    <result column="Text" property="text" jdbcType="VARCHAR" />
+    <result column="value" property="value" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyCompListDto" id="extResultMap2">
+    <id column="buildId" property="buildId" jdbcType="INTEGER" />
+    <id column="cityId" property="cityId" jdbcType="INTEGER" />
+    <id column="bCityId" property="bCityId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CITY_ID, BUILD_ID, B_CITY_ID, CRM_USER_ID, UPDATE_TIME, DATE_LIMIT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingBoundKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_BOUND
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingBoundKey" >
+    <!--@mbggenerated-->
+    delete from BUILDING_BOUND
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingBound" >
+    <!--@mbggenerated-->
+    insert into BUILDING_BOUND (CITY_ID, BUILD_ID, B_CITY_ID, 
+      CRM_USER_ID, UPDATE_TIME, DATE_LIMIT
+      )
+    values (#{cityId,jdbcType=SMALLINT}, #{buildId,jdbcType=INTEGER}, #{bCityId,jdbcType=SMALLINT}, 
+      #{crmUserId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{dateLimit,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingBound" >
+    <!--@mbggenerated-->
+    insert into BUILDING_BOUND
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="bCityId != null" >
+        B_CITY_ID,
+      </if>
+      <if test="crmUserId != null" >
+        CRM_USER_ID,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="dateLimit != null" >
+        DATE_LIMIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="bCityId != null" >
+        #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="crmUserId != null" >
+        #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateLimit != null" >
+        #{dateLimit,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingBound" >
+    <!--@mbggenerated-->
+    update BUILDING_BOUND
+    <set >
+      <if test="crmUserId != null" >
+        CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateLimit != null" >
+        DATE_LIMIT = #{dateLimit,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingBound" >
+    <!--@mbggenerated-->
+    update BUILDING_BOUND
+    set CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      DATE_LIMIT = #{dateLimit,jdbcType=TIMESTAMP}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </update>
+  <select id="getBuildingBoundList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	 select <include refid="Base_Column_List" /> from BUILDING_BOUND where BUILD_ID = #{buildId}
+  </select>
+  <select id="getCityList" resultMap="extResultMap" parameterType="java.util.Map">
+  	 select CITY_ID as Text,CITY_NAME as value,(case CITY_ID when #{cityId} then 1 else 0 end) MY_CITY from FUN_CITY
+  	 <where>
+	  	 <if test="null != isAllCity and isAllCity == 0">
+	  	 	and CITY_ID IN (select CITY_ID from building_bound where build_id = #{buildId})
+	  	 </if>
+  	 </where>
+  	 order by MY_CITY desc,PROVINCE_ID,SEQ_NO
+  </select>
+  <select id="getSelectCityList" parameterType="java.util.Map" resultMap="extResultMap2">
+  		select CITY_ID cityId,B_CITY_ID bCityId,BUILD_ID buildId
+  		FROM BUILDING_BOUND WHERE B_CITY_ID = #{cityId} and BUILD_ID=#{buildId}
+  </select>
+  
+</mapper>

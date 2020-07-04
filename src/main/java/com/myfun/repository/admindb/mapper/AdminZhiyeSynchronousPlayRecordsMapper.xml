@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminZhiyeSynchronousPlayRecordsMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecords">
+    <!--@mbggenerated-->
+    <id column="RECORDS_ID" jdbcType="INTEGER" property="recordsId" />
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="BROKER_ID" jdbcType="INTEGER" property="brokerId" />
+    <result column="TARGET_ID" jdbcType="INTEGER" property="targetId" />
+    <result column="TARGET_NAME" jdbcType="VARCHAR" property="targetName" />
+    <result column="TARGET_TYPE" jdbcType="INTEGER" property="targetType" />
+    <result column="COURSE_ID" jdbcType="INTEGER" property="courseId" />
+    <result column="COURSE_NAME" jdbcType="INTEGER" property="courseName" />
+    <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId" />
+    <result column="SUBJECT_NAME" jdbcType="VARCHAR" property="subjectName" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    RECORDS_ID, ID, BROKER_ID, TARGET_ID, TARGET_NAME, TARGET_TYPE, COURSE_ID, COURSE_NAME, 
+    SUBJECT_ID, SUBJECT_NAME, CREATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecordsExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    where RECORDS_ID = #{recordsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    where RECORDS_ID = #{recordsId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecordsExample">
+    <!--@mbggenerated-->
+    delete from ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="recordsId" parameterType="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecords" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ZHIYE_SYNCHRONOUS_PLAY_RECORDS (ID, BROKER_ID, TARGET_ID, 
+      TARGET_NAME, TARGET_TYPE, COURSE_ID, 
+      COURSE_NAME, SUBJECT_ID, SUBJECT_NAME, 
+      CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{brokerId,jdbcType=INTEGER}, #{targetId,jdbcType=INTEGER}, 
+      #{targetName,jdbcType=VARCHAR}, #{targetType,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, 
+      #{courseName,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, #{subjectName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="recordsId" parameterType="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecords" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="brokerId != null">
+        BROKER_ID,
+      </if>
+      <if test="targetId != null">
+        TARGET_ID,
+      </if>
+      <if test="targetName != null">
+        TARGET_NAME,
+      </if>
+      <if test="targetType != null">
+        TARGET_TYPE,
+      </if>
+      <if test="courseId != null">
+        COURSE_ID,
+      </if>
+      <if test="courseName != null">
+        COURSE_NAME,
+      </if>
+      <if test="subjectId != null">
+        SUBJECT_ID,
+      </if>
+      <if test="subjectName != null">
+        SUBJECT_NAME,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="brokerId != null">
+        #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="targetId != null">
+        #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="targetName != null">
+        #{targetName,jdbcType=VARCHAR},
+      </if>
+      <if test="targetType != null">
+        #{targetType,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="courseName != null">
+        #{courseName,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null">
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectName != null">
+        #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecordsExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    <set>
+      <if test="record.recordsId != null">
+        RECORDS_ID = #{record.recordsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.brokerId != null">
+        BROKER_ID = #{record.brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetId != null">
+        TARGET_ID = #{record.targetId,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetName != null">
+        TARGET_NAME = #{record.targetName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetType != null">
+        TARGET_TYPE = #{record.targetType,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseId != null">
+        COURSE_ID = #{record.courseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseName != null">
+        COURSE_NAME = #{record.courseName,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectId != null">
+        SUBJECT_ID = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectName != null">
+        SUBJECT_NAME = #{record.subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    set RECORDS_ID = #{record.recordsId,jdbcType=INTEGER},
+      ID = #{record.id,jdbcType=INTEGER},
+      BROKER_ID = #{record.brokerId,jdbcType=INTEGER},
+      TARGET_ID = #{record.targetId,jdbcType=INTEGER},
+      TARGET_NAME = #{record.targetName,jdbcType=VARCHAR},
+      TARGET_TYPE = #{record.targetType,jdbcType=INTEGER},
+      COURSE_ID = #{record.courseId,jdbcType=INTEGER},
+      COURSE_NAME = #{record.courseName,jdbcType=INTEGER},
+      SUBJECT_ID = #{record.subjectId,jdbcType=INTEGER},
+      SUBJECT_NAME = #{record.subjectName,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecords">
+    <!--@mbggenerated-->
+    update ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    <set>
+      <if test="id != null">
+        ID = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="brokerId != null">
+        BROKER_ID = #{brokerId,jdbcType=INTEGER},
+      </if>
+      <if test="targetId != null">
+        TARGET_ID = #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="targetName != null">
+        TARGET_NAME = #{targetName,jdbcType=VARCHAR},
+      </if>
+      <if test="targetType != null">
+        TARGET_TYPE = #{targetType,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        COURSE_ID = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="courseName != null">
+        COURSE_NAME = #{courseName,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null">
+        SUBJECT_ID = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectName != null">
+        SUBJECT_NAME = #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where RECORDS_ID = #{recordsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminZhiyeSynchronousPlayRecords">
+    <!--@mbggenerated-->
+    update ZHIYE_SYNCHRONOUS_PLAY_RECORDS
+    set ID = #{id,jdbcType=INTEGER},
+      BROKER_ID = #{brokerId,jdbcType=INTEGER},
+      TARGET_ID = #{targetId,jdbcType=INTEGER},
+      TARGET_NAME = #{targetName,jdbcType=VARCHAR},
+      TARGET_TYPE = #{targetType,jdbcType=INTEGER},
+      COURSE_ID = #{courseId,jdbcType=INTEGER},
+      COURSE_NAME = #{courseName,jdbcType=INTEGER},
+      SUBJECT_ID = #{subjectId,jdbcType=INTEGER},
+      SUBJECT_NAME = #{subjectName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where RECORDS_ID = #{recordsId,jdbcType=INTEGER}
+  </update>
+</mapper>

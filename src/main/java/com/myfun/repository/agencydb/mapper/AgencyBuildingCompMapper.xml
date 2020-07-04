@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyBuildingCompMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyBuildingComp" >
+    <!--@mbggenerated-->
+    <id column="COMP_NO" property="compNo" jdbcType="VARCHAR" />
+    <id column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <id column="B_CITY_ID" property="bCityId" jdbcType="SMALLINT" />
+    <result column="CRM_USER_ID" property="crmUserId" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="DATE_LIMIT" property="dateLimit" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyCompListDto" id="extResultMap">
+  	<id column="buildId" property="buildId" jdbcType="INTEGER" />
+    <id column="cityId" property="cityId" jdbcType="INTEGER" />
+    <id column="compNo" property="compNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    COMP_NO, BUILD_ID, B_CITY_ID, CRM_USER_ID, UPDATE_TIME, DATE_LIMIT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingCompKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_COMP
+    where COMP_NO = #{compNo,jdbcType=VARCHAR}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingCompKey" >
+    <!--@mbggenerated-->
+    delete from BUILDING_COMP
+    where COMP_NO = #{compNo,jdbcType=VARCHAR}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingComp" >
+    <!--@mbggenerated-->
+    insert into BUILDING_COMP (COMP_NO, BUILD_ID, B_CITY_ID, 
+      CRM_USER_ID, UPDATE_TIME, DATE_LIMIT
+      )
+    values (#{compNo,jdbcType=VARCHAR}, #{buildId,jdbcType=INTEGER}, #{bCityId,jdbcType=SMALLINT}, 
+      #{crmUserId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{dateLimit,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingComp" >
+    <!--@mbggenerated-->
+    insert into BUILDING_COMP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compNo != null" >
+        COMP_NO,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="bCityId != null" >
+        B_CITY_ID,
+      </if>
+      <if test="crmUserId != null" >
+        CRM_USER_ID,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="dateLimit != null" >
+        DATE_LIMIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compNo != null" >
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="bCityId != null" >
+        #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="crmUserId != null" >
+        #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateLimit != null" >
+        #{dateLimit,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingComp" >
+    <!--@mbggenerated-->
+    update BUILDING_COMP
+    <set >
+      <if test="crmUserId != null" >
+        CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateLimit != null" >
+        DATE_LIMIT = #{dateLimit,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where COMP_NO = #{compNo,jdbcType=VARCHAR}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingComp" >
+    <!--@mbggenerated-->
+    update BUILDING_COMP
+    set CRM_USER_ID = #{crmUserId,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      DATE_LIMIT = #{dateLimit,jdbcType=TIMESTAMP}
+    where COMP_NO = #{compNo,jdbcType=VARCHAR}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and B_CITY_ID = #{bCityId,jdbcType=SMALLINT}
+  </update>
+  <select id="getCompList" parameterType="java.util.Map" resultMap="extResultMap">
+  		SELECT COMP_NO compNo,B_CITY_ID cityId,BUILD_ID buildId
+        FROM BUILDING_COMP WHERE B_CITY_ID = #{cityId} and BUILD_ID=#{buildId}
+  </select>
+  <select id="countComp" parameterType="java.util.Map" resultType="java.lang.Integer">
+  	select count(1) from BUILDING_COMP where BUILD_ID = #{buildId} and B_CITY_ID = #{cityId}
+  </select>
+</mapper>

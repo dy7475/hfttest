@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunDeptFeeListMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunDeptFeeList">
+    <!--@mbggenerated-->
+    <id column="FEE_DETAIL_LIST_ID" jdbcType="INTEGER" property="feeDetailListId" />
+    <result column="DEPT_FEE_ID" jdbcType="INTEGER" property="deptFeeId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="FEE_NAME" jdbcType="VARCHAR" property="feeName" />
+    <result column="SEQ_NO" jdbcType="INTEGER" property="seqNo" />
+    <result column="FEE_AMOUNT" jdbcType="NUMERIC" property="feeAmount" />
+    <result column="STATUS" jdbcType="TINYINT" property="status" />
+    <result column="FEE_ID" jdbcType="INTEGER" property="feeId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_UID" jdbcType="INTEGER" property="createUid" />
+    <result column="FEE_NOTE" jdbcType="VARCHAR" property="feeNote" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="AUDIT_STATUS" jdbcType="TINYINT" property="auditStatus" />
+    <result column="AUDIT_UID" jdbcType="INTEGER" property="auditUid" />
+    <result column="AUDIT_USER_NAME" jdbcType="VARCHAR" property="auditUserName" />
+    <result column="AUDIT_TIME" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="COUNT_TIME" jdbcType="TIMESTAMP" property="countTime" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="BILL_PIC_URL" jdbcType="VARCHAR" property="billPicUrl" />
+    <result column="PARTNER_ID" jdbcType="INTEGER" property="partnerId" />
+    <result column="ORGANIZATION_PATH" jdbcType="VARCHAR" property="organizationPath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    FEE_DETAIL_LIST_ID, DEPT_FEE_ID, DEPT_ID, FEE_NAME, SEQ_NO, FEE_AMOUNT, [STATUS], 
+    FEE_ID, CREATE_TIME, CREATE_UID, FEE_NOTE, COMP_ID, AREA_ID, REG_ID, AUDIT_STATUS, 
+    AUDIT_UID, AUDIT_USER_NAME, AUDIT_TIME, COUNT_TIME, GR_ID, BILL_PIC_URL, PARTNER_ID, 
+    ORGANIZATION_PATH
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeListExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_DEPT_FEE_LIST
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_DEPT_FEE_LIST
+    where FEE_DETAIL_LIST_ID = #{feeDetailListId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_DEPT_FEE_LIST
+    where FEE_DETAIL_LIST_ID = #{feeDetailListId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeListExample">
+    <!--@mbggenerated-->
+    delete from FUN_DEPT_FEE_LIST
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="feeDetailListId" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeList" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_DEPT_FEE_LIST (DEPT_FEE_ID, DEPT_ID, FEE_NAME, 
+      SEQ_NO, FEE_AMOUNT, [STATUS], 
+      FEE_ID, CREATE_TIME, CREATE_UID, 
+      FEE_NOTE, COMP_ID, AREA_ID, 
+      REG_ID, AUDIT_STATUS, AUDIT_UID, 
+      AUDIT_USER_NAME, AUDIT_TIME, COUNT_TIME, 
+      GR_ID, BILL_PIC_URL, PARTNER_ID, 
+      ORGANIZATION_PATH)
+    values (#{deptFeeId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{feeName,jdbcType=VARCHAR}, 
+      #{seqNo,jdbcType=INTEGER}, #{feeAmount,jdbcType=NUMERIC}, #{status,jdbcType=TINYINT}, 
+      #{feeId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createUid,jdbcType=INTEGER}, 
+      #{feeNote,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{regId,jdbcType=INTEGER}, #{auditStatus,jdbcType=TINYINT}, #{auditUid,jdbcType=INTEGER}, 
+      #{auditUserName,jdbcType=VARCHAR}, #{auditTime,jdbcType=TIMESTAMP}, #{countTime,jdbcType=TIMESTAMP}, 
+      #{grId,jdbcType=INTEGER}, #{billPicUrl,jdbcType=VARCHAR}, #{partnerId,jdbcType=INTEGER}, 
+      #{organizationPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="feeDetailListId" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeList" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_DEPT_FEE_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptFeeId != null">
+        DEPT_FEE_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="feeName != null">
+        FEE_NAME,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="feeAmount != null">
+        FEE_AMOUNT,
+      </if>
+      <if test="status != null">
+        [STATUS],
+      </if>
+      <if test="feeId != null">
+        FEE_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createUid != null">
+        CREATE_UID,
+      </if>
+      <if test="feeNote != null">
+        FEE_NOTE,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="auditUid != null">
+        AUDIT_UID,
+      </if>
+      <if test="auditUserName != null">
+        AUDIT_USER_NAME,
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME,
+      </if>
+      <if test="countTime != null">
+        COUNT_TIME,
+      </if>
+      <if test="grId != null">
+        GR_ID,
+      </if>
+      <if test="billPicUrl != null">
+        BILL_PIC_URL,
+      </if>
+      <if test="partnerId != null">
+        PARTNER_ID,
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptFeeId != null">
+        #{deptFeeId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="feeName != null">
+        #{feeName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="feeAmount != null">
+        #{feeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="feeId != null">
+        #{feeId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null">
+        #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="feeNote != null">
+        #{feeNote,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditUid != null">
+        #{auditUid,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserName != null">
+        #{auditUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="countTime != null">
+        #{countTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grId != null">
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="billPicUrl != null">
+        #{billPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationPath != null">
+        #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeListExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_DEPT_FEE_LIST
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_LIST
+    <set>
+      <if test="record.feeDetailListId != null">
+        FEE_DETAIL_LIST_ID = #{record.feeDetailListId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptFeeId != null">
+        DEPT_FEE_ID = #{record.deptFeeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.feeName != null">
+        FEE_NAME = #{record.feeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seqNo != null">
+        SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.feeAmount != null">
+        FEE_AMOUNT = #{record.feeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.status != null">
+        [STATUS] = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.feeId != null">
+        FEE_ID = #{record.feeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUid != null">
+        CREATE_UID = #{record.createUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.feeNote != null">
+        FEE_NOTE = #{record.feeNote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null">
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null">
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditStatus != null">
+        AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.auditUid != null">
+        AUDIT_UID = #{record.auditUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditUserName != null">
+        AUDIT_USER_NAME = #{record.auditUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditTime != null">
+        AUDIT_TIME = #{record.auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.countTime != null">
+        COUNT_TIME = #{record.countTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.grId != null">
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.billPicUrl != null">
+        BILL_PIC_URL = #{record.billPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partnerId != null">
+        PARTNER_ID = #{record.partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationPath != null">
+        ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_LIST
+    set FEE_DETAIL_LIST_ID = #{record.feeDetailListId,jdbcType=INTEGER},
+      DEPT_FEE_ID = #{record.deptFeeId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      FEE_NAME = #{record.feeName,jdbcType=VARCHAR},
+      SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      FEE_AMOUNT = #{record.feeAmount,jdbcType=NUMERIC},
+      [STATUS] = #{record.status,jdbcType=TINYINT},
+      FEE_ID = #{record.feeId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      CREATE_UID = #{record.createUid,jdbcType=INTEGER},
+      FEE_NOTE = #{record.feeNote,jdbcType=VARCHAR},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      AUDIT_UID = #{record.auditUid,jdbcType=INTEGER},
+      AUDIT_USER_NAME = #{record.auditUserName,jdbcType=VARCHAR},
+      AUDIT_TIME = #{record.auditTime,jdbcType=TIMESTAMP},
+      COUNT_TIME = #{record.countTime,jdbcType=TIMESTAMP},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      BILL_PIC_URL = #{record.billPicUrl,jdbcType=VARCHAR},
+      PARTNER_ID = #{record.partnerId,jdbcType=INTEGER},
+      ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeList">
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_LIST
+    <set>
+      <if test="deptFeeId != null">
+        DEPT_FEE_ID = #{deptFeeId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="feeName != null">
+        FEE_NAME = #{feeName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="feeAmount != null">
+        FEE_AMOUNT = #{feeAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="status != null">
+        [STATUS] = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="feeId != null">
+        FEE_ID = #{feeId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null">
+        CREATE_UID = #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="feeNote != null">
+        FEE_NOTE = #{feeNote,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditUid != null">
+        AUDIT_UID = #{auditUid,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserName != null">
+        AUDIT_USER_NAME = #{auditUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="countTime != null">
+        COUNT_TIME = #{countTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grId != null">
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="billPicUrl != null">
+        BILL_PIC_URL = #{billPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FEE_DETAIL_LIST_ID = #{feeDetailListId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeList">
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_LIST
+    set DEPT_FEE_ID = #{deptFeeId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      FEE_NAME = #{feeName,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      FEE_AMOUNT = #{feeAmount,jdbcType=NUMERIC},
+      [STATUS] = #{status,jdbcType=TINYINT},
+      FEE_ID = #{feeId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_UID = #{createUid,jdbcType=INTEGER},
+      FEE_NOTE = #{feeNote,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      AUDIT_UID = #{auditUid,jdbcType=INTEGER},
+      AUDIT_USER_NAME = #{auditUserName,jdbcType=VARCHAR},
+      AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      COUNT_TIME = #{countTime,jdbcType=TIMESTAMP},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      BILL_PIC_URL = #{billPicUrl,jdbcType=VARCHAR},
+      PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR}
+    where FEE_DETAIL_LIST_ID = #{feeDetailListId,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="extBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunDeptFeeListDto">
+  </resultMap>
+
+  <select id="getFunDeptFeeList" resultMap="extBaseResultMap">
+    select <include refid="Base_Column_List" /> from FUN_DEPT_FEE_LIST
+    <where>
+        <if test="null != compId">
+           and comp_id=#{compId} and STATUS=0
+        </if>
+        <if test="param.isNewOrganization == false">
+	        <if test="null != param.areaId">
+	           and AREA_ID=#{param.areaId}
+	        </if>
+	        <if test="null != param.regId">
+	           and REG_ID=#{param.regId}
+	        </if>
+	        <if test="null != param.deptId">
+	           and DEPT_ID=#{param.deptId}
+	        </if>
+	        <if test="null != param.grId">
+	           and GR_ID=#{param.grId}
+	        </if>
+	    </if>
+        <if test="param.isNewOrganization == true and param.organizationId &gt; 0">
+        	AND ORGANIZATION_PATH like '%:${param.organizationId}:%'
+        </if>
+        <if test="null != param.feeId">
+           and FEE_ID=#{param.feeId}
+        </if>
+        <if test="null != param.openPartner and 1 == param.openPartner">
+           and PARTNER_ID = #{param.partnerId}
+		</if>
+        <choose>
+            <when test="1==param.timeType">
+              and CONVERT (varchar(7), COUNT_TIME, 120 )= CONVERT (varchar(7), #{param.startTime}, 120 )
+            </when>
+            <when test="2==param.timeType">
+              and CREATE_TIME &gt;= #{param.startTime} and CREATE_TIME &lt;= #{param.endTime}
+            </when>
+            <when test="3==param.timeType">
+              and AUDIT_STATUS = 1 and AUDIT_TIME &gt;= #{param.startTime} and AUDIT_TIME &lt;= #{param.endTime}
+            </when>
+        </choose>
+    </where>
+    ORDER BY FEE_DETAIL_LIST_ID desc
+  </select>
+  <update id="audtiDeptFeeById">
+    update FUN_DEPT_FEE_LIST set AUDIT_STATUS = #{param.auditStatus},
+      AUDIT_TIME = #{param.auditTime},AUDIT_USER_NAME=#{param.auditUserName},AUDIT_UID=#{param.auditUid}
+    where FEE_DETAIL_LIST_ID IN <foreach close=")" collection="param.deptFeeListIdSet" item="listId" open="(" separator=",">
+      #{listId}
+  </foreach>
+  </update>
+  <select id="summaryFunFeeList" resultMap="BaseResultMap">
+    SELECT DEPT_ID,FEE_ID,sum(FEE_AMOUNT) FEE_AMOUNT, FEE_NAME
+    from FUN_DEPT_FEE_LIST
+    <where>
+      <if test="null != compId">
+        and comp_id=#{compId} and STATUS=0
+      </if>
+      <if test="param.isNewOrganization == false">
+        <if test="null != param.areaId">
+           and AREA_ID=#{param.areaId}
+        </if>
+        <if test="null != param.regId">
+           and REG_ID=#{param.regId}
+        </if>
+        <if test="null != param.deptId">
+           and DEPT_ID=#{param.deptId}
+        </if>
+        <if test="null != param.grId">
+           and GR_ID=#{param.grId}
+        </if>
+	  </if>
+      <if test="param.isNewOrganization == true and param.organizationId &gt; 0">
+		AND ORGANIZATION_PATH like '%:${param.organizationId}:%'
+      </if>
+      <if test="null != param.feeId">
+        and FEE_ID=#{param.feeId}
+      </if>
+      <if test="null != param.openPartner and 1 == param.openPartner">
+		and PARTNER_ID = #{param.partnerId}
+	  </if>
+      <choose>
+        <when test="1==param.timeType">
+          and CONVERT (varchar(7), COUNT_TIME, 120 )= CONVERT (varchar(7), #{param.startTime}, 120 )
+        </when>
+        <when test="2==param.timeType">
+          and CREATE_TIME &gt;= #{param.startTime} and CREATE_TIME &lt;= #{param.endTime}
+        </when>
+        <when test="3==param.timeType">
+          and AUDIT_TIME &gt;= #{param.startTime} and AUDIT_TIME &lt;= #{param.endTime}
+        </when>
+      </choose>
+    </where>
+    GROUP BY FEE_ID,DEPT_ID,FEE_NAME
+  </select>
+
+  <select id="updateFunDeptFeeList">
+    update FUN_DEPT_FEE_LIST set FUN_DEPT_FEE_LIST.FEE_AMOUNT=#{feeAmount},FUN_DEPT_FEE_LIST.STATUS = 0, FUN_DEPT_FEE_LIST.PARTNER_ID = #{partnerId} FROM FUN_DEPT_FEE_LIST
+    LEFT JOIN FUN_DEPT_FEE_DETAIL ON FUN_DEPT_FEE_LIST.DEPT_FEE_ID = FUN_DEPT_FEE_DETAIL.DEPT_FEE_ID
+    where  FUN_DEPT_FEE_DETAIL.COUNT_TIME = #{currentTime}  and ADUIT_STATUS != 1 and FEE_ID = #{feeId}
+  </select>
+
+  <update id="updateInfoByPrimaryKey">
+    update FUN_DEPT_FEE_LIST
+    set FUN_DEPT_FEE_LIST.COUNT_TIME = #{countTime},
+    FUN_DEPT_FEE_LIST.FEE_AMOUNT = #{feeAmount},
+    FUN_DEPT_FEE_LIST.FEE_NOTE=#{feeNote}
+    where FEE_DETAIL_LIST_ID =#{feeDetailListId}
+  </update>
+
+  <update id="updateDeptFeeBillPic">
+    update FUN_DEPT_FEE_LIST
+    set FUN_DEPT_FEE_LIST.BILL_PIC_URL = #{billPicUrl}
+    where FEE_DETAIL_LIST_ID =#{feeDetailListId}
+  </update>
+</mapper>

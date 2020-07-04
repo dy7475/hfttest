@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminStatusDicMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminStatusDic" >
+    <!--@mbggenerated-->
+    <id column="STATUS_ID" property="statusId" jdbcType="TINYINT" />
+    <result column="S_DESC" property="sDesc" jdbcType="VARCHAR" />
+    <result column="SHOW_NAME" property="showName" jdbcType="VARCHAR" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+    <result column="SEQ" property="seq" jdbcType="TINYINT" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    STATUS_ID, S_DESC, SHOW_NAME, MEMO, SEQ, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Byte" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from STATUS_DIC
+    where STATUS_ID = #{statusId,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte" >
+    <!--@mbggenerated-->
+    delete from STATUS_DIC
+    where STATUS_ID = #{statusId,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminStatusDic" >
+    <!--@mbggenerated-->
+    insert into STATUS_DIC (STATUS_ID, S_DESC, SHOW_NAME, 
+      MEMO, SEQ, UPDATE_TIME
+      )
+    values (#{statusId,jdbcType=TINYINT}, #{sDesc,jdbcType=VARCHAR}, #{showName,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{seq,jdbcType=TINYINT}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminStatusDic" >
+    <!--@mbggenerated-->
+    insert into STATUS_DIC
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="statusId != null" >
+        STATUS_ID,
+      </if>
+      <if test="sDesc != null" >
+        S_DESC,
+      </if>
+      <if test="showName != null" >
+        SHOW_NAME,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="statusId != null" >
+        #{statusId,jdbcType=TINYINT},
+      </if>
+      <if test="sDesc != null" >
+        #{sDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="showName != null" >
+        #{showName,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminStatusDic" >
+    <!--@mbggenerated-->
+    update STATUS_DIC
+    <set >
+      <if test="sDesc != null" >
+        S_DESC = #{sDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="showName != null" >
+        SHOW_NAME = #{showName,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        SEQ = #{seq,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where STATUS_ID = #{statusId,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminStatusDic" >
+    <!--@mbggenerated-->
+    update STATUS_DIC
+    set S_DESC = #{sDesc,jdbcType=VARCHAR},
+      SHOW_NAME = #{showName,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      SEQ = #{seq,jdbcType=TINYINT},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where STATUS_ID = #{statusId,jdbcType=TINYINT}
+  </update>
+</mapper>

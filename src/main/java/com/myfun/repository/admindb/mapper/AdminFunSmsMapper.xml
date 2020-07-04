@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunSmsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunSms" >
+    <!--@mbggenerated-->
+    <id column="SMS_ID" property="smsId" jdbcType="INTEGER" />
+    <result column="BID" property="bid" jdbcType="INTEGER" />
+    <result column="UA_ID" property="uaId" jdbcType="INTEGER" />
+    <result column="PAID_ID" property="paidId" jdbcType="INTEGER" />
+    <result column="RECEIVER" property="receiver" jdbcType="VARCHAR" />
+    <result column="MSG" property="msg" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="FLAG" property="flag" jdbcType="TINYINT" />
+    <result column="TOTAL_PRICE" property="totalPrice" jdbcType="DOUBLE" />
+    <result column="DEAL_TIME" property="dealTime" jdbcType="TIMESTAMP" />
+    <result column="SEQ" property="seq" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    SMS_ID, BID, UA_ID, PAID_ID, RECEIVER, MSG, CREATION_TIME, FLAG, TOTAL_PRICE, DEAL_TIME, 
+    SEQ
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_SMS
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_SMS
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunSms" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="smsId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_SMS (BID, UA_ID, PAID_ID, 
+      RECEIVER, MSG, CREATION_TIME, 
+      FLAG, TOTAL_PRICE, DEAL_TIME, 
+      SEQ)
+    values (#{bid,jdbcType=INTEGER}, #{uaId,jdbcType=INTEGER}, #{paidId,jdbcType=INTEGER}, 
+      #{receiver,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=TINYINT}, #{totalPrice,jdbcType=DOUBLE}, #{dealTime,jdbcType=TIMESTAMP}, 
+      #{seq,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunSms" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="smsId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_SMS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        BID,
+      </if>
+      <if test="uaId != null" >
+        UA_ID,
+      </if>
+      <if test="paidId != null" >
+        PAID_ID,
+      </if>
+      <if test="receiver != null" >
+        RECEIVER,
+      </if>
+      <if test="msg != null" >
+        MSG,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="totalPrice != null" >
+        TOTAL_PRICE,
+      </if>
+      <if test="dealTime != null" >
+        DEAL_TIME,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null" >
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="paidId != null" >
+        #{paidId,jdbcType=INTEGER},
+      </if>
+      <if test="receiver != null" >
+        #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=TINYINT},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="dealTime != null" >
+        #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunSms" >
+    <!--@mbggenerated-->
+    update FUN_SMS
+    <set >
+      <if test="bid != null" >
+        BID = #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null" >
+        UA_ID = #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="paidId != null" >
+        PAID_ID = #{paidId,jdbcType=INTEGER},
+      </if>
+      <if test="receiver != null" >
+        RECEIVER = #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        MSG = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=TINYINT},
+      </if>
+      <if test="totalPrice != null" >
+        TOTAL_PRICE = #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="dealTime != null" >
+        DEAL_TIME = #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seq != null" >
+        SEQ = #{seq,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunSms" >
+    <!--@mbggenerated-->
+    update FUN_SMS
+    set BID = #{bid,jdbcType=INTEGER},
+      UA_ID = #{uaId,jdbcType=INTEGER},
+      PAID_ID = #{paidId,jdbcType=INTEGER},
+      RECEIVER = #{receiver,jdbcType=VARCHAR},
+      MSG = #{msg,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      FLAG = #{flag,jdbcType=TINYINT},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DOUBLE},
+      DEAL_TIME = #{dealTime,jdbcType=TIMESTAMP},
+      SEQ = #{seq,jdbcType=INTEGER}
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </update>
+</mapper>

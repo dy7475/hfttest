@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRfApplyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRfApplyInfo" >
+    <!--@mbggenerated-->
+    <id column="APPLY_ID" property="applyId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" />
+    <result column="SHOP_MOBILE" property="shopMobile" jdbcType="VARCHAR" />
+    <result column="CLERK" property="clerk" jdbcType="VARCHAR" />
+    <result column="BROKER_ID" property="brokerId" jdbcType="VARCHAR" />
+    <result column="BROKER_NAME" property="brokerName" jdbcType="VARCHAR" />
+    <result column="SEEHOUSE_MOBILE" property="seehouseMobile" jdbcType="VARCHAR" />
+    <result column="APPLY_AMOUNT" property="applyAmount" jdbcType="NUMERIC" />
+    <result column="TOTAL_AMOUNT" property="totalAmount" jdbcType="NUMERIC" />
+    <result column="PROPERTY_ADDRESS" property="propertyAddress" jdbcType="VARCHAR" />
+    <result column="PROPERTY_NAME" property="propertyName" jdbcType="VARCHAR" />
+    <result column="PROPERTY_AREA" property="propertyArea" jdbcType="NUMERIC" />
+    <result column="PRICE" property="price" jdbcType="NUMERIC" />
+    <result column="BUILD_TIME" property="buildTime" jdbcType="TIMESTAMP" />
+    <result column="NATURE_RIGHT" property="natureRight" jdbcType="VARCHAR" />
+    <result column="LURC" property="lurc" jdbcType="BIT" />
+    <result column="HOUSE_MORTAGAGE" property="houseMortagage" jdbcType="BIT" />
+    <result column="BUY_CONDITION" property="buyCondition" jdbcType="TINYINT" />
+    <result column="MARITAL_STATUS" property="maritalStatus" jdbcType="TINYINT" />
+    <result column="CENSUS" property="census" jdbcType="TINYINT" />
+    <result column="IS_SOCIALTAX" property="isSocialtax" jdbcType="TINYINT" />
+    <result column="SINGLE_NOTARIZ" property="singleNotariz" jdbcType="BIT" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="BANK_ID" property="bankId" jdbcType="INTEGER" />
+    <result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" />
+    <result column="ASSESS_ID" property="assessId" jdbcType="INTEGER" />
+    <result column="ASSESS_NAME" property="assessName" jdbcType="VARCHAR" />
+    <result column="ASSESS_TOTAL" property="assessTotal" jdbcType="NUMERIC" />
+    <result column="APPROVAL_SUM" property="approvalSum" jdbcType="NUMERIC" />
+    <result column="IS_CONTRACT" property="isContract" jdbcType="BIT" />
+    <result column="APPROVAL" property="approval" jdbcType="TINYINT" />
+    <result column="MORTGAGE" property="mortgage" jdbcType="BIT" />
+    <result column="REAL_COST" property="realCost" jdbcType="NUMERIC" />
+    <result column="PRIMARY_PERSON" property="primaryPerson" jdbcType="VARCHAR" />
+    <result column="PRIMARY_GENDER" property="primaryGender" jdbcType="BIT" />
+    <result column="PRIMARY_IDNUMBER" property="primaryIdnumber" jdbcType="VARCHAR" />
+    <result column="PRIMARY_MOBILE" property="primaryMobile" jdbcType="VARCHAR" />
+    <result column="SECONDARY_PERSON" property="secondaryPerson" jdbcType="VARCHAR" />
+    <result column="SECONDARY_GENDER" property="secondaryGender" jdbcType="BIT" />
+    <result column="SECONDARY_IDNUMBER" property="secondaryIdnumber" jdbcType="VARCHAR" />
+    <result column="SECONDARY_MOBILE" property="secondaryMobile" jdbcType="VARCHAR" />
+    <result column="AGENCY_COST" property="agencyCost" jdbcType="NUMERIC" />
+    <result column="LOAD_TYPE" property="loadType" jdbcType="VARCHAR" />
+    <result column="LEAD_CONDITIONS" property="leadConditions" jdbcType="BIT" />
+    <result column="EVALUATORS_ID" property="evaluatorsId" jdbcType="INTEGER" />
+    <result column="EVALUATORS_NAME" property="evaluatorsName" jdbcType="VARCHAR" />
+    <result column="EVALUATORS_MOBILE" property="evaluatorsMobile" jdbcType="VARCHAR" />
+    <result column="EVALUATE_TIME" property="evaluateTime" jdbcType="TIMESTAMP" />
+    <result column="BANKER_ID" property="bankerId" jdbcType="INTEGER" />
+    <result column="BANKER_NAME" property="bankerName" jdbcType="VARCHAR" />
+    <result column="BANKER_MOBILE" property="bankerMobile" jdbcType="VARCHAR" />
+    <result column="BANK_TIME" property="bankTime" jdbcType="TIMESTAMP" />
+    <result column="HOUSE_COMMISSIONERID" property="houseCommissionerid" jdbcType="INTEGER" />
+    <result column="HOUSE_COMMISSIONER" property="houseCommissioner" jdbcType="VARCHAR" />
+    <result column="COMMISSIONER_MOBILE" property="commissionerMobile" jdbcType="VARCHAR" />
+    <result column="HOUSE_TIME" property="houseTime" jdbcType="TIMESTAMP" />
+    <result column="ENDOPER_ID" property="endoperId" jdbcType="INTEGER" />
+    <result column="END_COMMISSIONER" property="endCommissioner" jdbcType="VARCHAR" />
+    <result column="END_COMMISSIONER_MOBILE" property="endCommissionerMobile" jdbcType="VARCHAR" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="APPLY_TIME" property="applyTime" jdbcType="TIMESTAMP" />
+    <result column="OTHER_ARCHIVE" property="otherArchive" jdbcType="VARCHAR" />
+    <result column="FLOW_ID" property="flowId" jdbcType="VARCHAR" />
+    <result column="PROCEDURE_ID" property="procedureId" jdbcType="INTEGER" />
+    <result column="IS_BANKMORTGAGE" property="isBankmortgage" jdbcType="BIT" />
+    <result column="IS_FORMALREPORT" property="isFormalreport" jdbcType="BIT" />
+    <result column="PROCESSING_TIME" property="processingTime" jdbcType="TIMESTAMP" />
+    <result column="TIME_SIGN" property="timeSign" jdbcType="TIMESTAMP" />
+    <result column="TRUE_REC_MONEY" property="trueRecMoney" jdbcType="NUMERIC" />
+    <result column="IS_RECKON" property="isReckon" jdbcType="BIT" />
+    <result column="LOAN_TIME" property="loanTime" jdbcType="TIMESTAMP" />
+    <result column="IS_AGENCYREQUEST" property="isAgencyrequest" jdbcType="BIT" />
+    <result column="BASE_COST" property="baseCost" jdbcType="NUMERIC" />
+    <result column="RISK_LEVE" property="riskLeve" jdbcType="VARCHAR" />
+    <result column="LOGOUT_WHY" property="logoutWhy" jdbcType="VARCHAR" />
+    <result column="APPLY_YEARS" property="applyYears" jdbcType="TINYINT" />
+    <result column="IS_CONTRACTSEND" property="isContractsend" jdbcType="TINYINT" />
+    <result column="IS_MORTGAGESEND" property="isMortgagesend" jdbcType="TINYINT" />
+    <result column="ASSESS_COST" property="assessCost" jdbcType="NUMERIC" />
+    <result column="MANAGER_ID" property="managerId" jdbcType="INTEGER" />
+    <result column="MANAGER_NAME" property="managerName" jdbcType="VARCHAR" />
+    <result column="MANAGER_MOBILE" property="managerMobile" jdbcType="VARCHAR" />
+    <result column="MANAGER_TIME" property="managerTime" jdbcType="TIMESTAMP" />
+    <result column="BANK_STATUS" property="bankStatus" jdbcType="BIT" />
+    <result column="ASSESSMENT" property="assessment" jdbcType="BIT" />
+    <result column="SAVE_TIME" property="saveTime" jdbcType="TIMESTAMP" />
+    <result column="FUND_PLACE" property="fundPlace" jdbcType="VARCHAR" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="REGISTRATION_COST" property="registrationCost" jdbcType="NUMERIC" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    APPLY_ID, DEPT_ID, DEPT_NAME, SHOP_MOBILE, CLERK, BROKER_ID, BROKER_NAME, SEEHOUSE_MOBILE, 
+    APPLY_AMOUNT, TOTAL_AMOUNT, PROPERTY_ADDRESS, PROPERTY_NAME, PROPERTY_AREA, PRICE, 
+    BUILD_TIME, NATURE_RIGHT, LURC, HOUSE_MORTAGAGE, BUY_CONDITION, MARITAL_STATUS, CENSUS, 
+    IS_SOCIALTAX, SINGLE_NOTARIZ, STATUS, BANK_ID, BANK_NAME, ASSESS_ID, ASSESS_NAME, 
+    ASSESS_TOTAL, APPROVAL_SUM, IS_CONTRACT, APPROVAL, MORTGAGE, REAL_COST, PRIMARY_PERSON, 
+    PRIMARY_GENDER, PRIMARY_IDNUMBER, PRIMARY_MOBILE, SECONDARY_PERSON, SECONDARY_GENDER, 
+    SECONDARY_IDNUMBER, SECONDARY_MOBILE, AGENCY_COST, LOAD_TYPE, LEAD_CONDITIONS, EVALUATORS_ID, 
+    EVALUATORS_NAME, EVALUATORS_MOBILE, EVALUATE_TIME, BANKER_ID, BANKER_NAME, BANKER_MOBILE, 
+    BANK_TIME, HOUSE_COMMISSIONERID, HOUSE_COMMISSIONER, COMMISSIONER_MOBILE, HOUSE_TIME, 
+    ENDOPER_ID, END_COMMISSIONER, END_COMMISSIONER_MOBILE, END_TIME, APPLY_TIME, OTHER_ARCHIVE, 
+    FLOW_ID, PROCEDURE_ID, IS_BANKMORTGAGE, IS_FORMALREPORT, PROCESSING_TIME, TIME_SIGN, 
+    TRUE_REC_MONEY, IS_RECKON, LOAN_TIME, IS_AGENCYREQUEST, BASE_COST, RISK_LEVE, LOGOUT_WHY, 
+    APPLY_YEARS, IS_CONTRACTSEND, IS_MORTGAGESEND, ASSESS_COST, MANAGER_ID, MANAGER_NAME, 
+    MANAGER_MOBILE, MANAGER_TIME, BANK_STATUS, ASSESSMENT, SAVE_TIME, FUND_PLACE, COMP_ID, 
+    REGISTRATION_COST
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RF_APPLY_INFO
+    where APPLY_ID = #{applyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RF_APPLY_INFO
+    where APPLY_ID = #{applyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRfApplyInfo" >
+    <!--@mbggenerated-->
+    insert into RF_APPLY_INFO (APPLY_ID, DEPT_ID, DEPT_NAME, 
+      SHOP_MOBILE, CLERK, BROKER_ID, 
+      BROKER_NAME, SEEHOUSE_MOBILE, APPLY_AMOUNT, 
+      TOTAL_AMOUNT, PROPERTY_ADDRESS, PROPERTY_NAME, 
+      PROPERTY_AREA, PRICE, BUILD_TIME, 
+      NATURE_RIGHT, LURC, HOUSE_MORTAGAGE, 
+      BUY_CONDITION, MARITAL_STATUS, CENSUS, 
+      IS_SOCIALTAX, SINGLE_NOTARIZ, STATUS, 
+      BANK_ID, BANK_NAME, ASSESS_ID, 
+      ASSESS_NAME, ASSESS_TOTAL, APPROVAL_SUM, 
+      IS_CONTRACT, APPROVAL, MORTGAGE, 
+      REAL_COST, PRIMARY_PERSON, PRIMARY_GENDER, 
+      PRIMARY_IDNUMBER, PRIMARY_MOBILE, SECONDARY_PERSON, 
+      SECONDARY_GENDER, SECONDARY_IDNUMBER, SECONDARY_MOBILE, 
+      AGENCY_COST, LOAD_TYPE, LEAD_CONDITIONS, 
+      EVALUATORS_ID, EVALUATORS_NAME, EVALUATORS_MOBILE, 
+      EVALUATE_TIME, BANKER_ID, BANKER_NAME, 
+      BANKER_MOBILE, BANK_TIME, HOUSE_COMMISSIONERID, 
+      HOUSE_COMMISSIONER, COMMISSIONER_MOBILE, 
+      HOUSE_TIME, ENDOPER_ID, END_COMMISSIONER, 
+      END_COMMISSIONER_MOBILE, END_TIME, APPLY_TIME, 
+      OTHER_ARCHIVE, FLOW_ID, PROCEDURE_ID, 
+      IS_BANKMORTGAGE, IS_FORMALREPORT, PROCESSING_TIME, 
+      TIME_SIGN, TRUE_REC_MONEY, IS_RECKON, 
+      LOAN_TIME, IS_AGENCYREQUEST, BASE_COST, 
+      RISK_LEVE, LOGOUT_WHY, APPLY_YEARS, 
+      IS_CONTRACTSEND, IS_MORTGAGESEND, ASSESS_COST, 
+      MANAGER_ID, MANAGER_NAME, MANAGER_MOBILE, 
+      MANAGER_TIME, BANK_STATUS, ASSESSMENT, 
+      SAVE_TIME, FUND_PLACE, COMP_ID, 
+      REGISTRATION_COST)
+    values (#{applyId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{deptName,jdbcType=VARCHAR}, 
+      #{shopMobile,jdbcType=VARCHAR}, #{clerk,jdbcType=VARCHAR}, #{brokerId,jdbcType=VARCHAR}, 
+      #{brokerName,jdbcType=VARCHAR}, #{seehouseMobile,jdbcType=VARCHAR}, #{applyAmount,jdbcType=NUMERIC}, 
+      #{totalAmount,jdbcType=NUMERIC}, #{propertyAddress,jdbcType=VARCHAR}, #{propertyName,jdbcType=VARCHAR}, 
+      #{propertyArea,jdbcType=NUMERIC}, #{price,jdbcType=NUMERIC}, #{buildTime,jdbcType=TIMESTAMP}, 
+      #{natureRight,jdbcType=VARCHAR}, #{lurc,jdbcType=BIT}, #{houseMortagage,jdbcType=BIT}, 
+      #{buyCondition,jdbcType=TINYINT}, #{maritalStatus,jdbcType=TINYINT}, #{census,jdbcType=TINYINT}, 
+      #{isSocialtax,jdbcType=TINYINT}, #{singleNotariz,jdbcType=BIT}, #{status,jdbcType=VARCHAR}, 
+      #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, #{assessId,jdbcType=INTEGER}, 
+      #{assessName,jdbcType=VARCHAR}, #{assessTotal,jdbcType=NUMERIC}, #{approvalSum,jdbcType=NUMERIC}, 
+      #{isContract,jdbcType=BIT}, #{approval,jdbcType=TINYINT}, #{mortgage,jdbcType=BIT}, 
+      #{realCost,jdbcType=NUMERIC}, #{primaryPerson,jdbcType=VARCHAR}, #{primaryGender,jdbcType=BIT}, 
+      #{primaryIdnumber,jdbcType=VARCHAR}, #{primaryMobile,jdbcType=VARCHAR}, #{secondaryPerson,jdbcType=VARCHAR}, 
+      #{secondaryGender,jdbcType=BIT}, #{secondaryIdnumber,jdbcType=VARCHAR}, #{secondaryMobile,jdbcType=VARCHAR}, 
+      #{agencyCost,jdbcType=NUMERIC}, #{loadType,jdbcType=VARCHAR}, #{leadConditions,jdbcType=BIT}, 
+      #{evaluatorsId,jdbcType=INTEGER}, #{evaluatorsName,jdbcType=VARCHAR}, #{evaluatorsMobile,jdbcType=VARCHAR}, 
+      #{evaluateTime,jdbcType=TIMESTAMP}, #{bankerId,jdbcType=INTEGER}, #{bankerName,jdbcType=VARCHAR}, 
+      #{bankerMobile,jdbcType=VARCHAR}, #{bankTime,jdbcType=TIMESTAMP}, #{houseCommissionerid,jdbcType=INTEGER}, 
+      #{houseCommissioner,jdbcType=VARCHAR}, #{commissionerMobile,jdbcType=VARCHAR}, 
+      #{houseTime,jdbcType=TIMESTAMP}, #{endoperId,jdbcType=INTEGER}, #{endCommissioner,jdbcType=VARCHAR}, 
+      #{endCommissionerMobile,jdbcType=VARCHAR}, #{endTime,jdbcType=TIMESTAMP}, #{applyTime,jdbcType=TIMESTAMP}, 
+      #{otherArchive,jdbcType=VARCHAR}, #{flowId,jdbcType=VARCHAR}, #{procedureId,jdbcType=INTEGER}, 
+      #{isBankmortgage,jdbcType=BIT}, #{isFormalreport,jdbcType=BIT}, #{processingTime,jdbcType=TIMESTAMP}, 
+      #{timeSign,jdbcType=TIMESTAMP}, #{trueRecMoney,jdbcType=NUMERIC}, #{isReckon,jdbcType=BIT}, 
+      #{loanTime,jdbcType=TIMESTAMP}, #{isAgencyrequest,jdbcType=BIT}, #{baseCost,jdbcType=NUMERIC}, 
+      #{riskLeve,jdbcType=VARCHAR}, #{logoutWhy,jdbcType=VARCHAR}, #{applyYears,jdbcType=TINYINT}, 
+      #{isContractsend,jdbcType=TINYINT}, #{isMortgagesend,jdbcType=TINYINT}, #{assessCost,jdbcType=NUMERIC}, 
+      #{managerId,jdbcType=INTEGER}, #{managerName,jdbcType=VARCHAR}, #{managerMobile,jdbcType=VARCHAR}, 
+      #{managerTime,jdbcType=TIMESTAMP}, #{bankStatus,jdbcType=BIT}, #{assessment,jdbcType=BIT}, 
+      #{saveTime,jdbcType=TIMESTAMP}, #{fundPlace,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, 
+      #{registrationCost,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfApplyInfo" >
+    <!--@mbggenerated-->
+    insert into RF_APPLY_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="applyId != null" >
+        APPLY_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="deptName != null" >
+        DEPT_NAME,
+      </if>
+      <if test="shopMobile != null" >
+        SHOP_MOBILE,
+      </if>
+      <if test="clerk != null" >
+        CLERK,
+      </if>
+      <if test="brokerId != null" >
+        BROKER_ID,
+      </if>
+      <if test="brokerName != null" >
+        BROKER_NAME,
+      </if>
+      <if test="seehouseMobile != null" >
+        SEEHOUSE_MOBILE,
+      </if>
+      <if test="applyAmount != null" >
+        APPLY_AMOUNT,
+      </if>
+      <if test="totalAmount != null" >
+        TOTAL_AMOUNT,
+      </if>
+      <if test="propertyAddress != null" >
+        PROPERTY_ADDRESS,
+      </if>
+      <if test="propertyName != null" >
+        PROPERTY_NAME,
+      </if>
+      <if test="propertyArea != null" >
+        PROPERTY_AREA,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="buildTime != null" >
+        BUILD_TIME,
+      </if>
+      <if test="natureRight != null" >
+        NATURE_RIGHT,
+      </if>
+      <if test="lurc != null" >
+        LURC,
+      </if>
+      <if test="houseMortagage != null" >
+        HOUSE_MORTAGAGE,
+      </if>
+      <if test="buyCondition != null" >
+        BUY_CONDITION,
+      </if>
+      <if test="maritalStatus != null" >
+        MARITAL_STATUS,
+      </if>
+      <if test="census != null" >
+        CENSUS,
+      </if>
+      <if test="isSocialtax != null" >
+        IS_SOCIALTAX,
+      </if>
+      <if test="singleNotariz != null" >
+        SINGLE_NOTARIZ,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="bankId != null" >
+        BANK_ID,
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME,
+      </if>
+      <if test="assessId != null" >
+        ASSESS_ID,
+      </if>
+      <if test="assessName != null" >
+        ASSESS_NAME,
+      </if>
+      <if test="assessTotal != null" >
+        ASSESS_TOTAL,
+      </if>
+      <if test="approvalSum != null" >
+        APPROVAL_SUM,
+      </if>
+      <if test="isContract != null" >
+        IS_CONTRACT,
+      </if>
+      <if test="approval != null" >
+        APPROVAL,
+      </if>
+      <if test="mortgage != null" >
+        MORTGAGE,
+      </if>
+      <if test="realCost != null" >
+        REAL_COST,
+      </if>
+      <if test="primaryPerson != null" >
+        PRIMARY_PERSON,
+      </if>
+      <if test="primaryGender != null" >
+        PRIMARY_GENDER,
+      </if>
+      <if test="primaryIdnumber != null" >
+        PRIMARY_IDNUMBER,
+      </if>
+      <if test="primaryMobile != null" >
+        PRIMARY_MOBILE,
+      </if>
+      <if test="secondaryPerson != null" >
+        SECONDARY_PERSON,
+      </if>
+      <if test="secondaryGender != null" >
+        SECONDARY_GENDER,
+      </if>
+      <if test="secondaryIdnumber != null" >
+        SECONDARY_IDNUMBER,
+      </if>
+      <if test="secondaryMobile != null" >
+        SECONDARY_MOBILE,
+      </if>
+      <if test="agencyCost != null" >
+        AGENCY_COST,
+      </if>
+      <if test="loadType != null" >
+        LOAD_TYPE,
+      </if>
+      <if test="leadConditions != null" >
+        LEAD_CONDITIONS,
+      </if>
+      <if test="evaluatorsId != null" >
+        EVALUATORS_ID,
+      </if>
+      <if test="evaluatorsName != null" >
+        EVALUATORS_NAME,
+      </if>
+      <if test="evaluatorsMobile != null" >
+        EVALUATORS_MOBILE,
+      </if>
+      <if test="evaluateTime != null" >
+        EVALUATE_TIME,
+      </if>
+      <if test="bankerId != null" >
+        BANKER_ID,
+      </if>
+      <if test="bankerName != null" >
+        BANKER_NAME,
+      </if>
+      <if test="bankerMobile != null" >
+        BANKER_MOBILE,
+      </if>
+      <if test="bankTime != null" >
+        BANK_TIME,
+      </if>
+      <if test="houseCommissionerid != null" >
+        HOUSE_COMMISSIONERID,
+      </if>
+      <if test="houseCommissioner != null" >
+        HOUSE_COMMISSIONER,
+      </if>
+      <if test="commissionerMobile != null" >
+        COMMISSIONER_MOBILE,
+      </if>
+      <if test="houseTime != null" >
+        HOUSE_TIME,
+      </if>
+      <if test="endoperId != null" >
+        ENDOPER_ID,
+      </if>
+      <if test="endCommissioner != null" >
+        END_COMMISSIONER,
+      </if>
+      <if test="endCommissionerMobile != null" >
+        END_COMMISSIONER_MOBILE,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="applyTime != null" >
+        APPLY_TIME,
+      </if>
+      <if test="otherArchive != null" >
+        OTHER_ARCHIVE,
+      </if>
+      <if test="flowId != null" >
+        FLOW_ID,
+      </if>
+      <if test="procedureId != null" >
+        PROCEDURE_ID,
+      </if>
+      <if test="isBankmortgage != null" >
+        IS_BANKMORTGAGE,
+      </if>
+      <if test="isFormalreport != null" >
+        IS_FORMALREPORT,
+      </if>
+      <if test="processingTime != null" >
+        PROCESSING_TIME,
+      </if>
+      <if test="timeSign != null" >
+        TIME_SIGN,
+      </if>
+      <if test="trueRecMoney != null" >
+        TRUE_REC_MONEY,
+      </if>
+      <if test="isReckon != null" >
+        IS_RECKON,
+      </if>
+      <if test="loanTime != null" >
+        LOAN_TIME,
+      </if>
+      <if test="isAgencyrequest != null" >
+        IS_AGENCYREQUEST,
+      </if>
+      <if test="baseCost != null" >
+        BASE_COST,
+      </if>
+      <if test="riskLeve != null" >
+        RISK_LEVE,
+      </if>
+      <if test="logoutWhy != null" >
+        LOGOUT_WHY,
+      </if>
+      <if test="applyYears != null" >
+        APPLY_YEARS,
+      </if>
+      <if test="isContractsend != null" >
+        IS_CONTRACTSEND,
+      </if>
+      <if test="isMortgagesend != null" >
+        IS_MORTGAGESEND,
+      </if>
+      <if test="assessCost != null" >
+        ASSESS_COST,
+      </if>
+      <if test="managerId != null" >
+        MANAGER_ID,
+      </if>
+      <if test="managerName != null" >
+        MANAGER_NAME,
+      </if>
+      <if test="managerMobile != null" >
+        MANAGER_MOBILE,
+      </if>
+      <if test="managerTime != null" >
+        MANAGER_TIME,
+      </if>
+      <if test="bankStatus != null" >
+        BANK_STATUS,
+      </if>
+      <if test="assessment != null" >
+        ASSESSMENT,
+      </if>
+      <if test="saveTime != null" >
+        SAVE_TIME,
+      </if>
+      <if test="fundPlace != null" >
+        FUND_PLACE,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="registrationCost != null" >
+        REGISTRATION_COST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="applyId != null" >
+        #{applyId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopMobile != null" >
+        #{shopMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="clerk != null" >
+        #{clerk,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerId != null" >
+        #{brokerId,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerName != null" >
+        #{brokerName,jdbcType=VARCHAR},
+      </if>
+      <if test="seehouseMobile != null" >
+        #{seehouseMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null" >
+        #{applyAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="totalAmount != null" >
+        #{totalAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="propertyAddress != null" >
+        #{propertyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyName != null" >
+        #{propertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyArea != null" >
+        #{propertyArea,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="buildTime != null" >
+        #{buildTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="natureRight != null" >
+        #{natureRight,jdbcType=VARCHAR},
+      </if>
+      <if test="lurc != null" >
+        #{lurc,jdbcType=BIT},
+      </if>
+      <if test="houseMortagage != null" >
+        #{houseMortagage,jdbcType=BIT},
+      </if>
+      <if test="buyCondition != null" >
+        #{buyCondition,jdbcType=TINYINT},
+      </if>
+      <if test="maritalStatus != null" >
+        #{maritalStatus,jdbcType=TINYINT},
+      </if>
+      <if test="census != null" >
+        #{census,jdbcType=TINYINT},
+      </if>
+      <if test="isSocialtax != null" >
+        #{isSocialtax,jdbcType=TINYINT},
+      </if>
+      <if test="singleNotariz != null" >
+        #{singleNotariz,jdbcType=BIT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="assessId != null" >
+        #{assessId,jdbcType=INTEGER},
+      </if>
+      <if test="assessName != null" >
+        #{assessName,jdbcType=VARCHAR},
+      </if>
+      <if test="assessTotal != null" >
+        #{assessTotal,jdbcType=NUMERIC},
+      </if>
+      <if test="approvalSum != null" >
+        #{approvalSum,jdbcType=NUMERIC},
+      </if>
+      <if test="isContract != null" >
+        #{isContract,jdbcType=BIT},
+      </if>
+      <if test="approval != null" >
+        #{approval,jdbcType=TINYINT},
+      </if>
+      <if test="mortgage != null" >
+        #{mortgage,jdbcType=BIT},
+      </if>
+      <if test="realCost != null" >
+        #{realCost,jdbcType=NUMERIC},
+      </if>
+      <if test="primaryPerson != null" >
+        #{primaryPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryGender != null" >
+        #{primaryGender,jdbcType=BIT},
+      </if>
+      <if test="primaryIdnumber != null" >
+        #{primaryIdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryMobile != null" >
+        #{primaryMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="secondaryPerson != null" >
+        #{secondaryPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="secondaryGender != null" >
+        #{secondaryGender,jdbcType=BIT},
+      </if>
+      <if test="secondaryIdnumber != null" >
+        #{secondaryIdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="secondaryMobile != null" >
+        #{secondaryMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyCost != null" >
+        #{agencyCost,jdbcType=NUMERIC},
+      </if>
+      <if test="loadType != null" >
+        #{loadType,jdbcType=VARCHAR},
+      </if>
+      <if test="leadConditions != null" >
+        #{leadConditions,jdbcType=BIT},
+      </if>
+      <if test="evaluatorsId != null" >
+        #{evaluatorsId,jdbcType=INTEGER},
+      </if>
+      <if test="evaluatorsName != null" >
+        #{evaluatorsName,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluatorsMobile != null" >
+        #{evaluatorsMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateTime != null" >
+        #{evaluateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankerId != null" >
+        #{bankerId,jdbcType=INTEGER},
+      </if>
+      <if test="bankerName != null" >
+        #{bankerName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankerMobile != null" >
+        #{bankerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bankTime != null" >
+        #{bankTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseCommissionerid != null" >
+        #{houseCommissionerid,jdbcType=INTEGER},
+      </if>
+      <if test="houseCommissioner != null" >
+        #{houseCommissioner,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionerMobile != null" >
+        #{commissionerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTime != null" >
+        #{houseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endoperId != null" >
+        #{endoperId,jdbcType=INTEGER},
+      </if>
+      <if test="endCommissioner != null" >
+        #{endCommissioner,jdbcType=VARCHAR},
+      </if>
+      <if test="endCommissionerMobile != null" >
+        #{endCommissionerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otherArchive != null" >
+        #{otherArchive,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="procedureId != null" >
+        #{procedureId,jdbcType=INTEGER},
+      </if>
+      <if test="isBankmortgage != null" >
+        #{isBankmortgage,jdbcType=BIT},
+      </if>
+      <if test="isFormalreport != null" >
+        #{isFormalreport,jdbcType=BIT},
+      </if>
+      <if test="processingTime != null" >
+        #{processingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeSign != null" >
+        #{timeSign,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trueRecMoney != null" >
+        #{trueRecMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="isReckon != null" >
+        #{isReckon,jdbcType=BIT},
+      </if>
+      <if test="loanTime != null" >
+        #{loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAgencyrequest != null" >
+        #{isAgencyrequest,jdbcType=BIT},
+      </if>
+      <if test="baseCost != null" >
+        #{baseCost,jdbcType=NUMERIC},
+      </if>
+      <if test="riskLeve != null" >
+        #{riskLeve,jdbcType=VARCHAR},
+      </if>
+      <if test="logoutWhy != null" >
+        #{logoutWhy,jdbcType=VARCHAR},
+      </if>
+      <if test="applyYears != null" >
+        #{applyYears,jdbcType=TINYINT},
+      </if>
+      <if test="isContractsend != null" >
+        #{isContractsend,jdbcType=TINYINT},
+      </if>
+      <if test="isMortgagesend != null" >
+        #{isMortgagesend,jdbcType=TINYINT},
+      </if>
+      <if test="assessCost != null" >
+        #{assessCost,jdbcType=NUMERIC},
+      </if>
+      <if test="managerId != null" >
+        #{managerId,jdbcType=INTEGER},
+      </if>
+      <if test="managerName != null" >
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="managerMobile != null" >
+        #{managerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="managerTime != null" >
+        #{managerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankStatus != null" >
+        #{bankStatus,jdbcType=BIT},
+      </if>
+      <if test="assessment != null" >
+        #{assessment,jdbcType=BIT},
+      </if>
+      <if test="saveTime != null" >
+        #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundPlace != null" >
+        #{fundPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="registrationCost != null" >
+        #{registrationCost,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfApplyInfo" >
+    <!--@mbggenerated-->
+    update RF_APPLY_INFO
+    <set >
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptName != null" >
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopMobile != null" >
+        SHOP_MOBILE = #{shopMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="clerk != null" >
+        CLERK = #{clerk,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerId != null" >
+        BROKER_ID = #{brokerId,jdbcType=VARCHAR},
+      </if>
+      <if test="brokerName != null" >
+        BROKER_NAME = #{brokerName,jdbcType=VARCHAR},
+      </if>
+      <if test="seehouseMobile != null" >
+        SEEHOUSE_MOBILE = #{seehouseMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null" >
+        APPLY_AMOUNT = #{applyAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="totalAmount != null" >
+        TOTAL_AMOUNT = #{totalAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="propertyAddress != null" >
+        PROPERTY_ADDRESS = #{propertyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyName != null" >
+        PROPERTY_NAME = #{propertyName,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyArea != null" >
+        PROPERTY_AREA = #{propertyArea,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="buildTime != null" >
+        BUILD_TIME = #{buildTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="natureRight != null" >
+        NATURE_RIGHT = #{natureRight,jdbcType=VARCHAR},
+      </if>
+      <if test="lurc != null" >
+        LURC = #{lurc,jdbcType=BIT},
+      </if>
+      <if test="houseMortagage != null" >
+        HOUSE_MORTAGAGE = #{houseMortagage,jdbcType=BIT},
+      </if>
+      <if test="buyCondition != null" >
+        BUY_CONDITION = #{buyCondition,jdbcType=TINYINT},
+      </if>
+      <if test="maritalStatus != null" >
+        MARITAL_STATUS = #{maritalStatus,jdbcType=TINYINT},
+      </if>
+      <if test="census != null" >
+        CENSUS = #{census,jdbcType=TINYINT},
+      </if>
+      <if test="isSocialtax != null" >
+        IS_SOCIALTAX = #{isSocialtax,jdbcType=TINYINT},
+      </if>
+      <if test="singleNotariz != null" >
+        SINGLE_NOTARIZ = #{singleNotariz,jdbcType=BIT},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        BANK_ID = #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="assessId != null" >
+        ASSESS_ID = #{assessId,jdbcType=INTEGER},
+      </if>
+      <if test="assessName != null" >
+        ASSESS_NAME = #{assessName,jdbcType=VARCHAR},
+      </if>
+      <if test="assessTotal != null" >
+        ASSESS_TOTAL = #{assessTotal,jdbcType=NUMERIC},
+      </if>
+      <if test="approvalSum != null" >
+        APPROVAL_SUM = #{approvalSum,jdbcType=NUMERIC},
+      </if>
+      <if test="isContract != null" >
+        IS_CONTRACT = #{isContract,jdbcType=BIT},
+      </if>
+      <if test="approval != null" >
+        APPROVAL = #{approval,jdbcType=TINYINT},
+      </if>
+      <if test="mortgage != null" >
+        MORTGAGE = #{mortgage,jdbcType=BIT},
+      </if>
+      <if test="realCost != null" >
+        REAL_COST = #{realCost,jdbcType=NUMERIC},
+      </if>
+      <if test="primaryPerson != null" >
+        PRIMARY_PERSON = #{primaryPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryGender != null" >
+        PRIMARY_GENDER = #{primaryGender,jdbcType=BIT},
+      </if>
+      <if test="primaryIdnumber != null" >
+        PRIMARY_IDNUMBER = #{primaryIdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryMobile != null" >
+        PRIMARY_MOBILE = #{primaryMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="secondaryPerson != null" >
+        SECONDARY_PERSON = #{secondaryPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="secondaryGender != null" >
+        SECONDARY_GENDER = #{secondaryGender,jdbcType=BIT},
+      </if>
+      <if test="secondaryIdnumber != null" >
+        SECONDARY_IDNUMBER = #{secondaryIdnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="secondaryMobile != null" >
+        SECONDARY_MOBILE = #{secondaryMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyCost != null" >
+        AGENCY_COST = #{agencyCost,jdbcType=NUMERIC},
+      </if>
+      <if test="loadType != null" >
+        LOAD_TYPE = #{loadType,jdbcType=VARCHAR},
+      </if>
+      <if test="leadConditions != null" >
+        LEAD_CONDITIONS = #{leadConditions,jdbcType=BIT},
+      </if>
+      <if test="evaluatorsId != null" >
+        EVALUATORS_ID = #{evaluatorsId,jdbcType=INTEGER},
+      </if>
+      <if test="evaluatorsName != null" >
+        EVALUATORS_NAME = #{evaluatorsName,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluatorsMobile != null" >
+        EVALUATORS_MOBILE = #{evaluatorsMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateTime != null" >
+        EVALUATE_TIME = #{evaluateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankerId != null" >
+        BANKER_ID = #{bankerId,jdbcType=INTEGER},
+      </if>
+      <if test="bankerName != null" >
+        BANKER_NAME = #{bankerName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankerMobile != null" >
+        BANKER_MOBILE = #{bankerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bankTime != null" >
+        BANK_TIME = #{bankTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseCommissionerid != null" >
+        HOUSE_COMMISSIONERID = #{houseCommissionerid,jdbcType=INTEGER},
+      </if>
+      <if test="houseCommissioner != null" >
+        HOUSE_COMMISSIONER = #{houseCommissioner,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionerMobile != null" >
+        COMMISSIONER_MOBILE = #{commissionerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTime != null" >
+        HOUSE_TIME = #{houseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endoperId != null" >
+        ENDOPER_ID = #{endoperId,jdbcType=INTEGER},
+      </if>
+      <if test="endCommissioner != null" >
+        END_COMMISSIONER = #{endCommissioner,jdbcType=VARCHAR},
+      </if>
+      <if test="endCommissionerMobile != null" >
+        END_COMMISSIONER_MOBILE = #{endCommissionerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyTime != null" >
+        APPLY_TIME = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otherArchive != null" >
+        OTHER_ARCHIVE = #{otherArchive,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        FLOW_ID = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="procedureId != null" >
+        PROCEDURE_ID = #{procedureId,jdbcType=INTEGER},
+      </if>
+      <if test="isBankmortgage != null" >
+        IS_BANKMORTGAGE = #{isBankmortgage,jdbcType=BIT},
+      </if>
+      <if test="isFormalreport != null" >
+        IS_FORMALREPORT = #{isFormalreport,jdbcType=BIT},
+      </if>
+      <if test="processingTime != null" >
+        PROCESSING_TIME = #{processingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeSign != null" >
+        TIME_SIGN = #{timeSign,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trueRecMoney != null" >
+        TRUE_REC_MONEY = #{trueRecMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="isReckon != null" >
+        IS_RECKON = #{isReckon,jdbcType=BIT},
+      </if>
+      <if test="loanTime != null" >
+        LOAN_TIME = #{loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAgencyrequest != null" >
+        IS_AGENCYREQUEST = #{isAgencyrequest,jdbcType=BIT},
+      </if>
+      <if test="baseCost != null" >
+        BASE_COST = #{baseCost,jdbcType=NUMERIC},
+      </if>
+      <if test="riskLeve != null" >
+        RISK_LEVE = #{riskLeve,jdbcType=VARCHAR},
+      </if>
+      <if test="logoutWhy != null" >
+        LOGOUT_WHY = #{logoutWhy,jdbcType=VARCHAR},
+      </if>
+      <if test="applyYears != null" >
+        APPLY_YEARS = #{applyYears,jdbcType=TINYINT},
+      </if>
+      <if test="isContractsend != null" >
+        IS_CONTRACTSEND = #{isContractsend,jdbcType=TINYINT},
+      </if>
+      <if test="isMortgagesend != null" >
+        IS_MORTGAGESEND = #{isMortgagesend,jdbcType=TINYINT},
+      </if>
+      <if test="assessCost != null" >
+        ASSESS_COST = #{assessCost,jdbcType=NUMERIC},
+      </if>
+      <if test="managerId != null" >
+        MANAGER_ID = #{managerId,jdbcType=INTEGER},
+      </if>
+      <if test="managerName != null" >
+        MANAGER_NAME = #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="managerMobile != null" >
+        MANAGER_MOBILE = #{managerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="managerTime != null" >
+        MANAGER_TIME = #{managerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankStatus != null" >
+        BANK_STATUS = #{bankStatus,jdbcType=BIT},
+      </if>
+      <if test="assessment != null" >
+        ASSESSMENT = #{assessment,jdbcType=BIT},
+      </if>
+      <if test="saveTime != null" >
+        SAVE_TIME = #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundPlace != null" >
+        FUND_PLACE = #{fundPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="registrationCost != null" >
+        REGISTRATION_COST = #{registrationCost,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where APPLY_ID = #{applyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRfApplyInfo" >
+    <!--@mbggenerated-->
+    update RF_APPLY_INFO
+    set DEPT_ID = #{deptId,jdbcType=INTEGER},
+      DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      SHOP_MOBILE = #{shopMobile,jdbcType=VARCHAR},
+      CLERK = #{clerk,jdbcType=VARCHAR},
+      BROKER_ID = #{brokerId,jdbcType=VARCHAR},
+      BROKER_NAME = #{brokerName,jdbcType=VARCHAR},
+      SEEHOUSE_MOBILE = #{seehouseMobile,jdbcType=VARCHAR},
+      APPLY_AMOUNT = #{applyAmount,jdbcType=NUMERIC},
+      TOTAL_AMOUNT = #{totalAmount,jdbcType=NUMERIC},
+      PROPERTY_ADDRESS = #{propertyAddress,jdbcType=VARCHAR},
+      PROPERTY_NAME = #{propertyName,jdbcType=VARCHAR},
+      PROPERTY_AREA = #{propertyArea,jdbcType=NUMERIC},
+      PRICE = #{price,jdbcType=NUMERIC},
+      BUILD_TIME = #{buildTime,jdbcType=TIMESTAMP},
+      NATURE_RIGHT = #{natureRight,jdbcType=VARCHAR},
+      LURC = #{lurc,jdbcType=BIT},
+      HOUSE_MORTAGAGE = #{houseMortagage,jdbcType=BIT},
+      BUY_CONDITION = #{buyCondition,jdbcType=TINYINT},
+      MARITAL_STATUS = #{maritalStatus,jdbcType=TINYINT},
+      CENSUS = #{census,jdbcType=TINYINT},
+      IS_SOCIALTAX = #{isSocialtax,jdbcType=TINYINT},
+      SINGLE_NOTARIZ = #{singleNotariz,jdbcType=BIT},
+      STATUS = #{status,jdbcType=VARCHAR},
+      BANK_ID = #{bankId,jdbcType=INTEGER},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      ASSESS_ID = #{assessId,jdbcType=INTEGER},
+      ASSESS_NAME = #{assessName,jdbcType=VARCHAR},
+      ASSESS_TOTAL = #{assessTotal,jdbcType=NUMERIC},
+      APPROVAL_SUM = #{approvalSum,jdbcType=NUMERIC},
+      IS_CONTRACT = #{isContract,jdbcType=BIT},
+      APPROVAL = #{approval,jdbcType=TINYINT},
+      MORTGAGE = #{mortgage,jdbcType=BIT},
+      REAL_COST = #{realCost,jdbcType=NUMERIC},
+      PRIMARY_PERSON = #{primaryPerson,jdbcType=VARCHAR},
+      PRIMARY_GENDER = #{primaryGender,jdbcType=BIT},
+      PRIMARY_IDNUMBER = #{primaryIdnumber,jdbcType=VARCHAR},
+      PRIMARY_MOBILE = #{primaryMobile,jdbcType=VARCHAR},
+      SECONDARY_PERSON = #{secondaryPerson,jdbcType=VARCHAR},
+      SECONDARY_GENDER = #{secondaryGender,jdbcType=BIT},
+      SECONDARY_IDNUMBER = #{secondaryIdnumber,jdbcType=VARCHAR},
+      SECONDARY_MOBILE = #{secondaryMobile,jdbcType=VARCHAR},
+      AGENCY_COST = #{agencyCost,jdbcType=NUMERIC},
+      LOAD_TYPE = #{loadType,jdbcType=VARCHAR},
+      LEAD_CONDITIONS = #{leadConditions,jdbcType=BIT},
+      EVALUATORS_ID = #{evaluatorsId,jdbcType=INTEGER},
+      EVALUATORS_NAME = #{evaluatorsName,jdbcType=VARCHAR},
+      EVALUATORS_MOBILE = #{evaluatorsMobile,jdbcType=VARCHAR},
+      EVALUATE_TIME = #{evaluateTime,jdbcType=TIMESTAMP},
+      BANKER_ID = #{bankerId,jdbcType=INTEGER},
+      BANKER_NAME = #{bankerName,jdbcType=VARCHAR},
+      BANKER_MOBILE = #{bankerMobile,jdbcType=VARCHAR},
+      BANK_TIME = #{bankTime,jdbcType=TIMESTAMP},
+      HOUSE_COMMISSIONERID = #{houseCommissionerid,jdbcType=INTEGER},
+      HOUSE_COMMISSIONER = #{houseCommissioner,jdbcType=VARCHAR},
+      COMMISSIONER_MOBILE = #{commissionerMobile,jdbcType=VARCHAR},
+      HOUSE_TIME = #{houseTime,jdbcType=TIMESTAMP},
+      ENDOPER_ID = #{endoperId,jdbcType=INTEGER},
+      END_COMMISSIONER = #{endCommissioner,jdbcType=VARCHAR},
+      END_COMMISSIONER_MOBILE = #{endCommissionerMobile,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      APPLY_TIME = #{applyTime,jdbcType=TIMESTAMP},
+      OTHER_ARCHIVE = #{otherArchive,jdbcType=VARCHAR},
+      FLOW_ID = #{flowId,jdbcType=VARCHAR},
+      PROCEDURE_ID = #{procedureId,jdbcType=INTEGER},
+      IS_BANKMORTGAGE = #{isBankmortgage,jdbcType=BIT},
+      IS_FORMALREPORT = #{isFormalreport,jdbcType=BIT},
+      PROCESSING_TIME = #{processingTime,jdbcType=TIMESTAMP},
+      TIME_SIGN = #{timeSign,jdbcType=TIMESTAMP},
+      TRUE_REC_MONEY = #{trueRecMoney,jdbcType=NUMERIC},
+      IS_RECKON = #{isReckon,jdbcType=BIT},
+      LOAN_TIME = #{loanTime,jdbcType=TIMESTAMP},
+      IS_AGENCYREQUEST = #{isAgencyrequest,jdbcType=BIT},
+      BASE_COST = #{baseCost,jdbcType=NUMERIC},
+      RISK_LEVE = #{riskLeve,jdbcType=VARCHAR},
+      LOGOUT_WHY = #{logoutWhy,jdbcType=VARCHAR},
+      APPLY_YEARS = #{applyYears,jdbcType=TINYINT},
+      IS_CONTRACTSEND = #{isContractsend,jdbcType=TINYINT},
+      IS_MORTGAGESEND = #{isMortgagesend,jdbcType=TINYINT},
+      ASSESS_COST = #{assessCost,jdbcType=NUMERIC},
+      MANAGER_ID = #{managerId,jdbcType=INTEGER},
+      MANAGER_NAME = #{managerName,jdbcType=VARCHAR},
+      MANAGER_MOBILE = #{managerMobile,jdbcType=VARCHAR},
+      MANAGER_TIME = #{managerTime,jdbcType=TIMESTAMP},
+      BANK_STATUS = #{bankStatus,jdbcType=BIT},
+      ASSESSMENT = #{assessment,jdbcType=BIT},
+      SAVE_TIME = #{saveTime,jdbcType=TIMESTAMP},
+      FUND_PLACE = #{fundPlace,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      REGISTRATION_COST = #{registrationCost,jdbcType=NUMERIC}
+    where APPLY_ID = #{applyId,jdbcType=INTEGER}
+  </update>
+</mapper>

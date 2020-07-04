@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminAppQaMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminAppQa" >
+    <!--@mbggenerated-->
+    <id column="QA_ID" property="qaId" jdbcType="INTEGER" />
+    <result column="QA_TYPE" property="qaType" jdbcType="TINYINT" />
+    <result column="QA_TITLE" property="qaTitle" jdbcType="VARCHAR" />
+    <result column="QA_ITEMA" property="qaItema" jdbcType="VARCHAR" />
+    <result column="QA_ITEMB" property="qaItemb" jdbcType="VARCHAR" />
+    <result column="QA_ITEMC" property="qaItemc" jdbcType="VARCHAR" />
+    <result column="QA_ITEMD" property="qaItemd" jdbcType="VARCHAR" />
+    <result column="QA_ANSWER" property="qaAnswer" jdbcType="VARCHAR" />
+    <result column="QA_SCORE" property="qaScore" jdbcType="TINYINT" />
+    <result column="QA_SCOREA" property="qaScorea" jdbcType="TINYINT" />
+    <result column="QA_SCOREB" property="qaScoreb" jdbcType="TINYINT" />
+    <result column="QA_SCOREC" property="qaScorec" jdbcType="TINYINT" />
+    <result column="QA_SCORED" property="qaScored" jdbcType="TINYINT" />
+    <result column="QA_STATUS" property="qaStatus" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    QA_ID, QA_TYPE, QA_TITLE, QA_ITEMA, QA_ITEMB, QA_ITEMC, QA_ITEMD, QA_ANSWER, QA_SCORE, 
+    QA_SCOREA, QA_SCOREB, QA_SCOREC, QA_SCORED, QA_STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from APP_QA
+    where QA_ID = #{qaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from APP_QA
+    where QA_ID = #{qaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminAppQa" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="qaId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into APP_QA (QA_TYPE, QA_TITLE, QA_ITEMA, 
+      QA_ITEMB, QA_ITEMC, QA_ITEMD, 
+      QA_ANSWER, QA_SCORE, QA_SCOREA, 
+      QA_SCOREB, QA_SCOREC, QA_SCORED, 
+      QA_STATUS)
+    values (#{qaType,jdbcType=TINYINT}, #{qaTitle,jdbcType=VARCHAR}, #{qaItema,jdbcType=VARCHAR}, 
+      #{qaItemb,jdbcType=VARCHAR}, #{qaItemc,jdbcType=VARCHAR}, #{qaItemd,jdbcType=VARCHAR}, 
+      #{qaAnswer,jdbcType=VARCHAR}, #{qaScore,jdbcType=TINYINT}, #{qaScorea,jdbcType=TINYINT}, 
+      #{qaScoreb,jdbcType=TINYINT}, #{qaScorec,jdbcType=TINYINT}, #{qaScored,jdbcType=TINYINT}, 
+      #{qaStatus,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminAppQa" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="qaId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into APP_QA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="qaType != null" >
+        QA_TYPE,
+      </if>
+      <if test="qaTitle != null" >
+        QA_TITLE,
+      </if>
+      <if test="qaItema != null" >
+        QA_ITEMA,
+      </if>
+      <if test="qaItemb != null" >
+        QA_ITEMB,
+      </if>
+      <if test="qaItemc != null" >
+        QA_ITEMC,
+      </if>
+      <if test="qaItemd != null" >
+        QA_ITEMD,
+      </if>
+      <if test="qaAnswer != null" >
+        QA_ANSWER,
+      </if>
+      <if test="qaScore != null" >
+        QA_SCORE,
+      </if>
+      <if test="qaScorea != null" >
+        QA_SCOREA,
+      </if>
+      <if test="qaScoreb != null" >
+        QA_SCOREB,
+      </if>
+      <if test="qaScorec != null" >
+        QA_SCOREC,
+      </if>
+      <if test="qaScored != null" >
+        QA_SCORED,
+      </if>
+      <if test="qaStatus != null" >
+        QA_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="qaType != null" >
+        #{qaType,jdbcType=TINYINT},
+      </if>
+      <if test="qaTitle != null" >
+        #{qaTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItema != null" >
+        #{qaItema,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItemb != null" >
+        #{qaItemb,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItemc != null" >
+        #{qaItemc,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItemd != null" >
+        #{qaItemd,jdbcType=VARCHAR},
+      </if>
+      <if test="qaAnswer != null" >
+        #{qaAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="qaScore != null" >
+        #{qaScore,jdbcType=TINYINT},
+      </if>
+      <if test="qaScorea != null" >
+        #{qaScorea,jdbcType=TINYINT},
+      </if>
+      <if test="qaScoreb != null" >
+        #{qaScoreb,jdbcType=TINYINT},
+      </if>
+      <if test="qaScorec != null" >
+        #{qaScorec,jdbcType=TINYINT},
+      </if>
+      <if test="qaScored != null" >
+        #{qaScored,jdbcType=TINYINT},
+      </if>
+      <if test="qaStatus != null" >
+        #{qaStatus,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminAppQa" >
+    <!--@mbggenerated-->
+    update APP_QA
+    <set >
+      <if test="qaType != null" >
+        QA_TYPE = #{qaType,jdbcType=TINYINT},
+      </if>
+      <if test="qaTitle != null" >
+        QA_TITLE = #{qaTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItema != null" >
+        QA_ITEMA = #{qaItema,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItemb != null" >
+        QA_ITEMB = #{qaItemb,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItemc != null" >
+        QA_ITEMC = #{qaItemc,jdbcType=VARCHAR},
+      </if>
+      <if test="qaItemd != null" >
+        QA_ITEMD = #{qaItemd,jdbcType=VARCHAR},
+      </if>
+      <if test="qaAnswer != null" >
+        QA_ANSWER = #{qaAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="qaScore != null" >
+        QA_SCORE = #{qaScore,jdbcType=TINYINT},
+      </if>
+      <if test="qaScorea != null" >
+        QA_SCOREA = #{qaScorea,jdbcType=TINYINT},
+      </if>
+      <if test="qaScoreb != null" >
+        QA_SCOREB = #{qaScoreb,jdbcType=TINYINT},
+      </if>
+      <if test="qaScorec != null" >
+        QA_SCOREC = #{qaScorec,jdbcType=TINYINT},
+      </if>
+      <if test="qaScored != null" >
+        QA_SCORED = #{qaScored,jdbcType=TINYINT},
+      </if>
+      <if test="qaStatus != null" >
+        QA_STATUS = #{qaStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    where QA_ID = #{qaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminAppQa" >
+    <!--@mbggenerated-->
+    update APP_QA
+    set QA_TYPE = #{qaType,jdbcType=TINYINT},
+      QA_TITLE = #{qaTitle,jdbcType=VARCHAR},
+      QA_ITEMA = #{qaItema,jdbcType=VARCHAR},
+      QA_ITEMB = #{qaItemb,jdbcType=VARCHAR},
+      QA_ITEMC = #{qaItemc,jdbcType=VARCHAR},
+      QA_ITEMD = #{qaItemd,jdbcType=VARCHAR},
+      QA_ANSWER = #{qaAnswer,jdbcType=VARCHAR},
+      QA_SCORE = #{qaScore,jdbcType=TINYINT},
+      QA_SCOREA = #{qaScorea,jdbcType=TINYINT},
+      QA_SCOREB = #{qaScoreb,jdbcType=TINYINT},
+      QA_SCOREC = #{qaScorec,jdbcType=TINYINT},
+      QA_SCORED = #{qaScored,jdbcType=TINYINT},
+      QA_STATUS = #{qaStatus,jdbcType=TINYINT}
+    where QA_ID = #{qaId,jdbcType=INTEGER}
+  </update>
+</mapper>

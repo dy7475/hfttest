@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminServerErrorLogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminServerErrorLog" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="SERVER_TYPE" property="serverType" jdbcType="INTEGER" />
+    <result column="ERROR_CODE" property="errorCode" jdbcType="INTEGER" />
+    <result column="ERROR_MSG" property="errorMsg" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminServerErrorLog" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="EXCEPTION_TEXT" property="exceptionText" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, SERVER_TYPE, ERROR_CODE, ERROR_MSG, CITY_ID, ARCHIVE_ID, CREATION_TIME
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    EXCEPTION_TEXT
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLogExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from SERVER_ERROR_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLogExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SERVER_ERROR_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from SERVER_ERROR_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from SERVER_ERROR_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLogExample" >
+    <!--@mbggenerated-->
+    delete from SERVER_ERROR_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLog" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into SERVER_ERROR_LOG (SERVER_TYPE, ERROR_CODE, ERROR_MSG, 
+      CITY_ID, ARCHIVE_ID, CREATION_TIME, 
+      EXCEPTION_TEXT)
+    values (#{serverType,jdbcType=INTEGER}, #{errorCode,jdbcType=INTEGER}, #{errorMsg,jdbcType=VARCHAR}, 
+      #{cityId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{exceptionText,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLog" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into SERVER_ERROR_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serverType != null" >
+        SERVER_TYPE,
+      </if>
+      <if test="errorCode != null" >
+        ERROR_CODE,
+      </if>
+      <if test="errorMsg != null" >
+        ERROR_MSG,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="exceptionText != null" >
+        EXCEPTION_TEXT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serverType != null" >
+        #{serverType,jdbcType=INTEGER},
+      </if>
+      <if test="errorCode != null" >
+        #{errorCode,jdbcType=INTEGER},
+      </if>
+      <if test="errorMsg != null" >
+        #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exceptionText != null" >
+        #{exceptionText,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLogExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from SERVER_ERROR_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update SERVER_ERROR_LOG
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.serverType != null" >
+        SERVER_TYPE = #{record.serverType,jdbcType=INTEGER},
+      </if>
+      <if test="record.errorCode != null" >
+        ERROR_CODE = #{record.errorCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.errorMsg != null" >
+        ERROR_MSG = #{record.errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null" >
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.exceptionText != null" >
+        EXCEPTION_TEXT = #{record.exceptionText,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    <!--@mbggenerated-->
+    update SERVER_ERROR_LOG
+    set ID = #{record.id,jdbcType=INTEGER},
+      SERVER_TYPE = #{record.serverType,jdbcType=INTEGER},
+      ERROR_CODE = #{record.errorCode,jdbcType=INTEGER},
+      ERROR_MSG = #{record.errorMsg,jdbcType=VARCHAR},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      EXCEPTION_TEXT = #{record.exceptionText,jdbcType=CLOB}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update SERVER_ERROR_LOG
+    set ID = #{record.id,jdbcType=INTEGER},
+      SERVER_TYPE = #{record.serverType,jdbcType=INTEGER},
+      ERROR_CODE = #{record.errorCode,jdbcType=INTEGER},
+      ERROR_MSG = #{record.errorMsg,jdbcType=VARCHAR},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLog" >
+    <!--@mbggenerated-->
+    update SERVER_ERROR_LOG
+    <set >
+      <if test="serverType != null" >
+        SERVER_TYPE = #{serverType,jdbcType=INTEGER},
+      </if>
+      <if test="errorCode != null" >
+        ERROR_CODE = #{errorCode,jdbcType=INTEGER},
+      </if>
+      <if test="errorMsg != null" >
+        ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exceptionText != null" >
+        EXCEPTION_TEXT = #{exceptionText,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLog" >
+    <!--@mbggenerated-->
+    update SERVER_ERROR_LOG
+    set SERVER_TYPE = #{serverType,jdbcType=INTEGER},
+      ERROR_CODE = #{errorCode,jdbcType=INTEGER},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      EXCEPTION_TEXT = #{exceptionText,jdbcType=CLOB}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminServerErrorLog" >
+    <!--@mbggenerated-->
+    update SERVER_ERROR_LOG
+    set SERVER_TYPE = #{serverType,jdbcType=INTEGER},
+      ERROR_CODE = #{errorCode,jdbcType=INTEGER},
+      ERROR_MSG = #{errorMsg,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+	
+	
+	<select id="getErrorLogList" resultMap="ResultMapWithBLOBs">
+		SELECT TOP 100
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		FROM hft_tmpdb.._tmp_error_log_${tableEnd}
+	</select>
+
+	<delete id="deleteErrorLog">
+		DELETE FROM hft_tmpdb.._tmp_error_log_${tableEnd}
+		WHERE ID IN
+		<foreach collection="idList" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+	
+</mapper>
+

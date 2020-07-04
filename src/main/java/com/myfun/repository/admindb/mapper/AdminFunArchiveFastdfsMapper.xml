@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunArchiveFastdfsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunArchiveFastdfs" >
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="IC_PHOTO_1" property="icPhoto1" jdbcType="VARCHAR" />
+    <result column="IC_PHOTO_2" property="icPhoto2" jdbcType="VARCHAR" />
+    <result column="USER_PHOTO" property="userPhoto" jdbcType="VARCHAR" />
+    <result column="USER_PHOTO_MIN" property="userPhotoMin" jdbcType="VARCHAR" />
+    <result column="CARD_PHOTO" property="cardPhoto" jdbcType="VARCHAR" />
+    <result column="BBS_PHOTO" property="bbsPhoto" jdbcType="VARCHAR" />
+    <result column="SHOP_INNER_PHOTO" property="shopInnerPhoto" jdbcType="VARCHAR" />
+    <result column="SHOP_OUTER_PHOTO" property="shopOuterPhoto" jdbcType="VARCHAR" />
+    <result column="IC_PHOTO_1_OLD" property="icPhoto1Old" jdbcType="VARCHAR" />
+    <result column="IC_PHOTO_2_OLD" property="icPhoto2Old" jdbcType="VARCHAR" />
+    <result column="USER_PHOTO_OLD" property="userPhotoOld" jdbcType="VARCHAR" />
+    <result column="USER_PHOTO_MIN_OLD" property="userPhotoMinOld" jdbcType="VARCHAR" />
+    <result column="CARD_PHOTO_OLD" property="cardPhotoOld" jdbcType="VARCHAR" />
+    <result column="BBS_PHOTO_OLD" property="bbsPhotoOld" jdbcType="VARCHAR" />
+    <result column="SHOP_INNER_PHOTO_OLD" property="shopInnerPhotoOld" jdbcType="VARCHAR" />
+    <result column="SHOP_OUTER_PHOTO_OLD" property="shopOuterPhotoOld" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="OLD_ADDR" property="oldAddr" jdbcType="VARCHAR" />
+    <result column="IS_DEAL" property="isDeal" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ARCHIVE_ID, IC_PHOTO_1, IC_PHOTO_2, USER_PHOTO, USER_PHOTO_MIN, CARD_PHOTO, BBS_PHOTO, 
+    SHOP_INNER_PHOTO, SHOP_OUTER_PHOTO, IC_PHOTO_1_OLD, IC_PHOTO_2_OLD, USER_PHOTO_OLD, 
+    USER_PHOTO_MIN_OLD, CARD_PHOTO_OLD, BBS_PHOTO_OLD, SHOP_INNER_PHOTO_OLD, SHOP_OUTER_PHOTO_OLD, 
+    CREATION_TIME, OLD_ADDR, IS_DEAL
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfsExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ARCHIVE_FASTDFS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ARCHIVE_FASTDFS
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_ARCHIVE_FASTDFS
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfsExample" >
+    <!--@mbggenerated-->
+    delete from FUN_ARCHIVE_FASTDFS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfs" useGeneratedKeys="true" keyProperty="archiveId" >
+    <!--@mbggenerated-->
+    insert into FUN_ARCHIVE_FASTDFS (IC_PHOTO_1, IC_PHOTO_2, USER_PHOTO, 
+      USER_PHOTO_MIN, CARD_PHOTO, BBS_PHOTO, 
+      SHOP_INNER_PHOTO, SHOP_OUTER_PHOTO, IC_PHOTO_1_OLD, 
+      IC_PHOTO_2_OLD, USER_PHOTO_OLD, USER_PHOTO_MIN_OLD, 
+      CARD_PHOTO_OLD, BBS_PHOTO_OLD, SHOP_INNER_PHOTO_OLD, 
+      SHOP_OUTER_PHOTO_OLD, CREATION_TIME, OLD_ADDR, 
+      IS_DEAL)
+    values (#{icPhoto1,jdbcType=VARCHAR}, #{icPhoto2,jdbcType=VARCHAR}, #{userPhoto,jdbcType=VARCHAR}, 
+      #{userPhotoMin,jdbcType=VARCHAR}, #{cardPhoto,jdbcType=VARCHAR}, #{bbsPhoto,jdbcType=VARCHAR}, 
+      #{shopInnerPhoto,jdbcType=VARCHAR}, #{shopOuterPhoto,jdbcType=VARCHAR}, #{icPhoto1Old,jdbcType=VARCHAR}, 
+      #{icPhoto2Old,jdbcType=VARCHAR}, #{userPhotoOld,jdbcType=VARCHAR}, #{userPhotoMinOld,jdbcType=VARCHAR}, 
+      #{cardPhotoOld,jdbcType=VARCHAR}, #{bbsPhotoOld,jdbcType=VARCHAR}, #{shopInnerPhotoOld,jdbcType=VARCHAR}, 
+      #{shopOuterPhotoOld,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{oldAddr,jdbcType=VARCHAR}, 
+      #{isDeal,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfs" useGeneratedKeys="true" keyProperty="archiveId" >
+    <!--@mbggenerated-->
+    insert into FUN_ARCHIVE_FASTDFS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="icPhoto1 != null" >
+        IC_PHOTO_1,
+      </if>
+      <if test="icPhoto2 != null" >
+        IC_PHOTO_2,
+      </if>
+      <if test="userPhoto != null" >
+        USER_PHOTO,
+      </if>
+      <if test="userPhotoMin != null" >
+        USER_PHOTO_MIN,
+      </if>
+      <if test="cardPhoto != null" >
+        CARD_PHOTO,
+      </if>
+      <if test="bbsPhoto != null" >
+        BBS_PHOTO,
+      </if>
+      <if test="shopInnerPhoto != null" >
+        SHOP_INNER_PHOTO,
+      </if>
+      <if test="shopOuterPhoto != null" >
+        SHOP_OUTER_PHOTO,
+      </if>
+      <if test="icPhoto1Old != null" >
+        IC_PHOTO_1_OLD,
+      </if>
+      <if test="icPhoto2Old != null" >
+        IC_PHOTO_2_OLD,
+      </if>
+      <if test="userPhotoOld != null" >
+        USER_PHOTO_OLD,
+      </if>
+      <if test="userPhotoMinOld != null" >
+        USER_PHOTO_MIN_OLD,
+      </if>
+      <if test="cardPhotoOld != null" >
+        CARD_PHOTO_OLD,
+      </if>
+      <if test="bbsPhotoOld != null" >
+        BBS_PHOTO_OLD,
+      </if>
+      <if test="shopInnerPhotoOld != null" >
+        SHOP_INNER_PHOTO_OLD,
+      </if>
+      <if test="shopOuterPhotoOld != null" >
+        SHOP_OUTER_PHOTO_OLD,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="oldAddr != null" >
+        OLD_ADDR,
+      </if>
+      <if test="isDeal != null" >
+        IS_DEAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="icPhoto1 != null" >
+        #{icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2 != null" >
+        #{icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null" >
+        #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMin != null" >
+        #{userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhoto != null" >
+        #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhoto != null" >
+        #{bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhoto != null" >
+        #{shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhoto != null" >
+        #{shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto1Old != null" >
+        #{icPhoto1Old,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2Old != null" >
+        #{icPhoto2Old,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoOld != null" >
+        #{userPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMinOld != null" >
+        #{userPhotoMinOld,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhotoOld != null" >
+        #{cardPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhotoOld != null" >
+        #{bbsPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhotoOld != null" >
+        #{shopInnerPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhotoOld != null" >
+        #{shopOuterPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldAddr != null" >
+        #{oldAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeal != null" >
+        #{isDeal,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfsExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_ARCHIVE_FASTDFS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE_FASTDFS
+    <set >
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.icPhoto1 != null" >
+        IC_PHOTO_1 = #{record.icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icPhoto2 != null" >
+        IC_PHOTO_2 = #{record.icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhoto != null" >
+        USER_PHOTO = #{record.userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhotoMin != null" >
+        USER_PHOTO_MIN = #{record.userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardPhoto != null" >
+        CARD_PHOTO = #{record.cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bbsPhoto != null" >
+        BBS_PHOTO = #{record.bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopInnerPhoto != null" >
+        SHOP_INNER_PHOTO = #{record.shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopOuterPhoto != null" >
+        SHOP_OUTER_PHOTO = #{record.shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icPhoto1Old != null" >
+        IC_PHOTO_1_OLD = #{record.icPhoto1Old,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icPhoto2Old != null" >
+        IC_PHOTO_2_OLD = #{record.icPhoto2Old,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhotoOld != null" >
+        USER_PHOTO_OLD = #{record.userPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhotoMinOld != null" >
+        USER_PHOTO_MIN_OLD = #{record.userPhotoMinOld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardPhotoOld != null" >
+        CARD_PHOTO_OLD = #{record.cardPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bbsPhotoOld != null" >
+        BBS_PHOTO_OLD = #{record.bbsPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopInnerPhotoOld != null" >
+        SHOP_INNER_PHOTO_OLD = #{record.shopInnerPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopOuterPhotoOld != null" >
+        SHOP_OUTER_PHOTO_OLD = #{record.shopOuterPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationTime != null" >
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.oldAddr != null" >
+        OLD_ADDR = #{record.oldAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDeal != null" >
+        IS_DEAL = #{record.isDeal,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE_FASTDFS
+    set ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      IC_PHOTO_1 = #{record.icPhoto1,jdbcType=VARCHAR},
+      IC_PHOTO_2 = #{record.icPhoto2,jdbcType=VARCHAR},
+      USER_PHOTO = #{record.userPhoto,jdbcType=VARCHAR},
+      USER_PHOTO_MIN = #{record.userPhotoMin,jdbcType=VARCHAR},
+      CARD_PHOTO = #{record.cardPhoto,jdbcType=VARCHAR},
+      BBS_PHOTO = #{record.bbsPhoto,jdbcType=VARCHAR},
+      SHOP_INNER_PHOTO = #{record.shopInnerPhoto,jdbcType=VARCHAR},
+      SHOP_OUTER_PHOTO = #{record.shopOuterPhoto,jdbcType=VARCHAR},
+      IC_PHOTO_1_OLD = #{record.icPhoto1Old,jdbcType=VARCHAR},
+      IC_PHOTO_2_OLD = #{record.icPhoto2Old,jdbcType=VARCHAR},
+      USER_PHOTO_OLD = #{record.userPhotoOld,jdbcType=VARCHAR},
+      USER_PHOTO_MIN_OLD = #{record.userPhotoMinOld,jdbcType=VARCHAR},
+      CARD_PHOTO_OLD = #{record.cardPhotoOld,jdbcType=VARCHAR},
+      BBS_PHOTO_OLD = #{record.bbsPhotoOld,jdbcType=VARCHAR},
+      SHOP_INNER_PHOTO_OLD = #{record.shopInnerPhotoOld,jdbcType=VARCHAR},
+      SHOP_OUTER_PHOTO_OLD = #{record.shopOuterPhotoOld,jdbcType=VARCHAR},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      OLD_ADDR = #{record.oldAddr,jdbcType=VARCHAR},
+      IS_DEAL = #{record.isDeal,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfs" >
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE_FASTDFS
+    <set >
+      <if test="icPhoto1 != null" >
+        IC_PHOTO_1 = #{icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2 != null" >
+        IC_PHOTO_2 = #{icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null" >
+        USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMin != null" >
+        USER_PHOTO_MIN = #{userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhoto != null" >
+        CARD_PHOTO = #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhoto != null" >
+        BBS_PHOTO = #{bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhoto != null" >
+        SHOP_INNER_PHOTO = #{shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhoto != null" >
+        SHOP_OUTER_PHOTO = #{shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto1Old != null" >
+        IC_PHOTO_1_OLD = #{icPhoto1Old,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2Old != null" >
+        IC_PHOTO_2_OLD = #{icPhoto2Old,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoOld != null" >
+        USER_PHOTO_OLD = #{userPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMinOld != null" >
+        USER_PHOTO_MIN_OLD = #{userPhotoMinOld,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhotoOld != null" >
+        CARD_PHOTO_OLD = #{cardPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhotoOld != null" >
+        BBS_PHOTO_OLD = #{bbsPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhotoOld != null" >
+        SHOP_INNER_PHOTO_OLD = #{shopInnerPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhotoOld != null" >
+        SHOP_OUTER_PHOTO_OLD = #{shopOuterPhotoOld,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldAddr != null" >
+        OLD_ADDR = #{oldAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeal != null" >
+        IS_DEAL = #{isDeal,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfs" >
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE_FASTDFS
+    set IC_PHOTO_1 = #{icPhoto1,jdbcType=VARCHAR},
+      IC_PHOTO_2 = #{icPhoto2,jdbcType=VARCHAR},
+      USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      USER_PHOTO_MIN = #{userPhotoMin,jdbcType=VARCHAR},
+      CARD_PHOTO = #{cardPhoto,jdbcType=VARCHAR},
+      BBS_PHOTO = #{bbsPhoto,jdbcType=VARCHAR},
+      SHOP_INNER_PHOTO = #{shopInnerPhoto,jdbcType=VARCHAR},
+      SHOP_OUTER_PHOTO = #{shopOuterPhoto,jdbcType=VARCHAR},
+      IC_PHOTO_1_OLD = #{icPhoto1Old,jdbcType=VARCHAR},
+      IC_PHOTO_2_OLD = #{icPhoto2Old,jdbcType=VARCHAR},
+      USER_PHOTO_OLD = #{userPhotoOld,jdbcType=VARCHAR},
+      USER_PHOTO_MIN_OLD = #{userPhotoMinOld,jdbcType=VARCHAR},
+      CARD_PHOTO_OLD = #{cardPhotoOld,jdbcType=VARCHAR},
+      BBS_PHOTO_OLD = #{bbsPhotoOld,jdbcType=VARCHAR},
+      SHOP_INNER_PHOTO_OLD = #{shopInnerPhotoOld,jdbcType=VARCHAR},
+      SHOP_OUTER_PHOTO_OLD = #{shopOuterPhotoOld,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      OLD_ADDR = #{oldAddr,jdbcType=VARCHAR},
+      IS_DEAL = #{isDeal,jdbcType=TINYINT}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  
+  <insert id="insertHaveArchiveId" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveFastdfs" useGeneratedKeys="true" keyProperty="archiveId" >
+    insert into FUN_ARCHIVE_FASTDFS (ARCHIVE_ID, IC_PHOTO_1, IC_PHOTO_2, USER_PHOTO, 
+      USER_PHOTO_MIN, CARD_PHOTO, BBS_PHOTO, 
+      SHOP_INNER_PHOTO, SHOP_OUTER_PHOTO, IC_PHOTO_1_OLD, 
+      IC_PHOTO_2_OLD, USER_PHOTO_OLD, USER_PHOTO_MIN_OLD, 
+      CARD_PHOTO_OLD, BBS_PHOTO_OLD, SHOP_INNER_PHOTO_OLD, 
+      SHOP_OUTER_PHOTO_OLD, CREATION_TIME, OLD_ADDR, 
+      IS_DEAL)
+    values (#{archiveId,jdbcType=INTEGER}, #{icPhoto1,jdbcType=VARCHAR}, #{icPhoto2,jdbcType=VARCHAR}, #{userPhoto,jdbcType=VARCHAR}, 
+      #{userPhotoMin,jdbcType=VARCHAR}, #{cardPhoto,jdbcType=VARCHAR}, #{bbsPhoto,jdbcType=VARCHAR}, 
+      #{shopInnerPhoto,jdbcType=VARCHAR}, #{shopOuterPhoto,jdbcType=VARCHAR}, #{icPhoto1Old,jdbcType=VARCHAR}, 
+      #{icPhoto2Old,jdbcType=VARCHAR}, #{userPhotoOld,jdbcType=VARCHAR}, #{userPhotoMinOld,jdbcType=VARCHAR}, 
+      #{cardPhotoOld,jdbcType=VARCHAR}, #{bbsPhotoOld,jdbcType=VARCHAR}, #{shopInnerPhotoOld,jdbcType=VARCHAR}, 
+      #{shopOuterPhotoOld,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{oldAddr,jdbcType=VARCHAR}, 
+      #{isDeal,jdbcType=TINYINT})
+  </insert>
+	
+	<select id="selectLastArchive" resultType="java.lang.Integer">
+		select top 1 ARCHIVE_ID
+		from FUN_ARCHIVE_FASTDFS order by ARCHIVE_ID asc
+	</select>
+</mapper>

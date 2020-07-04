@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunEntrustOwnersMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunEntrustOwners">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ENTRUST_ID" jdbcType="INTEGER" property="entrustId" />
+    <result column="OWNER_NAME" jdbcType="VARCHAR" property="ownerName" />
+    <result column="NATIVE_PLACE" jdbcType="TINYINT" property="nativePlace" />
+    <result column="ID_TYPE" jdbcType="TINYINT" property="idType" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="OWNER_PHONE" jdbcType="VARCHAR" property="ownerPhone" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="IS_SIGN" jdbcType="TINYINT" property="isSign" />
+    <result column="SIGN_DATE" jdbcType="TIMESTAMP" property="signDate" />
+    <result column="SIGN_PIC_ADDR" jdbcType="VARCHAR" property="signPicAddr" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, ENTRUST_ID, OWNER_NAME, NATIVE_PLACE, ID_TYPE, CARD_NO, OWNER_PHONE, ADDRESS, 
+    IS_SIGN, SIGN_DATE, SIGN_PIC_ADDR
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwnersExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST_OWNERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST_OWNERS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST_OWNERS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwnersExample">
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST_OWNERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwners" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST_OWNERS (ENTRUST_ID, OWNER_NAME, NATIVE_PLACE, 
+      ID_TYPE, CARD_NO, OWNER_PHONE, 
+      ADDRESS, IS_SIGN, SIGN_DATE, 
+      SIGN_PIC_ADDR)
+    values (#{entrustId,jdbcType=INTEGER}, #{ownerName,jdbcType=VARCHAR}, #{nativePlace,jdbcType=TINYINT}, 
+      #{idType,jdbcType=TINYINT}, #{cardNo,jdbcType=VARCHAR}, #{ownerPhone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{isSign,jdbcType=TINYINT}, #{signDate,jdbcType=TIMESTAMP}, 
+      #{signPicAddr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwners" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST_OWNERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="entrustId != null">
+        ENTRUST_ID,
+      </if>
+      <if test="ownerName != null">
+        OWNER_NAME,
+      </if>
+      <if test="nativePlace != null">
+        NATIVE_PLACE,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="ownerPhone != null">
+        OWNER_PHONE,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="isSign != null">
+        IS_SIGN,
+      </if>
+      <if test="signDate != null">
+        SIGN_DATE,
+      </if>
+      <if test="signPicAddr != null">
+        SIGN_PIC_ADDR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="entrustId != null">
+        #{entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="ownerName != null">
+        #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null">
+        #{nativePlace,jdbcType=TINYINT},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=TINYINT},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerPhone != null">
+        #{ownerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="isSign != null">
+        #{isSign,jdbcType=TINYINT},
+      </if>
+      <if test="signDate != null">
+        #{signDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signPicAddr != null">
+        #{signPicAddr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwnersExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ENTRUST_OWNERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_OWNERS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.entrustId != null">
+        ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="record.ownerName != null">
+        OWNER_NAME = #{record.ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nativePlace != null">
+        NATIVE_PLACE = #{record.nativePlace,jdbcType=TINYINT},
+      </if>
+      <if test="record.idType != null">
+        ID_TYPE = #{record.idType,jdbcType=TINYINT},
+      </if>
+      <if test="record.cardNo != null">
+        CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerPhone != null">
+        OWNER_PHONE = #{record.ownerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSign != null">
+        IS_SIGN = #{record.isSign,jdbcType=TINYINT},
+      </if>
+      <if test="record.signDate != null">
+        SIGN_DATE = #{record.signDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signPicAddr != null">
+        SIGN_PIC_ADDR = #{record.signPicAddr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_OWNERS
+    set ID = #{record.id,jdbcType=INTEGER},
+      ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      OWNER_NAME = #{record.ownerName,jdbcType=VARCHAR},
+      NATIVE_PLACE = #{record.nativePlace,jdbcType=TINYINT},
+      ID_TYPE = #{record.idType,jdbcType=TINYINT},
+      CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      OWNER_PHONE = #{record.ownerPhone,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      IS_SIGN = #{record.isSign,jdbcType=TINYINT},
+      SIGN_DATE = #{record.signDate,jdbcType=TIMESTAMP},
+      SIGN_PIC_ADDR = #{record.signPicAddr,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwners">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_OWNERS
+    <set>
+      <if test="entrustId != null">
+        ENTRUST_ID = #{entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="ownerName != null">
+        OWNER_NAME = #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null">
+        NATIVE_PLACE = #{nativePlace,jdbcType=TINYINT},
+      </if>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=TINYINT},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerPhone != null">
+        OWNER_PHONE = #{ownerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="isSign != null">
+        IS_SIGN = #{isSign,jdbcType=TINYINT},
+      </if>
+      <if test="signDate != null">
+        SIGN_DATE = #{signDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signPicAddr != null">
+        SIGN_PIC_ADDR = #{signPicAddr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwners">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_OWNERS
+    set ENTRUST_ID = #{entrustId,jdbcType=INTEGER},
+      OWNER_NAME = #{ownerName,jdbcType=VARCHAR},
+      NATIVE_PLACE = #{nativePlace,jdbcType=TINYINT},
+      ID_TYPE = #{idType,jdbcType=TINYINT},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      OWNER_PHONE = #{ownerPhone,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      IS_SIGN = #{isSign,jdbcType=TINYINT},
+      SIGN_DATE = #{signDate,jdbcType=TIMESTAMP},
+      SIGN_PIC_ADDR = #{signPicAddr,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateByOwnerId">
+    UPDATE FUN_ENTRUST_OWNERS
+    SET IS_SIGN = 1, SIGN_DATE = GETDATE()
+    <if test="signPicAddr != null and signPicAddr !=''">
+    , SIGN_PIC_ADDR = #{signPicAddr}
+    </if>
+    WHERE ID = #{ownerId} AND ENTRUST_ID = #{entrustId} AND IS_SIGN = 0
+  </update>
+
+  <resultMap id="OwnerUserVOMap" type="com.myfun.erpWeb.house.vo.OwnerUserVO">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ENTRUST_ID" jdbcType="INTEGER" property="entrustId" />
+    <result column="OWNER_NAME" jdbcType="VARCHAR" property="ownerName" />
+    <result column="NATIVE_PLACE" jdbcType="TINYINT" property="nativePlace" />
+    <result column="ID_TYPE" jdbcType="TINYINT" property="idType" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="OWNER_PHONE" jdbcType="VARCHAR" property="ownerPhone" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="IS_SIGN" jdbcType="TINYINT" property="isSign" />
+    <result column="SIGN_DATE" jdbcType="TIMESTAMP" property="signDate" />
+    <result column="SIGN_PIC_ADDR" jdbcType="VARCHAR" property="signPicAddr" />
+  </resultMap>
+  
+  <select id="selectByEntrustIds" resultMap="OwnerUserVOMap">
+    select <include refid="Base_Column_List" /> from FUN_ENTRUST_OWNERS
+    WHERE ENTRUST_ID in
+    <foreach close=")" collection="entrustIds" index="index" item="item" open="(" separator=",">
+      #{item}
+    </foreach>
+  </select>
+  
+  <update id="updateOwnersInfo" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustOwners">
+    update FUN_ENTRUST_OWNERS
+    set ENTRUST_ID = #{entrustId},
+      OWNER_NAME = #{ownerName},
+      NATIVE_PLACE = #{nativePlace},
+      ID_TYPE = #{idType},
+      CARD_NO = #{cardNo},
+      OWNER_PHONE = #{ownerPhone},
+      ADDRESS = #{address}
+    where ID = #{id}
+  </update>
+  
+  <select id="selectByEntrustIdAndOwnerCardNo" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from FUN_ENTRUST_OWNERS
+    WHERE ENTRUST_ID =#{entrustId} and CARD_NO =#{cardNo}
+  </select>
+
+  <update id="updateByentrustId">
+    UPDATE FUN_ENTRUST_OWNERS
+    SET IS_SIGN = 1, SIGN_DATE = GETDATE(), SIGN_PIC_ADDR = #{signPicAddr}
+    WHERE ENTRUST_ID = #{entrustId} AND IS_SIGN = 0
+  </update>
+</mapper>

@@ -1,0 +1,334 @@
+html,body {margin:0px;padding:0px;background-color:#F8F8F8;height:100%;}
+body::-webkit-scrollbar {
+	width: 8px;height: 8px;border-radius: 6px;
+}
+body::-webkit-scrollbar-track {
+	background-color: #D0D6DB;
+}
+body::-webkit-scrollbar-button {
+	
+}
+body::-webkit-scrollbar-thumb {
+	background-color: #A8AFB3;
+  	border-radius: 6px;
+}
+body::-webkit-scrollbar-thumb:hover {
+	background-color: #8B8A8A;
+}
+.divMarkLayer{
+	background-color: black;opacity:0.35;width: 100%;height: 100%;
+	position: absolute;z-index: 2;display: none;
+}
+.divAddTemplate{
+    background-color:#EFF4F9;width:730px;height:420px;
+    border:1px solid #BBBBBB;box-shadow:0 0 10px rgb(42, 54, 94);
+    position: fixed;z-index: 11;display:none;
+    margin-left: 247px;margin-top: 56px;
+}
+.divAddTemplate .divHead1 {
+  height: 36px; margin-left: 20px;
+  margin-top: 18px;
+}
+.divAddTemplate .divHead1 span {
+    font-family:'宋体';font-size:14px;font-weight:bold;
+    color:#444444;
+}
+.divAddTemplate .divHead1 .divInput{
+    font-family:'宋体';font-size:12px;color:#444444;
+    float: right;  margin-right: 518px;margin-top: 4px;
+}
+.divAddTemplate .divHead1 .divInput input[type=button]{
+	background-image:url('../images/Calculator.png');background-color:transparent;background-repeat:no-repeat;
+    border:0px;height:28px;width:52px;color: white;cursor: pointer;
+    position: absolute;top: 13px;left: 396px;display: none;
+}
+.divAddTemplate .divHead1 .divClose{
+	float: right;margin-top: -19px;
+    cursor: pointer;margin-right: -1px;
+}
+.divAddTemplate .divContent{
+    background-image:url('../images/AddTemplate.png');background-repeat:no-repeat;
+    width:690px;height:318px; margin-left: 20px;
+      
+}
+.divAddTemplate .divContent .divScrollView{
+  height: 275px;
+  margin-right: 3px;margin-left: 1px;
+  overflow-y: auto;overflow-x: hidden;
+}
+.divAddTemplate .divContent .divScrollView::-webkit-scrollbar {
+	width: 8px;border-radius: 6px;
+}
+.divAddTemplate .divContent .divScrollView::-webkit-scrollbar-track {
+	background-color: #D0D6DB;
+}
+.divAddTemplate .divContent .divScrollView::-webkit-scrollbar-thumb {
+	background-color: #A8AFB3;
+  	border-radius: 6px;
+}
+.divAddTemplate .divContent .divScrollView::-webkit-scrollbar-thumb:hover {
+	background-color: #8B8A8A;
+}
+/*----------------------------------------------*/
+.divAddTemplate .divContent .tableInfo{
+    font-family:'宋体';font-size:12px;color:#999999;width:100%;
+}
+.divAddTemplate .divContent .tableInfo .tdTitle{
+    font-family:'宋体';font-size:12px;font-weight:bold;color:#000000;
+    text-align:left;padding-left:15px;border-bottom: 1px solid #F0F0F0;
+}
+.divAddTemplate .divContent .tableInfo input {
+    font-family:'宋体';font-size:12px;color:#fb8a10;border-radius:3px;
+    font-weight:bold;border:1px solid #CAD5DF;width:100px;height:25px;
+    box-shadow: 0px 3px 3px #EFF3F6 inset;padding-left:3px;outline:none;
+    transition:border 0.5s,box-shadow 0.5s;-webkit-transition:border 0.5s,box-shadow 0.5s;
+}
+.divAddTemplate .divContent .tableInfo input:HOVER {
+    font-family:'宋体';font-size:12px;color:#fb8a10;border-radius:3px;
+    font-weight:bold;width:100px;height:25px;
+    padding-left:3px;border: 1px solid rgb(82,169,255);
+	box-shadow: 0 0 4px rgb(82,169,255);
+}
+.divAddTemplate .divContent .tableInfo tr{
+    line-height: 40px;text-align: left;
+}
+.divAddTemplate .divContent .tableInfo td{
+    padding-left: 17px; border-bottom: 1px solid #F0F0F0;
+}
+.divAddTemplate .divContent .tableInfo td .btn_del{
+    color: rgb(253, 32, 32); cursor: pointer; margin-left: 10px;
+}
+/*----------------------------------------------*/
+.divAddTemplate .divBottom{
+    text-align: right;margin-top: 8px;
+}
+.divAddTemplate .divBottom input[type=button]{
+    font-family:'宋体';font-size:12px;color:white;cursor:pointer; margin-right: 19px;
+}
+.divHead{
+    background-image:url('../images/HorizontalNavigation.png');background-repeat:repeat-x;
+    width:100%; height:36px; z-index: 1;position: fixed;
+}
+.divHead .divTitle{
+    font-family:'宋体';font-size:12px;position: absolute;
+    color:RGB(68,68,68);font-weight:bold;top:12px;left:216px;
+}
+.divHead .divSelect{
+    position: absolute;top:7px;left:339px;
+}
+.divHead .divSelect .divSpan{
+    font-family:'宋体';font-size:12px;
+    color:RGB(136,136,136);
+}
+.divHead .divSelect .divAdd{
+    background-image:url('../images/add.png');background-repeat:no-repeat;
+    width:27px;height:13px;color:RGB(37,156,243);font-family:'宋体';font-size:12px;
+    padding-left:17px;cursor:pointer; float: right; margin-top: 5px;
+}
+.divHead .divButton{
+    position:absolute;top:4px;right:10px;
+}
+.divHead .divButton .inputCalculator{
+    cursor:pointer;background-color:transparent;border:0px;margin-top: -2px;
+}
+.divHead .divButton .inputPrint {
+    cursor:pointer;background-color:transparent;border:0px;margin-top: -2px;
+}
+.divLeft{
+    position:fixed;background-image:url('../images/leftBG.png'); background-repeat:repeat-y;
+    width:200px;height:100%;top: 0px;z-index: 1;
+}
+.divLeft .divItem {
+    font-family:'宋体';font-size:14px;color: RGB(97,113,126);
+    width:100%;height:45px;cursor:pointer;
+}
+.divLeft .divItem span{
+    float: left;margin-top: 16px;
+}
+.divLeft .divItem .divIcon{
+    background-image:url('../images/Icon/Taxes.png');background-repeat:no-repeat;
+    width:21px;height:20px; margin-left: 19px;float:left;
+    margin-top: 14px;margin-right: 20px;
+}
+.divLeft .divItemOver{
+    font-family:'宋体';font-size:14px;color: RGB(255,255,255);
+    background-color:#6AC8FF;width:100%;height:45px;cursor:pointer;
+}
+.divLeft .divItemOver span{
+    float: left;margin-top: 16px;
+}
+.divLeft .divItemOver .divIcon{
+    background-image:url('../images/Icon/Taxes.png');background-repeat:no-repeat;
+    width:21px;height:20px; margin-left: 19px;float:left;
+    margin-top: 14px;margin-right: 20px;
+}
+.divLeft .divItemOver .divLeftArrow {
+    background-image:url('../images/leftArrow.png');background-repeat:no-repeat;
+    width:8px;height:16px; float: right;margin-top: 14px;
+}
+.divRight{
+    position: absolute;
+    top: 49px;left: 200px;
+    text-align: center; min-width: 800px;
+}
+.divRight .divRightLeft{
+    width:625px;min-height:522px;  
+    margin-left: auto;margin-right: auto;
+    border: 1px solid #F0F0F0;
+    border-radius: 3px;float:left;
+    padding-top: 10px;
+    background-color: #FFFFFF;
+}
+.divRight .divRightLeft .tableHead{
+    font-family:'宋体';font-size:12px;color:#444444;width:100%;
+    border-bottom:1px solid #F0F0F0;
+}
+.divRight .divRightLeft .tableHead .td1{
+    line-height:25px;
+}
+.divRight .divRightLeft .tableHead input[type=text]{
+    font-family:'宋体';font-size:12px;color:#fb8a10;border-radius:3px;
+    font-weight:bold;border:1px solid #CAD5DF;width:100px;height:22px;
+    box-shadow: 0px 3px 3px #EFF3F6 inset; padding-left: 3px;outline:none;
+    transition:border 0.5s,box-shadow 0.5s;-webkit-transition:border 0.5s,box-shadow 0.5s;
+}
+.divRight .divRightLeft .tableHead input[type=text]:HOVER {
+    font-family:'宋体';font-size:12px;color:#fb8a10;border-radius:3px;
+    font-weight:bold;width:100px;height:22px;padding-left: 3px;
+    border: 1px solid rgb(82,169,255);
+	box-shadow: 0 0 4px rgb(82,169,255);
+}
+.divRight .divRightLeft .tableHead tr{
+    line-height: 34px;
+}
+.divRight .divRightLeft .tableHead td {
+    text-align: left;padding-left: 10px;
+}
+.divRight .divRightLeft .tableInfo{
+    font-family:'宋体';font-size:12px;color:#999999;width:100%;padding-left: 15px;
+}
+.divRight .divRightLeft .tableInfo .tdTitle{
+    font-family:'宋体';font-size:12px;font-weight:bold;color:#000000;
+    text-align:left;padding-left:15px;border-bottom: 1px solid #F0F0F0;
+}
+.divRight .divRightLeft .tableInfo input {
+    font-family:'宋体';font-size:12px;color:#fb8a10;border-radius:3px;
+    font-weight:bold;border:1px solid #CAD5DF;width:100px;height:25px;
+    box-shadow: 0px 3px 3px #EFF3F6 inset;padding-left:3px;outline: none;
+    transition:border 0.5s,box-shadow 0.5;-webkit-transition:border 0.5s,box-shadow 0.5;
+}
+.divRight .divRightLeft .tableInfo input:HOVER {
+    font-family:'宋体';font-size:12px;color:#fb8a10;border-radius:3px;
+    font-weight:bold;width:100px;height:25px;
+    padding-left:3px;border: 1px solid rgb(82,169,255);
+	box-shadow: 0 0 4px rgb(82,169,255);
+}
+
+.divRight .divRightLeft .tableInfo tr{
+    line-height: 40px;text-align: left;
+}
+.divRight .divRightLeft .tableInfo td{
+    padding-left: 0px; border-bottom: 1px solid #F0F0F0;
+}
+.divRight .divRightLeft .tableInfo td .btn_del{
+    color: rgb(253, 32, 32); cursor: pointer; margin-left: 10px;
+}
+.divRight .divRightRight{
+    float: right; margin-left: 18px;
+}
+.divRight .divRightRight table{
+    width: 150px;
+}
+.divRight .divRightRight table tr {
+    line-height: 25px;
+}
+.divRight .divRightRight table td {
+    font-family:'宋体';font-size:12px;color:#000000; text-align: left;
+    border-bottom: 1px solid transparent;
+}
+.divRight .divRightRight table .tdTitle{
+    font-family:'宋体';font-size:12px;font-weight:bold;
+    height: 30px;border-bottom: 1px solid transparent;
+}
+.divRight .divRightRight table .tdResult{
+    font-family:'宋体';font-size:14px;font-weight:bold;
+    color:#fb8a10;
+}
+.divRight .divRightRight table .tdHeight{
+    line-height: 40px;
+}
+.divRight .divRightRight table input {
+    font-family:'宋体';font-size:12px;color:#fb8a10;border-radius:3px;
+    font-weight:bold;border:1px solid #CAD5DF;width:100px;height:25px;
+    box-shadow: 0px 3px 3px #EFF3F6 inset;padding-left:3px;
+}
+/*Custom radio button*/
+input[type=radio] {
+    display:none;visibility: hidden;
+}
+.radio-btn {
+    display: inline-block;
+    margin-left: 8px;vertical-align: sub;
+    cursor: pointer;position: relative;
+    background-image:url('../images/radio.png');background-repeat:no-repeat;
+    width:16px;height:16px;
+}
+.checkedRadio {
+    background-image:url('../images/radio1.png');background-repeat:no-repeat;
+    width:16px;height:16px;
+}
+.radio-btn i {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+}
+.checkedRadio .checkedRadio i {
+    background-color: #898A8C;
+}
+/*Custom checkbox*/
+ .check-box {
+    width: 14px; height: 14px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px 7px 0 0;
+    position: relative; vertical-align: sub;
+    overflow: hidden;background-repeat:no-repeat;
+    background-image:url('../images/unselect.png');
+}
+.checkedBox {
+    width: 14px; height: 14px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px 7px 0 0;
+    position: relative;
+    overflow: hidden;background-repeat:no-repeat;
+    background-image:url('../images/select.png');
+}
+.checkedBoxUnDisable {
+    width: 14px; height: 14px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px 7px 0 0;
+    position: relative;
+    overflow: hidden;background-repeat:no-repeat;
+    background-image:url('../images/unselect_disable.png');
+}
+.checkedBoxDisable {
+    width: 14px; height: 14px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px 7px 0 0;
+    position: relative;
+    overflow: hidden;background-repeat:no-repeat;
+    background-image:url('../images/select_disable.png');
+}
+input[type=checkbox]{
+    visibility:hidden;display:none;
+}
+.ui-button-Stores{
+    background-image: url('../images/GeneralTemplate.png'); 
+    float: right;display: block;padding-top: 0px;
+    margin-right: 6px; height: 22px;
+}
