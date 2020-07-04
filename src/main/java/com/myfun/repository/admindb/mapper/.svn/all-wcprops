@@ -1,0 +1,2051 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svndata/erpProduct/!svn/ver/104311/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper
+END
+AdminFunVoicetransInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunVoicetransInfoMapper.xml
+END
+AdminSolrSectionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSolrSectionMapper.xml
+END
+AdminQuestionRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQuestionRecordMapper.xml
+END
+AdminVoipPoolMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminVoipPoolMapper.xml
+END
+AdminBiddingBeuse400Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBiddingBeuse400Mapper.xml
+END
+AdminAppLoginMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppLoginMapper.xml
+END
+AdminFcustTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFcustTrackMapper.xml
+END
+AdminWMicroshopMasssendHistoryMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopMasssendHistoryMapper.xml
+END
+AdminWMicroshopWechatMenuMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopWechatMenuMapper.xml
+END
+AdminFunSmsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunSmsMapper.xml
+END
+AdminSolrSyncMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSolrSyncMapper.xml
+END
+AdminMgFrontTestMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminMgFrontTestMapper.xml
+END
+AdminAuthenticationMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAuthenticationMapper.xml
+END
+AdminQrtzSimpropTriggersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzSimpropTriggersMapper.xml
+END
+AdminTSignMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTSignMapper.xml
+END
+AdminBuildingIndexMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBuildingIndexMapper.xml
+END
+AdminPbcatedtMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPbcatedtMapper.xml
+END
+AdminFunPrintTemplateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPrintTemplateMapper.xml
+END
+AdminErpBuildingInfoTmpMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminErpBuildingInfoTmpMapper.xml
+END
+AdminScoreConfigMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminScoreConfigMapper.xml
+END
+AdminFunDeptsActivityPaidMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunDeptsActivityPaidMapper.xml
+END
+ErpYouPunishTypeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/ErpYouPunishTypeMapper.xml
+END
+AdminJrFinancePhotoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminJrFinancePhotoMapper.xml
+END
+AdminLimitWebMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLimitWebMapper.xml
+END
+AdminZfbTransDetailMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZfbTransDetailMapper.xml
+END
+AdminVoteMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminVoteMapper.xml
+END
+AdminWMicroshopAttachMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopAttachMapper.xml
+END
+AdminInviteRegistErpMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminInviteRegistErpMapper.xml
+END
+AdminSosoBuildingPhotoFastdfsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSosoBuildingPhotoFastdfsMapper.xml
+END
+AdminFddCityMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFddCityMapper.xml
+END
+AdminMsgPushMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminMsgPushMapper.xml
+END
+AdminTraceXeActionMapMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTraceXeActionMapMapper.xml
+END
+AdminPbcatcolMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPbcatcolMapper.xml
+END
+AdminBuildingInfoTmpMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBuildingInfoTmpMapper.xml
+END
+AdminZfbHouseBatchUpdateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZfbHouseBatchUpdateMapper.xml
+END
+AdminKfUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminKfUserMapper.xml
+END
+AdminFunMsgMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunMsgMapper.xml
+END
+AdminFunUseScoreRecoreMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUseScoreRecoreMapper.xml
+END
+AdminCustTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCustTrackMapper.xml
+END
+AdminStatusDicMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminStatusDicMapper.xml
+END
+AdminFunContactMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunContactMapper.xml
+END
+AdminBulletMiniMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletMiniMapper.xml
+END
+AdminFunDeptsActivityMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunDeptsActivityMapper.xml
+END
+AdminPropertyWithdrawManageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPropertyWithdrawManageMapper.xml
+END
+AdminWMicroshopMaterialMediaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopMaterialMediaMapper.xml
+END
+AdminImportCustMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminImportCustMapper.xml
+END
+AdminFunActivityRegisterMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunActivityRegisterMapper.xml
+END
+AdminWMicroshopStatisticsMonthMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopStatisticsMonthMapper.xml
+END
+AdminFunUserRqsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUserRqsMapper.xml
+END
+AdminFunApartmentPhotoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunApartmentPhotoMapper.xml
+END
+AdminOnlinePaymentOrderMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminOnlinePaymentOrderMapper.xml
+END
+AdminCustomLeaguesMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCustomLeaguesMapper.xml
+END
+AdminQrtzSimpleTriggersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzSimpleTriggersMapper.xml
+END
+AdminTSignDateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTSignDateMapper.xml
+END
+AdminSysParaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSysParaMapper.xml
+END
+AdminDuesLoanrateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDuesLoanrateMapper.xml
+END
+AdminAttendanceScanningRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAttendanceScanningRecordMapper.xml
+END
+AdminWMicroshopStatisticsYearMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopStatisticsYearMapper.xml
+END
+AdminAppUpgradeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppUpgradeMapper.xml
+END
+AdminTWebViewMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTWebViewMapper.xml
+END
+AdminTicketSendMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTicketSendMapper.xml
+END
+AdminDayDetailMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDayDetailMapper.xml
+END
+AdminCrmCompMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmCompMapper.xml
+END
+AdminBanMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBanMapper.xml
+END
+AdminWMicroshopNodeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopNodeMapper.xml
+END
+AdminFafaRuleUpdateVerMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFafaRuleUpdateVerMapper.xml
+END
+AdminFunArchiveFastdfsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunArchiveFastdfsMapper.xml
+END
+AdminDistributeAdsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDistributeAdsMapper.xml
+END
+AdminSolrCoreScannerStatusMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSolrCoreScannerStatusMapper.xml
+END
+AdminWMicroshopAppointmentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopAppointmentMapper.xml
+END
+AdminFunMacMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunMacMapper.xml
+END
+AdminYouPaidMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminYouPaidMapper.xml
+END
+AdminFunPaidAduitMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPaidAduitMapper.xml
+END
+AdminWMicroshopSmartreplyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopSmartreplyMapper.xml
+END
+AdminDiscountConfigMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDiscountConfigMapper.xml
+END
+AdminFunHouseBiddingLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunHouseBiddingLogMapper.xml
+END
+AdminTrackCommonLanguageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTrackCommonLanguageMapper.xml
+END
+AdminUserSubscriptionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminUserSubscriptionMapper.xml
+END
+AdminCustomLeaguesSkinModelMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCustomLeaguesSkinModelMapper.xml
+END
+AdminFunRegMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunRegMapper.xml
+END
+AdminFunHaofangGiftMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunHaofangGiftMapper.xml
+END
+AdminFunCompJoinMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCompJoinMapper.xml
+END
+AdminLandlordFunHistoryMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLandlordFunHistoryMapper.xml
+END
+AdminFunArchiveMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunArchiveMapper.xml
+END
+AdminFunBuildAttentionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunBuildAttentionMapper.xml
+END
+AdminAppRefreshUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppRefreshUserMapper.xml
+END
+AdminWeiUserInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWeiUserInfoMapper.xml
+END
+AdminTemplateFunRentCustomerMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunRentCustomerMapper.xml
+END
+AdminFunPaidInvoicerelativeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPaidInvoicerelativeMapper.xml
+END
+AdminSubscriptionSendLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSubscriptionSendLogMapper.xml
+END
+AdminBrokerVisitMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBrokerVisitMapper.xml
+END
+AdminLoanRateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLoanRateMapper.xml
+END
+AdminCrmTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmTrackMapper.xml
+END
+AdminCityshareBorkerComplaintMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCityshareBorkerComplaintMapper.xml
+END
+AdminLogBiddingErrMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLogBiddingErrMapper.xml
+END
+AdminWMicroshopRoleUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopRoleUserMapper.xml
+END
+AdminWMicroshopAccessMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopAccessMapper.xml
+END
+AdminCrmCompRangeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmCompRangeMapper.xml
+END
+AdminFunPersonalIntentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPersonalIntentMapper.xml
+END
+AdminFunAdsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunAdsMapper.xml
+END
+AdminBulletinPsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletinPsMapper.xml
+END
+AdminArchiveTodayRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminArchiveTodayRecordMapper.xml
+END
+AdminWMicroshopPostsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopPostsMapper.xml
+END
+AdminFunTempletMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunTempletMapper.xml
+END
+AdminWMicroshopJobMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopJobMapper.xml
+END
+AdminKjlNewCityRelaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminKjlNewCityRelaMapper.xml
+END
+AdminSystemMessageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSystemMessageMapper.xml
+END
+AdminWMicroshopCompopenMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopCompopenMapper.xml
+END
+AdminFunMsglistMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunMsglistMapper.xml
+END
+AdminPbcatvldMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPbcatvldMapper.xml
+END
+AdminSosoPhonesMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSosoPhonesMapper.xml
+END
+AdminTrackViewLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTrackViewLogMapper.xml
+END
+AdminFunRegInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunRegInfoMapper.xml
+END
+AdminWMicroshopCompCollectsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopCompCollectsMapper.xml
+END
+AdminWMicroshopStatisticsDayMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopStatisticsDayMapper.xml
+END
+AdminAppInstallMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppInstallMapper.xml
+END
+AdminCrmParasMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/97827/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmParasMapper.xml
+END
+AdminFunSmsCheckMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunSmsCheckMapper.xml
+END
+AdminTemplateFunTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunTrackMapper.xml
+END
+AdminVoipPaidMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminVoipPaidMapper.xml
+END
+AdminSolrScannerTaskMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSolrScannerTaskMapper.xml
+END
+AdminFunArchiveLevelMarkingDetailMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunArchiveLevelMarkingDetailMapper.xml
+END
+AdminFunSubwayMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunSubwayMapper.xml
+END
+ErpYouComplaintTypeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/ErpYouComplaintTypeMapper.xml
+END
+AdminConvertFieldMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminConvertFieldMapper.xml
+END
+AdminCrmPaymentTasksMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmPaymentTasksMapper.xml
+END
+AdminPaidCountMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPaidCountMapper.xml
+END
+AdminFunCompNosMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/97827/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCompNosMapper.xml
+END
+AdminTeleGroupTmpMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTeleGroupTmpMapper.xml
+END
+AdminFunPushArchiveMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPushArchiveMapper.xml
+END
+AdminExitCompApplyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminExitCompApplyMapper.xml
+END
+AdminWMicroshopArticleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopArticleMapper.xml
+END
+AdminSolrBuildMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSolrBuildMapper.xml
+END
+AdminQrtzJobDetailsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzJobDetailsMapper.xml
+END
+AdminWeixinOpenCompMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWeixinOpenCompMapper.xml
+END
+AdminWfBrokerCommentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWfBrokerCommentMapper.xml
+END
+AdminFunWebtransInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunWebtransInfoMapper.xml
+END
+AdminWeixinUserFunMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWeixinUserFunMapper.xml
+END
+AdminFunErpUserGuideMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunErpUserGuideMapper.xml
+END
+AdminBuildDicMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBuildDicMapper.xml
+END
+AdminFunMsgDraftMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunMsgDraftMapper.xml
+END
+AdminWMicroshopAttentionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopAttentionMapper.xml
+END
+AdminQrtzPausedTriggerGrpsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzPausedTriggerGrpsMapper.xml
+END
+AdminZfbHouseRegMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZfbHouseRegMapper.xml
+END
+AdminFunUsersCountMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUsersCountMapper.xml
+END
+AdminTruehouseBondRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTruehouseBondRecordMapper.xml
+END
+AdminFunBrandCityMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunBrandCityMapper.xml
+END
+AdminPropertyModuleControlMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPropertyModuleControlMapper.xml
+END
+AdminSolrDeleteDataMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSolrDeleteDataMapper.xml
+END
+AdminYoujiaReserveHouseEvaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminYoujiaReserveHouseEvaMapper.xml
+END
+AdminTemplateFunPhotoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunPhotoMapper.xml
+END
+AdminAddDeptsApplyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAddDeptsApplyMapper.xml
+END
+AdminBroadcastMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBroadcastMapper.xml
+END
+AdminLoginTokenMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLoginTokenMapper.xml
+END
+AdminFunUsersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUsersMapper.xml
+END
+AdminWMicroshopStatisticsDetailsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopStatisticsDetailsMapper.xml
+END
+AdminFunCompRealMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCompRealMapper.xml
+END
+AdminQrtzCalendarsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzCalendarsMapper.xml
+END
+AdminFunIssueInvoiceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunIssueInvoiceMapper.xml
+END
+AdminWMicroshopRuleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopRuleMapper.xml
+END
+AdminSolrCoreMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSolrCoreMapper.xml
+END
+AdminFunDatasourceConfigMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunDatasourceConfigMapper.xml
+END
+AdminFunDemandCenterDepositMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunDemandCenterDepositMapper.xml
+END
+AdminYoujiaReserveMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminYoujiaReserveMapper.xml
+END
+AdminSsqAccountInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSsqAccountInfoMapper.xml
+END
+AdminWMicroshopMessageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopMessageMapper.xml
+END
+AdminDicConvertMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDicConvertMapper.xml
+END
+AdminFunApartmentRoomMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunApartmentRoomMapper.xml
+END
+AdminWeixinChatUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWeixinChatUserMapper.xml
+END
+AdminPropertyBuildMapMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPropertyBuildMapMapper.xml
+END
+AdminCrmTaskMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmTaskMapper.xml
+END
+AdminQrtzBlobTriggersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzBlobTriggersMapper.xml
+END
+AdminAppDownloadLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppDownloadLogMapper.xml
+END
+AdminWMicroshopRequirementMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopRequirementMapper.xml
+END
+AdminBulletReplyZanMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletReplyZanMapper.xml
+END
+AdminKjlCityRelaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminKjlCityRelaMapper.xml
+END
+AdminCompGiftCoinRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCompGiftCoinRecordMapper.xml
+END
+AdminBulletViewLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletViewLogMapper.xml
+END
+AdminZhiyeSynchronousTestRecordsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZhiyeSynchronousTestRecordsMapper.xml
+END
+AdminZhiYeViewLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZhiYeViewLogMapper.xml
+END
+AdminGenerationTaskMsgMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminGenerationTaskMsgMapper.xml
+END
+AdminBulletMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/99071/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletMapper.xml
+END
+AdminWMicroshopRuleKeywordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopRuleKeywordMapper.xml
+END
+AdminFunAttStimulateLangMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunAttStimulateLangMapper.xml
+END
+AdminFunUserMessageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUserMessageMapper.xml
+END
+AdminFunCompDelMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCompDelMapper.xml
+END
+AdminFunCompSkinMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCompSkinMapper.xml
+END
+AdminWMicroshopNewsmsgMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopNewsmsgMapper.xml
+END
+AdminFunShareRelevanceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunShareRelevanceMapper.xml
+END
+AdminBulletReplyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/98982/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletReplyMapper.xml
+END
+AdminContactInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminContactInfoMapper.xml
+END
+AdminQrtzTriggersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzTriggersMapper.xml
+END
+AdminFunContractHistroyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunContractHistroyMapper.xml
+END
+AdminCrmUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmUserMapper.xml
+END
+AdminImportFunMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminImportFunMapper.xml
+END
+AdminFunInvoiceEnclosureMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunInvoiceEnclosureMapper.xml
+END
+AdminBiddingTeleWorkgroupMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBiddingTeleWorkgroupMapper.xml
+END
+AdminFunShareCompMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunShareCompMapper.xml
+END
+AdminCrmGiftMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmGiftMapper.xml
+END
+AdminFunPaidErrMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPaidErrMapper.xml
+END
+AdminMobileAdvMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminMobileAdvMapper.xml
+END
+AdminFunUserAccountMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUserAccountMapper.xml
+END
+AdminPropertyDuildMapMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPropertyDuildMapMapper.xml
+END
+AdminWMicroshopStatisticsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopStatisticsMapper.xml
+END
+AdminMakeOrderSkillMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminMakeOrderSkillMapper.xml
+END
+AdminFunUserTaskRemindMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUserTaskRemindMapper.xml
+END
+AdminFunExcelMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunExcelMapper.xml
+END
+AdminDenyInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDenyInfoMapper.xml
+END
+AdminFunHouseBiddingMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunHouseBiddingMapper.xml
+END
+AdminFunSectionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunSectionMapper.xml
+END
+AdminWMicroshopStaffMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopStaffMapper.xml
+END
+AdminFunTxtranslogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunTxtranslogMapper.xml
+END
+AdminVoteLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminVoteLogMapper.xml
+END
+AdminBulletAdsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletAdsMapper.xml
+END
+AdminBankFourElementMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBankFourElementMapper.xml
+END
+AdminQrtzFiredTriggersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzFiredTriggersMapper.xml
+END
+ErpYouBorkerArchiveMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/ErpYouBorkerArchiveMapper.xml
+END
+AdminPushMessageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPushMessageMapper.xml
+END
+AdminFunTrialappMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunTrialappMapper.xml
+END
+AdminZonePhotoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZonePhotoMapper.xml
+END
+AdminFunPaidMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPaidMapper.xml
+END
+AdminClientErrorMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminClientErrorMapper.xml
+END
+AdminYoujiaReserveEvaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminYoujiaReserveEvaMapper.xml
+END
+AdminWMicroshopDeptopenMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopDeptopenMapper.xml
+END
+AdminFunPushApplogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunPushApplogMapper.xml
+END
+AdminTemplateFunKeyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunKeyMapper.xml
+END
+AdminWMicroshopCollectMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopCollectMapper.xml
+END
+AdminQrtzSchedulerStateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzSchedulerStateMapper.xml
+END
+AdminWeixinContractMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWeixinContractMapper.xml
+END
+AdminFunCustCompMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCustCompMapper.xml
+END
+AdminXwBankAccountMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminXwBankAccountMapper.xml
+END
+AdminMobileKeyLoginMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminMobileKeyLoginMapper.xml
+END
+AdminDeleteBulletMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDeleteBulletMapper.xml
+END
+AdminWMicroshopCompVisitHistoryMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopCompVisitHistoryMapper.xml
+END
+AdminCitySysParaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCitySysParaMapper.xml
+END
+AdminSosoBuildingPhotoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSosoBuildingPhotoMapper.xml
+END
+AdminJrFinanceInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminJrFinanceInfoMapper.xml
+END
+AdminBulletCompAdMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletCompAdMapper.xml
+END
+AdminFunRecalculateWageInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunRecalculateWageInfoMapper.xml
+END
+AdminCrmDeptsMapMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/97827/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmDeptsMapMapper.xml
+END
+AdminMobileKeyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminMobileKeyMapper.xml
+END
+AdminFinancIntentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFinancIntentMapper.xml
+END
+AdminFunUseScoreStandardMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunUseScoreStandardMapper.xml
+END
+AdminUserReviewsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminUserReviewsMapper.xml
+END
+AdminYouBorkerArchiveMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminYouBorkerArchiveMapper.xml
+END
+AdminKfTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminKfTrackMapper.xml
+END
+AdminOrder0713Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminOrder0713Mapper.xml
+END
+AdminFunAttStimulateImgMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunAttStimulateImgMapper.xml
+END
+AdminTemplateFunBuyCustomerMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunBuyCustomerMapper.xml
+END
+AdminCrmFunContractMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmFunContractMapper.xml
+END
+AdminFunWebtransInfoBakMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunWebtransInfoBakMapper.xml
+END
+AdminWMicroshopJobApplyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopJobApplyMapper.xml
+END
+AdminLandlordSearchConditionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLandlordSearchConditionMapper.xml
+END
+AdminBvTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBvTrackMapper.xml
+END
+AdminJmsMessageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminJmsMessageMapper.xml
+END
+AdminFunAttFestivalMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunAttFestivalMapper.xml
+END
+AdminHouseAreaPriceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminHouseAreaPriceMapper.xml
+END
+AdminYouViewFeeWithdrawalsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminYouViewFeeWithdrawalsMapper.xml
+END
+AdminOnlinePaymentOrderPayeeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminOnlinePaymentOrderPayeeMapper.xml
+END
+AdminIpCallLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/104311/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminIpCallLogMapper.xml
+END
+AdminBulletYouUsersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletYouUsersMapper.xml
+END
+AdminFunScoreStandardMonthMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunScoreStandardMonthMapper.xml
+END
+AdminFunAppealMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunAppealMapper.xml
+END
+AdminFunTreasureCoinMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunTreasureCoinMapper.xml
+END
+AdminWMicroshopMenuMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopMenuMapper.xml
+END
+AdminSiteAdviceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSiteAdviceMapper.xml
+END
+AdminFunDeptsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/97827/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunDeptsMapper.xml
+END
+AdminFunActivityTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunActivityTrackMapper.xml
+END
+AdminCustGroupMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCustGroupMapper.xml
+END
+AdminZfbHouseTransMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZfbHouseTransMapper.xml
+END
+AdminFunScoreRankingMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunScoreRankingMapper.xml
+END
+AdminFunBrandMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunBrandMapper.xml
+END
+AdminLocalTaxesMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLocalTaxesMapper.xml
+END
+AdminLeaveMessageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLeaveMessageMapper.xml
+END
+AdminWebSiteMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWebSiteMapper.xml
+END
+AdminKjlBuildRelaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminKjlBuildRelaMapper.xml
+END
+AdminThirdUserMapMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminThirdUserMapMapper.xml
+END
+AdminFunDeptsDistriMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunDeptsDistriMapper.xml
+END
+AdminPhotoTmpMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPhotoTmpMapper.xml
+END
+AdminBankDetailInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBankDetailInfoMapper.xml
+END
+AdminAppLoginLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppLoginLogMapper.xml
+END
+AdminVoipRelationMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminVoipRelationMapper.xml
+END
+AdminTrackCasestatusEndtaskMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTrackCasestatusEndtaskMapper.xml
+END
+AdminFafaTaskMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFafaTaskMapper.xml
+END
+AdminFunCityMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/97606/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCityMapper.xml
+END
+AdminServerErrorLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminServerErrorLogMapper.xml
+END
+AdminGoodNewsTempleteMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminGoodNewsTempleteMapper.xml
+END
+AdminFunScoreRecoredMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunScoreRecoredMapper.xml
+END
+AdminQrtzCronTriggersMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzCronTriggersMapper.xml
+END
+AdminWMicroshopUserChatMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopUserChatMapper.xml
+END
+AdminTraceXeEventMapMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTraceXeEventMapMapper.xml
+END
+AdminPushMessageDebugMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPushMessageDebugMapper.xml
+END
+AdminTrackTagMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTrackTagMapper.xml
+END
+AdminWeixinUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWeixinUserMapper.xml
+END
+AdminFunCooperateApartmentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCooperateApartmentMapper.xml
+END
+AdminFunCompMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/97829/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunCompMapper.xml
+END
+AdminNPicWatermarkMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminNPicWatermarkMapper.xml
+END
+AdminFunArchiveServicezoneMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunArchiveServicezoneMapper.xml
+END
+AdminFunSmsRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunSmsRecordMapper.xml
+END
+AdminZhiyeSynchronousPlayRecordsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZhiyeSynchronousPlayRecordsMapper.xml
+END
+AdminTemplateFunVideoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunVideoMapper.xml
+END
+AdminCrmBrokerTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCrmBrokerTrackMapper.xml
+END
+AdminFunAttSceneMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunAttSceneMapper.xml
+END
+AdminBuildingPriceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBuildingPriceMapper.xml
+END
+AdminWMicroshopMemberMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopMemberMapper.xml
+END
+AdminFeedbackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFeedbackMapper.xml
+END
+AdminBulletCityAdMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBulletCityAdMapper.xml
+END
+AdminFunBuildingBiddingMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunBuildingBiddingMapper.xml
+END
+AdminPbcattblMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPbcattblMapper.xml
+END
+AdminSyncDataConfigMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminSyncDataConfigMapper.xml
+END
+AdminQrtzLocksMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminQrtzLocksMapper.xml
+END
+AdminFunProvinceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunProvinceMapper.xml
+END
+AdminCityAdsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCityAdsMapper.xml
+END
+AdminAppQaMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppQaMapper.xml
+END
+AdminZhiyePayLogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZhiyePayLogMapper.xml
+END
+AdminTemplateBuildingInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateBuildingInfoMapper.xml
+END
+AdminFunTrueHouseCountMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunTrueHouseCountMapper.xml
+END
+AdminZfbRentHouseCityMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminZfbRentHouseCityMapper.xml
+END
+AdminAppInstallTestMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAppInstallTestMapper.xml
+END
+AdminFunTagsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunTagsMapper.xml
+END
+AdminVoipCallRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminVoipCallRecordMapper.xml
+END
+AdminOurFieldMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminOurFieldMapper.xml
+END
+AdminWMicroshopRoleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWMicroshopRoleMapper.xml
+END
+AdminFunExperienceAccountMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunExperienceAccountMapper.xml
+END
+AdminAliRenthousePunishmentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminAliRenthousePunishmentMapper.xml
+END
+AdminCaseCooperateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminCaseCooperateMapper.xml
+END
+AdminHouseLayoutSyncMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminHouseLayoutSyncMapper.xml
+END
+AdminBiddingDayDetailMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminBiddingDayDetailMapper.xml
+END
+AdminLotterySignPaidMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLotterySignPaidMapper.xml
+END
+AdminWeiPushRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminWeiPushRecordMapper.xml
+END
+AdminPushTxtMessageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPushTxtMessageMapper.xml
+END
+AdminLandlordTrackMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminLandlordTrackMapper.xml
+END
+AdminTemplateFunSaleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunSaleMapper.xml
+END
+AdminFunStationMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunStationMapper.xml
+END
+AdminTrueHouseComplaintMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTrueHouseComplaintMapper.xml
+END
+AdminDicDefinitionsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminDicDefinitionsMapper.xml
+END
+AdminYoujiaPosManageMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminYoujiaPosManageMapper.xml
+END
+AdminTemplateFunLeaseMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminTemplateFunLeaseMapper.xml
+END
+AdminOnlinePaymentReceiptFileMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminOnlinePaymentReceiptFileMapper.xml
+END
+AdminFunBuildAuditPushMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminFunBuildAuditPushMapper.xml
+END
+AdminPbcatfmtMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/admindb/mapper/AdminPbcatfmtMapper.xml
+END

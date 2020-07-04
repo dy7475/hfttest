@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/employeeFiles/param
+END
+DelEmployeeFileParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/employeeFiles/param/DelEmployeeFileParam.java
+END
+UploadEmployeeFileParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/employeeFiles/param/UploadEmployeeFileParam.java
+END
+EditEmployeeDocParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/employeeFiles/param/EditEmployeeDocParam.java
+END
+GetEmployeeInfoParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/employeeFiles/param/GetEmployeeInfoParam.java
+END
+GetEnclosureInfoParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/employeeFiles/param/GetEnclosureInfoParam.java
+END

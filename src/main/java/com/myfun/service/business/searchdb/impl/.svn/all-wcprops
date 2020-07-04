@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/searchdb/impl
+END
+SearchHeZuServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/searchdb/impl/SearchHeZuServiceImpl.java
+END
+SearchSaleInServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/searchdb/impl/SearchSaleInServiceImpl.java
+END
+SearchShopMainServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/searchdb/impl/SearchShopMainServiceImpl.java
+END
+SearchSosoViewServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/searchdb/impl/SearchSosoViewServiceImpl.java
+END
+SearchLeaseInServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/searchdb/impl/SearchLeaseInServiceImpl.java
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/115870/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config
+END
+generatorSearchConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorSearchConfig.xml
+END
+generatorAgencyConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/97279/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorAgencyConfig.xml
+END
+generatorErpConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/115870/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorErpConfig.xml
+END
+generatorAdminConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/98568/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorAdminConfig.xml
+END
+generatorCommConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorCommConfig.xml
+END
+generatorReportConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorReportConfig.xml
+END
+generatorTxConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorTxConfig.xml
+END
+generatorAdminRptConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorAdminRptConfig.xml
+END
+generatorFafunConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/config/generatorFafunConfig.xml
+END

@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svndata/erpProduct/!svn/ver/100335/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean
+END
+UpdateFunUserMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/UpdateFunUserMessage.java
+END
+OrgMoveConsumerMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/OrgMoveConsumerMessage.java
+END
+DealUserOperMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/DealUserOperMessage.java
+END
+AsycPushMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/AsycPushMessage.java
+END
+TrackScoreMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/TrackScoreMessage.java
+END
+WorkCountCaseStatusChangeMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/WorkCountCaseStatusChangeMessage.java
+END
+ViewLogTaskWarningParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/ViewLogTaskWarningParam.java
+END
+AgreementPictureMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/AgreementPictureMessage.java
+END
+CountProfitScoreMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/CountProfitScoreMessage.java
+END
+TaskQueueMsg.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/TaskQueueMsg.java
+END
+YouJiaWxPushMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/YouJiaWxPushMessage.java
+END
+UpdateFunProfitMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/UpdateFunProfitMessage.java
+END
+AuditToastMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/AuditToastMessage.java
+END
+BusinessBeyondDealMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/BusinessBeyondDealMessage.java
+END
+UpdateOrgUserNumConsumerMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/100335/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/UpdateOrgUserNumConsumerMessage.java
+END
+RemoveListingMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/jms/bean/RemoveListingMessage.java
+END

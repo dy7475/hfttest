@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/match/param
+END
+MatchSalePushParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/match/param/MatchSalePushParam.java
+END
+MatchRentCustPushParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/match/param/MatchRentCustPushParam.java
+END
+MatchLeasePushParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/match/param/MatchLeasePushParam.java
+END
+MatchBuyCustPushParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/match/param/MatchBuyCustPushParam.java
+END

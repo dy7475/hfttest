@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/client
+END
+JsonReqClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/client/JsonReqClient.java
+END
+AbsRestClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/client/AbsRestClient.java
+END
+XmlReqClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/client/XmlReqClient.java
+END
+Client.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/client/Client.java
+END

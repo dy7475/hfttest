@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/vo
+END
+BulletinInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/vo/BulletinInfoVo.java
+END
+CreateBulletVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/vo/CreateBulletVo.java
+END
+AdminBulletVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/vo/AdminBulletVo.java
+END
+FileUploadResultVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/vo/FileUploadResultVo.java
+END

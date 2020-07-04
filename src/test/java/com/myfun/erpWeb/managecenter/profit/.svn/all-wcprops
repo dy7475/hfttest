@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svndata/erpProduct/!svn/ver/97228/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit
+END
+ProfitBusinessControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/97228/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit/ProfitBusinessControllerTest.java
+END
+SalarySchemeTestController.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/97228/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit/SalarySchemeTestController.java
+END
+SalaryAssessmentControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit/SalaryAssessmentControllerTest.java
+END
+ErpFunWageControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit/ErpFunWageControllerTest.java
+END
+ProfitDistributionControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit/ProfitDistributionControllerTest.java
+END
+WageTypeControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit/WageTypeControllerTest.java
+END
+FunSalaryTypeControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/managecenter/profit/FunSalaryTypeControllerTest.java
+END

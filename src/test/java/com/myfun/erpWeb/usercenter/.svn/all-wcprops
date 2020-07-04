@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svndata/erpProduct/!svn/ver/101320/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/usercenter
+END
+DistributionControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/usercenter/DistributionControllerTest.java
+END
+UserCenterControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/101320/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/usercenter/UserCenterControllerTest.java
+END
+TaskControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/usercenter/TaskControllerTest.java
+END
+UserOpersControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/test/java/com/myfun/erpWeb/usercenter/UserOpersControllerTest.java
+END

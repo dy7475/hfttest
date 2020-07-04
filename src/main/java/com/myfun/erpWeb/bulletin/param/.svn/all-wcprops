@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svndata/erpProduct/!svn/ver/99071/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/param
+END
+BulletBaseInfoParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/param/BulletBaseInfoParam.java
+END
+AddBulletReplyZanParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/param/AddBulletReplyZanParam.java
+END
+BulletinInfoParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/param/BulletinInfoParam.java
+END
+BulletinListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/99071/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/param/BulletinListParam.java
+END
+CreateBulletParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/bulletin/param/CreateBulletParam.java
+END

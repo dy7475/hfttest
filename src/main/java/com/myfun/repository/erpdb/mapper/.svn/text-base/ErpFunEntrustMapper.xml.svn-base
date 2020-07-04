@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunEntrustMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunEntrust">
+    <!--@mbggenerated-->
+    <id column="ENTRUST_ID" jdbcType="INTEGER" property="entrustId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="ENTRUST_BUSINESS" jdbcType="TINYINT" property="entrustBusiness" />
+    <result column="HOUSE_ADDR" jdbcType="VARCHAR" property="houseAddr" />
+    <result column="ENTRUST_TYPE" jdbcType="TINYINT" property="entrustType" />
+    <result column="ELECTRONIC_ENTRUST" jdbcType="TINYINT" property="electronicEntrust" />
+    <result column="HOUSE_STATUS" jdbcType="TINYINT" property="houseStatus" />
+    <result column="ENTRUST_NO" jdbcType="VARCHAR" property="entrustNo" />
+    <result column="ENTRUST_START" jdbcType="VARCHAR" property="entrustStart" />
+    <result column="ENTRUST_END" jdbcType="VARCHAR" property="entrustEnd" />
+    <result column="ELECTRONIC_ENTRUST_TYPE" jdbcType="TINYINT" property="electronicEntrustType" />
+    <result column="DEPOSIT_FILE_FOR_CUSTOM" jdbcType="VARCHAR" property="depositFileForCustom" />
+    <result column="INSPECTION_TYPE" jdbcType="TINYINT" property="inspectionType" />
+    <result column="SALE_COMMISSION" jdbcType="NUMERIC" property="saleCommission" />
+    <result column="LEASE_COMMISSION" jdbcType="NUMERIC" property="leaseCommission" />
+    <result column="HAS_LEASE_CONTRACT" jdbcType="TINYINT" property="hasLeaseContract" />
+    <result column="LEASE_END_TIME" jdbcType="TIMESTAMP" property="leaseEndTime" />
+    <result column="OLD_RENT_MONEY" jdbcType="NUMERIC" property="oldRentMoney" />
+    <result column="IS_EFFECTIVE" jdbcType="TINYINT" property="isEffective" />
+    <result column="SIGN_STATUS" jdbcType="TINYINT" property="signStatus" />
+    <result column="AUDIT_STATUS" jdbcType="TINYINT" property="auditStatus" />
+    <result column="INCALID_DATE" jdbcType="TIMESTAMP" property="incalidDate" />
+    <result column="SIGN_FINASH_DATE" jdbcType="TIMESTAMP" property="signFinashDate" />
+    <result column="AUDIT_DATE" jdbcType="TIMESTAMP" property="auditDate" />
+    <result column="AUDIT_USER_ID" jdbcType="INTEGER" property="auditUserId" />
+    <result column="INCALID_REASON" jdbcType="TINYINT" property="incalidReason" />
+    <result column="RECORD_USER" jdbcType="INTEGER" property="recordUser" />
+    <result column="RECORD_ORGANIZATION_NAME" jdbcType="VARCHAR" property="recordOrganizationName" />
+    <result column="RECORD_TIME" jdbcType="TIMESTAMP" property="recordTime" />
+    <result column="RECORD_NO" jdbcType="VARCHAR" property="recordNo" />
+    <result column="RECORD_UPDATE_TIME" jdbcType="TIMESTAMP" property="recordUpdateTime" />
+    <result column="RECORD_STATUS" jdbcType="TINYINT" property="recordStatus" />
+    <result column="APPROVE_ORGANIZATION_NAME" jdbcType="VARCHAR" property="approveOrganizationName" />
+    <result column="APPROVE_USER_ID" jdbcType="INTEGER" property="approveUserId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="DEPOSIT_FILE_FOR_CUSTOM_OTHER" jdbcType="VARCHAR" property="depositFileForCustomOther" />
+    <result column="ENTRUST_STATUS" jdbcType="TINYINT" property="entrustStatus" />
+    <result column="SALE_PRICE" jdbcType="NUMERIC" property="salePrice" />
+    <result column="LEASE_PRICE" jdbcType="NUMERIC" property="leasePrice" />
+    <result column="IS_SHARE" jdbcType="TINYINT" property="isShare" />
+    <result column="CONTRACT_ID" jdbcType="VARCHAR" property="contractId" />
+    <result column="RECORD_USER_DEPT" jdbcType="VARCHAR" property="recordUserDept" />
+    <result column="APPROVE_DEPT" jdbcType="VARCHAR" property="approveDept" />
+    <result column="HAS_ACCOUNT_OCCUPANCY" jdbcType="TINYINT" property="hasAccountOccupancy" />
+    <result column="HAS_DEGREE_OCCUPATION" jdbcType="TINYINT" property="hasDegreeOccupation" />
+    <result column="PROPERTY_SITUATION" jdbcType="NUMERIC" property="propertySituation" />
+    <result column="PROPERTY_SITUATION_OTHER" jdbcType="VARCHAR" property="propertySituationOther" />
+    <result column="NUMBER_OF_KEYS" jdbcType="TINYINT" property="numberOfKeys" />
+    <result column="CERTIFICATE_OF_PRODUCTION" jdbcType="VARCHAR" property="certificateOfProduction" />
+    <result column="LAND_NATURE" jdbcType="VARCHAR" property="landNature" />
+    <result column="ENTRUSTED_AMOUNT" jdbcType="NUMERIC" property="entrustedAmount" />
+    <result column="ENTRUST_AREA" jdbcType="NUMERIC" property="entrustArea" />
+    <result column="ENTRUST_NOTE" jdbcType="VARCHAR" property="entrustNote" />
+    <result column="PRICE_UNIT" jdbcType="TINYINT" property="priceUnit" />
+    <result column="SALE_ENTRUST_PRICE" jdbcType="NUMERIC" property="saleEntrustPrice" />
+    <result column="LEASE_ENTRUST_PRICE" jdbcType="NUMERIC" property="leaseEntrustPrice" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ENTRUST_ID, CASE_ID, CASE_TYPE, COMP_ID, CITY_ID, ENTRUST_BUSINESS, HOUSE_ADDR, ENTRUST_TYPE, 
+    ELECTRONIC_ENTRUST, HOUSE_STATUS, ENTRUST_NO, ENTRUST_START, ENTRUST_END, ELECTRONIC_ENTRUST_TYPE, 
+    DEPOSIT_FILE_FOR_CUSTOM, INSPECTION_TYPE, SALE_COMMISSION, LEASE_COMMISSION, HAS_LEASE_CONTRACT, 
+    LEASE_END_TIME, OLD_RENT_MONEY, IS_EFFECTIVE, SIGN_STATUS, AUDIT_STATUS, INCALID_DATE, 
+    SIGN_FINASH_DATE, AUDIT_DATE, AUDIT_USER_ID, INCALID_REASON, RECORD_USER, RECORD_ORGANIZATION_NAME, 
+    RECORD_TIME, RECORD_NO, RECORD_UPDATE_TIME, RECORD_STATUS, APPROVE_ORGANIZATION_NAME, 
+    APPROVE_USER_ID, CREATE_TIME, DEPOSIT_FILE_FOR_CUSTOM_OTHER, ENTRUST_STATUS, SALE_PRICE, 
+    LEASE_PRICE, IS_SHARE, CONTRACT_ID, RECORD_USER_DEPT, APPROVE_DEPT, HAS_ACCOUNT_OCCUPANCY, 
+    HAS_DEGREE_OCCUPATION, PROPERTY_SITUATION, PROPERTY_SITUATION_OTHER, NUMBER_OF_KEYS, 
+    CERTIFICATE_OF_PRODUCTION, LAND_NATURE, ENTRUSTED_AMOUNT, ENTRUST_AREA, ENTRUST_NOTE, 
+    PRICE_UNIT, SALE_ENTRUST_PRICE, LEASE_ENTRUST_PRICE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST
+    where ENTRUST_ID = #{entrustId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST
+    where ENTRUST_ID = #{entrustId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustExample">
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="entrustId" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST (CASE_ID, CASE_TYPE, COMP_ID, 
+      CITY_ID, ENTRUST_BUSINESS, HOUSE_ADDR, 
+      ENTRUST_TYPE, ELECTRONIC_ENTRUST, HOUSE_STATUS, 
+      ENTRUST_NO, ENTRUST_START, ENTRUST_END, 
+      ELECTRONIC_ENTRUST_TYPE, DEPOSIT_FILE_FOR_CUSTOM, 
+      INSPECTION_TYPE, SALE_COMMISSION, LEASE_COMMISSION, 
+      HAS_LEASE_CONTRACT, LEASE_END_TIME, OLD_RENT_MONEY, 
+      IS_EFFECTIVE, SIGN_STATUS, AUDIT_STATUS, 
+      INCALID_DATE, SIGN_FINASH_DATE, AUDIT_DATE, 
+      AUDIT_USER_ID, INCALID_REASON, RECORD_USER, 
+      RECORD_ORGANIZATION_NAME, RECORD_TIME, RECORD_NO, 
+      RECORD_UPDATE_TIME, RECORD_STATUS, APPROVE_ORGANIZATION_NAME, 
+      APPROVE_USER_ID, CREATE_TIME, DEPOSIT_FILE_FOR_CUSTOM_OTHER, 
+      ENTRUST_STATUS, SALE_PRICE, LEASE_PRICE, 
+      IS_SHARE, CONTRACT_ID, RECORD_USER_DEPT, 
+      APPROVE_DEPT, HAS_ACCOUNT_OCCUPANCY, HAS_DEGREE_OCCUPATION, 
+      PROPERTY_SITUATION, PROPERTY_SITUATION_OTHER, 
+      NUMBER_OF_KEYS, CERTIFICATE_OF_PRODUCTION, 
+      LAND_NATURE, ENTRUSTED_AMOUNT, ENTRUST_AREA, 
+      ENTRUST_NOTE, PRICE_UNIT, SALE_ENTRUST_PRICE, 
+      LEASE_ENTRUST_PRICE)
+    values (#{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{compId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER}, #{entrustBusiness,jdbcType=TINYINT}, #{houseAddr,jdbcType=VARCHAR}, 
+      #{entrustType,jdbcType=TINYINT}, #{electronicEntrust,jdbcType=TINYINT}, #{houseStatus,jdbcType=TINYINT}, 
+      #{entrustNo,jdbcType=VARCHAR}, #{entrustStart,jdbcType=VARCHAR}, #{entrustEnd,jdbcType=VARCHAR}, 
+      #{electronicEntrustType,jdbcType=TINYINT}, #{depositFileForCustom,jdbcType=VARCHAR}, 
+      #{inspectionType,jdbcType=TINYINT}, #{saleCommission,jdbcType=NUMERIC}, #{leaseCommission,jdbcType=NUMERIC}, 
+      #{hasLeaseContract,jdbcType=TINYINT}, #{leaseEndTime,jdbcType=TIMESTAMP}, #{oldRentMoney,jdbcType=NUMERIC}, 
+      #{isEffective,jdbcType=TINYINT}, #{signStatus,jdbcType=TINYINT}, #{auditStatus,jdbcType=TINYINT}, 
+      #{incalidDate,jdbcType=TIMESTAMP}, #{signFinashDate,jdbcType=TIMESTAMP}, #{auditDate,jdbcType=TIMESTAMP}, 
+      #{auditUserId,jdbcType=INTEGER}, #{incalidReason,jdbcType=TINYINT}, #{recordUser,jdbcType=INTEGER}, 
+      #{recordOrganizationName,jdbcType=VARCHAR}, #{recordTime,jdbcType=TIMESTAMP}, #{recordNo,jdbcType=VARCHAR}, 
+      #{recordUpdateTime,jdbcType=TIMESTAMP}, #{recordStatus,jdbcType=TINYINT}, #{approveOrganizationName,jdbcType=VARCHAR}, 
+      #{approveUserId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{depositFileForCustomOther,jdbcType=VARCHAR}, 
+      #{entrustStatus,jdbcType=TINYINT}, #{salePrice,jdbcType=NUMERIC}, #{leasePrice,jdbcType=NUMERIC}, 
+      #{isShare,jdbcType=TINYINT}, #{contractId,jdbcType=VARCHAR}, #{recordUserDept,jdbcType=VARCHAR}, 
+      #{approveDept,jdbcType=VARCHAR}, #{hasAccountOccupancy,jdbcType=TINYINT}, #{hasDegreeOccupation,jdbcType=TINYINT}, 
+      #{propertySituation,jdbcType=NUMERIC}, #{propertySituationOther,jdbcType=VARCHAR}, 
+      #{numberOfKeys,jdbcType=TINYINT}, #{certificateOfProduction,jdbcType=VARCHAR}, 
+      #{landNature,jdbcType=VARCHAR}, #{entrustedAmount,jdbcType=NUMERIC}, #{entrustArea,jdbcType=NUMERIC}, 
+      #{entrustNote,jdbcType=VARCHAR}, #{priceUnit,jdbcType=TINYINT}, #{saleEntrustPrice,jdbcType=NUMERIC}, 
+      #{leaseEntrustPrice,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" keyProperty="entrustId" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="entrustBusiness != null">
+        ENTRUST_BUSINESS,
+      </if>
+      <if test="houseAddr != null">
+        HOUSE_ADDR,
+      </if>
+      <if test="entrustType != null">
+        ENTRUST_TYPE,
+      </if>
+      <if test="electronicEntrust != null">
+        ELECTRONIC_ENTRUST,
+      </if>
+      <if test="houseStatus != null">
+        HOUSE_STATUS,
+      </if>
+      <if test="entrustNo != null">
+        ENTRUST_NO,
+      </if>
+      <if test="entrustStart != null">
+        ENTRUST_START,
+      </if>
+      <if test="entrustEnd != null">
+        ENTRUST_END,
+      </if>
+      <if test="electronicEntrustType != null">
+        ELECTRONIC_ENTRUST_TYPE,
+      </if>
+      <if test="depositFileForCustom != null">
+        DEPOSIT_FILE_FOR_CUSTOM,
+      </if>
+      <if test="inspectionType != null">
+        INSPECTION_TYPE,
+      </if>
+      <if test="saleCommission != null">
+        SALE_COMMISSION,
+      </if>
+      <if test="leaseCommission != null">
+        LEASE_COMMISSION,
+      </if>
+      <if test="hasLeaseContract != null">
+        HAS_LEASE_CONTRACT,
+      </if>
+      <if test="leaseEndTime != null">
+        LEASE_END_TIME,
+      </if>
+      <if test="oldRentMoney != null">
+        OLD_RENT_MONEY,
+      </if>
+      <if test="isEffective != null">
+        IS_EFFECTIVE,
+      </if>
+      <if test="signStatus != null">
+        SIGN_STATUS,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="incalidDate != null">
+        INCALID_DATE,
+      </if>
+      <if test="signFinashDate != null">
+        SIGN_FINASH_DATE,
+      </if>
+      <if test="auditDate != null">
+        AUDIT_DATE,
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID,
+      </if>
+      <if test="incalidReason != null">
+        INCALID_REASON,
+      </if>
+      <if test="recordUser != null">
+        RECORD_USER,
+      </if>
+      <if test="recordOrganizationName != null">
+        RECORD_ORGANIZATION_NAME,
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME,
+      </if>
+      <if test="recordNo != null">
+        RECORD_NO,
+      </if>
+      <if test="recordUpdateTime != null">
+        RECORD_UPDATE_TIME,
+      </if>
+      <if test="recordStatus != null">
+        RECORD_STATUS,
+      </if>
+      <if test="approveOrganizationName != null">
+        APPROVE_ORGANIZATION_NAME,
+      </if>
+      <if test="approveUserId != null">
+        APPROVE_USER_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="depositFileForCustomOther != null">
+        DEPOSIT_FILE_FOR_CUSTOM_OTHER,
+      </if>
+      <if test="entrustStatus != null">
+        ENTRUST_STATUS,
+      </if>
+      <if test="salePrice != null">
+        SALE_PRICE,
+      </if>
+      <if test="leasePrice != null">
+        LEASE_PRICE,
+      </if>
+      <if test="isShare != null">
+        IS_SHARE,
+      </if>
+      <if test="contractId != null">
+        CONTRACT_ID,
+      </if>
+      <if test="recordUserDept != null">
+        RECORD_USER_DEPT,
+      </if>
+      <if test="approveDept != null">
+        APPROVE_DEPT,
+      </if>
+      <if test="hasAccountOccupancy != null">
+        HAS_ACCOUNT_OCCUPANCY,
+      </if>
+      <if test="hasDegreeOccupation != null">
+        HAS_DEGREE_OCCUPATION,
+      </if>
+      <if test="propertySituation != null">
+        PROPERTY_SITUATION,
+      </if>
+      <if test="propertySituationOther != null">
+        PROPERTY_SITUATION_OTHER,
+      </if>
+      <if test="numberOfKeys != null">
+        NUMBER_OF_KEYS,
+      </if>
+      <if test="certificateOfProduction != null">
+        CERTIFICATE_OF_PRODUCTION,
+      </if>
+      <if test="landNature != null">
+        LAND_NATURE,
+      </if>
+      <if test="entrustedAmount != null">
+        ENTRUSTED_AMOUNT,
+      </if>
+      <if test="entrustArea != null">
+        ENTRUST_AREA,
+      </if>
+      <if test="entrustNote != null">
+        ENTRUST_NOTE,
+      </if>
+      <if test="priceUnit != null">
+        PRICE_UNIT,
+      </if>
+      <if test="saleEntrustPrice != null">
+        SALE_ENTRUST_PRICE,
+      </if>
+      <if test="leaseEntrustPrice != null">
+        LEASE_ENTRUST_PRICE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="entrustBusiness != null">
+        #{entrustBusiness,jdbcType=TINYINT},
+      </if>
+      <if test="houseAddr != null">
+        #{houseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustType != null">
+        #{entrustType,jdbcType=TINYINT},
+      </if>
+      <if test="electronicEntrust != null">
+        #{electronicEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="houseStatus != null">
+        #{houseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="entrustNo != null">
+        #{entrustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustStart != null">
+        #{entrustStart,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustEnd != null">
+        #{entrustEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="electronicEntrustType != null">
+        #{electronicEntrustType,jdbcType=TINYINT},
+      </if>
+      <if test="depositFileForCustom != null">
+        #{depositFileForCustom,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionType != null">
+        #{inspectionType,jdbcType=TINYINT},
+      </if>
+      <if test="saleCommission != null">
+        #{saleCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="leaseCommission != null">
+        #{leaseCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="hasLeaseContract != null">
+        #{hasLeaseContract,jdbcType=TINYINT},
+      </if>
+      <if test="leaseEndTime != null">
+        #{leaseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldRentMoney != null">
+        #{oldRentMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="isEffective != null">
+        #{isEffective,jdbcType=TINYINT},
+      </if>
+      <if test="signStatus != null">
+        #{signStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="incalidDate != null">
+        #{incalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signFinashDate != null">
+        #{signFinashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditDate != null">
+        #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditUserId != null">
+        #{auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="incalidReason != null">
+        #{incalidReason,jdbcType=TINYINT},
+      </if>
+      <if test="recordUser != null">
+        #{recordUser,jdbcType=INTEGER},
+      </if>
+      <if test="recordOrganizationName != null">
+        #{recordOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordNo != null">
+        #{recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordUpdateTime != null">
+        #{recordUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordStatus != null">
+        #{recordStatus,jdbcType=TINYINT},
+      </if>
+      <if test="approveOrganizationName != null">
+        #{approveOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="approveUserId != null">
+        #{approveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositFileForCustomOther != null">
+        #{depositFileForCustomOther,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustStatus != null">
+        #{entrustStatus,jdbcType=TINYINT},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=NUMERIC},
+      </if>
+      <if test="leasePrice != null">
+        #{leasePrice,jdbcType=NUMERIC},
+      </if>
+      <if test="isShare != null">
+        #{isShare,jdbcType=TINYINT},
+      </if>
+      <if test="contractId != null">
+        #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordUserDept != null">
+        #{recordUserDept,jdbcType=VARCHAR},
+      </if>
+      <if test="approveDept != null">
+        #{approveDept,jdbcType=VARCHAR},
+      </if>
+      <if test="hasAccountOccupancy != null">
+        #{hasAccountOccupancy,jdbcType=TINYINT},
+      </if>
+      <if test="hasDegreeOccupation != null">
+        #{hasDegreeOccupation,jdbcType=TINYINT},
+      </if>
+      <if test="propertySituation != null">
+        #{propertySituation,jdbcType=NUMERIC},
+      </if>
+      <if test="propertySituationOther != null">
+        #{propertySituationOther,jdbcType=VARCHAR},
+      </if>
+      <if test="numberOfKeys != null">
+        #{numberOfKeys,jdbcType=TINYINT},
+      </if>
+      <if test="certificateOfProduction != null">
+        #{certificateOfProduction,jdbcType=VARCHAR},
+      </if>
+      <if test="landNature != null">
+        #{landNature,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustedAmount != null">
+        #{entrustedAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="entrustArea != null">
+        #{entrustArea,jdbcType=NUMERIC},
+      </if>
+      <if test="entrustNote != null">
+        #{entrustNote,jdbcType=VARCHAR},
+      </if>
+      <if test="priceUnit != null">
+        #{priceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="saleEntrustPrice != null">
+        #{saleEntrustPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="leaseEntrustPrice != null">
+        #{leaseEntrustPrice,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ENTRUST
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST
+    <set>
+      <if test="record.entrustId != null">
+        ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.entrustBusiness != null">
+        ENTRUST_BUSINESS = #{record.entrustBusiness,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseAddr != null">
+        HOUSE_ADDR = #{record.houseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustType != null">
+        ENTRUST_TYPE = #{record.entrustType,jdbcType=TINYINT},
+      </if>
+      <if test="record.electronicEntrust != null">
+        ELECTRONIC_ENTRUST = #{record.electronicEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseStatus != null">
+        HOUSE_STATUS = #{record.houseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.entrustNo != null">
+        ENTRUST_NO = #{record.entrustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustStart != null">
+        ENTRUST_START = #{record.entrustStart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustEnd != null">
+        ENTRUST_END = #{record.entrustEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.electronicEntrustType != null">
+        ELECTRONIC_ENTRUST_TYPE = #{record.electronicEntrustType,jdbcType=TINYINT},
+      </if>
+      <if test="record.depositFileForCustom != null">
+        DEPOSIT_FILE_FOR_CUSTOM = #{record.depositFileForCustom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inspectionType != null">
+        INSPECTION_TYPE = #{record.inspectionType,jdbcType=TINYINT},
+      </if>
+      <if test="record.saleCommission != null">
+        SALE_COMMISSION = #{record.saleCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="record.leaseCommission != null">
+        LEASE_COMMISSION = #{record.leaseCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="record.hasLeaseContract != null">
+        HAS_LEASE_CONTRACT = #{record.hasLeaseContract,jdbcType=TINYINT},
+      </if>
+      <if test="record.leaseEndTime != null">
+        LEASE_END_TIME = #{record.leaseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.oldRentMoney != null">
+        OLD_RENT_MONEY = #{record.oldRentMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="record.isEffective != null">
+        IS_EFFECTIVE = #{record.isEffective,jdbcType=TINYINT},
+      </if>
+      <if test="record.signStatus != null">
+        SIGN_STATUS = #{record.signStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.auditStatus != null">
+        AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.incalidDate != null">
+        INCALID_DATE = #{record.incalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signFinashDate != null">
+        SIGN_FINASH_DATE = #{record.signFinashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditDate != null">
+        AUDIT_DATE = #{record.auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditUserId != null">
+        AUDIT_USER_ID = #{record.auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.incalidReason != null">
+        INCALID_REASON = #{record.incalidReason,jdbcType=TINYINT},
+      </if>
+      <if test="record.recordUser != null">
+        RECORD_USER = #{record.recordUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.recordOrganizationName != null">
+        RECORD_ORGANIZATION_NAME = #{record.recordOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTime != null">
+        RECORD_TIME = #{record.recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.recordNo != null">
+        RECORD_NO = #{record.recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordUpdateTime != null">
+        RECORD_UPDATE_TIME = #{record.recordUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.recordStatus != null">
+        RECORD_STATUS = #{record.recordStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.approveOrganizationName != null">
+        APPROVE_ORGANIZATION_NAME = #{record.approveOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approveUserId != null">
+        APPROVE_USER_ID = #{record.approveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.depositFileForCustomOther != null">
+        DEPOSIT_FILE_FOR_CUSTOM_OTHER = #{record.depositFileForCustomOther,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustStatus != null">
+        ENTRUST_STATUS = #{record.entrustStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.salePrice != null">
+        SALE_PRICE = #{record.salePrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.leasePrice != null">
+        LEASE_PRICE = #{record.leasePrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.isShare != null">
+        IS_SHARE = #{record.isShare,jdbcType=TINYINT},
+      </if>
+      <if test="record.contractId != null">
+        CONTRACT_ID = #{record.contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordUserDept != null">
+        RECORD_USER_DEPT = #{record.recordUserDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approveDept != null">
+        APPROVE_DEPT = #{record.approveDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasAccountOccupancy != null">
+        HAS_ACCOUNT_OCCUPANCY = #{record.hasAccountOccupancy,jdbcType=TINYINT},
+      </if>
+      <if test="record.hasDegreeOccupation != null">
+        HAS_DEGREE_OCCUPATION = #{record.hasDegreeOccupation,jdbcType=TINYINT},
+      </if>
+      <if test="record.propertySituation != null">
+        PROPERTY_SITUATION = #{record.propertySituation,jdbcType=NUMERIC},
+      </if>
+      <if test="record.propertySituationOther != null">
+        PROPERTY_SITUATION_OTHER = #{record.propertySituationOther,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numberOfKeys != null">
+        NUMBER_OF_KEYS = #{record.numberOfKeys,jdbcType=TINYINT},
+      </if>
+      <if test="record.certificateOfProduction != null">
+        CERTIFICATE_OF_PRODUCTION = #{record.certificateOfProduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.landNature != null">
+        LAND_NATURE = #{record.landNature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustedAmount != null">
+        ENTRUSTED_AMOUNT = #{record.entrustedAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.entrustArea != null">
+        ENTRUST_AREA = #{record.entrustArea,jdbcType=NUMERIC},
+      </if>
+      <if test="record.entrustNote != null">
+        ENTRUST_NOTE = #{record.entrustNote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priceUnit != null">
+        PRICE_UNIT = #{record.priceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="record.saleEntrustPrice != null">
+        SALE_ENTRUST_PRICE = #{record.saleEntrustPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.leaseEntrustPrice != null">
+        LEASE_ENTRUST_PRICE = #{record.leaseEntrustPrice,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST
+    set ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      ENTRUST_BUSINESS = #{record.entrustBusiness,jdbcType=TINYINT},
+      HOUSE_ADDR = #{record.houseAddr,jdbcType=VARCHAR},
+      ENTRUST_TYPE = #{record.entrustType,jdbcType=TINYINT},
+      ELECTRONIC_ENTRUST = #{record.electronicEntrust,jdbcType=TINYINT},
+      HOUSE_STATUS = #{record.houseStatus,jdbcType=TINYINT},
+      ENTRUST_NO = #{record.entrustNo,jdbcType=VARCHAR},
+      ENTRUST_START = #{record.entrustStart,jdbcType=VARCHAR},
+      ENTRUST_END = #{record.entrustEnd,jdbcType=VARCHAR},
+      ELECTRONIC_ENTRUST_TYPE = #{record.electronicEntrustType,jdbcType=TINYINT},
+      DEPOSIT_FILE_FOR_CUSTOM = #{record.depositFileForCustom,jdbcType=VARCHAR},
+      INSPECTION_TYPE = #{record.inspectionType,jdbcType=TINYINT},
+      SALE_COMMISSION = #{record.saleCommission,jdbcType=NUMERIC},
+      LEASE_COMMISSION = #{record.leaseCommission,jdbcType=NUMERIC},
+      HAS_LEASE_CONTRACT = #{record.hasLeaseContract,jdbcType=TINYINT},
+      LEASE_END_TIME = #{record.leaseEndTime,jdbcType=TIMESTAMP},
+      OLD_RENT_MONEY = #{record.oldRentMoney,jdbcType=NUMERIC},
+      IS_EFFECTIVE = #{record.isEffective,jdbcType=TINYINT},
+      SIGN_STATUS = #{record.signStatus,jdbcType=TINYINT},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      INCALID_DATE = #{record.incalidDate,jdbcType=TIMESTAMP},
+      SIGN_FINASH_DATE = #{record.signFinashDate,jdbcType=TIMESTAMP},
+      AUDIT_DATE = #{record.auditDate,jdbcType=TIMESTAMP},
+      AUDIT_USER_ID = #{record.auditUserId,jdbcType=INTEGER},
+      INCALID_REASON = #{record.incalidReason,jdbcType=TINYINT},
+      RECORD_USER = #{record.recordUser,jdbcType=INTEGER},
+      RECORD_ORGANIZATION_NAME = #{record.recordOrganizationName,jdbcType=VARCHAR},
+      RECORD_TIME = #{record.recordTime,jdbcType=TIMESTAMP},
+      RECORD_NO = #{record.recordNo,jdbcType=VARCHAR},
+      RECORD_UPDATE_TIME = #{record.recordUpdateTime,jdbcType=TIMESTAMP},
+      RECORD_STATUS = #{record.recordStatus,jdbcType=TINYINT},
+      APPROVE_ORGANIZATION_NAME = #{record.approveOrganizationName,jdbcType=VARCHAR},
+      APPROVE_USER_ID = #{record.approveUserId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      DEPOSIT_FILE_FOR_CUSTOM_OTHER = #{record.depositFileForCustomOther,jdbcType=VARCHAR},
+      ENTRUST_STATUS = #{record.entrustStatus,jdbcType=TINYINT},
+      SALE_PRICE = #{record.salePrice,jdbcType=NUMERIC},
+      LEASE_PRICE = #{record.leasePrice,jdbcType=NUMERIC},
+      IS_SHARE = #{record.isShare,jdbcType=TINYINT},
+      CONTRACT_ID = #{record.contractId,jdbcType=VARCHAR},
+      RECORD_USER_DEPT = #{record.recordUserDept,jdbcType=VARCHAR},
+      APPROVE_DEPT = #{record.approveDept,jdbcType=VARCHAR},
+      HAS_ACCOUNT_OCCUPANCY = #{record.hasAccountOccupancy,jdbcType=TINYINT},
+      HAS_DEGREE_OCCUPATION = #{record.hasDegreeOccupation,jdbcType=TINYINT},
+      PROPERTY_SITUATION = #{record.propertySituation,jdbcType=NUMERIC},
+      PROPERTY_SITUATION_OTHER = #{record.propertySituationOther,jdbcType=VARCHAR},
+      NUMBER_OF_KEYS = #{record.numberOfKeys,jdbcType=TINYINT},
+      CERTIFICATE_OF_PRODUCTION = #{record.certificateOfProduction,jdbcType=VARCHAR},
+      LAND_NATURE = #{record.landNature,jdbcType=VARCHAR},
+      ENTRUSTED_AMOUNT = #{record.entrustedAmount,jdbcType=NUMERIC},
+      ENTRUST_AREA = #{record.entrustArea,jdbcType=NUMERIC},
+      ENTRUST_NOTE = #{record.entrustNote,jdbcType=VARCHAR},
+      PRICE_UNIT = #{record.priceUnit,jdbcType=TINYINT},
+      SALE_ENTRUST_PRICE = #{record.saleEntrustPrice,jdbcType=NUMERIC},
+      LEASE_ENTRUST_PRICE = #{record.leaseEntrustPrice,jdbcType=NUMERIC}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST
+    <set>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="entrustBusiness != null">
+        ENTRUST_BUSINESS = #{entrustBusiness,jdbcType=TINYINT},
+      </if>
+      <if test="houseAddr != null">
+        HOUSE_ADDR = #{houseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustType != null">
+        ENTRUST_TYPE = #{entrustType,jdbcType=TINYINT},
+      </if>
+      <if test="electronicEntrust != null">
+        ELECTRONIC_ENTRUST = #{electronicEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="houseStatus != null">
+        HOUSE_STATUS = #{houseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="entrustNo != null">
+        ENTRUST_NO = #{entrustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustStart != null">
+        ENTRUST_START = #{entrustStart,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustEnd != null">
+        ENTRUST_END = #{entrustEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="electronicEntrustType != null">
+        ELECTRONIC_ENTRUST_TYPE = #{electronicEntrustType,jdbcType=TINYINT},
+      </if>
+      <if test="depositFileForCustom != null">
+        DEPOSIT_FILE_FOR_CUSTOM = #{depositFileForCustom,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionType != null">
+        INSPECTION_TYPE = #{inspectionType,jdbcType=TINYINT},
+      </if>
+      <if test="saleCommission != null">
+        SALE_COMMISSION = #{saleCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="leaseCommission != null">
+        LEASE_COMMISSION = #{leaseCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="hasLeaseContract != null">
+        HAS_LEASE_CONTRACT = #{hasLeaseContract,jdbcType=TINYINT},
+      </if>
+      <if test="leaseEndTime != null">
+        LEASE_END_TIME = #{leaseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldRentMoney != null">
+        OLD_RENT_MONEY = #{oldRentMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="isEffective != null">
+        IS_EFFECTIVE = #{isEffective,jdbcType=TINYINT},
+      </if>
+      <if test="signStatus != null">
+        SIGN_STATUS = #{signStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="incalidDate != null">
+        INCALID_DATE = #{incalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signFinashDate != null">
+        SIGN_FINASH_DATE = #{signFinashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditDate != null">
+        AUDIT_DATE = #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID = #{auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="incalidReason != null">
+        INCALID_REASON = #{incalidReason,jdbcType=TINYINT},
+      </if>
+      <if test="recordUser != null">
+        RECORD_USER = #{recordUser,jdbcType=INTEGER},
+      </if>
+      <if test="recordOrganizationName != null">
+        RECORD_ORGANIZATION_NAME = #{recordOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME = #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordNo != null">
+        RECORD_NO = #{recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordUpdateTime != null">
+        RECORD_UPDATE_TIME = #{recordUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordStatus != null">
+        RECORD_STATUS = #{recordStatus,jdbcType=TINYINT},
+      </if>
+      <if test="approveOrganizationName != null">
+        APPROVE_ORGANIZATION_NAME = #{approveOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="approveUserId != null">
+        APPROVE_USER_ID = #{approveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositFileForCustomOther != null">
+        DEPOSIT_FILE_FOR_CUSTOM_OTHER = #{depositFileForCustomOther,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustStatus != null">
+        ENTRUST_STATUS = #{entrustStatus,jdbcType=TINYINT},
+      </if>
+      <if test="salePrice != null">
+        SALE_PRICE = #{salePrice,jdbcType=NUMERIC},
+      </if>
+      <if test="leasePrice != null">
+        LEASE_PRICE = #{leasePrice,jdbcType=NUMERIC},
+      </if>
+      <if test="isShare != null">
+        IS_SHARE = #{isShare,jdbcType=TINYINT},
+      </if>
+      <if test="contractId != null">
+        CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordUserDept != null">
+        RECORD_USER_DEPT = #{recordUserDept,jdbcType=VARCHAR},
+      </if>
+      <if test="approveDept != null">
+        APPROVE_DEPT = #{approveDept,jdbcType=VARCHAR},
+      </if>
+      <if test="hasAccountOccupancy != null">
+        HAS_ACCOUNT_OCCUPANCY = #{hasAccountOccupancy,jdbcType=TINYINT},
+      </if>
+      <if test="hasDegreeOccupation != null">
+        HAS_DEGREE_OCCUPATION = #{hasDegreeOccupation,jdbcType=TINYINT},
+      </if>
+      <if test="propertySituation != null">
+        PROPERTY_SITUATION = #{propertySituation,jdbcType=NUMERIC},
+      </if>
+      <if test="propertySituationOther != null">
+        PROPERTY_SITUATION_OTHER = #{propertySituationOther,jdbcType=VARCHAR},
+      </if>
+      <if test="numberOfKeys != null">
+        NUMBER_OF_KEYS = #{numberOfKeys,jdbcType=TINYINT},
+      </if>
+      <if test="certificateOfProduction != null">
+        CERTIFICATE_OF_PRODUCTION = #{certificateOfProduction,jdbcType=VARCHAR},
+      </if>
+      <if test="landNature != null">
+        LAND_NATURE = #{landNature,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustedAmount != null">
+        ENTRUSTED_AMOUNT = #{entrustedAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="entrustArea != null">
+        ENTRUST_AREA = #{entrustArea,jdbcType=NUMERIC},
+      </if>
+      <if test="entrustNote != null">
+        ENTRUST_NOTE = #{entrustNote,jdbcType=VARCHAR},
+      </if>
+      <if test="priceUnit != null">
+        PRICE_UNIT = #{priceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="saleEntrustPrice != null">
+        SALE_ENTRUST_PRICE = #{saleEntrustPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="leaseEntrustPrice != null">
+        LEASE_ENTRUST_PRICE = #{leaseEntrustPrice,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ENTRUST_ID = #{entrustId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      ENTRUST_BUSINESS = #{entrustBusiness,jdbcType=TINYINT},
+      HOUSE_ADDR = #{houseAddr,jdbcType=VARCHAR},
+      ENTRUST_TYPE = #{entrustType,jdbcType=TINYINT},
+      ELECTRONIC_ENTRUST = #{electronicEntrust,jdbcType=TINYINT},
+      HOUSE_STATUS = #{houseStatus,jdbcType=TINYINT},
+      ENTRUST_NO = #{entrustNo,jdbcType=VARCHAR},
+      ENTRUST_START = #{entrustStart,jdbcType=VARCHAR},
+      ENTRUST_END = #{entrustEnd,jdbcType=VARCHAR},
+      ELECTRONIC_ENTRUST_TYPE = #{electronicEntrustType,jdbcType=TINYINT},
+      DEPOSIT_FILE_FOR_CUSTOM = #{depositFileForCustom,jdbcType=VARCHAR},
+      INSPECTION_TYPE = #{inspectionType,jdbcType=TINYINT},
+      SALE_COMMISSION = #{saleCommission,jdbcType=NUMERIC},
+      LEASE_COMMISSION = #{leaseCommission,jdbcType=NUMERIC},
+      HAS_LEASE_CONTRACT = #{hasLeaseContract,jdbcType=TINYINT},
+      LEASE_END_TIME = #{leaseEndTime,jdbcType=TIMESTAMP},
+      OLD_RENT_MONEY = #{oldRentMoney,jdbcType=NUMERIC},
+      IS_EFFECTIVE = #{isEffective,jdbcType=TINYINT},
+      SIGN_STATUS = #{signStatus,jdbcType=TINYINT},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      INCALID_DATE = #{incalidDate,jdbcType=TIMESTAMP},
+      SIGN_FINASH_DATE = #{signFinashDate,jdbcType=TIMESTAMP},
+      AUDIT_DATE = #{auditDate,jdbcType=TIMESTAMP},
+      AUDIT_USER_ID = #{auditUserId,jdbcType=INTEGER},
+      INCALID_REASON = #{incalidReason,jdbcType=TINYINT},
+      RECORD_USER = #{recordUser,jdbcType=INTEGER},
+      RECORD_ORGANIZATION_NAME = #{recordOrganizationName,jdbcType=VARCHAR},
+      RECORD_TIME = #{recordTime,jdbcType=TIMESTAMP},
+      RECORD_NO = #{recordNo,jdbcType=VARCHAR},
+      RECORD_UPDATE_TIME = #{recordUpdateTime,jdbcType=TIMESTAMP},
+      RECORD_STATUS = #{recordStatus,jdbcType=TINYINT},
+      APPROVE_ORGANIZATION_NAME = #{approveOrganizationName,jdbcType=VARCHAR},
+      APPROVE_USER_ID = #{approveUserId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      DEPOSIT_FILE_FOR_CUSTOM_OTHER = #{depositFileForCustomOther,jdbcType=VARCHAR},
+      ENTRUST_STATUS = #{entrustStatus,jdbcType=TINYINT},
+      SALE_PRICE = #{salePrice,jdbcType=NUMERIC},
+      LEASE_PRICE = #{leasePrice,jdbcType=NUMERIC},
+      IS_SHARE = #{isShare,jdbcType=TINYINT},
+      CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
+      RECORD_USER_DEPT = #{recordUserDept,jdbcType=VARCHAR},
+      APPROVE_DEPT = #{approveDept,jdbcType=VARCHAR},
+      HAS_ACCOUNT_OCCUPANCY = #{hasAccountOccupancy,jdbcType=TINYINT},
+      HAS_DEGREE_OCCUPATION = #{hasDegreeOccupation,jdbcType=TINYINT},
+      PROPERTY_SITUATION = #{propertySituation,jdbcType=NUMERIC},
+      PROPERTY_SITUATION_OTHER = #{propertySituationOther,jdbcType=VARCHAR},
+      NUMBER_OF_KEYS = #{numberOfKeys,jdbcType=TINYINT},
+      CERTIFICATE_OF_PRODUCTION = #{certificateOfProduction,jdbcType=VARCHAR},
+      LAND_NATURE = #{landNature,jdbcType=VARCHAR},
+      ENTRUSTED_AMOUNT = #{entrustedAmount,jdbcType=NUMERIC},
+      ENTRUST_AREA = #{entrustArea,jdbcType=NUMERIC},
+      ENTRUST_NOTE = #{entrustNote,jdbcType=VARCHAR},
+      PRICE_UNIT = #{priceUnit,jdbcType=TINYINT},
+      SALE_ENTRUST_PRICE = #{saleEntrustPrice,jdbcType=NUMERIC},
+      LEASE_ENTRUST_PRICE = #{leaseEntrustPrice,jdbcType=NUMERIC}
+    where ENTRUST_ID = #{entrustId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectEntrustList" parameterType="com.myfun.erpWeb.managecenter.mlEntrustManage.param.SelectEntrusListParam" resultType="com.myfun.erpWeb.managecenter.mlEntrustManage.vo.EntrusListVO">
+    SELECT A.ENTRUST_ID, A.CASE_ID, A.CASE_TYPE, A.ELECTRONIC_ENTRUST, A.ENTRUST_START, A.ENTRUST_END, A.ELECTRONIC_ENTRUST_TYPE, A.IS_EFFECTIVE, A.SIGN_STATUS,
+    A.AUDIT_STATUS, A.ENTRUST_STATUS, A.AUDIT_DATE, A.AUDIT_USER_ID, A.RECORD_USER, A.RECORD_ORGANIZATION_NAME, A.RECORD_TIME, A.RECORD_NO, A.CREATE_TIME, A.APPROVE_ORGANIZATION_NAME,
+    A.APPROVE_USER_ID, A.RECORD_STATUS, R.ID auditId, U.ID canAudit, A.PRICE_UNIT priceUnit, A.SALE_ENTRUST_PRICE saleEntrustPrice, A.LEASE_ENTRUST_PRICE leaseEntrustPrice,A.ENTRUST_TYPE entrustType
+    FROM FUN_ENTRUST A
+    LEFT JOIN FUN_USERS B ON A.${param.userTypeCn} = B.USER_ID
+    LEFT JOIN AUDIT_RUNTIME R ON R.TARGET_ID = A.ENTRUST_ID AND R.AUDIT_TYPE = #{param.auditType} AND DATEADD(N, -5, A.CREATE_TIME) &lt;= R.CREATION_TIME AND R.COMP_ID = #{param.compId}
+    LEFT JOIN AUDIT_USER_RUNTIME U ON U.AUDIT_ID = R.ID AND U.AUDIT_STATUS = 1 AND U.AUDIT_USER_ID = #{param.currentUserId}
+    <if test="param.userId != null">
+      WHERE A.${param.userTypeCn} = #{param.userId} AND A.COMP_ID = #{param.compId}
+    </if>
+    <if test="param.userId == null">
+      <if test="param.selectTalbe != null">
+        <if test="param.selectTalbe == 1"> LEFT JOIN FUN_DEPTSGROUP C ON C.GR_ID = B.GR_ID </if>
+        <if test="param.selectTalbe == 2"> LEFT JOIN FUN_DEPTS D ON D.DEPT_ID = B.DEPT_ID </if>
+        <if test="param.selectTalbe == 3"> LEFT JOIN FUN_REGION E ON E.REG_ID = B.REG_ID </if>
+        <if test="param.selectTalbe == 4"> LEFT JOIN FUN_AREA F ON F.AREA_ID = B.AREA_ID </if>
+      </if>
+      WHERE A.COMP_ID = #{param.compId}
+    </if>
+    <if test="param.electronicEntrust != null">
+      AND A.ELECTRONIC_ENTRUST = #{param.electronicEntrust}
+    </if>
+    <if test="param.isEffective != null">
+      <if test="param.isEffective == 0">
+        <choose>
+          <when test="param.status != null and param.status != 11"> <!-- 筛选了状态，但不是待签署 查失效委托 -->
+            AND A.IS_EFFECTIVE = 0 AND A.ENTRUST_STATUS = #{param.status}
+          </when>
+          <when test="param.status != null and param.status == 11"> <!-- 筛选了状态，是待签署 查有效待签署委托 -->
+            AND A.IS_EFFECTIVE = 1 AND A.ENTRUST_STATUS = 11
+          </when>
+          <otherwise> <!-- 没有筛选状态时，查无效委托和待签署的有效委托 -->
+            AND (A.IS_EFFECTIVE = 0 OR (A.IS_EFFECTIVE = 1 AND A.ENTRUST_STATUS = 11))
+          </otherwise>
+        </choose>
+      </if>
+      <if test="param.isEffective == 1">
+        AND A.IS_EFFECTIVE = 1 AND A.ENTRUST_STATUS != 11
+        <if test="param.auditStatus != null">
+          AND A.AUDIT_STATUS = #{param.auditStatus}
+        </if>
+      </if>
+    </if>
+    <if test="param.recordStatus != null">
+      AND A.RECORD_STATUS = #{param.recordStatus}
+    </if>
+    <if test="param.createTime1 != null and param.createTime2 != null">
+      AND A.CREATE_TIME BETWEEN #{param.createTime1} AND #{param.createTime2}
+    </if>
+    <if test="param.selectTalbe != null">
+      <if test="param.selectTalbe == 1"> AND C.GR_ID = #{param.grId} </if>
+      <if test="param.selectTalbe == 2"> AND D.DEPT_ID = #{param.deptId} </if>
+      <if test="param.selectTalbe == 3"> AND E.REG_ID = #{param.regId} </if>
+      <if test="param.selectTalbe == 4"> AND F.AREA_ID = #{param.areaId} </if>
+    </if>
+    <if test="param.organizationId != null"> AND B.TISSUE_LINE LIKE '%:${param.organizationId}:%' </if>
+     <if test="param.recordNo != null and '' != param.recordNo"> and A.RECORD_NO like '%${param.recordNo}%' </if>
+     <if test="param.entrustType != null"> and A.ENTRUST_TYPE = #{param.entrustType} </if>
+    ORDER BY A.CREATE_TIME DESC
+
+  </select>
+  
+  <update id="updateEntrustInfo" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust">
+    update FUN_ENTRUST
+    set ENTRUST_BUSINESS = #{entrustBusiness},
+      ENTRUST_TYPE = #{entrustType},
+      HOUSE_STATUS = #{houseStatus},
+      ENTRUST_NO = #{entrustNo},
+      ENTRUST_START = #{entrustStart},
+      ENTRUST_END = #{entrustEnd}
+    where ENTRUST_ID = #{entrustId}
+  </update>
+  
+  <update id="clearEntrustRecord" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust">
+    update FUN_ENTRUST
+    set IS_EFFECTIVE = #{isEffective},
+      INCALID_DATE = #{incalidDate},
+      INCALID_REASON = #{incalidReason},
+      RECORD_USER = #{recordUser},
+      RECORD_ORGANIZATION_NAME = #{recordOrganizationName},
+      RECORD_UPDATE_TIME = #{recordUpdateTime},
+      RECORD_STATUS = #{recordStatus},
+      ENTRUST_STATUS = #{entrustStatus}
+    where ENTRUST_ID = #{entrustId}
+  </update>
+  
+  <select id="selectByCaseId" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" /> 
+    FROM FUN_ENTRUST WHERE COMP_ID = #{compId} AND IS_EFFECTIVE = #{isEffective}
+    <choose>
+      <when test="isSaleLease == 1 and shareEntrustData == 1">
+        <choose>
+          <when test="caseType == 1">
+            AND ((CASE_TYPE = #{caseType} AND CASE_ID = #{caseId}) OR (IS_SHARE = 1 AND CASE_TYPE = 2 AND CASE_ID = #{leaseId}))
+          </when>
+          <otherwise>
+            AND ((CASE_TYPE = #{caseType} AND CASE_ID = #{caseId}) OR (IS_SHARE = 1 AND CASE_TYPE = 1 AND CASE_ID = #{saleId}))
+          </otherwise>
+        </choose>
+      </when>
+      <otherwise>
+        AND CASE_TYPE = #{caseType} AND CASE_ID = #{caseId} 
+      </otherwise>
+    </choose>
+    ORDER BY CREATE_TIME DESC
+  </select>
+  
+  <insert id="insertNewEntrustJudgeRepeat" keyProperty="entrustId" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust" useGeneratedKeys="true">
+    if exists (
+        SELECT <include refid="Base_Column_List" /> FROM FUN_ENTRUST
+        WHERE COMP_ID = #{compId} AND CASE_ID = #{caseId} AND CASE_TYPE = #{caseType} AND IS_EFFECTIVE = 1
+    ) 
+    SELECT 1 else
+    insert into FUN_ENTRUST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="entrustBusiness != null">
+        ENTRUST_BUSINESS,
+      </if>
+      <if test="houseAddr != null">
+        HOUSE_ADDR,
+      </if>
+      <if test="entrustType != null">
+        ENTRUST_TYPE,
+      </if>
+      <if test="electronicEntrust != null">
+        ELECTRONIC_ENTRUST,
+      </if>
+      <if test="houseStatus != null">
+        HOUSE_STATUS,
+      </if>
+      <if test="entrustNo != null">
+        ENTRUST_NO,
+      </if>
+      <if test="entrustStart != null">
+        ENTRUST_START,
+      </if>
+      <if test="entrustEnd != null">
+        ENTRUST_END,
+      </if>
+      <if test="electronicEntrustType != null">
+        ELECTRONIC_ENTRUST_TYPE,
+      </if>
+      <if test="depositFileForCustom != null">
+        DEPOSIT_FILE_FOR_CUSTOM,
+      </if>
+      <if test="inspectionType != null">
+        INSPECTION_TYPE,
+      </if>
+      <if test="saleCommission != null">
+        SALE_COMMISSION,
+      </if>
+      <if test="leaseCommission != null">
+        LEASE_COMMISSION,
+      </if>
+      <if test="hasLeaseContract != null">
+        HAS_LEASE_CONTRACT,
+      </if>
+      <if test="leaseEndTime != null">
+        LEASE_END_TIME,
+      </if>
+      <if test="oldRentMoney != null">
+        OLD_RENT_MONEY,
+      </if>
+      <if test="isEffective != null">
+        IS_EFFECTIVE,
+      </if>
+      <if test="signStatus != null">
+        SIGN_STATUS,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="incalidDate != null">
+        INCALID_DATE,
+      </if>
+      <if test="signFinashDate != null">
+        SIGN_FINASH_DATE,
+      </if>
+      <if test="auditDate != null">
+        AUDIT_DATE,
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID,
+      </if>
+      <if test="incalidReason != null">
+        INCALID_REASON,
+      </if>
+      <if test="recordUser != null">
+        RECORD_USER,
+      </if>
+      <if test="recordUserDept != null">
+        RECORD_USER_DEPT,
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME,
+      </if>
+      <if test="recordNo != null">
+        RECORD_NO,
+      </if>
+      <if test="recordUpdateTime != null">
+        RECORD_UPDATE_TIME,
+      </if>
+      <if test="recordStatus != null">
+        RECORD_STATUS,
+      </if>
+      <if test="approveDept != null">
+        APPROVE_DEPT,
+      </if>
+      <if test="approveUserId != null">
+        APPROVE_USER_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="depositFileForCustomOther != null">
+        DEPOSIT_FILE_FOR_CUSTOM_OTHER,
+      </if>
+      <if test="entrustStatus != null">
+        ENTRUST_STATUS,
+      </if>
+      <if test="salePrice != null">
+        SALE_PRICE,
+      </if>
+      <if test="leasePrice != null">
+        LEASE_PRICE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="entrustBusiness != null">
+        #{entrustBusiness,jdbcType=TINYINT},
+      </if>
+      <if test="houseAddr != null">
+        #{houseAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustType != null">
+        #{entrustType,jdbcType=TINYINT},
+      </if>
+      <if test="electronicEntrust != null">
+        #{electronicEntrust,jdbcType=TINYINT},
+      </if>
+      <if test="houseStatus != null">
+        #{houseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="entrustNo != null">
+        #{entrustNo,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustStart != null">
+        #{entrustStart,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustEnd != null">
+        #{entrustEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="electronicEntrustType != null">
+        #{electronicEntrustType,jdbcType=TINYINT},
+      </if>
+      <if test="depositFileForCustom != null">
+        #{depositFileForCustom,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionType != null">
+        #{inspectionType,jdbcType=TINYINT},
+      </if>
+      <if test="saleCommission != null">
+        #{saleCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="leaseCommission != null">
+        #{leaseCommission,jdbcType=NUMERIC},
+      </if>
+      <if test="hasLeaseContract != null">
+        #{hasLeaseContract,jdbcType=TINYINT},
+      </if>
+      <if test="leaseEndTime != null">
+        #{leaseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldRentMoney != null">
+        #{oldRentMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="isEffective != null">
+        #{isEffective,jdbcType=TINYINT},
+      </if>
+      <if test="signStatus != null">
+        #{signStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="incalidDate != null">
+        #{incalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signFinashDate != null">
+        #{signFinashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditDate != null">
+        #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditUserId != null">
+        #{auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="incalidReason != null">
+        #{incalidReason,jdbcType=TINYINT},
+      </if>
+      <if test="recordUser != null">
+        #{recordUser,jdbcType=INTEGER},
+      </if>
+      <if test="recordUserDept != null">
+        #{recordUserDept,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordNo != null">
+        #{recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordUpdateTime != null">
+        #{recordUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordStatus != null">
+        #{recordStatus,jdbcType=TINYINT},
+      </if>
+      <if test="approveDept != null">
+        #{approveDept,jdbcType=VARCHAR},
+      </if>
+      <if test="approveUserId != null">
+        #{approveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositFileForCustomOther != null">
+        #{depositFileForCustomOther,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustStatus != null">
+        #{entrustStatus,jdbcType=TINYINT},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=NUMERIC},
+      </if>
+      <if test="leasePrice != null">
+        #{leasePrice,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="selectByContractId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from FUN_ENTRUST
+    where CONTRACT_ID = #{contractId} AND IS_EFFECTIVE = 1 AND ELECTRONIC_ENTRUST = 1 AND ELECTRONIC_ENTRUST_TYPE = 1
+  </select>
+
+  <select id="selectByEntrustType" resultType="String">
+    select top 1 ENTRUST_NO from FUN_ENTRUST
+    where ELECTRONIC_ENTRUST = 1 
+    <choose>
+      <when test="electronicEntrustType == 1">
+      and  ENTRUST_NO like 'SZDR%'
+      </when>
+      <otherwise>
+      and ENTRUST_NO like 'SZDF%'
+      </otherwise>
+    </choose>
+    order by ENTRUST_ID desc 
+  </select>
+
+  <update id="updateEntrust" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrust">
+    update FUN_ENTRUST
+    set RECORD_UPDATE_TIME = #{recordUpdateTime},
+      RECORD_USER = #{recordUser},
+      RECORD_TIME = #{recordTime},
+      RECORD_NO = #{recordNo},
+      SALE_ENTRUST_PRICE = #{saleEntrustPrice},
+      LEASE_ENTRUST_PRICE = #{leaseEntrustPrice},
+      PRICE_UNIT = #{priceUnit},
+      RECORD_STATUS = #{recordStatus},
+      RECORD_ORGANIZATION_NAME = #{recordOrganizationName}
+    where ENTRUST_ID = #{entrustId}
+  </update>
+
+  <select id="selectSupplementaryDataRecordNo" resultMap="BaseResultMap">
+    SELECT RECORD_NO,ENTRUST_ID,CITY_ID FROM FUN_ENTRUST WHERE RECORD_NO LIKE '%,%'
+  </select>
+
+</mapper>

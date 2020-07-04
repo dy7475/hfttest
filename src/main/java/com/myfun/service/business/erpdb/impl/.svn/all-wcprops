@@ -1,0 +1,1079 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svndata/erpProduct/!svn/ver/115870/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl
+END
+ErpSalePeopleRelativeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpSalePeopleRelativeServiceImpl.java
+END
+ErpFunContractServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/97343/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunContractServiceImpl.java
+END
+ErpUserOpersServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/102054/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpUserOpersServiceImpl.java
+END
+ErpCompRoleOpersServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/103973/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpCompRoleOpersServiceImpl.java
+END
+ErpFunPersonnelLevelsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPersonnelLevelsServiceImpl.java
+END
+ErpSalaryTypeRelativeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpSalaryTypeRelativeServiceImpl.java
+END
+ErpBuildPermissionsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/99211/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildPermissionsServiceImpl.java
+END
+ErpBuildAllotServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/99309/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildAllotServiceImpl.java
+END
+ErpTrackVideoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpTrackVideoServiceImpl.java
+END
+ErpFunWageServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/98339/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunWageServiceImpl.java
+END
+ErpFunPhotoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPhotoServiceImpl.java
+END
+ErpFunRecruitmentChannelServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRecruitmentChannelServiceImpl.java
+END
+ErpAliyunNumberPoolServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/97967/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAliyunNumberPoolServiceImpl.java
+END
+ErpIpCallLogRecordServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpIpCallLogRecordServiceImpl.java
+END
+ErpFunAttendanceClassServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceClassServiceImpl.java
+END
+ErpBuildingPhotoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingPhotoServiceImpl.java
+END
+BestsignServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/100930/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/BestsignServiceImpl.java
+END
+ErpFunUserResumeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunUserResumeServiceImpl.java
+END
+ErpBuildingSetServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/99168/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingSetServiceImpl.java
+END
+ErpFunEcardsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEcardsServiceImpl.java
+END
+ErpFunTrackServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/98402/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunTrackServiceImpl.java
+END
+ErpFunOrganizationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/114105/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunOrganizationServiceImpl.java
+END
+ErpFunCoreInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunCoreInfoServiceImpl.java
+END
+ErpFunSectionServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunSectionServiceImpl.java
+END
+ErpFunContractIndexServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunContractIndexServiceImpl.java
+END
+ErpFunDealServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDealServiceImpl.java
+END
+ErpFunSubWayServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunSubWayServiceImpl.java
+END
+ErpYouComplaintTypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpYouComplaintTypeServiceImpl.java
+END
+ErpFunBillCodeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBillCodeServiceImpl.java
+END
+ErpFunDeptsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDeptsServiceImpl.java
+END
+ErpFunDealPhotoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDealPhotoServiceImpl.java
+END
+ErpFunEmployeeFileServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/98092/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEmployeeFileServiceImpl.java
+END
+ErpFunStatisticTotleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunStatisticTotleServiceImpl.java
+END
+ErpYouBorkerComplaintServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/97503/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpYouBorkerComplaintServiceImpl.java
+END
+ErpFunBuyCustomerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/98470/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBuyCustomerServiceImpl.java
+END
+ErpFunDealPaytypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDealPaytypeServiceImpl.java
+END
+ErpFunAttendanceGroupServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/103671/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceGroupServiceImpl.java
+END
+ErpFunSaleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/114263/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunSaleServiceImpl.java
+END
+ErpFunPartnerDeptServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPartnerDeptServiceImpl.java
+END
+ErpFunLeaseServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/113167/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunLeaseServiceImpl.java
+END
+ErpFunStatisticDetailServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunStatisticDetailServiceImpl.java
+END
+ErpFunRentCustomerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/98470/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRentCustomerServiceImpl.java
+END
+ErpFunReceiptTypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunReceiptTypeServiceImpl.java
+END
+ErpFunRewardPunishmentServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRewardPunishmentServiceImpl.java
+END
+ErpFunPolicyControlServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/99033/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPolicyControlServiceImpl.java
+END
+ErpFunMacServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/109539/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunMacServiceImpl.java
+END
+ErpRenovationTrackServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpRenovationTrackServiceImpl.java
+END
+ErpFunFinanceStatusServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunFinanceStatusServiceImpl.java
+END
+ErpWagetypeUserRelativeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpWagetypeUserRelativeServiceImpl.java
+END
+ErpFunDepositServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDepositServiceImpl.java
+END
+ErpFunPanoramaPhotoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPanoramaPhotoServiceImpl.java
+END
+ErpFunCityServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunCityServiceImpl.java
+END
+ErpFunContractCategoryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunContractCategoryServiceImpl.java
+END
+ErpFunBuildrulequerylimitServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBuildrulequerylimitServiceImpl.java
+END
+ErpFunRoleLevelsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRoleLevelsServiceImpl.java
+END
+ErpFunProxyTemplateServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunProxyTemplateServiceImpl.java
+END
+ErpTrackUsersServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpTrackUsersServiceImpl.java
+END
+ErpFunHousePublishStatusServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunHousePublishStatusServiceImpl.java
+END
+ErpAppLoginDeviceServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAppLoginDeviceServiceImpl.java
+END
+ErpWorkPlanServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpWorkPlanServiceImpl.java
+END
+ErpDealUserRelativeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpDealUserRelativeServiceImpl.java
+END
+ErpFunKeyServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/114877/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunKeyServiceImpl.java
+END
+ErpFunAttendanceRecordDetailServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svndata/erpProduct/!svn/ver/104182/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceRecordDetailServiceImpl.java
+END
+ErpBuildingSetRoomLayoutServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingSetRoomLayoutServiceImpl.java
+END
+BestsignContractServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/98378/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/BestsignContractServiceImpl.java
+END
+ErpFunEarbestMoneyServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEarbestMoneyServiceImpl.java
+END
+ErpYouBuildDetailViewServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpYouBuildDetailViewServiceImpl.java
+END
+ErpFunDealTaxesRecordServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDealTaxesRecordServiceImpl.java
+END
+ErpWorkLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpWorkLogServiceImpl.java
+END
+ErpAliRentHouseReservationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAliRentHouseReservationServiceImpl.java
+END
+ErpGenerationPaymentServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/100146/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpGenerationPaymentServiceImpl.java
+END
+ErpFunMenualServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunMenualServiceImpl.java
+END
+ErpDicDefdinitionsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpDicDefdinitionsServiceImpl.java
+END
+ErpFunBuildRuleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBuildRuleServiceImpl.java
+END
+ErpFunAttendanceGroupBizServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceGroupBizServiceImpl.java
+END
+ErpCompRolesServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/112965/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpCompRolesServiceImpl.java
+END
+OldErpFunEarbestMoneyServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/OldErpFunEarbestMoneyServiceImpl.java
+END
+ErpRenovationCustomerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpRenovationCustomerServiceImpl.java
+END
+ErpFunMenualService.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunMenualService.java
+END
+ErpFunBillPrintServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBillPrintServiceImpl.java
+END
+ErpFunPartnerConfigServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPartnerConfigServiceImpl.java
+END
+ErpFunTaskServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/98402/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunTaskServiceImpl.java
+END
+ErpBuildInfoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/101301/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildInfoServiceImpl.java
+END
+ErpFunDealCodelogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDealCodelogServiceImpl.java
+END
+ErpFunEntrustOwnersServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/115870/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEntrustOwnersServiceImpl.java
+END
+ErpFunProfitServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/99057/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunProfitServiceImpl.java
+END
+ErpYouBorkerPurchaseServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpYouBorkerPurchaseServiceImpl.java
+END
+ErpAttendanceSericeImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAttendanceSericeImpl.java
+END
+ErpFunAttendancePushLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendancePushLogServiceImpl.java
+END
+ErpFunContractTagServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunContractTagServiceImpl.java
+END
+ErpFunAdsContentSericeImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAdsContentSericeImpl.java
+END
+ErpFunBasewageServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBasewageServiceImpl.java
+END
+ErpFunAttendanceGroupBizPersonServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceGroupBizPersonServiceImpl.java
+END
+ErpFunBillCodelogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBillCodelogServiceImpl.java
+END
+ErpFunAttendanceScopeWifiServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceScopeWifiServiceImpl.java
+END
+ErpYouComplaintProofServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpYouComplaintProofServiceImpl.java
+END
+ErpFunStationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunStationServiceImpl.java
+END
+ErpPosPaymentOrderServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpPosPaymentOrderServiceImpl.java
+END
+ErpAliyunPhoneServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/113904/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAliyunPhoneServiceImpl.java
+END
+ErpAccountServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAccountServiceImpl.java
+END
+ErpFunPrologsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPrologsServiceImpl.java
+END
+ErpBuildingSetRoofServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/99168/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingSetRoofServiceImpl.java
+END
+ErpFunMsgServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunMsgServiceImpl.java
+END
+ErpAuditTemplateServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAuditTemplateServiceImpl.java
+END
+ErpFunBrokerageIncomeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBrokerageIncomeServiceImpl.java
+END
+ErpYouPunishTypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpYouPunishTypeServiceImpl.java
+END
+ErpFunFinancPaymentServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunFinancPaymentServiceImpl.java
+END
+ErpBuildingSetRoomServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/114263/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingSetRoomServiceImpl.java
+END
+ErpYouShareHouseStatusServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpYouShareHouseStatusServiceImpl.java
+END
+ErpFunBrokerageServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBrokerageServiceImpl.java
+END
+ErpAttendanceChangeRecordServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAttendanceChangeRecordServiceImpl.java
+END
+ErpFunEntrustmentPhotoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEntrustmentPhotoServiceImpl.java
+END
+ErpFunEntrustServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/115870/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEntrustServiceImpl.java
+END
+ErpFunEmployeeDocServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/113883/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEmployeeDocServiceImpl.java
+END
+ErpFunWageConfigServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunWageConfigServiceImpl.java
+END
+ErpNoTransactionServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpNoTransactionServiceImpl.java
+END
+ErpSysParaServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/114388/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpSysParaServiceImpl.java
+END
+ErpFunViewLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunViewLogServiceImpl.java
+END
+ReportFunWageDetail1ServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ReportFunWageDetail1ServiceImpl.java
+END
+ErpFunProcessRecordServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunProcessRecordServiceImpl.java
+END
+ErpModelStepRelateServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpModelStepRelateServiceImpl.java
+END
+ErpFunEmployeeLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/97652/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunEmployeeLogServiceImpl.java
+END
+ErpLeasePeopleRelativeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpLeasePeopleRelativeServiceImpl.java
+END
+ErpBillPrintTempletServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBillPrintTempletServiceImpl.java
+END
+ErpFunRegionServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRegionServiceImpl.java
+END
+ErpProcessFinanceServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/99057/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpProcessFinanceServiceImpl.java
+END
+ErpFunNatureTempletServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunNatureTempletServiceImpl.java
+END
+ErpBroadcastServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBroadcastServiceImpl.java
+END
+ErpFunKeyLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunKeyLogServiceImpl.java
+END
+ErpFunRoleWageConfigServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/97107/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRoleWageConfigServiceImpl.java
+END
+ErpSystemSettingLogsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/98018/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpSystemSettingLogsServiceImpl.java
+END
+ErpOutLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpOutLogServiceImpl.java
+END
+ErpBuildingSetUnitServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/106059/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingSetUnitServiceImpl.java
+END
+ErpFunWorkcountTargetServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/100070/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunWorkcountTargetServiceImpl.java
+END
+ErpFunPerformanceTypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPerformanceTypeServiceImpl.java
+END
+ErpFunRegsectionControlServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRegsectionControlServiceImpl.java
+END
+ErpFunPaidConfigServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPaidConfigServiceImpl.java
+END
+ErpFunVideoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunVideoServiceImpl.java
+END
+ErpFunAreaServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAreaServiceImpl.java
+END
+ErpFunHousePublishLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunHousePublishLogServiceImpl.java
+END
+ErpFunOrganizationDefinitionServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svndata/erpProduct/!svn/ver/99470/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunOrganizationDefinitionServiceImpl.java
+END
+ErpFunVoipLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunVoipLogServiceImpl.java
+END
+ErpFunProcessLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunProcessLogServiceImpl.java
+END
+ErpFunBillServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBillServiceImpl.java
+END
+ErpFunRewardPunishmentClassServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunRewardPunishmentClassServiceImpl.java
+END
+ErpProcessModelServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpProcessModelServiceImpl.java
+END
+ErpFunOpersServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunOpersServiceImpl.java
+END
+ErpCooperateComplainServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpCooperateComplainServiceImpl.java
+END
+ErpFunDeptsGroupServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDeptsGroupServiceImpl.java
+END
+ErpFunAttendanceScopeBizPersonServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceScopeBizPersonServiceImpl.java
+END
+ErpFunOutdealServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/97228/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunOutdealServiceImpl.java
+END
+ErpFunCompServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunCompServiceImpl.java
+END
+ErpFunAttendanceScopeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/103671/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceScopeServiceImpl.java
+END
+ErpAuditRuntimeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/106528/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAuditRuntimeServiceImpl.java
+END
+ErpBuildingSetFloorServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/99139/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingSetFloorServiceImpl.java
+END
+ErpFunBuildrulequerylimittempServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunBuildrulequerylimittempServiceImpl.java
+END
+ErpFunDealRecordServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDealRecordServiceImpl.java
+END
+ErpFunUserManageRangeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/102933/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunUserManageRangeServiceImpl.java
+END
+ErpFunHouseBiddingServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunHouseBiddingServiceImpl.java
+END
+ErpProcessRuntimeStepServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpProcessRuntimeStepServiceImpl.java
+END
+ErpFunReceiptAccountServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunReceiptAccountServiceImpl.java
+END
+ErpFunContractTemplateServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunContractTemplateServiceImpl.java
+END
+ErpFunFeptFeeListServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunFeptFeeListServiceImpl.java
+END
+ErpRenovationFileServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpRenovationFileServiceImpl.java
+END
+ErpFunPartnerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunPartnerServiceImpl.java
+END
+ErpBuildingManagerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpBuildingManagerServiceImpl.java
+END
+ErpEarbestDepositCommServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpEarbestDepositCommServiceImpl.java
+END
+ErpCountDoneServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpCountDoneServiceImpl.java
+END
+ErpFunLoanBankServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunLoanBankServiceImpl.java
+END
+ErpAccountTypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpAccountTypeServiceImpl.java
+END
+ErpCollReqServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpCollReqServiceImpl.java
+END
+ErpFunSalaryTypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunSalaryTypeServiceImpl.java
+END
+ErpFunWageTypeNewServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunWageTypeNewServiceImpl.java
+END
+ErpFunDealCodeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunDealCodeServiceImpl.java
+END
+ErpFunUsersServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/115587/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunUsersServiceImpl.java
+END
+ErpFunAttendanceScopeBizServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunAttendanceScopeBizServiceImpl.java
+END
+ErpGenerationPaymentServiceClassImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpGenerationPaymentServiceClassImpl.java
+END
+ErpFunProfitTargetServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunProfitTargetServiceImpl.java
+END
+ErpFunCaseFavoriteServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/impl/ErpFunCaseFavoriteServiceImpl.java
+END

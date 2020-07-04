@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svndata/erpProduct/!svn/ver/108977/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter
+END
+AppUserCenterContoller.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/AppUserCenterContoller.java
+END
+DistributionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/DistributionController.java
+END
+UserCenterController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/101320/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/UserCenterController.java
+END
+UserRunScoreController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/UserRunScoreController.java
+END
+DemandCenterDepositController.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/DemandCenterDepositController.java
+END
+TaskController.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/98043/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/TaskController.java
+END
+PopupController.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/PopupController.java
+END
+TreasureCoinController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/TreasureCoinController.java
+END
+CooperativeInformationController.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/CooperativeInformationController.java
+END

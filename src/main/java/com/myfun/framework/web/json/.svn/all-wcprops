@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json
+END
+ErpResponseJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json/ErpResponseJson.java
+END
+PageResponseJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json/PageResponseJson.java
+END
+RentHouseResponseJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json/RentHouseResponseJson.java
+END
+MapResponseJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json/MapResponseJson.java
+END
+ResponseJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json/ResponseJson.java
+END
+DefaultResponseJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json/DefaultResponseJson.java
+END
+DwzResponseJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/web/json/DwzResponseJson.java
+END

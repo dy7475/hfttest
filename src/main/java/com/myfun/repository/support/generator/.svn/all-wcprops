@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svndata/erpProduct/!svn/ver/115870/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator
+END
+SolrAnnotationGeneratorPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/SolrAnnotationGeneratorPlugin.java
+END
+ColumnVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/ColumnVo.java
+END
+BaseMapperGeneratorPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/BaseMapperGeneratorPlugin.java
+END
+CustCommentGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/CustCommentGenerator.java
+END
+FirstLetterToLowerGeneratorPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/FirstLetterToLowerGeneratorPlugin.java
+END
+GeneratorMybatisGeneratorConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/GeneratorMybatisGeneratorConfig.java
+END
+ShardDbGeneratorPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/ShardDbGeneratorPlugin.java
+END
+FiledPropertyGeneratorPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/support/generator/FiledPropertyGeneratorPlugin.java
+END

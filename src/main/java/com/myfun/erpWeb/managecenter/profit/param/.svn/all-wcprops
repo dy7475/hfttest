@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svndata/erpProduct/!svn/ver/97228/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param
+END
+FinancAuditListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/FinancAuditListParam.java
+END
+UpdateBaseWageParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/UpdateBaseWageParam.java
+END
+HandProfitListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/HandProfitListParam.java
+END
+SetWageManagerParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SetWageManagerParam.java
+END
+InsertProfitTargetListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/InsertProfitTargetListParam.java
+END
+ProfitDistributionParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/ProfitDistributionParam.java
+END
+GetOneSalaryPlanUserListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/GetOneSalaryPlanUserListParam.java
+END
+AssessCountDataParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/AssessCountDataParam.java
+END
+WageLogListVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/WageLogListVO.java
+END
+SalarySchemeListByUserParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SalarySchemeListByUserParam.java
+END
+SignStatisticsListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SignStatisticsListParam.java
+END
+SalarySchemeListByTypeParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SalarySchemeListByTypeParam.java
+END
+ProfitBaseInfoParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/ProfitBaseInfoParam.java
+END
+SalarySchemeUserListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SalarySchemeUserListParam.java
+END
+SetSalaryPlanManagerParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SetSalaryPlanManagerParam.java
+END
+FunWageDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/FunWageDetailParam.java
+END
+WageLogListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/WageLogListParam.java
+END
+SaveOneSalaryPlanRelativeUserParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SaveOneSalaryPlanRelativeUserParam.java
+END
+AppFunWorkCountTargetSubParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/AppFunWorkCountTargetSubParam.java
+END
+FunWageListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/FunWageListParam.java
+END
+MgrProfiTargetParamForInsert.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/MgrProfiTargetParamForInsert.java
+END
+AbormalFunProfitDetailListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/AbormalFunProfitDetailListParam.java
+END
+FunWageParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/FunWageParam.java
+END
+MgrProfiTargetParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/97228/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/MgrProfiTargetParam.java
+END
+SalaryConfigApplyOtherRolesParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SalaryConfigApplyOtherRolesParam.java
+END
+ProfitDetailInfoListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/ProfitDetailInfoListParam.java
+END
+AppFunWorkCountTargetDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/AppFunWorkCountTargetDetailParam.java
+END
+GetUserSalaryPlanListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/GetUserSalaryPlanListParam.java
+END
+SalaryPlanNameListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/SalaryPlanNameListParam.java
+END
+GetWageTypeDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/GetWageTypeDetailParam.java
+END
+WageConfigParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/WageConfigParam.java
+END
+PerformanceAssessmentCountListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/PerformanceAssessmentCountListParam.java
+END
+AppFunWorkCountTargetParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/profit/param/AppFunWorkCountTargetParam.java
+END

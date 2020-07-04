@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svndata/erpProduct/!svn/ver/99586/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other
+END
+AesEncryptController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/AesEncryptController.java
+END
+FunRoadsInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/FunRoadsInfoController.java
+END
+ZhiyeEncryptController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/ZhiyeEncryptController.java
+END
+GenerateBuildRuleByExcelController.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/99586/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/GenerateBuildRuleByExcelController.java
+END
+DealJmsErrorMsgController.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/DealJmsErrorMsgController.java
+END
+FunBuildRuleLimitDealController.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/FunBuildRuleLimitDealController.java
+END
+HouseEncodeRoofUnitController.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/HouseEncodeRoofUnitController.java
+END
+ThirdPageTestController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/other/ThirdPageTestController.java
+END

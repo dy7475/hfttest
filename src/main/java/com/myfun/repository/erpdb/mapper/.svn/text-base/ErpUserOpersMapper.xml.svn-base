@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpUserOpersMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpUserOpers">
+    <!--@mbggenerated-->
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <id column="OPER_ID" jdbcType="VARCHAR" property="operId" />
+    <result column="ORGANIZATION_DEFINITION_ID" jdbcType="INTEGER" property="organizationDefinitionId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    USER_ID, OPER_ID, ORGANIZATION_DEFINITION_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpUserOpersExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from USER_OPERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from USER_OPERS
+    where USER_ID = #{userId,jdbcType=INTEGER}
+      and OPER_ID = #{operId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbggenerated-->
+    delete from USER_OPERS
+    where USER_ID = #{userId,jdbcType=INTEGER}
+      and OPER_ID = #{operId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpUserOpersExample">
+    <!--@mbggenerated-->
+    delete from USER_OPERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpUserOpers">
+    <!--@mbggenerated-->
+    insert into USER_OPERS (USER_ID, OPER_ID, ORGANIZATION_DEFINITION_ID
+      )
+    values (#{userId,jdbcType=INTEGER}, #{operId,jdbcType=VARCHAR}, #{organizationDefinitionId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpUserOpers">
+    <!--@mbggenerated-->
+    insert into USER_OPERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="operId != null">
+        OPER_ID,
+      </if>
+      <if test="organizationDefinitionId != null">
+        ORGANIZATION_DEFINITION_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationDefinitionId != null">
+        #{organizationDefinitionId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpUserOpersExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from USER_OPERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update USER_OPERS
+    <set>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.operId != null">
+        OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationDefinitionId != null">
+        ORGANIZATION_DEFINITION_ID = #{record.organizationDefinitionId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update USER_OPERS
+    set USER_ID = #{record.userId,jdbcType=INTEGER},
+      OPER_ID = #{record.operId,jdbcType=VARCHAR},
+      ORGANIZATION_DEFINITION_ID = #{record.organizationDefinitionId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpUserOpers">
+    <!--@mbggenerated-->
+    update USER_OPERS
+    <set>
+      <if test="organizationDefinitionId != null">
+        ORGANIZATION_DEFINITION_ID = #{organizationDefinitionId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=INTEGER}
+      and OPER_ID = #{operId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpUserOpers">
+    <!--@mbggenerated-->
+    update USER_OPERS
+    set ORGANIZATION_DEFINITION_ID = #{organizationDefinitionId,jdbcType=INTEGER}
+    where USER_ID = #{userId,jdbcType=INTEGER}
+      and OPER_ID = #{operId,jdbcType=VARCHAR}
+  </update>
+  <resultMap extends="BaseResultMap" id="extBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpUserOpersDto">
+      <result column="OPER_NAME" jdbcType="VARCHAR" property="operName" />
+      <result column="OPER_TYPE" jdbcType="TINYINT" property="operType" />
+      <result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
+  </resultMap>
+  
+  <!-- buniess -->
+  <delete id="batchDeleteByCompIdAndDeptId">
+  	DELETE USER_OPERS WHERE USER_ID IN (SELECT USER_ID FROM FUN_USERS WHERE DEPT_ID=#{deptId} AND COMP_ID = #{compId} )
+  </delete>
+  
+  <delete id="deleteByCompIdAndRoleId">
+  	DELETE USER_OPERS WHERE USER_ID in (
+  	  SELECT USER_ID FROM FUN_USERS
+  	  WHERE COMP_ID = #{compId} AND USER_POSITION = #{roleId} and USER_WRITEOFF = 0
+  	  <if test="deptIds != null">
+          and DEPT_ID in <foreach close=")" collection="deptIds" item="deptId" open="(" separator=",">
+            #{deptId}
+          </foreach>
+      </if>
+  	  <if test="grId != null">
+          and GR_ID  = #{grId}
+      </if>
+      <if test="organizationId != null and organizationId &lt; 0">
+          and TISSUE_LINE LIKE  '%:${organizationId}:%'
+      </if>
+  	)
+  </delete>
+  
+  <insert id="batchInsertOpers">
+  	INSERT USER_OPERS SELECT FUN_USERS.USER_ID, ROLE_OPERS.OPER_ID 
+  	FROM FUN_USERS, ROLE_OPERS WHERE COMP_ID = #{compId}
+  	AND USER_POSITION = 'GENERAL_MANAGER' AND ROLE_OPERS.ROLE_ID = 'GENERAL_MANAGER' 
+  	<if test="softType == '2'">
+  		AND ROLE_OPERS.PRO_ROLE = 1
+  	</if>
+  	<if test="softType == '3'">
+  		AND ROLE_OPERS.SMP_ROLE = 1
+  	</if>
+  </insert>
+  
+  <delete id="batchDeleteByCompId">
+  	DELETE USER_OPERS WHERE USER_ID IN 
+  	(SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{compId} and USER_WRITEOFF = 0) 
+  	AND OPER_ID IN (SELECT DISTINCT OPER_ID FROM ROLE_OPERS WHERE PRO_ROLE = 0)
+  </delete>
+  <delete id="deleteByUserId">
+    delete from USER_OPERS
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertUserOpper">
+  	INSERT INTO USER_OPERS SELECT USER_ID = #{userId}, OPER_ID FROM ROLE_OPERS WHERE ROLE_ID = 'GENERAL_MANAGER' 
+  	<if test="deptType == '2'">
+  		AND PRO_ROLE = 1
+  	</if>
+  	<if test="deptType == '3'">
+  		AND SMP_ROLE = 1
+  	</if>
+  </insert>
+  <delete id="deleteOpersByCompIdAndDeptId">
+  	DELETE USER_OPERS WHERE USER_ID IN (SELECT USER_ID FROM FUN_USERS WHERE DEPT_ID=#{erpDeptId} AND COMP_ID = #{erpCompId} )
+  </delete>
+  <select id="selectPerPermissionByName" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from USER_OPERS where USER_ID=#{userId,jdbcType=INTEGER} and OPER_ID=#{permissionName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteMgrRegistManager">
+  	delete from USER_OPERS where OPER_ID = #{operId} and USER_ID in (
+  	select USER_ID from FUN_USERS where USER_POSITION != #{roleName} and COMP_ID = #{compId} and USER_WRITEOFF = 0)
+	</delete>
+	
+	<select id="createByHaveCompRoleOper">
+		INSERT INTO USER_OPERS (USER_ID, OPER_ID, ORGANIZATION_DEFINITION_ID)
+		SELECT DISTINCT #{userId}, OPER_ID,ORGANIZATION_DEFINITION_ID FROM COMP_ROLE_OPERS
+		WHERE ROLE_ID = #{roleId} AND COMP_ID= #{compId} AND ${columnName}= #{columnValue} AND PARTNER_OPER IN 
+		<foreach close=")" collection="flagList" item="flag" open="(" separator=",">
+          #{flag}
+        </foreach>
+		;
+		update FUN_USERS set ALLDEPT_FLAG = 1
+		from USER_OPERS b where b.USER_ID = #{userId} and OPER_ID = 'LOGIN_OTHER_DEPTS' and COMP_ID = #{compId}
+		and FUN_USERS.USER_ID = b.USER_ID
+	</select>
+	
+	<select id="createByNoCompRoleOper">
+		INSERT INTO USER_OPERS (USER_ID, OPER_ID, ORGANIZATION_DEFINITION_ID)
+		SELECT #{userId} , OPER_ID, 0 FROM ROLE_OPERS
+		WHERE ROLE_ID = #{roleId}
+		<choose>
+			<when test="compType == 1 or compType == 4">
+				<if test="!commonAdminFlag">
+					AND OPER_TYPE = 0
+				</if>
+				<if test="'COMMON_BIZ' == roleId">
+					AND OPER_ID not in ('EDIT_DEPT_HOUSE', 'EDIT_GROUP_HOUSE')
+				</if>
+			</when>
+			<when test="compType == 2">
+				<if test="!commonAdminFlag">
+					AND OPER_TYPE = 0
+				</if>
+				AND PRO_ROLE = 1
+			</when>
+			<when test="compType == 3">AND SMP_ROLE = 1</when>
+			<when test="compType == 5">AND WY_ROLE = 1</when>
+			<otherwise>
+				-------//直接报错
+			</otherwise>
+		</choose>
+	</select>
+	<delete id="deleteOldManager">
+		delete from USER_OPERS 
+		where OPER_ID = 'REGIST_MANAGE' and USER_ID in (select USER_ID from FUN_USERS where USER_POSITION <![CDATA[ <> ]]> 'GENERAL_MANAGER' and COMP_ID = #{compId} and USER_WRITEOFF = 0)
+	</delete>
+	
+	<select id="getUsersOpersByUserId" resultType="java.lang.String">
+		select OPER_ID from USER_OPERS where USER_ID = #{userId}
+		<if test="opersArr != null">
+			AND OPER_ID IN
+			<foreach close=")" collection="opersArr" item="item" open="(" separator=",">#{item}</foreach>
+		</if>
+	</select>
+
+    <select id="getListById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from USER_OPERS
+        where USER_ID = #{userId}
+    </select>
+
+	<select id="getUserOpersList" resultMap="extBaseResultMap">
+		SELECT
+		A.USER_ID,A.OPER_ID,B.OPER_NAME,C.OPER_TYPE,A.ORGANIZATION_DEFINITION_ID
+		FROM
+		USER_OPERS A
+		LEFT JOIN FUN_OPERS B ON A.OPER_ID = B.OPER_ID
+		LEFT JOIN COMP_ROLE_OPERS C ON A.OPER_ID = C.OPER_ID and C.ROLE_ID = #{roleId} and C.COMP_ID = #{compId}
+		WHERE
+		A.USER_ID = #{userId}
+	</select>
+    <select id="getListByRoleId" resultMap="BaseResultMap">
+        SELECT A.USER_ID,A.OPER_ID FROM USER_OPERS A JOIN FUN_USERS B ON B.USER_ID=A.USER_ID
+        WHERE B.COMP_ID=#{compId} AND A.OPER_ID IN ('GROUP_MANAGE', 'ROLE_MANAGE') and b.USER_POSITION=#{roleId}
+    </select>
+    <select id="deleteByRoleId">
+        delete from USER_OPERS where user_id in (select USER_ID from FUN_USERS where COMP_ID = #{compId} 
+        and ${tmpField} = #{columnValue} and USER_WRITEOFF = 0 and USER_POSITION = #{roleId}) and oper_id in <foreach close=")" collection="deleteOpers" item="operId" open="(" separator=",">
+                #{operId}
+            </foreach>
+    </select>
+    <update id="mergeUserOpers">
+        merge into USER_OPERS dest using
+         (select DISTINCT a.OPER_ID,b.USER_ID from COMP_ROLE_OPERS a ,FUN_USERS b where a.COMP_ID = b.COMP_ID and a.${columnName} = b.${tmpField} and b.USER_POSITION = a.ROLE_ID
+            and b.COMP_ID = #{compId} and b.${tmpField} = #{columnValue} and b.USER_WRITEOFF = 0 and a.ROLE_ID = #{roleId}) src 
+             on dest.OPER_ID = src.OPER_ID and dest.USER_ID = src.USER_ID 
+             when not matched then insert(USER_ID,OPER_ID)values(src.USER_ID,src.OPER_ID);
+    </update>
+
+    <select id="getUserOpersListByComp" resultMap="extBaseResultMap">
+		SELECT
+		A.USER_ID,A.OPER_ID,B.OPER_NAME,C.OPER_TYPE,C.ROLE_ID
+		FROM
+		USER_OPERS A
+		JOIN FUN_OPERS B ON A.OPER_ID = B.OPER_ID
+		LEFT JOIN COMP_ROLE_OPERS C ON A.OPER_ID = C.OPER_ID and   C.ROLE_ID in 
+		<foreach close=")" collection="roleIsList" item="roleId" open="(" separator=",">
+          #{roleId}
+        </foreach>
+		and C.COMP_ID = #{compId}
+        WHERE
+        A.USER_ID in <foreach close=")" collection="userIdList" item="userId" open="(" separator=",">
+        #{userId}
+    </foreach>
+	</select>
+
+	<insert id="copyGeneralOperToUser">
+		INSERT INTO USER_OPERS SELECT ${userId},OPER_ID FROM USER_OPERS WHERE  USER_ID=#{genealUserId}
+	</insert>
+	<select id="getUsersOpers" resultMap="extBaseResultMap">
+		select <include refid="Base_Column_List" /> from USER_OPERS where  user_id = #{userId}
+	</select>
+	<insert id="insertUserOpperByOpers">
+		INSERT INTO USER_OPERS(USER_ID, OPER_ID, ORGANIZATION_DEFINITION_ID) VALUES
+		<foreach close="" collection="opers" item="operId" open="" separator=",">
+			(#{userId,jdbcType=INTEGER},#{operId.operId, jdbcType=VARCHAR}, #{operId.organizationDefinitionId,jdbcType=INTEGER})
+		</foreach>
+	</insert>
+	
+	<update id="deleteUserOper">
+	 DELETE FROM  USER_OPERS  WHERE USER_ID IN(
+			SELECT USER_ID FROM FUN_USERS WHERE USER_POSITION = #{roleId}  
+			AND COMP_ID = #{compId} AND USER_WRITEOFF = 0 
+ 		) AND OPER_ID IN
+ 		<foreach close=")" collection="deleteOpers" item="operId" open="(" separator=",">
+          #{operId}
+        </foreach> 
+	</update>
+	<delete id="deleteByCompRoleOpers">
+		DELETE FROM USER_OPERS WHERE USER_ID IN (SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{compId} AND USER_POSITION = #{roleId} AND USER_WRITEOFF = 0) 
+		AND OPER_ID IN (SELECT OPER_ID FROM COMP_ROLE_OPERS WHERE COMP_ID = #{compId} AND SOURCE_COMP_ID = #{compId} AND ROLE_ID = #{roleId})
+	</delete>
+    <select id="getUsersOpersWithOrganization" resultMap="extBaseResultMap">
+        select USER_ID, OPER_ID, ORGANIZATION_DEFINITION_ID, DEFINITION_LEVEL
+        from USER_OPERS a
+        left join FUN_ORGANIZATION_DEFINITION b on a.ORGANIZATION_DEFINITION_ID = b.DEFINITION_ID
+        where  a.user_id = #{userId} 
+        <if test="needRemoveOpers!=null">
+        	and a.OPER_ID not in 
+	        <foreach close=")" collection="needRemoveOpers" item="operId" open="(" separator=",">
+	          #{operId}
+	        </foreach> 
+        </if>
+    </select>
+    <update id="mergeUserOpersNewOrg">
+        merge into USER_OPERS dest using
+        (select DISTINCT a.OPER_ID,b.USER_ID, a.ORGANIZATION_DEFINITION_ID from COMP_ROLE_OPERS a ,FUN_USERS b where a.COMP_ID = b.COMP_ID and b.USER_POSITION = a.ROLE_ID
+        and b.COMP_ID = #{compId} and b.USER_WRITEOFF = 0 and a.ROLE_ID = #{roleId} AND a.ORGANIZATION_ID = #{organizationId}
+        <if test="null != organizationId and organizationId &gt; 0">
+            and b.TISSUE_LINE like '%:${organizationId}:%'
+        </if>
+        ) src
+        on dest.OPER_ID = src.OPER_ID and dest.USER_ID = src.USER_ID
+        when not matched then insert(USER_ID,OPER_ID, ORGANIZATION_DEFINITION_ID)values(src.USER_ID,src.OPER_ID, src.ORGANIZATION_DEFINITION_ID);
+    </update>
+    <update id="deletePartnerOperByNoPartner">
+    	DELETE FROM USER_OPERS WHERE OPER_ID = #{operId} AND USER_ID IN 
+    	(SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{compId} AND USER_WRITEOFF = 0 AND ${column} = #{columnVal} 
+    	<choose>
+			<when test="flag == 0">AND PARTNER_ID != 0</when>
+			<when test="flag == 1">AND PARTNER_ID &lt;= 0</when>
+		</choose>
+    	)
+    </update>
+    <update id="deletePartnerOperByNoPartnerNewOrg">
+    	DELETE FROM USER_OPERS WHERE OPER_ID = #{operId} AND USER_ID IN 
+    	(SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{compId} AND USER_WRITEOFF = 0
+    	<if test="null != columnVal">
+            AND ${column} LIKE '%:${columnVal}:%'
+        </if>
+    	<choose>
+			<when test="flag == 0">AND PARTNER_ID != 0</when>
+			<when test="flag == 1">AND PARTNER_ID &lt;= 0</when>
+		</choose>
+    	) AND ORGANIZATION_DEFINITION_ID = -1
+    </update>
+    <update id="updatePartnerOperByNoPartnerNewOrg">
+    	UPDATE USER_OPERS SET ORGANIZATION_DEFINITION_ID = 0 WHERE OPER_ID = #{operId} AND USER_ID IN 
+    	(SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{compId} AND USER_WRITEOFF = 0
+    	<if test="null != columnVal">
+            AND ${column} LIKE '%:${columnVal}:%'
+        </if>
+    	<choose>
+			<when test="flag == 0">AND PARTNER_ID != 0</when>
+			<when test="flag == 1">AND PARTNER_ID &lt;= 0</when>
+		</choose>
+    	) AND ORGANIZATION_DEFINITION_ID = -1
+    </update>
+    <select id="getUserOperByUSerIdOperId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from USER_OPERS
+        where USER_ID = #{userId} and OPER_ID = #{operId}
+    </select>
+    <select id="getUserOperByCompGeneralManager" resultMap="extBaseResultMap">
+        select
+        a.USER_ID, a.OPER_ID, a.ORGANIZATION_DEFINITION_ID, b.DEFINITION_LEVEL
+        from USER_OPERS a left join FUN_ORGANIZATION_DEFINITION b on a.ORGANIZATION_DEFINITION_ID = b.DEFINITION_ID
+        where USER_ID IN 
+        (SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{compId} AND USER_POSITION ='GENERAL_MANAGER' AND USER_WRITEOFF = 0)
+       <if test="notNeedOpers!=null and notNeedOpers.size() > 0">
+	        and OPER_ID NOT IN 
+	        <foreach collection="notNeedOpers" item="operId" open="(" close=")" separator=",">
+	        	#{operId}
+	        </foreach>
+        </if>
+    </select>
+    
+    <insert id="insertUserOpperNew">
+        INSERT INTO USER_OPERS(USER_ID, OPER_ID) SELECT USER_ID = #{userId}, A.OPER_ID
+        FROM ROLE_OPERS A JOIN dbo.FUN_OPERS B ON B.OPER_ID = A.OPER_ID WHERE A.ROLE_ID = 'GENERAL_MANAGER'
+        AND B.OPER_ID != 'TRANS_CITY_CONFIG'
+        <if test="deptType == '2'">
+            AND A.PRO_ROLE = 1
+        </if>
+        <if test="deptType == '3'">
+            AND A.SMP_ROLE = 1
+        </if>
+        <if test="deptType == '5'">
+            AND A.WY_ROLE = 1
+        </if>
+        <!-- 无限层级架构ORGANIZATION_TYPE就查NULL或者1的，老的组织架构就查NULL或者0的 -->
+        <if test="null != organizationType">
+            AND  (B.ORGANIZATION_TYPE IS NULL OR B.ORGANIZATION_TYPE = #{organizationType})
+        </if>
+    </insert>
+
+    <update id="updateUserOpperDefId">
+        UPDATE dbo.USER_OPERS SET ORGANIZATION_DEFINITION_ID = 0 FROM dbo.USER_OPERS A JOIN dbo.FUN_OPERS B ON B.OPER_ID = A.OPER_ID
+	        WHERE B.ORGANIZATION_TYPE = 1 AND A.USER_ID = #{userId}
+    </update>
+      <select id="getUserOperByUserIdOperIdSwitchLogin" resultMap="BaseResultMap">
+        select
+         <include refid="Base_Column_List" />
+        from USER_OPERS_CHANGE_CITY
+        where USER_ID = #{userId} and OPER_ID = #{operId}
+    </select>
+</mapper>

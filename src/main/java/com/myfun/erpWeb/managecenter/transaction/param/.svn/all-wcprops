@@ -1,0 +1,437 @@
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/99060/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param
+END
+DealFunEarbestMoneyDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DealFunEarbestMoneyDetailParam.java
+END
+DealBusinessParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DealBusinessParam.java
+END
+UpdateRuntimeStepParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateRuntimeStepParam.java
+END
+TransToDepositParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/TransToDepositParam.java
+END
+GetDisablePerformanceTypeListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/GetDisablePerformanceTypeListParam.java
+END
+HouseOrCustomerEnclosureParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/HouseOrCustomerEnclosureParam.java
+END
+ChangeProfitInMobileParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/ChangeProfitInMobileParam.java
+END
+QueryDepositListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/QueryDepositListParam.java
+END
+PrintDataofTaxAndFeeParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/PrintDataofTaxAndFeeParam.java
+END
+BillPhotoParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/BillPhotoParam.java
+END
+FinaDataOfReceivableInMobileParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/FinaDataOfReceivableInMobileParam.java
+END
+QueryDepositLogParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/QueryDepositLogParam.java
+END
+DeleteFunPerformanceTypeParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DeleteFunPerformanceTypeParam.java
+END
+TransEarnestToProprietorParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/TransEarnestToProprietorParam.java
+END
+InsertRunTimeStepParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/InsertRunTimeStepParam.java
+END
+completionProcessParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/completionProcessParam.java
+END
+insertUpdateMgrStepParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/insertUpdateMgrStepParam.java
+END
+SettlementDealParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/SettlementDealParam.java
+END
+TaxesDataParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/TaxesDataParam.java
+END
+InsertDepositDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/InsertDepositDetailParam.java
+END
+changeWarrantParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/changeWarrantParam.java
+END
+UpdateCommissioningRulesListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateCommissioningRulesListParam.java
+END
+CounterMgrSettleDealParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/CounterMgrSettleDealParam.java
+END
+DeleteSplitSmallCategoryConfigurationParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DeleteSplitSmallCategoryConfigurationParam.java
+END
+InsertEarbestDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/InsertEarbestDetailParam.java
+END
+DealFianacListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DealFianacListParam.java
+END
+DealContractParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DealContractParam.java
+END
+UpdateOrInsertDealTaxesParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateOrInsertDealTaxesParam.java
+END
+GetContractDealParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/GetContractDealParam.java
+END
+WarrantStepParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/WarrantStepParam.java
+END
+PayDepositToCommssionParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/PayDepositToCommssionParam.java
+END
+UpdateMgrWarrantStepDataParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateMgrWarrantStepDataParam.java
+END
+RewardPunishmentDetailListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/RewardPunishmentDetailListParam.java
+END
+FinaDataOfReceivableParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/FinaDataOfReceivableParam.java
+END
+QueryDepositDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/QueryDepositDetailParam.java
+END
+AppDealProfitListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/AppDealProfitListParam.java
+END
+updateDealFunEarbestParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/updateDealFunEarbestParam.java
+END
+RefundMoneyParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/RefundMoneyParam.java
+END
+DealCodeListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DealCodeListParam.java
+END
+CancellationParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/CancellationParam.java
+END
+PayDepositToOwnerParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/PayDepositToOwnerParam.java
+END
+InsertWarrantProcessParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/InsertWarrantProcessParam.java
+END
+changeProfitParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/99060/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/changeProfitParam.java
+END
+CancelAuditParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/CancelAuditParam.java
+END
+ConvertDepositHouseParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/ConvertDepositHouseParam.java
+END
+UpdateFunPerformanceParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateFunPerformanceParam.java
+END
+DelDealProfitParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DelDealProfitParam.java
+END
+UpdateDepositStatusParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateDepositStatusParam.java
+END
+DeletePerformanceCategoryParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DeletePerformanceCategoryParam.java
+END
+CreateProcessModelParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/CreateProcessModelParam.java
+END
+DealFianacByPerformanceParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DealFianacByPerformanceParam.java
+END
+DisablePerformanceTypeJudgmentParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DisablePerformanceTypeJudgmentParam.java
+END
+InsertMgrStepModelParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/InsertMgrStepModelParam.java
+END
+DetermineIfThePerformanceCategoryIsUsedParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DetermineIfThePerformanceCategoryIsUsedParam.java
+END
+ContractLockStatusParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/ContractLockStatusParam.java
+END
+UpdateRuntimeStepSeqParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateRuntimeStepSeqParam.java
+END
+UpdateEarbestStatusParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateEarbestStatusParam.java
+END
+UpdateModelStepRelateParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateModelStepRelateParam.java
+END
+UpdateDepositDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateDepositDetailParam.java
+END
+TransEarnestToBrokerageParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/TransEarnestToBrokerageParam.java
+END
+DelProcessStepParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DelProcessStepParam.java
+END
+ProcessFinancStatusParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/ProcessFinancStatusParam.java
+END
+EditBrokerageIncomeParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/EditBrokerageIncomeParam.java
+END
+PaymentModuleDetailListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/PaymentModuleDetailListParam.java
+END
+AppEditBrokerageIncomeParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/AppEditBrokerageIncomeParam.java
+END
+DynamicInsertProcessStepParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/DynamicInsertProcessStepParam.java
+END
+UpdateDealTaxesAuditStatusParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/UpdateDealTaxesAuditStatusParam.java
+END
+TransEarnestParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/TransEarnestParam.java
+END
+MgrProStepSortParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/MgrProStepSortParam.java
+END
+RefundDepositParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/RefundDepositParam.java
+END
+MgrWarrantStepListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/MgrWarrantStepListParam.java
+END
+TransEarnestHouseParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/transaction/param/TransEarnestHouseParam.java
+END

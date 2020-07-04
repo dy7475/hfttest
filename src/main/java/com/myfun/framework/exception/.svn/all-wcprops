@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception
+END
+BalanceLackException.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/BalanceLackException.java
+END
+AssertException.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/AssertException.java
+END
+NotBindAccountException.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/NotBindAccountException.java
+END
+SessionTimeoutException.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/SessionTimeoutException.java
+END
+BusinessException.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/BusinessException.java
+END
+BusinessExceptionUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/BusinessExceptionUtils.java
+END
+ConfirmException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/ConfirmException.java
+END
+CustomerAsyncExceptionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/CustomerAsyncExceptionHandler.java
+END
+RequestTimeoutException.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/RequestTimeoutException.java
+END
+UnknownException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/exception/UnknownException.java
+END

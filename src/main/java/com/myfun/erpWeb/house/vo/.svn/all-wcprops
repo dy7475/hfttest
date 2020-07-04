@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svndata/erpProduct/!svn/ver/114263/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo
+END
+GetEntrustFileConfigVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/GetEntrustFileConfigVO.java
+END
+GetHouseBaseInfoVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/GetHouseBaseInfoVO.java
+END
+HouseCustCountVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/HouseCustCountVo.java
+END
+QualificationCertificationVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/QualificationCertificationVO.java
+END
+EntrustProtocolDetailsVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/99657/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/EntrustProtocolDetailsVO.java
+END
+GetHousePhotoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/GetHousePhotoVo.java
+END
+ErpFunProxyTemplateVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/ErpFunProxyTemplateVo.java
+END
+MlEntrustVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svndata/erpProduct/!svn/ver/101197/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/MlEntrustVO.java
+END
+SaveEntrustInfoVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/SaveEntrustInfoVO.java
+END
+FunSaleDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svndata/erpProduct/!svn/ver/97403/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/FunSaleDto.java
+END
+GetVideoListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/GetVideoListVo.java
+END
+GetPanoramaPhotoListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/GetPanoramaPhotoListVo.java
+END
+FunKeyLogDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/FunKeyLogDto.java
+END
+FunKeyRemarkDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/FunKeyRemarkDto.java
+END
+getOwnerInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/getOwnerInfoVo.java
+END
+EntrustCertificateVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/EntrustCertificateVO.java
+END
+GetHouseEntrustSituationVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/GetHouseEntrustSituationVO.java
+END
+BrokerOrganizationVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/BrokerOrganizationVO.java
+END
+SalePeRelDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/SalePeRelDto.java
+END
+GetHousePeopleRelativeListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/GetHousePeopleRelativeListVo.java
+END
+BrokerUserVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/BrokerUserVO.java
+END
+LeasePeRelDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/LeasePeRelDto.java
+END
+AddCaseFavoriteVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/AddCaseFavoriteVo.java
+END
+ErpFunVideoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/ErpFunVideoVo.java
+END
+FunKeyDetailDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/114263/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/FunKeyDetailDto.java
+END
+EntrustFilesVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/EntrustFilesVO.java
+END
+UpdateOrCreateTmpVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/UpdateOrCreateTmpVo.java
+END
+ErpFunPanoramaPhotoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/ErpFunPanoramaPhotoVo.java
+END
+OwnerUserVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/house/vo/OwnerUserVO.java
+END

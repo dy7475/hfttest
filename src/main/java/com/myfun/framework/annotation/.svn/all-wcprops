@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation
+END
+CharsetFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/CharsetFilter.java
+END
+DicConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/DicConvert.java
+END
+DefaultValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/DefaultValue.java
+END
+HtmlStringFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/HtmlStringFilter.java
+END
+NumberFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/NumberFormat.java
+END
+UpdateDescField.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/UpdateDescField.java
+END
+CharsetUrlEncode.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/CharsetUrlEncode.java
+END
+Encryption.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/Encryption.java
+END
+CommonField.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/CommonField.java
+END
+HouseFloorRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/framework/annotation/HouseFloorRule.java
+END

@@ -1,0 +1,209 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svndata/erpProduct/!svn/ver/100328/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo
+END
+AdminFunPaidVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/AdminFunPaidVo.java
+END
+GetShareMoneyPaidListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetShareMoneyPaidListVo.java
+END
+GetInvoiceEnclosureListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetInvoiceEnclosureListVo.java
+END
+SendValidVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/SendValidVo.java
+END
+GetPaidListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetPaidListVo.java
+END
+TreasureCoinRankingVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/TreasureCoinRankingVo.java
+END
+AddIssueInvoiceResultVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/AddIssueInvoiceResultVo.java
+END
+IsRegisterVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/IsRegisterVo.java
+END
+GetTrueHouseBondListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetTrueHouseBondListVo.java
+END
+AdminRentDeptsDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/AdminRentDeptsDto.java
+END
+MessageBaseInfoListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/MessageBaseInfoListVo.java
+END
+GetInvoiceNotWritedListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetInvoiceNotWritedListVo.java
+END
+GetDetailPaidListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetDetailPaidListVo.java
+END
+InvoiceNotWritedVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/InvoiceNotWritedVo.java
+END
+ErpFunKeyOperationLogDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/ErpFunKeyOperationLogDto.java
+END
+InvoiceNotWritedDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/InvoiceNotWritedDto.java
+END
+UserHeadPicDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/UserHeadPicDto.java
+END
+ErpFunBasewageVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/ErpFunBasewageVo.java
+END
+GetOrganizationUserListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/100328/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetOrganizationUserListVo.java
+END
+MessageRichInfoListVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/MessageRichInfoListVO.java
+END
+GetOrganizationUserVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/100328/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetOrganizationUserVo.java
+END
+GetInvoiceHasWritedListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetInvoiceHasWritedListVo.java
+END
+GetYouShareMoneyVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetYouShareMoneyVo.java
+END
+GetCashRecordListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetCashRecordListVo.java
+END
+ApplyIssueInvoiceVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/ApplyIssueInvoiceVo.java
+END
+DeleteMessageMessageVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/DeleteMessageMessageVO.java
+END
+AllUaInfoDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/AllUaInfoDto.java
+END
+GetAgencyUseFlagVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetAgencyUseFlagVo.java
+END
+DistBuildingListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/DistBuildingListVo.java
+END
+GetInvoiceDetailVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetInvoiceDetailVo.java
+END
+ErpFunPaidConfigVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/ErpFunPaidConfigVo.java
+END
+GetCrmFunContractListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetCrmFunContractListVo.java
+END
+AppRealNameAuthenticationVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/AppRealNameAuthenticationVO.java
+END
+GetUcenterVoiceListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/usercenter/vo/GetUcenterVoiceListVo.java
+END

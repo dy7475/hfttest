@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/models
+END
+VoiceCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/models/VoiceCode.java
+END
+ClientBill.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/models/ClientBill.java
+END
+AppBill.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/models/AppBill.java
+END
+Callback.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/models/Callback.java
+END
+TemplateSMS.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/models/TemplateSMS.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/search2db/mapper
+END
+Search2HezuMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/search2db/mapper/Search2HezuMapper.xml
+END
+Search2SaleInMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/search2db/mapper/Search2SaleInMapper.xml
+END
+Search2ShopMainMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/search2db/mapper/Search2ShopMainMapper.xml
+END
+Search2LeaseInMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/repository/search2db/mapper/Search2LeaseInMapper.xml
+END

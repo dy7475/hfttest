@@ -1,0 +1,211 @@
+package com.myfun.service.business.erpdb.impl;
+
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.myfun.erpWeb.build.param.CopyPermissionParam;
+import com.myfun.erpWeb.build.param.CreatePermissionParam;
+import com.myfun.erpWeb.build.param.DeletePermissionParam;
+import com.myfun.erpWeb.build.param.Permission;
+import com.myfun.erpWeb.build.param.UpdatePermission;
+import com.myfun.erpWeb.build.param.UpdatePermissionParam;
+import com.myfun.repository.erpdb.dao.ErpBuildPermissionsMapper;
+import com.myfun.repository.erpdb.dao.ErpFunOrganizationMapper;
+import com.myfun.repository.erpdb.po.ErpBuildPermissions;
+import com.myfun.repository.erpdb.po.ErpBuildPermissionsExample;
+import com.myfun.repository.erpdb.po.ErpFunOrganization;
+import com.myfun.service.business.AbstractService;
+import com.myfun.service.business.erpdb.ErpBuildPermissionsService;
+import com.myfun.utils.StringUtil;
+
+@Service
+public class ErpBuildPermissionsServiceImpl extends AbstractService<ErpBuildPermissions, ErpBuildPermissions>
+		implements ErpBuildPermissionsService {
+
+	@Autowired
+	private ErpBuildPermissionsMapper erpBuildPermissionsMapper;
+	@Autowired
+	private ErpFunOrganizationMapper erpFunOrganizationMapper;
+
+	@Override
+	@PostConstruct
+	public void setBaseMapper() {
+		super.baseMapper = erpBuildPermissionsMapper;
+	}
+
+	@Override
+	public void createPermission(CreatePermissionParam param) throws Exception {
+		Integer cityId = param.getCityId();
+		Integer compId = param.getCompId();
+		Integer userId = param.getUserId();
+		Date date = new Date();
+		List<Permission> permissionList = param.getPermissionList();
+		for (Permission permission : permissionList) {
+			Integer organizationId = permission.getOrganizationId();
+			List<ErpFunOrganization> orgList = erpFunOrganizationMapper.selectOrgInfoByDefAndOrgId(cityId,
+					compId.toString(), null, organizationId);
+			List<Integer> orgIdList = orgList.stream().map(ErpFunOrganization::getOrganizationId)
+					.collect(Collectors.toList());
+
+			// 去掉老的
+			ErpBuildPermissionsExample erpBuildPermissionsExample = new ErpBuildPermissionsExample();
+			erpBuildPermissionsExample.setShardCityId(cityId);
+			erpBuildPermissionsExample.createCriteria().andCompIdEqualTo(compId).andIsDelEqualTo(Byte.valueOf("0"))
+					.andOrganizationIdIn(orgIdList).andBuildIdEqualTo(permission.getBuildId());
+			ErpBuildPermissions oldBuildPermissions = new ErpBuildPermissions();
+			oldBuildPermissions.setIsDel(Byte.valueOf("1"));
+			oldBuildPermissions.setUpdateUserId(userId);
+			oldBuildPermissions.setUpdateTime(date);
+			erpBuildPermissionsMapper.updateByExampleSelective(oldBuildPermissions, erpBuildPermissionsExample);
+			// 新增权限
+			for (int i = 0; i < orgIdList.size(); i++) {
+				ErpBuildPermissions erpBuildPermissions = new ErpBuildPermissions();
+				BeanUtils.copyProperties(permission, erpBuildPermissions);
+				erpBuildPermissions.setShardCityId(cityId);
+				erpBuildPermissions.setCompId(compId);
+				erpBuildPermissions.setCreateUserId(userId);
+				erpBuildPermissions.setCreateTime(date);
+				erpBuildPermissions.setIsDel(Byte.valueOf("0"));
+				erpBuildPermissions.setOrganizationId(orgIdList.get(i));
+				erpBuildPermissionsMapper.insertSelective(erpBuildPermissions);
+			}
+		}
+	}
+
+	@Override
+	public void updatePermission(UpdatePermissionParam param) throws Exception {
+		Integer cityId = param.getCityId();
+		Integer userId = param.getUserId();
+		Date date = new Date();
+		List<UpdatePermission> permissionList = param.getPermissionList();
+		for (UpdatePermission updatePermission : permissionList) {
+			ErpBuildPermissions oldBuildPermissions = erpBuildPermissionsMapper.selectByPrimaryKey(new ErpBuildPermissions(cityId, updatePermission.getBpId()));
+			Integer compId = oldBuildPermissions.getCompId();
+			Integer orgId = oldBuildPermissions.getOrganizationId();
+			Integer buildId = oldBuildPermissions.getBuildId();
+			List<ErpFunOrganization> orgList = erpFunOrganizationMapper.selectOrgInfoByDefAndOrgId(cityId,
+					compId.toString(), null, orgId);
+			List<Integer> orgIdList = orgList.stream().map(ErpFunOrganization::getOrganizationId)
+					.collect(Collectors.toList());
+			
+			ErpBuildPermissionsExample erpBuildPermissionsExample = new ErpBuildPermissionsExample();
+			erpBuildPermissionsExample.setShardCityId(cityId);
+			erpBuildPermissionsExample.createCriteria().andCompIdEqualTo(compId).andBuildIdEqualTo(buildId).andOrganizationIdIn(orgIdList).andIsDelEqualTo(Byte.valueOf("0"));
+			
+			ErpBuildPermissions erpBuildPermissions = new ErpBuildPermissions();
+			erpBuildPermissions.setShardCityId(cityId);
+			erpBuildPermissions.setUpdateUserId(userId);
+			erpBuildPermissions.setUpdateTime(date);
+			if (updatePermission.getAddPermission() != null) {
+				erpBuildPermissions.setAddPermission(updatePermission.getAddPermission());
+			}
+			if (updatePermission.getEditPermission() != null) {
+				erpBuildPermissions.setEditPermission(updatePermission.getEditPermission());
+			}
+			if (updatePermission.getViewPermission() != null) {
+				erpBuildPermissions.setViewPermission(updatePermission.getViewPermission());
+			}
+			if (!StringUtil.isEmpty(updatePermission.getHouseUseage())) {
+				erpBuildPermissions.setHouseUseage(updatePermission.getHouseUseage());
+			}
+			if (updatePermission.getIsUseageSame() != null) {
+				erpBuildPermissions.setIsUseageSame(updatePermission.getIsUseageSame());
+			}
+			// 都为0就删除了
+			if (Byte.valueOf("0").equals(updatePermission.getAddPermission())
+					&& Byte.valueOf("0").equals(updatePermission.getEditPermission())
+					&& Byte.valueOf("0").equals(updatePermission.getViewPermission())) {
+				erpBuildPermissions.setIsDel(Byte.valueOf("1"));
+			}
+			erpBuildPermissionsMapper.updateByExampleSelective(erpBuildPermissions, erpBuildPermissionsExample);
+		}
+	}
+
+	@Override
+	public void deletePermission(DeletePermissionParam param) throws Exception {
+		Integer cityId = param.getCityId();
+		Integer userId = param.getUserId();
+		Date date = new Date();
+		String bpIds[] = param.getBpIds().split(",");
+		for (int i = 0; i < bpIds.length; i++) {
+			ErpBuildPermissions oldBuildPermissions = erpBuildPermissionsMapper.selectByPrimaryKey(new ErpBuildPermissions(cityId, Integer.parseInt(bpIds[i])));
+			Integer compId = oldBuildPermissions.getCompId();
+			Integer orgId = oldBuildPermissions.getOrganizationId();
+			Integer buildId = oldBuildPermissions.getBuildId();
+			List<ErpFunOrganization> orgList = erpFunOrganizationMapper.selectOrgInfoByDefAndOrgId(cityId,
+					compId.toString(), null, orgId);
+			List<Integer> orgIdList = orgList.stream().map(ErpFunOrganization::getOrganizationId)
+					.collect(Collectors.toList());
+			
+			ErpBuildPermissions erpBuildPermissions = new ErpBuildPermissions();
+			erpBuildPermissions.setShardCityId(cityId);
+			erpBuildPermissions.setIsDel(Byte.valueOf("1"));
+			erpBuildPermissions.setUpdateUserId(userId);
+			erpBuildPermissions.setUpdateTime(date);
+			ErpBuildPermissionsExample erpBuildPermissionsExample = new ErpBuildPermissionsExample();
+			erpBuildPermissionsExample.setShardCityId(cityId);
+			erpBuildPermissionsExample.createCriteria().andCompIdEqualTo(compId).andBuildIdEqualTo(buildId).andOrganizationIdIn(orgIdList).andIsDelEqualTo(Byte.valueOf("0"));
+			erpBuildPermissionsMapper.updateByExampleSelective(erpBuildPermissions, erpBuildPermissionsExample);
+		}
+	}
+
+	@Override
+	public void copyPermission(CopyPermissionParam param) throws Exception {
+		Date date = new Date();
+		Integer cityId = param.getCityId();
+		Integer userId = param.getUserId();
+		Integer compId = param.getCompId();
+		Integer organizationId = param.getOrganizationId();
+		String[] buildIdArr = param.getBuildIds().split(",");
+		String[] targetOrganizationIds = param.getTargetOrganizationIds().split(",");
+		for (int i = 0; i < buildIdArr.length; i++) {
+			Integer buildId = Integer.parseInt(buildIdArr[i]);
+			ErpBuildPermissions erpBuildPermissions = erpBuildPermissionsMapper.getBuildPermissions(cityId, compId,
+					organizationId, buildId);
+			for (int j = 0; j < targetOrganizationIds.length; j++) {
+				Integer targetOrgId = Integer.parseInt(targetOrganizationIds[j]);
+				List<ErpFunOrganization> orgList = erpFunOrganizationMapper.selectOrgInfoByDefAndOrgId(cityId,
+						compId.toString(), null, targetOrgId);
+				List<Integer> orgIdList = orgList.stream().map(ErpFunOrganization::getOrganizationId)
+						.collect(Collectors.toList());
+
+				// 去掉老的
+				ErpBuildPermissionsExample erpBuildPermissionsExample = new ErpBuildPermissionsExample();
+				erpBuildPermissionsExample.setShardCityId(cityId);
+				erpBuildPermissionsExample.createCriteria().andCompIdEqualTo(compId).andIsDelEqualTo(Byte.valueOf("0"))
+						.andOrganizationIdIn(orgIdList).andBuildIdEqualTo(buildId);
+				ErpBuildPermissions oldBuildPermissions = new ErpBuildPermissions();
+				oldBuildPermissions.setIsDel(Byte.valueOf("1"));
+				oldBuildPermissions.setUpdateUserId(userId);
+				oldBuildPermissions.setUpdateTime(date);
+				erpBuildPermissionsMapper.updateByExampleSelective(oldBuildPermissions, erpBuildPermissionsExample);
+				if (erpBuildPermissions != null) {
+					for (int k = 0; k < orgIdList.size(); k++) {
+						// 新增
+						ErpBuildPermissions targetBuildPermissions = new ErpBuildPermissions();
+						targetBuildPermissions.setShardCityId(cityId);
+						targetBuildPermissions.setAddPermission(erpBuildPermissions.getAddPermission());
+						targetBuildPermissions.setBuildId(buildId);
+						targetBuildPermissions.setCompId(erpBuildPermissions.getCompId());
+						targetBuildPermissions.setCreateTime(date);
+						targetBuildPermissions.setCreateUserId(userId);
+						targetBuildPermissions.setEditPermission(erpBuildPermissions.getEditPermission());
+						targetBuildPermissions.setOrganizationId(orgIdList.get(k));
+						targetBuildPermissions.setHouseUseage(erpBuildPermissions.getHouseUseage());
+						targetBuildPermissions.setIsDel(Byte.valueOf("0"));
+						targetBuildPermissions.setIsUseageSame(erpBuildPermissions.getIsUseageSame());
+						targetBuildPermissions.setViewPermission(erpBuildPermissions.getViewPermission());
+						erpBuildPermissionsMapper.insertSelective(targetBuildPermissions);
+					}
+				}
+			}
+		}
+	}
+}

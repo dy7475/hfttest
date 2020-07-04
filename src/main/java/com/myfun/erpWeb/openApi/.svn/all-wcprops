@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svndata/erpProduct/!svn/ver/114382/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi
+END
+DealAuditController.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/DealAuditController.java
+END
+WorkPlanController.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/WorkPlanController.java
+END
+EarbestMoneyController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/EarbestMoneyController.java
+END
+OrganizationApiController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/113883/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/OrganizationApiController.java
+END
+VStoreOpenApiController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/VStoreOpenApiController.java
+END
+ErpBuildSetInitDataController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/100867/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/ErpBuildSetInitDataController.java
+END
+OpenApiMlEntrustApiController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/98889/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/OpenApiMlEntrustApiController.java
+END
+ProjectCheckController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/ProjectCheckController.java
+END
+ZhiYeOpenApiController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/ZhiYeOpenApiController.java
+END
+DealFileController.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/DealFileController.java
+END
+ApartmentOpenApiController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/ApartmentOpenApiController.java
+END
+ScoreWeiDian.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/ScoreWeiDian.java
+END
+UpdateFunHouseInfoUnitController.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/UpdateFunHouseInfoUnitController.java
+END
+UpdateFunHouseInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/UpdateFunHouseInfoController.java
+END
+DealGoodNewsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/DealGoodNewsController.java
+END
+JmsAutoAuditRunTimeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/JmsAutoAuditRunTimeController.java
+END
+HouseOrCustFlowRepairController.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/HouseOrCustFlowRepairController.java
+END
+UpdateHouseUnit.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/UpdateHouseUnit.java
+END
+ConstantTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/ConstantTest.java
+END
+InnerDealTrackController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/InnerDealTrackController.java
+END
+ErpBuildingPositionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/100988/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/ErpBuildingPositionController.java
+END
+TrueHouseStatistics.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/openApi/TrueHouseStatistics.java
+END

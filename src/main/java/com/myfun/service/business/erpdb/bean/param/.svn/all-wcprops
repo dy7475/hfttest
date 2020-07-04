@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svndata/erpProduct/!svn/ver/114263/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param
+END
+QueryBuildingListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/QueryBuildingListParam.java
+END
+InsertBuildRuleOrUpdateParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/InsertBuildRuleOrUpdateParam.java
+END
+CreateHouseKeyParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CreateHouseKeyParam.java
+END
+QueryVcardListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/QueryVcardListParam.java
+END
+HousePeopleRelativeParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/HousePeopleRelativeParam.java
+END
+BorrowOrReturnKeyParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/BorrowOrReturnKeyParam.java
+END
+CreateOrUpdateEarbestMoneyParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CreateOrUpdateEarbestMoneyParam.java
+END
+QueryErpEarbestMoneyListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/QueryErpEarbestMoneyListParam.java
+END
+QueryAttendanceListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/QueryAttendanceListParam.java
+END
+BuildingInfoTmpParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/BuildingInfoTmpParam.java
+END
+UpdateAttenceOffCountParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/UpdateAttenceOffCountParam.java
+END
+QueryHouseCustDetailParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/QueryHouseCustDetailParam.java
+END
+AccountParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/AccountParam.java
+END
+CreateOutLogParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CreateOutLogParam.java
+END
+AccountTypeParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/AccountTypeParam.java
+END
+CreateOrUpdateAttendanceParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CreateOrUpdateAttendanceParam.java
+END
+QueryOutLogParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/QueryOutLogParam.java
+END
+SendMsgParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/SendMsgParam.java
+END
+AttendanceBaseParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/AttendanceBaseParam.java
+END
+DestroyKeyParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/DestroyKeyParam.java
+END
+CreateOrUpdateBuildInfoParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CreateOrUpdateBuildInfoParam.java
+END
+QueryWorkLogListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/QueryWorkLogListParam.java
+END
+ErpFunKeyParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/114263/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/ErpFunKeyParam.java
+END
+DealBulletListParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/DealBulletListParam.java
+END
+CreateOrUpdateErpFunEcardsParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CreateOrUpdateErpFunEcardsParam.java
+END
+CallParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CallParam.java
+END
+PushEntrustMsgParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/PushEntrustMsgParam.java
+END
+AlipayRentHouseParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/AlipayRentHouseParam.java
+END
+CreateOrUpdateWorkLogParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/service/business/erpdb/bean/param/CreateOrUpdateWorkLogParam.java
+END

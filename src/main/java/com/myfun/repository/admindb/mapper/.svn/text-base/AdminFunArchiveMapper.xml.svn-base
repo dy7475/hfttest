@@ -1,0 +1,2276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunArchiveMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunArchive">
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_ICCODE" jdbcType="VARCHAR" property="userIccode" />
+    <result column="USER_SEX" jdbcType="TINYINT" property="userSex" />
+    <result column="USER_BIRTHDAY" jdbcType="TIMESTAMP" property="userBirthday" />
+    <result column="USER_EMAIL" jdbcType="VARCHAR" property="userEmail" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="USER_FIXEDPH" jdbcType="VARCHAR" property="userFixedph" />
+    <result column="USER_OFFICEPH" jdbcType="VARCHAR" property="userOfficeph" />
+    <result column="USER_QQ" jdbcType="VARCHAR" property="userQq" />
+    <result column="PROVINCE_ID" jdbcType="INTEGER" property="provinceId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="SERVICE_REG" jdbcType="VARCHAR" property="serviceReg" />
+    <result column="SERVICE_ZONE" jdbcType="VARCHAR" property="serviceZone" />
+    <result column="USER_ADDRESS" jdbcType="VARCHAR" property="userAddress" />
+    <result column="USER_POSTCODE" jdbcType="VARCHAR" property="userPostcode" />
+    <result column="USER_SCHOOL" jdbcType="VARCHAR" property="userSchool" />
+    <result column="USER_FIELD" jdbcType="VARCHAR" property="userField" />
+    <result column="USER_SCHLRECORD" jdbcType="VARCHAR" property="userSchlrecord" />
+    <result column="USER_FOREIGN" jdbcType="VARCHAR" property="userForeign" />
+    <result column="USER_POLITY" jdbcType="VARCHAR" property="userPolity" />
+    <result column="PROFESSION_SUB" jdbcType="VARCHAR" property="professionSub" />
+    <result column="USER_DESC" jdbcType="VARCHAR" property="userDesc" />
+    <result column="USER_NUMBER" jdbcType="VARCHAR" property="userNumber" />
+    <result column="NICK_NAME" jdbcType="VARCHAR" property="nickName" />
+    <result column="IC_PHOTO_1" jdbcType="VARCHAR" property="icPhoto1" />
+    <result column="IC_PHOTO_2" jdbcType="VARCHAR" property="icPhoto2" />
+    <result column="USER_PHOTO" jdbcType="VARCHAR" property="userPhoto" />
+    <result column="USER_PHOTO_MIN" jdbcType="VARCHAR" property="userPhotoMin" />
+    <result column="CARD_PHOTO" jdbcType="VARCHAR" property="cardPhoto" />
+    <result column="BBS_PHOTO" jdbcType="VARCHAR" property="bbsPhoto" />
+    <result column="SHOP_INNER_PHOTO" jdbcType="VARCHAR" property="shopInnerPhoto" />
+    <result column="SHOP_OUTER_PHOTO" jdbcType="VARCHAR" property="shopOuterPhoto" />
+    <result column="UA_ID" jdbcType="INTEGER" property="uaId" />
+    <result column="USER_RIGHT" jdbcType="INTEGER" property="userRight" />
+    <result column="USER_HONEST" jdbcType="INTEGER" property="userHonest" />
+    <result column="SUPER_USER" jdbcType="INTEGER" property="superUser" />
+    <result column="SUPER_START" jdbcType="TIMESTAMP" property="superStart" />
+    <result column="SUPER_END" jdbcType="TIMESTAMP" property="superEnd" />
+    <result column="SUPER_DAYS" jdbcType="INTEGER" property="superDays" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="WEBSTORE_STATUS" jdbcType="INTEGER" property="webstoreStatus" />
+    <result column="USER_BIDDING" jdbcType="INTEGER" property="userBidding" />
+    <result column="HOUSE_BIDDING" jdbcType="INTEGER" property="houseBidding" />
+    <result column="COPY_FROM" jdbcType="INTEGER" property="copyFrom" />
+    <result column="BUY_SRV_END" jdbcType="TIMESTAMP" property="buySrvEnd" />
+    <result column="FRIEND_FLAG" jdbcType="INTEGER" property="friendFlag" />
+    <result column="SELL_COMP" jdbcType="INTEGER" property="sellComp" />
+    <result column="SELL_ID" jdbcType="INTEGER" property="sellId" />
+    <result column="USER_EDITION" jdbcType="INTEGER" property="userEdition" />
+    <result column="MOBILE_VALIDED" jdbcType="TINYINT" property="mobileValided" />
+    <result column="HIGH_AMOUNT" jdbcType="DECIMAL" property="highAmount" />
+    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
+    <result column="VALID_ACCOUNT" jdbcType="TINYINT" property="validAccount" />
+    <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="REG_FROM" jdbcType="TINYINT" property="regFrom" />
+    <result column="SERVICE_ZONE_IDS" jdbcType="VARCHAR" property="serviceZoneIds" />
+    <result column="IS_DISPATCHER" jdbcType="TINYINT" property="isDispatcher" />
+    <result column="UA_ID_COMP" jdbcType="INTEGER" property="uaIdComp" />
+    <result column="LAST_YOUYOU_TIME" jdbcType="TIMESTAMP" property="lastYouyouTime" />
+    <result column="IS_LEAVE" jdbcType="TINYINT" property="isLeave" />
+    <result column="LAST_PUSHMSG_TIME" jdbcType="TIMESTAMP" property="lastPushmsgTime" />
+    <result column="PUSHMSG_LOCKFLAG" jdbcType="BIT" property="pushmsgLockflag" />
+    <result column="AGREE_TRUEHOUSE_RULE" jdbcType="TINYINT" property="agreeTruehouseRule" />
+    <result column="LOCK_END_TIME" jdbcType="TIMESTAMP" property="lockEndTime" />
+    <result column="OLD_SELL_ID" jdbcType="INTEGER" property="oldSellId" />
+    <result column="INTEGRITY" jdbcType="TINYINT" property="integrity" />
+    <result column="IS_HONESTER" jdbcType="TINYINT" property="isHonester" />
+    <result column="APARTMENT_USE_FLAG" jdbcType="TINYINT" property="apartmentUseFlag" />
+    <result column="IS_REGIST" jdbcType="TINYINT" property="isRegist" />
+    <result column="PLATE_TYPE" jdbcType="TINYINT" property="plateType" />
+    <result column="PLATE_TYPE_TIME" jdbcType="TIMESTAMP" property="plateTypeTime" />
+    <result column="TOTAL_INTEGRAL" jdbcType="NUMERIC" property="totalIntegral" />
+    <result column="APP_LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="appLastLoginTime" />
+    <result column="DKQ_FLAG" jdbcType="TINYINT" property="dkqFlag" />
+    <result column="ROB_COUNT" jdbcType="INTEGER" property="robCount" />
+    <result column="SERVER_ID" jdbcType="INTEGER" property="serverId" />
+    <result column="HIDE_PHONE_BAIL" jdbcType="TINYINT" property="hidePhoneBail" />
+    <result column="LAST_RECHARGE_TIME" jdbcType="TIMESTAMP" property="lastRechargeTime" />
+    <result column="TREASURE_COIN" jdbcType="INTEGER" property="treasureCoin" />
+    <result column="LAST_TRACK_DESC" jdbcType="VARCHAR" property="lastTrackDesc" />
+    <result column="LAST_TRACK_TIME" jdbcType="TIMESTAMP" property="lastTrackTime" />
+    <result column="LAST_TRACK_TYPE" jdbcType="TINYINT" property="lastTrackType" />
+    <result column="IS_FREE_USER" jdbcType="TINYINT" property="isFreeUser" />
+    <result column="FREE_USER_TIME" jdbcType="TIMESTAMP" property="freeUserTime" />
+    <result column="AGENCY_USE_FLAG" jdbcType="TINYINT" property="agencyUseFlag" />
+    <result column="RENT_HOUSE_STATE" jdbcType="TINYINT" property="rentHouseState" />
+    <result column="COMP_NAME" jdbcType="VARCHAR" property="compName" />
+    <result column="VR_NUM" jdbcType="INTEGER" property="vrNum" />
+    <result column="ARCHIVE_LEVEL" jdbcType="INTEGER" property="archiveLevel" />
+    <result column="IS_IM_ACCOUNT" jdbcType="TINYINT" property="isImAccount" />
+    <result column="ARCHIVE_SITUATION" jdbcType="VARCHAR" property="archiveSituation" />
+    <result column="IS_SEND_REFUNDS_PROMISE" jdbcType="TINYINT" property="isSendRefundsPromise" />
+    <result column="REAL_NAME_PHOTO" jdbcType="VARCHAR" property="realNamePhoto" />
+    <result column="FACE_RECOGNITION_FLAG" jdbcType="TINYINT" property="faceRecognitionFlag" />
+    <result column="FIRST_LOGIN_TIME" jdbcType="TIMESTAMP" property="firstLoginTime" />
+    <result column="USER_WECHAT" jdbcType="VARCHAR" property="userWechat" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ARCHIVE_ID, USER_NAME, USER_ICCODE, USER_SEX, USER_BIRTHDAY, USER_EMAIL, USER_MOBILE, 
+    USER_FIXEDPH, USER_OFFICEPH, USER_QQ, PROVINCE_ID, CITY_ID, SERVICE_REG, SERVICE_ZONE, 
+    USER_ADDRESS, USER_POSTCODE, USER_SCHOOL, USER_FIELD, USER_SCHLRECORD, USER_FOREIGN, 
+    USER_POLITY, PROFESSION_SUB, USER_DESC, USER_NUMBER, NICK_NAME, IC_PHOTO_1, IC_PHOTO_2, 
+    USER_PHOTO, USER_PHOTO_MIN, CARD_PHOTO, BBS_PHOTO, SHOP_INNER_PHOTO, SHOP_OUTER_PHOTO, 
+    UA_ID, USER_RIGHT, USER_HONEST, SUPER_USER, SUPER_START, SUPER_END, SUPER_DAYS, CREATION_TIME, 
+    WEBSTORE_STATUS, USER_BIDDING, HOUSE_BIDDING, COPY_FROM, BUY_SRV_END, FRIEND_FLAG, 
+    SELL_COMP, SELL_ID, USER_EDITION, MOBILE_VALIDED, HIGH_AMOUNT, BALANCE, VALID_ACCOUNT, 
+    LAST_LOGIN_TIME, REG_FROM, SERVICE_ZONE_IDS, IS_DISPATCHER, UA_ID_COMP, LAST_YOUYOU_TIME, 
+    IS_LEAVE, LAST_PUSHMSG_TIME, PUSHMSG_LOCKFLAG, AGREE_TRUEHOUSE_RULE, LOCK_END_TIME, 
+    OLD_SELL_ID, [INTEGRITY], IS_HONESTER, APARTMENT_USE_FLAG, IS_REGIST, PLATE_TYPE, 
+    PLATE_TYPE_TIME, TOTAL_INTEGRAL, APP_LAST_LOGIN_TIME, DKQ_FLAG, ROB_COUNT, SERVER_ID, 
+    HIDE_PHONE_BAIL, LAST_RECHARGE_TIME, TREASURE_COIN, LAST_TRACK_DESC, LAST_TRACK_TIME, 
+    LAST_TRACK_TYPE, IS_FREE_USER, FREE_USER_TIME, AGENCY_USE_FLAG, RENT_HOUSE_STATE, 
+    COMP_NAME, VR_NUM, ARCHIVE_LEVEL, IS_IM_ACCOUNT, ARCHIVE_SITUATION, IS_SEND_REFUNDS_PROMISE, 
+    REAL_NAME_PHOTO, FACE_RECOGNITION_FLAG, FIRST_LOGIN_TIME, USER_WECHAT
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ARCHIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ARCHIVE
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ARCHIVE
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveExample">
+    <!--@mbggenerated-->
+    delete from FUN_ARCHIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunArchive">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="archiveId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_ARCHIVE_ARCHIVE_ID
+    </selectKey>
+    insert into FUN_ARCHIVE (ARCHIVE_ID, USER_NAME, USER_ICCODE, 
+      USER_SEX, USER_BIRTHDAY, USER_EMAIL, 
+      USER_MOBILE, USER_FIXEDPH, USER_OFFICEPH, 
+      USER_QQ, PROVINCE_ID, CITY_ID, 
+      SERVICE_REG, SERVICE_ZONE, USER_ADDRESS, 
+      USER_POSTCODE, USER_SCHOOL, USER_FIELD, 
+      USER_SCHLRECORD, USER_FOREIGN, USER_POLITY, 
+      PROFESSION_SUB, USER_DESC, USER_NUMBER, 
+      NICK_NAME, IC_PHOTO_1, IC_PHOTO_2, 
+      USER_PHOTO, USER_PHOTO_MIN, CARD_PHOTO, 
+      BBS_PHOTO, SHOP_INNER_PHOTO, SHOP_OUTER_PHOTO, 
+      UA_ID, USER_RIGHT, USER_HONEST, 
+      SUPER_USER, SUPER_START, SUPER_END, 
+      SUPER_DAYS, CREATION_TIME, WEBSTORE_STATUS, 
+      USER_BIDDING, HOUSE_BIDDING, COPY_FROM, 
+      BUY_SRV_END, FRIEND_FLAG, SELL_COMP, 
+      SELL_ID, USER_EDITION, MOBILE_VALIDED, 
+      HIGH_AMOUNT, BALANCE, VALID_ACCOUNT, 
+      LAST_LOGIN_TIME, REG_FROM, SERVICE_ZONE_IDS, 
+      IS_DISPATCHER, UA_ID_COMP, LAST_YOUYOU_TIME, 
+      IS_LEAVE, LAST_PUSHMSG_TIME, PUSHMSG_LOCKFLAG, 
+      AGREE_TRUEHOUSE_RULE, LOCK_END_TIME, OLD_SELL_ID, 
+      [INTEGRITY], IS_HONESTER, APARTMENT_USE_FLAG, 
+      IS_REGIST, PLATE_TYPE, PLATE_TYPE_TIME, 
+      TOTAL_INTEGRAL, APP_LAST_LOGIN_TIME, DKQ_FLAG, 
+      ROB_COUNT, SERVER_ID, HIDE_PHONE_BAIL, 
+      LAST_RECHARGE_TIME, TREASURE_COIN, LAST_TRACK_DESC, 
+      LAST_TRACK_TIME, LAST_TRACK_TYPE, IS_FREE_USER, 
+      FREE_USER_TIME, AGENCY_USE_FLAG, RENT_HOUSE_STATE, 
+      COMP_NAME, VR_NUM, ARCHIVE_LEVEL, 
+      IS_IM_ACCOUNT, ARCHIVE_SITUATION, IS_SEND_REFUNDS_PROMISE, 
+      REAL_NAME_PHOTO, FACE_RECOGNITION_FLAG, FIRST_LOGIN_TIME, 
+      USER_WECHAT)
+    values (#{archiveId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userIccode,jdbcType=VARCHAR}, 
+      #{userSex,jdbcType=TINYINT}, #{userBirthday,jdbcType=TIMESTAMP}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{userFixedph,jdbcType=VARCHAR}, #{userOfficeph,jdbcType=VARCHAR}, 
+      #{userQq,jdbcType=VARCHAR}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, 
+      #{serviceReg,jdbcType=VARCHAR}, #{serviceZone,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, 
+      #{userPostcode,jdbcType=VARCHAR}, #{userSchool,jdbcType=VARCHAR}, #{userField,jdbcType=VARCHAR}, 
+      #{userSchlrecord,jdbcType=VARCHAR}, #{userForeign,jdbcType=VARCHAR}, #{userPolity,jdbcType=VARCHAR}, 
+      #{professionSub,jdbcType=VARCHAR}, #{userDesc,jdbcType=VARCHAR}, #{userNumber,jdbcType=VARCHAR}, 
+      #{nickName,jdbcType=VARCHAR}, #{icPhoto1,jdbcType=VARCHAR}, #{icPhoto2,jdbcType=VARCHAR}, 
+      #{userPhoto,jdbcType=VARCHAR}, #{userPhotoMin,jdbcType=VARCHAR}, #{cardPhoto,jdbcType=VARCHAR}, 
+      #{bbsPhoto,jdbcType=VARCHAR}, #{shopInnerPhoto,jdbcType=VARCHAR}, #{shopOuterPhoto,jdbcType=VARCHAR}, 
+      #{uaId,jdbcType=INTEGER}, #{userRight,jdbcType=INTEGER}, #{userHonest,jdbcType=INTEGER}, 
+      #{superUser,jdbcType=INTEGER}, #{superStart,jdbcType=TIMESTAMP}, #{superEnd,jdbcType=TIMESTAMP}, 
+      #{superDays,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{webstoreStatus,jdbcType=INTEGER}, 
+      #{userBidding,jdbcType=INTEGER}, #{houseBidding,jdbcType=INTEGER}, #{copyFrom,jdbcType=INTEGER}, 
+      #{buySrvEnd,jdbcType=TIMESTAMP}, #{friendFlag,jdbcType=INTEGER}, #{sellComp,jdbcType=INTEGER}, 
+      #{sellId,jdbcType=INTEGER}, #{userEdition,jdbcType=INTEGER}, #{mobileValided,jdbcType=TINYINT}, 
+      #{highAmount,jdbcType=DECIMAL}, #{balance,jdbcType=DECIMAL}, #{validAccount,jdbcType=TINYINT}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{regFrom,jdbcType=TINYINT}, #{serviceZoneIds,jdbcType=VARCHAR}, 
+      #{isDispatcher,jdbcType=TINYINT}, #{uaIdComp,jdbcType=INTEGER}, #{lastYouyouTime,jdbcType=TIMESTAMP}, 
+      #{isLeave,jdbcType=TINYINT}, #{lastPushmsgTime,jdbcType=TIMESTAMP}, #{pushmsgLockflag,jdbcType=BIT}, 
+      #{agreeTruehouseRule,jdbcType=TINYINT}, #{lockEndTime,jdbcType=TIMESTAMP}, #{oldSellId,jdbcType=INTEGER}, 
+      #{integrity,jdbcType=TINYINT}, #{isHonester,jdbcType=TINYINT}, #{apartmentUseFlag,jdbcType=TINYINT}, 
+      #{isRegist,jdbcType=TINYINT}, #{plateType,jdbcType=TINYINT}, #{plateTypeTime,jdbcType=TIMESTAMP}, 
+      #{totalIntegral,jdbcType=NUMERIC}, #{appLastLoginTime,jdbcType=TIMESTAMP}, #{dkqFlag,jdbcType=TINYINT}, 
+      #{robCount,jdbcType=INTEGER}, #{serverId,jdbcType=INTEGER}, #{hidePhoneBail,jdbcType=TINYINT}, 
+      #{lastRechargeTime,jdbcType=TIMESTAMP}, #{treasureCoin,jdbcType=INTEGER}, #{lastTrackDesc,jdbcType=VARCHAR}, 
+      #{lastTrackTime,jdbcType=TIMESTAMP}, #{lastTrackType,jdbcType=TINYINT}, #{isFreeUser,jdbcType=TINYINT}, 
+      #{freeUserTime,jdbcType=TIMESTAMP}, #{agencyUseFlag,jdbcType=TINYINT}, #{rentHouseState,jdbcType=TINYINT}, 
+      #{compName,jdbcType=VARCHAR}, #{vrNum,jdbcType=INTEGER}, #{archiveLevel,jdbcType=INTEGER}, 
+      #{isImAccount,jdbcType=TINYINT}, #{archiveSituation,jdbcType=VARCHAR}, #{isSendRefundsPromise,jdbcType=TINYINT}, 
+      #{realNamePhoto,jdbcType=VARCHAR}, #{faceRecognitionFlag,jdbcType=TINYINT}, #{firstLoginTime,jdbcType=TIMESTAMP}, 
+      #{userWechat,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunArchive">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="archiveId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_ARCHIVE_ARCHIVE_ID
+    </selectKey>
+    insert into FUN_ARCHIVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ARCHIVE_ID,
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userIccode != null">
+        USER_ICCODE,
+      </if>
+      <if test="userSex != null">
+        USER_SEX,
+      </if>
+      <if test="userBirthday != null">
+        USER_BIRTHDAY,
+      </if>
+      <if test="userEmail != null">
+        USER_EMAIL,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+      <if test="userFixedph != null">
+        USER_FIXEDPH,
+      </if>
+      <if test="userOfficeph != null">
+        USER_OFFICEPH,
+      </if>
+      <if test="userQq != null">
+        USER_QQ,
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="serviceReg != null">
+        SERVICE_REG,
+      </if>
+      <if test="serviceZone != null">
+        SERVICE_ZONE,
+      </if>
+      <if test="userAddress != null">
+        USER_ADDRESS,
+      </if>
+      <if test="userPostcode != null">
+        USER_POSTCODE,
+      </if>
+      <if test="userSchool != null">
+        USER_SCHOOL,
+      </if>
+      <if test="userField != null">
+        USER_FIELD,
+      </if>
+      <if test="userSchlrecord != null">
+        USER_SCHLRECORD,
+      </if>
+      <if test="userForeign != null">
+        USER_FOREIGN,
+      </if>
+      <if test="userPolity != null">
+        USER_POLITY,
+      </if>
+      <if test="professionSub != null">
+        PROFESSION_SUB,
+      </if>
+      <if test="userDesc != null">
+        USER_DESC,
+      </if>
+      <if test="userNumber != null">
+        USER_NUMBER,
+      </if>
+      <if test="nickName != null">
+        NICK_NAME,
+      </if>
+      <if test="icPhoto1 != null">
+        IC_PHOTO_1,
+      </if>
+      <if test="icPhoto2 != null">
+        IC_PHOTO_2,
+      </if>
+      <if test="userPhoto != null">
+        USER_PHOTO,
+      </if>
+      <if test="userPhotoMin != null">
+        USER_PHOTO_MIN,
+      </if>
+      <if test="cardPhoto != null">
+        CARD_PHOTO,
+      </if>
+      <if test="bbsPhoto != null">
+        BBS_PHOTO,
+      </if>
+      <if test="shopInnerPhoto != null">
+        SHOP_INNER_PHOTO,
+      </if>
+      <if test="shopOuterPhoto != null">
+        SHOP_OUTER_PHOTO,
+      </if>
+      <if test="uaId != null">
+        UA_ID,
+      </if>
+      <if test="userRight != null">
+        USER_RIGHT,
+      </if>
+      <if test="userHonest != null">
+        USER_HONEST,
+      </if>
+      <if test="superUser != null">
+        SUPER_USER,
+      </if>
+      <if test="superStart != null">
+        SUPER_START,
+      </if>
+      <if test="superEnd != null">
+        SUPER_END,
+      </if>
+      <if test="superDays != null">
+        SUPER_DAYS,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="webstoreStatus != null">
+        WEBSTORE_STATUS,
+      </if>
+      <if test="userBidding != null">
+        USER_BIDDING,
+      </if>
+      <if test="houseBidding != null">
+        HOUSE_BIDDING,
+      </if>
+      <if test="copyFrom != null">
+        COPY_FROM,
+      </if>
+      <if test="buySrvEnd != null">
+        BUY_SRV_END,
+      </if>
+      <if test="friendFlag != null">
+        FRIEND_FLAG,
+      </if>
+      <if test="sellComp != null">
+        SELL_COMP,
+      </if>
+      <if test="sellId != null">
+        SELL_ID,
+      </if>
+      <if test="userEdition != null">
+        USER_EDITION,
+      </if>
+      <if test="mobileValided != null">
+        MOBILE_VALIDED,
+      </if>
+      <if test="highAmount != null">
+        HIGH_AMOUNT,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="validAccount != null">
+        VALID_ACCOUNT,
+      </if>
+      <if test="lastLoginTime != null">
+        LAST_LOGIN_TIME,
+      </if>
+      <if test="regFrom != null">
+        REG_FROM,
+      </if>
+      <if test="serviceZoneIds != null">
+        SERVICE_ZONE_IDS,
+      </if>
+      <if test="isDispatcher != null">
+        IS_DISPATCHER,
+      </if>
+      <if test="uaIdComp != null">
+        UA_ID_COMP,
+      </if>
+      <if test="lastYouyouTime != null">
+        LAST_YOUYOU_TIME,
+      </if>
+      <if test="isLeave != null">
+        IS_LEAVE,
+      </if>
+      <if test="lastPushmsgTime != null">
+        LAST_PUSHMSG_TIME,
+      </if>
+      <if test="pushmsgLockflag != null">
+        PUSHMSG_LOCKFLAG,
+      </if>
+      <if test="agreeTruehouseRule != null">
+        AGREE_TRUEHOUSE_RULE,
+      </if>
+      <if test="lockEndTime != null">
+        LOCK_END_TIME,
+      </if>
+      <if test="oldSellId != null">
+        OLD_SELL_ID,
+      </if>
+      <if test="integrity != null">
+        [INTEGRITY],
+      </if>
+      <if test="isHonester != null">
+        IS_HONESTER,
+      </if>
+      <if test="apartmentUseFlag != null">
+        APARTMENT_USE_FLAG,
+      </if>
+      <if test="isRegist != null">
+        IS_REGIST,
+      </if>
+      <if test="plateType != null">
+        PLATE_TYPE,
+      </if>
+      <if test="plateTypeTime != null">
+        PLATE_TYPE_TIME,
+      </if>
+      <if test="totalIntegral != null">
+        TOTAL_INTEGRAL,
+      </if>
+      <if test="appLastLoginTime != null">
+        APP_LAST_LOGIN_TIME,
+      </if>
+      <if test="dkqFlag != null">
+        DKQ_FLAG,
+      </if>
+      <if test="robCount != null">
+        ROB_COUNT,
+      </if>
+      <if test="serverId != null">
+        SERVER_ID,
+      </if>
+      <if test="hidePhoneBail != null">
+        HIDE_PHONE_BAIL,
+      </if>
+      <if test="lastRechargeTime != null">
+        LAST_RECHARGE_TIME,
+      </if>
+      <if test="treasureCoin != null">
+        TREASURE_COIN,
+      </if>
+      <if test="lastTrackDesc != null">
+        LAST_TRACK_DESC,
+      </if>
+      <if test="lastTrackTime != null">
+        LAST_TRACK_TIME,
+      </if>
+      <if test="lastTrackType != null">
+        LAST_TRACK_TYPE,
+      </if>
+      <if test="isFreeUser != null">
+        IS_FREE_USER,
+      </if>
+      <if test="freeUserTime != null">
+        FREE_USER_TIME,
+      </if>
+      <if test="agencyUseFlag != null">
+        AGENCY_USE_FLAG,
+      </if>
+      <if test="rentHouseState != null">
+        RENT_HOUSE_STATE,
+      </if>
+      <if test="compName != null">
+        COMP_NAME,
+      </if>
+      <if test="vrNum != null">
+        VR_NUM,
+      </if>
+      <if test="archiveLevel != null">
+        ARCHIVE_LEVEL,
+      </if>
+      <if test="isImAccount != null">
+        IS_IM_ACCOUNT,
+      </if>
+      <if test="archiveSituation != null">
+        ARCHIVE_SITUATION,
+      </if>
+      <if test="isSendRefundsPromise != null">
+        IS_SEND_REFUNDS_PROMISE,
+      </if>
+      <if test="realNamePhoto != null">
+        REAL_NAME_PHOTO,
+      </if>
+      <if test="faceRecognitionFlag != null">
+        FACE_RECOGNITION_FLAG,
+      </if>
+      <if test="firstLoginTime != null">
+        FIRST_LOGIN_TIME,
+      </if>
+      <if test="userWechat != null">
+        USER_WECHAT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{archiveId,jdbcType=INTEGER},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIccode != null">
+        #{userIccode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=TINYINT},
+      </if>
+      <if test="userBirthday != null">
+        #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userFixedph != null">
+        #{userFixedph,jdbcType=VARCHAR},
+      </if>
+      <if test="userOfficeph != null">
+        #{userOfficeph,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="serviceReg != null">
+        #{serviceReg,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceZone != null">
+        #{serviceZone,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userPostcode != null">
+        #{userPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null">
+        #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userField != null">
+        #{userField,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchlrecord != null">
+        #{userSchlrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="userForeign != null">
+        #{userForeign,jdbcType=VARCHAR},
+      </if>
+      <if test="userPolity != null">
+        #{userPolity,jdbcType=VARCHAR},
+      </if>
+      <if test="professionSub != null">
+        #{professionSub,jdbcType=VARCHAR},
+      </if>
+      <if test="userDesc != null">
+        #{userDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="userNumber != null">
+        #{userNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto1 != null">
+        #{icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2 != null">
+        #{icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMin != null">
+        #{userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhoto != null">
+        #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhoto != null">
+        #{bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhoto != null">
+        #{shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhoto != null">
+        #{shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="uaId != null">
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="userRight != null">
+        #{userRight,jdbcType=INTEGER},
+      </if>
+      <if test="userHonest != null">
+        #{userHonest,jdbcType=INTEGER},
+      </if>
+      <if test="superUser != null">
+        #{superUser,jdbcType=INTEGER},
+      </if>
+      <if test="superStart != null">
+        #{superStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superEnd != null">
+        #{superEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superDays != null">
+        #{superDays,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="webstoreStatus != null">
+        #{webstoreStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userBidding != null">
+        #{userBidding,jdbcType=INTEGER},
+      </if>
+      <if test="houseBidding != null">
+        #{houseBidding,jdbcType=INTEGER},
+      </if>
+      <if test="copyFrom != null">
+        #{copyFrom,jdbcType=INTEGER},
+      </if>
+      <if test="buySrvEnd != null">
+        #{buySrvEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="friendFlag != null">
+        #{friendFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sellComp != null">
+        #{sellComp,jdbcType=INTEGER},
+      </if>
+      <if test="sellId != null">
+        #{sellId,jdbcType=INTEGER},
+      </if>
+      <if test="userEdition != null">
+        #{userEdition,jdbcType=INTEGER},
+      </if>
+      <if test="mobileValided != null">
+        #{mobileValided,jdbcType=TINYINT},
+      </if>
+      <if test="highAmount != null">
+        #{highAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="validAccount != null">
+        #{validAccount,jdbcType=TINYINT},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regFrom != null">
+        #{regFrom,jdbcType=TINYINT},
+      </if>
+      <if test="serviceZoneIds != null">
+        #{serviceZoneIds,jdbcType=VARCHAR},
+      </if>
+      <if test="isDispatcher != null">
+        #{isDispatcher,jdbcType=TINYINT},
+      </if>
+      <if test="uaIdComp != null">
+        #{uaIdComp,jdbcType=INTEGER},
+      </if>
+      <if test="lastYouyouTime != null">
+        #{lastYouyouTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isLeave != null">
+        #{isLeave,jdbcType=TINYINT},
+      </if>
+      <if test="lastPushmsgTime != null">
+        #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushmsgLockflag != null">
+        #{pushmsgLockflag,jdbcType=BIT},
+      </if>
+      <if test="agreeTruehouseRule != null">
+        #{agreeTruehouseRule,jdbcType=TINYINT},
+      </if>
+      <if test="lockEndTime != null">
+        #{lockEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldSellId != null">
+        #{oldSellId,jdbcType=INTEGER},
+      </if>
+      <if test="integrity != null">
+        #{integrity,jdbcType=TINYINT},
+      </if>
+      <if test="isHonester != null">
+        #{isHonester,jdbcType=TINYINT},
+      </if>
+      <if test="apartmentUseFlag != null">
+        #{apartmentUseFlag,jdbcType=TINYINT},
+      </if>
+      <if test="isRegist != null">
+        #{isRegist,jdbcType=TINYINT},
+      </if>
+      <if test="plateType != null">
+        #{plateType,jdbcType=TINYINT},
+      </if>
+      <if test="plateTypeTime != null">
+        #{plateTypeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalIntegral != null">
+        #{totalIntegral,jdbcType=NUMERIC},
+      </if>
+      <if test="appLastLoginTime != null">
+        #{appLastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dkqFlag != null">
+        #{dkqFlag,jdbcType=TINYINT},
+      </if>
+      <if test="robCount != null">
+        #{robCount,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null">
+        #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="hidePhoneBail != null">
+        #{hidePhoneBail,jdbcType=TINYINT},
+      </if>
+      <if test="lastRechargeTime != null">
+        #{lastRechargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="treasureCoin != null">
+        #{treasureCoin,jdbcType=INTEGER},
+      </if>
+      <if test="lastTrackDesc != null">
+        #{lastTrackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTrackTime != null">
+        #{lastTrackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTrackType != null">
+        #{lastTrackType,jdbcType=TINYINT},
+      </if>
+      <if test="isFreeUser != null">
+        #{isFreeUser,jdbcType=TINYINT},
+      </if>
+      <if test="freeUserTime != null">
+        #{freeUserTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="agencyUseFlag != null">
+        #{agencyUseFlag,jdbcType=TINYINT},
+      </if>
+      <if test="rentHouseState != null">
+        #{rentHouseState,jdbcType=TINYINT},
+      </if>
+      <if test="compName != null">
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="vrNum != null">
+        #{vrNum,jdbcType=INTEGER},
+      </if>
+      <if test="archiveLevel != null">
+        #{archiveLevel,jdbcType=INTEGER},
+      </if>
+      <if test="isImAccount != null">
+        #{isImAccount,jdbcType=TINYINT},
+      </if>
+      <if test="archiveSituation != null">
+        #{archiveSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="isSendRefundsPromise != null">
+        #{isSendRefundsPromise,jdbcType=TINYINT},
+      </if>
+      <if test="realNamePhoto != null">
+        #{realNamePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="faceRecognitionFlag != null">
+        #{faceRecognitionFlag,jdbcType=TINYINT},
+      </if>
+      <if test="firstLoginTime != null">
+        #{firstLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userWechat != null">
+        #{userWechat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminFunArchiveExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ARCHIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE
+    <set>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null">
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userIccode != null">
+        USER_ICCODE = #{record.userIccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null">
+        USER_SEX = #{record.userSex,jdbcType=TINYINT},
+      </if>
+      <if test="record.userBirthday != null">
+        USER_BIRTHDAY = #{record.userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userEmail != null">
+        USER_EMAIL = #{record.userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userMobile != null">
+        USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userFixedph != null">
+        USER_FIXEDPH = #{record.userFixedph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userOfficeph != null">
+        USER_OFFICEPH = #{record.userOfficeph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userQq != null">
+        USER_QQ = #{record.userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceId != null">
+        PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.serviceReg != null">
+        SERVICE_REG = #{record.serviceReg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceZone != null">
+        SERVICE_ZONE = #{record.serviceZone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userAddress != null">
+        USER_ADDRESS = #{record.userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPostcode != null">
+        USER_POSTCODE = #{record.userPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSchool != null">
+        USER_SCHOOL = #{record.userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userField != null">
+        USER_FIELD = #{record.userField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSchlrecord != null">
+        USER_SCHLRECORD = #{record.userSchlrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userForeign != null">
+        USER_FOREIGN = #{record.userForeign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPolity != null">
+        USER_POLITY = #{record.userPolity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionSub != null">
+        PROFESSION_SUB = #{record.professionSub,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDesc != null">
+        USER_DESC = #{record.userDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userNumber != null">
+        USER_NUMBER = #{record.userNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickName != null">
+        NICK_NAME = #{record.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icPhoto1 != null">
+        IC_PHOTO_1 = #{record.icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icPhoto2 != null">
+        IC_PHOTO_2 = #{record.icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhoto != null">
+        USER_PHOTO = #{record.userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhotoMin != null">
+        USER_PHOTO_MIN = #{record.userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardPhoto != null">
+        CARD_PHOTO = #{record.cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bbsPhoto != null">
+        BBS_PHOTO = #{record.bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopInnerPhoto != null">
+        SHOP_INNER_PHOTO = #{record.shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopOuterPhoto != null">
+        SHOP_OUTER_PHOTO = #{record.shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uaId != null">
+        UA_ID = #{record.uaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userRight != null">
+        USER_RIGHT = #{record.userRight,jdbcType=INTEGER},
+      </if>
+      <if test="record.userHonest != null">
+        USER_HONEST = #{record.userHonest,jdbcType=INTEGER},
+      </if>
+      <if test="record.superUser != null">
+        SUPER_USER = #{record.superUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.superStart != null">
+        SUPER_START = #{record.superStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.superEnd != null">
+        SUPER_END = #{record.superEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.superDays != null">
+        SUPER_DAYS = #{record.superDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.webstoreStatus != null">
+        WEBSTORE_STATUS = #{record.webstoreStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.userBidding != null">
+        USER_BIDDING = #{record.userBidding,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseBidding != null">
+        HOUSE_BIDDING = #{record.houseBidding,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyFrom != null">
+        COPY_FROM = #{record.copyFrom,jdbcType=INTEGER},
+      </if>
+      <if test="record.buySrvEnd != null">
+        BUY_SRV_END = #{record.buySrvEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.friendFlag != null">
+        FRIEND_FLAG = #{record.friendFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellComp != null">
+        SELL_COMP = #{record.sellComp,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellId != null">
+        SELL_ID = #{record.sellId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userEdition != null">
+        USER_EDITION = #{record.userEdition,jdbcType=INTEGER},
+      </if>
+      <if test="record.mobileValided != null">
+        MOBILE_VALIDED = #{record.mobileValided,jdbcType=TINYINT},
+      </if>
+      <if test="record.highAmount != null">
+        HIGH_AMOUNT = #{record.highAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.balance != null">
+        BALANCE = #{record.balance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.validAccount != null">
+        VALID_ACCOUNT = #{record.validAccount,jdbcType=TINYINT},
+      </if>
+      <if test="record.lastLoginTime != null">
+        LAST_LOGIN_TIME = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.regFrom != null">
+        REG_FROM = #{record.regFrom,jdbcType=TINYINT},
+      </if>
+      <if test="record.serviceZoneIds != null">
+        SERVICE_ZONE_IDS = #{record.serviceZoneIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDispatcher != null">
+        IS_DISPATCHER = #{record.isDispatcher,jdbcType=TINYINT},
+      </if>
+      <if test="record.uaIdComp != null">
+        UA_ID_COMP = #{record.uaIdComp,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastYouyouTime != null">
+        LAST_YOUYOU_TIME = #{record.lastYouyouTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isLeave != null">
+        IS_LEAVE = #{record.isLeave,jdbcType=TINYINT},
+      </if>
+      <if test="record.lastPushmsgTime != null">
+        LAST_PUSHMSG_TIME = #{record.lastPushmsgTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pushmsgLockflag != null">
+        PUSHMSG_LOCKFLAG = #{record.pushmsgLockflag,jdbcType=BIT},
+      </if>
+      <if test="record.agreeTruehouseRule != null">
+        AGREE_TRUEHOUSE_RULE = #{record.agreeTruehouseRule,jdbcType=TINYINT},
+      </if>
+      <if test="record.lockEndTime != null">
+        LOCK_END_TIME = #{record.lockEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.oldSellId != null">
+        OLD_SELL_ID = #{record.oldSellId,jdbcType=INTEGER},
+      </if>
+      <if test="record.integrity != null">
+        [INTEGRITY] = #{record.integrity,jdbcType=TINYINT},
+      </if>
+      <if test="record.isHonester != null">
+        IS_HONESTER = #{record.isHonester,jdbcType=TINYINT},
+      </if>
+      <if test="record.apartmentUseFlag != null">
+        APARTMENT_USE_FLAG = #{record.apartmentUseFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.isRegist != null">
+        IS_REGIST = #{record.isRegist,jdbcType=TINYINT},
+      </if>
+      <if test="record.plateType != null">
+        PLATE_TYPE = #{record.plateType,jdbcType=TINYINT},
+      </if>
+      <if test="record.plateTypeTime != null">
+        PLATE_TYPE_TIME = #{record.plateTypeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.totalIntegral != null">
+        TOTAL_INTEGRAL = #{record.totalIntegral,jdbcType=NUMERIC},
+      </if>
+      <if test="record.appLastLoginTime != null">
+        APP_LAST_LOGIN_TIME = #{record.appLastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dkqFlag != null">
+        DKQ_FLAG = #{record.dkqFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.robCount != null">
+        ROB_COUNT = #{record.robCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.serverId != null">
+        SERVER_ID = #{record.serverId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hidePhoneBail != null">
+        HIDE_PHONE_BAIL = #{record.hidePhoneBail,jdbcType=TINYINT},
+      </if>
+      <if test="record.lastRechargeTime != null">
+        LAST_RECHARGE_TIME = #{record.lastRechargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.treasureCoin != null">
+        TREASURE_COIN = #{record.treasureCoin,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastTrackDesc != null">
+        LAST_TRACK_DESC = #{record.lastTrackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastTrackTime != null">
+        LAST_TRACK_TIME = #{record.lastTrackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastTrackType != null">
+        LAST_TRACK_TYPE = #{record.lastTrackType,jdbcType=TINYINT},
+      </if>
+      <if test="record.isFreeUser != null">
+        IS_FREE_USER = #{record.isFreeUser,jdbcType=TINYINT},
+      </if>
+      <if test="record.freeUserTime != null">
+        FREE_USER_TIME = #{record.freeUserTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.agencyUseFlag != null">
+        AGENCY_USE_FLAG = #{record.agencyUseFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.rentHouseState != null">
+        RENT_HOUSE_STATE = #{record.rentHouseState,jdbcType=TINYINT},
+      </if>
+      <if test="record.compName != null">
+        COMP_NAME = #{record.compName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vrNum != null">
+        VR_NUM = #{record.vrNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveLevel != null">
+        ARCHIVE_LEVEL = #{record.archiveLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.isImAccount != null">
+        IS_IM_ACCOUNT = #{record.isImAccount,jdbcType=TINYINT},
+      </if>
+      <if test="record.archiveSituation != null">
+        ARCHIVE_SITUATION = #{record.archiveSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSendRefundsPromise != null">
+        IS_SEND_REFUNDS_PROMISE = #{record.isSendRefundsPromise,jdbcType=TINYINT},
+      </if>
+      <if test="record.realNamePhoto != null">
+        REAL_NAME_PHOTO = #{record.realNamePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.faceRecognitionFlag != null">
+        FACE_RECOGNITION_FLAG = #{record.faceRecognitionFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstLoginTime != null">
+        FIRST_LOGIN_TIME = #{record.firstLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userWechat != null">
+        USER_WECHAT = #{record.userWechat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE
+    set ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      USER_ICCODE = #{record.userIccode,jdbcType=VARCHAR},
+      USER_SEX = #{record.userSex,jdbcType=TINYINT},
+      USER_BIRTHDAY = #{record.userBirthday,jdbcType=TIMESTAMP},
+      USER_EMAIL = #{record.userEmail,jdbcType=VARCHAR},
+      USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      USER_FIXEDPH = #{record.userFixedph,jdbcType=VARCHAR},
+      USER_OFFICEPH = #{record.userOfficeph,jdbcType=VARCHAR},
+      USER_QQ = #{record.userQq,jdbcType=VARCHAR},
+      PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      SERVICE_REG = #{record.serviceReg,jdbcType=VARCHAR},
+      SERVICE_ZONE = #{record.serviceZone,jdbcType=VARCHAR},
+      USER_ADDRESS = #{record.userAddress,jdbcType=VARCHAR},
+      USER_POSTCODE = #{record.userPostcode,jdbcType=VARCHAR},
+      USER_SCHOOL = #{record.userSchool,jdbcType=VARCHAR},
+      USER_FIELD = #{record.userField,jdbcType=VARCHAR},
+      USER_SCHLRECORD = #{record.userSchlrecord,jdbcType=VARCHAR},
+      USER_FOREIGN = #{record.userForeign,jdbcType=VARCHAR},
+      USER_POLITY = #{record.userPolity,jdbcType=VARCHAR},
+      PROFESSION_SUB = #{record.professionSub,jdbcType=VARCHAR},
+      USER_DESC = #{record.userDesc,jdbcType=VARCHAR},
+      USER_NUMBER = #{record.userNumber,jdbcType=VARCHAR},
+      NICK_NAME = #{record.nickName,jdbcType=VARCHAR},
+      IC_PHOTO_1 = #{record.icPhoto1,jdbcType=VARCHAR},
+      IC_PHOTO_2 = #{record.icPhoto2,jdbcType=VARCHAR},
+      USER_PHOTO = #{record.userPhoto,jdbcType=VARCHAR},
+      USER_PHOTO_MIN = #{record.userPhotoMin,jdbcType=VARCHAR},
+      CARD_PHOTO = #{record.cardPhoto,jdbcType=VARCHAR},
+      BBS_PHOTO = #{record.bbsPhoto,jdbcType=VARCHAR},
+      SHOP_INNER_PHOTO = #{record.shopInnerPhoto,jdbcType=VARCHAR},
+      SHOP_OUTER_PHOTO = #{record.shopOuterPhoto,jdbcType=VARCHAR},
+      UA_ID = #{record.uaId,jdbcType=INTEGER},
+      USER_RIGHT = #{record.userRight,jdbcType=INTEGER},
+      USER_HONEST = #{record.userHonest,jdbcType=INTEGER},
+      SUPER_USER = #{record.superUser,jdbcType=INTEGER},
+      SUPER_START = #{record.superStart,jdbcType=TIMESTAMP},
+      SUPER_END = #{record.superEnd,jdbcType=TIMESTAMP},
+      SUPER_DAYS = #{record.superDays,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      WEBSTORE_STATUS = #{record.webstoreStatus,jdbcType=INTEGER},
+      USER_BIDDING = #{record.userBidding,jdbcType=INTEGER},
+      HOUSE_BIDDING = #{record.houseBidding,jdbcType=INTEGER},
+      COPY_FROM = #{record.copyFrom,jdbcType=INTEGER},
+      BUY_SRV_END = #{record.buySrvEnd,jdbcType=TIMESTAMP},
+      FRIEND_FLAG = #{record.friendFlag,jdbcType=INTEGER},
+      SELL_COMP = #{record.sellComp,jdbcType=INTEGER},
+      SELL_ID = #{record.sellId,jdbcType=INTEGER},
+      USER_EDITION = #{record.userEdition,jdbcType=INTEGER},
+      MOBILE_VALIDED = #{record.mobileValided,jdbcType=TINYINT},
+      HIGH_AMOUNT = #{record.highAmount,jdbcType=DECIMAL},
+      BALANCE = #{record.balance,jdbcType=DECIMAL},
+      VALID_ACCOUNT = #{record.validAccount,jdbcType=TINYINT},
+      LAST_LOGIN_TIME = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      REG_FROM = #{record.regFrom,jdbcType=TINYINT},
+      SERVICE_ZONE_IDS = #{record.serviceZoneIds,jdbcType=VARCHAR},
+      IS_DISPATCHER = #{record.isDispatcher,jdbcType=TINYINT},
+      UA_ID_COMP = #{record.uaIdComp,jdbcType=INTEGER},
+      LAST_YOUYOU_TIME = #{record.lastYouyouTime,jdbcType=TIMESTAMP},
+      IS_LEAVE = #{record.isLeave,jdbcType=TINYINT},
+      LAST_PUSHMSG_TIME = #{record.lastPushmsgTime,jdbcType=TIMESTAMP},
+      PUSHMSG_LOCKFLAG = #{record.pushmsgLockflag,jdbcType=BIT},
+      AGREE_TRUEHOUSE_RULE = #{record.agreeTruehouseRule,jdbcType=TINYINT},
+      LOCK_END_TIME = #{record.lockEndTime,jdbcType=TIMESTAMP},
+      OLD_SELL_ID = #{record.oldSellId,jdbcType=INTEGER},
+      [INTEGRITY] = #{record.integrity,jdbcType=TINYINT},
+      IS_HONESTER = #{record.isHonester,jdbcType=TINYINT},
+      APARTMENT_USE_FLAG = #{record.apartmentUseFlag,jdbcType=TINYINT},
+      IS_REGIST = #{record.isRegist,jdbcType=TINYINT},
+      PLATE_TYPE = #{record.plateType,jdbcType=TINYINT},
+      PLATE_TYPE_TIME = #{record.plateTypeTime,jdbcType=TIMESTAMP},
+      TOTAL_INTEGRAL = #{record.totalIntegral,jdbcType=NUMERIC},
+      APP_LAST_LOGIN_TIME = #{record.appLastLoginTime,jdbcType=TIMESTAMP},
+      DKQ_FLAG = #{record.dkqFlag,jdbcType=TINYINT},
+      ROB_COUNT = #{record.robCount,jdbcType=INTEGER},
+      SERVER_ID = #{record.serverId,jdbcType=INTEGER},
+      HIDE_PHONE_BAIL = #{record.hidePhoneBail,jdbcType=TINYINT},
+      LAST_RECHARGE_TIME = #{record.lastRechargeTime,jdbcType=TIMESTAMP},
+      TREASURE_COIN = #{record.treasureCoin,jdbcType=INTEGER},
+      LAST_TRACK_DESC = #{record.lastTrackDesc,jdbcType=VARCHAR},
+      LAST_TRACK_TIME = #{record.lastTrackTime,jdbcType=TIMESTAMP},
+      LAST_TRACK_TYPE = #{record.lastTrackType,jdbcType=TINYINT},
+      IS_FREE_USER = #{record.isFreeUser,jdbcType=TINYINT},
+      FREE_USER_TIME = #{record.freeUserTime,jdbcType=TIMESTAMP},
+      AGENCY_USE_FLAG = #{record.agencyUseFlag,jdbcType=TINYINT},
+      RENT_HOUSE_STATE = #{record.rentHouseState,jdbcType=TINYINT},
+      COMP_NAME = #{record.compName,jdbcType=VARCHAR},
+      VR_NUM = #{record.vrNum,jdbcType=INTEGER},
+      ARCHIVE_LEVEL = #{record.archiveLevel,jdbcType=INTEGER},
+      IS_IM_ACCOUNT = #{record.isImAccount,jdbcType=TINYINT},
+      ARCHIVE_SITUATION = #{record.archiveSituation,jdbcType=VARCHAR},
+      IS_SEND_REFUNDS_PROMISE = #{record.isSendRefundsPromise,jdbcType=TINYINT},
+      REAL_NAME_PHOTO = #{record.realNamePhoto,jdbcType=VARCHAR},
+      FACE_RECOGNITION_FLAG = #{record.faceRecognitionFlag,jdbcType=TINYINT},
+      FIRST_LOGIN_TIME = #{record.firstLoginTime,jdbcType=TIMESTAMP},
+      USER_WECHAT = #{record.userWechat,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunArchive">
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIccode != null">
+        USER_ICCODE = #{userIccode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        USER_SEX = #{userSex,jdbcType=TINYINT},
+      </if>
+      <if test="userBirthday != null">
+        USER_BIRTHDAY = #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userEmail != null">
+        USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userFixedph != null">
+        USER_FIXEDPH = #{userFixedph,jdbcType=VARCHAR},
+      </if>
+      <if test="userOfficeph != null">
+        USER_OFFICEPH = #{userOfficeph,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        USER_QQ = #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="serviceReg != null">
+        SERVICE_REG = #{serviceReg,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceZone != null">
+        SERVICE_ZONE = #{serviceZone,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        USER_ADDRESS = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userPostcode != null">
+        USER_POSTCODE = #{userPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null">
+        USER_SCHOOL = #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userField != null">
+        USER_FIELD = #{userField,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchlrecord != null">
+        USER_SCHLRECORD = #{userSchlrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="userForeign != null">
+        USER_FOREIGN = #{userForeign,jdbcType=VARCHAR},
+      </if>
+      <if test="userPolity != null">
+        USER_POLITY = #{userPolity,jdbcType=VARCHAR},
+      </if>
+      <if test="professionSub != null">
+        PROFESSION_SUB = #{professionSub,jdbcType=VARCHAR},
+      </if>
+      <if test="userDesc != null">
+        USER_DESC = #{userDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="userNumber != null">
+        USER_NUMBER = #{userNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto1 != null">
+        IC_PHOTO_1 = #{icPhoto1,jdbcType=VARCHAR},
+      </if>
+      <if test="icPhoto2 != null">
+        IC_PHOTO_2 = #{icPhoto2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhotoMin != null">
+        USER_PHOTO_MIN = #{userPhotoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhoto != null">
+        CARD_PHOTO = #{cardPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsPhoto != null">
+        BBS_PHOTO = #{bbsPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhoto != null">
+        SHOP_INNER_PHOTO = #{shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhoto != null">
+        SHOP_OUTER_PHOTO = #{shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="uaId != null">
+        UA_ID = #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="userRight != null">
+        USER_RIGHT = #{userRight,jdbcType=INTEGER},
+      </if>
+      <if test="userHonest != null">
+        USER_HONEST = #{userHonest,jdbcType=INTEGER},
+      </if>
+      <if test="superUser != null">
+        SUPER_USER = #{superUser,jdbcType=INTEGER},
+      </if>
+      <if test="superStart != null">
+        SUPER_START = #{superStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superEnd != null">
+        SUPER_END = #{superEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="superDays != null">
+        SUPER_DAYS = #{superDays,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="webstoreStatus != null">
+        WEBSTORE_STATUS = #{webstoreStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userBidding != null">
+        USER_BIDDING = #{userBidding,jdbcType=INTEGER},
+      </if>
+      <if test="houseBidding != null">
+        HOUSE_BIDDING = #{houseBidding,jdbcType=INTEGER},
+      </if>
+      <if test="copyFrom != null">
+        COPY_FROM = #{copyFrom,jdbcType=INTEGER},
+      </if>
+      <if test="buySrvEnd != null">
+        BUY_SRV_END = #{buySrvEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="friendFlag != null">
+        FRIEND_FLAG = #{friendFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sellComp != null">
+        SELL_COMP = #{sellComp,jdbcType=INTEGER},
+      </if>
+      <if test="sellId != null">
+        SELL_ID = #{sellId,jdbcType=INTEGER},
+      </if>
+      <if test="userEdition != null">
+        USER_EDITION = #{userEdition,jdbcType=INTEGER},
+      </if>
+      <if test="mobileValided != null">
+        MOBILE_VALIDED = #{mobileValided,jdbcType=TINYINT},
+      </if>
+      <if test="highAmount != null">
+        HIGH_AMOUNT = #{highAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null">
+        BALANCE = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="validAccount != null">
+        VALID_ACCOUNT = #{validAccount,jdbcType=TINYINT},
+      </if>
+      <if test="lastLoginTime != null">
+        LAST_LOGIN_TIME = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regFrom != null">
+        REG_FROM = #{regFrom,jdbcType=TINYINT},
+      </if>
+      <if test="serviceZoneIds != null">
+        SERVICE_ZONE_IDS = #{serviceZoneIds,jdbcType=VARCHAR},
+      </if>
+      <if test="isDispatcher != null">
+        IS_DISPATCHER = #{isDispatcher,jdbcType=TINYINT},
+      </if>
+      <if test="uaIdComp != null">
+        UA_ID_COMP = #{uaIdComp,jdbcType=INTEGER},
+      </if>
+      <if test="lastYouyouTime != null">
+        LAST_YOUYOU_TIME = #{lastYouyouTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isLeave != null">
+        IS_LEAVE = #{isLeave,jdbcType=TINYINT},
+      </if>
+      <if test="lastPushmsgTime != null">
+        LAST_PUSHMSG_TIME = #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushmsgLockflag != null">
+        PUSHMSG_LOCKFLAG = #{pushmsgLockflag,jdbcType=BIT},
+      </if>
+      <if test="agreeTruehouseRule != null">
+        AGREE_TRUEHOUSE_RULE = #{agreeTruehouseRule,jdbcType=TINYINT},
+      </if>
+      <if test="lockEndTime != null">
+        LOCK_END_TIME = #{lockEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldSellId != null">
+        OLD_SELL_ID = #{oldSellId,jdbcType=INTEGER},
+      </if>
+      <if test="integrity != null">
+        [INTEGRITY] = #{integrity,jdbcType=TINYINT},
+      </if>
+      <if test="isHonester != null">
+        IS_HONESTER = #{isHonester,jdbcType=TINYINT},
+      </if>
+      <if test="apartmentUseFlag != null">
+        APARTMENT_USE_FLAG = #{apartmentUseFlag,jdbcType=TINYINT},
+      </if>
+      <if test="isRegist != null">
+        IS_REGIST = #{isRegist,jdbcType=TINYINT},
+      </if>
+      <if test="plateType != null">
+        PLATE_TYPE = #{plateType,jdbcType=TINYINT},
+      </if>
+      <if test="plateTypeTime != null">
+        PLATE_TYPE_TIME = #{plateTypeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalIntegral != null">
+        TOTAL_INTEGRAL = #{totalIntegral,jdbcType=NUMERIC},
+      </if>
+      <if test="appLastLoginTime != null">
+        APP_LAST_LOGIN_TIME = #{appLastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dkqFlag != null">
+        DKQ_FLAG = #{dkqFlag,jdbcType=TINYINT},
+      </if>
+      <if test="robCount != null">
+        ROB_COUNT = #{robCount,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null">
+        SERVER_ID = #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="hidePhoneBail != null">
+        HIDE_PHONE_BAIL = #{hidePhoneBail,jdbcType=TINYINT},
+      </if>
+      <if test="lastRechargeTime != null">
+        LAST_RECHARGE_TIME = #{lastRechargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="treasureCoin != null">
+        TREASURE_COIN = #{treasureCoin,jdbcType=INTEGER},
+      </if>
+      <if test="lastTrackDesc != null">
+        LAST_TRACK_DESC = #{lastTrackDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTrackTime != null">
+        LAST_TRACK_TIME = #{lastTrackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTrackType != null">
+        LAST_TRACK_TYPE = #{lastTrackType,jdbcType=TINYINT},
+      </if>
+      <if test="isFreeUser != null">
+        IS_FREE_USER = #{isFreeUser,jdbcType=TINYINT},
+      </if>
+      <if test="freeUserTime != null">
+        FREE_USER_TIME = #{freeUserTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="agencyUseFlag != null">
+        AGENCY_USE_FLAG = #{agencyUseFlag,jdbcType=TINYINT},
+      </if>
+      <if test="rentHouseState != null">
+        RENT_HOUSE_STATE = #{rentHouseState,jdbcType=TINYINT},
+      </if>
+      <if test="compName != null">
+        COMP_NAME = #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="vrNum != null">
+        VR_NUM = #{vrNum,jdbcType=INTEGER},
+      </if>
+      <if test="archiveLevel != null">
+        ARCHIVE_LEVEL = #{archiveLevel,jdbcType=INTEGER},
+      </if>
+      <if test="isImAccount != null">
+        IS_IM_ACCOUNT = #{isImAccount,jdbcType=TINYINT},
+      </if>
+      <if test="archiveSituation != null">
+        ARCHIVE_SITUATION = #{archiveSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="isSendRefundsPromise != null">
+        IS_SEND_REFUNDS_PROMISE = #{isSendRefundsPromise,jdbcType=TINYINT},
+      </if>
+      <if test="realNamePhoto != null">
+        REAL_NAME_PHOTO = #{realNamePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="faceRecognitionFlag != null">
+        FACE_RECOGNITION_FLAG = #{faceRecognitionFlag,jdbcType=TINYINT},
+      </if>
+      <if test="firstLoginTime != null">
+        FIRST_LOGIN_TIME = #{firstLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userWechat != null">
+        USER_WECHAT = #{userWechat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunArchive">
+    <!--@mbggenerated-->
+    update FUN_ARCHIVE
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_ICCODE = #{userIccode,jdbcType=VARCHAR},
+      USER_SEX = #{userSex,jdbcType=TINYINT},
+      USER_BIRTHDAY = #{userBirthday,jdbcType=TIMESTAMP},
+      USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      USER_FIXEDPH = #{userFixedph,jdbcType=VARCHAR},
+      USER_OFFICEPH = #{userOfficeph,jdbcType=VARCHAR},
+      USER_QQ = #{userQq,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=SMALLINT},
+      SERVICE_REG = #{serviceReg,jdbcType=VARCHAR},
+      SERVICE_ZONE = #{serviceZone,jdbcType=VARCHAR},
+      USER_ADDRESS = #{userAddress,jdbcType=VARCHAR},
+      USER_POSTCODE = #{userPostcode,jdbcType=VARCHAR},
+      USER_SCHOOL = #{userSchool,jdbcType=VARCHAR},
+      USER_FIELD = #{userField,jdbcType=VARCHAR},
+      USER_SCHLRECORD = #{userSchlrecord,jdbcType=VARCHAR},
+      USER_FOREIGN = #{userForeign,jdbcType=VARCHAR},
+      USER_POLITY = #{userPolity,jdbcType=VARCHAR},
+      PROFESSION_SUB = #{professionSub,jdbcType=VARCHAR},
+      USER_DESC = #{userDesc,jdbcType=VARCHAR},
+      USER_NUMBER = #{userNumber,jdbcType=VARCHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      IC_PHOTO_1 = #{icPhoto1,jdbcType=VARCHAR},
+      IC_PHOTO_2 = #{icPhoto2,jdbcType=VARCHAR},
+      USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      USER_PHOTO_MIN = #{userPhotoMin,jdbcType=VARCHAR},
+      CARD_PHOTO = #{cardPhoto,jdbcType=VARCHAR},
+      BBS_PHOTO = #{bbsPhoto,jdbcType=VARCHAR},
+      SHOP_INNER_PHOTO = #{shopInnerPhoto,jdbcType=VARCHAR},
+      SHOP_OUTER_PHOTO = #{shopOuterPhoto,jdbcType=VARCHAR},
+      UA_ID = #{uaId,jdbcType=INTEGER},
+      USER_RIGHT = #{userRight,jdbcType=INTEGER},
+      USER_HONEST = #{userHonest,jdbcType=INTEGER},
+      SUPER_USER = #{superUser,jdbcType=INTEGER},
+      SUPER_START = #{superStart,jdbcType=TIMESTAMP},
+      SUPER_END = #{superEnd,jdbcType=TIMESTAMP},
+      SUPER_DAYS = #{superDays,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      WEBSTORE_STATUS = #{webstoreStatus,jdbcType=INTEGER},
+      USER_BIDDING = #{userBidding,jdbcType=INTEGER},
+      HOUSE_BIDDING = #{houseBidding,jdbcType=INTEGER},
+      COPY_FROM = #{copyFrom,jdbcType=INTEGER},
+      BUY_SRV_END = #{buySrvEnd,jdbcType=TIMESTAMP},
+      FRIEND_FLAG = #{friendFlag,jdbcType=INTEGER},
+      SELL_COMP = #{sellComp,jdbcType=INTEGER},
+      SELL_ID = #{sellId,jdbcType=INTEGER},
+      USER_EDITION = #{userEdition,jdbcType=INTEGER},
+      MOBILE_VALIDED = #{mobileValided,jdbcType=TINYINT},
+      HIGH_AMOUNT = #{highAmount,jdbcType=DECIMAL},
+      BALANCE = #{balance,jdbcType=DECIMAL},
+      VALID_ACCOUNT = #{validAccount,jdbcType=TINYINT},
+      LAST_LOGIN_TIME = #{lastLoginTime,jdbcType=TIMESTAMP},
+      REG_FROM = #{regFrom,jdbcType=TINYINT},
+      SERVICE_ZONE_IDS = #{serviceZoneIds,jdbcType=VARCHAR},
+      IS_DISPATCHER = #{isDispatcher,jdbcType=TINYINT},
+      UA_ID_COMP = #{uaIdComp,jdbcType=INTEGER},
+      LAST_YOUYOU_TIME = #{lastYouyouTime,jdbcType=TIMESTAMP},
+      IS_LEAVE = #{isLeave,jdbcType=TINYINT},
+      LAST_PUSHMSG_TIME = #{lastPushmsgTime,jdbcType=TIMESTAMP},
+      PUSHMSG_LOCKFLAG = #{pushmsgLockflag,jdbcType=BIT},
+      AGREE_TRUEHOUSE_RULE = #{agreeTruehouseRule,jdbcType=TINYINT},
+      LOCK_END_TIME = #{lockEndTime,jdbcType=TIMESTAMP},
+      OLD_SELL_ID = #{oldSellId,jdbcType=INTEGER},
+      [INTEGRITY] = #{integrity,jdbcType=TINYINT},
+      IS_HONESTER = #{isHonester,jdbcType=TINYINT},
+      APARTMENT_USE_FLAG = #{apartmentUseFlag,jdbcType=TINYINT},
+      IS_REGIST = #{isRegist,jdbcType=TINYINT},
+      PLATE_TYPE = #{plateType,jdbcType=TINYINT},
+      PLATE_TYPE_TIME = #{plateTypeTime,jdbcType=TIMESTAMP},
+      TOTAL_INTEGRAL = #{totalIntegral,jdbcType=NUMERIC},
+      APP_LAST_LOGIN_TIME = #{appLastLoginTime,jdbcType=TIMESTAMP},
+      DKQ_FLAG = #{dkqFlag,jdbcType=TINYINT},
+      ROB_COUNT = #{robCount,jdbcType=INTEGER},
+      SERVER_ID = #{serverId,jdbcType=INTEGER},
+      HIDE_PHONE_BAIL = #{hidePhoneBail,jdbcType=TINYINT},
+      LAST_RECHARGE_TIME = #{lastRechargeTime,jdbcType=TIMESTAMP},
+      TREASURE_COIN = #{treasureCoin,jdbcType=INTEGER},
+      LAST_TRACK_DESC = #{lastTrackDesc,jdbcType=VARCHAR},
+      LAST_TRACK_TIME = #{lastTrackTime,jdbcType=TIMESTAMP},
+      LAST_TRACK_TYPE = #{lastTrackType,jdbcType=TINYINT},
+      IS_FREE_USER = #{isFreeUser,jdbcType=TINYINT},
+      FREE_USER_TIME = #{freeUserTime,jdbcType=TIMESTAMP},
+      AGENCY_USE_FLAG = #{agencyUseFlag,jdbcType=TINYINT},
+      RENT_HOUSE_STATE = #{rentHouseState,jdbcType=TINYINT},
+      COMP_NAME = #{compName,jdbcType=VARCHAR},
+      VR_NUM = #{vrNum,jdbcType=INTEGER},
+      ARCHIVE_LEVEL = #{archiveLevel,jdbcType=INTEGER},
+      IS_IM_ACCOUNT = #{isImAccount,jdbcType=TINYINT},
+      ARCHIVE_SITUATION = #{archiveSituation,jdbcType=VARCHAR},
+      IS_SEND_REFUNDS_PROMISE = #{isSendRefundsPromise,jdbcType=TINYINT},
+      REAL_NAME_PHOTO = #{realNamePhoto,jdbcType=VARCHAR},
+      FACE_RECOGNITION_FLAG = #{faceRecognitionFlag,jdbcType=TINYINT},
+      FIRST_LOGIN_TIME = #{firstLoginTime,jdbcType=TIMESTAMP},
+      USER_WECHAT = #{userWechat,jdbcType=VARCHAR}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <cache type="com.myfun.repository.support.mybatis.cache.redis.MybatisCacheRedisImpl" />
+  <resultMap extends="BaseResultMap" id="BaseResultDtoMap" type="com.myfun.repository.admindb.dto.AdminFunArchiveDto">
+    <result column="APP_LOGIN_TIME" jdbcType="TIMESTAMP" property="appLoginTime" />
+    <result column="RE_USER_NAME" jdbcType="VARCHAR" property="reUserName" />
+    <result column="RE_USER_MOBILE" jdbcType="VARCHAR" property="reUserMobile" />
+    <result column="CITY_SUPER_USER" jdbcType="VARCHAR" property="citySuperUser" />
+    <result column="SUPER_TIME" jdbcType="TIMESTAMP" property="superTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="BaseResultParamMap" type="com.myfun.repository.admindb.param.AdminFunArchiveParam">
+    <result column="AMOUNT" property="amount" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="exResultMap" type="com.myfun.repository.admindb.dto.AdminFunArchiveDto">
+  	<result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="HAOFANG_AMOUNT" jdbcType="DECIMAL" property="haofangAmount" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ArchiveDtoMap" type="com.myfun.repository.admindb.dto.AdminFunArchiveDto">
+    <result column="SUPER_TIME" jdbcType="TIMESTAMP" property="superTime" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="HAOFANG_AMOUNT" jdbcType="DECIMAL" property="haofangAmount" />
+    <result column="USER_POSITION" jdbcType="VARCHAR" property="userPosition" />
+    <result column="HAOFANG_BUY" jdbcType="DECIMAL" property="haofangBuy" />
+    <result column="PUB_COUNT" jdbcType="INTEGER" property="pubCount" />
+    <result column="RQS_ACTUAL_STATUS" jdbcType="INTEGER" property="rqsActualStatus" />
+    <result column="RQS_APTITUDE_STATUS" jdbcType="INTEGER" property="rqsAptitudeStatus" />
+    <result column="RQS_ACTUAL_TIME" jdbcType="TIMESTAMP" property="rqsActualTime" />
+    <result column="RQS_APTITUDE_TIME" jdbcType="TIMESTAMP" property="rqsAptitudeTime" />
+    <result column="CITY_NAME" jdbcType="VARCHAR" property="cityName" />
+    <result column="CITY_SUPER_USER" jdbcType="BIT" property="city_SuperUser" />
+    <result column="ICCODE" jdbcType="VARCHAR" property="icCode" />
+    <result column="USER_NOTE" jdbcType="DECIMAL" property="userNote" />
+    <result column="PROCESS_BY" jdbcType="VARCHAR" property="processBy" />
+    <result column="BAN_TIME" jdbcType="TIMESTAMP" property="banEndTime" />
+    <result column="BAN_TYPE" jdbcType="DECIMAL" property="banType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="BrokerArchiveDtoMap" type="com.myfun.repository.admindb.dto.AdminFunArchiveDto">
+  	<result column="CITY_SUPER_USER" jdbcType="BIT" property="city_SuperUser" />
+  	<result column="SUPER_TIME" jdbcType="TIMESTAMP" property="citySuperTime" />
+  	<result column="CITY_NAME" jdbcType="VARCHAR" property="cityName" />
+    <result column="COIN_RANKING" jdbcType="INTEGER" property="coinRanking" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="BrokerApproveDtoMap" type="com.myfun.repository.admindb.dto.AdminFunArchiveDto">
+  	<result column="RQS_ACTUAL_DESC" jdbcType="VARCHAR" property="rqsActualDesc" />
+    <result column="RQS_APTITUDE_DESC" jdbcType="VARCHAR" property="rqsAptitudeDesc" />
+    <result column="RQS_ACTUAL_TIME" jdbcType="TIMESTAMP" property="rqsActualTime" />
+    <result column="RQS_APTITUDE_TIME" jdbcType="TIMESTAMP" property="rqsAptitudeTime" />
+    <result column="USER_NOTE" jdbcType="DECIMAL" property="userNote" />
+    <result column="COMP_NAME" jdbcType="VARCHAR" property="compName" />
+    <result column="ICCODE" jdbcType="VARCHAR" property="icCode" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ActiveBrokerActionDtoMap" type="com.myfun.repository.admindb.dto.ActiveBrokerActionDto">
+  	<result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="HAOFANG_AMOUNT" jdbcType="DECIMAL" property="haofangAmount" />
+  	<result column="CITY_NAME" jdbcType="VARCHAR" property="cityName" />
+  	<result column="CITY_SUPER_USER" jdbcType="BIT" property="citySuperUser" />
+  	<result column="SUPER_TIME" jdbcType="TIMESTAMP" property="superTime" />
+  	<result column="TRACK_CONTENT" jdbcType="VARCHAR" property="trackContent" />
+  	<result column="TRACK_USER" jdbcType="INTEGER" property="trackUser" />
+  	<result column="TRACK_TIME" jdbcType="TIMESTAMP" property="trackTime" />
+  	<result column="HAOFANG_BUY" jdbcType="DECIMAL" property="haofangBuy" />
+  </resultMap>
+	
+	<!-- business -->
+	<select id="getArchiveByMobile" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM FUN_ARCHIVE
+		WHERE USER_MOBILE = #{userMobile}
+	</select>
+	
+  <select id="getRecommendPersonalList" parameterType="com.myfun.repository.admindb.param.RecommendPersonalListpParam" resultMap="BaseResultDtoMap">
+    select DISTINCT
+    A.CITY_ID, A.PROVINCE_ID, A.ARCHIVE_ID, A.USER_NAME, A.USER_ICCODE, A.USER_SEX, A.USER_BIRTHDAY, 
+    A.USER_EMAIL, A.USER_MOBILE, A.CREATION_TIME, A.SUPER_USER, A.SELL_ID, A.REG_FROM
+    ,D.LOGIN_TIME as APP_LOGIN_TIME,E.USER_NAME as RE_USER_NAME,E.USER_MOBILE as RE_USER_MOBILE
+    , A.SUPER_START, A.SUPER_END, A.BUY_SRV_END, A.SUPER_DAYS, A.USER_EDITION, A.IS_DISPATCHER
+    from FUN_ARCHIVE A 
+    left join CRM_RECOMMEND_MOBI B on A.USER_MOBILE=B.REC_MOBILE 
+	left join CRM_RECOMMEND C on B.USER_MOBILE=C.USER_MOBILE 
+	left join APP_LOGIN D on D.ARCHIVE_ID=A.ARCHIVE_ID 
+	left join FUN_ARCHIVE E on C.USER_MOBILE = E.USER_MOBILE
+	<if test="orderStatus != null">
+		left join CRM_PAYMENT_TASKS F on F.ARCHIVE_ID = A.ARCHIVE_ID 
+	</if>
+	WHERE 1=1
+	<if test="provinceId != null">
+		AND A.PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+	</if>
+	<if test="cityId != null and cityId != 0">
+		AND A.CITY_ID = #{cityId,jdbcType=SMALLINT}
+	</if>
+	<if test="vipStatus == 1">
+		AND A.BUY_SRV_END &gt; GETDATE()
+	</if>
+	<if test="vipStatus == 0">
+		AND (A.BUY_SRV_END &lt;= GETDATE() or A.BUY_SRV_END is null)
+	</if>
+	<if test="orderStatus == 2">
+		AND F.PAYMENT_STATUS = 2
+	</if>
+	<if test="orderStatus == 1">
+		AND F.PAYMENT_STATUS = 1
+	</if>
+	<if test="orderStatus == 0">
+		AND (F.PAYMENT_STATUS &lt; 1 or F.PAYMENT_STATUS is null or F.IS_CLEAR=1)
+	</if>
+	<if test="sellId != null">
+		AND A.SELL_ID=#{sellId}
+	</if>
+	<if test="creationTime1 != null">
+		AND A.CREATION_TIME &gt;= #{creationTime1}
+	</if>
+	<if test="creationTime2 != null">
+		AND A.CREATION_TIME &lt;= #{creationTime2}
+	</if>
+	<if test="userName != null and userName != ''">
+		AND A.USER_NAME = #{userName}
+	</if>
+	<if test="userMobile != null and userMobile != ''">
+		AND A.USER_MOBILE = #{userMobile}
+	</if>
+	<if test="isSellerShare == 0">
+		AND A.IS_DISPATCHER =1
+	</if>
+	<if test="isSellerShare == 1">
+		AND E.USER_MOBILE is not null 
+	</if>
+	<if test="isSellerShare == 2">
+		AND (A.IS_DISPATCHER is null or A.IS_DISPATCHER &lt;&gt; 1) and E.USER_MOBILE is null 
+	</if>
+	ORDER BY A.CREATION_TIME DESC 
+  </select>
+  <select id="getPersonalList" resultMap="BaseResultDtoMap">
+    select DISTINCT
+    A.ID,A.PROVINCE_ID,A.CITY_ID,A.SEX,A.QQ,A.DESCRIBE,A.DEPT_NAME_DESCRIBE,
+    A.USER_NAME,A.USER_MOBILE,A.CRM_COMP_ID,A.ARCHIVE_ID,A.CREATE_USER,A.CREATE_TIME,B.USER_EDITION
+    from FUN_PERSONAL_INTENT A FULL JOIN FUN_ARCHIVE B ON B.ARCHIVE_ID=A.ARCHIVE_ID AND B.USER_EDITION=2
+    left join APP_LOGIN C ON C.ARCHIVE_ID=A.ARCHIVE_ID
+    WHERE (B.ARCHIVE_ID&gt;0 OR A.ARCHIVE_ID IS NULL)
+	ORDER BY A.CREATION_TIME DESC 
+  </select>
+  
+  <select id="selectByMobile" resultMap="BaseResultMap">
+    select top 1
+    <include refid="Base_Column_List" />
+    from FUN_ARCHIVE
+    where USER_MOBILE = #{userMobile}
+  </select>
+   <select id="queryCompGeneralUserArchiveInfoByAdminCompNo" resultMap="BaseResultMap">
+  	SELECT <include refid="Base_Column_List" /> FROM FUN_ARCHIVE WHERE ARCHIVE_ID = (SELECT GENERAL_ARCHIVE FROM FUN_COMP WHERE COMP_NO = #{compNo})
+  </select>
+  <select id="getCountByCondition" parameterType="com.myfun.repository.admindb.po.AdminFunArchive" resultType="java.lang.Integer">
+  	select count(1) from FUN_ARCHIVE 
+  	<where>
+  		<if test="null != userMobile and '' != userMobile">
+  			and USER_MOBILE = #{userMobile}
+  		</if>
+  	</where>
+  </select>
+  <update id="updateBySellComp">
+  	update FUN_ARCHIVE set SELL_COMP = 0, SELL_ID = null where SELL_COMP = #{compId}
+  </update>
+  
+  <update id="updateByCompId">
+  	update FUN_ARCHIVE set SELL_ID = null where SELL_ID in (select USER_ID from CRM_USER where COMP_ID = #{compId})
+  </update>
+  <select id="getCountByPhone" resultType="java.lang.Integer">
+  	select count(*) as count from FUN_ARCHIVE where USER_MOBILE =  #{phone} or USER_MOBILE = #{cellphone} 
+  </select>
+
+  <select id="countArchiveUaId" resultType="java.lang.Integer">
+  	select count(*)  from FUN_ARCHIVE where ARCHIVE_ID =  #{archiveId} and UA_ID &gt; 0
+  </select>
+  <select id="countArchiveByUaId" resultType="java.lang.Integer">
+  	select count(*)  from FUN_ARCHIVE where UA_ID = #{uaId}
+  </select>
+  <!--  -->
+  <update id="updatePhoneNum" parameterType="java.util.Map">
+  	update fun_archive 
+  	set user_mobile = #{newNum}
+	where user_mobile = #{oldNum}
+  </update>
+  <select id="getUserByMobile" parameterType="java.lang.String" resultMap="exResultMap">
+  	SELECT 
+  	A.ARCHIVE_ID, A.UA_ID, A.USER_EDITION, 
+  	ISNULL(B.AMOUNT,0) AMOUNT, 
+	ISNULL(B.HAOFANG_AMOUNT,0) HAOFANG_AMOUNT,
+	ISNULL(A.CREATION_TIME,'') CREATION_TIME
+  	from FUN_ARCHIVE A 
+  	LEFT JOIN FUN_USER_ACCOUNT B ON A.UA_ID = B.UA_ID 
+  	where A.user_mobile=#{phoneNum}
+  </select>
+  <select id="delUserByMobile" parameterType="java.lang.String">
+  	{CALL proc_delete_user_by_phone(#{phoneNum})}
+  </select>
+  <update id="translateDataAll" parameterType="java.lang.String">
+  	update fun_archive 
+  	set SELL_ID = #{sellId}, IS_DISPATCHER=1
+	where ARCHIVE_ID in 
+	<foreach close=")" collection="funArchiveIds" index="index" item="item" open="(" separator=",">  
+		#{item}  
+	</foreach>
+  </update>
+  <select id="getArchiveById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	 select <include refid="Base_Column_List" /> 
+  	 from FUN_ARCHIVE where ARCHIVE_ID = #{banArchiveId}
+  </select>
+  <update id="translateDataBySellId" parameterType="java.lang.String">
+  	update fun_archive 
+  	set SELL_ID = #{sellId}, IS_DISPATCHER=1
+	where SELL_ID = #{oldSellId} 
+  </update>
+  <select id="getArchiveByMobileAndCompId">
+  	 select 
+    <include refid="Base_Column_List" />
+    from FUN_ARCHIVE
+    where 1=1
+    <if test="userMobile !=null and userMobile !=''">
+     and USER_MOBILE = #{userMobile,jdbcType=INTEGER}
+    </if>
+    <if test="compId !=null and compId !=''">
+     and CITY_ID IN (SELECT CITY_ID FROM CRM_REGION_CITY WHERE CRM_REGION_CITY.COMP_ID =#{compId}) 
+    </if>
+  </select>
+  
+  <select id="getBrokerArchiveList" parameterType="com.myfun.repository.admindb.param.BrokerArchiveParam" resultMap="ArchiveDtoMap">
+  	select  FUS.USER_POSITION, FA.ARCHIVE_ID,FA.USER_EDITION,FA.REG_FROM,FA.UA_ID,FA.USER_NAME,FA.USER_SEX,FA.USER_MOBILE,FA.USER_QQ, 
+	FA.SELL_COMP,FA.SELL_ID,FA.MOBILE_VALIDED,FA.HIGH_AMOUNT,FA.BALANCE, 
+	 FA.PROVINCE_ID,FA.CITY_ID,FA.USER_HONEST,FA.USER_RIGHT,FA.SUPER_USER,FA.SUPER_START,FA.SUPER_END,FA.CREATION_TIME,FA.SUPER_DAYS, 
+	 FA.WEBSTORE_STATUS,FA.USER_BIDDING,FA.HOUSE_BIDDING,FA.COPY_FROM,FA.BUY_SRV_END,FA.FRIEND_FLAG, 
+	 ISNULL(FUA.AMOUNT,0) AMOUNT,ISNULL(FUA.HAOFANG_AMOUNT,0) HAOFANG_AMOUNT,ISNULL(FUA.HAOFANG_BUY,0) HAOFANG_BUY,  
+	 FUSC.SALE_TOTAL + FUSC.LEASE_TOTAL AS PUB_COUNT ,
+	 FUR.RQS_ACTUAL_STATUS,FUR.RQS_APTITUDE_STATUS, FUR.RQS_ACTUAL_TIME, FUR.RQS_APTITUDE_TIME, 
+	 FC.CITY_NAME,FC.SUPER_USER AS CITY_SUPER_USER, FC.SUPER_TIME,FUR.USER_ICCODE AS ICCODE,FUR.USER_NOTE, 
+	 (SELECT top 1 USER_NAME FROM CRM_USER WHERE CRM_USER.ARCHIVE_ID = FUR.PROCESS_BY and USER_WRITEOFF=0) PROCESS_BY ,
+	 a.END_TIME BAN_TIME,a.TYPE BAN_TYPE 
+	 from FUN_ARCHIVE FA 
+	 left join FUN_CITY FC on FA.CITY_ID = FC.CITY_ID 
+	 left join FUN_USER_RQS FUR on FA.ARCHIVE_ID = FUR.ARCHIVE_ID 
+	 left join FUN_USER_ACCOUNT FUA on FA.UA_ID = FUA.UA_ID 
+	 left join FUN_USERS_COUNT FUSC on FA.ARCHIVE_ID=FUSC.ARCHIVE_ID 
+	 left join BAN a on FA.ARCHIVE_ID=a.ARCHIVE_ID and a.TYPE in(1,2) and a.END_TIME&gt;getdate()
+	 LEFT JOIN FUN_USERS FUS ON FA.ARCHIVE_ID = FUS.ARCHIVE_ID 
+	 WHERE FA.MOBILE_VALIDED = 1
+	 <if test="cityId !=null and cityId !=''">
+	 	and FA.CITY_ID=#{cityId}
+	 </if>
+	 <if test="userName !=null and userName !=''">
+	 	and FA.USER_NAME=#{userName}
+	 </if>
+	 <if test="userMobile !=null and userMobile !=''">
+	 	and FA.USER_NAME=#{userMobile}
+	 </if>
+	 <if test="regFrom !=null and regFrom !=''">
+	 	and FA.REG_FROM=#{regFrom}
+	 </if>
+	 <if test="superEnd !=null and superEnd !=''">
+	 	and FA.SUPER_END <![CDATA[ <= ]]> #{superEnd}+' 23:59:59'
+	 </if>
+	 <if test="userBidding !=null and userBidding !=''">
+	 	 and FA.USER_BIDDING=#{userBidding}
+	 </if>
+	 <if test="houseBidding !=null and houseBidding !=''">
+	 	 and FA.HOUSE_BIDDING=#{houseBidding}
+	 </if>
+	 <if test="rqsActualStatus !=null and rqsActualStatus !=''">
+	 	and FUR.RQS_ACTUAL_STATUS=#{rqsActualStatus}
+	 </if>
+	 <if test="rqsAptitudeStatus !=null and rqsAptitudeStatus !=''">
+	 	and FUR.RQS_APTITUDE_STATUS=#{rqsAptitudeStatus}
+	 </if>
+	 <if test="webstoreStatus !=null and webstoreStatus !=''">
+	 	and SHOP_GIFT = #{webstoreStatus}
+	 </if>
+	 <if test="houseSouseTotal !=null and houseSouseTotal !=''">
+	 	 and (FUSC.SALE_TOTAL + FUSC.LEASE_TOTAL)&gt;=50 
+	 </if>
+	 <if test="userNote !=null and userNote !=''">
+	 	and FUR.USER_NOTE=#{userNote}
+	 </if>
+	 <if test="rqsTimeMin !=null and rqsTimeMin !=''">
+	 	 and (FUR.RQS_ACTUAL_TIME <![CDATA[ >= ]]> #{rqsTimeMin} or FUR.RQS_APTITUDE_TIME <![CDATA[ >= ]]> #{rqsTimeMin}) 
+	 </if>
+	 <if test="rqsTimeMax !=null and rqsTimeMax !=''">
+	 	and (FUR.RQS_ACTUAL_TIME <![CDATA[ <= ]]> #{rqsTimeMax} or FUR.RQS_APTITUDE_TIME <![CDATA[ <= ]]> #{rqsTimeMax}) 
+	 </if>
+	 order by FA.CREATION_TIME DESC
+  </select>
+  <select id="getBrokerInfoByArchiveId" parameterType="java.lang.Integer" resultMap="BrokerArchiveDtoMap">
+  	SELECT FUN_ARCHIVE.*, 
+	FUN_CITY.CITY_NAME, 
+	FUN_CITY.SUPER_USER AS CITY_SUPER_USER, 
+	FUN_CITY.SUPER_TIME
+	FROM FUN_ARCHIVE
+	LEFT JOIN FUN_CITY ON FUN_ARCHIVE.CITY_ID = FUN_CITY.CITY_ID 
+	WHERE FUN_ARCHIVE.ARCHIVE_ID = #{archiveId}
+  </select>
+  
+  <select id="getArchiveIdByCompId" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> FROM FUN_ARCHIVE WHERE ARCHIVE_ID = (SELECT GENERAL_ARCHIVE FROM FUN_COMP WHERE COMP_ID = #{compId})
+  </select>
+  
+  <select id="getObjectByArchiveIdAndUaId" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> FROM FUN_ARCHIVE WHERE ARCHIVE_ID = #{archiveId} and UA_ID &gt; #{uaId}
+  </select>
+  
+  <update id="updateUserEdition">
+  	update FUN_ARCHIVE set USER_EDITION = #{userEdition} where
+    ARCHIVE_ID in
+    <foreach close=")" collection="archiveIds" index="index" item="item" open="(" separator=",">
+      #{item}
+  	 </foreach>
+  </update>
+  <select id="queryAdminFunArchiveId" parameterType="java.lang.Integer" resultMap="BaseResultMap" useCache="true">
+  	select <include refid="Base_Column_List" /> from FUN_ARCHIVE where ARCHIVE_ID = #{archiveId}
+  </select>
+  <select id="getBrokerApproveByArchiveId" parameterType="java.lang.Integer" resultMap="BrokerApproveDtoMap">
+  	select  TOP 1 
+	FUR.USER_NAME,FA.USER_NAME as NAME,FUR.USER_ICCODE,
+	FUR.USER_NOTE,FUR.COMP_NAME,FUR.RQS_APTITUDE_DESC, FUR.RQS_ACTUAL_DESC,FUR.RQS_ACTUAL_TIME,
+	FUR.RQS_APTITUDE_TIME, FA.USER_ICCODE as ICCODE,FA.SERVICE_ZONE,FA.USER_SEX,FA.USER_EMAIL,FA.PROFESSION_SUB,
+	FA.USER_PHOTO,FA.USER_PHOTO_MIN,FA.IC_PHOTO_1,FA.CARD_PHOTO, FA.SHOP_INNER_PHOTO,FA.SHOP_OUTER_PHOTO,
+	FA.USER_RIGHT,FA.USER_HONEST,FA.PROVINCE_ID,FA.CITY_ID,FA.USER_MOBILE as MOBILE,FA.CITY_ID
+	from FUN_ARCHIVE FA  
+	LEFT JOIN FUN_USER_RQS FUR ON FA.ARCHIVE_ID = FUR.ARCHIVE_ID  WHERE FA.ARCHIVE_ID = #{archiveId}
+  </select>
+  <select id="initPushBuild" parameterType="java.lang.Integer">
+  	{CALL proc_push_buildByUserRight(#{archiveId})}
+  </select>
+  <select id="giveScore" parameterType="java.util.Map">
+  	{CALL proc_scoreOperator(#{archiveId}, #{type}, #{num})}
+  </select>
+  <select id="selectHasUser" parameterType="com.myfun.repository.admindb.po.AdminFunArchive">
+  	select null 
+  	from fun_archive 
+  	where 1=1
+  	<if test="archiveId !=null and archiveId !=''">
+  		and archive_id <![CDATA[ <> ]]> #{archiveId}
+  	</if> 
+  	<if test="userIccode !=null and userIccode !=''">
+  		and user_iccode = #{userIccode}
+  	</if>
+  	<if test="userRight !=null and userRight !=''">
+  		and user_right = #{userRight} 
+  	</if>
+  	<if test="userMobile !=null and userMobile !=''">
+  		and user_mobile = #{userMobile}
+  	</if>
+  </select>
+  <select id="sendMsg" parameterType="java.lang.String">
+  	{CALL proc_SysMsg(#{userId}, #{msg})}
+  </select>
+  
+  <select id="getArchiveByLoginTime" parameterType="com.myfun.repository.admindb.param.ActiveBrokerActionParam" resultMap="ActiveBrokerActionDtoMap">
+  	select FUN_ARCHIVE.*,FUN_USER_ACCOUNT.AMOUNT,FUN_USER_ACCOUNT.HAOFANG_AMOUNT,FUN_USER_ACCOUNT.HAOFANG_BUY,
+  	FUN_CITY.CITY_NAME, FUN_CITY.SUPER_USER AS CITY_SUPER_USER, FUN_CITY.SUPER_TIME,
+  	(select top 1 TRACK_CONTENT from CRM_BROKER_TRACK where CRM_BROKER_TRACK.ARCHIVE_ID = FUN_ARCHIVE.ARCHIVE_ID order by TRACK_ID desc) TRACK_CONTENT, 
+  	(select top 1 TRACK_USER from CRM_BROKER_TRACK where CRM_BROKER_TRACK.ARCHIVE_ID = FUN_ARCHIVE.ARCHIVE_ID order by TRACK_ID desc) TRACK_USER,
+  	(select top 1 TRACK_TIME from CRM_BROKER_TRACK where CRM_BROKER_TRACK.ARCHIVE_ID = FUN_ARCHIVE.ARCHIVE_ID order by TRACK_ID desc) TRACK_TIME 
+  	from FUN_ARCHIVE 
+  	left join FUN_CITY on FUN_ARCHIVE.CITY_ID = FUN_CITY.CITY_ID 
+  	left join FUN_USER_ACCOUNT on FUN_ARCHIVE.UA_ID = FUN_USER_ACCOUNT.UA_ID 
+	where 1=1  and FUN_ARCHIVE.REG_FROM <![CDATA[ <> ]]> 4 
+	<if test="userEdition !=null and userEdition!=''">
+		 and USER_EDITION = #{userEdition,jdbcType=INTEGER}
+	</if>
+	<if test="serviceReg !=null and serviceReg !=''">
+		 and FUN_ARCHIVE.SERVICE_REG like '%#{serviceReg,jdbcType=VARCHAR}%'
+	</if>
+	<if test="userName !=null and userName !=''">
+		and FUN_ARCHIVE.USER_NAME = #{userName,jdbcType=VARCHAR}
+	</if>
+	<if test="userMobile !=null and userMobile !=''">
+		and FUN_ARCHIVE.USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+	</if>
+	<if test="superEnd !=null">
+		and FUN_ARCHIVE.SUPER_END <![CDATA[ <= ]]> #{superEnd}
+	</if>
+	<if test="serviceReg !=null and serviceReg!=''">
+		and FUN_ARCHIVE.SERVICE_REG like '%#{serviceReg,jdbcType=VARCHAR}%'
+	</if>
+	<if test="cityId !=null">
+		and FUN_ARCHIVE.CITY_ID= #{cityId,jdbcType=INTEGER}
+	</if>
+	<if test="provinceId !=null">
+	 	and FUN_ARCHIVE.PROVINCE_ID=#{provinceId,jdbcType=INTEGER}	
+	</if>
+	<if test="loginMinTime !=null and loginmaxTime !=null">
+	 	AND FUN_ARCHIVE.LAST_LOGIN_TIME between #{loginMinTime,jdbcType=TIMESTAMP} and #{loginmaxTime,jdbcType=TIMESTAMP} ORDER BY LAST_LOGIN_TIME desc
+	</if>
+	<if test="trackMinTime !=null and trackMaxTime !=null">
+	 and fun_archive.ARCHIVE_ID in 
+	 (select distinct ARCHIVE_ID from CRM_BROKER_TRACK where TRACK_TIME between #{trackMinTime,jdbcType=TIMESTAMP} and #{trackMaxTime,jdbcType=TIMESTAMP}
+	 <if test="sellId !=null and sellId !=''">
+	 	and TRACK_USER= #{sellId}
+	 </if>
+	 ) ORDER BY TRACK_TIME desc
+	</if>
+	<if test="regMinTime !=null and regMaxTime !=null">
+	 and FUN_ARCHIVE.CREATION_TIME between #{regMinTime,jdbcType=TIMESTAMP} and #{regMaxTime,jdbcType=TIMESTAMP} ORDER BY CREATION_TIME desc
+	</if>
+	<if test="writeOffMinTime !=null and writeOffMaxTime !=null">
+	 and FUN_ARCHIVE.ARCHIVE_ID IN (SELECT ARCHIVE_ID FROM CRM_BROKER_TRACK WHERE TRACK_DESC = '[门店注销]' and 
+	 TRACK_TIME between #{writeOffMinTime,jdbcType=TIMESTAMP} and #{writeOffMaxTime,jdbcType=TIMESTAMP}) ORDER BY CREATION_TIME desc
+	</if>
+	
+  </select>
+  
+  <select id="getRecordByUserMobileAndCompId" resultMap="BaseResultMap">
+   	select <include refid="Base_Column_List" /> from FUN_ARCHIVE 
+   		where USER_MOBILE = #{userMobile}
+   	 <if test="superComp !=null and superComp != 1 ">
+   		 and CITY_ID in (SELECT CITY_ID FROM CRM_REGION_CITY WHERE CRM_REGION_CITY.COMP_ID = #{compid})
+   	 </if>
+  </select>
+  <select id="getBrokerFlow" resultMap="BaseResultParamMap">
+  	select A.MOBILE_VALIDED,A.USER_RIGHT,A.USER_EMAIL, A.USER_SEX, 
+	A.USER_MOBILE,B.AMOUNT, A.SUPER_USER, A.SUPER_START, A.SUPER_END,A.CREATION_TIME, A.ARCHIVE_ID
+	from FUN_ARCHIVE A left join FUN_USER_ACCOUNT B ON A.UA_ID = B.UA_ID 
+	where A.ARCHIVE_ID IN
+  	 <foreach close=")" collection="archiveIds" index="index" item="item" open="(" separator=",">
+  	 	#{item}
+  	 </foreach>
+  	ORDER BY A.USER_RIGHT DESC, A.SUPER_END DESC
+  </select>
+  <update id="updateUserEditionAndFriendFlag">
+  	update FUN_ARCHIVE set USER_EDITION = 2, FRIEND_FLAG = 1 where
+  	 ARCHIVE_ID in 
+  	 <foreach close=")" collection="archiveIds" index="index" item="item" open="(" separator=",">
+  	 	#{item}
+  	 </foreach>
+  </update>
+  
+  <select id="getUserNameByUaId" resultMap="BaseResultMap">
+     	select top 1 <include refid="Base_Column_List" /> from FUN_ARCHIVE 
+     	where UA_ID = #{uaId} and VALID_ACCOUNT = 1
+  </select>
+  <select id="getArchiveIdList" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from FUN_ARCHIVE
+  	where ARCHIVE_ID in $(archiveIds)
+  </select>
+  <select id="getArchiveInfosByIds" resultMap="BaseResultMap">
+     	select <include refid="Base_Column_List" /> from FUN_ARCHIVE 
+        where ARCHIVE_ID IN
+         <foreach close=")" collection="list" item="archiveId" open="(" separator=",">
+            #{archiveId}
+         </foreach>
+         ORDER BY CREATION_TIME DESC
+  </select>
+	
+	<select id="getTreasureCoinRanking" resultMap="BrokerArchiveDtoMap">
+		SELECT TOP 30 TREASURE_COIN,USER_NAME,B.CITY_NAME,A.BBS_PHOTO AS USER_PHOTO, ARCHIVE_ID
+		FROM FUN_ARCHIVE A JOIN FUN_CITY B ON B.CITY_ID=A.CITY_ID
+		where A.TREASURE_COIN&gt;0
+		ORDER BY TREASURE_COIN DESC
+	</select>
+	
+	<select id="getSelfTreasureCoinRanking" resultMap="BrokerArchiveDtoMap">
+		with t1 as(
+			SELECT TREASURE_COIN FROM FUN_ARCHIVE
+			where ARCHIVE_ID = #{archiveId}
+		),t2 as (
+			select count(1)+1 as COIN_RANKING 
+			from FUN_ARCHIVE,t1 where FUN_ARCHIVE.TREASURE_COIN&gt;t1.TREASURE_COIN
+			AND FUN_ARCHIVE.TREASURE_COIN&gt;0
+		)select TREASURE_COIN,COIN_RANKING from t1,t2
+	</select>
+	
+	<select id="selectLastArchive" resultMap="BaseResultMap">
+		select top 1
+		<include refid="Base_Column_List" />
+		from FUN_ARCHIVE
+		<if test="archiveId != null">
+			where ARCHIVE_ID &lt; #{archiveId}
+		</if>
+		order by ARCHIVE_ID desc
+	</select>
+	
+<select id="getPhotoByArchiveId" resultMap="BaseResultDtoMap">
+	SELECT ARCHIVE_ID AS archiveId,USER_PHOTO AS userPhoto,BBS_PHOTO AS bbsPhoto  FROM FUN_ARCHIVE 
+	WHERE  ARCHIVE_ID IN
+	<foreach close=")" collection="archiveIdList" index="index" item="list" open="(" separator=","> 
+		#{list}
+	</foreach>
+</select>
+<select id="getAdminFunArchiveDtoList" resultMap="BaseResultDtoMap">
+	SELECT ARCHIVE_ID AS archiveId,USER_PHOTO AS userPhoto,BBS_PHOTO AS bbsPhoto  FROM FUN_ARCHIVE 
+	WHERE  ARCHIVE_ID IN
+	<foreach close=")" collection="archiveIdList" index="index" item="list" open="(" separator=","> 
+		#{list}
+	</foreach>
+</select>
+
+	<select id="getDtoByArchiveId" resultMap="BaseResultDtoMap">
+		select
+		<include refid="Base_Column_List" />
+		FROM FUN_ARCHIVE
+		WHERE ARCHIVE_ID = #{archiveId}
+	</select>
+
+  <insert id="insertForFastDfs">
+    <foreach collection="dfsParamList" item="dfsParam" separator=";">
+      INSERT  INTO FUN_ARCHIVE_FASTDFS_TMP(ARCHIVE_ID,IC_PHOTO_1_OLD,IC_PHOTO_1_NEW,USER_PHOTO_OLD,USER_PHOTO_NEW,USER_PHOTO_MIN_OLD,USER_PHOTO_MIN_NEW,CARD_PHOTO_OLD,CARD_PHOTO_NEW,BBS_PHOTO_OLD,BBS_PHOTO_NEW,SHOP_INNER_PHOTO_OLD,SHOP_INNER_PHOTO_NEW,SHOP_OUTER_PHOTO_OLD,SHOP_OUTER_PHOTO_NEW)
+      VALUES (#{dfsParam.archiveId}, #{dfsParam.icPhoto1Old},#{dfsParam.icPhoto1New},#{dfsParam.userPhotoOld},#{dfsParam.userPhotoNew},#{dfsParam.userPhotoMinOld},#{dfsParam.userPhotoMinNew},#{dfsParam.cardPhotoOld},#{dfsParam.cardPhotoNew},#{dfsParam.bbsPhotoOld},#{dfsParam.bbsPhotoNew},#{dfsParam.shopOuterPhotoOld},#{dfsParam.shopOuterPhotoNew},#{dfsParam.shopInnerPhotoOld},#{dfsParam.shopOuterPhotoNew})
+    </foreach>
+  </insert>
+
+	<select id="getModelDataMap" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM FUN_ARCHIVE
+		WHERE ARCHIVE_ID in
+		<foreach close=")" collection="archiveIds" item="funArchive" open="(" separator=",">
+			#{funArchive}
+		</foreach>
+	</select>
+	
+	<select id="selectUserName" resultMap="BaseResultMap">
+		SELECT USER_NAME,ARCHIVE_ID
+		FROM FUN_ARCHIVE
+		WHERE ARCHIVE_ID IN 
+		<foreach close=")" collection="archiveIdList" item="archiveId" open="(" separator=",">
+			#{archiveId}
+		</foreach>
+	</select>
+	
+	<select id="selectUserPhoto" resultMap="BaseResultMap">
+		SELECT USER_PHOTO,ARCHIVE_ID
+		FROM FUN_ARCHIVE
+		WHERE ARCHIVE_ID IN 
+		<foreach close=")" collection="archiveIdList" item="archiveId" open="(" separator=",">
+			#{archiveId}
+		</foreach>
+	</select>
+
+	<update id="updatePersonalInfoByUcenter">
+		UPDATE FUN_ARCHIVE
+		<set>
+			NICK_NAME = #{nickName}, USER_QQ = #{userQq},
+			USER_EMAIL = #{userEmail},COMP_NAME = #{compName},
+			PROFESSION_SUB = #{professionSub},
+			<if test="serviceZone !=null and serviceZone !=''">
+				SERVICE_ZONE = #{serviceZone}, SERVICE_REG = #{serviceReg},
+			</if>
+			<if test="serviceZoneIds !=null and serviceZoneIds !=''">
+				SERVICE_ZONE_IDS = #{serviceZoneIds},
+			</if>
+		</set>
+		WHERE ARCHIVE_ID = #{archiveId}
+	</update>
+
+	<update id="updateUserLastLoginTime">
+		update FUN_ARCHIVE
+		set LAST_LOGIN_TIME = #{date}
+		where ARCHIVE_ID = #{archiveId}
+	</update>
+
+  <select id="getListByArchiveIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_ARCHIVE
+    WHERE ARCHIVE_ID IN
+    <foreach close=")" collection="archiveIds" item="archiveId" open="(" separator=",">
+      #{archiveId}
+    </foreach>
+  </select>
+
+	<insert id="moveTrack">
+		INSERT INTO CRM_BROKER_TRACK
+		([TRACK_ID], [ARCHIVE_ID], [PROVINCE_ID], [CITY_ID], [COMP_ID], [DEPT_ID], [TRACK_DESC], [TRACK_CONTENT],  [TRACK_USER], [TRACK_TIME])
+		select (next value for SEQ_CRM_BROKER_TRACK_TRACK_ID) TRACK_ID,#{archiveId},BV.BV_PROVINCE,BV.BV_CITY,BV.BV_CITY,BV.BV_CITY,'[跟进移交]',BT.TRACK_CONTENT,BT.TRACK_USER,BT.TRACK_TIME
+		from BROKER_VISIT BV JOIN BV_TRACK BT ON BV.BV_ID = BT.BV_ID
+		WHERE BV.BV_PHONE =#{userMobile}
+	</insert>
+	
+	<select id="getValidMobileIsRegist" resultMap="BaseResultMap">
+		select USER_EDITION,CITY_ID,ARCHIVE_ID
+		from FUN_ARCHIVE
+		where USER_MOBILE = #{mobile}
+	</select>
+ 
+ 	<update id="updateUserPhoto">
+ 		UPDATE FUN_ARCHIVE SET USER_PHOTO = #{photoPath}
+ 		WHERE ARCHIVE_ID = #{archiveId}
+ 	</update>
+	
+	<select id="getArchiveList" resultMap="BaseResultMap">
+		select SUPER_START,SUPER_END from FUN_ARCHIVE
+		where SUPER_USER = 1 and ARCHIVE_ID = #{archiveId} and SUPER_START &lt;= #{nowTime} and SUPER_END &gt; #{superEnd}
+	</select>
+ 
+</mapper>

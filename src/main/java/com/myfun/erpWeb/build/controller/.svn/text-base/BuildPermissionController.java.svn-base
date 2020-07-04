@@ -1,0 +1,456 @@
+package com.myfun.erpWeb.build.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.myfun.erpWeb.build.api.BuildPermissionApi;
+import com.myfun.erpWeb.build.param.BuildPermissionListParam;
+import com.myfun.erpWeb.build.param.CopyPermissionParam;
+import com.myfun.erpWeb.build.param.CreatePermissionParam;
+import com.myfun.erpWeb.build.param.DeletePermissionParam;
+import com.myfun.erpWeb.build.param.OrganizePermissionListParam;
+import com.myfun.erpWeb.build.param.ReceiverListParam;
+import com.myfun.erpWeb.build.param.UpdatePermissionParam;
+import com.myfun.erpWeb.build.vo.BuildPermissionListVO;
+import com.myfun.erpWeb.build.vo.BuildPermissionVO;
+import com.myfun.erpWeb.build.vo.ReceiverListVO;
+import com.myfun.erpWeb.build.vo.ReceiverVO;
+import com.myfun.framework.session.Operator;
+import com.myfun.framework.web.controller.BaseController;
+import com.myfun.framework.web.json.ErpResponseJson;
+import com.myfun.framework.web.json.ResponseJson;
+import com.myfun.repository.erpdb.dao.ErpBuildPermissionsMapper;
+import com.myfun.repository.erpdb.dao.ErpBuildingInfoMapper;
+import com.myfun.repository.erpdb.dao.ErpFunOrganizationMapper;
+import com.myfun.repository.erpdb.dao.ErpFunRegMapper;
+import com.myfun.repository.erpdb.dao.ErpFunUserManageRangeMapper;
+import com.myfun.repository.erpdb.dao.ErpFunUsersMapper;
+import com.myfun.repository.erpdb.dao.ErpUserOpersMapper;
+import com.myfun.repository.erpdb.po.ErpBuildPermissions;
+import com.myfun.repository.erpdb.po.ErpBuildPermissionsExample;
+import com.myfun.repository.erpdb.po.ErpBuildingInfo;
+import com.myfun.repository.erpdb.po.ErpFunOrganization;
+import com.myfun.repository.erpdb.po.ErpFunOrganizationExample;
+import com.myfun.repository.erpdb.po.ErpFunReg;
+import com.myfun.repository.erpdb.po.ErpFunRegExample;
+import com.myfun.repository.erpdb.po.ErpFunUserManageRange;
+import com.myfun.repository.erpdb.po.ErpFunUsers;
+import com.myfun.repository.erpdb.po.ErpFunUsersExample;
+import com.myfun.repository.erpdb.po.ErpUserOpers;
+import com.myfun.service.business.erpdb.ErpBuildPermissionsService;
+
+@RestController
+public class BuildPermissionController extends BaseController implements BuildPermissionApi {
+
+	@Autowired
+	private ErpBuildPermissionsService erpBuildPermissionsService;
+	@Autowired
+	private ErpBuildPermissionsMapper erpBuildPermissionsMapper;
+	@Autowired
+	private ErpBuildingInfoMapper erpBuildingInfoMapper;
+	@Autowired
+	private ErpFunUsersMapper erpFunUsersMapper;
+	@Autowired
+	private ErpFunRegMapper erpFunRegMapper;
+	@Autowired
+	private ErpFunOrganizationMapper erpFunOrganizationMapper;
+    @Autowired
+    private ErpUserOpersMapper erpUserOpersMapper;
+	@Autowired
+	private ErpFunUserManageRangeMapper erpFunUserManageRangeMapper;
+	
+	@Override
+	public ResponseJson getBuildPermissionList(@RequestBody BuildPermissionListParam param) throws Exception {
+		Integer organizationId = param.getOrganizationId();
+		Integer buildId = param.getBuildId();
+		if (buildId == null) {
+			return ErpResponseJson.ok();
+		}
+//		if (Integer.valueOf(0).equals(organizationId)) {
+//			return ErpResponseJson.ok();
+//		}
+		Operator operator = getOperator();
+		Integer cityId = operator.getCityId();
+		Integer compId = operator.getCompId();
+		List<ErpFunOrganization> orgList = erpFunOrganizationMapper.selectOrgInfoByDefAndOrgId(cityId, compId.toString(), null, organizationId);
+		List<Integer> orgIdList = orgList.stream().map(ErpFunOrganization::getOrganizationId).collect(Collectors.toList());
+		List<BuildPermissionVO> buildPermissionList = new ArrayList<>();
+		// 按楼盘查询
+		ErpBuildingInfo erpBuildingInfo = erpBuildingInfoMapper.getErpBuildInfoByid(cityId, buildId);
+		String buildName = erpBuildingInfo.getBuildName();
+		String promotionName = erpBuildingInfo.getPromotionName();
+		String buildingUseage = erpBuildingInfo.getBuildingUseage();
+		// 查询区域
+		ErpFunReg erpFunReg = erpFunRegMapper.selectByPrimaryKey(new ErpFunReg(cityId, erpBuildingInfo.getBuildRegion()));
+		String regName = "";
+		if (erpFunReg != null) {
+			regName = erpFunReg.getRegName();
+		}
+		// 查询有权限的
+		ErpBuildPermissionsExample erpBuildPermissionsExample = new ErpBuildPermissionsExample();
+		erpBuildPermissionsExample.setShardCityId(cityId);
+		erpBuildPermissionsExample.createCriteria().andCompIdEqualTo(compId).andBuildIdEqualTo(buildId).andOrganizationIdIn(orgIdList).andIsDelEqualTo(Byte.valueOf("0"));
+		List<ErpBuildPermissions> buildPermissionsList = erpBuildPermissionsMapper.selectByExample(erpBuildPermissionsExample);
+		if (!buildPermissionsList.isEmpty()) {
+			for (ErpBuildPermissions erpBuildPermissions : buildPermissionsList) {
+				BuildPermissionVO buildPermissionVO = new BuildPermissionVO();
+				BeanUtils.copyProperties(erpBuildPermissions, buildPermissionVO);
+				buildPermissionVO.setPromotionName(promotionName);
+				buildPermissionVO.setBuildName(buildName);
+				buildPermissionVO.setBuildingUseage(buildingUseage);
+				buildPermissionVO.setRegName(regName);
+				buildPermissionList.add(buildPermissionVO);
+			}
+		}
+		// 移除有权限的就是没权限的了
+		if (!buildPermissionsList.isEmpty()) {
+			List<Integer> idList = buildPermissionsList.stream().map(ErpBuildPermissions::getOrganizationId).collect(Collectors.toList());
+			orgIdList.removeAll(idList);
+		}
+		if (!orgIdList.isEmpty()) {
+			for (int i = 0;i < orgList.size(); i++) {
+				ErpFunOrganization erpFunOrganization = orgList.get(i);
+				if (orgIdList.contains(erpFunOrganization.getOrganizationId())) {
+					BuildPermissionVO buildPermissionVO = new BuildPermissionVO();
+					buildPermissionVO.setBuildId(buildId);
+					buildPermissionVO.setPromotionName(promotionName);
+					buildPermissionVO.setBuildName(buildName);
+					buildPermissionVO.setBuildingUseage(buildingUseage);
+					buildPermissionVO.setOrganizationId(erpFunOrganization.getOrganizationId());
+					buildPermissionVO.setRegName(regName);
+					buildPermissionList.add(buildPermissionVO);
+				}
+			}
+		}
+		List<BuildPermissionVO> returnBuildPermissionList = new ArrayList<>();
+		for (int i = param.getOffsetNow(); i < buildPermissionList.size(); i++) {
+			if (i >= param.getOffsetNow() && i < param.getPageOffset() * param.getPageRows()) {
+				returnBuildPermissionList.add(buildPermissionList.get(i));
+			}
+			if (i == buildPermissionList.size() - 1) {
+				break;
+			}
+		}
+		BuildPermissionListVO buildPermissionListVO = new BuildPermissionListVO();
+		buildPermissionListVO.setBuildPermissionList(returnBuildPermissionList);
+		ErpResponseJson responseJson = ErpResponseJson.ok(buildPermissionListVO);
+		responseJson.setTotal(Long.valueOf("" + buildPermissionList.size()));
+		return responseJson;
+	}
+	
+	@Override
+	public ResponseJson getOrganizePermissionList(@RequestBody OrganizePermissionListParam param) throws Exception {
+		Operator operator = getOperator();
+		Integer cityId = operator.getCityId();
+		Integer compId = operator.getCompId();
+		Integer organizationId = param.getOrganizationId();
+		Integer buildId = param.getBuildId();
+		Integer buildRegion = param.getBuildRegion();
+		Integer houseUseage = param.getHouseUseage();
+		Integer hasPermission = param.getHasPermission();
+//		if (Integer.valueOf(0).equals(organizationId)) {
+//			return ErpResponseJson.ok();
+//		}
+		List<BuildPermissionVO> buildPermissionList = new ArrayList<>();
+		// 查询区域
+		Map<Integer, ErpFunReg> regMap = getRegList();
+		// 查询有权限的
+		List<ErpBuildPermissions> buildPermissionsList = erpBuildPermissionsMapper.getBuildPermissionsList(cityId, compId, organizationId, buildId, buildRegion, houseUseage);
+		if (Integer.valueOf("1").equals(hasPermission)) {
+			if (!buildPermissionsList.isEmpty()) {
+				List<Integer> idList = buildPermissionsList.stream().map(ErpBuildPermissions::getBuildId).collect(Collectors.toList());
+				Map<Integer, ErpBuildingInfo> buildMap = this.getBuildInfoByBuildId(idList);
+				for (ErpBuildPermissions erpBuildPermissions : buildPermissionsList) {
+					BuildPermissionVO buildPermissionVO = new BuildPermissionVO();
+					BeanUtils.copyProperties(erpBuildPermissions, buildPermissionVO);
+					ErpBuildingInfo erpBuildingInfo = buildMap.get(erpBuildPermissions.getBuildId());
+					if (erpBuildingInfo != null) {
+						buildPermissionVO.setBuildName(erpBuildingInfo.getBuildName());
+						buildPermissionVO.setPromotionName(erpBuildingInfo.getPromotionName());
+						ErpFunReg erpFunReg = regMap.get(erpBuildingInfo.getBuildRegion());
+						if (erpFunReg != null) {
+							buildPermissionVO.setRegName(erpFunReg.getRegName());
+						}
+						buildPermissionVO.setBuildingUseage(erpBuildingInfo.getBuildingUseage());
+					}
+					buildPermissionList.add(buildPermissionVO);
+				}
+			}
+		} else {
+			List<ErpBuildingInfo> buildList = erpBuildingInfoMapper.getAllBuild(cityId, buildId, buildRegion, houseUseage);
+			List<Integer> buildIdList = buildList.stream().map(ErpBuildingInfo::getBuildId).collect(Collectors.toList());
+			if (!buildPermissionsList.isEmpty()) {
+				List<Integer> idList = buildPermissionsList.stream().map(ErpBuildPermissions::getBuildId).collect(Collectors.toList());
+				buildIdList.removeAll(idList);
+			}
+			if (!buildIdList.isEmpty()) {
+				Map<Integer, ErpBuildingInfo> buildMap = buildList.stream().collect(HashMap::new,
+						(m,b) -> m.put(b.getBuildId(), b), HashMap::putAll);
+				for (Integer id : buildIdList) {
+					ErpBuildingInfo erpBuildingInfo = buildMap.get(id);
+					BuildPermissionVO buildPermissionVO = new BuildPermissionVO();
+					buildPermissionVO.setBuildId(id);
+					buildPermissionVO.setBuildingUseage(erpBuildingInfo.getBuildingUseage());
+					buildPermissionVO.setBuildName(erpBuildingInfo.getBuildName());
+					buildPermissionVO.setPromotionName(erpBuildingInfo.getPromotionName());
+					buildPermissionVO.setOrganizationId(organizationId);
+					buildPermissionList.add(buildPermissionVO);
+					ErpFunReg erpFunReg = regMap.get(erpBuildingInfo.getBuildRegion());
+					if (erpFunReg != null) {
+						buildPermissionVO.setRegName(erpFunReg.getRegName());
+					}
+				}
+			}
+		}
+		List<BuildPermissionVO> returnBuildPermissionList = new ArrayList<>();
+		for (int i = param.getOffsetNow(); i < buildPermissionList.size(); i++) {
+			if (i >= param.getOffsetNow() && i < param.getPageOffset() * param.getPageRows()) {
+				returnBuildPermissionList.add(buildPermissionList.get(i));
+			}
+			if (i == buildPermissionList.size() - 1) {
+				break;
+			}
+		}
+		BuildPermissionListVO buildPermissionListVO = new BuildPermissionListVO();
+		buildPermissionListVO.setBuildPermissionList(returnBuildPermissionList);
+		ErpResponseJson responseJson = ErpResponseJson.ok(buildPermissionListVO);
+		responseJson.setTotal(Long.valueOf("" + buildPermissionList.size()));
+		return responseJson;
+	}
+	
+	/**
+	 * 查询楼盘
+	 * @param buildIdList
+	 * @return
+	 */
+	private Map<Integer, ErpBuildingInfo> getBuildInfoByBuildId(List<Integer> buildIdList) {
+		Map<Integer, ErpBuildingInfo> buildMap = new HashMap<>();
+		if (buildIdList == null || buildIdList.isEmpty()) {
+			return buildMap;
+		}
+		Operator operator = getOperator();
+		Integer cityId = operator.getCityId();
+		List<List<Integer>> buildIdListList = new ArrayList<>();
+		Integer buildIdSize = buildIdList.size();
+		List<Integer> newBuildIdList = new ArrayList<>();
+		for (int i = 0; i < buildIdSize; i++) {
+			newBuildIdList.add(buildIdList.get(i));
+			if ((i != 0 && i % 1000 == 0) || i == buildIdSize - 1) {
+				buildIdListList.add(newBuildIdList);
+				newBuildIdList = new ArrayList<>();
+			}
+		}
+		
+		for (int i = 0; i < buildIdListList.size(); i++) {
+			List<Integer> newidList = buildIdListList.get(i);
+			List<ErpBuildingInfo> buildList = erpBuildingInfoMapper.getBuildListByIdList(cityId, newidList);
+			Map<Integer, ErpBuildingInfo> map = buildList.stream().collect(HashMap::new,
+					(m,b) -> m.put(b.getBuildId(), b), HashMap::putAll);
+			buildMap.putAll(map);
+		}
+		return buildMap;
+	}
+	
+
+	@Override
+	public ResponseJson createPermission(@RequestBody CreatePermissionParam param) throws Exception {
+		Operator operator = getOperator();
+		param.setCityId(operator.getCityId());
+		param.setCompId(operator.getCompId());
+		param.setUserId(operator.getUserId());
+		erpBuildPermissionsService.createPermission(param);
+		return ErpResponseJson.ok();
+	}
+
+	@Override
+	public ResponseJson updatePermission(@RequestBody UpdatePermissionParam param) throws Exception {
+		Operator operator = getOperator();
+		param.setCityId(operator.getCityId());
+		param.setUserId(operator.getUserId());
+		erpBuildPermissionsService.updatePermission(param);
+		return ErpResponseJson.ok();
+	}
+
+	@Override
+	public ResponseJson deletePermission(@RequestBody DeletePermissionParam param) throws Exception {
+		Operator operator = getOperator();
+		param.setCityId(operator.getCityId());
+		param.setUserId(operator.getUserId());
+		erpBuildPermissionsService.deletePermission(param);
+		return ErpResponseJson.ok();
+	}
+
+	@Override
+	public ResponseJson getReceiverList(@RequestBody ReceiverListParam param) throws Exception {
+		Operator operator = getOperator();
+		Integer cityId = operator.getCityId();
+		Integer compId = operator.getCompId();
+		Integer buildId = param.getBuildId();
+		String houseUseage = param.getHouseUseage();
+		ErpBuildPermissionsExample erpBuildPermissionsExample = new ErpBuildPermissionsExample();
+		erpBuildPermissionsExample.setShardCityId(cityId);
+		erpBuildPermissionsExample.createCriteria().andCompIdEqualTo(compId).andAddPermissionEqualTo(Byte.valueOf("1")).andBuildIdEqualTo(buildId).andIsDelEqualTo(Byte.valueOf("0")).andHouseUseageLike("%" + houseUseage + "%");
+		List<ErpBuildPermissions> buildPermissionsList = erpBuildPermissionsMapper.selectByExample(erpBuildPermissionsExample);
+		if (buildPermissionsList.isEmpty()) {
+			return ErpResponseJson.ok();
+		}
+		List<Integer> orgIdList = buildPermissionsList.stream().map(ErpBuildPermissions::getOrganizationId).collect(Collectors.toList());
+		
+		// 去掉后勤部门
+		ErpFunOrganizationExample erpFunOrganizationExample = new ErpFunOrganizationExample();
+		erpFunOrganizationExample.setShardCityId(cityId);
+		erpFunOrganizationExample.createCriteria().andCompIdEqualTo(compId).andDelFlagEqualTo(Byte.valueOf("0")).andOrganizationIdIn(orgIdList).andOrganizationBussinessTypeNotEqualTo(Byte.valueOf("3"));
+		List<ErpFunOrganization> orgList = erpFunOrganizationMapper.selectByExample(erpFunOrganizationExample);
+		if (!orgList.isEmpty()) {
+			orgIdList = orgList.stream().map(ErpFunOrganization::getOrganizationId).collect(Collectors.toList());
+		}
+		
+		ErpFunUsersExample erpFunUsersExample = new ErpFunUsersExample();
+		erpFunUsersExample.setShardCityId(cityId);
+		erpFunUsersExample.createCriteria().andCompIdEqualTo(compId).andUserWriteoffEqualTo(false).andOrganizationIdIn(orgIdList);
+		List<ErpFunUsers> userList = erpFunUsersMapper.selectByExample(erpFunUsersExample);
+		List<ReceiverVO> receiverList = new ArrayList<>();
+        ErpUserOpers offereeChoose = erpUserOpersMapper.getUserOperByUSerIdOperId(cityId, operator.getUserId(), "ORGANIZATION_OFFEREE_CHOOSE");
+        if(offereeChoose == null){//本人
+            for (ErpFunUsers erpFunUsers : userList) {
+                if(operator.getUserId().equals(erpFunUsers.getUserId())){
+                    ReceiverVO receiverVO = new ReceiverVO();
+                    BeanUtils.copyProperties(erpFunUsers, receiverVO);
+                    receiverList.add(receiverVO);
+                }
+            }
+        }else if(Integer.valueOf("0").equals(offereeChoose.getOrganizationDefinitionId())){//全公司
+            for (ErpFunUsers erpFunUsers : userList) {
+                ReceiverVO receiverVO = new ReceiverVO();
+                BeanUtils.copyProperties(erpFunUsers, receiverVO);
+                receiverList.add(receiverVO);
+            }
+        }else{//自己权限范围内
+        	if(offereeChoose.getOrganizationDefinitionId() != null){
+				ErpFunOrganizationExample organizationExample = new ErpFunOrganizationExample();
+				organizationExample.setShardCityId(cityId);
+				organizationExample.createCriteria().andCompIdEqualTo(compId).andOrganizationDefinitionIdEqualTo(offereeChoose.getOrganizationDefinitionId());
+				List<ErpFunOrganization> erpFunOrganizations = erpFunOrganizationMapper.selectByExample(organizationExample);
+				List<ErpFunUserManageRange> currentUserManageRanges = erpFunUserManageRangeMapper.selectByCompIdAndUserId(cityId, compId, operator.getUserId());
+				userList.stream().filter(o->{
+					Map<String, Boolean> filterFlag = new HashMap<>();
+					filterFlag.put("filterFlag",false);
+					erpFunOrganizations.stream().forEach(obj->{
+						if(operator.getOrganizationPath().indexOf(obj.getOrganizationId().toString()) != -1
+								&& operator.getOrganizationPath().indexOf(obj.getOrganizationId().toString()) <= o.getTissueLine().indexOf(obj.getOrganizationId().toString())){//同个组织下，并且操作者的可选组织层级高于接盘人的
+							filterFlag.put("filterFlag",true);
+						}
+					});
+					//当不为只看本人的时候，管理范围内的数据可以查看
+					if(!currentUserManageRanges.isEmpty()){
+						String tissueLine = o.getTissueLine();
+						for (ErpFunUserManageRange currentUserManageRange : currentUserManageRanges) {
+							if(tissueLine.contains(currentUserManageRange.getRangeId().toString())){
+								filterFlag.put("filterFlag",true);
+							}
+						}
+					}
+					return filterFlag.get("filterFlag") || operator.getUserId().equals(o.getUserId());//本人默认允许
+				}).forEach(o->{
+					ReceiverVO receiverVO = new ReceiverVO();
+					BeanUtils.copyProperties(o, receiverVO);
+					receiverList.add(receiverVO);
+				});
+			}else{
+				for (ErpFunUsers erpFunUsers : userList) {
+					if(operator.getUserId().equals(erpFunUsers.getUserId())){
+						ReceiverVO receiverVO = new ReceiverVO();
+						BeanUtils.copyProperties(erpFunUsers, receiverVO);
+						receiverList.add(receiverVO);
+					}
+				}
+			}
+        }
+		ReceiverListVO receiverListVO = new ReceiverListVO();
+		receiverListVO.setReceiverListVO(receiverList);
+		boolean myFlag = false; //本人是否在里面
+		for (ReceiverVO receiverVO : receiverList) {
+			if (receiverVO.getUserId().equals(operator.getUserId())) {
+				myFlag = true;
+				break;
+			}
+		}
+		if (!myFlag) {
+			ReceiverVO myReceiverVO = new ReceiverVO();
+			myReceiverVO.setArchiveId(operator.getArchiveId());
+			myReceiverVO.setAreaId(operator.getAreaId());
+			myReceiverVO.setDeptId(operator.getDeptId());
+			myReceiverVO.setGrId(operator.getGrId());
+			myReceiverVO.setOrganizationId(operator.getOrganizationId());
+			myReceiverVO.setRegId(operator.getRegId());
+			myReceiverVO.setUserId(operator.getUserId());
+			myReceiverVO.setUserName(operator.getUserName());
+			receiverList.add(myReceiverVO);
+		}
+		return ErpResponseJson.ok(receiverListVO);
+	}
+	
+	/**
+	 * 查询区域列表
+	 * @return
+	 */
+	private Map<Integer, ErpFunReg> getRegList() {
+		Operator operator = getOperator();
+		ErpFunRegExample erpFunRegExample = new ErpFunRegExample();
+		erpFunRegExample.setShardCityId(operator.getCityId());
+		erpFunRegExample.createCriteria().andCityIdEqualTo(operator.getCityId().shortValue()).andVertifyFlagEqualTo(Byte.valueOf("1"));
+		List<ErpFunReg> list = erpFunRegMapper.selectByExample(erpFunRegExample);
+		Map<Integer, ErpFunReg> map = list.stream().collect(HashMap::new,
+				(m,r) -> m.put(r.getRegId(), r), HashMap::putAll);
+		return map;
+	}
+
+	@Override
+	public ResponseJson copyPermission(@RequestBody CopyPermissionParam param) throws Exception {
+		Operator operator = getOperator();
+		String isAll = param.getIsAll();
+		param.setCityId(operator.getCityId());
+		param.setUserId(operator.getUserId());
+		param.setCompId(operator.getCompId());
+		if ("1".equals(isAll)) {
+			ErpBuildPermissionsExample erpBuildPermissionsExample = new ErpBuildPermissionsExample();
+			erpBuildPermissionsExample.setShardCityId(operator.getCityId());
+			erpBuildPermissionsExample.createCriteria().andCompIdEqualTo(operator.getCompId()).andIsDelEqualTo(Byte.valueOf("0")).andOrganizationIdEqualTo(param.getOrganizationId());
+			List<ErpBuildPermissions> list = erpBuildPermissionsMapper.selectByExample(erpBuildPermissionsExample);
+			if (list.isEmpty()) {
+				return ErpResponseJson.ok();
+			}
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					StringBuilder buildIds = new StringBuilder();
+					for (int i = 0; i < list.size(); i++) {
+						ErpBuildPermissions erpBuildPermissions = list.get(i);
+						buildIds.append(erpBuildPermissions.getBuildId() + ",");
+						if ((i != 0 && i % 500 == 0) || i == list.size() - 1) {
+							param.setBuildIds(buildIds.substring(0, buildIds.length() - 1));
+							try {
+								erpBuildPermissionsService.copyPermission(param);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							buildIds = new StringBuilder();
+						}
+					}
+				}
+			}).start();
+		} else {
+			erpBuildPermissionsService.copyPermission(param);
+		}
+		return ErpResponseJson.ok();
+	}
+	
+}

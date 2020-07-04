@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest
+END
+SSLHttpClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/SSLHttpClient.java
+END
+EncryptUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/EncryptUtil.java
+END
+SysConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/SysConfig.java
+END
+DateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/DateUtil.java
+END
+Rest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/Rest.java
+END
+VOIPTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/utils/rest/VOIPTools.java
+END

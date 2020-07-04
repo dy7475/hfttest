@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svndata/erpProduct/!svn/ver/98092/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo
+END
+GetDealTrackVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/97892/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/GetDealTrackVO.java
+END
+FinanstatusListVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/FinanstatusListVO.java
+END
+MgrDealNoteDataVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/MgrDealNoteDataVo.java
+END
+HandProfitLogListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/HandProfitLogListVo.java
+END
+FinancePaymentListVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/FinancePaymentListVO.java
+END
+ErpFunDealPhotoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/ErpFunDealPhotoVo.java
+END
+FunUserOrgVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/FunUserOrgVo.java
+END
+InsertIntoDealInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/InsertIntoDealInfoVo.java
+END
+ErpFunDealPayTypeVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/ErpFunDealPayTypeVo.java
+END
+ErpFunLoanBankVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/ErpFunLoanBankVo.java
+END
+CanSeeFunDealPhotoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/CanSeeFunDealPhotoVo.java
+END
+MgrDealListOneVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/MgrDealListOneVo.java
+END
+ErpFunDealTrackVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/98092/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/ErpFunDealTrackVO.java
+END
+DealSealVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/DealSealVo.java
+END
+ContractNoAvailableVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/ContractNoAvailableVo.java
+END
+ContractCateGoryVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/ContractCateGoryVO.java
+END
+CreateDealTrackVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/CreateDealTrackVO.java
+END
+UserPositionAndLevelDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/97228/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/UserPositionAndLevelDto.java
+END
+ProcessCompareLogListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/ProcessCompareLogListVo.java
+END
+CompareLogListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/CompareLogListVo.java
+END
+DealNoteDataDto.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/DealNoteDataDto.java
+END
+CommonSelectVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svndata/erpProduct/!svn/ver/96775/branchs/developing/meiliandev/erpWeb/src/main/java/com/myfun/erpWeb/managecenter/constract/vo/CommonSelectVO.java
+END
