@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunCompAgencyMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunCompAgency" >
+    <!--@mbggenerated-->
+    <id column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <result column="CENTER_COMP_ID" property="centerCompId" jdbcType="INTEGER" />
+    <result column="COMP_CNAME" property="compCname" jdbcType="VARCHAR" />
+    <result column="COMP_ADDR" property="compAddr" jdbcType="VARCHAR" />
+    <result column="COMP_CONTACT" property="compContact" jdbcType="VARCHAR" />
+    <result column="COMP_TELE" property="compTele" jdbcType="VARCHAR" />
+    <result column="CONTACT_NO" property="contactNo" jdbcType="VARCHAR" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="DISTRIBUTE_FLAG" property="distributeFlag" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    COMP_ID, CITY_ID, CENTER_COMP_ID, COMP_CNAME, COMP_ADDR, COMP_CONTACT, COMP_TELE, 
+    CONTACT_NO, CREATOR_UID, CREATION_TIME, DISTRIBUTE_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_COMP_AGENCY
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_COMP_AGENCY
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompAgency" >
+    <!--@mbggenerated-->
+    insert into FUN_COMP_AGENCY (COMP_ID, CITY_ID, CENTER_COMP_ID, 
+      COMP_CNAME, COMP_ADDR, COMP_CONTACT, 
+      COMP_TELE, CONTACT_NO, CREATOR_UID, 
+      CREATION_TIME, DISTRIBUTE_FLAG)
+    values (#{compId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{centerCompId,jdbcType=INTEGER}, 
+      #{compCname,jdbcType=VARCHAR}, #{compAddr,jdbcType=VARCHAR}, #{compContact,jdbcType=VARCHAR}, 
+      #{compTele,jdbcType=VARCHAR}, #{contactNo,jdbcType=VARCHAR}, #{creatorUid,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{distributeFlag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompAgency" >
+    <!--@mbggenerated-->
+    insert into FUN_COMP_AGENCY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="centerCompId != null" >
+        CENTER_COMP_ID,
+      </if>
+      <if test="compCname != null" >
+        COMP_CNAME,
+      </if>
+      <if test="compAddr != null" >
+        COMP_ADDR,
+      </if>
+      <if test="compContact != null" >
+        COMP_CONTACT,
+      </if>
+      <if test="compTele != null" >
+        COMP_TELE,
+      </if>
+      <if test="contactNo != null" >
+        CONTACT_NO,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="distributeFlag != null" >
+        DISTRIBUTE_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="centerCompId != null" >
+        #{centerCompId,jdbcType=INTEGER},
+      </if>
+      <if test="compCname != null" >
+        #{compCname,jdbcType=VARCHAR},
+      </if>
+      <if test="compAddr != null" >
+        #{compAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="compContact != null" >
+        #{compContact,jdbcType=VARCHAR},
+      </if>
+      <if test="compTele != null" >
+        #{compTele,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNo != null" >
+        #{contactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distributeFlag != null" >
+        #{distributeFlag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompAgency" >
+    <!--@mbggenerated-->
+    update FUN_COMP_AGENCY
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="centerCompId != null" >
+        CENTER_COMP_ID = #{centerCompId,jdbcType=INTEGER},
+      </if>
+      <if test="compCname != null" >
+        COMP_CNAME = #{compCname,jdbcType=VARCHAR},
+      </if>
+      <if test="compAddr != null" >
+        COMP_ADDR = #{compAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="compContact != null" >
+        COMP_CONTACT = #{compContact,jdbcType=VARCHAR},
+      </if>
+      <if test="compTele != null" >
+        COMP_TELE = #{compTele,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNo != null" >
+        CONTACT_NO = #{contactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distributeFlag != null" >
+        DISTRIBUTE_FLAG = #{distributeFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompAgency" >
+    <!--@mbggenerated-->
+    update FUN_COMP_AGENCY
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      CENTER_COMP_ID = #{centerCompId,jdbcType=INTEGER},
+      COMP_CNAME = #{compCname,jdbcType=VARCHAR},
+      COMP_ADDR = #{compAddr,jdbcType=VARCHAR},
+      COMP_CONTACT = #{compContact,jdbcType=VARCHAR},
+      COMP_TELE = #{compTele,jdbcType=VARCHAR},
+      CONTACT_NO = #{contactNo,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      DISTRIBUTE_FLAG = #{distributeFlag,jdbcType=TINYINT}
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+</mapper>

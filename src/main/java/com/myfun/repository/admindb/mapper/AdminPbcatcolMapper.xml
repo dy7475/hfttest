@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminPbcatcolMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminPbcatcol" >
+    <!--@mbggenerated-->
+    <result column="pbc_tnam" property="pbcTnam" jdbcType="VARCHAR" />
+    <result column="pbc_tid" property="pbcTid" jdbcType="INTEGER" />
+    <result column="pbc_ownr" property="pbcOwnr" jdbcType="VARCHAR" />
+    <result column="pbc_cnam" property="pbcCnam" jdbcType="VARCHAR" />
+    <result column="pbc_cid" property="pbcCid" jdbcType="SMALLINT" />
+    <result column="pbc_labl" property="pbcLabl" jdbcType="VARCHAR" />
+    <result column="pbc_lpos" property="pbcLpos" jdbcType="SMALLINT" />
+    <result column="pbc_hdr" property="pbcHdr" jdbcType="VARCHAR" />
+    <result column="pbc_hpos" property="pbcHpos" jdbcType="SMALLINT" />
+    <result column="pbc_jtfy" property="pbcJtfy" jdbcType="SMALLINT" />
+    <result column="pbc_mask" property="pbcMask" jdbcType="VARCHAR" />
+    <result column="pbc_case" property="pbcCase" jdbcType="SMALLINT" />
+    <result column="pbc_hght" property="pbcHght" jdbcType="SMALLINT" />
+    <result column="pbc_wdth" property="pbcWdth" jdbcType="SMALLINT" />
+    <result column="pbc_ptrn" property="pbcPtrn" jdbcType="VARCHAR" />
+    <result column="pbc_bmap" property="pbcBmap" jdbcType="VARCHAR" />
+    <result column="pbc_init" property="pbcInit" jdbcType="VARCHAR" />
+    <result column="pbc_cmnt" property="pbcCmnt" jdbcType="VARCHAR" />
+    <result column="pbc_edit" property="pbcEdit" jdbcType="VARCHAR" />
+    <result column="pbc_tag" property="pbcTag" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminPbcatcol" >
+    <!--@mbggenerated-->
+    insert into pbcatcol (pbc_tnam, pbc_tid, pbc_ownr, 
+      pbc_cnam, pbc_cid, pbc_labl, 
+      pbc_lpos, pbc_hdr, pbc_hpos, 
+      pbc_jtfy, pbc_mask, pbc_case, 
+      pbc_hght, pbc_wdth, pbc_ptrn, 
+      pbc_bmap, pbc_init, pbc_cmnt, 
+      pbc_edit, pbc_tag)
+    values (#{pbcTnam,jdbcType=VARCHAR}, #{pbcTid,jdbcType=INTEGER}, #{pbcOwnr,jdbcType=VARCHAR}, 
+      #{pbcCnam,jdbcType=VARCHAR}, #{pbcCid,jdbcType=SMALLINT}, #{pbcLabl,jdbcType=VARCHAR}, 
+      #{pbcLpos,jdbcType=SMALLINT}, #{pbcHdr,jdbcType=VARCHAR}, #{pbcHpos,jdbcType=SMALLINT}, 
+      #{pbcJtfy,jdbcType=SMALLINT}, #{pbcMask,jdbcType=VARCHAR}, #{pbcCase,jdbcType=SMALLINT}, 
+      #{pbcHght,jdbcType=SMALLINT}, #{pbcWdth,jdbcType=SMALLINT}, #{pbcPtrn,jdbcType=VARCHAR}, 
+      #{pbcBmap,jdbcType=VARCHAR}, #{pbcInit,jdbcType=VARCHAR}, #{pbcCmnt,jdbcType=VARCHAR}, 
+      #{pbcEdit,jdbcType=VARCHAR}, #{pbcTag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminPbcatcol" >
+    <!--@mbggenerated-->
+    insert into pbcatcol
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pbcTnam != null" >
+        pbc_tnam,
+      </if>
+      <if test="pbcTid != null" >
+        pbc_tid,
+      </if>
+      <if test="pbcOwnr != null" >
+        pbc_ownr,
+      </if>
+      <if test="pbcCnam != null" >
+        pbc_cnam,
+      </if>
+      <if test="pbcCid != null" >
+        pbc_cid,
+      </if>
+      <if test="pbcLabl != null" >
+        pbc_labl,
+      </if>
+      <if test="pbcLpos != null" >
+        pbc_lpos,
+      </if>
+      <if test="pbcHdr != null" >
+        pbc_hdr,
+      </if>
+      <if test="pbcHpos != null" >
+        pbc_hpos,
+      </if>
+      <if test="pbcJtfy != null" >
+        pbc_jtfy,
+      </if>
+      <if test="pbcMask != null" >
+        pbc_mask,
+      </if>
+      <if test="pbcCase != null" >
+        pbc_case,
+      </if>
+      <if test="pbcHght != null" >
+        pbc_hght,
+      </if>
+      <if test="pbcWdth != null" >
+        pbc_wdth,
+      </if>
+      <if test="pbcPtrn != null" >
+        pbc_ptrn,
+      </if>
+      <if test="pbcBmap != null" >
+        pbc_bmap,
+      </if>
+      <if test="pbcInit != null" >
+        pbc_init,
+      </if>
+      <if test="pbcCmnt != null" >
+        pbc_cmnt,
+      </if>
+      <if test="pbcEdit != null" >
+        pbc_edit,
+      </if>
+      <if test="pbcTag != null" >
+        pbc_tag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pbcTnam != null" >
+        #{pbcTnam,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcTid != null" >
+        #{pbcTid,jdbcType=INTEGER},
+      </if>
+      <if test="pbcOwnr != null" >
+        #{pbcOwnr,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcCnam != null" >
+        #{pbcCnam,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcCid != null" >
+        #{pbcCid,jdbcType=SMALLINT},
+      </if>
+      <if test="pbcLabl != null" >
+        #{pbcLabl,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcLpos != null" >
+        #{pbcLpos,jdbcType=SMALLINT},
+      </if>
+      <if test="pbcHdr != null" >
+        #{pbcHdr,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcHpos != null" >
+        #{pbcHpos,jdbcType=SMALLINT},
+      </if>
+      <if test="pbcJtfy != null" >
+        #{pbcJtfy,jdbcType=SMALLINT},
+      </if>
+      <if test="pbcMask != null" >
+        #{pbcMask,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcCase != null" >
+        #{pbcCase,jdbcType=SMALLINT},
+      </if>
+      <if test="pbcHght != null" >
+        #{pbcHght,jdbcType=SMALLINT},
+      </if>
+      <if test="pbcWdth != null" >
+        #{pbcWdth,jdbcType=SMALLINT},
+      </if>
+      <if test="pbcPtrn != null" >
+        #{pbcPtrn,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcBmap != null" >
+        #{pbcBmap,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcInit != null" >
+        #{pbcInit,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcCmnt != null" >
+        #{pbcCmnt,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcEdit != null" >
+        #{pbcEdit,jdbcType=VARCHAR},
+      </if>
+      <if test="pbcTag != null" >
+        #{pbcTag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

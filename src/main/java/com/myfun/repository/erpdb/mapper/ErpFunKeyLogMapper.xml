@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunKeyLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunKeyLog">
+    <!--@mbggenerated-->
+    <id column="KEY_LOG_ID" jdbcType="INTEGER" property="keyLogId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="KEY_ID" jdbcType="INTEGER" property="keyId" />
+    <result column="LOG_TYPE" jdbcType="TINYINT" property="logType" />
+    <result column="BORROW_USER" jdbcType="INTEGER" property="borrowUser" />
+    <result column="LEND_USER" jdbcType="INTEGER" property="lendUser" />
+    <result column="BORROW_TIME" jdbcType="VARCHAR" property="borrowTime" />
+    <result column="RETURN_USER" jdbcType="INTEGER" property="returnUser" />
+    <result column="CONFIRM_USER" jdbcType="INTEGER" property="confirmUser" />
+    <result column="RETURN_TIME" jdbcType="VARCHAR" property="returnTime" />
+    <result column="BORROW_DESC" jdbcType="VARCHAR" property="borrowDesc" />
+    <result column="RETURN_DESC" jdbcType="VARCHAR" property="returnDesc" />
+    <result column="APPROVE_FLAG" jdbcType="TINYINT" property="approveFlag" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+  </resultMap>
+   
+  <resultMap id="KeyDtoBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunKeyLogDto">
+    <id column="KEY_LOG_ID" jdbcType="INTEGER" property="keyLogId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="KEY_ID" jdbcType="INTEGER" property="keyId" />
+    <result column="LOG_TYPE" jdbcType="TINYINT" property="logType" />
+    <result column="BORROW_USER" jdbcType="VARCHAR" property="borrowUser" />
+    <result column="LEND_USER" jdbcType="VARCHAR" property="lendUser" />
+    <result column="BORROW_TIME" jdbcType="VARCHAR" property="borrowTime" />
+    <result column="RETURN_USER" jdbcType="INTEGER" property="returnUser" />
+    <result column="CONFIRM_USER" jdbcType="INTEGER" property="confirmUser" />
+    <result column="RETURN_TIME" jdbcType="VARCHAR" property="returnTime" />
+    <result column="BORROW_DESC" jdbcType="VARCHAR" property="borrowDesc" />
+    <result column="RETURN_DESC" jdbcType="VARCHAR" property="returnDesc" />
+    <result column="APPROVE_FLAG" jdbcType="TINYINT" property="approveFlag" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    KEY_LOG_ID, COMP_ID, KEY_ID, LOG_TYPE, BORROW_USER, LEND_USER, BORROW_TIME, RETURN_USER, 
+    CONFIRM_USER, RETURN_TIME, BORROW_DESC, RETURN_DESC, APPROVE_FLAG, DEPT_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_KEY_LOG
+    where KEY_LOG_ID = #{keyLogId,jdbcType=INTEGER}
+  </select>
+  <select id="getKeyLogList" resultMap="KeyDtoBaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_KEY_LOG
+    where KEY_ID = #{keyId,jdbcType=INTEGER}
+   	order by KEY_LOG_ID DESC
+  </select>
+  <select id="getErpFunKeyLogByIds"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_KEY_LOG
+    where KEY_LOG_ID IN 
+    <foreach collection="keyIds" item="logId" open="(" close=")" separator=",">
+   		#{logId}
+  	</foreach>
+   	order by KEY_LOG_ID DESC
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_KEY_LOG
+    where KEY_LOG_ID = #{keyLogId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteFunKeyLog" parameterType="java.lang.Integer">
+    delete from FUN_KEY_LOG
+    where KEY_ID = #{keyId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteFunKeyLogByKeyIds">
+    delete from FUN_KEY_LOG
+    where KEY_ID IN 
+    <foreach collection="keyIds" item="keyId" open="(" close=")" separator=",">
+   		#{keyId}
+  	</foreach>
+    and COMP_ID = #{compId}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="keyLogId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_KEY_LOG_KEY_LOG_ID
+    </selectKey>
+    insert into FUN_KEY_LOG (KEY_LOG_ID, COMP_ID, KEY_ID, 
+      LOG_TYPE, BORROW_USER, LEND_USER, 
+      BORROW_TIME, RETURN_USER, CONFIRM_USER, 
+      RETURN_TIME, BORROW_DESC, RETURN_DESC, 
+      APPROVE_FLAG, DEPT_ID)
+    values (#{keyLogId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{keyId,jdbcType=INTEGER}, 
+      #{logType,jdbcType=TINYINT}, #{borrowUser,jdbcType=INTEGER}, #{lendUser,jdbcType=INTEGER}, 
+      #{borrowTime,jdbcType=VARCHAR}, #{returnUser,jdbcType=INTEGER}, #{confirmUser,jdbcType=INTEGER}, 
+      #{returnTime,jdbcType=VARCHAR}, #{borrowDesc,jdbcType=VARCHAR}, #{returnDesc,jdbcType=VARCHAR}, 
+      #{approveFlag,jdbcType=TINYINT}, #{deptId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="keyLogId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_KEY_LOG_KEY_LOG_ID
+    </selectKey>
+    insert into FUN_KEY_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      KEY_LOG_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="keyId != null">
+        KEY_ID,
+      </if>
+      <if test="logType != null">
+        LOG_TYPE,
+      </if>
+      <if test="borrowUser != null">
+        BORROW_USER,
+      </if>
+      <if test="lendUser != null">
+        LEND_USER,
+      </if>
+      <if test="borrowTime != null">
+        BORROW_TIME,
+      </if>
+      <if test="returnUser != null">
+        RETURN_USER,
+      </if>
+      <if test="confirmUser != null">
+        CONFIRM_USER,
+      </if>
+      <if test="returnTime != null">
+        RETURN_TIME,
+      </if>
+      <if test="borrowDesc != null">
+        BORROW_DESC,
+      </if>
+      <if test="returnDesc != null">
+        RETURN_DESC,
+      </if>
+      <if test="approveFlag != null">
+        APPROVE_FLAG,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{keyLogId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="keyId != null">
+        #{keyId,jdbcType=INTEGER},
+      </if>
+      <if test="logType != null">
+        #{logType,jdbcType=TINYINT},
+      </if>
+      <if test="borrowUser != null">
+        #{borrowUser,jdbcType=INTEGER},
+      </if>
+      <if test="lendUser != null">
+        #{lendUser,jdbcType=INTEGER},
+      </if>
+      <if test="borrowTime != null">
+        #{borrowTime,jdbcType=VARCHAR},
+      </if>
+      <if test="returnUser != null">
+        #{returnUser,jdbcType=INTEGER},
+      </if>
+      <if test="confirmUser != null">
+        #{confirmUser,jdbcType=INTEGER},
+      </if>
+      <if test="returnTime != null">
+        #{returnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowDesc != null">
+        #{borrowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="returnDesc != null">
+        #{returnDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="approveFlag != null">
+        #{approveFlag,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyLog">
+    <!--@mbggenerated-->
+    update FUN_KEY_LOG
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="keyId != null">
+        KEY_ID = #{keyId,jdbcType=INTEGER},
+      </if>
+      <if test="logType != null">
+        LOG_TYPE = #{logType,jdbcType=TINYINT},
+      </if>
+      <if test="borrowUser != null">
+        BORROW_USER = #{borrowUser,jdbcType=INTEGER},
+      </if>
+      <if test="lendUser != null">
+        LEND_USER = #{lendUser,jdbcType=INTEGER},
+      </if>
+      <if test="borrowTime != null">
+        BORROW_TIME = #{borrowTime,jdbcType=VARCHAR},
+      </if>
+      <if test="returnUser != null">
+        RETURN_USER = #{returnUser,jdbcType=INTEGER},
+      </if>
+      <if test="confirmUser != null">
+        CONFIRM_USER = #{confirmUser,jdbcType=INTEGER},
+      </if>
+      <if test="returnTime != null">
+        RETURN_TIME = #{returnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowDesc != null">
+        BORROW_DESC = #{borrowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="returnDesc != null">
+        RETURN_DESC = #{returnDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="approveFlag != null">
+        APPROVE_FLAG = #{approveFlag,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where KEY_LOG_ID = #{keyLogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunKeyLog">
+    <!--@mbggenerated-->
+    update FUN_KEY_LOG
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      KEY_ID = #{keyId,jdbcType=INTEGER},
+      LOG_TYPE = #{logType,jdbcType=TINYINT},
+      BORROW_USER = #{borrowUser,jdbcType=INTEGER},
+      LEND_USER = #{lendUser,jdbcType=INTEGER},
+      BORROW_TIME = #{borrowTime,jdbcType=VARCHAR},
+      RETURN_USER = #{returnUser,jdbcType=INTEGER},
+      CONFIRM_USER = #{confirmUser,jdbcType=INTEGER},
+      RETURN_TIME = #{returnTime,jdbcType=VARCHAR},
+      BORROW_DESC = #{borrowDesc,jdbcType=VARCHAR},
+      RETURN_DESC = #{returnDesc,jdbcType=VARCHAR},
+      APPROVE_FLAG = #{approveFlag,jdbcType=TINYINT},
+      DEPT_ID = #{deptId,jdbcType=INTEGER}
+    where KEY_LOG_ID = #{keyLogId,jdbcType=INTEGER}
+  </update>
+
+  <resultMap id="extBaseResultMap" extends="BaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunKeyLogDto">
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+    <result column="KEY_STATUS" jdbcType="INTEGER" property="keyStatus" />
+    <result column="HOUSE_USAGE" jdbcType="INTEGER" property="houseUsage" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="KEY_NUM" jdbcType="VARCHAR" property="keyNum" />
+    <result column="CASE_NO" jdbcType="VARCHAR" property="caseNo" />
+  </resultMap>
+	<select id="getKeyBorrowLogList" resultMap="extBaseResultMap">
+		select FKL.*,
+		FK.CASE_TYPE,FK.CASE_ID,FK.KEY_NUM,FK.CASE_NO,FK.KEY_STATUS,FK.USER_ID,USEAGE
+		HOUSE_USAGE
+		from FUN_KEY_LOG AS FKL
+		LEFT JOIN FUN_KEY AS FK ON FKL.KEY_ID = FK.KEY_ID
+		<where>
+			<if test="1==1">
+				AND FK.COMP_ID = #{paramMap.compId}
+			</if>
+			<if test="null != paramMap.sCaseType and '' != paramMap.sCaseType">
+				AND CASE_TYPE = #{paramMap.sCaseType}
+			</if>
+			<if test="null != paramMap.keyStatus and '' != paramMap.keyStatus">
+				AND KEY_STATUS = #{paramMap.keyStatus}
+			</if>
+			<if test="null != paramMap.deptId and '' != paramMap.deptId">
+				AND FKL.DEPT_ID = #{paramMap.deptId}
+			</if>
+			<if test="null != paramMap.cUserId and '' != paramMap.cUserId">
+				AND FK.USER_ID = #{paramMap.cUserId}
+			</if>
+			<if test="null != paramMap.houseNo and '' != paramMap.houseNo">
+				AND CASE_NO = #{paramMap.houseNo}
+			</if>
+			<if
+				test="null != paramMap.sDate1 and '' != paramMap.sDate1 and null != paramMap.sDate2 and '' != paramMap.sDate2">
+				AND CONVERT (VARCHAR(10), BORROW_TIME, 120 ) BETWEEN #{paramMap.sDate1}
+				AND #{paramMap.sDate2}
+			</if>
+			order by BORROW_TIME DESC
+		</where>
+	</select>
+	
+	<update id="updateByReturnKey">
+		UPDATE FUN_KEY_LOG SET
+		RETURN_USER=#{createUserId},CONFIRM_USER=#{selfUserId},RETURN_DESC=#{returnDesc},RETURN_TIME=getDate()
+		WHERE KEY_LOG_ID=#{keyLogId}
+	</update>
+	
+	<update id="updateKeyStatusAndLogId">
+		UPDATE FUN_KEY_LOG SET
+		KEY_STATUS = #{keyStatus}, KEY_LOG_ID=#{keyLogId}
+		WHERE KEY_ID=#{keyId}
+	</update>
+
+  <select id ="getByKeyLogId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_KEY_LOG
+    where KEY_LOG_ID = #{keyLogId}
+  </select>
+
+  <select id="getFunKeyLogDto" resultType="com.myfun.erpWeb.house.vo.FunKeyLogDto">
+        select A.BORROW_DESC borrowDesc,B.DEPT_ID borrowUserDept, B.USER_MOBILE borrowUserMobile,B.USER_NAME borrowUserName
+		from FUN_KEY_LOG A LEFT JOIN FUN_USERS AS B ON A.BORROW_USER=B.USER_ID
+		where KEY_LOG_ID = #{keyLogId}
+  </select>
+	
+</mapper>
+
+

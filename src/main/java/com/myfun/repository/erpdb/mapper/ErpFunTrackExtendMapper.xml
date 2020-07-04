@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunTrackExtendMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunTrackExtend">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AUDIT_ID" jdbcType="INTEGER" property="auditId" />
+    <result column="TRACK_ID" jdbcType="INTEGER" property="trackId" />
+    <result column="FITMENT_DESCRIBE" jdbcType="VARCHAR" property="fitmentDescribe" />
+    <result column="CORE_SELL_POINT" jdbcType="VARCHAR" property="coreSellPoint" />
+    <result column="PROPERTY_RIGHTS" jdbcType="VARCHAR" property="propertyRights" />
+    <result column="LAYOUT_INTRODUCE" jdbcType="VARCHAR" property="layoutIntroduce" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="OTHER_INFO" jdbcType="VARCHAR" property="otherInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, AUDIT_ID, TRACK_ID, FITMENT_DESCRIBE, CORE_SELL_POINT, PROPERTY_RIGHTS, 
+    LAYOUT_INTRODUCE, CREATION_TIME, OTHER_INFO
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunTrackExtendExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_TRACK_EXTEND
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_TRACK_EXTEND
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_TRACK_EXTEND
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunTrackExtendExample">
+    <!--@mbggenerated-->
+    delete from FUN_TRACK_EXTEND
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunTrackExtend" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_TRACK_EXTEND (COMP_ID, AUDIT_ID, TRACK_ID, 
+      FITMENT_DESCRIBE, CORE_SELL_POINT, PROPERTY_RIGHTS, 
+      LAYOUT_INTRODUCE, CREATION_TIME, OTHER_INFO
+      )
+    values (#{compId,jdbcType=INTEGER}, #{auditId,jdbcType=INTEGER}, #{trackId,jdbcType=INTEGER}, 
+      #{fitmentDescribe,jdbcType=VARCHAR}, #{coreSellPoint,jdbcType=VARCHAR}, #{propertyRights,jdbcType=VARCHAR}, 
+      #{layoutIntroduce,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{otherInfo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunTrackExtend" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_TRACK_EXTEND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="auditId != null">
+        AUDIT_ID,
+      </if>
+      <if test="trackId != null">
+        TRACK_ID,
+      </if>
+      <if test="fitmentDescribe != null">
+        FITMENT_DESCRIBE,
+      </if>
+      <if test="coreSellPoint != null">
+        CORE_SELL_POINT,
+      </if>
+      <if test="propertyRights != null">
+        PROPERTY_RIGHTS,
+      </if>
+      <if test="layoutIntroduce != null">
+        LAYOUT_INTRODUCE,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="otherInfo != null">
+        OTHER_INFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="auditId != null">
+        #{auditId,jdbcType=INTEGER},
+      </if>
+      <if test="trackId != null">
+        #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="fitmentDescribe != null">
+        #{fitmentDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="coreSellPoint != null">
+        #{coreSellPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyRights != null">
+        #{propertyRights,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutIntroduce != null">
+        #{layoutIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otherInfo != null">
+        #{otherInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunTrackExtendExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_TRACK_EXTEND
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_TRACK_EXTEND
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditId != null">
+        AUDIT_ID = #{record.auditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackId != null">
+        TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      </if>
+      <if test="record.fitmentDescribe != null">
+        FITMENT_DESCRIBE = #{record.fitmentDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.coreSellPoint != null">
+        CORE_SELL_POINT = #{record.coreSellPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.propertyRights != null">
+        PROPERTY_RIGHTS = #{record.propertyRights,jdbcType=VARCHAR},
+      </if>
+      <if test="record.layoutIntroduce != null">
+        LAYOUT_INTRODUCE = #{record.layoutIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.otherInfo != null">
+        OTHER_INFO = #{record.otherInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_TRACK_EXTEND
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AUDIT_ID = #{record.auditId,jdbcType=INTEGER},
+      TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      FITMENT_DESCRIBE = #{record.fitmentDescribe,jdbcType=VARCHAR},
+      CORE_SELL_POINT = #{record.coreSellPoint,jdbcType=VARCHAR},
+      PROPERTY_RIGHTS = #{record.propertyRights,jdbcType=VARCHAR},
+      LAYOUT_INTRODUCE = #{record.layoutIntroduce,jdbcType=VARCHAR},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      OTHER_INFO = #{record.otherInfo,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunTrackExtend">
+    <!--@mbggenerated-->
+    update FUN_TRACK_EXTEND
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="auditId != null">
+        AUDIT_ID = #{auditId,jdbcType=INTEGER},
+      </if>
+      <if test="trackId != null">
+        TRACK_ID = #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="fitmentDescribe != null">
+        FITMENT_DESCRIBE = #{fitmentDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="coreSellPoint != null">
+        CORE_SELL_POINT = #{coreSellPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyRights != null">
+        PROPERTY_RIGHTS = #{propertyRights,jdbcType=VARCHAR},
+      </if>
+      <if test="layoutIntroduce != null">
+        LAYOUT_INTRODUCE = #{layoutIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otherInfo != null">
+        OTHER_INFO = #{otherInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunTrackExtend">
+    <!--@mbggenerated-->
+    update FUN_TRACK_EXTEND
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      AUDIT_ID = #{auditId,jdbcType=INTEGER},
+      TRACK_ID = #{trackId,jdbcType=INTEGER},
+      FITMENT_DESCRIBE = #{fitmentDescribe,jdbcType=VARCHAR},
+      CORE_SELL_POINT = #{coreSellPoint,jdbcType=VARCHAR},
+      PROPERTY_RIGHTS = #{propertyRights,jdbcType=VARCHAR},
+      LAYOUT_INTRODUCE = #{layoutIntroduce,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      OTHER_INFO = #{otherInfo,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByAuditId" resultMap="BaseResultMap">
+	SELECT 
+	<include refid="Base_Column_List" /> 
+	FROM 
+	FUN_TRACK_EXTEND
+	WHERE COMP_ID = #{compId} AND AUDIT_ID = #{auditId}
+  </select>
+  
+  <select id="getFunTrackExtendListByTrackIds" resultMap="BaseResultMap">
+  	SELECT 
+	<include refid="Base_Column_List" /> 
+	FROM 
+	FUN_TRACK_EXTEND
+	WHERE COMP_ID = #{compId} AND TRACK_ID IN
+	<foreach close=")" collection="trackIds" item="trackId" open="(" separator="," index="index">
+		#{trackId}
+	</foreach>
+  </select>
+</mapper>

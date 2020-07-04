@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminYouBorkerArchiveMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminYouBorkerArchive">
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="YOU_AMOUNT" jdbcType="NUMERIC" property="youAmount" />
+    <result column="COMPLAIN_COUNT" jdbcType="INTEGER" property="complainCount" />
+    <result column="COMPLAIN_SUCCESS_COUNT" jdbcType="INTEGER" property="complainSuccessCount" />
+    <result column="LIMIT_END_TIME" jdbcType="TIMESTAMP" property="limitEndTime" />
+    <result column="LIMIT_START_TIME" jdbcType="TIMESTAMP" property="limitStartTime" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="LIMIT_FLAG" jdbcType="TINYINT" property="limitFlag" />
+    <result column="YOUJIA_USER_PROTOCOL" jdbcType="TINYINT" property="youjiaUserProtocol" />
+    <result column="YOUJIA_SHARE_AMOUNT" jdbcType="DECIMAL" property="youjiaShareAmount" />
+    <result column="COMP_SHARE_AMOUNT" jdbcType="DECIMAL" property="compShareAmount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ARCHIVE_ID, YOU_AMOUNT, COMPLAIN_COUNT, COMPLAIN_SUCCESS_COUNT, LIMIT_END_TIME, LIMIT_START_TIME, 
+    CREATION_TIME, LIMIT_FLAG, YOUJIA_USER_PROTOCOL, YOUJIA_SHARE_AMOUNT, COMP_SHARE_AMOUNT
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminYouBorkerArchiveExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from YOU_BORKER_ARCHIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOU_BORKER_ARCHIVE
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from YOU_BORKER_ARCHIVE
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminYouBorkerArchiveExample">
+    <!--@mbggenerated-->
+    delete from YOU_BORKER_ARCHIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminYouBorkerArchive">
+    <!--@mbggenerated-->
+    insert into YOU_BORKER_ARCHIVE (ARCHIVE_ID, YOU_AMOUNT, COMPLAIN_COUNT, 
+      COMPLAIN_SUCCESS_COUNT, LIMIT_END_TIME, LIMIT_START_TIME, 
+      CREATION_TIME, LIMIT_FLAG, YOUJIA_USER_PROTOCOL, 
+      YOUJIA_SHARE_AMOUNT, COMP_SHARE_AMOUNT)
+    values (#{archiveId,jdbcType=INTEGER}, #{youAmount,jdbcType=NUMERIC}, #{complainCount,jdbcType=INTEGER}, 
+      #{complainSuccessCount,jdbcType=INTEGER}, #{limitEndTime,jdbcType=TIMESTAMP}, #{limitStartTime,jdbcType=TIMESTAMP}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{limitFlag,jdbcType=TINYINT}, #{youjiaUserProtocol,jdbcType=TINYINT}, 
+      #{youjiaShareAmount,jdbcType=DECIMAL}, #{compShareAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminYouBorkerArchive">
+    <!--@mbggenerated-->
+    insert into YOU_BORKER_ARCHIVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="youAmount != null">
+        YOU_AMOUNT,
+      </if>
+      <if test="complainCount != null">
+        COMPLAIN_COUNT,
+      </if>
+      <if test="complainSuccessCount != null">
+        COMPLAIN_SUCCESS_COUNT,
+      </if>
+      <if test="limitEndTime != null">
+        LIMIT_END_TIME,
+      </if>
+      <if test="limitStartTime != null">
+        LIMIT_START_TIME,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="limitFlag != null">
+        LIMIT_FLAG,
+      </if>
+      <if test="youjiaUserProtocol != null">
+        YOUJIA_USER_PROTOCOL,
+      </if>
+      <if test="youjiaShareAmount != null">
+        YOUJIA_SHARE_AMOUNT,
+      </if>
+      <if test="compShareAmount != null">
+        COMP_SHARE_AMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="youAmount != null">
+        #{youAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="complainCount != null">
+        #{complainCount,jdbcType=INTEGER},
+      </if>
+      <if test="complainSuccessCount != null">
+        #{complainSuccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="limitEndTime != null">
+        #{limitEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitStartTime != null">
+        #{limitStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitFlag != null">
+        #{limitFlag,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaUserProtocol != null">
+        #{youjiaUserProtocol,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaShareAmount != null">
+        #{youjiaShareAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="compShareAmount != null">
+        #{compShareAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminYouBorkerArchiveExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from YOU_BORKER_ARCHIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update YOU_BORKER_ARCHIVE
+    <set>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.youAmount != null">
+        YOU_AMOUNT = #{record.youAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.complainCount != null">
+        COMPLAIN_COUNT = #{record.complainCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.complainSuccessCount != null">
+        COMPLAIN_SUCCESS_COUNT = #{record.complainSuccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.limitEndTime != null">
+        LIMIT_END_TIME = #{record.limitEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.limitStartTime != null">
+        LIMIT_START_TIME = #{record.limitStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.limitFlag != null">
+        LIMIT_FLAG = #{record.limitFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.youjiaUserProtocol != null">
+        YOUJIA_USER_PROTOCOL = #{record.youjiaUserProtocol,jdbcType=TINYINT},
+      </if>
+      <if test="record.youjiaShareAmount != null">
+        YOUJIA_SHARE_AMOUNT = #{record.youjiaShareAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.compShareAmount != null">
+        COMP_SHARE_AMOUNT = #{record.compShareAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update YOU_BORKER_ARCHIVE
+    set ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      YOU_AMOUNT = #{record.youAmount,jdbcType=NUMERIC},
+      COMPLAIN_COUNT = #{record.complainCount,jdbcType=INTEGER},
+      COMPLAIN_SUCCESS_COUNT = #{record.complainSuccessCount,jdbcType=INTEGER},
+      LIMIT_END_TIME = #{record.limitEndTime,jdbcType=TIMESTAMP},
+      LIMIT_START_TIME = #{record.limitStartTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      LIMIT_FLAG = #{record.limitFlag,jdbcType=TINYINT},
+      YOUJIA_USER_PROTOCOL = #{record.youjiaUserProtocol,jdbcType=TINYINT},
+      YOUJIA_SHARE_AMOUNT = #{record.youjiaShareAmount,jdbcType=DECIMAL},
+      COMP_SHARE_AMOUNT = #{record.compShareAmount,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminYouBorkerArchive">
+    <!--@mbggenerated-->
+    update YOU_BORKER_ARCHIVE
+    <set>
+      <if test="youAmount != null">
+        YOU_AMOUNT = #{youAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="complainCount != null">
+        COMPLAIN_COUNT = #{complainCount,jdbcType=INTEGER},
+      </if>
+      <if test="complainSuccessCount != null">
+        COMPLAIN_SUCCESS_COUNT = #{complainSuccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="limitEndTime != null">
+        LIMIT_END_TIME = #{limitEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitStartTime != null">
+        LIMIT_START_TIME = #{limitStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitFlag != null">
+        LIMIT_FLAG = #{limitFlag,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaUserProtocol != null">
+        YOUJIA_USER_PROTOCOL = #{youjiaUserProtocol,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaShareAmount != null">
+        YOUJIA_SHARE_AMOUNT = #{youjiaShareAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="compShareAmount != null">
+        COMP_SHARE_AMOUNT = #{compShareAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminYouBorkerArchive">
+    <!--@mbggenerated-->
+    update YOU_BORKER_ARCHIVE
+    set YOU_AMOUNT = #{youAmount,jdbcType=NUMERIC},
+      COMPLAIN_COUNT = #{complainCount,jdbcType=INTEGER},
+      COMPLAIN_SUCCESS_COUNT = #{complainSuccessCount,jdbcType=INTEGER},
+      LIMIT_END_TIME = #{limitEndTime,jdbcType=TIMESTAMP},
+      LIMIT_START_TIME = #{limitStartTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      LIMIT_FLAG = #{limitFlag,jdbcType=TINYINT},
+      YOUJIA_USER_PROTOCOL = #{youjiaUserProtocol,jdbcType=TINYINT},
+      YOUJIA_SHARE_AMOUNT = #{youjiaShareAmount,jdbcType=DECIMAL},
+      COMP_SHARE_AMOUNT = #{compShareAmount,jdbcType=DECIMAL}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateIncreaseComplainCount">
+	UPDATE YOU_BORKER_ARCHIVE SET COMPLAIN_COUNT = COMPLAIN_COUNT +1 WHERE
+	ARCHIVE_ID = #{archiveId}
+</update>
+
+  <select id="getDataByArchiveId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from YOU_BORKER_ARCHIVE
+    WHERE ARCHIVE_ID = #{archiveId}
+  </select>
+
+
+  <update id="updateByArchiveId">
+    UPDATE YOU_BORKER_ARCHIVE
+    SET LIMIT_FLAG = 0
+    WHERE   ARCHIVE_ID = #{archiveId}
+  </update>
+
+</mapper>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminCrmTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminCrmTask" >
+    <!--@mbggenerated-->
+    <id column="TASK_ID" property="taskId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="TASK_STATUS" property="taskStatus" jdbcType="SMALLINT" />
+    <result column="TASK_TYPE" property="taskType" jdbcType="SMALLINT" />
+    <result column="TASK_SUBJECT" property="taskSubject" jdbcType="VARCHAR" />
+    <result column="TASK_CONTENT" property="taskContent" jdbcType="VARCHAR" />
+    <result column="DEAL_RESULT" property="dealResult" jdbcType="SMALLINT" />
+    <result column="DEAL_DESC" property="dealDesc" jdbcType="VARCHAR" />
+    <result column="CRM_COMP_ID" property="crmCompId" jdbcType="INTEGER" />
+    <result column="CRM_DEPT_ID" property="crmDeptId" jdbcType="INTEGER" />
+    <result column="TASK_OWNER" property="taskOwner" jdbcType="INTEGER" />
+    <result column="WARM_TIME" property="warmTime" jdbcType="TIMESTAMP" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="CREATOR_NAME" property="creatorName" jdbcType="VARCHAR" />
+    <result column="TASK_CLASS" property="taskClass" jdbcType="TINYINT" />
+    <result column="IS_READ" property="isRead" jdbcType="TINYINT" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="BV_ID" property="bvId" jdbcType="INTEGER" />
+    <result column="IS_CPM" property="isCpm" jdbcType="TINYINT" />
+    <result column="LINK" property="link" jdbcType="VARCHAR" />
+    <result column="PARAM" property="param" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    TASK_ID, COMP_ID, DEPT_ID, TASK_STATUS, TASK_TYPE, TASK_SUBJECT, TASK_CONTENT, DEAL_RESULT, 
+    DEAL_DESC, CRM_COMP_ID, CRM_DEPT_ID, TASK_OWNER, WARM_TIME, CREATOR_UID, CREATION_TIME, 
+    CREATOR_NAME, TASK_CLASS, IS_READ, ARCHIVE_ID, BV_ID, IS_CPM, LINK, PARAM
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CRM_TASK
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from CRM_TASK
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminCrmTask" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="taskId" order="BEFORE" >
+      SELECT MAX(TASK_ID)+1 FROM CRM_TASK
+    </selectKey>
+    insert into CRM_TASK (TASK_ID, COMP_ID, DEPT_ID, 
+      TASK_STATUS, TASK_TYPE, TASK_SUBJECT, 
+      TASK_CONTENT, DEAL_RESULT, DEAL_DESC, 
+      CRM_COMP_ID, CRM_DEPT_ID, TASK_OWNER, 
+      WARM_TIME, CREATOR_UID, CREATION_TIME, 
+      CREATOR_NAME, TASK_CLASS, IS_READ, 
+      ARCHIVE_ID, BV_ID, IS_CPM, 
+      LINK, PARAM)
+    values (#{taskId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{taskStatus,jdbcType=SMALLINT}, #{taskType,jdbcType=SMALLINT}, #{taskSubject,jdbcType=VARCHAR}, 
+      #{taskContent,jdbcType=VARCHAR}, #{dealResult,jdbcType=SMALLINT}, #{dealDesc,jdbcType=VARCHAR}, 
+      #{crmCompId,jdbcType=INTEGER}, #{crmDeptId,jdbcType=INTEGER}, #{taskOwner,jdbcType=INTEGER}, 
+      #{warmTime,jdbcType=TIMESTAMP}, #{creatorUid,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{creatorName,jdbcType=VARCHAR}, #{taskClass,jdbcType=TINYINT}, #{isRead,jdbcType=TINYINT}, 
+      #{archiveId,jdbcType=INTEGER}, #{bvId,jdbcType=INTEGER}, #{isCpm,jdbcType=TINYINT}, 
+      #{link,jdbcType=VARCHAR}, #{param,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminCrmTask" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="taskId" order="BEFORE" >
+      SELECT MAX(TASK_ID)+1 FROM CRM_TASK
+    </selectKey>
+    insert into CRM_TASK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      TASK_ID,
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="taskStatus != null" >
+        TASK_STATUS,
+      </if>
+      <if test="taskType != null" >
+        TASK_TYPE,
+      </if>
+      <if test="taskSubject != null" >
+        TASK_SUBJECT,
+      </if>
+      <if test="taskContent != null" >
+        TASK_CONTENT,
+      </if>
+      <if test="dealResult != null" >
+        DEAL_RESULT,
+      </if>
+      <if test="dealDesc != null" >
+        DEAL_DESC,
+      </if>
+      <if test="crmCompId != null" >
+        CRM_COMP_ID,
+      </if>
+      <if test="crmDeptId != null" >
+        CRM_DEPT_ID,
+      </if>
+      <if test="taskOwner != null" >
+        TASK_OWNER,
+      </if>
+      <if test="warmTime != null" >
+        WARM_TIME,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="creatorName != null" >
+        CREATOR_NAME,
+      </if>
+      <if test="taskClass != null" >
+        TASK_CLASS,
+      </if>
+      <if test="isRead != null" >
+        IS_READ,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="bvId != null" >
+        BV_ID,
+      </if>
+      <if test="isCpm != null" >
+        IS_CPM,
+      </if>
+      <if test="link != null" >
+        LINK,
+      </if>
+      <if test="param != null" >
+        PARAM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{taskId,jdbcType=INTEGER},
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="taskStatus != null" >
+        #{taskStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="taskType != null" >
+        #{taskType,jdbcType=SMALLINT},
+      </if>
+      <if test="taskSubject != null" >
+        #{taskSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="taskContent != null" >
+        #{taskContent,jdbcType=VARCHAR},
+      </if>
+      <if test="dealResult != null" >
+        #{dealResult,jdbcType=SMALLINT},
+      </if>
+      <if test="dealDesc != null" >
+        #{dealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCompId != null" >
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="crmDeptId != null" >
+        #{crmDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="taskOwner != null" >
+        #{taskOwner,jdbcType=INTEGER},
+      </if>
+      <if test="warmTime != null" >
+        #{warmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorName != null" >
+        #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskClass != null" >
+        #{taskClass,jdbcType=TINYINT},
+      </if>
+      <if test="isRead != null" >
+        #{isRead,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="bvId != null" >
+        #{bvId,jdbcType=INTEGER},
+      </if>
+      <if test="isCpm != null" >
+        #{isCpm,jdbcType=TINYINT},
+      </if>
+      <if test="link != null" >
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="param != null" >
+        #{param,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminCrmTask" >
+    <!--@mbggenerated-->
+    update CRM_TASK
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="taskStatus != null" >
+        TASK_STATUS = #{taskStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="taskType != null" >
+        TASK_TYPE = #{taskType,jdbcType=SMALLINT},
+      </if>
+      <if test="taskSubject != null" >
+        TASK_SUBJECT = #{taskSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="taskContent != null" >
+        TASK_CONTENT = #{taskContent,jdbcType=VARCHAR},
+      </if>
+      <if test="dealResult != null" >
+        DEAL_RESULT = #{dealResult,jdbcType=SMALLINT},
+      </if>
+      <if test="dealDesc != null" >
+        DEAL_DESC = #{dealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCompId != null" >
+        CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="crmDeptId != null" >
+        CRM_DEPT_ID = #{crmDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="taskOwner != null" >
+        TASK_OWNER = #{taskOwner,jdbcType=INTEGER},
+      </if>
+      <if test="warmTime != null" >
+        WARM_TIME = #{warmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorName != null" >
+        CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskClass != null" >
+        TASK_CLASS = #{taskClass,jdbcType=TINYINT},
+      </if>
+      <if test="isRead != null" >
+        IS_READ = #{isRead,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="bvId != null" >
+        BV_ID = #{bvId,jdbcType=INTEGER},
+      </if>
+      <if test="isCpm != null" >
+        IS_CPM = #{isCpm,jdbcType=TINYINT},
+      </if>
+      <if test="link != null" >
+        LINK = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="param != null" >
+        PARAM = #{param,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminCrmTask" >
+    <!--@mbggenerated-->
+    update CRM_TASK
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      TASK_STATUS = #{taskStatus,jdbcType=SMALLINT},
+      TASK_TYPE = #{taskType,jdbcType=SMALLINT},
+      TASK_SUBJECT = #{taskSubject,jdbcType=VARCHAR},
+      TASK_CONTENT = #{taskContent,jdbcType=VARCHAR},
+      DEAL_RESULT = #{dealResult,jdbcType=SMALLINT},
+      DEAL_DESC = #{dealDesc,jdbcType=VARCHAR},
+      CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      CRM_DEPT_ID = #{crmDeptId,jdbcType=INTEGER},
+      TASK_OWNER = #{taskOwner,jdbcType=INTEGER},
+      WARM_TIME = #{warmTime,jdbcType=TIMESTAMP},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      TASK_CLASS = #{taskClass,jdbcType=TINYINT},
+      IS_READ = #{isRead,jdbcType=TINYINT},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      BV_ID = #{bvId,jdbcType=INTEGER},
+      IS_CPM = #{isCpm,jdbcType=TINYINT},
+      LINK = #{link,jdbcType=VARCHAR},
+      PARAM = #{param,jdbcType=VARCHAR}
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </update>
+
+	<select id="getRemindConsultantList" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM CRM_TASK
+		WHERE COMP_ID = #{compId} AND DEPT_ID = #{deptId} AND TASK_CONTENT = #{taskContent} AND TASK_OWNER = #{taskOwner}
+		ORDER BY TASK_ID DESC
+	</select>
+</mapper>

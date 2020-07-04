@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpTraceXeEventMapMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpTraceXeEventMap">
+    <!--@mbggenerated-->
+    <result column="trace_event_id" jdbcType="SMALLINT" property="traceEventId" />
+    <result column="package_name" jdbcType="VARCHAR" property="packageName" />
+    <result column="xe_event_name" jdbcType="VARCHAR" property="xeEventName" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpTraceXeEventMap">
+    <!--@mbggenerated-->
+    insert into trace_xe_event_map (trace_event_id, package_name, xe_event_name
+      )
+    values (#{traceEventId,jdbcType=SMALLINT}, #{packageName,jdbcType=VARCHAR}, #{xeEventName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpTraceXeEventMap">
+    <!--@mbggenerated-->
+    insert into trace_xe_event_map
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="traceEventId != null">
+        trace_event_id,
+      </if>
+      <if test="packageName != null">
+        package_name,
+      </if>
+      <if test="xeEventName != null">
+        xe_event_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="traceEventId != null">
+        #{traceEventId,jdbcType=SMALLINT},
+      </if>
+      <if test="packageName != null">
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="xeEventName != null">
+        #{xeEventName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAdsContentMapper">
+    <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunAdsContent">
+        <!--@mbggenerated-->
+        <id column="ADS_CONTENT_ID" jdbcType="INTEGER" property="adsContentId"/>
+        <result column="CASE_ID" jdbcType="INTEGER" property="caseId"/>
+        <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType"/>
+        <result column="USER_ID" jdbcType="INTEGER" property="userId"/>
+        <result column="COMP_ID" jdbcType="INTEGER" property="compId"/>
+        <result column="DEPT_ID" jdbcType="INTEGER" property="deptId"/>
+        <result column="ADS_CONTENT" jdbcType="VARCHAR" property="adsContent"/>
+        <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime"/>
+        <result column="ADS_STATUS" jdbcType="TINYINT" property="adsStatus"/>
+        <result column="CANCLE_TIME" jdbcType="TIMESTAMP" property="cancleTime"/>
+        <result column="CASE_NO" jdbcType="VARCHAR" property="caseNo"/>
+        <result column="RECOMMEND_PRICE" jdbcType="NUMERIC" property="recommendPrice"/>
+        <result column="PRICE_UNIT" jdbcType="TINYINT" property="priceUnit"/>
+        <result column="NEWSPAPPER_TEL" jdbcType="VARCHAR" property="newspapperTel"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <!--@mbggenerated-->
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <!--@mbggenerated-->
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <!--@mbggenerated-->
+        ADS_CONTENT_ID, CASE_ID, CASE_TYPE, USER_ID, COMP_ID, DEPT_ID, ADS_CONTENT, CREATION_TIME,
+        ADS_STATUS, CANCLE_TIME, CASE_NO, RECOMMEND_PRICE, PRICE_UNIT, NEWSPAPPER_TEL
+    </sql>
+    <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAdsContentExample"
+            resultMap="BaseResultMap">
+        <!--@mbggenerated-->
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from FUN_ADS_CONTENT
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbggenerated-->
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_ADS_CONTENT
+        where ADS_CONTENT_ID = #{adsContentId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbggenerated-->
+        delete from FUN_ADS_CONTENT
+        where ADS_CONTENT_ID = #{adsContentId,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAdsContentExample">
+        <!--@mbggenerated-->
+        delete from FUN_ADS_CONTENT
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" keyProperty="adsContentId" parameterType="com.myfun.repository.erpdb.po.ErpFunAdsContent"
+            useGeneratedKeys="true">
+        <!--@mbggenerated-->
+        insert into FUN_ADS_CONTENT (CASE_ID, CASE_TYPE, USER_ID,
+        COMP_ID, DEPT_ID, ADS_CONTENT,
+        CREATION_TIME, ADS_STATUS, CANCLE_TIME,
+        CASE_NO, RECOMMEND_PRICE, PRICE_UNIT,
+        NEWSPAPPER_TEL)
+        values (#{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{userId,jdbcType=INTEGER},
+        #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{adsContent,jdbcType=VARCHAR},
+        #{creationTime,jdbcType=TIMESTAMP}, #{adsStatus,jdbcType=TINYINT}, #{cancleTime,jdbcType=TIMESTAMP},
+        #{caseNo,jdbcType=VARCHAR}, #{recommendPrice,jdbcType=NUMERIC}, #{priceUnit,jdbcType=TINYINT},
+        #{newspapperTel,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyProperty="adsContentId"
+            parameterType="com.myfun.repository.erpdb.po.ErpFunAdsContent" useGeneratedKeys="true">
+        <!--@mbggenerated-->
+        insert into FUN_ADS_CONTENT
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="caseId != null">
+                CASE_ID,
+            </if>
+            <if test="caseType != null">
+                CASE_TYPE,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="compId != null">
+                COMP_ID,
+            </if>
+            <if test="deptId != null">
+                DEPT_ID,
+            </if>
+            <if test="adsContent != null">
+                ADS_CONTENT,
+            </if>
+            <if test="creationTime != null">
+                CREATION_TIME,
+            </if>
+            <if test="adsStatus != null">
+                ADS_STATUS,
+            </if>
+            <if test="cancleTime != null">
+                CANCLE_TIME,
+            </if>
+            <if test="caseNo != null">
+                CASE_NO,
+            </if>
+            <if test="recommendPrice != null">
+                RECOMMEND_PRICE,
+            </if>
+            <if test="priceUnit != null">
+                PRICE_UNIT,
+            </if>
+            <if test="newspapperTel != null">
+                NEWSPAPPER_TEL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="caseId != null">
+                #{caseId,jdbcType=INTEGER},
+            </if>
+            <if test="caseType != null">
+                #{caseType,jdbcType=TINYINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="compId != null">
+                #{compId,jdbcType=INTEGER},
+            </if>
+            <if test="deptId != null">
+                #{deptId,jdbcType=INTEGER},
+            </if>
+            <if test="adsContent != null">
+                #{adsContent,jdbcType=VARCHAR},
+            </if>
+            <if test="creationTime != null">
+                #{creationTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adsStatus != null">
+                #{adsStatus,jdbcType=TINYINT},
+            </if>
+            <if test="cancleTime != null">
+                #{cancleTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="caseNo != null">
+                #{caseNo,jdbcType=VARCHAR},
+            </if>
+            <if test="recommendPrice != null">
+                #{recommendPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="priceUnit != null">
+                #{priceUnit,jdbcType=TINYINT},
+            </if>
+            <if test="newspapperTel != null">
+                #{newspapperTel,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAdsContentExample"
+            resultType="java.lang.Integer">
+        <!--@mbggenerated-->
+        select count(*) from FUN_ADS_CONTENT
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        <!--@mbggenerated-->
+        update FUN_ADS_CONTENT
+        <set>
+            <if test="record.adsContentId != null">
+                ADS_CONTENT_ID = #{record.adsContentId,jdbcType=INTEGER},
+            </if>
+            <if test="record.caseId != null">
+                CASE_ID = #{record.caseId,jdbcType=INTEGER},
+            </if>
+            <if test="record.caseType != null">
+                CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+            </if>
+            <if test="record.userId != null">
+                USER_ID = #{record.userId,jdbcType=INTEGER},
+            </if>
+            <if test="record.compId != null">
+                COMP_ID = #{record.compId,jdbcType=INTEGER},
+            </if>
+            <if test="record.deptId != null">
+                DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+            </if>
+            <if test="record.adsContent != null">
+                ADS_CONTENT = #{record.adsContent,jdbcType=VARCHAR},
+            </if>
+            <if test="record.creationTime != null">
+                CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.adsStatus != null">
+                ADS_STATUS = #{record.adsStatus,jdbcType=TINYINT},
+            </if>
+            <if test="record.cancleTime != null">
+                CANCLE_TIME = #{record.cancleTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.caseNo != null">
+                CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.recommendPrice != null">
+                RECOMMEND_PRICE = #{record.recommendPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="record.priceUnit != null">
+                PRICE_UNIT = #{record.priceUnit,jdbcType=TINYINT},
+            </if>
+            <if test="record.newspapperTel != null">
+                NEWSPAPPER_TEL = #{record.newspapperTel,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        <!--@mbggenerated-->
+        update FUN_ADS_CONTENT
+        set ADS_CONTENT_ID = #{record.adsContentId,jdbcType=INTEGER},
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+        ADS_CONTENT = #{record.adsContent,jdbcType=VARCHAR},
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+        ADS_STATUS = #{record.adsStatus,jdbcType=TINYINT},
+        CANCLE_TIME = #{record.cancleTime,jdbcType=TIMESTAMP},
+        CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+        RECOMMEND_PRICE = #{record.recommendPrice,jdbcType=NUMERIC},
+        PRICE_UNIT = #{record.priceUnit,jdbcType=TINYINT},
+        NEWSPAPPER_TEL = #{record.newspapperTel,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAdsContent">
+        <!--@mbggenerated-->
+        update FUN_ADS_CONTENT
+        <set>
+            <if test="caseId != null">
+                CASE_ID = #{caseId,jdbcType=INTEGER},
+            </if>
+            <if test="caseType != null">
+                CASE_TYPE = #{caseType,jdbcType=TINYINT},
+            </if>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="compId != null">
+                COMP_ID = #{compId,jdbcType=INTEGER},
+            </if>
+            <if test="deptId != null">
+                DEPT_ID = #{deptId,jdbcType=INTEGER},
+            </if>
+            <if test="adsContent != null">
+                ADS_CONTENT = #{adsContent,jdbcType=VARCHAR},
+            </if>
+            <if test="creationTime != null">
+                CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adsStatus != null">
+                ADS_STATUS = #{adsStatus,jdbcType=TINYINT},
+            </if>
+            <if test="cancleTime != null">
+                CANCLE_TIME = #{cancleTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="caseNo != null">
+                CASE_NO = #{caseNo,jdbcType=VARCHAR},
+            </if>
+            <if test="recommendPrice != null">
+                RECOMMEND_PRICE = #{recommendPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="priceUnit != null">
+                PRICE_UNIT = #{priceUnit,jdbcType=TINYINT},
+            </if>
+            <if test="newspapperTel != null">
+                NEWSPAPPER_TEL = #{newspapperTel,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ADS_CONTENT_ID = #{adsContentId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAdsContent">
+        <!--@mbggenerated-->
+        update FUN_ADS_CONTENT
+        set CASE_ID = #{caseId,jdbcType=INTEGER},
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+        USER_ID = #{userId,jdbcType=INTEGER},
+        COMP_ID = #{compId,jdbcType=INTEGER},
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+        ADS_CONTENT = #{adsContent,jdbcType=VARCHAR},
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+        ADS_STATUS = #{adsStatus,jdbcType=TINYINT},
+        CANCLE_TIME = #{cancleTime,jdbcType=TIMESTAMP},
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+        RECOMMEND_PRICE = #{recommendPrice,jdbcType=NUMERIC},
+        PRICE_UNIT = #{priceUnit,jdbcType=TINYINT},
+        NEWSPAPPER_TEL = #{newspapperTel,jdbcType=VARCHAR}
+        where ADS_CONTENT_ID = #{adsContentId,jdbcType=INTEGER}
+    </update>
+    <resultMap extends="BaseResultMap" id="extResultMap" type="com.myfun.repository.erpdb.dto.ErpFunAdsContentDto">
+        <result column="SALE_USEAGE" jdbcType="TINYINT" property="saleUseage"/>
+        <result column="LEASE_USEAGE" jdbcType="TINYINT" property="leaseUseage"/>
+        <result column="FLOOR" jdbcType="INTEGER" property="floor"/>
+        <result column="ROOM" jdbcType="INTEGER" property="room"/>
+        <result column="FLOORS" jdbcType="INTEGER" property="floors"/>
+        <result column="TOTAL_PRICE" jdbcType="NUMERIC" property="totalPrice"/>
+        <result column="FITMENT" jdbcType="TINYINT" property="fitment"/>
+        <result column="WEI" jdbcType="TINYINT" property="wei"/>
+        <result column="HALL" jdbcType="TINYINT" property="hall"/>
+        <result column="AREA" jdbcType="NUMERIC" property="area"/>
+        <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName"/>
+        <result column="INFO_OWNER_ID" jdbcType="TINYINT" property="infoOwnerId"/>
+        <result column="PRICE_UNIT2" property="priceUnit2"/>
+        <result column="CHECK_CODE_URL" jdbcType="VARCHAR" property="checkCodeUrl"/>
+        <result column="CHECK_CODE_FUN" jdbcType="VARCHAR" property="checkCodeFun"/>
+    </resultMap>
+
+    <select id="getAdsList" resultMap="extResultMap">
+        select
+        <choose>
+            <when test=" 2 == pMap.caseType">
+                B.LEASE_ID AS CASE_ID,A.ADS_CONTENT_ID,A.USER_ID, A.CREATION_TIME, A.ADS_CONTENT, A.CASE_TYPE,
+                B.PRICE_UNIT AS
+                PRICE_UNIT, A.RECOMMEND_PRICE, A.PRICE_UNIT PRICE_UNIT2, A.NEWSPAPPER_TEL, B.USER_ID AS
+                INFO_OWNER_ID,B.BUILD_NAME,B.CHECK_CODE_FUN AS CHECK_CODE_FUN,
+                B.LEASE_USEAGE,B.LEASE_ROOM AS ROOM,B.LEASE_FLOOR as FLOOR,B.LEASE_AREA AS AREA,B.LEASE_FLOORS AS
+                FLOORS, B.LEASE_TOTAL_PRICE AS TOTAL_PRICE, B.LEASE_FITMENT AS FITMENT,B.LEASE_HALL AS HALL, B.LEASE_WEI
+                AS WEI
+            </when>
+            <otherwise>
+                B.SALE_ID AS
+                CASE_ID,A.ADS_CONTENT_ID,A.USER_ID,A.CREATION_TIME,A.ADS_CONTENT,A.CASE_TYPE,B.SALE_USEAGE,B.SALE_FLOOR
+                as FLOOR,B.SALE_AREA AS AREA,B.SALE_FLOORS AS FLOORS, B.SALE_TOTAL_PRICE AS TOTAL_PRICE,
+                B.SALE_FITMENT AS FITMENT,B.SALE_ROOM AS ROOM,B.SALE_HALL AS HALL,B.CHECK_CODE_FUN AS CHECK_CODE_FUN,
+                A.RECOMMEND_PRICE,A.PRICE_UNIT PRICE_UNIT2, A.NEWSPAPPER_TEL,B.SALE_WEI AS WEI,B.USER_ID AS
+                INFO_OWNER_ID,B.BUILD_NAME
+            </otherwise>
+        </choose>
+
+        from FUN_ADS_CONTENT A
+        <choose>
+            <when test="1== pMap.caseType">
+                LEFT JOIN FUN_SALE B ON A.CASE_ID = B.SALE_ID
+            </when>
+            <otherwise>
+                LEFT JOIN FUN_LEASE B ON A.CASE_ID = B.LEASE_ID
+            </otherwise>
+        </choose>
+        <if test="'OPERATE_USER' == pMap.operateType and null != pMap.deptId and '' != pMap.deptId">
+            JOIN FUN_USERS C ON C.USER_ID=A.USER_ID
+        </if>
+        <where>
+            <choose>
+                <when test="'BELONG_USER' == pMap.operateType">
+                    <if test="null != pMap.userId and '' != pMap.userId and 'ALL' != pMap.userId">
+                        AND B.USER_ID = #{pMap.userId}
+                    </if>
+                    <if test="null != pMap.deptId and '' != pMap.deptId">
+                        AND B.DEPT_ID = #{pMap.deptId}
+                    </if>
+                </when>
+                <otherwise>
+                    <if test="null != pMap.userId and '' != pMap.userId and 'ALL' != pMap.userId">
+                        AND A.USER_ID = #{pMap.userId}
+                    </if>
+                    <if test="null != pMap.deptId and '' != pMap.deptId">
+                        AND C.DEPT_ID = #{pMap.deptId}
+                    </if>
+                </otherwise>
+            </choose>
+            <if test="pMap.newOrganization == 1 and pMap.organizationId != null and pMap.organizationId != 0">
+                AND C.TISSUE_LINE LIKE '%:${param.organizationId}:%'
+            </if>
+            <if test="1==1">
+                AND A.CASE_TYPE = #{pMap.caseType} and A.COMP_ID =#{pMap.compId} and A.ADS_STATUS=1
+            </if>
+            <if test="null != pMap.date1 and '' != pMap.date1">
+                <![CDATA[ AND A.CREATION_TIME >= #{pMap.date1} ]]>
+            </if>
+            <if test="null != pMap.date2 and '' != pMap.date2">
+                <![CDATA[ AND A.CREATION_TIME <= #{pMap.date2} ]]>
+            </if>
+            <choose>
+                <when test="1==pMap.caseType">
+                    and B.SALE_STATUS NOT IN (5,6,7)
+                </when>
+                <otherwise>
+                    and B.LEASE_STATUS NOT IN (5,6,7)
+                </otherwise>
+            </choose>
+        </where>
+        order by A.CREATION_TIME DESC
+    </select>
+
+    <select id="getPerCompAdsCaseCount" resultType="java.lang.Integer">
+    SELECT COUNT (*) AS ATTR_NAME FROM FUN_ADS_CONTENT WITH (NOLOCK) 
+    WHERE 
+    COMP_ID = #{map.compId,jdbcType=INTEGER}
+	AND DEPT_ID = #{map.deptId,jdbcType=INTEGER}
+	AND ADS_STATUS = '1'
+  </select>
+
+    <update id="updateAds">
+    update FUN_ADS_CONTENT
+    set ADS_STATUS='0',
+     CANCLE_TIME = #{map.cancleTime} 
+    where CASE_TYPE = #{map.caseType}  
+    and CASE_ID = #{map.caseId}
+    and COMP_ID = #{map.compId}
+  </update>
+
+    <update id="updateAdsList">
+        update FUN_ADS_CONTENT
+        set ADS_STATUS='0',
+        CANCLE_TIME = #{map.cancleTime}
+        where ADS_CONTENT_ID in
+        <foreach close=")" collection="adsContentIdList" index="index" item="adsId" open="(" separator=",">
+            #{adsId}
+        </foreach>
+    </update>
+
+    <update id="updateAdsByprimaryKey">
+        update FUN_ADS_CONTENT
+        set ADS_STATUS='0',
+        CANCLE_TIME = #{map.cancleTime}
+        where ADS_CONTENT_ID = #{map.adsContentId}
+    </update>
+
+    <select id="getAdsSaleLists" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_ADS_CONTENT
+        where ADS_CONTENT_ID in
+        <foreach close=")" collection="adsContentIdList" index="index" item="adsId" open="(" separator=",">
+            #{adsId}
+        </foreach>
+    </select>
+
+    <select id="getAdsListByBelongUser" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_ADS_CONTENT A from left left join FUN_SALE B ON A.CASE_ID = B.SALE_ID
+        where B.DEPT_ID = #{map.deptId}
+        AND A.CASE_TYPE = #{map.caseType}
+        AND A.COMP_ID = #{map.compId}
+        AND A.ADS_STATUS = 1
+        AND A.CREATION_TIME <![CDATA[ >= ]]> #{map.date1}
+        AND A.CREATION_TIME <![CDATA[ <= ]]> #{map.date2}
+        AND B.SALE_STATUS NOT IN (5, 6, 7)
+    </select>
+
+    <select id="erpFunAdsContentList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_ADS_CONTENT A from left left join FUN_LEASE B ON A.CASE_ID = B.LEASE_ID
+        where B.DEPT_ID = #{map.deptId}
+        AND A.CASE_TYPE = #{map.caseType}
+        AND A.COMP_ID = #{map.compId}
+        AND A.ADS_STATUS = 1
+        AND A.CREATION_TIME <![CDATA[ >= ]]> #{map.date1}
+        AND A.CREATION_TIME <![CDATA[ <= ]]> #{map.date2}
+        AND B.LEASE_STATUS NOT IN (5, 6, 7)
+    </select>
+
+    <sql id="Base_Column_ListA">
+	    A.ADS_CONTENT_ID, A.CASE_ID, A.CASE_TYPE, A.USER_ID, A.COMP_ID, A.DEPT_ID, A.ADS_CONTENT, A.CREATION_TIME, 
+	    A.ADS_STATUS, A.CANCLE_TIME, A.CASE_NO, A.RECOMMEND_PRICE, A.PRICE_UNIT, A.NEWSPAPPER_TEL
+	</sql>
+    <select id="getAdsLists" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_ListA"/>
+        from FUN_ADS_CONTENT A
+        <choose>
+            <when test="1== param.caseType">
+                LEFT JOIN FUN_SALE B ON A.CASE_ID = B.SALE_ID
+            </when>
+            <otherwise>
+                LEFT JOIN FUN_LEASE B ON A.CASE_ID = B.LEASE_ID
+            </otherwise>
+        </choose>
+        <if test="'OPERATE_USER' == param.operateType and null != param.deptId and '' != param.deptId">
+            JOIN FUN_USERS C ON C.USER_ID=A.USER_ID
+        </if>
+        <where>
+            <choose>
+                <when test="'BELONG_USER' == param.operateType">
+                    <if test="null != param.deptId">
+                        AND B.DEPT_ID = #{param.deptId}
+                    </if>
+                </when>
+                <otherwise>
+                    <if test="null != param.userId">
+                        AND A.USER_ID = #{param.userId}
+                    </if>
+                    <if test="null != param.deptId">
+                        AND C.DEPT_ID = #{param.deptId}
+                    </if>
+                </otherwise>
+            </choose>
+            <if test="1==1">
+                AND A.CASE_TYPE = #{param.caseType} and A.COMP_ID =#{param.compId} and A.ADS_STATUS=1
+            </if>
+            <if test="null != param.date1 and '' != param.date1">
+                <![CDATA[ AND A.CREATION_TIME >= #{param.date1} ]]>
+            </if>
+            <if test="null != param.date2 and '' != param.date2">
+                <![CDATA[ AND A.CREATION_TIME <= #{param.date2} ]]>
+            </if>
+            <choose>
+                <when test="1==param.caseType">
+                    and B.SALE_STATUS NOT IN (5,6,7)
+                </when>
+                <otherwise>
+                    and B.LEASE_STATUS NOT IN (5,6,7)
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+    <select id="getErpFunAdsContentByCaseNo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_ADS_CONTENT
+        where CASE_NO = #{caseNo} and ADS_STATUS =1
+    </select>
+</mapper>

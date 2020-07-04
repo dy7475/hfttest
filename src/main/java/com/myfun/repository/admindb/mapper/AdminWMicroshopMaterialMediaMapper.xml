@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopMaterialMediaMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopMaterialMedia" >
+    <!--@mbggenerated-->
+    <id column="material_id" property="materialId" jdbcType="INTEGER" />
+    <result column="weixin_id" property="weixinId" jdbcType="INTEGER" />
+    <result column="media_id" property="mediaId" jdbcType="VARCHAR" />
+    <result column="media_type" property="mediaType" jdbcType="CHAR" />
+    <result column="media_url" property="mediaUrl" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="extension" property="extension" jdbcType="CHAR" />
+    <result column="size" property="size" jdbcType="INTEGER" />
+    <result column="is_sync" property="isSync" jdbcType="TINYINT" />
+    <result column="sync_time" property="syncTime" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="ctime" property="ctime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    material_id, weixin_id, media_id, media_type, media_url, name, remark, path, extension, 
+    size, is_sync, sync_time, status, ctime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from w_microshop_material_media
+    where material_id = #{materialId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_material_media
+    where material_id = #{materialId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopMaterialMedia" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="materialId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_material_media (weixin_id, media_id, media_type, 
+      media_url, name, remark, 
+      path, extension, size, 
+      is_sync, sync_time, status, 
+      ctime)
+    values (#{weixinId,jdbcType=INTEGER}, #{mediaId,jdbcType=VARCHAR}, #{mediaType,jdbcType=CHAR}, 
+      #{mediaUrl,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{path,jdbcType=VARCHAR}, #{extension,jdbcType=CHAR}, #{size,jdbcType=INTEGER}, 
+      #{isSync,jdbcType=TINYINT}, #{syncTime,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{ctime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopMaterialMedia" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="materialId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_material_media
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="weixinId != null" >
+        weixin_id,
+      </if>
+      <if test="mediaId != null" >
+        media_id,
+      </if>
+      <if test="mediaType != null" >
+        media_type,
+      </if>
+      <if test="mediaUrl != null" >
+        media_url,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="path != null" >
+        path,
+      </if>
+      <if test="extension != null" >
+        extension,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="isSync != null" >
+        is_sync,
+      </if>
+      <if test="syncTime != null" >
+        sync_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="weixinId != null" >
+        #{weixinId,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null" >
+        #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaType != null" >
+        #{mediaType,jdbcType=CHAR},
+      </if>
+      <if test="mediaUrl != null" >
+        #{mediaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null" >
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="extension != null" >
+        #{extension,jdbcType=CHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=INTEGER},
+      </if>
+      <if test="isSync != null" >
+        #{isSync,jdbcType=TINYINT},
+      </if>
+      <if test="syncTime != null" >
+        #{syncTime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopMaterialMedia" >
+    <!--@mbggenerated-->
+    update w_microshop_material_media
+    <set >
+      <if test="weixinId != null" >
+        weixin_id = #{weixinId,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null" >
+        media_id = #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaType != null" >
+        media_type = #{mediaType,jdbcType=CHAR},
+      </if>
+      <if test="mediaUrl != null" >
+        media_url = #{mediaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null" >
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="extension != null" >
+        extension = #{extension,jdbcType=CHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=INTEGER},
+      </if>
+      <if test="isSync != null" >
+        is_sync = #{isSync,jdbcType=TINYINT},
+      </if>
+      <if test="syncTime != null" >
+        sync_time = #{syncTime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where material_id = #{materialId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopMaterialMedia" >
+    <!--@mbggenerated-->
+    update w_microshop_material_media
+    set weixin_id = #{weixinId,jdbcType=INTEGER},
+      media_id = #{mediaId,jdbcType=VARCHAR},
+      media_type = #{mediaType,jdbcType=CHAR},
+      media_url = #{mediaUrl,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      path = #{path,jdbcType=VARCHAR},
+      extension = #{extension,jdbcType=CHAR},
+      size = #{size,jdbcType=INTEGER},
+      is_sync = #{isSync,jdbcType=TINYINT},
+      sync_time = #{syncTime,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=INTEGER}
+    where material_id = #{materialId,jdbcType=INTEGER}
+  </update>
+</mapper>

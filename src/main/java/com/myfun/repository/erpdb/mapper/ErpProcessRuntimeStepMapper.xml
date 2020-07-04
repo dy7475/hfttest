@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpProcessRuntimeStepMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpProcessRuntimeStep">
+    <!--@mbggenerated-->
+    <id column="RUNSTEP_ID" jdbcType="INTEGER" property="runstepId" />
+    <result column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="STEP_ID" jdbcType="INTEGER" property="stepId" />
+    <result column="STEP_SEQ" jdbcType="INTEGER" property="stepSeq" />
+    <result column="STEP_NAME" jdbcType="VARCHAR" property="stepName" />
+    <result column="TIMELIMIT_TYPE" jdbcType="TINYINT" property="timelimitType" />
+    <result column="TIMELIMIT" jdbcType="INTEGER" property="timelimit" />
+    <result column="EXECUTOR_TYPE" jdbcType="TINYINT" property="executorType" />
+    <result column="EXECUTOR" jdbcType="INTEGER" property="executor" />
+    <result column="EXECUTOR_NAME" jdbcType="VARCHAR" property="executorName" />
+    <result column="EXECUTOR_ROLE" jdbcType="VARCHAR" property="executorRole" />
+    <result column="WARN_TYPE" jdbcType="TINYINT" property="warnType" />
+    <result column="WARNER" jdbcType="INTEGER" property="warner" />
+    <result column="WARNER_NAME" jdbcType="VARCHAR" property="warnerName" />
+    <result column="WARNER_ROLE" jdbcType="VARCHAR" property="warnerRole" />
+    <result column="IS_SYSTEM" jdbcType="TINYINT" property="isSystem" />
+    <result column="RPEVSTEP_ID" jdbcType="INTEGER" property="rpevstepId" />
+    <result column="RPEVSTEP_NAME" jdbcType="VARCHAR" property="rpevstepName" />
+    <result column="TIMELIMITDATE" jdbcType="VARCHAR" property="timelimitdate" />
+    <result column="FLOWCONTENT" jdbcType="VARCHAR" property="flowcontent" />
+    <result column="WARM_FLAG" jdbcType="TINYINT" property="warmFlag" />
+    <result column="REMINDER_ID" jdbcType="INTEGER" property="reminderId" />
+    <result column="REMINDER_NAME" jdbcType="VARCHAR" property="reminderName" />
+    <result column="WARM_CONTENT" jdbcType="VARCHAR" property="warmContent" />
+    <result column="WARN_TIME" jdbcType="VARCHAR" property="warnTime" />
+    <result column="RUNSTEP_STATUS" jdbcType="TINYINT" property="runstepStatus" />
+    <result column="UPDATE_USER" jdbcType="INTEGER" property="updateUser" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    <result column="UPDATE_USERNAME" jdbcType="VARCHAR" property="updateUsername" />
+    <result column="DEL_FLAG" jdbcType="TINYINT" property="delFlag" />
+    <result column="SEQ_SORT" jdbcType="INTEGER" property="seqSort" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    RUNSTEP_ID, DEAL_ID, COMP_ID, STEP_ID, STEP_SEQ, STEP_NAME, TIMELIMIT_TYPE, TIMELIMIT,
+    EXECUTOR_TYPE, EXECUTOR, EXECUTOR_NAME, EXECUTOR_ROLE, WARN_TYPE, WARNER, WARNER_NAME,
+    WARNER_ROLE, IS_SYSTEM, RPEVSTEP_ID, RPEVSTEP_NAME, TIMELIMITDATE, FLOWCONTENT, WARM_FLAG,
+    REMINDER_ID, REMINDER_NAME, WARM_CONTENT, WARN_TIME, RUNSTEP_STATUS, UPDATE_USER,
+    UPDATE_TIME, UPDATE_USERNAME, DEL_FLAG, SEQ_SORT
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpProcessRuntimeStepExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from PROCESS_RUNTIME_STEP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <include refid="Base_Column_List" />
+    from PROCESS_RUNTIME_STEP
+    where RUNSTEP_ID = #{runstepId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from PROCESS_RUNTIME_STEP
+    where RUNSTEP_ID = #{runstepId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpProcessRuntimeStepExample">
+    <!--@mbggenerated-->
+    delete from PROCESS_RUNTIME_STEP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpProcessRuntimeStep">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="runstepId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_PROCESS_RUNTIME_STEP_RUNSTEP_ID
+    </selectKey>
+    insert into PROCESS_RUNTIME_STEP (RUNSTEP_ID, DEAL_ID, COMP_ID,
+      STEP_ID, STEP_SEQ, STEP_NAME,
+      TIMELIMIT_TYPE, TIMELIMIT, EXECUTOR_TYPE,
+      EXECUTOR, EXECUTOR_NAME, EXECUTOR_ROLE,
+      WARN_TYPE, WARNER, WARNER_NAME,
+      WARNER_ROLE, IS_SYSTEM, RPEVSTEP_ID,
+      RPEVSTEP_NAME, TIMELIMITDATE, FLOWCONTENT,
+      WARM_FLAG, REMINDER_ID, REMINDER_NAME,
+      WARM_CONTENT, WARN_TIME, RUNSTEP_STATUS,
+      UPDATE_USER, UPDATE_TIME, UPDATE_USERNAME,
+      DEL_FLAG, SEQ_SORT)
+    values (#{runstepId,jdbcType=INTEGER}, #{dealId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER},
+      #{stepId,jdbcType=INTEGER}, #{stepSeq,jdbcType=INTEGER}, #{stepName,jdbcType=VARCHAR},
+      #{timelimitType,jdbcType=TINYINT}, #{timelimit,jdbcType=INTEGER}, #{executorType,jdbcType=TINYINT},
+      #{executor,jdbcType=INTEGER}, #{executorName,jdbcType=VARCHAR}, #{executorRole,jdbcType=VARCHAR},
+      #{warnType,jdbcType=TINYINT}, #{warner,jdbcType=INTEGER}, #{warnerName,jdbcType=VARCHAR},
+      #{warnerRole,jdbcType=VARCHAR}, #{isSystem,jdbcType=TINYINT}, #{rpevstepId,jdbcType=INTEGER},
+      #{rpevstepName,jdbcType=VARCHAR}, #{timelimitdate,jdbcType=VARCHAR}, #{flowcontent,jdbcType=VARCHAR},
+      #{warmFlag,jdbcType=TINYINT}, #{reminderId,jdbcType=INTEGER}, #{reminderName,jdbcType=VARCHAR},
+      #{warmContent,jdbcType=VARCHAR}, #{warnTime,jdbcType=VARCHAR}, #{runstepStatus,jdbcType=TINYINT},
+      #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=VARCHAR}, #{updateUsername,jdbcType=VARCHAR},
+      #{delFlag,jdbcType=TINYINT}, #{seqSort,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpProcessRuntimeStep">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="runstepId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_PROCESS_RUNTIME_STEP_RUNSTEP_ID
+    </selectKey>
+    insert into PROCESS_RUNTIME_STEP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      RUNSTEP_ID,
+      <if test="dealId != null">
+        DEAL_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="stepId != null">
+        STEP_ID,
+      </if>
+      <if test="stepSeq != null">
+        STEP_SEQ,
+      </if>
+      <if test="stepName != null">
+        STEP_NAME,
+      </if>
+      <if test="timelimitType != null">
+        TIMELIMIT_TYPE,
+      </if>
+      <if test="timelimit != null">
+        TIMELIMIT,
+      </if>
+      <if test="executorType != null">
+        EXECUTOR_TYPE,
+      </if>
+      <if test="executor != null">
+        EXECUTOR,
+      </if>
+      <if test="executorName != null">
+        EXECUTOR_NAME,
+      </if>
+      <if test="executorRole != null">
+        EXECUTOR_ROLE,
+      </if>
+      <if test="warnType != null">
+        WARN_TYPE,
+      </if>
+      <if test="warner != null">
+        WARNER,
+      </if>
+      <if test="warnerName != null">
+        WARNER_NAME,
+      </if>
+      <if test="warnerRole != null">
+        WARNER_ROLE,
+      </if>
+      <if test="isSystem != null">
+        IS_SYSTEM,
+      </if>
+      <if test="rpevstepId != null">
+        RPEVSTEP_ID,
+      </if>
+      <if test="rpevstepName != null">
+        RPEVSTEP_NAME,
+      </if>
+      <if test="timelimitdate != null">
+        TIMELIMITDATE,
+      </if>
+      <if test="flowcontent != null">
+        FLOWCONTENT,
+      </if>
+      <if test="warmFlag != null">
+        WARM_FLAG,
+      </if>
+      <if test="reminderId != null">
+        REMINDER_ID,
+      </if>
+      <if test="reminderName != null">
+        REMINDER_NAME,
+      </if>
+      <if test="warmContent != null">
+        WARM_CONTENT,
+      </if>
+      <if test="warnTime != null">
+        WARN_TIME,
+      </if>
+      <if test="runstepStatus != null">
+        RUNSTEP_STATUS,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateUsername != null">
+        UPDATE_USERNAME,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+      <if test="seqSort != null">
+        SEQ_SORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{runstepId,jdbcType=INTEGER},
+      <if test="dealId != null">
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="stepId != null">
+        #{stepId,jdbcType=INTEGER},
+      </if>
+      <if test="stepSeq != null">
+        #{stepSeq,jdbcType=INTEGER},
+      </if>
+      <if test="stepName != null">
+        #{stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="timelimitType != null">
+        #{timelimitType,jdbcType=TINYINT},
+      </if>
+      <if test="timelimit != null">
+        #{timelimit,jdbcType=INTEGER},
+      </if>
+      <if test="executorType != null">
+        #{executorType,jdbcType=TINYINT},
+      </if>
+      <if test="executor != null">
+        #{executor,jdbcType=INTEGER},
+      </if>
+      <if test="executorName != null">
+        #{executorName,jdbcType=VARCHAR},
+      </if>
+      <if test="executorRole != null">
+        #{executorRole,jdbcType=VARCHAR},
+      </if>
+      <if test="warnType != null">
+        #{warnType,jdbcType=TINYINT},
+      </if>
+      <if test="warner != null">
+        #{warner,jdbcType=INTEGER},
+      </if>
+      <if test="warnerName != null">
+        #{warnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="warnerRole != null">
+        #{warnerRole,jdbcType=VARCHAR},
+      </if>
+      <if test="isSystem != null">
+        #{isSystem,jdbcType=TINYINT},
+      </if>
+      <if test="rpevstepId != null">
+        #{rpevstepId,jdbcType=INTEGER},
+      </if>
+      <if test="rpevstepName != null">
+        #{rpevstepName,jdbcType=VARCHAR},
+      </if>
+      <if test="timelimitdate != null">
+        #{timelimitdate,jdbcType=VARCHAR},
+      </if>
+      <if test="flowcontent != null">
+        #{flowcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="warmFlag != null">
+        #{warmFlag,jdbcType=TINYINT},
+      </if>
+      <if test="reminderId != null">
+        #{reminderId,jdbcType=INTEGER},
+      </if>
+      <if test="reminderName != null">
+        #{reminderName,jdbcType=VARCHAR},
+      </if>
+      <if test="warmContent != null">
+        #{warmContent,jdbcType=VARCHAR},
+      </if>
+      <if test="warnTime != null">
+        #{warnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="runstepStatus != null">
+        #{runstepStatus,jdbcType=TINYINT},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUsername != null">
+        #{updateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="seqSort != null">
+        #{seqSort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpProcessRuntimeStepExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from PROCESS_RUNTIME_STEP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update PROCESS_RUNTIME_STEP
+    <set>
+      <if test="record.runstepId != null">
+        RUNSTEP_ID = #{record.runstepId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dealId != null">
+        DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.stepId != null">
+        STEP_ID = #{record.stepId,jdbcType=INTEGER},
+      </if>
+      <if test="record.stepSeq != null">
+        STEP_SEQ = #{record.stepSeq,jdbcType=INTEGER},
+      </if>
+      <if test="record.stepName != null">
+        STEP_NAME = #{record.stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timelimitType != null">
+        TIMELIMIT_TYPE = #{record.timelimitType,jdbcType=TINYINT},
+      </if>
+      <if test="record.timelimit != null">
+        TIMELIMIT = #{record.timelimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.executorType != null">
+        EXECUTOR_TYPE = #{record.executorType,jdbcType=TINYINT},
+      </if>
+      <if test="record.executor != null">
+        EXECUTOR = #{record.executor,jdbcType=INTEGER},
+      </if>
+      <if test="record.executorName != null">
+        EXECUTOR_NAME = #{record.executorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.executorRole != null">
+        EXECUTOR_ROLE = #{record.executorRole,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warnType != null">
+        WARN_TYPE = #{record.warnType,jdbcType=TINYINT},
+      </if>
+      <if test="record.warner != null">
+        WARNER = #{record.warner,jdbcType=INTEGER},
+      </if>
+      <if test="record.warnerName != null">
+        WARNER_NAME = #{record.warnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warnerRole != null">
+        WARNER_ROLE = #{record.warnerRole,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSystem != null">
+        IS_SYSTEM = #{record.isSystem,jdbcType=TINYINT},
+      </if>
+      <if test="record.rpevstepId != null">
+        RPEVSTEP_ID = #{record.rpevstepId,jdbcType=INTEGER},
+      </if>
+      <if test="record.rpevstepName != null">
+        RPEVSTEP_NAME = #{record.rpevstepName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timelimitdate != null">
+        TIMELIMITDATE = #{record.timelimitdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flowcontent != null">
+        FLOWCONTENT = #{record.flowcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warmFlag != null">
+        WARM_FLAG = #{record.warmFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.reminderId != null">
+        REMINDER_ID = #{record.reminderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.reminderName != null">
+        REMINDER_NAME = #{record.reminderName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warmContent != null">
+        WARM_CONTENT = #{record.warmContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warnTime != null">
+        WARN_TIME = #{record.warnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.runstepStatus != null">
+        RUNSTEP_STATUS = #{record.runstepStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUsername != null">
+        UPDATE_USERNAME = #{record.updateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.seqSort != null">
+        SEQ_SORT = #{record.seqSort,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update PROCESS_RUNTIME_STEP
+    set RUNSTEP_ID = #{record.runstepId,jdbcType=INTEGER},
+      DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      STEP_ID = #{record.stepId,jdbcType=INTEGER},
+      STEP_SEQ = #{record.stepSeq,jdbcType=INTEGER},
+      STEP_NAME = #{record.stepName,jdbcType=VARCHAR},
+      TIMELIMIT_TYPE = #{record.timelimitType,jdbcType=TINYINT},
+      TIMELIMIT = #{record.timelimit,jdbcType=INTEGER},
+      EXECUTOR_TYPE = #{record.executorType,jdbcType=TINYINT},
+      EXECUTOR = #{record.executor,jdbcType=INTEGER},
+      EXECUTOR_NAME = #{record.executorName,jdbcType=VARCHAR},
+      EXECUTOR_ROLE = #{record.executorRole,jdbcType=VARCHAR},
+      WARN_TYPE = #{record.warnType,jdbcType=TINYINT},
+      WARNER = #{record.warner,jdbcType=INTEGER},
+      WARNER_NAME = #{record.warnerName,jdbcType=VARCHAR},
+      WARNER_ROLE = #{record.warnerRole,jdbcType=VARCHAR},
+      IS_SYSTEM = #{record.isSystem,jdbcType=TINYINT},
+      RPEVSTEP_ID = #{record.rpevstepId,jdbcType=INTEGER},
+      RPEVSTEP_NAME = #{record.rpevstepName,jdbcType=VARCHAR},
+      TIMELIMITDATE = #{record.timelimitdate,jdbcType=VARCHAR},
+      FLOWCONTENT = #{record.flowcontent,jdbcType=VARCHAR},
+      WARM_FLAG = #{record.warmFlag,jdbcType=TINYINT},
+      REMINDER_ID = #{record.reminderId,jdbcType=INTEGER},
+      REMINDER_NAME = #{record.reminderName,jdbcType=VARCHAR},
+      WARM_CONTENT = #{record.warmContent,jdbcType=VARCHAR},
+      WARN_TIME = #{record.warnTime,jdbcType=VARCHAR},
+      RUNSTEP_STATUS = #{record.runstepStatus,jdbcType=TINYINT},
+      UPDATE_USER = #{record.updateUser,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR},
+      UPDATE_USERNAME = #{record.updateUsername,jdbcType=VARCHAR},
+      DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      SEQ_SORT = #{record.seqSort,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpProcessRuntimeStep">
+    <!--@mbggenerated-->
+    update PROCESS_RUNTIME_STEP
+    <set>
+      <if test="dealId != null">
+        DEAL_ID = #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="stepId != null">
+        STEP_ID = #{stepId,jdbcType=INTEGER},
+      </if>
+      <if test="stepSeq != null">
+        STEP_SEQ = #{stepSeq,jdbcType=INTEGER},
+      </if>
+      <if test="stepName != null">
+        STEP_NAME = #{stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="timelimitType != null">
+        TIMELIMIT_TYPE = #{timelimitType,jdbcType=TINYINT},
+      </if>
+      <if test="timelimit != null">
+        TIMELIMIT = #{timelimit,jdbcType=INTEGER},
+      </if>
+      <if test="executorType != null">
+        EXECUTOR_TYPE = #{executorType,jdbcType=TINYINT},
+      </if>
+      <if test="executor != null">
+        EXECUTOR = #{executor,jdbcType=INTEGER},
+      </if>
+      <if test="executorName != null">
+        EXECUTOR_NAME = #{executorName,jdbcType=VARCHAR},
+      </if>
+      <if test="executorRole != null">
+        EXECUTOR_ROLE = #{executorRole,jdbcType=VARCHAR},
+      </if>
+      <if test="warnType != null">
+        WARN_TYPE = #{warnType,jdbcType=TINYINT},
+      </if>
+      <if test="warner != null">
+        WARNER = #{warner,jdbcType=INTEGER},
+      </if>
+      <if test="warnerName != null">
+        WARNER_NAME = #{warnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="warnerRole != null">
+        WARNER_ROLE = #{warnerRole,jdbcType=VARCHAR},
+      </if>
+      <if test="isSystem != null">
+        IS_SYSTEM = #{isSystem,jdbcType=TINYINT},
+      </if>
+      <if test="rpevstepId != null">
+        RPEVSTEP_ID = #{rpevstepId,jdbcType=INTEGER},
+      </if>
+      <if test="rpevstepName != null">
+        RPEVSTEP_NAME = #{rpevstepName,jdbcType=VARCHAR},
+      </if>
+      <if test="timelimitdate != null">
+        TIMELIMITDATE = #{timelimitdate,jdbcType=VARCHAR},
+      </if>
+      <if test="flowcontent != null">
+        FLOWCONTENT = #{flowcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="warmFlag != null">
+        WARM_FLAG = #{warmFlag,jdbcType=TINYINT},
+      </if>
+      <if test="reminderId != null">
+        REMINDER_ID = #{reminderId,jdbcType=INTEGER},
+      </if>
+      <if test="reminderName != null">
+        REMINDER_NAME = #{reminderName,jdbcType=VARCHAR},
+      </if>
+      <if test="warmContent != null">
+        WARM_CONTENT = #{warmContent,jdbcType=VARCHAR},
+      </if>
+      <if test="warnTime != null">
+        WARN_TIME = #{warnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="runstepStatus != null">
+        RUNSTEP_STATUS = #{runstepStatus,jdbcType=TINYINT},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUsername != null">
+        UPDATE_USERNAME = #{updateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG = #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="seqSort != null">
+        SEQ_SORT = #{seqSort,jdbcType=INTEGER},
+      </if>
+    </set>
+    where RUNSTEP_ID = #{runstepId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpProcessRuntimeStep">
+    <!--@mbggenerated-->
+    update PROCESS_RUNTIME_STEP
+    set DEAL_ID = #{dealId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      STEP_ID = #{stepId,jdbcType=INTEGER},
+      STEP_SEQ = #{stepSeq,jdbcType=INTEGER},
+      STEP_NAME = #{stepName,jdbcType=VARCHAR},
+      TIMELIMIT_TYPE = #{timelimitType,jdbcType=TINYINT},
+      TIMELIMIT = #{timelimit,jdbcType=INTEGER},
+      EXECUTOR_TYPE = #{executorType,jdbcType=TINYINT},
+      EXECUTOR = #{executor,jdbcType=INTEGER},
+      EXECUTOR_NAME = #{executorName,jdbcType=VARCHAR},
+      EXECUTOR_ROLE = #{executorRole,jdbcType=VARCHAR},
+      WARN_TYPE = #{warnType,jdbcType=TINYINT},
+      WARNER = #{warner,jdbcType=INTEGER},
+      WARNER_NAME = #{warnerName,jdbcType=VARCHAR},
+      WARNER_ROLE = #{warnerRole,jdbcType=VARCHAR},
+      IS_SYSTEM = #{isSystem,jdbcType=TINYINT},
+      RPEVSTEP_ID = #{rpevstepId,jdbcType=INTEGER},
+      RPEVSTEP_NAME = #{rpevstepName,jdbcType=VARCHAR},
+      TIMELIMITDATE = #{timelimitdate,jdbcType=VARCHAR},
+      FLOWCONTENT = #{flowcontent,jdbcType=VARCHAR},
+      WARM_FLAG = #{warmFlag,jdbcType=TINYINT},
+      REMINDER_ID = #{reminderId,jdbcType=INTEGER},
+      REMINDER_NAME = #{reminderName,jdbcType=VARCHAR},
+      WARM_CONTENT = #{warmContent,jdbcType=VARCHAR},
+      WARN_TIME = #{warnTime,jdbcType=VARCHAR},
+      RUNSTEP_STATUS = #{runstepStatus,jdbcType=TINYINT},
+      UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      UPDATE_USERNAME = #{updateUsername,jdbcType=VARCHAR},
+      DEL_FLAG = #{delFlag,jdbcType=TINYINT},
+      SEQ_SORT = #{seqSort,jdbcType=INTEGER}
+    where RUNSTEP_ID = #{runstepId,jdbcType=INTEGER}
+  </update>
+	<resultMap extends="BaseResultMap" id="exdBaseResultMap" type="com.myfun.erpWeb.managecenter.transaction.vo.ErpProcessRuntimeStepDto" />
+
+  <select id="getListData" resultMap="BaseResultMap">
+      select DEAL_ID,COUNT(1) as STEP_SEQ
+      from PROCESS_RUNTIME_STEP
+      where DEL_FLAG != 1  and DEAL_ID in
+      <foreach close=")" collection="repeatDealIds" item="dealId" open="(" separator=",">
+          #{dealId}
+      </foreach>
+      group by DEAL_ID
+  </select>
+
+	<update id="resetSeqForRuntimeStep">
+		UPDATE TEMPTABLE SET STEP_SEQ = ROWNUM FROM(
+		SELECT STEP_SEQ, ROW_NUMBER() OVER(ORDER BY STEP_SEQ ASC) ROWNUM FROM PROCESS_RUNTIME_STEP WHERE DEAL_ID=#{dealId} AND DEL_FLAG = 0
+		) TEMPTABLE
+	</update>
+
+	<select id="getUpdateUserList" resultType="java.lang.Integer">
+		select  DISTINCT UPDATE_USER from PROCESS_RUNTIME_STEP where DEAL_ID=#{dealId} and DEL_FLAG=0 and UPDATE_USER is not null
+	</select>
+
+	<update id="updateStepSeq">
+		UPDATE PROCESS_RUNTIME_STEP
+		SET STEP_SEQ = STEP_SEQ+1
+		WHERE DEAL_ID = #{dealId} AND DEL_FLAG = #{delFlag} AND STEP_SEQ &gt;= #{stepSeq}
+	</update>
+
+	<insert id="createProcessRuntimeStep">
+		INSERT INTO PROCESS_RUNTIME_STEP
+		(RUNSTEP_ID,DEAL_ID,COMP_ID,STEP_ID,STEP_SEQ,RUNSTEP_STATUS,STEP_NAME,TIMELIMIT_TYPE,TIMELIMIT,EXECUTOR_TYPE,
+		EXECUTOR,EXECUTOR_NAME,EXECUTOR_ROLE,WARN_TYPE,WARNER,WARNER_NAME,WARNER_ROLE,IS_SYSTEM,RPEVSTEP_ID,RPEVSTEP_NAME)
+		SELECT (NEXT VALUE FOR SEQ_PROCESS_RUNTIME_STEP_RUNSTEP_ID)
+		as RUNSTEP_ID,#{dealId} as DEAL_ID,b.COMP_ID as COMP_ID,b.STEP_ID,b.STEP_SEQ,1,
+		STEP_NAME,isnull(b.TIMELIMIT_TYPE, a.TIMELIMIT_TYPE) TIMELIMIT_TYPE,isnull(b.TIMELIMIT, a.TIMELIMIT) TIMELIMIT,EXECUTOR_TYPE,EXECUTOR,EXECUTOR_NAME,EXECUTOR_ROLE,WARN_TYPE,WARNER,WARNER_NAME,
+		WARNER_ROLE,IS_SYSTEM,isnull(b.RPEVSTEP_ID, a.RPEVSTEP_ID) RPEVSTEP_ID,isnull(b.RPEVSTEP_NAME, a.RPEVSTEP_NAME) RPEVSTEP_NAME FROM PROCESS_MODEL_STEP a LEFT JOIN MODEL_STEP_RELATE b
+		ON b.STEP_ID = a.STEP_ID WHERE b.MODEL_ID =  #{modelId}
+	</insert>
+	<select id="getMgrWarrantStepList" resultMap="exdBaseResultMap">
+		select <include refid="Base_Column_List" />
+		from PROCESS_RUNTIME_STEP WHERE  COMP_ID = #{compId} and DEL_FLAG =0 and DEAL_ID = #{dealId}
+		order by SEQ_SORT asc, STEP_SEQ asc
+	</select>
+  <select id="getMgrWarrantStepListByIds" resultMap="exdBaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM PROCESS_RUNTIME_STEP WHERE COMP_ID = #{compId} AND DEL_FLAG = 0
+    AND DEAL_ID IN
+    <foreach close=")" collection="ids" item="dealId" open="(" separator=",">
+      #{dealId}
+    </foreach>
+    ORDER BY DEAL_ID DESC, SEQ_SORT ASC, STEP_SEQ ASC
+  </select>
+  <resultMap id="RuntimeStepVOMap" type="com.myfun.erpWeb.managecenter.transaction.vo.RuntimeStepVO">
+    <id column="RUNSTEP_ID" jdbcType="INTEGER" property="runstepId" />
+    <result column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+    <result column="STEP_SEQ" jdbcType="INTEGER" property="stepSeq" />
+    <result column="STEP_NAME" jdbcType="VARCHAR" property="stepName" />
+    <result column="EXECUTOR" jdbcType="INTEGER" property="executor" />
+    <result column="EXECUTOR_NAME" jdbcType="VARCHAR" property="executorName" />
+    <result column="EXECUTOR_TYPE" jdbcType="TINYINT" property="executorType" />
+    <result column="RUNSTEP_STATUS" jdbcType="TINYINT" property="runstepStatus" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    <result column="UPDATE_USER" jdbcType="INTEGER" property="updateUser" />
+    <result column="UPDATE_USERNAME" jdbcType="VARCHAR" property="updateUsername" />
+  </resultMap>
+  <select id="getRuntimeStepListByDealIds" resultMap="RuntimeStepVOMap">
+	SELECT DEAL_ID,	RUNSTEP_ID,	STEP_SEQ, STEP_NAME, EXECUTOR, EXECUTOR_NAME, EXECUTOR_TYPE, RUNSTEP_STATUS, UPDATE_TIME, UPDATE_USER, UPDATE_USERNAME 
+	FROM PROCESS_RUNTIME_STEP WHERE COMP_ID = #{compId} AND DEL_FLAG = 0 
+	AND DEAL_ID IN 
+	<foreach close=")" collection="dealIdList" item="dealId" open="(" separator=",">
+      #{dealId}
+    </foreach>
+	ORDER BY DEAL_ID, STEP_SEQ 
+  </select>
+  <select id="getNextRuntimeStep" resultMap="BaseResultMap">
+    select top 1 RUNSTEP_ID, RUNSTEP_STATUS from PROCESS_RUNTIME_STEP where DEAL_ID = #{dealId}
+    and STEP_SEQ>#{stepSeq} AND DEL_FLAG = 0
+  </select>
+  <select id="getBeforeRuntimeStep" resultMap="BaseResultMap">
+    select top 1 RUNSTEP_ID, RUNSTEP_STATUS,TIMELIMITDATE from PROCESS_RUNTIME_STEP where DEAL_ID = #{dealId}
+    and STEP_SEQ &lt; #{stepSeq} AND DEL_FLAG = 0
+    order by STEP_SEQ DESC
+  </select>
+</mapper>

@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunNatureTempletMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunNatureTemplet">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="TAX_NAME" jdbcType="VARCHAR" property="taxName" />
+    <result column="FUN_NATURE" jdbcType="TINYINT" property="funNature" />
+    <result column="BUY_NATURE" jdbcType="TINYINT" property="buyNature" />
+    <result column="YEAR_NATURE" jdbcType="TINYINT" property="yearNature" />
+    <result column="QS_RATE" jdbcType="NUMERIC" property="qsRate" />
+    <result column="YH_RATE" jdbcType="NUMERIC" property="yhRate" />
+    <result column="TRADE_FEE" jdbcType="NUMERIC" property="tradeFee" />
+    <result column="ZZS_TYPE" jdbcType="TINYINT" property="zzsType" />
+    <result column="ZZS_RATE" jdbcType="NUMERIC" property="zzsRate" />
+    <result column="GS_TYPE" jdbcType="TINYINT" property="gsType" />
+    <result column="GS_RATE" jdbcType="NUMERIC" property="gsRate" />
+    <result column="SERVER_TYPE" jdbcType="TINYINT" property="serverType" />
+    <result column="SERVER_FEE" jdbcType="NUMERIC" property="serverFee" />
+    <result column="REG_FEE" jdbcType="NUMERIC" property="regFee" />
+    <result column="TRANSFER_FEE" jdbcType="NUMERIC" property="transferFee" />
+    <result column="LAND_CARD_FEE" jdbcType="NUMERIC" property="landCardFee" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="EXT_PARAM" jdbcType="VARCHAR" property="extParam" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, TAX_NAME, FUN_NATURE, BUY_NATURE, YEAR_NATURE, QS_RATE, YH_RATE, TRADE_FEE, ZZS_TYPE, 
+    ZZS_RATE, GS_TYPE, GS_RATE, SERVER_TYPE, SERVER_FEE, REG_FEE, TRANSFER_FEE, LAND_CARD_FEE, 
+    CREATE_TIME, COMP_ID, DEPT_ID, EXT_PARAM
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunNatureTempletExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_NATURE_TEMPLET
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_NATURE_TEMPLET
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_NATURE_TEMPLET
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunNatureTempletExample">
+    <!--@mbggenerated-->
+    delete from FUN_NATURE_TEMPLET
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunNatureTemplet" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_NATURE_TEMPLET (TAX_NAME, FUN_NATURE, BUY_NATURE, 
+      YEAR_NATURE, QS_RATE, YH_RATE, 
+      TRADE_FEE, ZZS_TYPE, ZZS_RATE, 
+      GS_TYPE, GS_RATE, SERVER_TYPE, 
+      SERVER_FEE, REG_FEE, TRANSFER_FEE, 
+      LAND_CARD_FEE, CREATE_TIME, COMP_ID, 
+      DEPT_ID, EXT_PARAM)
+    values (#{taxName,jdbcType=VARCHAR}, #{funNature,jdbcType=TINYINT}, #{buyNature,jdbcType=TINYINT}, 
+      #{yearNature,jdbcType=TINYINT}, #{qsRate,jdbcType=NUMERIC}, #{yhRate,jdbcType=NUMERIC}, 
+      #{tradeFee,jdbcType=NUMERIC}, #{zzsType,jdbcType=TINYINT}, #{zzsRate,jdbcType=NUMERIC}, 
+      #{gsType,jdbcType=TINYINT}, #{gsRate,jdbcType=NUMERIC}, #{serverType,jdbcType=TINYINT}, 
+      #{serverFee,jdbcType=NUMERIC}, #{regFee,jdbcType=NUMERIC}, #{transferFee,jdbcType=NUMERIC}, 
+      #{landCardFee,jdbcType=NUMERIC}, #{createTime,jdbcType=TIMESTAMP}, #{compId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{extParam,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunNatureTemplet" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_NATURE_TEMPLET
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taxName != null">
+        TAX_NAME,
+      </if>
+      <if test="funNature != null">
+        FUN_NATURE,
+      </if>
+      <if test="buyNature != null">
+        BUY_NATURE,
+      </if>
+      <if test="yearNature != null">
+        YEAR_NATURE,
+      </if>
+      <if test="qsRate != null">
+        QS_RATE,
+      </if>
+      <if test="yhRate != null">
+        YH_RATE,
+      </if>
+      <if test="tradeFee != null">
+        TRADE_FEE,
+      </if>
+      <if test="zzsType != null">
+        ZZS_TYPE,
+      </if>
+      <if test="zzsRate != null">
+        ZZS_RATE,
+      </if>
+      <if test="gsType != null">
+        GS_TYPE,
+      </if>
+      <if test="gsRate != null">
+        GS_RATE,
+      </if>
+      <if test="serverType != null">
+        SERVER_TYPE,
+      </if>
+      <if test="serverFee != null">
+        SERVER_FEE,
+      </if>
+      <if test="regFee != null">
+        REG_FEE,
+      </if>
+      <if test="transferFee != null">
+        TRANSFER_FEE,
+      </if>
+      <if test="landCardFee != null">
+        LAND_CARD_FEE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="extParam != null">
+        EXT_PARAM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taxName != null">
+        #{taxName,jdbcType=VARCHAR},
+      </if>
+      <if test="funNature != null">
+        #{funNature,jdbcType=TINYINT},
+      </if>
+      <if test="buyNature != null">
+        #{buyNature,jdbcType=TINYINT},
+      </if>
+      <if test="yearNature != null">
+        #{yearNature,jdbcType=TINYINT},
+      </if>
+      <if test="qsRate != null">
+        #{qsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="yhRate != null">
+        #{yhRate,jdbcType=NUMERIC},
+      </if>
+      <if test="tradeFee != null">
+        #{tradeFee,jdbcType=NUMERIC},
+      </if>
+      <if test="zzsType != null">
+        #{zzsType,jdbcType=TINYINT},
+      </if>
+      <if test="zzsRate != null">
+        #{zzsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="gsType != null">
+        #{gsType,jdbcType=TINYINT},
+      </if>
+      <if test="gsRate != null">
+        #{gsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="serverType != null">
+        #{serverType,jdbcType=TINYINT},
+      </if>
+      <if test="serverFee != null">
+        #{serverFee,jdbcType=NUMERIC},
+      </if>
+      <if test="regFee != null">
+        #{regFee,jdbcType=NUMERIC},
+      </if>
+      <if test="transferFee != null">
+        #{transferFee,jdbcType=NUMERIC},
+      </if>
+      <if test="landCardFee != null">
+        #{landCardFee,jdbcType=NUMERIC},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="extParam != null">
+        #{extParam,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunNatureTempletExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_NATURE_TEMPLET
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_NATURE_TEMPLET
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxName != null">
+        TAX_NAME = #{record.taxName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.funNature != null">
+        FUN_NATURE = #{record.funNature,jdbcType=TINYINT},
+      </if>
+      <if test="record.buyNature != null">
+        BUY_NATURE = #{record.buyNature,jdbcType=TINYINT},
+      </if>
+      <if test="record.yearNature != null">
+        YEAR_NATURE = #{record.yearNature,jdbcType=TINYINT},
+      </if>
+      <if test="record.qsRate != null">
+        QS_RATE = #{record.qsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.yhRate != null">
+        YH_RATE = #{record.yhRate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.tradeFee != null">
+        TRADE_FEE = #{record.tradeFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.zzsType != null">
+        ZZS_TYPE = #{record.zzsType,jdbcType=TINYINT},
+      </if>
+      <if test="record.zzsRate != null">
+        ZZS_RATE = #{record.zzsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.gsType != null">
+        GS_TYPE = #{record.gsType,jdbcType=TINYINT},
+      </if>
+      <if test="record.gsRate != null">
+        GS_RATE = #{record.gsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.serverType != null">
+        SERVER_TYPE = #{record.serverType,jdbcType=TINYINT},
+      </if>
+      <if test="record.serverFee != null">
+        SERVER_FEE = #{record.serverFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.regFee != null">
+        REG_FEE = #{record.regFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.transferFee != null">
+        TRANSFER_FEE = #{record.transferFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.landCardFee != null">
+        LAND_CARD_FEE = #{record.landCardFee,jdbcType=NUMERIC},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.extParam != null">
+        EXT_PARAM = #{record.extParam,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_NATURE_TEMPLET
+    set ID = #{record.id,jdbcType=INTEGER},
+      TAX_NAME = #{record.taxName,jdbcType=VARCHAR},
+      FUN_NATURE = #{record.funNature,jdbcType=TINYINT},
+      BUY_NATURE = #{record.buyNature,jdbcType=TINYINT},
+      YEAR_NATURE = #{record.yearNature,jdbcType=TINYINT},
+      QS_RATE = #{record.qsRate,jdbcType=NUMERIC},
+      YH_RATE = #{record.yhRate,jdbcType=NUMERIC},
+      TRADE_FEE = #{record.tradeFee,jdbcType=NUMERIC},
+      ZZS_TYPE = #{record.zzsType,jdbcType=TINYINT},
+      ZZS_RATE = #{record.zzsRate,jdbcType=NUMERIC},
+      GS_TYPE = #{record.gsType,jdbcType=TINYINT},
+      GS_RATE = #{record.gsRate,jdbcType=NUMERIC},
+      SERVER_TYPE = #{record.serverType,jdbcType=TINYINT},
+      SERVER_FEE = #{record.serverFee,jdbcType=NUMERIC},
+      REG_FEE = #{record.regFee,jdbcType=NUMERIC},
+      TRANSFER_FEE = #{record.transferFee,jdbcType=NUMERIC},
+      LAND_CARD_FEE = #{record.landCardFee,jdbcType=NUMERIC},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      EXT_PARAM = #{record.extParam,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunNatureTemplet">
+    <!--@mbggenerated-->
+    update FUN_NATURE_TEMPLET
+    <set>
+      <if test="taxName != null">
+        TAX_NAME = #{taxName,jdbcType=VARCHAR},
+      </if>
+      <if test="funNature != null">
+        FUN_NATURE = #{funNature,jdbcType=TINYINT},
+      </if>
+      <if test="buyNature != null">
+        BUY_NATURE = #{buyNature,jdbcType=TINYINT},
+      </if>
+      <if test="yearNature != null">
+        YEAR_NATURE = #{yearNature,jdbcType=TINYINT},
+      </if>
+      <if test="qsRate != null">
+        QS_RATE = #{qsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="yhRate != null">
+        YH_RATE = #{yhRate,jdbcType=NUMERIC},
+      </if>
+      <if test="tradeFee != null">
+        TRADE_FEE = #{tradeFee,jdbcType=NUMERIC},
+      </if>
+      <if test="zzsType != null">
+        ZZS_TYPE = #{zzsType,jdbcType=TINYINT},
+      </if>
+      <if test="zzsRate != null">
+        ZZS_RATE = #{zzsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="gsType != null">
+        GS_TYPE = #{gsType,jdbcType=TINYINT},
+      </if>
+      <if test="gsRate != null">
+        GS_RATE = #{gsRate,jdbcType=NUMERIC},
+      </if>
+      <if test="serverType != null">
+        SERVER_TYPE = #{serverType,jdbcType=TINYINT},
+      </if>
+      <if test="serverFee != null">
+        SERVER_FEE = #{serverFee,jdbcType=NUMERIC},
+      </if>
+      <if test="regFee != null">
+        REG_FEE = #{regFee,jdbcType=NUMERIC},
+      </if>
+      <if test="transferFee != null">
+        TRANSFER_FEE = #{transferFee,jdbcType=NUMERIC},
+      </if>
+      <if test="landCardFee != null">
+        LAND_CARD_FEE = #{landCardFee,jdbcType=NUMERIC},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="extParam != null">
+        EXT_PARAM = #{extParam,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunNatureTemplet">
+    <!--@mbggenerated-->
+    update FUN_NATURE_TEMPLET
+    set TAX_NAME = #{taxName,jdbcType=VARCHAR},
+      FUN_NATURE = #{funNature,jdbcType=TINYINT},
+      BUY_NATURE = #{buyNature,jdbcType=TINYINT},
+      YEAR_NATURE = #{yearNature,jdbcType=TINYINT},
+      QS_RATE = #{qsRate,jdbcType=NUMERIC},
+      YH_RATE = #{yhRate,jdbcType=NUMERIC},
+      TRADE_FEE = #{tradeFee,jdbcType=NUMERIC},
+      ZZS_TYPE = #{zzsType,jdbcType=TINYINT},
+      ZZS_RATE = #{zzsRate,jdbcType=NUMERIC},
+      GS_TYPE = #{gsType,jdbcType=TINYINT},
+      GS_RATE = #{gsRate,jdbcType=NUMERIC},
+      SERVER_TYPE = #{serverType,jdbcType=TINYINT},
+      SERVER_FEE = #{serverFee,jdbcType=NUMERIC},
+      REG_FEE = #{regFee,jdbcType=NUMERIC},
+      TRANSFER_FEE = #{transferFee,jdbcType=NUMERIC},
+      LAND_CARD_FEE = #{landCardFee,jdbcType=NUMERIC},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      EXT_PARAM = #{extParam,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

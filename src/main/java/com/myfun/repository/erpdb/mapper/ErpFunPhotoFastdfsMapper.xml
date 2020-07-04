@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunPhotoFastdfsMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunPhotoFastdfs">
+    <!--@mbggenerated-->
+    <id column="PHOTO_ID" jdbcType="INTEGER" property="photoId" />
+    <result column="PHOTO_ADDR" jdbcType="VARCHAR" property="photoAddr" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="OLD_ADDR" jdbcType="VARCHAR" property="oldAddr" />
+    <result column="IS_DEAL" jdbcType="TINYINT" property="isDeal" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PHOTO_ID, PHOTO_ADDR, CREATION_TIME, OLD_ADDR, IS_DEAL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PHOTO_FASTDFS
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_PHOTO_FASTDFS
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunPhotoFastdfs">
+    <!--@mbggenerated-->
+    insert into FUN_PHOTO_FASTDFS (PHOTO_ID, PHOTO_ADDR, CREATION_TIME, 
+      OLD_ADDR, IS_DEAL)
+    values (#{photoId,jdbcType=INTEGER}, #{photoAddr,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{oldAddr,jdbcType=VARCHAR}, #{isDeal,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPhotoFastdfs">
+    <!--@mbggenerated-->
+    insert into FUN_PHOTO_FASTDFS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="photoId != null">
+        PHOTO_ID,
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="oldAddr != null">
+        OLD_ADDR,
+      </if>
+      <if test="isDeal != null">
+        IS_DEAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="photoId != null">
+        #{photoId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null">
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldAddr != null">
+        #{oldAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeal != null">
+        #{isDeal,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPhotoFastdfs">
+    <!--@mbggenerated-->
+    update FUN_PHOTO_FASTDFS
+    <set>
+      <if test="photoAddr != null">
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldAddr != null">
+        OLD_ADDR = #{oldAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeal != null">
+        IS_DEAL = #{isDeal,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunPhotoFastdfs">
+    <!--@mbggenerated-->
+    update FUN_PHOTO_FASTDFS
+    set PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      OLD_ADDR = #{oldAddr,jdbcType=VARCHAR},
+      IS_DEAL = #{isDeal,jdbcType=TINYINT}
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+
+	<select id="selectLastPhotoId" resultType="java.lang.Integer">
+		select top 1 PHOTO_ID
+		from FUN_PHOTO_FASTDFS order by PHOTO_ID asc
+	</select>
+
+	<insert id="insertList" parameterType="com.myfun.repository.erpdb.po.ErpFunPhotoFastdfs">
+		INSERT INTO FUN_PHOTO_FASTDFS
+		(PHOTO_ID, PHOTO_ADDR, CREATION_TIME, OLD_ADDR)
+		VALUES
+		<foreach collection="photoList" item="item" separator=",">
+			(#{item.photoId},#{item.photoAddr},#{item.creationTime},#{item.oldAddr})
+		</foreach>
+	</insert>
+
+	<update id="updatePhotoAddrForList" parameterType="com.myfun.repository.erpdb.po.ErpFunPhotoFastdfs">
+		<foreach collection="photoList" item="item" separator=";">
+			update FUN_PHOTO_FASTDFS
+			set PHOTO_ADDR=#{item.photoAddr}
+			where PHOTO_ID = #{item.photoId}
+		</foreach>
+	</update>
+	
+	<select id="dealCopyFunPhotoWhosError" resultMap="BaseResultMap">
+		select top 500 PHOTO_ID,OLD_ADDR from FUN_PHOTO_FASTDFS 
+		where photo_id&lt;6836500 and photo_id&gt;6834000 and photo_addr is null order by photo_id desc
+	</select>
+	
+</mapper>

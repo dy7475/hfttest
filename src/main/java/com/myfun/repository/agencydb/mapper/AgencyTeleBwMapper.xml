@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyTeleBwMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyTeleBw" >
+    <!--@mbggenerated-->
+    <id column="BW_ID" property="bwId" jdbcType="INTEGER" />
+    <result column="CUST_ID" property="custId" jdbcType="INTEGER" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="BWTYPE" property="bwtype" jdbcType="TINYINT" />
+    <result column="IFWHITE" property="ifwhite" jdbcType="TINYINT" />
+    <result column="STATUS" property="status" jdbcType="TINYINT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    BW_ID, CUST_ID, CODE, BWTYPE, IFWHITE, STATUS, CREATION_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TELE_BW
+    where BW_ID = #{bwId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from TELE_BW
+    where BW_ID = #{bwId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyTeleBw" >
+    <!--@mbggenerated-->
+    insert into TELE_BW (BW_ID, CUST_ID, CODE, 
+      BWTYPE, IFWHITE, STATUS, 
+      CREATION_TIME, UPDATE_TIME)
+    values (#{bwId,jdbcType=INTEGER}, #{custId,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
+      #{bwtype,jdbcType=TINYINT}, #{ifwhite,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyTeleBw" >
+    <!--@mbggenerated-->
+    insert into TELE_BW
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bwId != null" >
+        BW_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="bwtype != null" >
+        BWTYPE,
+      </if>
+      <if test="ifwhite != null" >
+        IFWHITE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bwId != null" >
+        #{bwId,jdbcType=INTEGER},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="bwtype != null" >
+        #{bwtype,jdbcType=TINYINT},
+      </if>
+      <if test="ifwhite != null" >
+        #{ifwhite,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyTeleBw" >
+    <!--@mbggenerated-->
+    update TELE_BW
+    <set >
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="bwtype != null" >
+        BWTYPE = #{bwtype,jdbcType=TINYINT},
+      </if>
+      <if test="ifwhite != null" >
+        IFWHITE = #{ifwhite,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BW_ID = #{bwId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyTeleBw" >
+    <!--@mbggenerated-->
+    update TELE_BW
+    set CUST_ID = #{custId,jdbcType=INTEGER},
+      CODE = #{code,jdbcType=VARCHAR},
+      BWTYPE = #{bwtype,jdbcType=TINYINT},
+      IFWHITE = #{ifwhite,jdbcType=TINYINT},
+      STATUS = #{status,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where BW_ID = #{bwId,jdbcType=INTEGER}
+  </update>
+</mapper>

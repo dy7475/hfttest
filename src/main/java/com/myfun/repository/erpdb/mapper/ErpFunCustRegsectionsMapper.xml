@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunCustRegsectionsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunCustRegsections" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="SOURCE_ID" property="sourceId" jdbcType="INTEGER" />
+    <result column="SOURCE_TYPE" property="sourceType" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, COMP_ID, CASE_ID, CASE_TYPE, SOURCE_ID, SOURCE_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_CUST_REGSECTIONS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_CUST_REGSECTIONS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunCustRegsections" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_CUST_REGSECTIONS (ID, COMP_ID, CASE_ID, 
+      CASE_TYPE, SOURCE_ID, SOURCE_TYPE
+      )
+    values (#{id,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, 
+      #{caseType,jdbcType=TINYINT}, #{sourceId,jdbcType=INTEGER}, #{sourceType,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunCustRegsections" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_CUST_REGSECTIONS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="sourceId != null" >
+        SOURCE_ID,
+      </if>
+      <if test="sourceType != null" >
+        SOURCE_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="sourceId != null" >
+        #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceType != null" >
+        #{sourceType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunCustRegsections" >
+    <!--@mbggenerated-->
+    update FUN_CUST_REGSECTIONS
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="sourceId != null" >
+        SOURCE_ID = #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceType != null" >
+        SOURCE_TYPE = #{sourceType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunCustRegsections" >
+    <!--@mbggenerated-->
+    update FUN_CUST_REGSECTIONS
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      SOURCE_ID = #{sourceId,jdbcType=INTEGER},
+      SOURCE_TYPE = #{sourceType,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getBuildSupplyDemandComparisonForBuy" resultType="java.util.Map" >
+	select top 15 c.SECTION_ID sectionId,c.SECTION_NAME sectionName,count(1) sectionCustCount from FUN_CUST_REGSECTIONS a
+	join FUN_BUY_CUSTOMER b on b.BUY_CUST_ID=a.CASE_ID
+	join FUN_SECTION c on c.SECTION_id=a.SOURCE_ID
+	where a.SOURCE_TYPE = 1 and a.CASE_TYPE = 3
+	AND b.${param.serchRange}=#{param.serchRangeId}<!-- 搜索范围 -->
+	<if test="param.statusType == 1">AND b.BUY_CUST_STATUS IN (1,2,4)</if><!-- 有效 -->
+	AND b.COMP_ID = #{param.compId}
+	group by c.SECTION_ID,c.SECTION_NAME
+	order by count(1) desc
+  </select>
+  <select id="getBuildSupplyDemandComparisonForRent" resultType="java.util.Map" >
+	select top 15 c.SECTION_ID sectionId,c.SECTION_NAME sectionName,count(1) sectionCustCount from FUN_CUST_REGSECTIONS a
+	join FUN_RENT_CUSTOMER b on b.RENT_CUST_ID=a.CASE_ID
+	join FUN_SECTION c on c.SECTION_id=a.SOURCE_ID
+	where a.SOURCE_TYPE = 1 and a.CASE_TYPE = 4
+	AND b.${param.serchRange}=#{param.serchRangeId}<!-- 搜索范围 -->
+	<if test="param.statusType == 1">AND b.RENT_CUST_STATUS IN (1,2,4)</if><!-- 有效 -->
+	AND b.COMP_ID = #{param.compId}
+	group by c.SECTION_ID,c.SECTION_NAME
+	order by count(1) desc
+  </select>
+
+	<select id="selectCustSectionIdsByRegionIds" resultType="java.util.Map">
+		with T_REG_SECTION
+		as(SELECT SOURCE_ID,SOURCE_TYPE from FUN_CUST_REGSECTIONS WHERE COMP_ID = #{compId} AND CASE_TYPE = #{caseType} AND CASE_ID = #{caseId} )
+		select CONCAT(A.REG_ID,'_',B.SOURCE_ID) as REG_SECTION,B.SOURCE_ID
+		from FUN_SECTION A left join T_REG_SECTION B ON A.SECTION_ID=B.SOURCE_ID and B.SOURCE_TYPE = 1 where A.REG_ID in
+		<foreach collection="regionIdList" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		GROUP BY CONCAT(A.REG_ID,'_',B.SOURCE_ID),B.SOURCE_ID order by CASE WHEN B.SOURCE_ID is null THEN 300 WHEN B.SOURCE_ID>0 THEN 200 END
+	</select>
+</mapper>

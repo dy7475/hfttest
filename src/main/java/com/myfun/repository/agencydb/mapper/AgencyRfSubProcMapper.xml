@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRfSubProcMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRfSubProc" >
+    <!--@mbggenerated-->
+    <id column="SUB_ID" property="subId" jdbcType="INTEGER" />
+    <result column="SUB_NAME" property="subName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    SUB_ID, SUB_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RF_SUB_PROC
+    where SUB_ID = #{subId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RF_SUB_PROC
+    where SUB_ID = #{subId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRfSubProc" >
+    <!--@mbggenerated-->
+    insert into RF_SUB_PROC (SUB_ID, SUB_NAME)
+    values (#{subId,jdbcType=INTEGER}, #{subName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfSubProc" >
+    <!--@mbggenerated-->
+    insert into RF_SUB_PROC
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="subId != null" >
+        SUB_ID,
+      </if>
+      <if test="subName != null" >
+        SUB_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="subId != null" >
+        #{subId,jdbcType=INTEGER},
+      </if>
+      <if test="subName != null" >
+        #{subName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfSubProc" >
+    <!--@mbggenerated-->
+    update RF_SUB_PROC
+    <set >
+      <if test="subName != null" >
+        SUB_NAME = #{subName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SUB_ID = #{subId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRfSubProc" >
+    <!--@mbggenerated-->
+    update RF_SUB_PROC
+    set SUB_NAME = #{subName,jdbcType=VARCHAR}
+    where SUB_ID = #{subId,jdbcType=INTEGER}
+  </update>
+</mapper>

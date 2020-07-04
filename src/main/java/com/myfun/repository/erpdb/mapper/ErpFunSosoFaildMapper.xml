@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunSosoFaildMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunSosoFaild">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="TYPE" jdbcType="INTEGER" property="type" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="REG_NAME" jdbcType="VARCHAR" property="regName" />
+    <result column="USEAGE" jdbcType="VARCHAR" property="useage" />
+    <result column="ROOM_1" jdbcType="VARCHAR" property="room1" />
+    <result column="ROOM_2" jdbcType="VARCHAR" property="room2" />
+    <result column="AREA_1" jdbcType="VARCHAR" property="area1" />
+    <result column="AREA_2" jdbcType="VARCHAR" property="area2" />
+    <result column="PRICE_1" jdbcType="VARCHAR" property="price1" />
+    <result column="PRICE_2" jdbcType="VARCHAR" property="price2" />
+    <result column="FAILD_TIME" jdbcType="VARCHAR" property="faildTime" />
+    <result column="CONTONT" jdbcType="VARCHAR" property="contont" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, USER_ID, TYPE, CITY_ID, REG_NAME, USEAGE, ROOM_1, ROOM_2, AREA_1, AREA_2, PRICE_1, 
+    PRICE_2, FAILD_TIME, CONTONT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_SOSO_FAILD
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_SOSO_FAILD
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunSosoFaild">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_SOSO_FAILD (USER_ID, TYPE, CITY_ID, 
+      REG_NAME, USEAGE, ROOM_1, 
+      ROOM_2, AREA_1, AREA_2, 
+      PRICE_1, PRICE_2, FAILD_TIME, 
+      CONTONT)
+    values (#{userId,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{regName,jdbcType=VARCHAR}, #{useage,jdbcType=VARCHAR}, #{room1,jdbcType=VARCHAR}, 
+      #{room2,jdbcType=VARCHAR}, #{area1,jdbcType=VARCHAR}, #{area2,jdbcType=VARCHAR}, 
+      #{price1,jdbcType=VARCHAR}, #{price2,jdbcType=VARCHAR}, #{faildTime,jdbcType=VARCHAR}, 
+      #{contont,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSosoFaild">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_SOSO_FAILD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="regName != null">
+        REG_NAME,
+      </if>
+      <if test="useage != null">
+        USEAGE,
+      </if>
+      <if test="room1 != null">
+        ROOM_1,
+      </if>
+      <if test="room2 != null">
+        ROOM_2,
+      </if>
+      <if test="area1 != null">
+        AREA_1,
+      </if>
+      <if test="area2 != null">
+        AREA_2,
+      </if>
+      <if test="price1 != null">
+        PRICE_1,
+      </if>
+      <if test="price2 != null">
+        PRICE_2,
+      </if>
+      <if test="faildTime != null">
+        FAILD_TIME,
+      </if>
+      <if test="contont != null">
+        CONTONT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regName != null">
+        #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="useage != null">
+        #{useage,jdbcType=VARCHAR},
+      </if>
+      <if test="room1 != null">
+        #{room1,jdbcType=VARCHAR},
+      </if>
+      <if test="room2 != null">
+        #{room2,jdbcType=VARCHAR},
+      </if>
+      <if test="area1 != null">
+        #{area1,jdbcType=VARCHAR},
+      </if>
+      <if test="area2 != null">
+        #{area2,jdbcType=VARCHAR},
+      </if>
+      <if test="price1 != null">
+        #{price1,jdbcType=VARCHAR},
+      </if>
+      <if test="price2 != null">
+        #{price2,jdbcType=VARCHAR},
+      </if>
+      <if test="faildTime != null">
+        #{faildTime,jdbcType=VARCHAR},
+      </if>
+      <if test="contont != null">
+        #{contont,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunSosoFaild">
+    <!--@mbggenerated-->
+    update FUN_SOSO_FAILD
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regName != null">
+        REG_NAME = #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="useage != null">
+        USEAGE = #{useage,jdbcType=VARCHAR},
+      </if>
+      <if test="room1 != null">
+        ROOM_1 = #{room1,jdbcType=VARCHAR},
+      </if>
+      <if test="room2 != null">
+        ROOM_2 = #{room2,jdbcType=VARCHAR},
+      </if>
+      <if test="area1 != null">
+        AREA_1 = #{area1,jdbcType=VARCHAR},
+      </if>
+      <if test="area2 != null">
+        AREA_2 = #{area2,jdbcType=VARCHAR},
+      </if>
+      <if test="price1 != null">
+        PRICE_1 = #{price1,jdbcType=VARCHAR},
+      </if>
+      <if test="price2 != null">
+        PRICE_2 = #{price2,jdbcType=VARCHAR},
+      </if>
+      <if test="faildTime != null">
+        FAILD_TIME = #{faildTime,jdbcType=VARCHAR},
+      </if>
+      <if test="contont != null">
+        CONTONT = #{contont,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunSosoFaild">
+    <!--@mbggenerated-->
+    update FUN_SOSO_FAILD
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      REG_NAME = #{regName,jdbcType=VARCHAR},
+      USEAGE = #{useage,jdbcType=VARCHAR},
+      ROOM_1 = #{room1,jdbcType=VARCHAR},
+      ROOM_2 = #{room2,jdbcType=VARCHAR},
+      AREA_1 = #{area1,jdbcType=VARCHAR},
+      AREA_2 = #{area2,jdbcType=VARCHAR},
+      PRICE_1 = #{price1,jdbcType=VARCHAR},
+      PRICE_2 = #{price2,jdbcType=VARCHAR},
+      FAILD_TIME = #{faildTime,jdbcType=VARCHAR},
+      CONTONT = #{contont,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

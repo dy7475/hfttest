@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpWdIntentionCustomerMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpWdIntentionCustomer">
+    <!--@mbggenerated-->
+    <id column="INTENTION_ID" jdbcType="INTEGER" property="intentionId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="REGION_ID" jdbcType="INTEGER" property="regionId" />
+    <result column="REGION_NAME" jdbcType="VARCHAR" property="regionName" />
+    <result column="SECTORS" jdbcType="VARCHAR" property="sectors" />
+    <result column="SECTORS_NAME" jdbcType="VARCHAR" property="sectorsName" />
+    <result column="PRICE_LOWEST" jdbcType="NUMERIC" property="priceLowest" />
+    <result column="PRICE_HIGHEST" jdbcType="NUMERIC" property="priceHighest" />
+    <result column="ROOM" jdbcType="TINYINT" property="room" />
+    <result column="TAGS" jdbcType="VARCHAR" property="tags" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="DESC" jdbcType="VARCHAR" property="desc" />
+    <result column="TYPE" jdbcType="TINYINT" property="type" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="STATUS" jdbcType="TINYINT" property="status" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    INTENTION_ID, CITY_ID, REGION_ID, REGION_NAME, SECTORS, SECTORS_NAME, PRICE_LOWEST, 
+    PRICE_HIGHEST, ROOM, TAGS, USER_MOBILE, DESC, TYPE, ARCHIVE_ID, STATUS, CREATION_TIME, 
+    CUST_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WD_INTENTION_CUSTOMER
+    where INTENTION_ID = #{intentionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from WD_INTENTION_CUSTOMER
+    where INTENTION_ID = #{intentionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpWdIntentionCustomer">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="intentionId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WD_INTENTION_CUSTOMER (CITY_ID, REGION_ID, REGION_NAME, 
+      SECTORS, SECTORS_NAME, PRICE_LOWEST, 
+      PRICE_HIGHEST, ROOM, TAGS, 
+      USER_MOBILE, DESC, TYPE, 
+      ARCHIVE_ID, STATUS, CREATION_TIME, 
+      CUST_NAME)
+    values (#{cityId,jdbcType=INTEGER}, #{regionId,jdbcType=INTEGER}, #{regionName,jdbcType=VARCHAR}, 
+      #{sectors,jdbcType=VARCHAR}, #{sectorsName,jdbcType=VARCHAR}, #{priceLowest,jdbcType=NUMERIC}, 
+      #{priceHighest,jdbcType=NUMERIC}, #{room,jdbcType=TINYINT}, #{tags,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{archiveId,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{custName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpWdIntentionCustomer">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="intentionId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WD_INTENTION_CUSTOMER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="regionId != null">
+        REGION_ID,
+      </if>
+      <if test="regionName != null">
+        REGION_NAME,
+      </if>
+      <if test="sectors != null">
+        SECTORS,
+      </if>
+      <if test="sectorsName != null">
+        SECTORS_NAME,
+      </if>
+      <if test="priceLowest != null">
+        PRICE_LOWEST,
+      </if>
+      <if test="priceHighest != null">
+        PRICE_HIGHEST,
+      </if>
+      <if test="room != null">
+        ROOM,
+      </if>
+      <if test="tags != null">
+        TAGS,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+      <if test="desc != null">
+        DESC,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionName != null">
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectors != null">
+        #{sectors,jdbcType=VARCHAR},
+      </if>
+      <if test="sectorsName != null">
+        #{sectorsName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceLowest != null">
+        #{priceLowest,jdbcType=NUMERIC},
+      </if>
+      <if test="priceHighest != null">
+        #{priceHighest,jdbcType=NUMERIC},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=TINYINT},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpWdIntentionCustomer">
+    <!--@mbggenerated-->
+    update WD_INTENTION_CUSTOMER
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        REGION_ID = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="regionName != null">
+        REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectors != null">
+        SECTORS = #{sectors,jdbcType=VARCHAR},
+      </if>
+      <if test="sectorsName != null">
+        SECTORS_NAME = #{sectorsName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceLowest != null">
+        PRICE_LOWEST = #{priceLowest,jdbcType=NUMERIC},
+      </if>
+      <if test="priceHighest != null">
+        PRICE_HIGHEST = #{priceHighest,jdbcType=NUMERIC},
+      </if>
+      <if test="room != null">
+        ROOM = #{room,jdbcType=TINYINT},
+      </if>
+      <if test="tags != null">
+        TAGS = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INTENTION_ID = #{intentionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpWdIntentionCustomer">
+    <!--@mbggenerated-->
+    update WD_INTENTION_CUSTOMER
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      REGION_ID = #{regionId,jdbcType=INTEGER},
+      REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      SECTORS = #{sectors,jdbcType=VARCHAR},
+      SECTORS_NAME = #{sectorsName,jdbcType=VARCHAR},
+      PRICE_LOWEST = #{priceLowest,jdbcType=NUMERIC},
+      PRICE_HIGHEST = #{priceHighest,jdbcType=NUMERIC},
+      ROOM = #{room,jdbcType=TINYINT},
+      TAGS = #{tags,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      DESC = #{desc,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=TINYINT},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CUST_NAME = #{custName,jdbcType=VARCHAR}
+    where INTENTION_ID = #{intentionId,jdbcType=INTEGER}
+  </update>
+</mapper>

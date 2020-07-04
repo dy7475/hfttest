@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.searchdb.dao.SearchShopDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.searchdb.po.SearchShopDetail" >
+    <!--@mbggenerated-->
+    <id column="city_id" property="cityId" jdbcType="SMALLINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="doing_now" property="doingNow" jdbcType="VARCHAR" />
+    <result column="suitable" property="suitable" jdbcType="VARCHAR" />
+    <result column="mobile_phone" property="mobilePhone" jdbcType="VARCHAR" />
+    <result column="tele_phone" property="telePhone" jdbcType="VARCHAR" />
+    <result column="charact" property="charact" jdbcType="VARCHAR" />
+    <result column="position_x" property="positionX" jdbcType="VARCHAR" />
+    <result column="position_y" property="positionY" jdbcType="VARCHAR" />
+    <result column="site_id" property="siteId" jdbcType="INTEGER" />
+    <result column="primitive_id" property="primitiveId" jdbcType="VARCHAR" />
+    <result column="url_id" property="urlId" jdbcType="INTEGER" />
+    <result column="site_name" property="siteName" jdbcType="VARCHAR" />
+    <result column="page_sours" property="pageSours" jdbcType="VARCHAR" />
+    <result column="tel_source" property="telSource" jdbcType="VARCHAR" />
+    <result column="agent_id" property="agentId" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    city_id, id, doing_now, suitable, mobile_phone, tele_phone, charact, position_x, 
+    position_y, site_id, primitive_id, url_id, site_name, page_sours, tel_source, agent_id, 
+    company, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.searchdb.po.SearchShopDetailKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from shop_detail
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SearchShopDetailKey" >
+    <!--@mbggenerated-->
+    delete from shop_detail
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.searchdb.po.SearchShopDetail" >
+    <!--@mbggenerated-->
+    insert into shop_detail (city_id, id, doing_now, 
+      suitable, mobile_phone, tele_phone, 
+      charact, position_x, position_y, 
+      site_id, primitive_id, url_id, 
+      site_name, page_sours, tel_source, 
+      agent_id, company, create_time
+      )
+    values (#{cityId,jdbcType=SMALLINT}, #{id,jdbcType=INTEGER}, #{doingNow,jdbcType=VARCHAR}, 
+      #{suitable,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{telePhone,jdbcType=VARCHAR}, 
+      #{charact,jdbcType=VARCHAR}, #{positionX,jdbcType=VARCHAR}, #{positionY,jdbcType=VARCHAR}, 
+      #{siteId,jdbcType=INTEGER}, #{primitiveId,jdbcType=VARCHAR}, #{urlId,jdbcType=INTEGER}, 
+      #{siteName,jdbcType=VARCHAR}, #{pageSours,jdbcType=VARCHAR}, #{telSource,jdbcType=VARCHAR}, 
+      #{agentId,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.searchdb.po.SearchShopDetail" >
+    <!--@mbggenerated-->
+    insert into shop_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="doingNow != null" >
+        doing_now,
+      </if>
+      <if test="suitable != null" >
+        suitable,
+      </if>
+      <if test="mobilePhone != null" >
+        mobile_phone,
+      </if>
+      <if test="telePhone != null" >
+        tele_phone,
+      </if>
+      <if test="charact != null" >
+        charact,
+      </if>
+      <if test="positionX != null" >
+        position_x,
+      </if>
+      <if test="positionY != null" >
+        position_y,
+      </if>
+      <if test="siteId != null" >
+        site_id,
+      </if>
+      <if test="primitiveId != null" >
+        primitive_id,
+      </if>
+      <if test="urlId != null" >
+        url_id,
+      </if>
+      <if test="siteName != null" >
+        site_name,
+      </if>
+      <if test="pageSours != null" >
+        page_sours,
+      </if>
+      <if test="telSource != null" >
+        tel_source,
+      </if>
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="doingNow != null" >
+        #{doingNow,jdbcType=VARCHAR},
+      </if>
+      <if test="suitable != null" >
+        #{suitable,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null" >
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="telePhone != null" >
+        #{telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="charact != null" >
+        #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="positionX != null" >
+        #{positionX,jdbcType=VARCHAR},
+      </if>
+      <if test="positionY != null" >
+        #{positionY,jdbcType=VARCHAR},
+      </if>
+      <if test="siteId != null" >
+        #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="primitiveId != null" >
+        #{primitiveId,jdbcType=VARCHAR},
+      </if>
+      <if test="urlId != null" >
+        #{urlId,jdbcType=INTEGER},
+      </if>
+      <if test="siteName != null" >
+        #{siteName,jdbcType=VARCHAR},
+      </if>
+      <if test="pageSours != null" >
+        #{pageSours,jdbcType=VARCHAR},
+      </if>
+      <if test="telSource != null" >
+        #{telSource,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null" >
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.searchdb.po.SearchShopDetail" >
+    <!--@mbggenerated-->
+    update shop_detail
+    <set >
+      <if test="doingNow != null" >
+        doing_now = #{doingNow,jdbcType=VARCHAR},
+      </if>
+      <if test="suitable != null" >
+        suitable = #{suitable,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null" >
+        mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="telePhone != null" >
+        tele_phone = #{telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="charact != null" >
+        charact = #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="positionX != null" >
+        position_x = #{positionX,jdbcType=VARCHAR},
+      </if>
+      <if test="positionY != null" >
+        position_y = #{positionY,jdbcType=VARCHAR},
+      </if>
+      <if test="siteId != null" >
+        site_id = #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="primitiveId != null" >
+        primitive_id = #{primitiveId,jdbcType=VARCHAR},
+      </if>
+      <if test="urlId != null" >
+        url_id = #{urlId,jdbcType=INTEGER},
+      </if>
+      <if test="siteName != null" >
+        site_name = #{siteName,jdbcType=VARCHAR},
+      </if>
+      <if test="pageSours != null" >
+        page_sours = #{pageSours,jdbcType=VARCHAR},
+      </if>
+      <if test="telSource != null" >
+        tel_source = #{telSource,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null" >
+        agent_id = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SearchShopDetail" >
+    <!--@mbggenerated-->
+    update shop_detail
+    set doing_now = #{doingNow,jdbcType=VARCHAR},
+      suitable = #{suitable,jdbcType=VARCHAR},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      tele_phone = #{telePhone,jdbcType=VARCHAR},
+      charact = #{charact,jdbcType=VARCHAR},
+      position_x = #{positionX,jdbcType=VARCHAR},
+      position_y = #{positionY,jdbcType=VARCHAR},
+      site_id = #{siteId,jdbcType=INTEGER},
+      primitive_id = #{primitiveId,jdbcType=VARCHAR},
+      url_id = #{urlId,jdbcType=INTEGER},
+      site_name = #{siteName,jdbcType=VARCHAR},
+      page_sours = #{pageSours,jdbcType=VARCHAR},
+      tel_source = #{telSource,jdbcType=VARCHAR},
+      agent_id = #{agentId,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR}
+    where city_id = #{cityId,jdbcType=SMALLINT}
+      and id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

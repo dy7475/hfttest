@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunHousePublishStatusMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunHousePublishStatus">
+    <!--@mbggenerated-->
+    <id column="PUB_ID" jdbcType="INTEGER" property="pubId" />
+    <result column="HOUSE_ID" jdbcType="INTEGER" property="houseId" />
+    <result column="SALE_LEASE" jdbcType="TINYINT" property="saleLease" />
+    <result column="HOUSE_USEAGE" jdbcType="TINYINT" property="houseUseage" />
+    <result column="PUBLISH_SITE" jdbcType="INTEGER" property="publishSite" />
+    <result column="CHECK_STATUS" jdbcType="TINYINT" property="checkStatus" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="SITE_ID" jdbcType="INTEGER" property="siteId" />
+    <result column="FATHER_ID" jdbcType="INTEGER" property="fatherId" />
+    <result column="S_ID" jdbcType="INTEGER" property="sId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="CHECK_USER" jdbcType="INTEGER" property="checkUser" />
+    <result column="SYNC_FLAG" jdbcType="INTEGER" property="syncFlag" />
+    <result column="SYNC_FLAG_BAIDU" jdbcType="TINYINT" property="syncFlagBaidu" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PUB_ID, HOUSE_ID, SALE_LEASE, HOUSE_USEAGE, PUBLISH_SITE, CHECK_STATUS, ARCHIVE_ID, 
+    UPDATE_TIME, SITE_ID, FATHER_ID, S_ID, CITY_ID, CHECK_USER, SYNC_FLAG, SYNC_FLAG_BAIDU
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_HOUSE_PUBLISH_STATUS
+    where PUB_ID = #{pubId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_HOUSE_PUBLISH_STATUS
+    where PUB_ID = #{pubId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishStatus">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="pubId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_HOUSE_PUBLISH_STATUS (HOUSE_ID, SALE_LEASE, HOUSE_USEAGE, 
+      PUBLISH_SITE, CHECK_STATUS, ARCHIVE_ID, 
+      UPDATE_TIME, SITE_ID, FATHER_ID, 
+      S_ID, CITY_ID, CHECK_USER, 
+      SYNC_FLAG, SYNC_FLAG_BAIDU)
+    values (#{houseId,jdbcType=INTEGER}, #{saleLease,jdbcType=TINYINT}, #{houseUseage,jdbcType=TINYINT}, 
+      #{publishSite,jdbcType=INTEGER}, #{checkStatus,jdbcType=TINYINT}, #{archiveId,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{siteId,jdbcType=INTEGER}, #{fatherId,jdbcType=INTEGER}, 
+      #{sId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{checkUser,jdbcType=INTEGER}, 
+      #{syncFlag,jdbcType=INTEGER}, #{syncFlagBaidu,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishStatus">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="pubId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_HOUSE_PUBLISH_STATUS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="houseId != null">
+        HOUSE_ID,
+      </if>
+      <if test="saleLease != null">
+        SALE_LEASE,
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE,
+      </if>
+      <if test="publishSite != null">
+        PUBLISH_SITE,
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="siteId != null">
+        SITE_ID,
+      </if>
+      <if test="fatherId != null">
+        FATHER_ID,
+      </if>
+      <if test="sId != null">
+        S_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="checkUser != null">
+        CHECK_USER,
+      </if>
+      <if test="syncFlag != null">
+        SYNC_FLAG,
+      </if>
+      <if test="syncFlagBaidu != null">
+        SYNC_FLAG_BAIDU,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="saleLease != null">
+        #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="publishSite != null">
+        #{publishSite,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null">
+        #{checkStatus,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siteId != null">
+        #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="fatherId != null">
+        #{fatherId,jdbcType=INTEGER},
+      </if>
+      <if test="sId != null">
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="checkUser != null">
+        #{checkUser,jdbcType=INTEGER},
+      </if>
+      <if test="syncFlag != null">
+        #{syncFlag,jdbcType=INTEGER},
+      </if>
+      <if test="syncFlagBaidu != null">
+        #{syncFlagBaidu,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishStatus">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_PUBLISH_STATUS
+    <set>
+      <if test="houseId != null">
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="saleLease != null">
+        SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="publishSite != null">
+        PUBLISH_SITE = #{publishSite,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS = #{checkStatus,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siteId != null">
+        SITE_ID = #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="fatherId != null">
+        FATHER_ID = #{fatherId,jdbcType=INTEGER},
+      </if>
+      <if test="sId != null">
+        S_ID = #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="checkUser != null">
+        CHECK_USER = #{checkUser,jdbcType=INTEGER},
+      </if>
+      <if test="syncFlag != null">
+        SYNC_FLAG = #{syncFlag,jdbcType=INTEGER},
+      </if>
+      <if test="syncFlagBaidu != null">
+        SYNC_FLAG_BAIDU = #{syncFlagBaidu,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PUB_ID = #{pubId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishStatus">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_PUBLISH_STATUS
+    set HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      PUBLISH_SITE = #{publishSite,jdbcType=INTEGER},
+      CHECK_STATUS = #{checkStatus,jdbcType=TINYINT},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      SITE_ID = #{siteId,jdbcType=INTEGER},
+      FATHER_ID = #{fatherId,jdbcType=INTEGER},
+      S_ID = #{sId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CHECK_USER = #{checkUser,jdbcType=INTEGER},
+      SYNC_FLAG = #{syncFlag,jdbcType=INTEGER},
+      SYNC_FLAG_BAIDU = #{syncFlagBaidu,jdbcType=TINYINT}
+    where PUB_ID = #{pubId,jdbcType=INTEGER}
+  </update>
+  
+  <!-- buniess -->
+ <select id="getDataObject" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishStatus" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_HOUSE_PUBLISH_STATUS
+    where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    and SALE_LEASE = #{saleLease,jdbcType=TINYINT}
+  </select>
+  
+  <update id="updateByArchiveId" parameterType="com.myfun.repository.erpdb.po.ErpFunHousePublishStatus">
+    update FUN_HOUSE_PUBLISH_STATUS
+    <set>
+      <if test="houseId != null">
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="saleLease != null">
+        SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="publishSite != null">
+        PUBLISH_SITE = #{publishSite,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS = #{checkStatus,jdbcType=TINYINT},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siteId != null">
+        SITE_ID = #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="fatherId != null">
+        FATHER_ID = #{fatherId,jdbcType=INTEGER},
+      </if>
+      <if test="sId != null">
+        S_ID = #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="checkUser != null">
+        CHECK_USER = #{checkUser,jdbcType=INTEGER},
+      </if>
+      <if test="syncFlag != null">
+        SYNC_FLAG = #{syncFlag,jdbcType=INTEGER},
+      </if>
+      <if test="syncFlagBaidu != null">
+        SYNC_FLAG_BAIDU = #{syncFlagBaidu,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId} and CITY_ID = #{cityId}
+  </update>
+	
+	<select id="getQQPublishCount" resultType="java.lang.Integer">
+		select count(*)
+		from FUN_HOUSE_PUBLISH_STATUS
+		where PUBLISH_SITE = 1 and CITY_ID = #{shardCityId} and ARCHIVE_ID=#{archiveId}
+	</select>
+ 
+</mapper>

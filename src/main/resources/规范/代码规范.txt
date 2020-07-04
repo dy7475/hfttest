@@ -1,0 +1,17 @@
+1、访问地址必须和包名一致，方便查找
+包：com.myfun.erpWeb.soso.house
+地址：@RequestMapping(value="/soso/house", method=RequestMethod.POST)
+
+2、非特别特殊情况，不允许在sever层继承或使用getOperator()，或从ThreadLocal获取，必须在controller层获取后传入使用
+
+3、99%的地方不允许出现warning，就是屎黄的下划线，出现了要么就是这里有问题，反正都要解决掉
+
+4、service层和dao层传参规范
+	参数在8个以下，尽量不要（禁止）使用对象进行传参，有多少参数都列出来
+	10个以上尽量使用对象进行传参
+	禁止operator当参数传递
+
+5、自己写的代码或修改过的必须要格式化后提交，只格式化自己改的，不能整个文件格式化
+
+
+

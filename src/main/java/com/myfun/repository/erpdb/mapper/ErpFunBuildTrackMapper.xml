@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunBuildTrackMapper">
+	<resultMap id="ErpFunBuildTrackDtoMap" type="com.myfun.erpWeb.managecenter.buildData.vo.ErpFunBuildTrackDto" extends="BaseResultMap"></resultMap>
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunBuildTrack">
+    <!--@mbggenerated-->
+    <id column="TRACK_ID" jdbcType="INTEGER" property="trackId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="BUILD_RULE_ID" jdbcType="INTEGER" property="buildRuleId" />
+    <result column="TRACK_CONTENT" jdbcType="VARCHAR" property="trackContent" />
+    <result column="TRACK_TIME" jdbcType="VARCHAR" property="trackTime" />
+    <result column="CREATE_UID" jdbcType="INTEGER" property="createUid" />
+  </resultMap>
+  <resultMap id="AdminIpCallLogMap" type="com.myfun.repository.admindb.po.AdminIpCallLog">
+    <result column="CALL_TYPE" jdbcType="TINYINT" property="callType" />
+    <result column="CALL_PHONE" jdbcType="VARCHAR" property="callPhone" />
+    <result column="CALLED_PHONE" jdbcType="VARCHAR" property="calledPhone" />
+    <result column="CALL_COMP_ID" jdbcType="INTEGER" property="callCompId" />
+    <result column="CALL_DEPT_ID" jdbcType="INTEGER" property="callDeptId" />
+    <result column="CALL_USER_ID" jdbcType="INTEGER" property="callUserId" />
+    <result column="CALL_ARCHIVE_ID" jdbcType="INTEGER" property="callArchiveId" />
+    <result column="CALL_UA_ID" jdbcType="INTEGER" property="callUaId" />
+    <result column="CALL_CITY_ID" jdbcType="INTEGER" property="callCityId" />
+    <result column="TARGET_ID" jdbcType="INTEGER" property="targetId" />
+    <result column="TARGET_DEPT" jdbcType="INTEGER" property="targetDept" />
+    <result column="TARGET_TYPE" jdbcType="TINYINT" property="targetType" />
+    <result column="TARGET_PLATE_TYPE" jdbcType="TINYINT" property="targetPlateType" />
+    <result column="TARGET_OWNER_ID" jdbcType="INTEGER" property="targetOwnerId" />
+    <result column="TARGET_USEAGE" jdbcType="INTEGER" property="targetUseage" />
+    <result column="TARGET_NO" jdbcType="VARCHAR" property="targetNo" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="CALL_LENGTH" jdbcType="INTEGER" property="callLength" />
+    <result column="CALL_FEE" jdbcType="DECIMAL" property="callFee" />
+    <result column="CALL_AMOUNT_BEFORE" jdbcType="DECIMAL" property="callAmountBefore" />
+    <result column="CALL_AMOUNT_AFTER" jdbcType="DECIMAL" property="callAmountAfter" />
+    <result column="CUT_REASON" jdbcType="TINYINT" property="cutReason" />
+    <result column="REASON_DESC" jdbcType="TINYINT" property="reasonDesc" />
+    <result column="CALL_RECORD_URL" jdbcType="VARCHAR" property="callRecordUrl" />
+    <result column="IS_DOWNLOAD_RECORD" jdbcType="TINYINT" property="isDownloadRecord" />
+    <result column="PAID_ID" jdbcType="INTEGER" property="paidId" />
+    <result column="LOG_SOURCE" jdbcType="TINYINT" property="logSource" />
+    <result column="CALL_TIME" jdbcType="TIMESTAMP" property="callTime" />
+    <result column="VOIP_POOL_ID" jdbcType="INTEGER" property="voipPoolId" />
+    <result column="THIRD_RECORD_URL" jdbcType="VARCHAR" property="thirdRecordUrl" />
+    <result column="POOL_LOCK_ID" jdbcType="VARCHAR" property="poolLockId" />
+    <result column="COMP_AMOUNT" jdbcType="DECIMAL" property="compAmount" />
+    <result column="USER_AMOUNT" jdbcType="DECIMAL" property="userAmount" />
+    <result column="THIRD_CHANNEL" jdbcType="TINYINT" property="thirdChannel" />
+    <result column="IS_CALLBACK" jdbcType="TINYINT" property="isCallback" />
+    <result column="VOIP_MINUTE" jdbcType="INTEGER" property="voipMinute" />
+    <result column="TARGET_SOURCE" jdbcType="TINYINT" property="targetSource" />
+    <result column="LOG_ID" jdbcType="VARCHAR" property="logId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    TRACK_ID, COMP_ID, BUILD_RULE_ID, TRACK_CONTENT, TRACK_TIME, CREATE_UID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_BUILD_TRACK
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_BUILD_TRACK
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildTrack">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="trackId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_BUILD_TRACK_TRACK_ID
+    </selectKey>
+    insert into FUN_BUILD_TRACK (TRACK_ID, COMP_ID, BUILD_RULE_ID, 
+      TRACK_CONTENT, TRACK_TIME, CREATE_UID
+      )
+    values (#{trackId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{buildRuleId,jdbcType=INTEGER}, 
+      #{trackContent,jdbcType=VARCHAR}, #{trackTime,jdbcType=VARCHAR}, #{createUid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildTrack">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="trackId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_BUILD_TRACK_TRACK_ID
+    </selectKey>
+    insert into FUN_BUILD_TRACK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      TRACK_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="buildRuleId != null">
+        BUILD_RULE_ID,
+      </if>
+      <if test="trackContent != null">
+        TRACK_CONTENT,
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME,
+      </if>
+      <if test="createUid != null">
+        CREATE_UID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{trackId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRuleId != null">
+        #{buildRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="trackContent != null">
+        #{trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trackTime != null">
+        #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null">
+        #{createUid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildTrack">
+    <!--@mbggenerated-->
+    update FUN_BUILD_TRACK
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRuleId != null">
+        BUILD_RULE_ID = #{buildRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="trackContent != null">
+        TRACK_CONTENT = #{trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trackTime != null">
+        TRACK_TIME = #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null">
+        CREATE_UID = #{createUid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunBuildTrack">
+    <!--@mbggenerated-->
+    update FUN_BUILD_TRACK
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      BUILD_RULE_ID = #{buildRuleId,jdbcType=INTEGER},
+      TRACK_CONTENT = #{trackContent,jdbcType=VARCHAR},
+      TRACK_TIME = #{trackTime,jdbcType=VARCHAR},
+      CREATE_UID = #{createUid,jdbcType=INTEGER}
+    where TRACK_ID = #{trackId,jdbcType=INTEGER}
+  </update>
+	<delete id="deleteBuildTrackbyBuild">
+		delete from FUN_BUILD_TRACK
+		where COMP_ID = #{param.compId} and BUILD_RULE_ID in (select ENTITY_ID from
+		FUN_BUILD_RULE where BUILD_ID = #{param.buildId})
+	</delete>
+
+
+	<select id="getHouseTrackList" resultType="com.myfun.erpWeb.managecenter.buildData.vo.HouseTrackListVo">
+		SELECT A.TRACK_CONTENT AS trackContent, A.TRACK_TIME AS trackTime,
+		       A.CREATE_UID AS createUid, A.BUILD_RULE_ID AS buildRuleId, C.ADDRESS,
+		       C.BUILD_ID AS buildId, C.BUILD_NAME AS buildName, C.ROOF, C.UNIT, C.NUM, C.HOUSE
+		FROM FUN_BUILD_TRACK A
+		JOIN FUN_USERS B ON B.USER_ID=A.CREATE_UID
+		JOIN FUN_BUILD_RULE C ON A.BUILD_RULE_ID = C.ENTITY_ID
+		WHERE B.COMP_ID=#{param.compId}
+		AND B.${param.serchRange} = #{param.serchRangeId}
+		<if test="param.userId != null and param.userId != ''">
+			AND A.CREATE_UID=#{param.userId}
+		</if>
+		<if test="param.startTime != null and param.startTime != ''">
+			AND A.TRACK_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime != null and param.endTime != ''">
+			AND A.TRACK_TIME &lt;= #{param.endTime}
+		</if>
+        ORDER BY A.TRACK_TIME
+	</select>
+
+    <select id="getBuildDataTrackData" resultType="com.myfun.erpWeb.managecenter.buildData.vo.BuildDataTrackDataVo">
+        SELECT
+        DISTINCT A.BUILD_RULE_ID AS buildRuleId, C.USEAGE, C.BUILD_ID AS buildId, C.BUILD_NAME AS buildName,
+        C.ROOF, C.UNIT, C.NUM, C.HOUSE, C.ADDRESS, C.ROOM, C.HALL, C.WEI
+        FROM FUN_BUILD_TRACK A
+        JOIN FUN_USERS B ON B.USER_ID=A.CREATE_UID
+        JOIN FUN_BUILD_RULE C ON A.BUILD_RULE_ID = C.ENTITY_ID
+        WHERE B.COMP_ID=#{param.compId}
+        AND B.${param.serchRange} = #{param.serchRangeId}
+        <if test="param.userId != null and param.userId != ''">
+            AND A.CREATE_UID=#{param.userId}
+        </if>
+        <if test="param.startTime != null and param.startTime != ''">
+            AND A.TRACK_TIME &gt;= #{param.startTime}
+        </if>
+        <if test="param.endTime != null and param.endTime != ''">
+            AND A.TRACK_TIME &lt;= #{param.endTime}
+        </if>
+        <if test="auth == 2">
+            AND B.DEPT_ID = #{deptId}
+        </if>
+        <if test="auth == 3">
+            AND B.USER_ID = #{userId}
+        </if>
+        ORDER BY A.BUILD_RULE_ID
+    </select>
+
+    <select id="getBuildDataTrackDataCount"
+            resultType="com.myfun.erpWeb.managecenter.buildData.vo.BuildDataTrackDataVo">
+        SELECT COUNT(*) AS trackCount, BUILD_RULE_ID AS buildRuleId
+        FROM FUN_BUILD_TRACK
+        WHERE
+        BUILD_RULE_ID IN
+        <foreach collection="buildRuleIds" separator="," item="entityId" open="(" close=")">
+            #{entityId}
+        </foreach>
+        <if test="createUserId != null and createUserId != ''">
+            AND CREATE_UID = #{createUserId}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND TRACK_TIME >= #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND TRACK_TIME &lt;= #{endTime}
+        </if>
+        GROUP BY BUILD_RULE_ID
+    </select>
+
+    <select id="getBuildDataIpCallList" resultType="com.myfun.erpWeb.managecenter.buildData.vo.BuildDataIpCallVo">
+        SELECT A.CALL_RECORD_URL AS callRecordUrl,A.IS_DOWNLOAD_RECORD AS isDownloadRecord,A.TARGET_OWNER_ID AS
+        targetOwnerId,
+        A.CALL_TIME AS callTime,A.TARGET_NO AS targetNo,
+        A.CALL_LENGTH AS callLength,A.CALL_FEE AS callFee,A.CALL_DEPT_ID AS callDeptId,A.CALL_USER_ID AS callUserId,
+        A.TARGET_TYPE AS targetType,A.TARGET_ID AS targetId,A.LOG_ID AS logId
+        <!--<if test="param.buildId != null and param.buildId != ''">-->
+            ,B.ADDRESS, B.BUILD_NAME AS buildName, B.BUILD_ID AS buildId, B.ROOF, B.UNIT, B.NUM, B.HOUSE, B.ENTITY_ID AS
+            buildRuleId
+        <!--</if>-->
+        FROM hft_admindb.dbo.IP_CALL_LOG A
+         <!--<if test="param.buildId != null and param.buildId != ''">-->
+            JOIN FUN_BUILD_RULE B ON B.ENTITY_ID=A.TARGET_ID
+         <!--</if>-->
+        WHERE A.CALL_CITY_ID = #{param.cityId} AND A.CALL_LENGTH > 0 AND A.CALL_COMP_ID = #{param.compId}
+        AND A.TARGET_TYPE = 26 AND A.CALL_${param.serchRange} = #{param.serchRangeId}
+        <if test="param.userId != null and param.userId != ''">
+            AND A.CALL_USER_ID = #{param.userId}
+        </if>
+        <if test="param.buildId != null and param.buildId != ''">
+            AND B.BUILD_ID = #{param.buildId}
+        </if>
+        <if test="param.startTime != null and param.startTime != ''">
+            AND A.CALL_TIME &gt;= #{param.startTime}
+        </if>
+        <if test="param.endTime != null and param.endTime != ''">
+            AND A.CALL_TIME &lt;= #{param.endTime}
+        </if>
+        ORDER BY A.CALL_TIME
+    </select>
+
+    <select id="getIpCallDataList" resultType="com.myfun.erpWeb.managecenter.buildData.vo.IpCallDataVo">
+        SELECT DISTINCT A.TARGET_ID AS buildRuleId, B.USEAGE, B.BUILD_ID AS buildId, B.BUILD_NAME AS buildName,
+        B.ROOF, B.UNIT, B.NUM, B.HOUSE, B.ADDRESS, B.ROOM, B.HALL, B.WEI
+        FROM hft_admindb.dbo.IP_CALL_LOG A
+        JOIN FUN_BUILD_RULE B ON B.ENTITY_ID=A.TARGET_ID
+        WHERE A.CALL_CITY_ID = #{param.cityId} AND A.CALL_LENGTH > 0 AND A.CALL_COMP_ID = #{param.compId}
+        AND A.TARGET_TYPE = 26 AND A.CALL_${param.serchRange} = #{param.serchRangeId}
+        <if test="param.userId != null and param.userId != ''">
+            AND A.CALL_USER_ID = #{param.userId}
+        </if>
+        <if test="param.buildId != null and param.buildId != ''">
+            AND B.BUILD_ID = #{param.buildId}
+        </if>
+        <if test="param.startTime != null and param.startTime != ''">
+            AND A.CALL_TIME &gt;= #{param.startTime}
+        </if>
+        <if test="param.endTime != null and param.endTime != ''">
+            AND A.CALL_TIME &lt;= #{param.endTime}
+        </if>
+        ORDER BY A.TARGET_ID
+    </select>
+
+    <select id="getIpCallDataCount" resultType="com.myfun.erpWeb.managecenter.buildData.vo.IpCallDataVo">
+        SELECT COUNT(*) AS ipCallCount, TARGET_ID AS buildRuleId
+        FROM hft_admindb.dbo.IP_CALL_LOG
+        WHERE TARGET_ID IN
+        <foreach collection="buildRuleIds" separator="," item="entityId" open="(" close=")">
+            #{entityId}
+        </foreach>
+        <if test="callUserId != null and callUserId != ''">
+            AND CALL_USER_ID = #{callUserId}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND CALL_TIME >= #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND CALL_TIME &lt;= #{endTime}
+        </if>
+        GROUP BY TARGET_ID
+    </select>
+	
+	<select id="getIpCallBuildData" resultType="java.util.Map">
+		SELECT COUNT(DISTINCT TARGET_ID) ipBuildCount, COUNT(1) AS ipAllCount,
+		A.CALL_COMP_ID compId,A.CALL_AREA_ID areaId,A.CALL_REG_ID regId,A.CALL_DEPT_ID deptId,
+		A.CALL_GR_ID grId,A.CALL_USER_ID userId
+		FROM hft_admindb.dbo.IP_CALL_LOG A
+		<if test="param.buildId != null and param.buildId != ''">
+			JOIN FUN_BUILD_RULE B ON B.ENTITY_ID=A.TARGET_ID
+		</if>
+		WHERE A.CALL_CITY_ID = #{param.cityId} AND A.CALL_LENGTH > 0 AND A.CALL_COMP_ID = #{param.compId}
+		AND TARGET_TYPE = 26 AND CALL_${param.serchRange} = #{param.serchRangeId}
+		<if test="param.userId != null and param.userId != ''">
+			AND A.CALL_USER_ID = #{param.userId}
+		</if>
+		<if test="param.buildId != null and param.buildId != ''">
+			AND B.BUILD_ID = #{param.buildId}
+		</if>
+		<if test="param.startTime != null and param.startTime != ''">
+			AND A.CALL_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime != null and param.endTime != ''">
+			AND A.CALL_TIME &lt;= #{param.endTime}
+		</if>
+        <if test="auth == 2">
+           AND CALL_DEPT_ID = #{deptId}
+        </if>
+        <if test="auth == 3">
+          AND CALL_USER_ID = #{userId}
+        </if>
+		GROUP BY A.CALL_COMP_ID,A.CALL_AREA_ID,A.CALL_REG_ID,A.CALL_DEPT_ID,A.CALL_GR_ID,A.CALL_USER_ID
+	</select>
+	
+	<select id="getTrackAndTransSaleLeaseData" resultType="java.util.Map">
+		SELECT COUNT(DISTINCT BUILD_RULE_ID) trackBuildCount,
+		COUNT(IIF(A.TRACK_TYPE = 1,1,NULL)) transSaleCount,
+		COUNT(IIF(A.TRACK_TYPE = 2,1,NULL)) transLeaseCount,
+		COUNT(1) AS trackCount,
+		B.COMP_ID compId,B.AREA_ID areaId,B.REG_ID regId,B.DEPT_ID deptId,B.GR_ID grId,B.USER_ID userId
+		FROM FUN_BUILD_TRACK A
+		JOIN FUN_USERS B ON B.USER_ID=A.CREATE_UID
+		<if test="param.buildId != null and param.buildId != ''">
+			JOIN FUN_BUILD_RULE C ON C.ENTITY_ID=A.BUILD_RULE_ID
+		</if>
+		WHERE B.COMP_ID=#{param.compId}
+		AND B.${param.serchRange} = #{param.serchRangeId}
+		<if test="param.buildId != null and param.buildId != ''">
+			AND C.BUILD_ID = #{param.buildId}
+		</if>
+		<if test="param.userId != null and param.userId != ''">
+			AND A.CREATE_UID=#{param.userId}
+		</if>
+		<if test="param.startTime != null and param.startTime != ''">
+			AND A.TRACK_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime != null and param.endTime != ''">
+			AND A.TRACK_TIME &lt;= #{param.endTime}
+		</if>
+        <if test="auth == 2">
+            AND B.DEPT_ID = #{deptId}
+        </if>
+        <if test="auth == 3">
+            AND B.USER_ID = #{userId}
+        </if>
+		GROUP BY B.COMP_ID,B.AREA_ID,B.REG_ID,B.DEPT_ID,B.GR_ID,B.USER_ID
+	</select>
+
+	<select id="getFloorTrackList" resultMap="ErpFunBuildTrackDtoMap">
+		SELECT TRACK_TIME,TRACK_CONTENT,CREATE_UID,B.USER_NAME userName
+		FROM FUN_BUILD_TRACK A
+		JOIN FUN_USERS B ON A.CREATE_UID = B.USER_ID
+		WHERE A.BUILD_RULE_ID = #{buildRuleId} AND A.COMP_ID = #{compId}
+		<if test="haveAuth == 3">
+            and CREATE_UID = #{userId}
+        </if>
+		ORDER BY TRACK_TIME DESC
+	</select>
+	
+	<delete id="deleteTrack">
+		delete FROM FUN_BUILD_TRACK
+		where BUILD_RULE_ID in
+		<foreach collection="entityIds" separator="," item="entityId" open="(" close=")">
+			#{entityId}
+		</foreach>
+	</delete>
+    <select id="getRcentCallPhoneLog" resultMap="BaseResultMap">
+        SELECT top 1 <include refid="Base_Column_List"/>
+        FROM  FUN_BUILD_TRACK WHERE  COMP_ID = #{compId}
+        and TRACK_CONTENT like #{trackContent} and BUILD_RULE_ID = #{buildRuleId}
+        and CREATE_UID = #{userId}
+        and TRACK_TIME &gt;= #{startTime} and TRACK_TIME &lt;= #{endTime} order by TRACK_TIME desc
+    </select>
+</mapper>
+
+

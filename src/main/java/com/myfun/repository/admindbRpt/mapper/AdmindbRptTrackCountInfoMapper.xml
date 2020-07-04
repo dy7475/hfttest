@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindbRpt.dao.AdmindbRptTrackCountInfoMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindbRpt.po.AdmindbRptTrackCountInfo">
+    <!--@mbggenerated-->
+    <id column="AUTO_ID" jdbcType="INTEGER" property="autoId" />
+    <result column="CASE_TYPE" jdbcType="VARCHAR" property="caseType" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="FK_COUNT" jdbcType="INTEGER" property="fkCount" />
+    <result column="GJ_COUNT" jdbcType="INTEGER" property="gjCount" />
+    <result column="XG_COUNT" jdbcType="INTEGER" property="xgCount" />
+    <result column="DK_COUNT" jdbcType="INTEGER" property="dkCount" />
+    <result column="TEL_COUNT" jdbcType="INTEGER" property="telCount" />
+    <result column="KEYSUBGJ_COUNT" jdbcType="INTEGER" property="keysubgjCount" />
+    <result column="PICSUBGJ_COUNT" jdbcType="INTEGER" property="picsubgjCount" />
+    <result column="YJ_COUNT" jdbcType="INTEGER" property="yjCount" />
+    <result column="SCSP_COUNT" jdbcType="INTEGER" property="scspCount" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="CREATION_DATE" jdbcType="TIMESTAMP" property="creationDate" />
+    <result column="DJ_COUNT" jdbcType="INTEGER" property="djCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    AUTO_ID, CASE_TYPE, USER_ID, GR_ID, DEPT_ID, REG_ID, AREA_ID, COMP_ID, FK_COUNT, 
+    GJ_COUNT, XG_COUNT, DK_COUNT, TEL_COUNT, KEYSUBGJ_COUNT, PICSUBGJ_COUNT, YJ_COUNT, 
+    SCSP_COUNT, CITY_ID, CREATION_DATE, DJ_COUNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TRACK_COUNT_INFO
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from TRACK_COUNT_INFO
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptTrackCountInfo">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="autoId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TRACK_COUNT_INFO (CASE_TYPE, USER_ID, GR_ID, 
+      DEPT_ID, REG_ID, AREA_ID, 
+      COMP_ID, FK_COUNT, GJ_COUNT, 
+      XG_COUNT, DK_COUNT, TEL_COUNT, 
+      KEYSUBGJ_COUNT, PICSUBGJ_COUNT, YJ_COUNT, 
+      SCSP_COUNT, CITY_ID, CREATION_DATE, 
+      DJ_COUNT)
+    values (#{caseType,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{compId,jdbcType=INTEGER}, #{fkCount,jdbcType=INTEGER}, #{gjCount,jdbcType=INTEGER}, 
+      #{xgCount,jdbcType=INTEGER}, #{dkCount,jdbcType=INTEGER}, #{telCount,jdbcType=INTEGER}, 
+      #{keysubgjCount,jdbcType=INTEGER}, #{picsubgjCount,jdbcType=INTEGER}, #{yjCount,jdbcType=INTEGER}, 
+      #{scspCount,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{creationDate,jdbcType=TIMESTAMP}, 
+      #{djCount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptTrackCountInfo">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="autoId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TRACK_COUNT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="grId != null">
+        GR_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="fkCount != null">
+        FK_COUNT,
+      </if>
+      <if test="gjCount != null">
+        GJ_COUNT,
+      </if>
+      <if test="xgCount != null">
+        XG_COUNT,
+      </if>
+      <if test="dkCount != null">
+        DK_COUNT,
+      </if>
+      <if test="telCount != null">
+        TEL_COUNT,
+      </if>
+      <if test="keysubgjCount != null">
+        KEYSUBGJ_COUNT,
+      </if>
+      <if test="picsubgjCount != null">
+        PICSUBGJ_COUNT,
+      </if>
+      <if test="yjCount != null">
+        YJ_COUNT,
+      </if>
+      <if test="scspCount != null">
+        SCSP_COUNT,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="creationDate != null">
+        CREATION_DATE,
+      </if>
+      <if test="djCount != null">
+        DJ_COUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseType != null">
+        #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fkCount != null">
+        #{fkCount,jdbcType=INTEGER},
+      </if>
+      <if test="gjCount != null">
+        #{gjCount,jdbcType=INTEGER},
+      </if>
+      <if test="xgCount != null">
+        #{xgCount,jdbcType=INTEGER},
+      </if>
+      <if test="dkCount != null">
+        #{dkCount,jdbcType=INTEGER},
+      </if>
+      <if test="telCount != null">
+        #{telCount,jdbcType=INTEGER},
+      </if>
+      <if test="keysubgjCount != null">
+        #{keysubgjCount,jdbcType=INTEGER},
+      </if>
+      <if test="picsubgjCount != null">
+        #{picsubgjCount,jdbcType=INTEGER},
+      </if>
+      <if test="yjCount != null">
+        #{yjCount,jdbcType=INTEGER},
+      </if>
+      <if test="scspCount != null">
+        #{scspCount,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationDate != null">
+        #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="djCount != null">
+        #{djCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptTrackCountInfo">
+    <!--@mbggenerated-->
+    update TRACK_COUNT_INFO
+    <set>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="fkCount != null">
+        FK_COUNT = #{fkCount,jdbcType=INTEGER},
+      </if>
+      <if test="gjCount != null">
+        GJ_COUNT = #{gjCount,jdbcType=INTEGER},
+      </if>
+      <if test="xgCount != null">
+        XG_COUNT = #{xgCount,jdbcType=INTEGER},
+      </if>
+      <if test="dkCount != null">
+        DK_COUNT = #{dkCount,jdbcType=INTEGER},
+      </if>
+      <if test="telCount != null">
+        TEL_COUNT = #{telCount,jdbcType=INTEGER},
+      </if>
+      <if test="keysubgjCount != null">
+        KEYSUBGJ_COUNT = #{keysubgjCount,jdbcType=INTEGER},
+      </if>
+      <if test="picsubgjCount != null">
+        PICSUBGJ_COUNT = #{picsubgjCount,jdbcType=INTEGER},
+      </if>
+      <if test="yjCount != null">
+        YJ_COUNT = #{yjCount,jdbcType=INTEGER},
+      </if>
+      <if test="scspCount != null">
+        SCSP_COUNT = #{scspCount,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="creationDate != null">
+        CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="djCount != null">
+        DJ_COUNT = #{djCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptTrackCountInfo">
+    <!--@mbggenerated-->
+    update TRACK_COUNT_INFO
+    set CASE_TYPE = #{caseType,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      FK_COUNT = #{fkCount,jdbcType=INTEGER},
+      GJ_COUNT = #{gjCount,jdbcType=INTEGER},
+      XG_COUNT = #{xgCount,jdbcType=INTEGER},
+      DK_COUNT = #{dkCount,jdbcType=INTEGER},
+      TEL_COUNT = #{telCount,jdbcType=INTEGER},
+      KEYSUBGJ_COUNT = #{keysubgjCount,jdbcType=INTEGER},
+      PICSUBGJ_COUNT = #{picsubgjCount,jdbcType=INTEGER},
+      YJ_COUNT = #{yjCount,jdbcType=INTEGER},
+      SCSP_COUNT = #{scspCount,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+      DJ_COUNT = #{djCount,jdbcType=INTEGER}
+    where AUTO_ID = #{autoId,jdbcType=INTEGER}
+  </update>
+	<update id="addWorkCount" parameterType="com.myfun.repository.admindbRpt.po.AdmindbRptTrackCountInfo">
+		merge into TRACK_COUNT_INFO aim using
+		(select #{caseType} as CASE_TYPE,#{userId} as USER_ID,#{grId} as GR_ID,#{deptId} as DEPT_ID,
+		#{regId} as REG_ID,#{areaId} as AREA_ID,#{compId} as COMP_ID,#{cityId} as CITY_ID,
+		#{creationDate} as CREATION_DATE, 1 as ${countFieldName}) src
+		on aim.CITY_ID = src.CITY_ID and aim.CASE_TYPE = src.CASE_TYPE 
+		and aim.CREATION_DATE = src.CREATION_DATE and aim.USER_ID = src.USER_ID
+		when not matched then insert(CASE_TYPE, USER_ID, GR_ID, DEPT_ID, REG_ID, 
+		AREA_ID, COMP_ID, CITY_ID, CREATION_DATE,${countFieldName}) 
+		values(src.CASE_TYPE,SRC.USER_ID,src.GR_ID,src.DEPT_ID,src.REG_ID,src.AREA_ID,
+		src.COMP_ID,src.CITY_ID,src.CREATION_DATE,src.${countFieldName})
+		when matched then UPDATE set ${countFieldName} = aim.${countFieldName} + 1;
+	</update>
+</mapper>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminAuthenticationMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminAuthentication" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="APPID" property="appid" jdbcType="VARCHAR" />
+    <result column="SECRET" property="secret" jdbcType="VARCHAR" />
+    <result column="GRANT_TYPE" property="grantType" jdbcType="VARCHAR" />
+    <result column="TOKEN_TYPE" property="tokenType" jdbcType="VARCHAR" />
+    <result column="SCOPE" property="scope" jdbcType="VARCHAR" />
+    <result column="EXPIRES" property="expires" jdbcType="INTEGER" />
+    <result column="ACCESS_TOKEN" property="accessToken" jdbcType="VARCHAR" />
+    <result column="TOKEN" property="token" jdbcType="VARCHAR" />
+    <result column="LAST_ACCESS_TIME" property="lastAccessTime" jdbcType="BIGINT" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="AUTOMATIC_CHECK" property="automaticCheck" jdbcType="TINYINT" />
+    <result column="PUBLISH_LIMIT" property="publishLimit" jdbcType="INTEGER" />
+    <result column="SYNC_PAID_TIME" property="syncPaidTime" jdbcType="TIMESTAMP" />
+    <result column="PAID_CALLBACK" property="paidCallback" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, APPID, SECRET, GRANT_TYPE, TOKEN_TYPE, SCOPE, EXPIRES, ACCESS_TOKEN, TOKEN, LAST_ACCESS_TIME, 
+    DESCRIPTION, AUTOMATIC_CHECK, PUBLISH_LIMIT, SYNC_PAID_TIME, PAID_CALLBACK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from AUTHENTICATION
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from AUTHENTICATION
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminAuthentication" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into AUTHENTICATION (APPID, SECRET, GRANT_TYPE, 
+      TOKEN_TYPE, SCOPE, EXPIRES, 
+      ACCESS_TOKEN, TOKEN, LAST_ACCESS_TIME, 
+      DESCRIPTION, AUTOMATIC_CHECK, PUBLISH_LIMIT, 
+      SYNC_PAID_TIME, PAID_CALLBACK)
+    values (#{appid,jdbcType=VARCHAR}, #{secret,jdbcType=VARCHAR}, #{grantType,jdbcType=VARCHAR}, 
+      #{tokenType,jdbcType=VARCHAR}, #{scope,jdbcType=VARCHAR}, #{expires,jdbcType=INTEGER}, 
+      #{accessToken,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{lastAccessTime,jdbcType=BIGINT}, 
+      #{description,jdbcType=VARCHAR}, #{automaticCheck,jdbcType=TINYINT}, #{publishLimit,jdbcType=INTEGER}, 
+      #{syncPaidTime,jdbcType=TIMESTAMP}, #{paidCallback,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminAuthentication" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into AUTHENTICATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        APPID,
+      </if>
+      <if test="secret != null" >
+        SECRET,
+      </if>
+      <if test="grantType != null" >
+        GRANT_TYPE,
+      </if>
+      <if test="tokenType != null" >
+        TOKEN_TYPE,
+      </if>
+      <if test="scope != null" >
+        SCOPE,
+      </if>
+      <if test="expires != null" >
+        EXPIRES,
+      </if>
+      <if test="accessToken != null" >
+        ACCESS_TOKEN,
+      </if>
+      <if test="token != null" >
+        TOKEN,
+      </if>
+      <if test="lastAccessTime != null" >
+        LAST_ACCESS_TIME,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="automaticCheck != null" >
+        AUTOMATIC_CHECK,
+      </if>
+      <if test="publishLimit != null" >
+        PUBLISH_LIMIT,
+      </if>
+      <if test="syncPaidTime != null" >
+        SYNC_PAID_TIME,
+      </if>
+      <if test="paidCallback != null" >
+        PAID_CALLBACK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null" >
+        #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="grantType != null" >
+        #{grantType,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenType != null" >
+        #{tokenType,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="expires != null" >
+        #{expires,jdbcType=INTEGER},
+      </if>
+      <if test="accessToken != null" >
+        #{accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="lastAccessTime != null" >
+        #{lastAccessTime,jdbcType=BIGINT},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="automaticCheck != null" >
+        #{automaticCheck,jdbcType=TINYINT},
+      </if>
+      <if test="publishLimit != null" >
+        #{publishLimit,jdbcType=INTEGER},
+      </if>
+      <if test="syncPaidTime != null" >
+        #{syncPaidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paidCallback != null" >
+        #{paidCallback,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminAuthentication" >
+    <!--@mbggenerated-->
+    update AUTHENTICATION
+    <set >
+      <if test="appid != null" >
+        APPID = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null" >
+        SECRET = #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="grantType != null" >
+        GRANT_TYPE = #{grantType,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenType != null" >
+        TOKEN_TYPE = #{tokenType,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        SCOPE = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="expires != null" >
+        EXPIRES = #{expires,jdbcType=INTEGER},
+      </if>
+      <if test="accessToken != null" >
+        ACCESS_TOKEN = #{accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null" >
+        TOKEN = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="lastAccessTime != null" >
+        LAST_ACCESS_TIME = #{lastAccessTime,jdbcType=BIGINT},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="automaticCheck != null" >
+        AUTOMATIC_CHECK = #{automaticCheck,jdbcType=TINYINT},
+      </if>
+      <if test="publishLimit != null" >
+        PUBLISH_LIMIT = #{publishLimit,jdbcType=INTEGER},
+      </if>
+      <if test="syncPaidTime != null" >
+        SYNC_PAID_TIME = #{syncPaidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paidCallback != null" >
+        PAID_CALLBACK = #{paidCallback,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminAuthentication" >
+    <!--@mbggenerated-->
+    update AUTHENTICATION
+    set APPID = #{appid,jdbcType=VARCHAR},
+      SECRET = #{secret,jdbcType=VARCHAR},
+      GRANT_TYPE = #{grantType,jdbcType=VARCHAR},
+      TOKEN_TYPE = #{tokenType,jdbcType=VARCHAR},
+      SCOPE = #{scope,jdbcType=VARCHAR},
+      EXPIRES = #{expires,jdbcType=INTEGER},
+      ACCESS_TOKEN = #{accessToken,jdbcType=VARCHAR},
+      TOKEN = #{token,jdbcType=VARCHAR},
+      LAST_ACCESS_TIME = #{lastAccessTime,jdbcType=BIGINT},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      AUTOMATIC_CHECK = #{automaticCheck,jdbcType=TINYINT},
+      PUBLISH_LIMIT = #{publishLimit,jdbcType=INTEGER},
+      SYNC_PAID_TIME = #{syncPaidTime,jdbcType=TIMESTAMP},
+      PAID_CALLBACK = #{paidCallback,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

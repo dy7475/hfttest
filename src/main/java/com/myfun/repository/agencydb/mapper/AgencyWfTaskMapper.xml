@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfTask" >
+    <!--@mbggenerated-->
+    <id column="TASK_ID" property="taskId" jdbcType="INTEGER" />
+    <result column="TASK_URL" property="taskUrl" jdbcType="VARCHAR" />
+    <result column="TASK_STATUS" property="taskStatus" jdbcType="TINYINT" />
+    <result column="TASK_TIME" property="taskTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    TASK_ID, TASK_URL, TASK_STATUS, TASK_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_TASK
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_TASK
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfTask" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="taskId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_TASK (TASK_URL, TASK_STATUS, TASK_TIME
+      )
+    values (#{taskUrl,jdbcType=VARCHAR}, #{taskStatus,jdbcType=TINYINT}, #{taskTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfTask" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="taskId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_TASK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="taskUrl != null" >
+        TASK_URL,
+      </if>
+      <if test="taskStatus != null" >
+        TASK_STATUS,
+      </if>
+      <if test="taskTime != null" >
+        TASK_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="taskUrl != null" >
+        #{taskUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null" >
+        #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="taskTime != null" >
+        #{taskTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfTask" >
+    <!--@mbggenerated-->
+    update WF_TASK
+    <set >
+      <if test="taskUrl != null" >
+        TASK_URL = #{taskUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null" >
+        TASK_STATUS = #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="taskTime != null" >
+        TASK_TIME = #{taskTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfTask" >
+    <!--@mbggenerated-->
+    update WF_TASK
+    set TASK_URL = #{taskUrl,jdbcType=VARCHAR},
+      TASK_STATUS = #{taskStatus,jdbcType=TINYINT},
+      TASK_TIME = #{taskTime,jdbcType=TIMESTAMP}
+    where TASK_ID = #{taskId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunEvalStMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunEvalSt">
+    <!--@mbggenerated-->
+    <id column="ST_ID" jdbcType="INTEGER" property="stId" />
+    <id column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="ST_NAME" jdbcType="VARCHAR" property="stName" />
+    <result column="ST_SCORE" jdbcType="DECIMAL" property="stScore" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ST_ID, COMP_ID, ST_NAME, ST_SCORE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEvalStKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_EVAL_ST
+    where ST_ID = #{stId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEvalStKey">
+    <!--@mbggenerated-->
+    delete from FUN_EVAL_ST
+    where ST_ID = #{stId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunEvalSt">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="stId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_EVAL_ST_ST_ID
+    </selectKey>
+    insert into FUN_EVAL_ST (ST_ID, COMP_ID, ST_NAME, 
+      ST_SCORE)
+    values (#{stId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{stName,jdbcType=VARCHAR}, 
+      #{stScore,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEvalSt">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="stId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_EVAL_ST_ST_ID
+    </selectKey>
+    insert into FUN_EVAL_ST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ST_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="stName != null">
+        ST_NAME,
+      </if>
+      <if test="stScore != null">
+        ST_SCORE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{stId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="stName != null">
+        #{stName,jdbcType=VARCHAR},
+      </if>
+      <if test="stScore != null">
+        #{stScore,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEvalSt">
+    <!--@mbggenerated-->
+    update FUN_EVAL_ST
+    <set>
+      <if test="stName != null">
+        ST_NAME = #{stName,jdbcType=VARCHAR},
+      </if>
+      <if test="stScore != null">
+        ST_SCORE = #{stScore,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ST_ID = #{stId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEvalSt">
+    <!--@mbggenerated-->
+    update FUN_EVAL_ST
+    set ST_NAME = #{stName,jdbcType=VARCHAR},
+      ST_SCORE = #{stScore,jdbcType=DECIMAL}
+    where ST_ID = #{stId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+</mapper>

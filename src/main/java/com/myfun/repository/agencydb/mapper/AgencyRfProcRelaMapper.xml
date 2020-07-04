@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRfProcRelaMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRfProcRela" >
+    <!--@mbggenerated-->
+    <id column="RELATION_ID" property="relationId" jdbcType="INTEGER" />
+    <result column="PROCEDURE_ID" property="procedureId" jdbcType="INTEGER" />
+    <result column="SUB_ID" property="subId" jdbcType="INTEGER" />
+    <result column="FLOWNAME" property="flowname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    RELATION_ID, PROCEDURE_ID, SUB_ID, FLOWNAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RF_PROC_RELA
+    where RELATION_ID = #{relationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RF_PROC_RELA
+    where RELATION_ID = #{relationId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRfProcRela" >
+    <!--@mbggenerated-->
+    insert into RF_PROC_RELA (RELATION_ID, PROCEDURE_ID, SUB_ID, 
+      FLOWNAME)
+    values (#{relationId,jdbcType=INTEGER}, #{procedureId,jdbcType=INTEGER}, #{subId,jdbcType=INTEGER}, 
+      #{flowname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfProcRela" >
+    <!--@mbggenerated-->
+    insert into RF_PROC_RELA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="relationId != null" >
+        RELATION_ID,
+      </if>
+      <if test="procedureId != null" >
+        PROCEDURE_ID,
+      </if>
+      <if test="subId != null" >
+        SUB_ID,
+      </if>
+      <if test="flowname != null" >
+        FLOWNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="relationId != null" >
+        #{relationId,jdbcType=INTEGER},
+      </if>
+      <if test="procedureId != null" >
+        #{procedureId,jdbcType=INTEGER},
+      </if>
+      <if test="subId != null" >
+        #{subId,jdbcType=INTEGER},
+      </if>
+      <if test="flowname != null" >
+        #{flowname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfProcRela" >
+    <!--@mbggenerated-->
+    update RF_PROC_RELA
+    <set >
+      <if test="procedureId != null" >
+        PROCEDURE_ID = #{procedureId,jdbcType=INTEGER},
+      </if>
+      <if test="subId != null" >
+        SUB_ID = #{subId,jdbcType=INTEGER},
+      </if>
+      <if test="flowname != null" >
+        FLOWNAME = #{flowname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RELATION_ID = #{relationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRfProcRela" >
+    <!--@mbggenerated-->
+    update RF_PROC_RELA
+    set PROCEDURE_ID = #{procedureId,jdbcType=INTEGER},
+      SUB_ID = #{subId,jdbcType=INTEGER},
+      FLOWNAME = #{flowname,jdbcType=VARCHAR}
+    where RELATION_ID = #{relationId,jdbcType=INTEGER}
+  </update>
+</mapper>

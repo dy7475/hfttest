@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpSsqContractMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpSsqContract">
+    <!--@mbggenerated-->
+    <id column="SSQ_CONTRACT_ID" jdbcType="VARCHAR" property="ssqContractId" />
+    <result column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+    <result column="CONTRACT_STATUS" jdbcType="INTEGER" property="contractStatus" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+    <result column="PAGES" jdbcType="INTEGER" property="pages" />
+    <result column="INIT_CONTRACT_PDF" jdbcType="VARCHAR" property="initContractPdf" />
+    <result column="COMPLETE_CONTRACT_PDF" jdbcType="VARCHAR" property="completeContractPdf" />
+    <result column="FMD5" jdbcType="VARCHAR" property="fmd5" />
+    <result column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <result column="PARTY_A_INFO" jdbcType="VARCHAR" property="partyAInfo" />
+    <result column="PARTY_B_INFO" jdbcType="VARCHAR" property="partyBInfo" />
+    <result column="PARTY_C_INFO" jdbcType="VARCHAR" property="partyCInfo" />
+    <result column="PARTY_A_COMPLETE" jdbcType="TINYINT" property="partyAComplete" />
+    <result column="PARTY_B_COMPLETE" jdbcType="TINYINT" property="partyBComplete" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="COMPLETE_TIME" jdbcType="TIMESTAMP" property="completeTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    SSQ_CONTRACT_ID, DEAL_ID, CONTRACT_STATUS, IS_DEL, PAGES, INIT_CONTRACT_PDF, COMPLETE_CONTRACT_PDF, 
+    FMD5, ACCOUNT, PARTY_A_INFO, PARTY_B_INFO, PARTY_C_INFO, PARTY_A_COMPLETE, PARTY_B_COMPLETE, 
+    CREATE_TIME, COMPLETE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpSsqContractExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SSQ_CONTRACT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SSQ_CONTRACT
+    where SSQ_CONTRACT_ID = #{ssqContractId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbggenerated-->
+    delete from SSQ_CONTRACT
+    where SSQ_CONTRACT_ID = #{ssqContractId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpSsqContractExample">
+    <!--@mbggenerated-->
+    delete from SSQ_CONTRACT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpSsqContract">
+    <!--@mbggenerated-->
+    insert into SSQ_CONTRACT (SSQ_CONTRACT_ID, DEAL_ID, CONTRACT_STATUS, 
+      IS_DEL, PAGES, INIT_CONTRACT_PDF, 
+      COMPLETE_CONTRACT_PDF, FMD5, ACCOUNT, 
+      PARTY_A_INFO, PARTY_B_INFO, PARTY_C_INFO, 
+      PARTY_A_COMPLETE, PARTY_B_COMPLETE, CREATE_TIME, 
+      COMPLETE_TIME)
+    values (#{ssqContractId,jdbcType=VARCHAR}, #{dealId,jdbcType=INTEGER}, #{contractStatus,jdbcType=INTEGER}, 
+      #{isDel,jdbcType=TINYINT}, #{pages,jdbcType=INTEGER}, #{initContractPdf,jdbcType=VARCHAR}, 
+      #{completeContractPdf,jdbcType=VARCHAR}, #{fmd5,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
+      #{partyAInfo,jdbcType=VARCHAR}, #{partyBInfo,jdbcType=VARCHAR}, #{partyCInfo,jdbcType=VARCHAR}, 
+      #{partyAComplete,jdbcType=TINYINT}, #{partyBComplete,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{completeTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpSsqContract">
+    <!--@mbggenerated-->
+    insert into SSQ_CONTRACT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ssqContractId != null">
+        SSQ_CONTRACT_ID,
+      </if>
+      <if test="dealId != null">
+        DEAL_ID,
+      </if>
+      <if test="contractStatus != null">
+        CONTRACT_STATUS,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+      <if test="pages != null">
+        PAGES,
+      </if>
+      <if test="initContractPdf != null">
+        INIT_CONTRACT_PDF,
+      </if>
+      <if test="completeContractPdf != null">
+        COMPLETE_CONTRACT_PDF,
+      </if>
+      <if test="fmd5 != null">
+        FMD5,
+      </if>
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="partyAInfo != null">
+        PARTY_A_INFO,
+      </if>
+      <if test="partyBInfo != null">
+        PARTY_B_INFO,
+      </if>
+      <if test="partyCInfo != null">
+        PARTY_C_INFO,
+      </if>
+      <if test="partyAComplete != null">
+        PARTY_A_COMPLETE,
+      </if>
+      <if test="partyBComplete != null">
+        PARTY_B_COMPLETE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="completeTime != null">
+        COMPLETE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ssqContractId != null">
+        #{ssqContractId,jdbcType=VARCHAR},
+      </if>
+      <if test="dealId != null">
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="contractStatus != null">
+        #{contractStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="pages != null">
+        #{pages,jdbcType=INTEGER},
+      </if>
+      <if test="initContractPdf != null">
+        #{initContractPdf,jdbcType=VARCHAR},
+      </if>
+      <if test="completeContractPdf != null">
+        #{completeContractPdf,jdbcType=VARCHAR},
+      </if>
+      <if test="fmd5 != null">
+        #{fmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="partyAInfo != null">
+        #{partyAInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyBInfo != null">
+        #{partyBInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyCInfo != null">
+        #{partyCInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyAComplete != null">
+        #{partyAComplete,jdbcType=TINYINT},
+      </if>
+      <if test="partyBComplete != null">
+        #{partyBComplete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completeTime != null">
+        #{completeTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpSsqContractExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from SSQ_CONTRACT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update SSQ_CONTRACT
+    <set>
+      <if test="record.ssqContractId != null">
+        SSQ_CONTRACT_ID = #{record.ssqContractId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dealId != null">
+        DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      </if>
+      <if test="record.contractStatus != null">
+        CONTRACT_STATUS = #{record.contractStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.pages != null">
+        PAGES = #{record.pages,jdbcType=INTEGER},
+      </if>
+      <if test="record.initContractPdf != null">
+        INIT_CONTRACT_PDF = #{record.initContractPdf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.completeContractPdf != null">
+        COMPLETE_CONTRACT_PDF = #{record.completeContractPdf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fmd5 != null">
+        FMD5 = #{record.fmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.account != null">
+        ACCOUNT = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partyAInfo != null">
+        PARTY_A_INFO = #{record.partyAInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partyBInfo != null">
+        PARTY_B_INFO = #{record.partyBInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partyCInfo != null">
+        PARTY_C_INFO = #{record.partyCInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partyAComplete != null">
+        PARTY_A_COMPLETE = #{record.partyAComplete,jdbcType=TINYINT},
+      </if>
+      <if test="record.partyBComplete != null">
+        PARTY_B_COMPLETE = #{record.partyBComplete,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.completeTime != null">
+        COMPLETE_TIME = #{record.completeTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update SSQ_CONTRACT
+    set SSQ_CONTRACT_ID = #{record.ssqContractId,jdbcType=VARCHAR},
+      DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      CONTRACT_STATUS = #{record.contractStatus,jdbcType=INTEGER},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      PAGES = #{record.pages,jdbcType=INTEGER},
+      INIT_CONTRACT_PDF = #{record.initContractPdf,jdbcType=VARCHAR},
+      COMPLETE_CONTRACT_PDF = #{record.completeContractPdf,jdbcType=VARCHAR},
+      FMD5 = #{record.fmd5,jdbcType=VARCHAR},
+      ACCOUNT = #{record.account,jdbcType=VARCHAR},
+      PARTY_A_INFO = #{record.partyAInfo,jdbcType=VARCHAR},
+      PARTY_B_INFO = #{record.partyBInfo,jdbcType=VARCHAR},
+      PARTY_C_INFO = #{record.partyCInfo,jdbcType=VARCHAR},
+      PARTY_A_COMPLETE = #{record.partyAComplete,jdbcType=TINYINT},
+      PARTY_B_COMPLETE = #{record.partyBComplete,jdbcType=TINYINT},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      COMPLETE_TIME = #{record.completeTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpSsqContract">
+    <!--@mbggenerated-->
+    update SSQ_CONTRACT
+    <set>
+      <if test="dealId != null">
+        DEAL_ID = #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="contractStatus != null">
+        CONTRACT_STATUS = #{contractStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="pages != null">
+        PAGES = #{pages,jdbcType=INTEGER},
+      </if>
+      <if test="initContractPdf != null">
+        INIT_CONTRACT_PDF = #{initContractPdf,jdbcType=VARCHAR},
+      </if>
+      <if test="completeContractPdf != null">
+        COMPLETE_CONTRACT_PDF = #{completeContractPdf,jdbcType=VARCHAR},
+      </if>
+      <if test="fmd5 != null">
+        FMD5 = #{fmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        ACCOUNT = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="partyAInfo != null">
+        PARTY_A_INFO = #{partyAInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyBInfo != null">
+        PARTY_B_INFO = #{partyBInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyCInfo != null">
+        PARTY_C_INFO = #{partyCInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyAComplete != null">
+        PARTY_A_COMPLETE = #{partyAComplete,jdbcType=TINYINT},
+      </if>
+      <if test="partyBComplete != null">
+        PARTY_B_COMPLETE = #{partyBComplete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completeTime != null">
+        COMPLETE_TIME = #{completeTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SSQ_CONTRACT_ID = #{ssqContractId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpSsqContract">
+    <!--@mbggenerated-->
+    update SSQ_CONTRACT
+    set DEAL_ID = #{dealId,jdbcType=INTEGER},
+      CONTRACT_STATUS = #{contractStatus,jdbcType=INTEGER},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      PAGES = #{pages,jdbcType=INTEGER},
+      INIT_CONTRACT_PDF = #{initContractPdf,jdbcType=VARCHAR},
+      COMPLETE_CONTRACT_PDF = #{completeContractPdf,jdbcType=VARCHAR},
+      FMD5 = #{fmd5,jdbcType=VARCHAR},
+      ACCOUNT = #{account,jdbcType=VARCHAR},
+      PARTY_A_INFO = #{partyAInfo,jdbcType=VARCHAR},
+      PARTY_B_INFO = #{partyBInfo,jdbcType=VARCHAR},
+      PARTY_C_INFO = #{partyCInfo,jdbcType=VARCHAR},
+      PARTY_A_COMPLETE = #{partyAComplete,jdbcType=TINYINT},
+      PARTY_B_COMPLETE = #{partyBComplete,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      COMPLETE_TIME = #{completeTime,jdbcType=TIMESTAMP}
+    where SSQ_CONTRACT_ID = #{ssqContractId,jdbcType=VARCHAR}
+  </update>
+</mapper>

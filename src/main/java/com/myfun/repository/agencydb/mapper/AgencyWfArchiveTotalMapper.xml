@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfArchiveTotalMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfArchiveTotal" >
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="RECEIVING_NUM" property="receivingNum" jdbcType="INTEGER" />
+    <result column="PRAISE_NUM" property="praiseNum" jdbcType="INTEGER" />
+    <result column="EVA_STAR_COUNT" property="evaStarCount" jdbcType="INTEGER" />
+    <result column="EVA_STAR_SUM" property="evaStarSum" jdbcType="INTEGER" />
+    <result column="REFUSE_NUM" property="refuseNum" jdbcType="INTEGER" />
+    <result column="IS_SEND" property="isSend" jdbcType="INTEGER" />
+    <result column="IS_ACTIVE" property="isActive" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ARCHIVE_ID, RECEIVING_NUM, PRAISE_NUM, EVA_STAR_COUNT, EVA_STAR_SUM, REFUSE_NUM, 
+    IS_SEND, IS_ACTIVE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_ARCHIVE_TOTAL
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_ARCHIVE_TOTAL
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfArchiveTotal" >
+    <!--@mbggenerated-->
+    insert into WF_ARCHIVE_TOTAL (ARCHIVE_ID, RECEIVING_NUM, PRAISE_NUM, 
+      EVA_STAR_COUNT, EVA_STAR_SUM, REFUSE_NUM, 
+      IS_SEND, IS_ACTIVE)
+    values (#{archiveId,jdbcType=INTEGER}, #{receivingNum,jdbcType=INTEGER}, #{praiseNum,jdbcType=INTEGER}, 
+      #{evaStarCount,jdbcType=INTEGER}, #{evaStarSum,jdbcType=INTEGER}, #{refuseNum,jdbcType=INTEGER}, 
+      #{isSend,jdbcType=INTEGER}, #{isActive,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfArchiveTotal" >
+    <!--@mbggenerated-->
+    insert into WF_ARCHIVE_TOTAL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="receivingNum != null" >
+        RECEIVING_NUM,
+      </if>
+      <if test="praiseNum != null" >
+        PRAISE_NUM,
+      </if>
+      <if test="evaStarCount != null" >
+        EVA_STAR_COUNT,
+      </if>
+      <if test="evaStarSum != null" >
+        EVA_STAR_SUM,
+      </if>
+      <if test="refuseNum != null" >
+        REFUSE_NUM,
+      </if>
+      <if test="isSend != null" >
+        IS_SEND,
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="receivingNum != null" >
+        #{receivingNum,jdbcType=INTEGER},
+      </if>
+      <if test="praiseNum != null" >
+        #{praiseNum,jdbcType=INTEGER},
+      </if>
+      <if test="evaStarCount != null" >
+        #{evaStarCount,jdbcType=INTEGER},
+      </if>
+      <if test="evaStarSum != null" >
+        #{evaStarSum,jdbcType=INTEGER},
+      </if>
+      <if test="refuseNum != null" >
+        #{refuseNum,jdbcType=INTEGER},
+      </if>
+      <if test="isSend != null" >
+        #{isSend,jdbcType=INTEGER},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfArchiveTotal" >
+    <!--@mbggenerated-->
+    update WF_ARCHIVE_TOTAL
+    <set >
+      <if test="receivingNum != null" >
+        RECEIVING_NUM = #{receivingNum,jdbcType=INTEGER},
+      </if>
+      <if test="praiseNum != null" >
+        PRAISE_NUM = #{praiseNum,jdbcType=INTEGER},
+      </if>
+      <if test="evaStarCount != null" >
+        EVA_STAR_COUNT = #{evaStarCount,jdbcType=INTEGER},
+      </if>
+      <if test="evaStarSum != null" >
+        EVA_STAR_SUM = #{evaStarSum,jdbcType=INTEGER},
+      </if>
+      <if test="refuseNum != null" >
+        REFUSE_NUM = #{refuseNum,jdbcType=INTEGER},
+      </if>
+      <if test="isSend != null" >
+        IS_SEND = #{isSend,jdbcType=INTEGER},
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE = #{isActive,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfArchiveTotal" >
+    <!--@mbggenerated-->
+    update WF_ARCHIVE_TOTAL
+    set RECEIVING_NUM = #{receivingNum,jdbcType=INTEGER},
+      PRAISE_NUM = #{praiseNum,jdbcType=INTEGER},
+      EVA_STAR_COUNT = #{evaStarCount,jdbcType=INTEGER},
+      EVA_STAR_SUM = #{evaStarSum,jdbcType=INTEGER},
+      REFUSE_NUM = #{refuseNum,jdbcType=INTEGER},
+      IS_SEND = #{isSend,jdbcType=INTEGER},
+      IS_ACTIVE = #{isActive,jdbcType=TINYINT}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <select id="getWfArchiveTotalByArchiveId" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from WF_ARCHIVE_TOTAL
+    where ARCHIVE_ID = #{archiveId}
+  </select>
+</mapper>

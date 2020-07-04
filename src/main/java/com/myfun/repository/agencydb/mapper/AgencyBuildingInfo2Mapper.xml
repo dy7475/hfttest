@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyBuildingInfo2Mapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyBuildingInfo2" >
+    <!--@mbggenerated-->
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="BUILD_NAME" property="buildName" jdbcType="VARCHAR" />
+    <result column="BUILD_CODE" property="buildCode" jdbcType="VARCHAR" />
+    <result column="BUILD_ADDR" property="buildAddr" jdbcType="VARCHAR" />
+    <result column="BUILD_REGION" property="buildRegion" jdbcType="INTEGER" />
+    <result column="REG_NAME" property="regName" jdbcType="VARCHAR" />
+    <result column="SECTION_ID" property="sectionId" jdbcType="INTEGER" />
+    <result column="SECTION_NAME" property="sectionName" jdbcType="VARCHAR" />
+    <result column="BUILD_STREET" property="buildStreet" jdbcType="INTEGER" />
+    <result column="BUILD_ROUND" property="buildRound" jdbcType="VARCHAR" />
+    <result column="SPECIAL_BUILD" property="specialBuild" jdbcType="VARCHAR" />
+    <result column="ADD_CASE" property="addCase" jdbcType="VARCHAR" />
+    <result column="RIGHT_CONDUCT" property="rightConduct" jdbcType="VARCHAR" />
+    <result column="BUILD_TYPE" property="buildType" jdbcType="VARCHAR" />
+    <result column="BUILD_DATE" property="buildDate" jdbcType="VARCHAR" />
+    <result column="SUBMIT_DATE" property="submitDate" jdbcType="VARCHAR" />
+    <result column="BUILD_AREA" property="buildArea" jdbcType="VARCHAR" />
+    <result column="PROJECT_COVER" property="projectCover" jdbcType="VARCHAR" />
+    <result column="PROJECT_SPACE" property="projectSpace" jdbcType="VARCHAR" />
+    <result column="PROJECT_GREEN" property="projectGreen" jdbcType="VARCHAR" />
+    <result column="CARS_CASE" property="carsCase" jdbcType="VARCHAR" />
+    <result column="BUS_LINE" property="busLine" jdbcType="VARCHAR" />
+    <result column="PROPERTY_COMP" property="propertyComp" jdbcType="VARCHAR" />
+    <result column="PROPERTYCOMP_TELE" property="propertycompTele" jdbcType="VARCHAR" />
+    <result column="COST_STANDARD" property="costStandard" jdbcType="VARCHAR" />
+    <result column="BUILD_DESCRIPT" property="buildDescript" jdbcType="VARCHAR" />
+    <result column="BUILD_PHOTO" property="buildPhoto" jdbcType="INTEGER" />
+    <result column="POSITION_X" property="positionX" jdbcType="VARCHAR" />
+    <result column="POSITION_Y" property="positionY" jdbcType="VARCHAR" />
+    <result column="POSITION_FLAG" property="positionFlag" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="BUILD_STATUS" property="buildStatus" jdbcType="TINYINT" />
+    <result column="BUILD_PROGRESS" property="buildProgress" jdbcType="VARCHAR" />
+    <result column="PROJECT_SPEC" property="projectSpec" jdbcType="VARCHAR" />
+    <result column="RIGHT_YEARS" property="rightYears" jdbcType="VARCHAR" />
+    <result column="BUILD_PERMISSION" property="buildPermission" jdbcType="VARCHAR" />
+    <result column="SELL_DATE" property="sellDate" jdbcType="VARCHAR" />
+    <result column="FINISH_DATE" property="finishDate" jdbcType="VARCHAR" />
+    <result column="BUILD_FITMENT" property="buildFitment" jdbcType="VARCHAR" />
+    <result column="CONSTRACT_AREA" property="constractArea" jdbcType="VARCHAR" />
+    <result column="SELL_ADDR" property="sellAddr" jdbcType="VARCHAR" />
+    <result column="SELL_TELE" property="sellTele" jdbcType="VARCHAR" />
+    <result column="PRICE" property="price" jdbcType="INTEGER" />
+    <result column="PRICE_TEXT" property="priceText" jdbcType="VARCHAR" />
+    <result column="PRICE_TOTAL" property="priceTotal" jdbcType="VARCHAR" />
+    <result column="PHOTO_EXTERIOR" property="photoExterior" jdbcType="TINYINT" />
+    <result column="PHOTO_EFFECTS" property="photoEffects" jdbcType="TINYINT" />
+    <result column="PHOTO_MODEL" property="photoModel" jdbcType="TINYINT" />
+    <result column="PHOTO_TRAFFIC" property="photoTraffic" jdbcType="TINYINT" />
+    <result column="PHOTO_PLAN" property="photoPlan" jdbcType="TINYINT" />
+    <result column="PHOTO_SET" property="photoSet" jdbcType="TINYINT" />
+    <result column="PHOTO_TEMPLET" property="photoTemplet" jdbcType="TINYINT" />
+    <result column="NEW_FLAG" property="newFlag" jdbcType="TINYINT" />
+    <result column="BUILD_USAGE" property="buildUsage" jdbcType="VARCHAR" />
+    <result column="EXAM_PHOTO" property="examPhoto" jdbcType="TINYINT" />
+    <result column="SELL_TELE1" property="sellTele1" jdbcType="VARCHAR" />
+    <result column="DEVLOPER_ID" property="devloperId" jdbcType="INTEGER" />
+    <result column="SALE_LICENSE" property="saleLicense" jdbcType="VARCHAR" />
+    <result column="DEVLOPER_RATE" property="devloperRate" jdbcType="VARCHAR" />
+    <result column="LAND_USEAGE" property="landUseage" jdbcType="VARCHAR" />
+    <result column="LAND_USEYEARS" property="landUseyears" jdbcType="VARCHAR" />
+    <result column="LAND_AREA" property="landArea" jdbcType="VARCHAR" />
+    <result column="BUILD_DENSITY" property="buildDensity" jdbcType="VARCHAR" />
+    <result column="DECORATION" property="decoration" jdbcType="VARCHAR" />
+    <result column="STD_FITTING" property="stdFitting" jdbcType="VARCHAR" />
+    <result column="PARK_RENT" property="parkRent" jdbcType="VARCHAR" />
+    <result column="PARK_SALE" property="parkSale" jdbcType="VARCHAR" />
+    <result column="COMP_INVEST" property="compInvest" jdbcType="VARCHAR" />
+    <result column="COMP_PROPER" property="compProper" jdbcType="VARCHAR" />
+    <result column="COMP_DESILAND" property="compDesiland" jdbcType="VARCHAR" />
+    <result column="COMP_DESIARCH" property="compDesiarch" jdbcType="VARCHAR" />
+    <result column="COMP_CONSTR" property="compConstr" jdbcType="VARCHAR" />
+    <result column="AGENCY_STATUS" property="agencyStatus" jdbcType="SMALLINT" />
+    <result column="EDIT_FLAG" property="editFlag" jdbcType="TINYINT" />
+    <result column="CRM_COMP_ID" property="crmCompId" jdbcType="INTEGER" />
+    <result column="CRM_USER_ID" property="crmUserId" jdbcType="INTEGER" />
+    <result column="DEVLOPER_CITY_ID" property="devloperCityId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyBuildingInfo2WithBLOBs" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="AGENCY_INTRO" property="agencyIntro" jdbcType="CLOB" />
+    <result column="AGENCY_ATT" property="agencyAtt" jdbcType="CLOB" />
+    <result column="AGENCY_KNOW" property="agencyKnow" jdbcType="CLOB" />
+    <result column="BUILD_AGENCYDETAIL" property="buildAgencydetail" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    AGENCY_INTRO, AGENCY_ATT, AGENCY_KNOW, BUILD_AGENCYDETAIL
+  </sql>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingInfo2WithBLOBs" >
+    <!--@mbggenerated-->
+    insert into building_info2 (CITY_ID, BUILD_ID, PROVINCE_ID, 
+      BUILD_NAME, BUILD_CODE, BUILD_ADDR, 
+      BUILD_REGION, REG_NAME, SECTION_ID, 
+      SECTION_NAME, BUILD_STREET, BUILD_ROUND, 
+      SPECIAL_BUILD, ADD_CASE, RIGHT_CONDUCT, 
+      BUILD_TYPE, BUILD_DATE, SUBMIT_DATE, 
+      BUILD_AREA, PROJECT_COVER, PROJECT_SPACE, 
+      PROJECT_GREEN, CARS_CASE, BUS_LINE, 
+      PROPERTY_COMP, PROPERTYCOMP_TELE, COST_STANDARD, 
+      BUILD_DESCRIPT, BUILD_PHOTO, POSITION_X, 
+      POSITION_Y, POSITION_FLAG, USER_ID, 
+      CREATE_TIME, UPDATE_TIME, BUILD_STATUS, 
+      BUILD_PROGRESS, PROJECT_SPEC, RIGHT_YEARS, 
+      BUILD_PERMISSION, SELL_DATE, FINISH_DATE, 
+      BUILD_FITMENT, CONSTRACT_AREA, SELL_ADDR, 
+      SELL_TELE, PRICE, PRICE_TEXT, 
+      PRICE_TOTAL, PHOTO_EXTERIOR, PHOTO_EFFECTS, 
+      PHOTO_MODEL, PHOTO_TRAFFIC, PHOTO_PLAN, 
+      PHOTO_SET, PHOTO_TEMPLET, NEW_FLAG, 
+      BUILD_USAGE, EXAM_PHOTO, SELL_TELE1, 
+      DEVLOPER_ID, SALE_LICENSE, DEVLOPER_RATE, 
+      LAND_USEAGE, LAND_USEYEARS, LAND_AREA, 
+      BUILD_DENSITY, DECORATION, STD_FITTING, 
+      PARK_RENT, PARK_SALE, COMP_INVEST, 
+      COMP_PROPER, COMP_DESILAND, COMP_DESIARCH, 
+      COMP_CONSTR, AGENCY_STATUS, EDIT_FLAG, 
+      CRM_COMP_ID, CRM_USER_ID, DEVLOPER_CITY_ID, 
+      AGENCY_INTRO, AGENCY_ATT, AGENCY_KNOW, 
+      BUILD_AGENCYDETAIL)
+    values (#{cityId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, 
+      #{buildName,jdbcType=VARCHAR}, #{buildCode,jdbcType=VARCHAR}, #{buildAddr,jdbcType=VARCHAR}, 
+      #{buildRegion,jdbcType=INTEGER}, #{regName,jdbcType=VARCHAR}, #{sectionId,jdbcType=INTEGER}, 
+      #{sectionName,jdbcType=VARCHAR}, #{buildStreet,jdbcType=INTEGER}, #{buildRound,jdbcType=VARCHAR}, 
+      #{specialBuild,jdbcType=VARCHAR}, #{addCase,jdbcType=VARCHAR}, #{rightConduct,jdbcType=VARCHAR}, 
+      #{buildType,jdbcType=VARCHAR}, #{buildDate,jdbcType=VARCHAR}, #{submitDate,jdbcType=VARCHAR}, 
+      #{buildArea,jdbcType=VARCHAR}, #{projectCover,jdbcType=VARCHAR}, #{projectSpace,jdbcType=VARCHAR}, 
+      #{projectGreen,jdbcType=VARCHAR}, #{carsCase,jdbcType=VARCHAR}, #{busLine,jdbcType=VARCHAR}, 
+      #{propertyComp,jdbcType=VARCHAR}, #{propertycompTele,jdbcType=VARCHAR}, #{costStandard,jdbcType=VARCHAR}, 
+      #{buildDescript,jdbcType=VARCHAR}, #{buildPhoto,jdbcType=INTEGER}, #{positionX,jdbcType=VARCHAR}, 
+      #{positionY,jdbcType=VARCHAR}, #{positionFlag,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{buildStatus,jdbcType=TINYINT}, 
+      #{buildProgress,jdbcType=VARCHAR}, #{projectSpec,jdbcType=VARCHAR}, #{rightYears,jdbcType=VARCHAR}, 
+      #{buildPermission,jdbcType=VARCHAR}, #{sellDate,jdbcType=VARCHAR}, #{finishDate,jdbcType=VARCHAR}, 
+      #{buildFitment,jdbcType=VARCHAR}, #{constractArea,jdbcType=VARCHAR}, #{sellAddr,jdbcType=VARCHAR}, 
+      #{sellTele,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, #{priceText,jdbcType=VARCHAR}, 
+      #{priceTotal,jdbcType=VARCHAR}, #{photoExterior,jdbcType=TINYINT}, #{photoEffects,jdbcType=TINYINT}, 
+      #{photoModel,jdbcType=TINYINT}, #{photoTraffic,jdbcType=TINYINT}, #{photoPlan,jdbcType=TINYINT}, 
+      #{photoSet,jdbcType=TINYINT}, #{photoTemplet,jdbcType=TINYINT}, #{newFlag,jdbcType=TINYINT}, 
+      #{buildUsage,jdbcType=VARCHAR}, #{examPhoto,jdbcType=TINYINT}, #{sellTele1,jdbcType=VARCHAR}, 
+      #{devloperId,jdbcType=INTEGER}, #{saleLicense,jdbcType=VARCHAR}, #{devloperRate,jdbcType=VARCHAR}, 
+      #{landUseage,jdbcType=VARCHAR}, #{landUseyears,jdbcType=VARCHAR}, #{landArea,jdbcType=VARCHAR}, 
+      #{buildDensity,jdbcType=VARCHAR}, #{decoration,jdbcType=VARCHAR}, #{stdFitting,jdbcType=VARCHAR}, 
+      #{parkRent,jdbcType=VARCHAR}, #{parkSale,jdbcType=VARCHAR}, #{compInvest,jdbcType=VARCHAR}, 
+      #{compProper,jdbcType=VARCHAR}, #{compDesiland,jdbcType=VARCHAR}, #{compDesiarch,jdbcType=VARCHAR}, 
+      #{compConstr,jdbcType=VARCHAR}, #{agencyStatus,jdbcType=SMALLINT}, #{editFlag,jdbcType=TINYINT}, 
+      #{crmCompId,jdbcType=INTEGER}, #{crmUserId,jdbcType=INTEGER}, #{devloperCityId,jdbcType=INTEGER}, 
+      #{agencyIntro,jdbcType=CLOB}, #{agencyAtt,jdbcType=CLOB}, #{agencyKnow,jdbcType=CLOB}, 
+      #{buildAgencydetail,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildingInfo2WithBLOBs" >
+    <!--@mbggenerated-->
+    insert into building_info2
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="buildName != null" >
+        BUILD_NAME,
+      </if>
+      <if test="buildCode != null" >
+        BUILD_CODE,
+      </if>
+      <if test="buildAddr != null" >
+        BUILD_ADDR,
+      </if>
+      <if test="buildRegion != null" >
+        BUILD_REGION,
+      </if>
+      <if test="regName != null" >
+        REG_NAME,
+      </if>
+      <if test="sectionId != null" >
+        SECTION_ID,
+      </if>
+      <if test="sectionName != null" >
+        SECTION_NAME,
+      </if>
+      <if test="buildStreet != null" >
+        BUILD_STREET,
+      </if>
+      <if test="buildRound != null" >
+        BUILD_ROUND,
+      </if>
+      <if test="specialBuild != null" >
+        SPECIAL_BUILD,
+      </if>
+      <if test="addCase != null" >
+        ADD_CASE,
+      </if>
+      <if test="rightConduct != null" >
+        RIGHT_CONDUCT,
+      </if>
+      <if test="buildType != null" >
+        BUILD_TYPE,
+      </if>
+      <if test="buildDate != null" >
+        BUILD_DATE,
+      </if>
+      <if test="submitDate != null" >
+        SUBMIT_DATE,
+      </if>
+      <if test="buildArea != null" >
+        BUILD_AREA,
+      </if>
+      <if test="projectCover != null" >
+        PROJECT_COVER,
+      </if>
+      <if test="projectSpace != null" >
+        PROJECT_SPACE,
+      </if>
+      <if test="projectGreen != null" >
+        PROJECT_GREEN,
+      </if>
+      <if test="carsCase != null" >
+        CARS_CASE,
+      </if>
+      <if test="busLine != null" >
+        BUS_LINE,
+      </if>
+      <if test="propertyComp != null" >
+        PROPERTY_COMP,
+      </if>
+      <if test="propertycompTele != null" >
+        PROPERTYCOMP_TELE,
+      </if>
+      <if test="costStandard != null" >
+        COST_STANDARD,
+      </if>
+      <if test="buildDescript != null" >
+        BUILD_DESCRIPT,
+      </if>
+      <if test="buildPhoto != null" >
+        BUILD_PHOTO,
+      </if>
+      <if test="positionX != null" >
+        POSITION_X,
+      </if>
+      <if test="positionY != null" >
+        POSITION_Y,
+      </if>
+      <if test="positionFlag != null" >
+        POSITION_FLAG,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="buildStatus != null" >
+        BUILD_STATUS,
+      </if>
+      <if test="buildProgress != null" >
+        BUILD_PROGRESS,
+      </if>
+      <if test="projectSpec != null" >
+        PROJECT_SPEC,
+      </if>
+      <if test="rightYears != null" >
+        RIGHT_YEARS,
+      </if>
+      <if test="buildPermission != null" >
+        BUILD_PERMISSION,
+      </if>
+      <if test="sellDate != null" >
+        SELL_DATE,
+      </if>
+      <if test="finishDate != null" >
+        FINISH_DATE,
+      </if>
+      <if test="buildFitment != null" >
+        BUILD_FITMENT,
+      </if>
+      <if test="constractArea != null" >
+        CONSTRACT_AREA,
+      </if>
+      <if test="sellAddr != null" >
+        SELL_ADDR,
+      </if>
+      <if test="sellTele != null" >
+        SELL_TELE,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="priceText != null" >
+        PRICE_TEXT,
+      </if>
+      <if test="priceTotal != null" >
+        PRICE_TOTAL,
+      </if>
+      <if test="photoExterior != null" >
+        PHOTO_EXTERIOR,
+      </if>
+      <if test="photoEffects != null" >
+        PHOTO_EFFECTS,
+      </if>
+      <if test="photoModel != null" >
+        PHOTO_MODEL,
+      </if>
+      <if test="photoTraffic != null" >
+        PHOTO_TRAFFIC,
+      </if>
+      <if test="photoPlan != null" >
+        PHOTO_PLAN,
+      </if>
+      <if test="photoSet != null" >
+        PHOTO_SET,
+      </if>
+      <if test="photoTemplet != null" >
+        PHOTO_TEMPLET,
+      </if>
+      <if test="newFlag != null" >
+        NEW_FLAG,
+      </if>
+      <if test="buildUsage != null" >
+        BUILD_USAGE,
+      </if>
+      <if test="examPhoto != null" >
+        EXAM_PHOTO,
+      </if>
+      <if test="sellTele1 != null" >
+        SELL_TELE1,
+      </if>
+      <if test="devloperId != null" >
+        DEVLOPER_ID,
+      </if>
+      <if test="saleLicense != null" >
+        SALE_LICENSE,
+      </if>
+      <if test="devloperRate != null" >
+        DEVLOPER_RATE,
+      </if>
+      <if test="landUseage != null" >
+        LAND_USEAGE,
+      </if>
+      <if test="landUseyears != null" >
+        LAND_USEYEARS,
+      </if>
+      <if test="landArea != null" >
+        LAND_AREA,
+      </if>
+      <if test="buildDensity != null" >
+        BUILD_DENSITY,
+      </if>
+      <if test="decoration != null" >
+        DECORATION,
+      </if>
+      <if test="stdFitting != null" >
+        STD_FITTING,
+      </if>
+      <if test="parkRent != null" >
+        PARK_RENT,
+      </if>
+      <if test="parkSale != null" >
+        PARK_SALE,
+      </if>
+      <if test="compInvest != null" >
+        COMP_INVEST,
+      </if>
+      <if test="compProper != null" >
+        COMP_PROPER,
+      </if>
+      <if test="compDesiland != null" >
+        COMP_DESILAND,
+      </if>
+      <if test="compDesiarch != null" >
+        COMP_DESIARCH,
+      </if>
+      <if test="compConstr != null" >
+        COMP_CONSTR,
+      </if>
+      <if test="agencyStatus != null" >
+        AGENCY_STATUS,
+      </if>
+      <if test="editFlag != null" >
+        EDIT_FLAG,
+      </if>
+      <if test="crmCompId != null" >
+        CRM_COMP_ID,
+      </if>
+      <if test="crmUserId != null" >
+        CRM_USER_ID,
+      </if>
+      <if test="devloperCityId != null" >
+        DEVLOPER_CITY_ID,
+      </if>
+      <if test="agencyIntro != null" >
+        AGENCY_INTRO,
+      </if>
+      <if test="agencyAtt != null" >
+        AGENCY_ATT,
+      </if>
+      <if test="agencyKnow != null" >
+        AGENCY_KNOW,
+      </if>
+      <if test="buildAgencydetail != null" >
+        BUILD_AGENCYDETAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null" >
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildCode != null" >
+        #{buildCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buildAddr != null" >
+        #{buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRegion != null" >
+        #{buildRegion,jdbcType=INTEGER},
+      </if>
+      <if test="regName != null" >
+        #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionId != null" >
+        #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="sectionName != null" >
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildStreet != null" >
+        #{buildStreet,jdbcType=INTEGER},
+      </if>
+      <if test="buildRound != null" >
+        #{buildRound,jdbcType=VARCHAR},
+      </if>
+      <if test="specialBuild != null" >
+        #{specialBuild,jdbcType=VARCHAR},
+      </if>
+      <if test="addCase != null" >
+        #{addCase,jdbcType=VARCHAR},
+      </if>
+      <if test="rightConduct != null" >
+        #{rightConduct,jdbcType=VARCHAR},
+      </if>
+      <if test="buildType != null" >
+        #{buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDate != null" >
+        #{buildDate,jdbcType=VARCHAR},
+      </if>
+      <if test="submitDate != null" >
+        #{submitDate,jdbcType=VARCHAR},
+      </if>
+      <if test="buildArea != null" >
+        #{buildArea,jdbcType=VARCHAR},
+      </if>
+      <if test="projectCover != null" >
+        #{projectCover,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSpace != null" >
+        #{projectSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGreen != null" >
+        #{projectGreen,jdbcType=VARCHAR},
+      </if>
+      <if test="carsCase != null" >
+        #{carsCase,jdbcType=VARCHAR},
+      </if>
+      <if test="busLine != null" >
+        #{busLine,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyComp != null" >
+        #{propertyComp,jdbcType=VARCHAR},
+      </if>
+      <if test="propertycompTele != null" >
+        #{propertycompTele,jdbcType=VARCHAR},
+      </if>
+      <if test="costStandard != null" >
+        #{costStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDescript != null" >
+        #{buildDescript,jdbcType=VARCHAR},
+      </if>
+      <if test="buildPhoto != null" >
+        #{buildPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="positionX != null" >
+        #{positionX,jdbcType=VARCHAR},
+      </if>
+      <if test="positionY != null" >
+        #{positionY,jdbcType=VARCHAR},
+      </if>
+      <if test="positionFlag != null" >
+        #{positionFlag,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildStatus != null" >
+        #{buildStatus,jdbcType=TINYINT},
+      </if>
+      <if test="buildProgress != null" >
+        #{buildProgress,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSpec != null" >
+        #{projectSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="rightYears != null" >
+        #{rightYears,jdbcType=VARCHAR},
+      </if>
+      <if test="buildPermission != null" >
+        #{buildPermission,jdbcType=VARCHAR},
+      </if>
+      <if test="sellDate != null" >
+        #{sellDate,jdbcType=VARCHAR},
+      </if>
+      <if test="finishDate != null" >
+        #{finishDate,jdbcType=VARCHAR},
+      </if>
+      <if test="buildFitment != null" >
+        #{buildFitment,jdbcType=VARCHAR},
+      </if>
+      <if test="constractArea != null" >
+        #{constractArea,jdbcType=VARCHAR},
+      </if>
+      <if test="sellAddr != null" >
+        #{sellAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sellTele != null" >
+        #{sellTele,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="priceText != null" >
+        #{priceText,jdbcType=VARCHAR},
+      </if>
+      <if test="priceTotal != null" >
+        #{priceTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="photoExterior != null" >
+        #{photoExterior,jdbcType=TINYINT},
+      </if>
+      <if test="photoEffects != null" >
+        #{photoEffects,jdbcType=TINYINT},
+      </if>
+      <if test="photoModel != null" >
+        #{photoModel,jdbcType=TINYINT},
+      </if>
+      <if test="photoTraffic != null" >
+        #{photoTraffic,jdbcType=TINYINT},
+      </if>
+      <if test="photoPlan != null" >
+        #{photoPlan,jdbcType=TINYINT},
+      </if>
+      <if test="photoSet != null" >
+        #{photoSet,jdbcType=TINYINT},
+      </if>
+      <if test="photoTemplet != null" >
+        #{photoTemplet,jdbcType=TINYINT},
+      </if>
+      <if test="newFlag != null" >
+        #{newFlag,jdbcType=TINYINT},
+      </if>
+      <if test="buildUsage != null" >
+        #{buildUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="examPhoto != null" >
+        #{examPhoto,jdbcType=TINYINT},
+      </if>
+      <if test="sellTele1 != null" >
+        #{sellTele1,jdbcType=VARCHAR},
+      </if>
+      <if test="devloperId != null" >
+        #{devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="saleLicense != null" >
+        #{saleLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="devloperRate != null" >
+        #{devloperRate,jdbcType=VARCHAR},
+      </if>
+      <if test="landUseage != null" >
+        #{landUseage,jdbcType=VARCHAR},
+      </if>
+      <if test="landUseyears != null" >
+        #{landUseyears,jdbcType=VARCHAR},
+      </if>
+      <if test="landArea != null" >
+        #{landArea,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDensity != null" >
+        #{buildDensity,jdbcType=VARCHAR},
+      </if>
+      <if test="decoration != null" >
+        #{decoration,jdbcType=VARCHAR},
+      </if>
+      <if test="stdFitting != null" >
+        #{stdFitting,jdbcType=VARCHAR},
+      </if>
+      <if test="parkRent != null" >
+        #{parkRent,jdbcType=VARCHAR},
+      </if>
+      <if test="parkSale != null" >
+        #{parkSale,jdbcType=VARCHAR},
+      </if>
+      <if test="compInvest != null" >
+        #{compInvest,jdbcType=VARCHAR},
+      </if>
+      <if test="compProper != null" >
+        #{compProper,jdbcType=VARCHAR},
+      </if>
+      <if test="compDesiland != null" >
+        #{compDesiland,jdbcType=VARCHAR},
+      </if>
+      <if test="compDesiarch != null" >
+        #{compDesiarch,jdbcType=VARCHAR},
+      </if>
+      <if test="compConstr != null" >
+        #{compConstr,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyStatus != null" >
+        #{agencyStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="editFlag != null" >
+        #{editFlag,jdbcType=TINYINT},
+      </if>
+      <if test="crmCompId != null" >
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="crmUserId != null" >
+        #{crmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="devloperCityId != null" >
+        #{devloperCityId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyIntro != null" >
+        #{agencyIntro,jdbcType=CLOB},
+      </if>
+      <if test="agencyAtt != null" >
+        #{agencyAtt,jdbcType=CLOB},
+      </if>
+      <if test="agencyKnow != null" >
+        #{agencyKnow,jdbcType=CLOB},
+      </if>
+      <if test="buildAgencydetail != null" >
+        #{buildAgencydetail,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

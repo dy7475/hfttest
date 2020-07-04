@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWeixinUserFunMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWeixinUserFun" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="FUN_ID" property="funId" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="WX_ID" property="wxId" jdbcType="INTEGER" />
+    <result column="MOBILE" property="mobile" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, FUN_ID, TYPE, WX_ID, MOBILE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WEIXIN_USER_FUN
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WEIXIN_USER_FUN
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWeixinUserFun" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WEIXIN_USER_FUN (FUN_ID, TYPE, WX_ID, 
+      MOBILE)
+    values (#{funId,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{wxId,jdbcType=INTEGER}, 
+      #{mobile,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWeixinUserFun" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WEIXIN_USER_FUN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="funId != null" >
+        FUN_ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="wxId != null" >
+        WX_ID,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="funId != null" >
+        #{funId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="wxId != null" >
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWeixinUserFun" >
+    <!--@mbggenerated-->
+    update WEIXIN_USER_FUN
+    <set >
+      <if test="funId != null" >
+        FUN_ID = #{funId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="wxId != null" >
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWeixinUserFun" >
+    <!--@mbggenerated-->
+    update WEIXIN_USER_FUN
+    set FUN_ID = #{funId,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=VARCHAR},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      MOBILE = #{mobile,jdbcType=CHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

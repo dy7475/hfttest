@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWeixinUserMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWeixinUser" >
+    <!--@mbggenerated-->
+    <id column="WX_ID" property="wxId" jdbcType="INTEGER" />
+    <result column="WX_USERNAME" property="wxUsername" jdbcType="VARCHAR" />
+    <result column="WX_NICKNAME" property="wxNickname" jdbcType="VARCHAR" />
+    <result column="WX_PHOTO" property="wxPhoto" jdbcType="VARCHAR" />
+    <result column="WX_SEX" property="wxSex" jdbcType="TINYINT" />
+    <result column="WX_PROVINCE" property="wxProvince" jdbcType="VARCHAR" />
+    <result column="WX_CITY" property="wxCity" jdbcType="VARCHAR" />
+    <result column="WX_ADD_TIME" property="wxAddTime" jdbcType="INTEGER" />
+    <result column="WX_MOBILE" property="wxMobile" jdbcType="CHAR" />
+    <result column="WX_STATUS" property="wxStatus" jdbcType="TINYINT" />
+    <result column="WX_LOCATE_CITY" property="wxLocateCity" jdbcType="INTEGER" />
+    <result column="SUBSCRIBE" property="subscribe" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    WX_ID, WX_USERNAME, WX_NICKNAME, WX_PHOTO, WX_SEX, WX_PROVINCE, WX_CITY, WX_ADD_TIME, 
+    WX_MOBILE, WX_STATUS, WX_LOCATE_CITY, SUBSCRIBE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WEIXIN_USER
+    where WX_ID = #{wxId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WEIXIN_USER
+    where WX_ID = #{wxId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWeixinUser" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wxId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WEIXIN_USER (WX_USERNAME, WX_NICKNAME, WX_PHOTO, 
+      WX_SEX, WX_PROVINCE, WX_CITY, 
+      WX_ADD_TIME, WX_MOBILE, WX_STATUS, 
+      WX_LOCATE_CITY, SUBSCRIBE)
+    values (#{wxUsername,jdbcType=VARCHAR}, #{wxNickname,jdbcType=VARCHAR}, #{wxPhoto,jdbcType=VARCHAR}, 
+      #{wxSex,jdbcType=TINYINT}, #{wxProvince,jdbcType=VARCHAR}, #{wxCity,jdbcType=VARCHAR}, 
+      #{wxAddTime,jdbcType=INTEGER}, #{wxMobile,jdbcType=CHAR}, #{wxStatus,jdbcType=TINYINT}, 
+      #{wxLocateCity,jdbcType=INTEGER}, #{subscribe,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWeixinUser" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wxId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WEIXIN_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wxUsername != null" >
+        WX_USERNAME,
+      </if>
+      <if test="wxNickname != null" >
+        WX_NICKNAME,
+      </if>
+      <if test="wxPhoto != null" >
+        WX_PHOTO,
+      </if>
+      <if test="wxSex != null" >
+        WX_SEX,
+      </if>
+      <if test="wxProvince != null" >
+        WX_PROVINCE,
+      </if>
+      <if test="wxCity != null" >
+        WX_CITY,
+      </if>
+      <if test="wxAddTime != null" >
+        WX_ADD_TIME,
+      </if>
+      <if test="wxMobile != null" >
+        WX_MOBILE,
+      </if>
+      <if test="wxStatus != null" >
+        WX_STATUS,
+      </if>
+      <if test="wxLocateCity != null" >
+        WX_LOCATE_CITY,
+      </if>
+      <if test="subscribe != null" >
+        SUBSCRIBE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wxUsername != null" >
+        #{wxUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNickname != null" >
+        #{wxNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="wxPhoto != null" >
+        #{wxPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="wxSex != null" >
+        #{wxSex,jdbcType=TINYINT},
+      </if>
+      <if test="wxProvince != null" >
+        #{wxProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="wxCity != null" >
+        #{wxCity,jdbcType=VARCHAR},
+      </if>
+      <if test="wxAddTime != null" >
+        #{wxAddTime,jdbcType=INTEGER},
+      </if>
+      <if test="wxMobile != null" >
+        #{wxMobile,jdbcType=CHAR},
+      </if>
+      <if test="wxStatus != null" >
+        #{wxStatus,jdbcType=TINYINT},
+      </if>
+      <if test="wxLocateCity != null" >
+        #{wxLocateCity,jdbcType=INTEGER},
+      </if>
+      <if test="subscribe != null" >
+        #{subscribe,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWeixinUser" >
+    <!--@mbggenerated-->
+    update WEIXIN_USER
+    <set >
+      <if test="wxUsername != null" >
+        WX_USERNAME = #{wxUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNickname != null" >
+        WX_NICKNAME = #{wxNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="wxPhoto != null" >
+        WX_PHOTO = #{wxPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="wxSex != null" >
+        WX_SEX = #{wxSex,jdbcType=TINYINT},
+      </if>
+      <if test="wxProvince != null" >
+        WX_PROVINCE = #{wxProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="wxCity != null" >
+        WX_CITY = #{wxCity,jdbcType=VARCHAR},
+      </if>
+      <if test="wxAddTime != null" >
+        WX_ADD_TIME = #{wxAddTime,jdbcType=INTEGER},
+      </if>
+      <if test="wxMobile != null" >
+        WX_MOBILE = #{wxMobile,jdbcType=CHAR},
+      </if>
+      <if test="wxStatus != null" >
+        WX_STATUS = #{wxStatus,jdbcType=TINYINT},
+      </if>
+      <if test="wxLocateCity != null" >
+        WX_LOCATE_CITY = #{wxLocateCity,jdbcType=INTEGER},
+      </if>
+      <if test="subscribe != null" >
+        SUBSCRIBE = #{subscribe,jdbcType=TINYINT},
+      </if>
+    </set>
+    where WX_ID = #{wxId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWeixinUser" >
+    <!--@mbggenerated-->
+    update WEIXIN_USER
+    set WX_USERNAME = #{wxUsername,jdbcType=VARCHAR},
+      WX_NICKNAME = #{wxNickname,jdbcType=VARCHAR},
+      WX_PHOTO = #{wxPhoto,jdbcType=VARCHAR},
+      WX_SEX = #{wxSex,jdbcType=TINYINT},
+      WX_PROVINCE = #{wxProvince,jdbcType=VARCHAR},
+      WX_CITY = #{wxCity,jdbcType=VARCHAR},
+      WX_ADD_TIME = #{wxAddTime,jdbcType=INTEGER},
+      WX_MOBILE = #{wxMobile,jdbcType=CHAR},
+      WX_STATUS = #{wxStatus,jdbcType=TINYINT},
+      WX_LOCATE_CITY = #{wxLocateCity,jdbcType=INTEGER},
+      SUBSCRIBE = #{subscribe,jdbcType=TINYINT}
+    where WX_ID = #{wxId,jdbcType=INTEGER}
+  </update>
+</mapper>

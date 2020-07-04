@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyDistributeAdsMapper">
+    <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyDistributeAds">
+        <!--@mbggenerated-->
+        <id column="PHOTO_ID" jdbcType="INTEGER" property="photoId"/>
+        <result column="PHOTO_ADDR" jdbcType="VARCHAR" property="photoAddr"/>
+        <result column="PHOTO_SUBJECT" jdbcType="VARCHAR" property="photoSubject"/>
+        <result column="SEQ_NO" jdbcType="TINYINT" property="seqNo"/>
+        <result column="PUBLISH_URL" jdbcType="VARCHAR" property="publishUrl"/>
+        <result column="PUBLISH_DUE" jdbcType="TIMESTAMP" property="publishDue"/>
+        <result column="PUBLISH_FLAG" jdbcType="TINYINT" property="publishFlag"/>
+        <result column="PUBLISH_CITY" jdbcType="VARCHAR" property="publishCity"/>
+        <result column="PUBLISH_COMP" jdbcType="INTEGER" property="publishComp"/>
+        <result column="PUBLISH_USER" jdbcType="INTEGER" property="publishUser"/>
+        <result column="PUBLISH_TIME" jdbcType="TIMESTAMP" property="publishTime"/>
+        <result column="UPDATE_USER" jdbcType="INTEGER" property="updateUser"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="PHOTO_CONTENT" jdbcType="VARCHAR" property="photoContent"/>
+        <result column="ADV_TYPE" jdbcType="INTEGER" property="advType"/>
+        <result column="ERP_COMP_NO" jdbcType="VARCHAR" property="erpCompNo"/>
+        <result column="ERP_COMP_ID" jdbcType="INTEGER" property="erpCompId"/>
+        <result column="SYSTEM_FLAG" jdbcType="BIT" property="systemFlag"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbggenerated-->
+        PHOTO_ID, PHOTO_ADDR, PHOTO_SUBJECT, SEQ_NO, PUBLISH_URL, PUBLISH_DUE, PUBLISH_FLAG,
+        PUBLISH_CITY, PUBLISH_COMP, PUBLISH_USER, PUBLISH_TIME, UPDATE_USER, UPDATE_TIME,
+        PHOTO_CONTENT, ADV_TYPE, ERP_COMP_NO, ERP_COMP_ID, SYSTEM_FLAG
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbggenerated-->
+        select
+        <include refid="Base_Column_List"/>
+        from DISTRIBUTE_ADS
+        where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbggenerated-->
+        delete from DISTRIBUTE_ADS
+        where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyDistributeAds">
+        <!--@mbggenerated-->
+        insert into DISTRIBUTE_ADS (PHOTO_ID, PHOTO_ADDR, PHOTO_SUBJECT,
+        SEQ_NO, PUBLISH_URL, PUBLISH_DUE,
+        PUBLISH_FLAG, PUBLISH_CITY, PUBLISH_COMP,
+        PUBLISH_USER, PUBLISH_TIME, UPDATE_USER,
+        UPDATE_TIME, PHOTO_CONTENT, ADV_TYPE,
+        ERP_COMP_NO, ERP_COMP_ID, SYSTEM_FLAG
+        )
+        values (#{photoId,jdbcType=INTEGER}, #{photoAddr,jdbcType=VARCHAR}, #{photoSubject,jdbcType=VARCHAR},
+        #{seqNo,jdbcType=TINYINT}, #{publishUrl,jdbcType=VARCHAR}, #{publishDue,jdbcType=TIMESTAMP},
+        #{publishFlag,jdbcType=TINYINT}, #{publishCity,jdbcType=VARCHAR}, #{publishComp,jdbcType=INTEGER},
+        #{publishUser,jdbcType=INTEGER}, #{publishTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=INTEGER},
+        #{updateTime,jdbcType=TIMESTAMP}, #{photoContent,jdbcType=VARCHAR}, #{advType,jdbcType=INTEGER},
+        #{erpCompNo,jdbcType=VARCHAR}, #{erpCompId,jdbcType=INTEGER}, #{systemFlag,jdbcType=BIT}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyDistributeAds">
+        <!--@mbggenerated-->
+        insert into DISTRIBUTE_ADS
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="photoId != null">
+                PHOTO_ID,
+            </if>
+            <if test="photoAddr != null">
+                PHOTO_ADDR,
+            </if>
+            <if test="photoSubject != null">
+                PHOTO_SUBJECT,
+            </if>
+            <if test="seqNo != null">
+                SEQ_NO,
+            </if>
+            <if test="publishUrl != null">
+                PUBLISH_URL,
+            </if>
+            <if test="publishDue != null">
+                PUBLISH_DUE,
+            </if>
+            <if test="publishFlag != null">
+                PUBLISH_FLAG,
+            </if>
+            <if test="publishCity != null">
+                PUBLISH_CITY,
+            </if>
+            <if test="publishComp != null">
+                PUBLISH_COMP,
+            </if>
+            <if test="publishUser != null">
+                PUBLISH_USER,
+            </if>
+            <if test="publishTime != null">
+                PUBLISH_TIME,
+            </if>
+            <if test="updateUser != null">
+                UPDATE_USER,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+            <if test="photoContent != null">
+                PHOTO_CONTENT,
+            </if>
+            <if test="advType != null">
+                ADV_TYPE,
+            </if>
+            <if test="erpCompNo != null">
+                ERP_COMP_NO,
+            </if>
+            <if test="erpCompId != null">
+                ERP_COMP_ID,
+            </if>
+            <if test="systemFlag != null">
+                SYSTEM_FLAG,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="photoId != null">
+                #{photoId,jdbcType=INTEGER},
+            </if>
+            <if test="photoAddr != null">
+                #{photoAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="photoSubject != null">
+                #{photoSubject,jdbcType=VARCHAR},
+            </if>
+            <if test="seqNo != null">
+                #{seqNo,jdbcType=TINYINT},
+            </if>
+            <if test="publishUrl != null">
+                #{publishUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="publishDue != null">
+                #{publishDue,jdbcType=TIMESTAMP},
+            </if>
+            <if test="publishFlag != null">
+                #{publishFlag,jdbcType=TINYINT},
+            </if>
+            <if test="publishCity != null">
+                #{publishCity,jdbcType=VARCHAR},
+            </if>
+            <if test="publishComp != null">
+                #{publishComp,jdbcType=INTEGER},
+            </if>
+            <if test="publishUser != null">
+                #{publishUser,jdbcType=INTEGER},
+            </if>
+            <if test="publishTime != null">
+                #{publishTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="photoContent != null">
+                #{photoContent,jdbcType=VARCHAR},
+            </if>
+            <if test="advType != null">
+                #{advType,jdbcType=INTEGER},
+            </if>
+            <if test="erpCompNo != null">
+                #{erpCompNo,jdbcType=VARCHAR},
+            </if>
+            <if test="erpCompId != null">
+                #{erpCompId,jdbcType=INTEGER},
+            </if>
+            <if test="systemFlag != null">
+                #{systemFlag,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyDistributeAds">
+        <!--@mbggenerated-->
+        update DISTRIBUTE_ADS
+        <set>
+            <if test="photoAddr != null">
+                PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="photoSubject != null">
+                PHOTO_SUBJECT = #{photoSubject,jdbcType=VARCHAR},
+            </if>
+            <if test="seqNo != null">
+                SEQ_NO = #{seqNo,jdbcType=TINYINT},
+            </if>
+            <if test="publishUrl != null">
+                PUBLISH_URL = #{publishUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="publishDue != null">
+                PUBLISH_DUE = #{publishDue,jdbcType=TIMESTAMP},
+            </if>
+            <if test="publishFlag != null">
+                PUBLISH_FLAG = #{publishFlag,jdbcType=TINYINT},
+            </if>
+            <if test="publishCity != null">
+                PUBLISH_CITY = #{publishCity,jdbcType=VARCHAR},
+            </if>
+            <if test="publishComp != null">
+                PUBLISH_COMP = #{publishComp,jdbcType=INTEGER},
+            </if>
+            <if test="publishUser != null">
+                PUBLISH_USER = #{publishUser,jdbcType=INTEGER},
+            </if>
+            <if test="publishTime != null">
+                PUBLISH_TIME = #{publishTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="photoContent != null">
+                PHOTO_CONTENT = #{photoContent,jdbcType=VARCHAR},
+            </if>
+            <if test="advType != null">
+                ADV_TYPE = #{advType,jdbcType=INTEGER},
+            </if>
+            <if test="erpCompNo != null">
+                ERP_COMP_NO = #{erpCompNo,jdbcType=VARCHAR},
+            </if>
+            <if test="erpCompId != null">
+                ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+            </if>
+            <if test="systemFlag != null">
+                SYSTEM_FLAG = #{systemFlag,jdbcType=BIT},
+            </if>
+        </set>
+        where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyDistributeAds">
+        <!--@mbggenerated-->
+        update DISTRIBUTE_ADS
+        set PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+        PHOTO_SUBJECT = #{photoSubject,jdbcType=VARCHAR},
+        SEQ_NO = #{seqNo,jdbcType=TINYINT},
+        PUBLISH_URL = #{publishUrl,jdbcType=VARCHAR},
+        PUBLISH_DUE = #{publishDue,jdbcType=TIMESTAMP},
+        PUBLISH_FLAG = #{publishFlag,jdbcType=TINYINT},
+        PUBLISH_CITY = #{publishCity,jdbcType=VARCHAR},
+        PUBLISH_COMP = #{publishComp,jdbcType=INTEGER},
+        PUBLISH_USER = #{publishUser,jdbcType=INTEGER},
+        PUBLISH_TIME = #{publishTime,jdbcType=TIMESTAMP},
+        UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+        PHOTO_CONTENT = #{photoContent,jdbcType=VARCHAR},
+        ADV_TYPE = #{advType,jdbcType=INTEGER},
+        ERP_COMP_NO = #{erpCompNo,jdbcType=VARCHAR},
+        ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+        SYSTEM_FLAG = #{systemFlag,jdbcType=BIT}
+        where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+    </update>
+    <!-- buniess -->
+    <select id="getBuildAdvList" resultMap="BaseResultMap"
+            parameterType="com.myfun.repository.agencydb.param.AgencyDistributeAdsparam">
+        select
+        <include refid="Base_Column_List"/>
+        from DISTRIBUTE_ADS
+        where 1 = 1
+        <if test="systemFlag != null and systemFlag == 1">
+            and SYSTEM_FLAG = 1
+        </if>
+        <if test="systemFlag != null and systemFlag == 0">
+            and (SYSTEM_FLAG is null or SYSTEM_FLAG = '')
+        </if>
+        <if test="cityId != null and cityId != ''">
+            and PUBLISH_CITY like '%${cityId}%'
+        </if>
+        <if test="crmCompId != null and crmCompId != '' and crmCompId != '0'">
+            and PUBLISH_COMP = #{crmCompId}
+        </if>
+        <if test="publishFlag != null and publishFlag != ''">
+            and PUBLISH_FLAG = #{publishFlag}
+        </if>
+        <if test="advType != null and advType != ''">
+            and ADV_TYPE = #{advType}
+        </if>
+        order by PUBLISH_COMP ASC, SEQ_NO ASC,UPDATE_TIME DESC,PUBLISH_TIME DESC
+    </select>
+
+    <select id="countSeqNo" resultType="java.lang.Integer">
+  	select count(*) SEQ_NO from DISTRIBUTE_ADS where ADV_TYPE=#{advType} and PUBLISH_CITY like '%${publishCity}%' order by SEQ_NO desc
+  </select>
+
+    <update id="updateSeqNo">
+  update DISTRIBUTE_ADS set SEQ_NO=SEQ_NO+1 
+  where ADV_TYPE = #{advType} and PUBLISH_CITY like '%${publishCity}%' and SEQ_NO >= #{seqNo}
+  </update>
+
+    <update id="updateSeqNo1">
+  update DISTRIBUTE_ADS set SEQ_NO=SEQ_NO-1 
+  where ADV_TYPE = #{advType} and PUBLISH_CITY like '%${publishCity}%' and SEQ_NO > #{seqNo}
+  </update>
+
+    <update id="updateSeqNo2">
+  update DISTRIBUTE_ADS set SEQ_NO=SEQ_NO-1 
+  where ADV_TYPE = #{advType} and PUBLISH_CITY like '%${publishCity}%' and SEQ_NO > #{oldSeqNo} and SEQ_NO <![CDATA[ <= ]]> #{seqNo}
+  </update>
+
+    <update id="updateSeqNo3">
+  update DISTRIBUTE_ADS set SEQ_NO=SEQ_NO-1 
+  where ADV_TYPE = #{advType} and PUBLISH_CITY like '%${publishCity}%' and SEQ_NO >= #{oldSeqNo} and SEQ_NO <![CDATA[ < ]]> #{seqNo}
+  </update>
+
+    <select id="getMaxid" resultType="java.lang.Integer">
+  		select max(PHOTO_ID) from DISTRIBUTE_ADS
+  </select>
+
+    <select id="getDistAdsOnIndex" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select  PHOTO_ADDR,PUBLISH_URL from DISTRIBUTE_ADS
+    WHERE (PUBLISH_CITY like #{compNo} or PUBLISH_CITY like #{cityId} or (SYSTEM_FLAG=1 and ERP_COMP_ID=#{compId})) and PUBLISH_FLAG = 1 AND ADV_TYPE = 2 order by SEQ_NO,UPDATE_TIME desc
+  </select>
+
+</mapper>

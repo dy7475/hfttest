@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunCooperateApartmentMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunCooperateApartment">
+    <!--@mbggenerated-->
+    <id column="UUID" jdbcType="VARCHAR" property="uuid" />
+    <result column="APP_ID" jdbcType="VARCHAR" property="appId" />
+    <result column="OUT_HOUSE_ID" jdbcType="VARCHAR" property="outHouseId" />
+    <result column="VIDEO_URL" jdbcType="VARCHAR" property="videoUrl" />
+    <result column="SERVICE_POINT" jdbcType="VARCHAR" property="servicePoint" />
+    <result column="MONTH_RENT" jdbcType="NUMERIC" property="monthRent" />
+    <result column="RENT_START_DATE" jdbcType="TIMESTAMP" property="rentStartDate" />
+    <result column="SHORT_RENT" jdbcType="TINYINT" property="shortRent" />
+    <result column="STREET" jdbcType="VARCHAR" property="street" />
+    <result column="SUBWAY_LINE" jdbcType="VARCHAR" property="subwayLine" />
+    <result column="SUBWAY_STATION" jdbcType="VARCHAR" property="subwayStation" />
+    <result column="X_COORD" jdbcType="VARCHAR" property="xCoord" />
+    <result column="Y_COORD" jdbcType="VARCHAR" property="yCoord" />
+    <result column="AGENT_PHONE" jdbcType="VARCHAR" property="agentPhone" />
+    <result column="RENT_TYPE" jdbcType="TINYINT" property="rentType" />
+    <result column="BED_ROOM_NUM" jdbcType="VARCHAR" property="bedRoomNum" />
+    <result column="LIVING_ROOM_NUM" jdbcType="VARCHAR" property="livingRoomNum" />
+    <result column="TOILET_NUM" jdbcType="VARCHAR" property="toiletNum" />
+    <result column="RENT_ROOM_AREA" jdbcType="NUMERIC" property="rentRoomArea" />
+    <result column="BED_ROOM_TYPE" jdbcType="TINYINT" property="bedRoomType" />
+    <result column="FACE_TO_TYPE" jdbcType="TINYINT" property="faceToType" />
+    <result column="HOUSE_NUM" jdbcType="VARCHAR" property="houseNum" />
+    <result column="TOTAL_FLOOR" jdbcType="INTEGER" property="totalFloor" />
+    <result column="HOUSE_FLOOR" jdbcType="VARCHAR" property="houseFloor" />
+    <result column="FEATURE_TAG" jdbcType="VARCHAR" property="featureTag" />
+    <result column="AGENT_NAME" jdbcType="VARCHAR" property="agentName" />
+    <result column="RENT_CUST_SEX" jdbcType="INTEGER" property="rentCustSex" />
+    <result column="SEX_REQUIRE" jdbcType="TINYINT" property="sexRequire" />
+    <result column="IS_RENT" jdbcType="TINYINT" property="isRent" />
+    <result column="HFT_REG_ID" jdbcType="INTEGER" property="hftRegId" />
+    <result column="HFT_REG_NAME" jdbcType="VARCHAR" property="hftRegName" />
+    <result column="COMMISSION_RATE" jdbcType="INTEGER" property="commissionRate" />
+    <result column="APARTMENT_FITMENT" jdbcType="TINYINT" property="apartmentFitment" />
+    <result column="SERVICE_PUBLIC" jdbcType="VARCHAR" property="servicePublic" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="OUT_HOUSE_NO" jdbcType="VARCHAR" property="outHouseNo" />
+    <result column="DETAIL_POINT" jdbcType="VARCHAR" property="detailPoint" />
+    <result column="CHECK_IN_TIME" jdbcType="TIMESTAMP" property="checkInTime" />
+    <result column="IMMEDIATELY_CHECK_IN" jdbcType="TINYINT" property="immediatelyCheckIn" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="CITY_NAME" jdbcType="VARCHAR" property="cityName" />
+    <result column="IS_B_PRODUCTS" jdbcType="TINYINT" property="isBProducts" />
+    <result column="HFT_BUILD_ID" jdbcType="INTEGER" property="hftBuildId" />
+    <result column="HFT_BUILD_NAME" jdbcType="VARCHAR" property="hftBuildName" />
+    <result column="HFT_SECTION_ID" jdbcType="VARCHAR" property="hftSectionId" />
+    <result column="HFT_SECTION_NAME" jdbcType="VARCHAR" property="hftSectionName" />
+    <result column="APT_BUILD_ID" jdbcType="INTEGER" property="aptBuildId" />
+    <result column="APT_BUILD_NAME" jdbcType="VARCHAR" property="aptBuildName" />
+    <result column="HOUSE_STATUS" jdbcType="INTEGER" property="houseStatus" />
+    <result column="VIEW_COUNT" jdbcType="INTEGER" property="viewCount" />
+    <result column="HOUSE_TITLE" jdbcType="VARCHAR" property="houseTitle" />
+    <result column="UP_TIME" jdbcType="TIMESTAMP" property="upTime" />
+    <result column="DOWN_TIME" jdbcType="TIMESTAMP" property="downTime" />
+    <result column="IS_C_PRODUCTS" jdbcType="TINYINT" property="isCProducts" />
+    <result column="THUMB_URL" jdbcType="VARCHAR" property="thumbUrl" />
+    <result column="SEX_NOW" jdbcType="TINYINT" property="sexNow" />
+    <result column="B_UP_TIME" jdbcType="TIMESTAMP" property="bUpTime" />
+    <result column="B_DOWN_TIME" jdbcType="TIMESTAMP" property="bDownTime" />
+    <result column="RENT_ROOMS" jdbcType="VARCHAR" property="rentRooms" />
+    <result column="AGENT_PHOTO" jdbcType="VARCHAR" property="agentPhoto" />
+    <result column="BUILD_ROUND" jdbcType="TINYINT" property="buildRound" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="REAL_UUID" jdbcType="VARCHAR" property="realUuid" />
+    <result column="PHOTO_COUNT" jdbcType="INTEGER" property="photoCount" />
+    <result column="AUDIT_STATUS" jdbcType="TINYINT" property="auditStatus" />
+    <result column="AUDIT_TIME" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="OUT_ROOM_ID" jdbcType="VARCHAR" property="outRoomId" />
+    <result column="COMMISSION_TYPE" jdbcType="INTEGER" property="commissionType" />
+    <result column="BRAND_NAME" jdbcType="VARCHAR" property="brandName" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminFunCooperateApartment">
+    <!--@mbggenerated-->
+    <result column="HOUSE_DESC" jdbcType="CLOB" property="houseDesc" />
+    <result column="APT_POST_JSON" jdbcType="CLOB" property="aptPostJson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    UUID, APP_ID, OUT_HOUSE_ID, VIDEO_URL, SERVICE_POINT, MONTH_RENT, RENT_START_DATE, 
+    SHORT_RENT, STREET, SUBWAY_LINE, SUBWAY_STATION, X_COORD, Y_COORD, AGENT_PHONE, RENT_TYPE, 
+    BED_ROOM_NUM, LIVING_ROOM_NUM, TOILET_NUM, RENT_ROOM_AREA, BED_ROOM_TYPE, FACE_TO_TYPE, 
+    HOUSE_NUM, TOTAL_FLOOR, HOUSE_FLOOR, FEATURE_TAG, AGENT_NAME, RENT_CUST_SEX, SEX_REQUIRE, 
+    IS_RENT, HFT_REG_ID, HFT_REG_NAME, COMMISSION_RATE, APARTMENT_FITMENT, SERVICE_PUBLIC, 
+    UPDATE_TIME, OUT_HOUSE_NO, DETAIL_POINT, CHECK_IN_TIME, IMMEDIATELY_CHECK_IN, CITY_ID, 
+    CITY_NAME, IS_B_PRODUCTS, HFT_BUILD_ID, HFT_BUILD_NAME, HFT_SECTION_ID, HFT_SECTION_NAME, 
+    APT_BUILD_ID, APT_BUILD_NAME, HOUSE_STATUS, VIEW_COUNT, HOUSE_TITLE, UP_TIME, DOWN_TIME, 
+    IS_C_PRODUCTS, THUMB_URL, SEX_NOW, B_UP_TIME, B_DOWN_TIME, RENT_ROOMS, AGENT_PHOTO, 
+    BUILD_ROUND, CREATION_TIME, REAL_UUID, PHOTO_COUNT, AUDIT_STATUS, AUDIT_TIME, OUT_ROOM_ID, 
+    COMMISSION_TYPE, BRAND_NAME
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    HOUSE_DESC, APT_POST_JSON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_COOPERATE_APARTMENT
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbggenerated-->
+    delete from FUN_COOPERATE_APARTMENT
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunCooperateApartment">
+    <!--@mbggenerated-->
+    insert into FUN_COOPERATE_APARTMENT (UUID, APP_ID, OUT_HOUSE_ID, 
+      VIDEO_URL, SERVICE_POINT, MONTH_RENT, 
+      RENT_START_DATE, SHORT_RENT, STREET, 
+      SUBWAY_LINE, SUBWAY_STATION, X_COORD, 
+      Y_COORD, AGENT_PHONE, RENT_TYPE, 
+      BED_ROOM_NUM, LIVING_ROOM_NUM, TOILET_NUM, 
+      RENT_ROOM_AREA, BED_ROOM_TYPE, FACE_TO_TYPE, 
+      HOUSE_NUM, TOTAL_FLOOR, HOUSE_FLOOR, 
+      FEATURE_TAG, AGENT_NAME, RENT_CUST_SEX, 
+      SEX_REQUIRE, IS_RENT, HFT_REG_ID, 
+      HFT_REG_NAME, COMMISSION_RATE, APARTMENT_FITMENT, 
+      SERVICE_PUBLIC, UPDATE_TIME, OUT_HOUSE_NO, 
+      DETAIL_POINT, CHECK_IN_TIME, IMMEDIATELY_CHECK_IN, 
+      CITY_ID, CITY_NAME, IS_B_PRODUCTS, 
+      HFT_BUILD_ID, HFT_BUILD_NAME, HFT_SECTION_ID, 
+      HFT_SECTION_NAME, APT_BUILD_ID, APT_BUILD_NAME, 
+      HOUSE_STATUS, VIEW_COUNT, HOUSE_TITLE, 
+      UP_TIME, DOWN_TIME, IS_C_PRODUCTS, 
+      THUMB_URL, SEX_NOW, B_UP_TIME, 
+      B_DOWN_TIME, RENT_ROOMS, AGENT_PHOTO, 
+      BUILD_ROUND, CREATION_TIME, REAL_UUID, 
+      PHOTO_COUNT, AUDIT_STATUS, AUDIT_TIME, 
+      OUT_ROOM_ID, COMMISSION_TYPE, BRAND_NAME, 
+      HOUSE_DESC, APT_POST_JSON)
+    values (#{uuid,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, #{outHouseId,jdbcType=VARCHAR}, 
+      #{videoUrl,jdbcType=VARCHAR}, #{servicePoint,jdbcType=VARCHAR}, #{monthRent,jdbcType=NUMERIC}, 
+      #{rentStartDate,jdbcType=TIMESTAMP}, #{shortRent,jdbcType=TINYINT}, #{street,jdbcType=VARCHAR}, 
+      #{subwayLine,jdbcType=VARCHAR}, #{subwayStation,jdbcType=VARCHAR}, #{xCoord,jdbcType=VARCHAR}, 
+      #{yCoord,jdbcType=VARCHAR}, #{agentPhone,jdbcType=VARCHAR}, #{rentType,jdbcType=TINYINT}, 
+      #{bedRoomNum,jdbcType=VARCHAR}, #{livingRoomNum,jdbcType=VARCHAR}, #{toiletNum,jdbcType=VARCHAR}, 
+      #{rentRoomArea,jdbcType=NUMERIC}, #{bedRoomType,jdbcType=TINYINT}, #{faceToType,jdbcType=TINYINT}, 
+      #{houseNum,jdbcType=VARCHAR}, #{totalFloor,jdbcType=INTEGER}, #{houseFloor,jdbcType=VARCHAR}, 
+      #{featureTag,jdbcType=VARCHAR}, #{agentName,jdbcType=VARCHAR}, #{rentCustSex,jdbcType=INTEGER}, 
+      #{sexRequire,jdbcType=TINYINT}, #{isRent,jdbcType=TINYINT}, #{hftRegId,jdbcType=INTEGER}, 
+      #{hftRegName,jdbcType=VARCHAR}, #{commissionRate,jdbcType=INTEGER}, #{apartmentFitment,jdbcType=TINYINT}, 
+      #{servicePublic,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{outHouseNo,jdbcType=VARCHAR}, 
+      #{detailPoint,jdbcType=VARCHAR}, #{checkInTime,jdbcType=TIMESTAMP}, #{immediatelyCheckIn,jdbcType=TINYINT}, 
+      #{cityId,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, #{isBProducts,jdbcType=TINYINT}, 
+      #{hftBuildId,jdbcType=INTEGER}, #{hftBuildName,jdbcType=VARCHAR}, #{hftSectionId,jdbcType=VARCHAR}, 
+      #{hftSectionName,jdbcType=VARCHAR}, #{aptBuildId,jdbcType=INTEGER}, #{aptBuildName,jdbcType=VARCHAR}, 
+      #{houseStatus,jdbcType=INTEGER}, #{viewCount,jdbcType=INTEGER}, #{houseTitle,jdbcType=VARCHAR}, 
+      #{upTime,jdbcType=TIMESTAMP}, #{downTime,jdbcType=TIMESTAMP}, #{isCProducts,jdbcType=TINYINT}, 
+      #{thumbUrl,jdbcType=VARCHAR}, #{sexNow,jdbcType=TINYINT}, #{bUpTime,jdbcType=TIMESTAMP}, 
+      #{bDownTime,jdbcType=TIMESTAMP}, #{rentRooms,jdbcType=VARCHAR}, #{agentPhoto,jdbcType=VARCHAR}, 
+      #{buildRound,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, #{realUuid,jdbcType=VARCHAR}, 
+      #{photoCount,jdbcType=INTEGER}, #{auditStatus,jdbcType=TINYINT}, #{auditTime,jdbcType=TIMESTAMP}, 
+      #{outRoomId,jdbcType=VARCHAR}, #{commissionType,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR}, 
+      #{houseDesc,jdbcType=CLOB}, #{aptPostJson,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunCooperateApartment">
+    <!--@mbggenerated-->
+    insert into FUN_COOPERATE_APARTMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        UUID,
+      </if>
+      <if test="appId != null">
+        APP_ID,
+      </if>
+      <if test="outHouseId != null">
+        OUT_HOUSE_ID,
+      </if>
+      <if test="videoUrl != null">
+        VIDEO_URL,
+      </if>
+      <if test="servicePoint != null">
+        SERVICE_POINT,
+      </if>
+      <if test="monthRent != null">
+        MONTH_RENT,
+      </if>
+      <if test="rentStartDate != null">
+        RENT_START_DATE,
+      </if>
+      <if test="shortRent != null">
+        SHORT_RENT,
+      </if>
+      <if test="street != null">
+        STREET,
+      </if>
+      <if test="subwayLine != null">
+        SUBWAY_LINE,
+      </if>
+      <if test="subwayStation != null">
+        SUBWAY_STATION,
+      </if>
+      <if test="xCoord != null">
+        X_COORD,
+      </if>
+      <if test="yCoord != null">
+        Y_COORD,
+      </if>
+      <if test="agentPhone != null">
+        AGENT_PHONE,
+      </if>
+      <if test="rentType != null">
+        RENT_TYPE,
+      </if>
+      <if test="bedRoomNum != null">
+        BED_ROOM_NUM,
+      </if>
+      <if test="livingRoomNum != null">
+        LIVING_ROOM_NUM,
+      </if>
+      <if test="toiletNum != null">
+        TOILET_NUM,
+      </if>
+      <if test="rentRoomArea != null">
+        RENT_ROOM_AREA,
+      </if>
+      <if test="bedRoomType != null">
+        BED_ROOM_TYPE,
+      </if>
+      <if test="faceToType != null">
+        FACE_TO_TYPE,
+      </if>
+      <if test="houseNum != null">
+        HOUSE_NUM,
+      </if>
+      <if test="totalFloor != null">
+        TOTAL_FLOOR,
+      </if>
+      <if test="houseFloor != null">
+        HOUSE_FLOOR,
+      </if>
+      <if test="featureTag != null">
+        FEATURE_TAG,
+      </if>
+      <if test="agentName != null">
+        AGENT_NAME,
+      </if>
+      <if test="rentCustSex != null">
+        RENT_CUST_SEX,
+      </if>
+      <if test="sexRequire != null">
+        SEX_REQUIRE,
+      </if>
+      <if test="isRent != null">
+        IS_RENT,
+      </if>
+      <if test="hftRegId != null">
+        HFT_REG_ID,
+      </if>
+      <if test="hftRegName != null">
+        HFT_REG_NAME,
+      </if>
+      <if test="commissionRate != null">
+        COMMISSION_RATE,
+      </if>
+      <if test="apartmentFitment != null">
+        APARTMENT_FITMENT,
+      </if>
+      <if test="servicePublic != null">
+        SERVICE_PUBLIC,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="outHouseNo != null">
+        OUT_HOUSE_NO,
+      </if>
+      <if test="detailPoint != null">
+        DETAIL_POINT,
+      </if>
+      <if test="checkInTime != null">
+        CHECK_IN_TIME,
+      </if>
+      <if test="immediatelyCheckIn != null">
+        IMMEDIATELY_CHECK_IN,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="cityName != null">
+        CITY_NAME,
+      </if>
+      <if test="isBProducts != null">
+        IS_B_PRODUCTS,
+      </if>
+      <if test="hftBuildId != null">
+        HFT_BUILD_ID,
+      </if>
+      <if test="hftBuildName != null">
+        HFT_BUILD_NAME,
+      </if>
+      <if test="hftSectionId != null">
+        HFT_SECTION_ID,
+      </if>
+      <if test="hftSectionName != null">
+        HFT_SECTION_NAME,
+      </if>
+      <if test="aptBuildId != null">
+        APT_BUILD_ID,
+      </if>
+      <if test="aptBuildName != null">
+        APT_BUILD_NAME,
+      </if>
+      <if test="houseStatus != null">
+        HOUSE_STATUS,
+      </if>
+      <if test="viewCount != null">
+        VIEW_COUNT,
+      </if>
+      <if test="houseTitle != null">
+        HOUSE_TITLE,
+      </if>
+      <if test="upTime != null">
+        UP_TIME,
+      </if>
+      <if test="downTime != null">
+        DOWN_TIME,
+      </if>
+      <if test="isCProducts != null">
+        IS_C_PRODUCTS,
+      </if>
+      <if test="thumbUrl != null">
+        THUMB_URL,
+      </if>
+      <if test="sexNow != null">
+        SEX_NOW,
+      </if>
+      <if test="bUpTime != null">
+        B_UP_TIME,
+      </if>
+      <if test="bDownTime != null">
+        B_DOWN_TIME,
+      </if>
+      <if test="rentRooms != null">
+        RENT_ROOMS,
+      </if>
+      <if test="agentPhoto != null">
+        AGENT_PHOTO,
+      </if>
+      <if test="buildRound != null">
+        BUILD_ROUND,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="realUuid != null">
+        REAL_UUID,
+      </if>
+      <if test="photoCount != null">
+        PHOTO_COUNT,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME,
+      </if>
+      <if test="outRoomId != null">
+        OUT_ROOM_ID,
+      </if>
+      <if test="commissionType != null">
+        COMMISSION_TYPE,
+      </if>
+      <if test="brandName != null">
+        BRAND_NAME,
+      </if>
+      <if test="houseDesc != null">
+        HOUSE_DESC,
+      </if>
+      <if test="aptPostJson != null">
+        APT_POST_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="outHouseId != null">
+        #{outHouseId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null">
+        #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePoint != null">
+        #{servicePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="monthRent != null">
+        #{monthRent,jdbcType=NUMERIC},
+      </if>
+      <if test="rentStartDate != null">
+        #{rentStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shortRent != null">
+        #{shortRent,jdbcType=TINYINT},
+      </if>
+      <if test="street != null">
+        #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="subwayLine != null">
+        #{subwayLine,jdbcType=VARCHAR},
+      </if>
+      <if test="subwayStation != null">
+        #{subwayStation,jdbcType=VARCHAR},
+      </if>
+      <if test="xCoord != null">
+        #{xCoord,jdbcType=VARCHAR},
+      </if>
+      <if test="yCoord != null">
+        #{yCoord,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPhone != null">
+        #{agentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="rentType != null">
+        #{rentType,jdbcType=TINYINT},
+      </if>
+      <if test="bedRoomNum != null">
+        #{bedRoomNum,jdbcType=VARCHAR},
+      </if>
+      <if test="livingRoomNum != null">
+        #{livingRoomNum,jdbcType=VARCHAR},
+      </if>
+      <if test="toiletNum != null">
+        #{toiletNum,jdbcType=VARCHAR},
+      </if>
+      <if test="rentRoomArea != null">
+        #{rentRoomArea,jdbcType=NUMERIC},
+      </if>
+      <if test="bedRoomType != null">
+        #{bedRoomType,jdbcType=TINYINT},
+      </if>
+      <if test="faceToType != null">
+        #{faceToType,jdbcType=TINYINT},
+      </if>
+      <if test="houseNum != null">
+        #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFloor != null">
+        #{totalFloor,jdbcType=INTEGER},
+      </if>
+      <if test="houseFloor != null">
+        #{houseFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="featureTag != null">
+        #{featureTag,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="rentCustSex != null">
+        #{rentCustSex,jdbcType=INTEGER},
+      </if>
+      <if test="sexRequire != null">
+        #{sexRequire,jdbcType=TINYINT},
+      </if>
+      <if test="isRent != null">
+        #{isRent,jdbcType=TINYINT},
+      </if>
+      <if test="hftRegId != null">
+        #{hftRegId,jdbcType=INTEGER},
+      </if>
+      <if test="hftRegName != null">
+        #{hftRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionRate != null">
+        #{commissionRate,jdbcType=INTEGER},
+      </if>
+      <if test="apartmentFitment != null">
+        #{apartmentFitment,jdbcType=TINYINT},
+      </if>
+      <if test="servicePublic != null">
+        #{servicePublic,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outHouseNo != null">
+        #{outHouseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="detailPoint != null">
+        #{detailPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="checkInTime != null">
+        #{checkInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="immediatelyCheckIn != null">
+        #{immediatelyCheckIn,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="isBProducts != null">
+        #{isBProducts,jdbcType=TINYINT},
+      </if>
+      <if test="hftBuildId != null">
+        #{hftBuildId,jdbcType=INTEGER},
+      </if>
+      <if test="hftBuildName != null">
+        #{hftBuildName,jdbcType=VARCHAR},
+      </if>
+      <if test="hftSectionId != null">
+        #{hftSectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="hftSectionName != null">
+        #{hftSectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="aptBuildId != null">
+        #{aptBuildId,jdbcType=INTEGER},
+      </if>
+      <if test="aptBuildName != null">
+        #{aptBuildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStatus != null">
+        #{houseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="viewCount != null">
+        #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="houseTitle != null">
+        #{houseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="upTime != null">
+        #{upTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downTime != null">
+        #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCProducts != null">
+        #{isCProducts,jdbcType=TINYINT},
+      </if>
+      <if test="thumbUrl != null">
+        #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sexNow != null">
+        #{sexNow,jdbcType=TINYINT},
+      </if>
+      <if test="bUpTime != null">
+        #{bUpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bDownTime != null">
+        #{bDownTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentRooms != null">
+        #{rentRooms,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPhoto != null">
+        #{agentPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRound != null">
+        #{buildRound,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realUuid != null">
+        #{realUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="photoCount != null">
+        #{photoCount,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outRoomId != null">
+        #{outRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionType != null">
+        #{commissionType,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null">
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDesc != null">
+        #{houseDesc,jdbcType=CLOB},
+      </if>
+      <if test="aptPostJson != null">
+        #{aptPostJson,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunCooperateApartment">
+    <!--@mbggenerated-->
+    update FUN_COOPERATE_APARTMENT
+    <set>
+      <if test="appId != null">
+        APP_ID = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="outHouseId != null">
+        OUT_HOUSE_ID = #{outHouseId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null">
+        VIDEO_URL = #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePoint != null">
+        SERVICE_POINT = #{servicePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="monthRent != null">
+        MONTH_RENT = #{monthRent,jdbcType=NUMERIC},
+      </if>
+      <if test="rentStartDate != null">
+        RENT_START_DATE = #{rentStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shortRent != null">
+        SHORT_RENT = #{shortRent,jdbcType=TINYINT},
+      </if>
+      <if test="street != null">
+        STREET = #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="subwayLine != null">
+        SUBWAY_LINE = #{subwayLine,jdbcType=VARCHAR},
+      </if>
+      <if test="subwayStation != null">
+        SUBWAY_STATION = #{subwayStation,jdbcType=VARCHAR},
+      </if>
+      <if test="xCoord != null">
+        X_COORD = #{xCoord,jdbcType=VARCHAR},
+      </if>
+      <if test="yCoord != null">
+        Y_COORD = #{yCoord,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPhone != null">
+        AGENT_PHONE = #{agentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="rentType != null">
+        RENT_TYPE = #{rentType,jdbcType=TINYINT},
+      </if>
+      <if test="bedRoomNum != null">
+        BED_ROOM_NUM = #{bedRoomNum,jdbcType=VARCHAR},
+      </if>
+      <if test="livingRoomNum != null">
+        LIVING_ROOM_NUM = #{livingRoomNum,jdbcType=VARCHAR},
+      </if>
+      <if test="toiletNum != null">
+        TOILET_NUM = #{toiletNum,jdbcType=VARCHAR},
+      </if>
+      <if test="rentRoomArea != null">
+        RENT_ROOM_AREA = #{rentRoomArea,jdbcType=NUMERIC},
+      </if>
+      <if test="bedRoomType != null">
+        BED_ROOM_TYPE = #{bedRoomType,jdbcType=TINYINT},
+      </if>
+      <if test="faceToType != null">
+        FACE_TO_TYPE = #{faceToType,jdbcType=TINYINT},
+      </if>
+      <if test="houseNum != null">
+        HOUSE_NUM = #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFloor != null">
+        TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER},
+      </if>
+      <if test="houseFloor != null">
+        HOUSE_FLOOR = #{houseFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="featureTag != null">
+        FEATURE_TAG = #{featureTag,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="rentCustSex != null">
+        RENT_CUST_SEX = #{rentCustSex,jdbcType=INTEGER},
+      </if>
+      <if test="sexRequire != null">
+        SEX_REQUIRE = #{sexRequire,jdbcType=TINYINT},
+      </if>
+      <if test="isRent != null">
+        IS_RENT = #{isRent,jdbcType=TINYINT},
+      </if>
+      <if test="hftRegId != null">
+        HFT_REG_ID = #{hftRegId,jdbcType=INTEGER},
+      </if>
+      <if test="hftRegName != null">
+        HFT_REG_NAME = #{hftRegName,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionRate != null">
+        COMMISSION_RATE = #{commissionRate,jdbcType=INTEGER},
+      </if>
+      <if test="apartmentFitment != null">
+        APARTMENT_FITMENT = #{apartmentFitment,jdbcType=TINYINT},
+      </if>
+      <if test="servicePublic != null">
+        SERVICE_PUBLIC = #{servicePublic,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outHouseNo != null">
+        OUT_HOUSE_NO = #{outHouseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="detailPoint != null">
+        DETAIL_POINT = #{detailPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="checkInTime != null">
+        CHECK_IN_TIME = #{checkInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="immediatelyCheckIn != null">
+        IMMEDIATELY_CHECK_IN = #{immediatelyCheckIn,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null">
+        CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="isBProducts != null">
+        IS_B_PRODUCTS = #{isBProducts,jdbcType=TINYINT},
+      </if>
+      <if test="hftBuildId != null">
+        HFT_BUILD_ID = #{hftBuildId,jdbcType=INTEGER},
+      </if>
+      <if test="hftBuildName != null">
+        HFT_BUILD_NAME = #{hftBuildName,jdbcType=VARCHAR},
+      </if>
+      <if test="hftSectionId != null">
+        HFT_SECTION_ID = #{hftSectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="hftSectionName != null">
+        HFT_SECTION_NAME = #{hftSectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="aptBuildId != null">
+        APT_BUILD_ID = #{aptBuildId,jdbcType=INTEGER},
+      </if>
+      <if test="aptBuildName != null">
+        APT_BUILD_NAME = #{aptBuildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStatus != null">
+        HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="viewCount != null">
+        VIEW_COUNT = #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="houseTitle != null">
+        HOUSE_TITLE = #{houseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="upTime != null">
+        UP_TIME = #{upTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downTime != null">
+        DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCProducts != null">
+        IS_C_PRODUCTS = #{isCProducts,jdbcType=TINYINT},
+      </if>
+      <if test="thumbUrl != null">
+        THUMB_URL = #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sexNow != null">
+        SEX_NOW = #{sexNow,jdbcType=TINYINT},
+      </if>
+      <if test="bUpTime != null">
+        B_UP_TIME = #{bUpTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bDownTime != null">
+        B_DOWN_TIME = #{bDownTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentRooms != null">
+        RENT_ROOMS = #{rentRooms,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPhoto != null">
+        AGENT_PHOTO = #{agentPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRound != null">
+        BUILD_ROUND = #{buildRound,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realUuid != null">
+        REAL_UUID = #{realUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="photoCount != null">
+        PHOTO_COUNT = #{photoCount,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outRoomId != null">
+        OUT_ROOM_ID = #{outRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionType != null">
+        COMMISSION_TYPE = #{commissionType,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null">
+        BRAND_NAME = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseDesc != null">
+        HOUSE_DESC = #{houseDesc,jdbcType=CLOB},
+      </if>
+      <if test="aptPostJson != null">
+        APT_POST_JSON = #{aptPostJson,jdbcType=CLOB},
+      </if>
+    </set>
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminFunCooperateApartment">
+    <!--@mbggenerated-->
+    update FUN_COOPERATE_APARTMENT
+    set APP_ID = #{appId,jdbcType=VARCHAR},
+      OUT_HOUSE_ID = #{outHouseId,jdbcType=VARCHAR},
+      VIDEO_URL = #{videoUrl,jdbcType=VARCHAR},
+      SERVICE_POINT = #{servicePoint,jdbcType=VARCHAR},
+      MONTH_RENT = #{monthRent,jdbcType=NUMERIC},
+      RENT_START_DATE = #{rentStartDate,jdbcType=TIMESTAMP},
+      SHORT_RENT = #{shortRent,jdbcType=TINYINT},
+      STREET = #{street,jdbcType=VARCHAR},
+      SUBWAY_LINE = #{subwayLine,jdbcType=VARCHAR},
+      SUBWAY_STATION = #{subwayStation,jdbcType=VARCHAR},
+      X_COORD = #{xCoord,jdbcType=VARCHAR},
+      Y_COORD = #{yCoord,jdbcType=VARCHAR},
+      AGENT_PHONE = #{agentPhone,jdbcType=VARCHAR},
+      RENT_TYPE = #{rentType,jdbcType=TINYINT},
+      BED_ROOM_NUM = #{bedRoomNum,jdbcType=VARCHAR},
+      LIVING_ROOM_NUM = #{livingRoomNum,jdbcType=VARCHAR},
+      TOILET_NUM = #{toiletNum,jdbcType=VARCHAR},
+      RENT_ROOM_AREA = #{rentRoomArea,jdbcType=NUMERIC},
+      BED_ROOM_TYPE = #{bedRoomType,jdbcType=TINYINT},
+      FACE_TO_TYPE = #{faceToType,jdbcType=TINYINT},
+      HOUSE_NUM = #{houseNum,jdbcType=VARCHAR},
+      TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER},
+      HOUSE_FLOOR = #{houseFloor,jdbcType=VARCHAR},
+      FEATURE_TAG = #{featureTag,jdbcType=VARCHAR},
+      AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+      RENT_CUST_SEX = #{rentCustSex,jdbcType=INTEGER},
+      SEX_REQUIRE = #{sexRequire,jdbcType=TINYINT},
+      IS_RENT = #{isRent,jdbcType=TINYINT},
+      HFT_REG_ID = #{hftRegId,jdbcType=INTEGER},
+      HFT_REG_NAME = #{hftRegName,jdbcType=VARCHAR},
+      COMMISSION_RATE = #{commissionRate,jdbcType=INTEGER},
+      APARTMENT_FITMENT = #{apartmentFitment,jdbcType=TINYINT},
+      SERVICE_PUBLIC = #{servicePublic,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      OUT_HOUSE_NO = #{outHouseNo,jdbcType=VARCHAR},
+      DETAIL_POINT = #{detailPoint,jdbcType=VARCHAR},
+      CHECK_IN_TIME = #{checkInTime,jdbcType=TIMESTAMP},
+      IMMEDIATELY_CHECK_IN = #{immediatelyCheckIn,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      IS_B_PRODUCTS = #{isBProducts,jdbcType=TINYINT},
+      HFT_BUILD_ID = #{hftBuildId,jdbcType=INTEGER},
+      HFT_BUILD_NAME = #{hftBuildName,jdbcType=VARCHAR},
+      HFT_SECTION_ID = #{hftSectionId,jdbcType=VARCHAR},
+      HFT_SECTION_NAME = #{hftSectionName,jdbcType=VARCHAR},
+      APT_BUILD_ID = #{aptBuildId,jdbcType=INTEGER},
+      APT_BUILD_NAME = #{aptBuildName,jdbcType=VARCHAR},
+      HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER},
+      VIEW_COUNT = #{viewCount,jdbcType=INTEGER},
+      HOUSE_TITLE = #{houseTitle,jdbcType=VARCHAR},
+      UP_TIME = #{upTime,jdbcType=TIMESTAMP},
+      DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      IS_C_PRODUCTS = #{isCProducts,jdbcType=TINYINT},
+      THUMB_URL = #{thumbUrl,jdbcType=VARCHAR},
+      SEX_NOW = #{sexNow,jdbcType=TINYINT},
+      B_UP_TIME = #{bUpTime,jdbcType=TIMESTAMP},
+      B_DOWN_TIME = #{bDownTime,jdbcType=TIMESTAMP},
+      RENT_ROOMS = #{rentRooms,jdbcType=VARCHAR},
+      AGENT_PHOTO = #{agentPhoto,jdbcType=VARCHAR},
+      BUILD_ROUND = #{buildRound,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      REAL_UUID = #{realUuid,jdbcType=VARCHAR},
+      PHOTO_COUNT = #{photoCount,jdbcType=INTEGER},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      OUT_ROOM_ID = #{outRoomId,jdbcType=VARCHAR},
+      COMMISSION_TYPE = #{commissionType,jdbcType=INTEGER},
+      BRAND_NAME = #{brandName,jdbcType=VARCHAR},
+      HOUSE_DESC = #{houseDesc,jdbcType=CLOB},
+      APT_POST_JSON = #{aptPostJson,jdbcType=CLOB}
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunCooperateApartment">
+    <!--@mbggenerated-->
+    update FUN_COOPERATE_APARTMENT
+    set APP_ID = #{appId,jdbcType=VARCHAR},
+      OUT_HOUSE_ID = #{outHouseId,jdbcType=VARCHAR},
+      VIDEO_URL = #{videoUrl,jdbcType=VARCHAR},
+      SERVICE_POINT = #{servicePoint,jdbcType=VARCHAR},
+      MONTH_RENT = #{monthRent,jdbcType=NUMERIC},
+      RENT_START_DATE = #{rentStartDate,jdbcType=TIMESTAMP},
+      SHORT_RENT = #{shortRent,jdbcType=TINYINT},
+      STREET = #{street,jdbcType=VARCHAR},
+      SUBWAY_LINE = #{subwayLine,jdbcType=VARCHAR},
+      SUBWAY_STATION = #{subwayStation,jdbcType=VARCHAR},
+      X_COORD = #{xCoord,jdbcType=VARCHAR},
+      Y_COORD = #{yCoord,jdbcType=VARCHAR},
+      AGENT_PHONE = #{agentPhone,jdbcType=VARCHAR},
+      RENT_TYPE = #{rentType,jdbcType=TINYINT},
+      BED_ROOM_NUM = #{bedRoomNum,jdbcType=VARCHAR},
+      LIVING_ROOM_NUM = #{livingRoomNum,jdbcType=VARCHAR},
+      TOILET_NUM = #{toiletNum,jdbcType=VARCHAR},
+      RENT_ROOM_AREA = #{rentRoomArea,jdbcType=NUMERIC},
+      BED_ROOM_TYPE = #{bedRoomType,jdbcType=TINYINT},
+      FACE_TO_TYPE = #{faceToType,jdbcType=TINYINT},
+      HOUSE_NUM = #{houseNum,jdbcType=VARCHAR},
+      TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER},
+      HOUSE_FLOOR = #{houseFloor,jdbcType=VARCHAR},
+      FEATURE_TAG = #{featureTag,jdbcType=VARCHAR},
+      AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+      RENT_CUST_SEX = #{rentCustSex,jdbcType=INTEGER},
+      SEX_REQUIRE = #{sexRequire,jdbcType=TINYINT},
+      IS_RENT = #{isRent,jdbcType=TINYINT},
+      HFT_REG_ID = #{hftRegId,jdbcType=INTEGER},
+      HFT_REG_NAME = #{hftRegName,jdbcType=VARCHAR},
+      COMMISSION_RATE = #{commissionRate,jdbcType=INTEGER},
+      APARTMENT_FITMENT = #{apartmentFitment,jdbcType=TINYINT},
+      SERVICE_PUBLIC = #{servicePublic,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      OUT_HOUSE_NO = #{outHouseNo,jdbcType=VARCHAR},
+      DETAIL_POINT = #{detailPoint,jdbcType=VARCHAR},
+      CHECK_IN_TIME = #{checkInTime,jdbcType=TIMESTAMP},
+      IMMEDIATELY_CHECK_IN = #{immediatelyCheckIn,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      IS_B_PRODUCTS = #{isBProducts,jdbcType=TINYINT},
+      HFT_BUILD_ID = #{hftBuildId,jdbcType=INTEGER},
+      HFT_BUILD_NAME = #{hftBuildName,jdbcType=VARCHAR},
+      HFT_SECTION_ID = #{hftSectionId,jdbcType=VARCHAR},
+      HFT_SECTION_NAME = #{hftSectionName,jdbcType=VARCHAR},
+      APT_BUILD_ID = #{aptBuildId,jdbcType=INTEGER},
+      APT_BUILD_NAME = #{aptBuildName,jdbcType=VARCHAR},
+      HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER},
+      VIEW_COUNT = #{viewCount,jdbcType=INTEGER},
+      HOUSE_TITLE = #{houseTitle,jdbcType=VARCHAR},
+      UP_TIME = #{upTime,jdbcType=TIMESTAMP},
+      DOWN_TIME = #{downTime,jdbcType=TIMESTAMP},
+      IS_C_PRODUCTS = #{isCProducts,jdbcType=TINYINT},
+      THUMB_URL = #{thumbUrl,jdbcType=VARCHAR},
+      SEX_NOW = #{sexNow,jdbcType=TINYINT},
+      B_UP_TIME = #{bUpTime,jdbcType=TIMESTAMP},
+      B_DOWN_TIME = #{bDownTime,jdbcType=TIMESTAMP},
+      RENT_ROOMS = #{rentRooms,jdbcType=VARCHAR},
+      AGENT_PHOTO = #{agentPhoto,jdbcType=VARCHAR},
+      BUILD_ROUND = #{buildRound,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      REAL_UUID = #{realUuid,jdbcType=VARCHAR},
+      PHOTO_COUNT = #{photoCount,jdbcType=INTEGER},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      OUT_ROOM_ID = #{outRoomId,jdbcType=VARCHAR},
+      COMMISSION_TYPE = #{commissionType,jdbcType=INTEGER},
+      BRAND_NAME = #{brandName,jdbcType=VARCHAR}
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

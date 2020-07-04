@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminContactInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminContactInfo" >
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CONTACT_MAN" property="contactMan" jdbcType="VARCHAR" />
+    <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="CONTACT_EMAIL" property="contactEmail" jdbcType="VARCHAR" />
+    <result column="CONTACT_FLAG" property="contactFlag" jdbcType="INTEGER" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ARCHIVE_ID, CONTACT_MAN, CONTACT_PHONE, CONTACT_EMAIL, CONTACT_FLAG, UPDATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CONTACT_INFO
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from CONTACT_INFO
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminContactInfo" >
+    <!--@mbggenerated-->
+    insert into CONTACT_INFO (ARCHIVE_ID, CONTACT_MAN, CONTACT_PHONE, 
+      CONTACT_EMAIL, CONTACT_FLAG, UPDATE_DATE
+      )
+    values (#{archiveId,jdbcType=INTEGER}, #{contactMan,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR}, 
+      #{contactEmail,jdbcType=VARCHAR}, #{contactFlag,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminContactInfo" >
+    <!--@mbggenerated-->
+    insert into CONTACT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="contactMan != null" >
+        CONTACT_MAN,
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE,
+      </if>
+      <if test="contactEmail != null" >
+        CONTACT_EMAIL,
+      </if>
+      <if test="contactFlag != null" >
+        CONTACT_FLAG,
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="contactMan != null" >
+        #{contactMan,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null" >
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactFlag != null" >
+        #{contactFlag,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminContactInfo" >
+    <!--@mbggenerated-->
+    update CONTACT_INFO
+    <set >
+      <if test="contactMan != null" >
+        CONTACT_MAN = #{contactMan,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        CONTACT_EMAIL = #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactFlag != null" >
+        CONTACT_FLAG = #{contactFlag,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminContactInfo" >
+    <!--@mbggenerated-->
+    update CONTACT_INFO
+    set CONTACT_MAN = #{contactMan,jdbcType=VARCHAR},
+      CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      CONTACT_EMAIL = #{contactEmail,jdbcType=VARCHAR},
+      CONTACT_FLAG = #{contactFlag,jdbcType=INTEGER},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+
+  <select id="count" resultType="java.lang.Integer">
+    SELECT  COUNT (*) AS ATTR_NAME
+    FROM CONTACT_INFO
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+
+  <update id="updateByArchiveId" >
+    UPDATE CONTACT_INFO
+    SET UPDATE_DATE=#{updateDate},CONTACT_FLAG=#{contactFlag}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+
+  <insert id="insertContactInfo"  >
+    insert into CONTACT_INFO(ARCHIVE_ID,CONTACT_FLAG,UPDATE_DATE) VALUES (#{archiveId},#{contactFlag},#{updateDate})
+
+
+  </insert>
+
+</mapper>

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyPaFinanceCashauditMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyPaFinanceCashaudit" >
+    <!--@mbggenerated-->
+    <id column="CASH_ID" property="cashId" jdbcType="INTEGER" />
+    <result column="FINANCE_ID" property="financeId" jdbcType="INTEGER" />
+    <result column="CASH_PRICE" property="cashPrice" jdbcType="DECIMAL" />
+    <result column="AUDIT_STATUS" property="auditStatus" jdbcType="TINYINT" />
+    <result column="AUDIT_REASON" property="auditReason" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="AUDIT_UID" property="auditUid" jdbcType="INTEGER" />
+    <result column="CASH_DATE" property="cashDate" jdbcType="TIMESTAMP" />
+    <result column="CASH_TYPE" property="cashType" jdbcType="TINYINT" />
+    <result column="CASH_ARCHIVE_ID" property="cashArchiveId" jdbcType="INTEGER" />
+    <result column="TRADE_NO" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="PAY_TIME" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="CASH_MODE" property="cashMode" jdbcType="TINYINT" />
+    <result column="ACCOUNT_ID" property="accountId" jdbcType="INTEGER" />
+    <result column="TAXES_MONEY" property="taxesMoney" jdbcType="DECIMAL" />
+    <result column="RAKEBACK_PRICE" property="rakebackPrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyPaFinanceCashaudit" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="DES" property="des" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CASH_ID, FINANCE_ID, CASH_PRICE, AUDIT_STATUS, AUDIT_REASON, CREATION_TIME, AUDIT_UID, 
+    CASH_DATE, CASH_TYPE, CASH_ARCHIVE_ID, TRADE_NO, PAY_TIME, CASH_MODE, ACCOUNT_ID, 
+    TAXES_MONEY, RAKEBACK_PRICE
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    DES
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashauditExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from PA_FINANCE_CASHAUDIT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashauditExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from PA_FINANCE_CASHAUDIT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from PA_FINANCE_CASHAUDIT
+    where CASH_ID = #{cashId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from PA_FINANCE_CASHAUDIT
+    where CASH_ID = #{cashId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashauditExample" >
+    <!--@mbggenerated-->
+    delete from PA_FINANCE_CASHAUDIT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashaudit" useGeneratedKeys="true" keyProperty="cashId" >
+    <!--@mbggenerated-->
+    insert into PA_FINANCE_CASHAUDIT (FINANCE_ID, CASH_PRICE, AUDIT_STATUS, 
+      AUDIT_REASON, CREATION_TIME, AUDIT_UID, 
+      CASH_DATE, CASH_TYPE, CASH_ARCHIVE_ID, 
+      TRADE_NO, PAY_TIME, CASH_MODE, 
+      ACCOUNT_ID, TAXES_MONEY, RAKEBACK_PRICE, 
+      DES)
+    values (#{financeId,jdbcType=INTEGER}, #{cashPrice,jdbcType=DECIMAL}, #{auditStatus,jdbcType=TINYINT}, 
+      #{auditReason,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{auditUid,jdbcType=INTEGER}, 
+      #{cashDate,jdbcType=TIMESTAMP}, #{cashType,jdbcType=TINYINT}, #{cashArchiveId,jdbcType=INTEGER}, 
+      #{tradeNo,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, #{cashMode,jdbcType=TINYINT}, 
+      #{accountId,jdbcType=INTEGER}, #{taxesMoney,jdbcType=DECIMAL}, #{rakebackPrice,jdbcType=DECIMAL}, 
+      #{des,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashaudit" useGeneratedKeys="true" keyProperty="cashId" >
+    <!--@mbggenerated-->
+    insert into PA_FINANCE_CASHAUDIT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="financeId != null" >
+        FINANCE_ID,
+      </if>
+      <if test="cashPrice != null" >
+        CASH_PRICE,
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS,
+      </if>
+      <if test="auditReason != null" >
+        AUDIT_REASON,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="auditUid != null" >
+        AUDIT_UID,
+      </if>
+      <if test="cashDate != null" >
+        CASH_DATE,
+      </if>
+      <if test="cashType != null" >
+        CASH_TYPE,
+      </if>
+      <if test="cashArchiveId != null" >
+        CASH_ARCHIVE_ID,
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO,
+      </if>
+      <if test="payTime != null" >
+        PAY_TIME,
+      </if>
+      <if test="cashMode != null" >
+        CASH_MODE,
+      </if>
+      <if test="accountId != null" >
+        ACCOUNT_ID,
+      </if>
+      <if test="taxesMoney != null" >
+        TAXES_MONEY,
+      </if>
+      <if test="rakebackPrice != null" >
+        RAKEBACK_PRICE,
+      </if>
+      <if test="des != null" >
+        DES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="financeId != null" >
+        #{financeId,jdbcType=INTEGER},
+      </if>
+      <if test="cashPrice != null" >
+        #{cashPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditReason != null" >
+        #{auditReason,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditUid != null" >
+        #{auditUid,jdbcType=INTEGER},
+      </if>
+      <if test="cashDate != null" >
+        #{cashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashType != null" >
+        #{cashType,jdbcType=TINYINT},
+      </if>
+      <if test="cashArchiveId != null" >
+        #{cashArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashMode != null" >
+        #{cashMode,jdbcType=TINYINT},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="taxesMoney != null" >
+        #{taxesMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rakebackPrice != null" >
+        #{rakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashauditExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from PA_FINANCE_CASHAUDIT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update PA_FINANCE_CASHAUDIT
+    <set >
+      <if test="record.cashId != null" >
+        CASH_ID = #{record.cashId,jdbcType=INTEGER},
+      </if>
+      <if test="record.financeId != null" >
+        FINANCE_ID = #{record.financeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cashPrice != null" >
+        CASH_PRICE = #{record.cashPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.auditStatus != null" >
+        AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.auditReason != null" >
+        AUDIT_REASON = #{record.auditReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationTime != null" >
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditUid != null" >
+        AUDIT_UID = #{record.auditUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cashDate != null" >
+        CASH_DATE = #{record.cashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cashType != null" >
+        CASH_TYPE = #{record.cashType,jdbcType=TINYINT},
+      </if>
+      <if test="record.cashArchiveId != null" >
+        CASH_ARCHIVE_ID = #{record.cashArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradeNo != null" >
+        TRADE_NO = #{record.tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payTime != null" >
+        PAY_TIME = #{record.payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cashMode != null" >
+        CASH_MODE = #{record.cashMode,jdbcType=TINYINT},
+      </if>
+      <if test="record.accountId != null" >
+        ACCOUNT_ID = #{record.accountId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxesMoney != null" >
+        TAXES_MONEY = #{record.taxesMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rakebackPrice != null" >
+        RAKEBACK_PRICE = #{record.rakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.des != null" >
+        DES = #{record.des,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    <!--@mbggenerated-->
+    update PA_FINANCE_CASHAUDIT
+    set CASH_ID = #{record.cashId,jdbcType=INTEGER},
+      FINANCE_ID = #{record.financeId,jdbcType=INTEGER},
+      CASH_PRICE = #{record.cashPrice,jdbcType=DECIMAL},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      AUDIT_REASON = #{record.auditReason,jdbcType=VARCHAR},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      AUDIT_UID = #{record.auditUid,jdbcType=INTEGER},
+      CASH_DATE = #{record.cashDate,jdbcType=TIMESTAMP},
+      CASH_TYPE = #{record.cashType,jdbcType=TINYINT},
+      CASH_ARCHIVE_ID = #{record.cashArchiveId,jdbcType=INTEGER},
+      TRADE_NO = #{record.tradeNo,jdbcType=VARCHAR},
+      PAY_TIME = #{record.payTime,jdbcType=TIMESTAMP},
+      CASH_MODE = #{record.cashMode,jdbcType=TINYINT},
+      ACCOUNT_ID = #{record.accountId,jdbcType=INTEGER},
+      TAXES_MONEY = #{record.taxesMoney,jdbcType=DECIMAL},
+      RAKEBACK_PRICE = #{record.rakebackPrice,jdbcType=DECIMAL},
+      DES = #{record.des,jdbcType=CLOB}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update PA_FINANCE_CASHAUDIT
+    set CASH_ID = #{record.cashId,jdbcType=INTEGER},
+      FINANCE_ID = #{record.financeId,jdbcType=INTEGER},
+      CASH_PRICE = #{record.cashPrice,jdbcType=DECIMAL},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      AUDIT_REASON = #{record.auditReason,jdbcType=VARCHAR},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      AUDIT_UID = #{record.auditUid,jdbcType=INTEGER},
+      CASH_DATE = #{record.cashDate,jdbcType=TIMESTAMP},
+      CASH_TYPE = #{record.cashType,jdbcType=TINYINT},
+      CASH_ARCHIVE_ID = #{record.cashArchiveId,jdbcType=INTEGER},
+      TRADE_NO = #{record.tradeNo,jdbcType=VARCHAR},
+      PAY_TIME = #{record.payTime,jdbcType=TIMESTAMP},
+      CASH_MODE = #{record.cashMode,jdbcType=TINYINT},
+      ACCOUNT_ID = #{record.accountId,jdbcType=INTEGER},
+      TAXES_MONEY = #{record.taxesMoney,jdbcType=DECIMAL},
+      RAKEBACK_PRICE = #{record.rakebackPrice,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashaudit" >
+    <!--@mbggenerated-->
+    update PA_FINANCE_CASHAUDIT
+    <set >
+      <if test="financeId != null" >
+        FINANCE_ID = #{financeId,jdbcType=INTEGER},
+      </if>
+      <if test="cashPrice != null" >
+        CASH_PRICE = #{cashPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditReason != null" >
+        AUDIT_REASON = #{auditReason,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditUid != null" >
+        AUDIT_UID = #{auditUid,jdbcType=INTEGER},
+      </if>
+      <if test="cashDate != null" >
+        CASH_DATE = #{cashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashType != null" >
+        CASH_TYPE = #{cashType,jdbcType=TINYINT},
+      </if>
+      <if test="cashArchiveId != null" >
+        CASH_ARCHIVE_ID = #{cashArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        PAY_TIME = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashMode != null" >
+        CASH_MODE = #{cashMode,jdbcType=TINYINT},
+      </if>
+      <if test="accountId != null" >
+        ACCOUNT_ID = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="taxesMoney != null" >
+        TAXES_MONEY = #{taxesMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rakebackPrice != null" >
+        RAKEBACK_PRICE = #{rakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="des != null" >
+        DES = #{des,jdbcType=CLOB},
+      </if>
+    </set>
+    where CASH_ID = #{cashId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashaudit" >
+    <!--@mbggenerated-->
+    update PA_FINANCE_CASHAUDIT
+    set FINANCE_ID = #{financeId,jdbcType=INTEGER},
+      CASH_PRICE = #{cashPrice,jdbcType=DECIMAL},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      AUDIT_REASON = #{auditReason,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      AUDIT_UID = #{auditUid,jdbcType=INTEGER},
+      CASH_DATE = #{cashDate,jdbcType=TIMESTAMP},
+      CASH_TYPE = #{cashType,jdbcType=TINYINT},
+      CASH_ARCHIVE_ID = #{cashArchiveId,jdbcType=INTEGER},
+      TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      PAY_TIME = #{payTime,jdbcType=TIMESTAMP},
+      CASH_MODE = #{cashMode,jdbcType=TINYINT},
+      ACCOUNT_ID = #{accountId,jdbcType=INTEGER},
+      TAXES_MONEY = #{taxesMoney,jdbcType=DECIMAL},
+      RAKEBACK_PRICE = #{rakebackPrice,jdbcType=DECIMAL},
+      DES = #{des,jdbcType=CLOB}
+    where CASH_ID = #{cashId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceCashaudit" >
+    <!--@mbggenerated-->
+    update PA_FINANCE_CASHAUDIT
+    set FINANCE_ID = #{financeId,jdbcType=INTEGER},
+      CASH_PRICE = #{cashPrice,jdbcType=DECIMAL},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      AUDIT_REASON = #{auditReason,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      AUDIT_UID = #{auditUid,jdbcType=INTEGER},
+      CASH_DATE = #{cashDate,jdbcType=TIMESTAMP},
+      CASH_TYPE = #{cashType,jdbcType=TINYINT},
+      CASH_ARCHIVE_ID = #{cashArchiveId,jdbcType=INTEGER},
+      TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      PAY_TIME = #{payTime,jdbcType=TIMESTAMP},
+      CASH_MODE = #{cashMode,jdbcType=TINYINT},
+      ACCOUNT_ID = #{accountId,jdbcType=INTEGER},
+      TAXES_MONEY = #{taxesMoney,jdbcType=DECIMAL},
+      RAKEBACK_PRICE = #{rakebackPrice,jdbcType=DECIMAL}
+    where CASH_ID = #{cashId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getFinanceAduitList" resultType="java.util.Map">
+    select CASH_ID as cashId,CASH_PRICE as actualAmount,DES as des,AUDIT_STATUS as auditStatus
+    <choose>
+      <when test="param.accountType = 1">
+        ,0 AS compFlag
+      </when>
+      <otherwise>
+        ,1 AS compFlag
+      </otherwise>
+    </choose>
+    <if test="param.timeRange != null">
+      ,#{param.timeString} AS applyTime
+    </if>
+    from PA_FINANCE_CASHAUDIT
+    where CASH_TYPE = 0 and CASH_ARCHIVE_ID = #{param.archiveId}
+    <if test="null != param.startTime and '' != param.startTime">
+      <![CDATA[ and ${param.timeString} >= #{param.startTime}]]>
+    </if>
+    <if test="null != param.endTime and '' != param.endTime">
+      <![CDATA[and ${param.timeString} <= #{param.endTime}]]>
+    </if>
+    order by CASH_ID desc
+  </select>
+
+  <select id="getFinanceAduitList2" resultType="java.util.Map">
+    select CASH_ID as cashId,CASH_PRICE as actualAmount,DES as des,AUDIT_STATUS as auditStatus
+    <choose>
+      <when test="param.accountType = 1">
+        ,0 AS compFlag
+      </when>
+      <otherwise>
+        ,1 AS compFlag
+      </otherwise>
+    </choose>
+    ,pc.CREATION_TIME AS applyTime
+    from PA_FINANCE_CASHAUDIT pc LEFT JOIN PA_FINANCE pf ON pc.FINANCE_ID = pf.FINANCE_ID
+    where CASH_TYPE = 1 and pf.COMP_NO = #{param.compNo}
+    <if test="null != param.startTime and '' != param.startTime">
+      <![CDATA[ and APPLY_TIME >= #{param.startTime}]]>
+    </if>
+    <if test="null != param.endTime and '' != param.endTime">
+      <![CDATA[and APPLY_TIME <= #{param.endTime}]]>
+    </if>
+    order by CASH_ID desc
+  </select>
+</mapper>

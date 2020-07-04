@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunVideoFastdfsMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunVideoFastdfs">
+    <!--@mbggenerated-->
+  <result column="VIDEO_ID" jdbcType="INTEGER" property="videoId" />
+  <result column="VIDEO_ADDR" jdbcType="VARCHAR" property="videoAddr" />
+  <result column="OLD_VIDEO_ADDR" jdbcType="VARCHAR" property="oldVideoAddr" />
+  <result column="PHOTO_ADDR" jdbcType="VARCHAR" property="photoAddr" />
+  <result column="OLD_PHOTO_ADDR" jdbcType="VARCHAR" property="oldPhotoAddr" />
+  <result column="IS_DEAL" jdbcType="TINYINT" property="isDeal" />
+  <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+</resultMap>
+<insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunVideoFastdfs">
+  <!--@mbggenerated-->
+  insert into FUN_VIDEO_FASTDFS (VIDEO_ID, VIDEO_ADDR, OLD_VIDEO_ADDR, 
+    PHOTO_ADDR, OLD_PHOTO_ADDR, IS_DEAL, 
+    CREATE_TIME)
+  values (#{videoId,jdbcType=INTEGER}, #{videoAddr,jdbcType=VARCHAR}, #{oldVideoAddr,jdbcType=VARCHAR}, 
+    #{photoAddr,jdbcType=VARCHAR}, #{oldPhotoAddr,jdbcType=VARCHAR}, #{isDeal,jdbcType=TINYINT}, 
+    #{createTime,jdbcType=TIMESTAMP})
+</insert>
+<insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunVideoFastdfs">
+  <!--@mbggenerated-->
+    insert into FUN_VIDEO_FASTDFS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="videoId != null">
+        VIDEO_ID,
+      </if>
+      <if test="videoAddr != null">
+        VIDEO_ADDR,
+      </if>
+      <if test="oldVideoAddr != null">
+        OLD_VIDEO_ADDR,
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR,
+      </if>
+      <if test="oldPhotoAddr != null">
+        OLD_PHOTO_ADDR,
+      </if>
+      <if test="isDeal != null">
+        IS_DEAL,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="videoId != null">
+        #{videoId,jdbcType=INTEGER},
+      </if>
+      <if test="videoAddr != null">
+        #{videoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="oldVideoAddr != null">
+        #{oldVideoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAddr != null">
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPhotoAddr != null">
+        #{oldPhotoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeal != null">
+        #{isDeal,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+	<select id="selectLastVideoId" resultType="java.lang.Integer">
+		select top 1 VIDEO_ID
+		from FUN_VIDEO_FASTDFS order by VIDEO_ID asc
+	</select>
+	<insert id="insertList" parameterType="com.myfun.repository.erpdb.po.ErpFunVideoFastdfs">
+		INSERT INTO FUN_VIDEO_FASTDFS
+		(VIDEO_ID, VIDEO_ADDR, OLD_VIDEO_ADDR, PHOTO_ADDR,OLD_PHOTO_ADDR,IS_DEAL,CREATE_TIME)
+		VALUES
+		<foreach collection="videoList" item="item" separator=",">
+			(#{item.videoId},#{item.videoAddr},#{item.oldVideoAddr},#{item.photoAddr},#{item.oldPhotoAddr},#{item.isDeal},#{item.createTime})
+		</foreach>
+	</insert>
+
+	<update id="updateVideoAddrForList" parameterType="com.myfun.repository.erpdb.po.ErpFunVideoFastdfs">
+		<foreach collection="videoList" item="item" separator=";">
+			update FUN_VIDEO_FASTDFS
+			set VIDEO_ADDR=#{item.videoAddr},PHOTO_ADDR=#{item.photoAddr}
+			where VIDEO_ID = #{item.videoId}
+		</foreach>
+	</update>
+</mapper>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunVoicetransInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunVoicetransInfo" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CONN_ID" property="connId" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="VOIP_ID" property="voipId" jdbcType="INTEGER" />
+    <result column="CALL_ID" property="callId" jdbcType="VARCHAR" />
+    <result column="DOWN_STATUS" property="downStatus" jdbcType="TINYINT" />
+    <result column="STOP_TIME" property="stopTime" jdbcType="TIMESTAMP" />
+    <result column="VOICE_URL" property="voiceUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CONN_ID, CITY_ID, VOIP_ID, CALL_ID, DOWN_STATUS, STOP_TIME, VOICE_URL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_VOICETRANS_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_VOICETRANS_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunVoicetransInfo" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_VOICETRANS_INFO (CONN_ID, CITY_ID, VOIP_ID, 
+      CALL_ID, DOWN_STATUS, STOP_TIME, 
+      VOICE_URL)
+    values (#{connId,jdbcType=VARCHAR}, #{cityId,jdbcType=INTEGER}, #{voipId,jdbcType=INTEGER}, 
+      #{callId,jdbcType=VARCHAR}, #{downStatus,jdbcType=TINYINT}, #{stopTime,jdbcType=TIMESTAMP}, 
+      #{voiceUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunVoicetransInfo" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_VOICETRANS_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="connId != null" >
+        CONN_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="voipId != null" >
+        VOIP_ID,
+      </if>
+      <if test="callId != null" >
+        CALL_ID,
+      </if>
+      <if test="downStatus != null" >
+        DOWN_STATUS,
+      </if>
+      <if test="stopTime != null" >
+        STOP_TIME,
+      </if>
+      <if test="voiceUrl != null" >
+        VOICE_URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="connId != null" >
+        #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="voipId != null" >
+        #{voipId,jdbcType=INTEGER},
+      </if>
+      <if test="callId != null" >
+        #{callId,jdbcType=VARCHAR},
+      </if>
+      <if test="downStatus != null" >
+        #{downStatus,jdbcType=TINYINT},
+      </if>
+      <if test="stopTime != null" >
+        #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voiceUrl != null" >
+        #{voiceUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunVoicetransInfo" >
+    <!--@mbggenerated-->
+    update FUN_VOICETRANS_INFO
+    <set >
+      <if test="connId != null" >
+        CONN_ID = #{connId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="voipId != null" >
+        VOIP_ID = #{voipId,jdbcType=INTEGER},
+      </if>
+      <if test="callId != null" >
+        CALL_ID = #{callId,jdbcType=VARCHAR},
+      </if>
+      <if test="downStatus != null" >
+        DOWN_STATUS = #{downStatus,jdbcType=TINYINT},
+      </if>
+      <if test="stopTime != null" >
+        STOP_TIME = #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voiceUrl != null" >
+        VOICE_URL = #{voiceUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunVoicetransInfo" >
+    <!--@mbggenerated-->
+    update FUN_VOICETRANS_INFO
+    set CONN_ID = #{connId,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      VOIP_ID = #{voipId,jdbcType=INTEGER},
+      CALL_ID = #{callId,jdbcType=VARCHAR},
+      DOWN_STATUS = #{downStatus,jdbcType=TINYINT},
+      STOP_TIME = #{stopTime,jdbcType=TIMESTAMP},
+      VOICE_URL = #{voiceUrl,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

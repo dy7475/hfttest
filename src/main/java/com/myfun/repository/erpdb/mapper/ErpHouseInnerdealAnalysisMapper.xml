@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpHouseInnerdealAnalysisMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysis" >
+    <!--@mbggenerated-->
+    <id column="ANALYSIS_ID" property="analysisId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="REG_ID" property="regId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="GR_ID" property="grId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_CREATE_TIME" property="caseCreateTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CASE_STATUS" property="caseStatus" jdbcType="TINYINT" />
+    <result column="DEAL_ID" property="dealId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ANALYSIS_ID, COMP_ID, AREA_ID, REG_ID, DEPT_ID, GR_ID, USER_ID, ARCHIVE_ID, CASE_TYPE, 
+    CASE_ID, CASE_CREATE_TIME, CREATE_TIME, CASE_STATUS, DEAL_ID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysisExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from HOUSE_INNERDEAL_ANALYSIS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from HOUSE_INNERDEAL_ANALYSIS
+    where ANALYSIS_ID = #{analysisId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from HOUSE_INNERDEAL_ANALYSIS
+    where ANALYSIS_ID = #{analysisId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysisExample" >
+    <!--@mbggenerated-->
+    delete from HOUSE_INNERDEAL_ANALYSIS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysis" useGeneratedKeys="true" keyProperty="analysisId" >
+    <!--@mbggenerated-->
+    insert into HOUSE_INNERDEAL_ANALYSIS (COMP_ID, AREA_ID, REG_ID, 
+      DEPT_ID, GR_ID, USER_ID, 
+      ARCHIVE_ID, CASE_TYPE, CASE_ID, 
+      CASE_CREATE_TIME, CREATE_TIME, CASE_STATUS, 
+      DEAL_ID)
+    values (#{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{archiveId,jdbcType=INTEGER}, #{caseType,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, 
+      #{caseCreateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{caseStatus,jdbcType=TINYINT}, 
+      #{dealId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysis" useGeneratedKeys="true" keyProperty="analysisId" >
+    <!--@mbggenerated-->
+    insert into HOUSE_INNERDEAL_ANALYSIS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="regId != null" >
+        REG_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="grId != null" >
+        GR_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseCreateTime != null" >
+        CASE_CREATE_TIME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="caseStatus != null" >
+        CASE_STATUS,
+      </if>
+      <if test="dealId != null" >
+        DEAL_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseCreateTime != null" >
+        #{caseCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseStatus != null" >
+        #{caseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="dealId != null" >
+        #{dealId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysisExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from HOUSE_INNERDEAL_ANALYSIS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update HOUSE_INNERDEAL_ANALYSIS
+    <set >
+      <if test="record.analysisId != null" >
+        ANALYSIS_ID = #{record.analysisId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null" >
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null" >
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.grId != null" >
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null" >
+        CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null" >
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseCreateTime != null" >
+        CASE_CREATE_TIME = #{record.caseCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.caseStatus != null" >
+        CASE_STATUS = #{record.caseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.dealId != null" >
+        DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update HOUSE_INNERDEAL_ANALYSIS
+    set ANALYSIS_ID = #{record.analysisId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_CREATE_TIME = #{record.caseCreateTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      CASE_STATUS = #{record.caseStatus,jdbcType=TINYINT},
+      DEAL_ID = #{record.dealId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysis" >
+    <!--@mbggenerated-->
+    update HOUSE_INNERDEAL_ANALYSIS
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseCreateTime != null" >
+        CASE_CREATE_TIME = #{caseCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseStatus != null" >
+        CASE_STATUS = #{caseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="dealId != null" >
+        DEAL_ID = #{dealId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ANALYSIS_ID = #{analysisId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpHouseInnerdealAnalysis" >
+    <!--@mbggenerated-->
+    update HOUSE_INNERDEAL_ANALYSIS
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_CREATE_TIME = #{caseCreateTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CASE_STATUS = #{caseStatus,jdbcType=TINYINT},
+      DEAL_ID = #{dealId,jdbcType=INTEGER}
+    where ANALYSIS_ID = #{analysisId,jdbcType=INTEGER}
+  </update>
+	
+	<select id="getHouseInnerDealAnalysisCountList" resultType="com.myfun.repository.erpdb.dto.ErpHouseInnerdealAnalysisDto">
+		(select convert(VARCHAR(7),A.CREATE_TIME,20) as  monthofyear,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;30,1,0)) as count1,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 30 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=60,1,0)) as count2,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 61 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=90,1,0)) as count3,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 91 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=180,1,0)) as count4,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 181 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=360,1,0)) as count5,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 361 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=720,1,0)) as count6,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;720,1,0)) as count7
+		from HOUSE_INNERDEAL_ANALYSIS A join FUN_DEAL B ON A.DEAL_ID = B.DEAL_ID  join DEAL_USER_RELATIVE C ON B.DEAL_ID = C.DEAL_ID AND B.SIGN_USER_ID = C.USER_ID AND C.RELATE_TYPE=3 AND B.DEAL_AUDIT_STATUS!=3
+		where A.COMP_ID=#{param.compId}
+		<if test="param.caseType!=null">
+			<if test="param.caseType==101">
+				and A.CASE_TYPE = 1
+			</if>
+			<if test="param.caseType==102">
+				and A.CASE_TYPE = 2
+			</if>
+		</if>
+		<if test="param.dateType!=null">
+			<choose>
+				<when test="param.serchRange == 'USER'">
+					<choose>
+				    <when test="param.operLevel !=null">
+				   	  	<if test="param.operLevel ==0">
+				   	 		and C.${param.serchRange}_ID = #{param.serchRangeId}
+				   		</if>
+				   		<if test="param.operLevel ==1">
+				   	 		and C.TISSUE_LINE like "%:"#{param.rangeId}":%"
+				   		</if>
+				   		<if test="param.operLevel ==2">
+				   	 		and C.TISSUE_LINE like "%:"#{param.rangeId}":%" AND C.USER_LEVEL &lt;= #{param.userLevel}
+				   		</if>
+				     </when>
+				     <otherwise>
+				     	and C.${param.serchRange}_ID = #{param.serchRangeId}
+				     </otherwise>
+			   		 </choose>
+				</when>
+				<otherwise>
+					and C.${param.serchRange}_ID = #{param.serchRangeId}
+				</otherwise>
+			</choose>
+			and B.${param.dateType} &gt;= #{param.startTime} and B.${param.dateType} &lt;= #{param.endTime}
+		</if>
+		group by convert(VARCHAR(7),A.CREATE_TIME,20)) UNION ALL
+		(select convert(VARCHAR(7),A.CREATE_TIME,20) as  monthofyear,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;30,1,0)) as count1,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 30 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=60,1,0)) as count2,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 61 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=90,1,0)) as count3,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 91 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=180,1,0)) as count4,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 181 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=360,1,0)) as count5,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt;= 361 and DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME)&lt;=720,1,0)) as count6,
+		sum(iif(DATEDIFF(day, A.CASE_CREATE_TIME, A.CREATE_TIME) &gt; 720,1,0)) as count7
+		from HOUSE_INNERDEAL_ANALYSIS A
+		where A.COMP_ID=#{param.compId} AND A.DEAL_ID IS NULL
+		<if test="param.caseType!=null">
+			<if test="param.caseType==101">
+				and A.CASE_TYPE = 1
+			</if>
+			<if test="param.caseType==102">
+				and A.CASE_TYPE = 2
+			</if>
+		</if>
+		<if test="param.serchRange!='COMP'">
+			<choose>
+				<when test="param.serchRange == 'USER'">
+					<choose>
+				    <when test="param.operLevel !=null">
+				   	  	<if test="param.operLevel ==0">
+				   	 		and A.${param.serchRange}_ID = #{param.serchRangeId}
+				   		</if>
+				   		<if test="param.operLevel ==1">
+				   	 		and A.TISSUE_LINE like "%:"#{param.rangeId}":%"
+				   		</if>
+				   		<if test="param.operLevel ==2">
+				   	 		and A.TISSUE_LINE like "%:"#{param.rangeId}":%" AND A.USER_LEVEL &lt;= #{param.userLevel}
+				   		</if>
+				     </when>
+				     <otherwise>
+				     	and A.${param.serchRange}_ID = #{param.serchRangeId}
+				     </otherwise>
+			   		 </choose>
+				</when>
+				<otherwise>
+					and A.${param.serchRange}_ID = #{param.serchRangeId}
+				</otherwise>
+			</choose>
+		</if>
+		and A.CREATE_TIME &gt;= #{param.startTime} and A.CREATE_TIME &lt;= #{param.endTime}
+        group by convert(VARCHAR(7),A.CREATE_TIME,20)
+		)
+	</select>
+ 
+</mapper>

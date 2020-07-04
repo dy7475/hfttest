@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminSolrSyncMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminSolrSync" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CORE_NAME" property="coreName" jdbcType="VARCHAR" />
+    <result column="BATCH_NUM" property="batchNum" jdbcType="INTEGER" />
+    <result column="PID" property="pid" jdbcType="INTEGER" />
+    <result column="NID" property="nid" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="TINYINT" />
+    <result column="EXECUTE_STR" property="executeStr" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="EXECUTE_TIME" property="executeTime" jdbcType="TIMESTAMP" />
+    <result column="COMPLETE_TIME" property="completeTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminSolrSyncWithBLOBs" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="COMPLETE_INFO" property="completeInfo" jdbcType="CLOB" />
+    <result column="COMPLETE_STR" property="completeStr" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CORE_NAME, BATCH_NUM, PID, NID, TYPE, EXECUTE_STR, CREATION_TIME, EXECUTE_TIME, 
+    COMPLETE_TIME
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    COMPLETE_INFO, COMPLETE_STR
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from SOLR_SYNC
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from SOLR_SYNC
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminSolrSyncWithBLOBs" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SOLR_SYNC (CORE_NAME, BATCH_NUM, PID, 
+      NID, TYPE, EXECUTE_STR, 
+      CREATION_TIME, EXECUTE_TIME, COMPLETE_TIME, 
+      COMPLETE_INFO, COMPLETE_STR)
+    values (#{coreName,jdbcType=VARCHAR}, #{batchNum,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, 
+      #{nid,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{executeStr,jdbcType=VARCHAR}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{executeTime,jdbcType=TIMESTAMP}, #{completeTime,jdbcType=TIMESTAMP}, 
+      #{completeInfo,jdbcType=CLOB}, #{completeStr,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminSolrSyncWithBLOBs" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SOLR_SYNC
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="coreName != null" >
+        CORE_NAME,
+      </if>
+      <if test="batchNum != null" >
+        BATCH_NUM,
+      </if>
+      <if test="pid != null" >
+        PID,
+      </if>
+      <if test="nid != null" >
+        NID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="executeStr != null" >
+        EXECUTE_STR,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="executeTime != null" >
+        EXECUTE_TIME,
+      </if>
+      <if test="completeTime != null" >
+        COMPLETE_TIME,
+      </if>
+      <if test="completeInfo != null" >
+        COMPLETE_INFO,
+      </if>
+      <if test="completeStr != null" >
+        COMPLETE_STR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="coreName != null" >
+        #{coreName,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNum != null" >
+        #{batchNum,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="nid != null" >
+        #{nid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="executeStr != null" >
+        #{executeStr,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="executeTime != null" >
+        #{executeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completeTime != null" >
+        #{completeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completeInfo != null" >
+        #{completeInfo,jdbcType=CLOB},
+      </if>
+      <if test="completeStr != null" >
+        #{completeStr,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminSolrSyncWithBLOBs" >
+    <!--@mbggenerated-->
+    update SOLR_SYNC
+    <set >
+      <if test="coreName != null" >
+        CORE_NAME = #{coreName,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNum != null" >
+        BATCH_NUM = #{batchNum,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        PID = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="nid != null" >
+        NID = #{nid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="executeStr != null" >
+        EXECUTE_STR = #{executeStr,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="executeTime != null" >
+        EXECUTE_TIME = #{executeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completeTime != null" >
+        COMPLETE_TIME = #{completeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completeInfo != null" >
+        COMPLETE_INFO = #{completeInfo,jdbcType=CLOB},
+      </if>
+      <if test="completeStr != null" >
+        COMPLETE_STR = #{completeStr,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminSolrSyncWithBLOBs" >
+    <!--@mbggenerated-->
+    update SOLR_SYNC
+    set CORE_NAME = #{coreName,jdbcType=VARCHAR},
+      BATCH_NUM = #{batchNum,jdbcType=INTEGER},
+      PID = #{pid,jdbcType=INTEGER},
+      NID = #{nid,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=TINYINT},
+      EXECUTE_STR = #{executeStr,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      EXECUTE_TIME = #{executeTime,jdbcType=TIMESTAMP},
+      COMPLETE_TIME = #{completeTime,jdbcType=TIMESTAMP},
+      COMPLETE_INFO = #{completeInfo,jdbcType=CLOB},
+      COMPLETE_STR = #{completeStr,jdbcType=CLOB}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminSolrSync" >
+    <!--@mbggenerated-->
+    update SOLR_SYNC
+    set CORE_NAME = #{coreName,jdbcType=VARCHAR},
+      BATCH_NUM = #{batchNum,jdbcType=INTEGER},
+      PID = #{pid,jdbcType=INTEGER},
+      NID = #{nid,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=TINYINT},
+      EXECUTE_STR = #{executeStr,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      EXECUTE_TIME = #{executeTime,jdbcType=TIMESTAMP},
+      COMPLETE_TIME = #{completeTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfBuildHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfBuildHistory">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="WX_ID" jdbcType="INTEGER" property="wxId" />
+    <result column="REG_NAME" jdbcType="VARCHAR" property="regName" />
+    <result column="SECTION_NAME" jdbcType="VARCHAR" property="sectionName" />
+    <result column="BUILD_ADDR" jdbcType="VARCHAR" property="buildAddr" />
+    <result column="ROOM_TEXT" jdbcType="VARCHAR" property="roomText" />
+    <result column="AREA_LOW" jdbcType="INTEGER" property="areaLow" />
+    <result column="AREA_HIGH" jdbcType="INTEGER" property="areaHigh" />
+    <result column="PRICE_TEXT" jdbcType="VARCHAR" property="priceText" />
+    <result column="BUILD_TAG" jdbcType="VARCHAR" property="buildTag" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="BUILD_PHOTO" jdbcType="VARCHAR" property="buildPhoto" />
+    <result column="BUILD_TYPE" jdbcType="VARCHAR" property="buildType" />
+    <result column="BUILD_FITMENT" jdbcType="VARCHAR" property="buildFitment" />
+    <result column="BUILD_STATUS" jdbcType="VARCHAR" property="buildStatus" />
+    <result column="USEAGE_TYPE" jdbcType="VARCHAR" property="useageType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, CITY_ID, BUILD_ID, BUILD_NAME, WX_ID, REG_NAME, SECTION_NAME, BUILD_ADDR, ROOM_TEXT, 
+    AREA_LOW, AREA_HIGH, PRICE_TEXT, BUILD_TAG, CREATE_TIME, BUILD_PHOTO, BUILD_TYPE, 
+    BUILD_FITMENT, BUILD_STATUS, USEAGE_TYPE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.agencydb.po.AgencyWfBuildHistoryExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from WF_BUILD_HISTORY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_BUILD_HISTORY
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from WF_BUILD_HISTORY
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.agencydb.po.AgencyWfBuildHistoryExample">
+    <!--@mbggenerated-->
+    delete from WF_BUILD_HISTORY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.agencydb.po.AgencyWfBuildHistory" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into WF_BUILD_HISTORY (CITY_ID, BUILD_ID, BUILD_NAME, 
+      WX_ID, REG_NAME, SECTION_NAME, 
+      BUILD_ADDR, ROOM_TEXT, AREA_LOW, 
+      AREA_HIGH, PRICE_TEXT, BUILD_TAG, 
+      CREATE_TIME, BUILD_PHOTO, BUILD_TYPE, 
+      BUILD_FITMENT, BUILD_STATUS, USEAGE_TYPE
+      )
+    values (#{cityId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, #{buildName,jdbcType=VARCHAR}, 
+      #{wxId,jdbcType=INTEGER}, #{regName,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, 
+      #{buildAddr,jdbcType=VARCHAR}, #{roomText,jdbcType=VARCHAR}, #{areaLow,jdbcType=INTEGER}, 
+      #{areaHigh,jdbcType=INTEGER}, #{priceText,jdbcType=VARCHAR}, #{buildTag,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{buildPhoto,jdbcType=VARCHAR}, #{buildType,jdbcType=VARCHAR}, 
+      #{buildFitment,jdbcType=VARCHAR}, #{buildStatus,jdbcType=VARCHAR}, #{useageType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.agencydb.po.AgencyWfBuildHistory" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into WF_BUILD_HISTORY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="wxId != null">
+        WX_ID,
+      </if>
+      <if test="regName != null">
+        REG_NAME,
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME,
+      </if>
+      <if test="buildAddr != null">
+        BUILD_ADDR,
+      </if>
+      <if test="roomText != null">
+        ROOM_TEXT,
+      </if>
+      <if test="areaLow != null">
+        AREA_LOW,
+      </if>
+      <if test="areaHigh != null">
+        AREA_HIGH,
+      </if>
+      <if test="priceText != null">
+        PRICE_TEXT,
+      </if>
+      <if test="buildTag != null">
+        BUILD_TAG,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="buildPhoto != null">
+        BUILD_PHOTO,
+      </if>
+      <if test="buildType != null">
+        BUILD_TYPE,
+      </if>
+      <if test="buildFitment != null">
+        BUILD_FITMENT,
+      </if>
+      <if test="buildStatus != null">
+        BUILD_STATUS,
+      </if>
+      <if test="useageType != null">
+        USEAGE_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="wxId != null">
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="regName != null">
+        #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildAddr != null">
+        #{buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="roomText != null">
+        #{roomText,jdbcType=VARCHAR},
+      </if>
+      <if test="areaLow != null">
+        #{areaLow,jdbcType=INTEGER},
+      </if>
+      <if test="areaHigh != null">
+        #{areaHigh,jdbcType=INTEGER},
+      </if>
+      <if test="priceText != null">
+        #{priceText,jdbcType=VARCHAR},
+      </if>
+      <if test="buildTag != null">
+        #{buildTag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildPhoto != null">
+        #{buildPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="buildType != null">
+        #{buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="buildFitment != null">
+        #{buildFitment,jdbcType=VARCHAR},
+      </if>
+      <if test="buildStatus != null">
+        #{buildStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="useageType != null">
+        #{useageType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.agencydb.po.AgencyWfBuildHistoryExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from WF_BUILD_HISTORY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update WF_BUILD_HISTORY
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildName != null">
+        BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wxId != null">
+        WX_ID = #{record.wxId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regName != null">
+        REG_NAME = #{record.regName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionName != null">
+        SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildAddr != null">
+        BUILD_ADDR = #{record.buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomText != null">
+        ROOM_TEXT = #{record.roomText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaLow != null">
+        AREA_LOW = #{record.areaLow,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaHigh != null">
+        AREA_HIGH = #{record.areaHigh,jdbcType=INTEGER},
+      </if>
+      <if test="record.priceText != null">
+        PRICE_TEXT = #{record.priceText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildTag != null">
+        BUILD_TAG = #{record.buildTag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.buildPhoto != null">
+        BUILD_PHOTO = #{record.buildPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildType != null">
+        BUILD_TYPE = #{record.buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildFitment != null">
+        BUILD_FITMENT = #{record.buildFitment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildStatus != null">
+        BUILD_STATUS = #{record.buildStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useageType != null">
+        USEAGE_TYPE = #{record.useageType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update WF_BUILD_HISTORY
+    set ID = #{record.id,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      WX_ID = #{record.wxId,jdbcType=INTEGER},
+      REG_NAME = #{record.regName,jdbcType=VARCHAR},
+      SECTION_NAME = #{record.sectionName,jdbcType=VARCHAR},
+      BUILD_ADDR = #{record.buildAddr,jdbcType=VARCHAR},
+      ROOM_TEXT = #{record.roomText,jdbcType=VARCHAR},
+      AREA_LOW = #{record.areaLow,jdbcType=INTEGER},
+      AREA_HIGH = #{record.areaHigh,jdbcType=INTEGER},
+      PRICE_TEXT = #{record.priceText,jdbcType=VARCHAR},
+      BUILD_TAG = #{record.buildTag,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      BUILD_PHOTO = #{record.buildPhoto,jdbcType=VARCHAR},
+      BUILD_TYPE = #{record.buildType,jdbcType=VARCHAR},
+      BUILD_FITMENT = #{record.buildFitment,jdbcType=VARCHAR},
+      BUILD_STATUS = #{record.buildStatus,jdbcType=VARCHAR},
+      USEAGE_TYPE = #{record.useageType,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfBuildHistory">
+    <!--@mbggenerated-->
+    update WF_BUILD_HISTORY
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="wxId != null">
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="regName != null">
+        REG_NAME = #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null">
+        SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildAddr != null">
+        BUILD_ADDR = #{buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="roomText != null">
+        ROOM_TEXT = #{roomText,jdbcType=VARCHAR},
+      </if>
+      <if test="areaLow != null">
+        AREA_LOW = #{areaLow,jdbcType=INTEGER},
+      </if>
+      <if test="areaHigh != null">
+        AREA_HIGH = #{areaHigh,jdbcType=INTEGER},
+      </if>
+      <if test="priceText != null">
+        PRICE_TEXT = #{priceText,jdbcType=VARCHAR},
+      </if>
+      <if test="buildTag != null">
+        BUILD_TAG = #{buildTag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildPhoto != null">
+        BUILD_PHOTO = #{buildPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="buildType != null">
+        BUILD_TYPE = #{buildType,jdbcType=VARCHAR},
+      </if>
+      <if test="buildFitment != null">
+        BUILD_FITMENT = #{buildFitment,jdbcType=VARCHAR},
+      </if>
+      <if test="buildStatus != null">
+        BUILD_STATUS = #{buildStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="useageType != null">
+        USEAGE_TYPE = #{useageType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfBuildHistory">
+    <!--@mbggenerated-->
+    update WF_BUILD_HISTORY
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      REG_NAME = #{regName,jdbcType=VARCHAR},
+      SECTION_NAME = #{sectionName,jdbcType=VARCHAR},
+      BUILD_ADDR = #{buildAddr,jdbcType=VARCHAR},
+      ROOM_TEXT = #{roomText,jdbcType=VARCHAR},
+      AREA_LOW = #{areaLow,jdbcType=INTEGER},
+      AREA_HIGH = #{areaHigh,jdbcType=INTEGER},
+      PRICE_TEXT = #{priceText,jdbcType=VARCHAR},
+      BUILD_TAG = #{buildTag,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      BUILD_PHOTO = #{buildPhoto,jdbcType=VARCHAR},
+      BUILD_TYPE = #{buildType,jdbcType=VARCHAR},
+      BUILD_FITMENT = #{buildFitment,jdbcType=VARCHAR},
+      BUILD_STATUS = #{buildStatus,jdbcType=VARCHAR},
+      USEAGE_TYPE = #{useageType,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <insert id="insertForFastDfs">
+    <foreach collection="dfsParamList" item="dfsParam" separator=";">
+      INSERT  INTO WF_BUILD_HISTORY_FASTDFS_TMP(WF_ID,BUILD_PHOTO_OLD,BUILD_PHOTO_NEW)
+      VALUES (#{dfsParam.wfId}, #{dfsParam.buildPhotoOld},#{dfsParam.buildPhotoNew})
+    </foreach>
+  </insert>
+</mapper>

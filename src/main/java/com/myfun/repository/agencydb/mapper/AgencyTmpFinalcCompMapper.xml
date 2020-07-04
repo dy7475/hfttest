@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyTmpFinalcCompMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyTmpFinalcComp" >
+    <!--@mbggenerated-->
+    <result column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CRM_COMP_ID" property="crmCompId" jdbcType="INTEGER" />
+    <result column="COMP_NO" property="compNo" jdbcType="VARCHAR" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="REG_ID" property="regId" jdbcType="INTEGER" />
+    <result column="STREET_ID" property="streetId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="COMP_NAME" property="compName" jdbcType="VARCHAR" />
+    <result column="COMP_CNAME" property="compCname" jdbcType="VARCHAR" />
+    <result column="COMP_ADDR" property="compAddr" jdbcType="VARCHAR" />
+    <result column="COMP_TELE" property="compTele" jdbcType="VARCHAR" />
+    <result column="COMP_EMAIL" property="compEmail" jdbcType="VARCHAR" />
+    <result column="COMP_QQ" property="compQq" jdbcType="VARCHAR" />
+    <result column="COMP_CONTACT" property="compContact" jdbcType="VARCHAR" />
+    <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="COMP_DESC" property="compDesc" jdbcType="VARCHAR" />
+    <result column="COMP_DEPTS" property="compDepts" jdbcType="INTEGER" />
+    <result column="DEPT_STATUS" property="deptStatus" jdbcType="INTEGER" />
+    <result column="SELL_ID" property="sellId" jdbcType="INTEGER" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="TIMESTAMP" />
+    <result column="SELL_TRACK_TIME" property="sellTrackTime" jdbcType="TIMESTAMP" />
+    <result column="PEER_SOFT" property="peerSoft" jdbcType="VARCHAR" />
+    <result column="INSTALL_PWD" property="installPwd" jdbcType="VARCHAR" />
+    <result column="PLAINT_PWD" property="plaintPwd" jdbcType="VARCHAR" />
+    <result column="CUSTOM_LOG" property="customLog" jdbcType="VARCHAR" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="COMP_TYPE" property="compType" jdbcType="INTEGER" />
+    <result column="VERTIFY_CODE" property="vertifyCode" jdbcType="VARCHAR" />
+    <result column="STORE_NO" property="storeNo" jdbcType="VARCHAR" />
+    <result column="SHOP_INNER_PHOTO" property="shopInnerPhoto" jdbcType="VARCHAR" />
+    <result column="SHOP_OUTER_PHOTO" property="shopOuterPhoto" jdbcType="VARCHAR" />
+    <result column="COMP_LOGO" property="compLogo" jdbcType="VARCHAR" />
+    <result column="COMP_HONEST" property="compHonest" jdbcType="INTEGER" />
+    <result column="IS_VIP" property="isVip" jdbcType="TINYINT" />
+    <result column="UA_ID" property="uaId" jdbcType="INTEGER" />
+    <result column="BRAND_ID" property="brandId" jdbcType="INTEGER" />
+    <result column="COMP_ATTR" property="compAttr" jdbcType="TINYINT" />
+    <result column="COMP_MODEL" property="compModel" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyTmpFinalcComp" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="REMARK" property="remark" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    REMARK
+  </sql>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyTmpFinalcComp" >
+    <!--@mbggenerated-->
+    insert into tmp_finalc_comp (ID, CRM_COMP_ID, COMP_NO, 
+      PROVINCE_ID, CITY_ID, REG_ID, 
+      STREET_ID, AREA_ID, COMP_NAME, 
+      COMP_CNAME, COMP_ADDR, COMP_TELE, 
+      COMP_EMAIL, COMP_QQ, COMP_CONTACT, 
+      CONTACT_PHONE, COMP_DESC, COMP_DEPTS, 
+      DEPT_STATUS, SELL_ID, TRACK_TIME, 
+      SELL_TRACK_TIME, PEER_SOFT, INSTALL_PWD, 
+      PLAINT_PWD, CUSTOM_LOG, CREATOR_UID, 
+      CREATION_TIME, COMP_TYPE, VERTIFY_CODE, 
+      STORE_NO, SHOP_INNER_PHOTO, SHOP_OUTER_PHOTO, 
+      COMP_LOGO, COMP_HONEST, IS_VIP, 
+      UA_ID, BRAND_ID, COMP_ATTR, 
+      COMP_MODEL, REMARK)
+    values (#{id,jdbcType=INTEGER}, #{crmCompId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, 
+      #{streetId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{compName,jdbcType=VARCHAR}, 
+      #{compCname,jdbcType=VARCHAR}, #{compAddr,jdbcType=VARCHAR}, #{compTele,jdbcType=VARCHAR}, 
+      #{compEmail,jdbcType=VARCHAR}, #{compQq,jdbcType=VARCHAR}, #{compContact,jdbcType=VARCHAR}, 
+      #{contactPhone,jdbcType=VARCHAR}, #{compDesc,jdbcType=VARCHAR}, #{compDepts,jdbcType=INTEGER}, 
+      #{deptStatus,jdbcType=INTEGER}, #{sellId,jdbcType=INTEGER}, #{trackTime,jdbcType=TIMESTAMP}, 
+      #{sellTrackTime,jdbcType=TIMESTAMP}, #{peerSoft,jdbcType=VARCHAR}, #{installPwd,jdbcType=VARCHAR}, 
+      #{plaintPwd,jdbcType=VARCHAR}, #{customLog,jdbcType=VARCHAR}, #{creatorUid,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{compType,jdbcType=INTEGER}, #{vertifyCode,jdbcType=VARCHAR}, 
+      #{storeNo,jdbcType=VARCHAR}, #{shopInnerPhoto,jdbcType=VARCHAR}, #{shopOuterPhoto,jdbcType=VARCHAR}, 
+      #{compLogo,jdbcType=VARCHAR}, #{compHonest,jdbcType=INTEGER}, #{isVip,jdbcType=TINYINT}, 
+      #{uaId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, #{compAttr,jdbcType=TINYINT}, 
+      #{compModel,jdbcType=TINYINT}, #{remark,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyTmpFinalcComp" >
+    <!--@mbggenerated-->
+    insert into tmp_finalc_comp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="crmCompId != null" >
+        CRM_COMP_ID,
+      </if>
+      <if test="compNo != null" >
+        COMP_NO,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="regId != null" >
+        REG_ID,
+      </if>
+      <if test="streetId != null" >
+        STREET_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="compName != null" >
+        COMP_NAME,
+      </if>
+      <if test="compCname != null" >
+        COMP_CNAME,
+      </if>
+      <if test="compAddr != null" >
+        COMP_ADDR,
+      </if>
+      <if test="compTele != null" >
+        COMP_TELE,
+      </if>
+      <if test="compEmail != null" >
+        COMP_EMAIL,
+      </if>
+      <if test="compQq != null" >
+        COMP_QQ,
+      </if>
+      <if test="compContact != null" >
+        COMP_CONTACT,
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE,
+      </if>
+      <if test="compDesc != null" >
+        COMP_DESC,
+      </if>
+      <if test="compDepts != null" >
+        COMP_DEPTS,
+      </if>
+      <if test="deptStatus != null" >
+        DEPT_STATUS,
+      </if>
+      <if test="sellId != null" >
+        SELL_ID,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+      <if test="sellTrackTime != null" >
+        SELL_TRACK_TIME,
+      </if>
+      <if test="peerSoft != null" >
+        PEER_SOFT,
+      </if>
+      <if test="installPwd != null" >
+        INSTALL_PWD,
+      </if>
+      <if test="plaintPwd != null" >
+        PLAINT_PWD,
+      </if>
+      <if test="customLog != null" >
+        CUSTOM_LOG,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="compType != null" >
+        COMP_TYPE,
+      </if>
+      <if test="vertifyCode != null" >
+        VERTIFY_CODE,
+      </if>
+      <if test="storeNo != null" >
+        STORE_NO,
+      </if>
+      <if test="shopInnerPhoto != null" >
+        SHOP_INNER_PHOTO,
+      </if>
+      <if test="shopOuterPhoto != null" >
+        SHOP_OUTER_PHOTO,
+      </if>
+      <if test="compLogo != null" >
+        COMP_LOGO,
+      </if>
+      <if test="compHonest != null" >
+        COMP_HONEST,
+      </if>
+      <if test="isVip != null" >
+        IS_VIP,
+      </if>
+      <if test="uaId != null" >
+        UA_ID,
+      </if>
+      <if test="brandId != null" >
+        BRAND_ID,
+      </if>
+      <if test="compAttr != null" >
+        COMP_ATTR,
+      </if>
+      <if test="compModel != null" >
+        COMP_MODEL,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="crmCompId != null" >
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null" >
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="streetId != null" >
+        #{streetId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="compName != null" >
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compCname != null" >
+        #{compCname,jdbcType=VARCHAR},
+      </if>
+      <if test="compAddr != null" >
+        #{compAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="compTele != null" >
+        #{compTele,jdbcType=VARCHAR},
+      </if>
+      <if test="compEmail != null" >
+        #{compEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="compQq != null" >
+        #{compQq,jdbcType=VARCHAR},
+      </if>
+      <if test="compContact != null" >
+        #{compContact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null" >
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="compDesc != null" >
+        #{compDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="compDepts != null" >
+        #{compDepts,jdbcType=INTEGER},
+      </if>
+      <if test="deptStatus != null" >
+        #{deptStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sellId != null" >
+        #{sellId,jdbcType=INTEGER},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellTrackTime != null" >
+        #{sellTrackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="peerSoft != null" >
+        #{peerSoft,jdbcType=VARCHAR},
+      </if>
+      <if test="installPwd != null" >
+        #{installPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="plaintPwd != null" >
+        #{plaintPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="customLog != null" >
+        #{customLog,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compType != null" >
+        #{compType,jdbcType=INTEGER},
+      </if>
+      <if test="vertifyCode != null" >
+        #{vertifyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="storeNo != null" >
+        #{storeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="shopInnerPhoto != null" >
+        #{shopInnerPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOuterPhoto != null" >
+        #{shopOuterPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="compLogo != null" >
+        #{compLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="compHonest != null" >
+        #{compHonest,jdbcType=INTEGER},
+      </if>
+      <if test="isVip != null" >
+        #{isVip,jdbcType=TINYINT},
+      </if>
+      <if test="uaId != null" >
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="compAttr != null" >
+        #{compAttr,jdbcType=TINYINT},
+      </if>
+      <if test="compModel != null" >
+        #{compModel,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

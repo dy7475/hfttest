@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunFriendTempMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunFriendTemp">
+    <!--@mbggenerated-->
+    <result column="APP_ID" jdbcType="INTEGER" property="appId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="FRIEND_ARCHIVE_ID" jdbcType="INTEGER" property="friendArchiveId" />
+    <result column="GROUP_ID" jdbcType="INTEGER" property="groupId" />
+    <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+    <result column="REPLY_TIME" jdbcType="VARCHAR" property="replyTime" />
+    <result column="SEND_INFO" jdbcType="VARCHAR" property="sendInfo" />
+    <result column="REPLY_INFO" jdbcType="VARCHAR" property="replyInfo" />
+    <result column="SEND_IS_READ" jdbcType="BIT" property="sendIsRead" />
+    <result column="REPLY_IS_READ" jdbcType="BIT" property="replyIsRead" />
+    <result column="NEVER" jdbcType="TINYINT" property="never" />
+    <result column="ARCHIVE_NAME" jdbcType="VARCHAR" property="archiveName" />
+    <result column="FRIEND_ARCHIVE_NAME" jdbcType="VARCHAR" property="friendArchiveName" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunFriendTemp">
+    <!--@mbggenerated-->
+    insert into FUN_FRIEND_TEMP (APP_ID, ARCHIVE_ID, FRIEND_ARCHIVE_ID, 
+      GROUP_ID, CREATE_TIME, REPLY_TIME, 
+      SEND_INFO, REPLY_INFO, SEND_IS_READ, 
+      REPLY_IS_READ, NEVER, ARCHIVE_NAME, 
+      FRIEND_ARCHIVE_NAME)
+    values (#{appId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{friendArchiveId,jdbcType=INTEGER}, 
+      #{groupId,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, #{replyTime,jdbcType=VARCHAR}, 
+      #{sendInfo,jdbcType=VARCHAR}, #{replyInfo,jdbcType=VARCHAR}, #{sendIsRead,jdbcType=BIT}, 
+      #{replyIsRead,jdbcType=BIT}, #{never,jdbcType=TINYINT}, #{archiveName,jdbcType=VARCHAR}, 
+      #{friendArchiveName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunFriendTemp">
+    <!--@mbggenerated-->
+    insert into FUN_FRIEND_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appId != null">
+        APP_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="friendArchiveId != null">
+        FRIEND_ARCHIVE_ID,
+      </if>
+      <if test="groupId != null">
+        GROUP_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="replyTime != null">
+        REPLY_TIME,
+      </if>
+      <if test="sendInfo != null">
+        SEND_INFO,
+      </if>
+      <if test="replyInfo != null">
+        REPLY_INFO,
+      </if>
+      <if test="sendIsRead != null">
+        SEND_IS_READ,
+      </if>
+      <if test="replyIsRead != null">
+        REPLY_IS_READ,
+      </if>
+      <if test="never != null">
+        NEVER,
+      </if>
+      <if test="archiveName != null">
+        ARCHIVE_NAME,
+      </if>
+      <if test="friendArchiveName != null">
+        FRIEND_ARCHIVE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appId != null">
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="friendArchiveId != null">
+        #{friendArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null">
+        #{replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendInfo != null">
+        #{sendInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="replyInfo != null">
+        #{replyInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sendIsRead != null">
+        #{sendIsRead,jdbcType=BIT},
+      </if>
+      <if test="replyIsRead != null">
+        #{replyIsRead,jdbcType=BIT},
+      </if>
+      <if test="never != null">
+        #{never,jdbcType=TINYINT},
+      </if>
+      <if test="archiveName != null">
+        #{archiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="friendArchiveName != null">
+        #{friendArchiveName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

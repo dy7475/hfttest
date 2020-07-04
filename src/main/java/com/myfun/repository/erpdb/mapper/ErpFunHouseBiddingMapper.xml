@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunHouseBiddingMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunHouseBidding">
+    <!--@mbggenerated-->
+    <id column="BIDD_ID" jdbcType="INTEGER" property="biddId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="HOUSE_ID" jdbcType="INTEGER" property="houseId" />
+    <result column="SALE_LEASE" jdbcType="TINYINT" property="saleLease" />
+    <result column="HOUSE_USEAGE" jdbcType="TINYINT" property="houseUseage" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="BIDDING_SUCC_TIME" jdbcType="TIMESTAMP" property="biddingSuccTime" />
+    <result column="BIDDING_END_TIME" jdbcType="TIMESTAMP" property="biddingEndTime" />
+    <result column="BIDDING_DAYS" jdbcType="INTEGER" property="biddingDays" />
+    <result column="BIDDING_PRICE" jdbcType="NUMERIC" property="biddingPrice" />
+    <result column="COMP_PRICE" jdbcType="NUMERIC" property="compPrice" />
+    <result column="PERSONAL_PRICE" jdbcType="NUMERIC" property="personalPrice" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="QQ_STATUS" jdbcType="TINYINT" property="qqStatus" />
+    <result column="HAOFANG_STATUS" jdbcType="TINYINT" property="haofangStatus" />
+    <result column="UA_TYPE" jdbcType="TINYINT" property="uaType" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="COMP_UA_ID" jdbcType="INTEGER" property="compUaId" />
+    <result column="PERSONAL_COIN" jdbcType="NUMERIC" property="personalCoin" />
+    <result column="COMP_COIN" jdbcType="NUMERIC" property="compCoin" />
+    <result column="UA_ID" jdbcType="INTEGER" property="uaId" />
+    <result column="BIDD_SOURCE" jdbcType="TINYINT" property="biddSource" />
+    <result column="YY_STATUS" jdbcType="TINYINT" property="yyStatus" />
+    <result column="AUDIT_USER_ID" jdbcType="INTEGER" property="auditUserId" />
+    <result column="AUDIT_USER_NAME" jdbcType="VARCHAR" property="auditUserName" />
+    <result column="AUDIT_TIME" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="AD_ID" jdbcType="INTEGER" property="adId" />
+    <result column="AUDIT_STATUS" jdbcType="TINYINT" property="auditStatus" />
+    <result column="LOCKED_USER_ID" jdbcType="INTEGER" property="lockedUserId" />
+    <result column="SORT_PRICE" jdbcType="NUMERIC" property="sortPrice" />
+    <result column="ACTIVITY_PRICE" jdbcType="NUMERIC" property="activityPrice" />
+    <result column="CASH_BALANCE_PRICE" jdbcType="NUMERIC" property="cashBalancePrice" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    BIDD_ID, CITY_ID, HOUSE_ID, SALE_LEASE, HOUSE_USEAGE, BUILD_ID, BIDDING_SUCC_TIME, 
+    BIDDING_END_TIME, BIDDING_DAYS, BIDDING_PRICE, COMP_PRICE, PERSONAL_PRICE, ARCHIVE_ID, 
+    QQ_STATUS, HAOFANG_STATUS, UA_TYPE, UPDATE_TIME, COMP_UA_ID, PERSONAL_COIN, COMP_COIN, 
+    UA_ID, BIDD_SOURCE, YY_STATUS, AUDIT_USER_ID, AUDIT_USER_NAME, AUDIT_TIME, AD_ID, 
+    AUDIT_STATUS, LOCKED_USER_ID, SORT_PRICE, ACTIVITY_PRICE, CASH_BALANCE_PRICE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunHouseBiddingExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_HOUSE_BIDDING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_HOUSE_BIDDING
+    where BIDD_ID = #{biddId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_HOUSE_BIDDING
+    where BIDD_ID = #{biddId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunHouseBiddingExample">
+    <!--@mbggenerated-->
+    delete from FUN_HOUSE_BIDDING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunHouseBidding">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="biddId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_HOUSE_BIDDING_BIDD_ID
+    </selectKey>
+    insert into FUN_HOUSE_BIDDING (BIDD_ID, CITY_ID, HOUSE_ID, 
+      SALE_LEASE, HOUSE_USEAGE, BUILD_ID, 
+      BIDDING_SUCC_TIME, BIDDING_END_TIME, BIDDING_DAYS, 
+      BIDDING_PRICE, COMP_PRICE, PERSONAL_PRICE, 
+      ARCHIVE_ID, QQ_STATUS, HAOFANG_STATUS, 
+      UA_TYPE, UPDATE_TIME, COMP_UA_ID, 
+      PERSONAL_COIN, COMP_COIN, UA_ID, 
+      BIDD_SOURCE, YY_STATUS, AUDIT_USER_ID, 
+      AUDIT_USER_NAME, AUDIT_TIME, AD_ID, 
+      AUDIT_STATUS, LOCKED_USER_ID, SORT_PRICE, 
+      ACTIVITY_PRICE, CASH_BALANCE_PRICE)
+    values (#{biddId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{houseId,jdbcType=INTEGER}, 
+      #{saleLease,jdbcType=TINYINT}, #{houseUseage,jdbcType=TINYINT}, #{buildId,jdbcType=INTEGER}, 
+      #{biddingSuccTime,jdbcType=TIMESTAMP}, #{biddingEndTime,jdbcType=TIMESTAMP}, #{biddingDays,jdbcType=INTEGER}, 
+      #{biddingPrice,jdbcType=NUMERIC}, #{compPrice,jdbcType=NUMERIC}, #{personalPrice,jdbcType=NUMERIC}, 
+      #{archiveId,jdbcType=INTEGER}, #{qqStatus,jdbcType=TINYINT}, #{haofangStatus,jdbcType=TINYINT}, 
+      #{uaType,jdbcType=TINYINT}, #{updateTime,jdbcType=TIMESTAMP}, #{compUaId,jdbcType=INTEGER}, 
+      #{personalCoin,jdbcType=NUMERIC}, #{compCoin,jdbcType=NUMERIC}, #{uaId,jdbcType=INTEGER}, 
+      #{biddSource,jdbcType=TINYINT}, #{yyStatus,jdbcType=TINYINT}, #{auditUserId,jdbcType=INTEGER}, 
+      #{auditUserName,jdbcType=VARCHAR}, #{auditTime,jdbcType=TIMESTAMP}, #{adId,jdbcType=INTEGER}, 
+      #{auditStatus,jdbcType=TINYINT}, #{lockedUserId,jdbcType=INTEGER}, #{sortPrice,jdbcType=NUMERIC}, 
+      #{activityPrice,jdbcType=NUMERIC}, #{cashBalancePrice,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunHouseBidding">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="biddId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_HOUSE_BIDDING_BIDD_ID
+    </selectKey>
+    insert into FUN_HOUSE_BIDDING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      BIDD_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="houseId != null">
+        HOUSE_ID,
+      </if>
+      <if test="saleLease != null">
+        SALE_LEASE,
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="biddingSuccTime != null">
+        BIDDING_SUCC_TIME,
+      </if>
+      <if test="biddingEndTime != null">
+        BIDDING_END_TIME,
+      </if>
+      <if test="biddingDays != null">
+        BIDDING_DAYS,
+      </if>
+      <if test="biddingPrice != null">
+        BIDDING_PRICE,
+      </if>
+      <if test="compPrice != null">
+        COMP_PRICE,
+      </if>
+      <if test="personalPrice != null">
+        PERSONAL_PRICE,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="qqStatus != null">
+        QQ_STATUS,
+      </if>
+      <if test="haofangStatus != null">
+        HAOFANG_STATUS,
+      </if>
+      <if test="uaType != null">
+        UA_TYPE,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="compUaId != null">
+        COMP_UA_ID,
+      </if>
+      <if test="personalCoin != null">
+        PERSONAL_COIN,
+      </if>
+      <if test="compCoin != null">
+        COMP_COIN,
+      </if>
+      <if test="uaId != null">
+        UA_ID,
+      </if>
+      <if test="biddSource != null">
+        BIDD_SOURCE,
+      </if>
+      <if test="yyStatus != null">
+        YY_STATUS,
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID,
+      </if>
+      <if test="auditUserName != null">
+        AUDIT_USER_NAME,
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME,
+      </if>
+      <if test="adId != null">
+        AD_ID,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="lockedUserId != null">
+        LOCKED_USER_ID,
+      </if>
+      <if test="sortPrice != null">
+        SORT_PRICE,
+      </if>
+      <if test="activityPrice != null">
+        ACTIVITY_PRICE,
+      </if>
+      <if test="cashBalancePrice != null">
+        CASH_BALANCE_PRICE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{biddId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="saleLease != null">
+        #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="biddingSuccTime != null">
+        #{biddingSuccTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="biddingEndTime != null">
+        #{biddingEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="biddingDays != null">
+        #{biddingDays,jdbcType=INTEGER},
+      </if>
+      <if test="biddingPrice != null">
+        #{biddingPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="compPrice != null">
+        #{compPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="personalPrice != null">
+        #{personalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="qqStatus != null">
+        #{qqStatus,jdbcType=TINYINT},
+      </if>
+      <if test="haofangStatus != null">
+        #{haofangStatus,jdbcType=TINYINT},
+      </if>
+      <if test="uaType != null">
+        #{uaType,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compUaId != null">
+        #{compUaId,jdbcType=INTEGER},
+      </if>
+      <if test="personalCoin != null">
+        #{personalCoin,jdbcType=NUMERIC},
+      </if>
+      <if test="compCoin != null">
+        #{compCoin,jdbcType=NUMERIC},
+      </if>
+      <if test="uaId != null">
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="biddSource != null">
+        #{biddSource,jdbcType=TINYINT},
+      </if>
+      <if test="yyStatus != null">
+        #{yyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditUserId != null">
+        #{auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserName != null">
+        #{auditUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adId != null">
+        #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="lockedUserId != null">
+        #{lockedUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sortPrice != null">
+        #{sortPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="activityPrice != null">
+        #{activityPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="cashBalancePrice != null">
+        #{cashBalancePrice,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunHouseBiddingExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_HOUSE_BIDDING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_BIDDING
+    <set>
+      <if test="record.biddId != null">
+        BIDD_ID = #{record.biddId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseId != null">
+        HOUSE_ID = #{record.houseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleLease != null">
+        SALE_LEASE = #{record.saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseUseage != null">
+        HOUSE_USEAGE = #{record.houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.biddingSuccTime != null">
+        BIDDING_SUCC_TIME = #{record.biddingSuccTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.biddingEndTime != null">
+        BIDDING_END_TIME = #{record.biddingEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.biddingDays != null">
+        BIDDING_DAYS = #{record.biddingDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.biddingPrice != null">
+        BIDDING_PRICE = #{record.biddingPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.compPrice != null">
+        COMP_PRICE = #{record.compPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.personalPrice != null">
+        PERSONAL_PRICE = #{record.personalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.qqStatus != null">
+        QQ_STATUS = #{record.qqStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.haofangStatus != null">
+        HAOFANG_STATUS = #{record.haofangStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.uaType != null">
+        UA_TYPE = #{record.uaType,jdbcType=TINYINT},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.compUaId != null">
+        COMP_UA_ID = #{record.compUaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.personalCoin != null">
+        PERSONAL_COIN = #{record.personalCoin,jdbcType=NUMERIC},
+      </if>
+      <if test="record.compCoin != null">
+        COMP_COIN = #{record.compCoin,jdbcType=NUMERIC},
+      </if>
+      <if test="record.uaId != null">
+        UA_ID = #{record.uaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.biddSource != null">
+        BIDD_SOURCE = #{record.biddSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.yyStatus != null">
+        YY_STATUS = #{record.yyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.auditUserId != null">
+        AUDIT_USER_ID = #{record.auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditUserName != null">
+        AUDIT_USER_NAME = #{record.auditUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditTime != null">
+        AUDIT_TIME = #{record.auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.adId != null">
+        AD_ID = #{record.adId,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditStatus != null">
+        AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.lockedUserId != null">
+        LOCKED_USER_ID = #{record.lockedUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sortPrice != null">
+        SORT_PRICE = #{record.sortPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.activityPrice != null">
+        ACTIVITY_PRICE = #{record.activityPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.cashBalancePrice != null">
+        CASH_BALANCE_PRICE = #{record.cashBalancePrice,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_BIDDING
+    set BIDD_ID = #{record.biddId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      HOUSE_ID = #{record.houseId,jdbcType=INTEGER},
+      SALE_LEASE = #{record.saleLease,jdbcType=TINYINT},
+      HOUSE_USEAGE = #{record.houseUseage,jdbcType=TINYINT},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      BIDDING_SUCC_TIME = #{record.biddingSuccTime,jdbcType=TIMESTAMP},
+      BIDDING_END_TIME = #{record.biddingEndTime,jdbcType=TIMESTAMP},
+      BIDDING_DAYS = #{record.biddingDays,jdbcType=INTEGER},
+      BIDDING_PRICE = #{record.biddingPrice,jdbcType=NUMERIC},
+      COMP_PRICE = #{record.compPrice,jdbcType=NUMERIC},
+      PERSONAL_PRICE = #{record.personalPrice,jdbcType=NUMERIC},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      QQ_STATUS = #{record.qqStatus,jdbcType=TINYINT},
+      HAOFANG_STATUS = #{record.haofangStatus,jdbcType=TINYINT},
+      UA_TYPE = #{record.uaType,jdbcType=TINYINT},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      COMP_UA_ID = #{record.compUaId,jdbcType=INTEGER},
+      PERSONAL_COIN = #{record.personalCoin,jdbcType=NUMERIC},
+      COMP_COIN = #{record.compCoin,jdbcType=NUMERIC},
+      UA_ID = #{record.uaId,jdbcType=INTEGER},
+      BIDD_SOURCE = #{record.biddSource,jdbcType=TINYINT},
+      YY_STATUS = #{record.yyStatus,jdbcType=TINYINT},
+      AUDIT_USER_ID = #{record.auditUserId,jdbcType=INTEGER},
+      AUDIT_USER_NAME = #{record.auditUserName,jdbcType=VARCHAR},
+      AUDIT_TIME = #{record.auditTime,jdbcType=TIMESTAMP},
+      AD_ID = #{record.adId,jdbcType=INTEGER},
+      AUDIT_STATUS = #{record.auditStatus,jdbcType=TINYINT},
+      LOCKED_USER_ID = #{record.lockedUserId,jdbcType=INTEGER},
+      SORT_PRICE = #{record.sortPrice,jdbcType=NUMERIC},
+      ACTIVITY_PRICE = #{record.activityPrice,jdbcType=NUMERIC},
+      CASH_BALANCE_PRICE = #{record.cashBalancePrice,jdbcType=NUMERIC}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunHouseBidding">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_BIDDING
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null">
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="saleLease != null">
+        SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="biddingSuccTime != null">
+        BIDDING_SUCC_TIME = #{biddingSuccTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="biddingEndTime != null">
+        BIDDING_END_TIME = #{biddingEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="biddingDays != null">
+        BIDDING_DAYS = #{biddingDays,jdbcType=INTEGER},
+      </if>
+      <if test="biddingPrice != null">
+        BIDDING_PRICE = #{biddingPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="compPrice != null">
+        COMP_PRICE = #{compPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="personalPrice != null">
+        PERSONAL_PRICE = #{personalPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="qqStatus != null">
+        QQ_STATUS = #{qqStatus,jdbcType=TINYINT},
+      </if>
+      <if test="haofangStatus != null">
+        HAOFANG_STATUS = #{haofangStatus,jdbcType=TINYINT},
+      </if>
+      <if test="uaType != null">
+        UA_TYPE = #{uaType,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compUaId != null">
+        COMP_UA_ID = #{compUaId,jdbcType=INTEGER},
+      </if>
+      <if test="personalCoin != null">
+        PERSONAL_COIN = #{personalCoin,jdbcType=NUMERIC},
+      </if>
+      <if test="compCoin != null">
+        COMP_COIN = #{compCoin,jdbcType=NUMERIC},
+      </if>
+      <if test="uaId != null">
+        UA_ID = #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="biddSource != null">
+        BIDD_SOURCE = #{biddSource,jdbcType=TINYINT},
+      </if>
+      <if test="yyStatus != null">
+        YY_STATUS = #{yyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="auditUserId != null">
+        AUDIT_USER_ID = #{auditUserId,jdbcType=INTEGER},
+      </if>
+      <if test="auditUserName != null">
+        AUDIT_USER_NAME = #{auditUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null">
+        AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adId != null">
+        AD_ID = #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="lockedUserId != null">
+        LOCKED_USER_ID = #{lockedUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sortPrice != null">
+        SORT_PRICE = #{sortPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="activityPrice != null">
+        ACTIVITY_PRICE = #{activityPrice,jdbcType=NUMERIC},
+      </if>
+      <if test="cashBalancePrice != null">
+        CASH_BALANCE_PRICE = #{cashBalancePrice,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where BIDD_ID = #{biddId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunHouseBidding">
+    <!--@mbggenerated-->
+    update FUN_HOUSE_BIDDING
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BIDDING_SUCC_TIME = #{biddingSuccTime,jdbcType=TIMESTAMP},
+      BIDDING_END_TIME = #{biddingEndTime,jdbcType=TIMESTAMP},
+      BIDDING_DAYS = #{biddingDays,jdbcType=INTEGER},
+      BIDDING_PRICE = #{biddingPrice,jdbcType=NUMERIC},
+      COMP_PRICE = #{compPrice,jdbcType=NUMERIC},
+      PERSONAL_PRICE = #{personalPrice,jdbcType=NUMERIC},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      QQ_STATUS = #{qqStatus,jdbcType=TINYINT},
+      HAOFANG_STATUS = #{haofangStatus,jdbcType=TINYINT},
+      UA_TYPE = #{uaType,jdbcType=TINYINT},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      COMP_UA_ID = #{compUaId,jdbcType=INTEGER},
+      PERSONAL_COIN = #{personalCoin,jdbcType=NUMERIC},
+      COMP_COIN = #{compCoin,jdbcType=NUMERIC},
+      UA_ID = #{uaId,jdbcType=INTEGER},
+      BIDD_SOURCE = #{biddSource,jdbcType=TINYINT},
+      YY_STATUS = #{yyStatus,jdbcType=TINYINT},
+      AUDIT_USER_ID = #{auditUserId,jdbcType=INTEGER},
+      AUDIT_USER_NAME = #{auditUserName,jdbcType=VARCHAR},
+      AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP},
+      AD_ID = #{adId,jdbcType=INTEGER},
+      AUDIT_STATUS = #{auditStatus,jdbcType=TINYINT},
+      LOCKED_USER_ID = #{lockedUserId,jdbcType=INTEGER},
+      SORT_PRICE = #{sortPrice,jdbcType=NUMERIC},
+      ACTIVITY_PRICE = #{activityPrice,jdbcType=NUMERIC},
+      CASH_BALANCE_PRICE = #{cashBalancePrice,jdbcType=NUMERIC}
+    where BIDD_ID = #{biddId,jdbcType=INTEGER}
+  </update>
+  
+   <resultMap extends="BaseResultMap" id="DtoBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunHouseBiddingDto">
+     <result column="remainsDays" jdbcType="VARCHAR" property="remainsDays" />
+     <result column="remainsHours" jdbcType="VARCHAR" property="remainsHours" />
+     <result column="remainsMinus" jdbcType="VARCHAR" property="remainsMinus" />
+     <result column="biddEndTime" jdbcType="VARCHAR" property="biddEndTime" />
+     <result column="biddFlag" jdbcType="VARCHAR" property="biddFlag" />
+     <result column="trueFlag" jdbcType="VARCHAR" property="trueFlag" />
+     <result column="complaintFlag" jdbcType="VARCHAR" property="complaintFlag" />
+     <result column="cityId" jdbcType="VARCHAR" property="cityId" />
+     <result column="yyStatus" jdbcType="VARCHAR" property="yyStatus" />
+     <result column="creationTime" jdbcType="VARCHAR" property="creationTime" />
+     <result column="houseNo" jdbcType="VARCHAR" property="houseNo" />
+     <result column="houseFloor" jdbcType="VARCHAR" property="houseFloor" />
+     <result column="houseTitle" jdbcType="VARCHAR" property="houseTitle" />
+     <result column="houseRoom" jdbcType="VARCHAR" property="houseRoom" />
+     <result column="houseHall" jdbcType="VARCHAR" property="houseHall" />
+     <result column="buildName" jdbcType="VARCHAR" property="buildName" />
+     <result column="houseFitment" jdbcType="VARCHAR" property="houseFitment" />
+     <result column="houseMap" jdbcType="VARCHAR" property="houseMap" />
+     <result column="houseArea" jdbcType="VARCHAR" property="houseArea" />
+     <result column="houseTotalPrice" jdbcType="VARCHAR" property="houseTotalPrice" />
+  </resultMap>
+  <select id="getHistoryPrice" resultType="java.util.Map">
+    select BIDDING_SUCC_TIME AS biddingSuccTime,DATEDIFF(MI,getdate(),BIDDING_END_TIME) as remainsMinus,BIDDING_DAYS as biddingDays, BIDDING_PRICE as biddingPrice,BIDD_ID AS  biddId
+    from FUN_HOUSE_BIDDING where HOUSE_ID = #{houseId} and SALE_LEASE = #{saleLease} and YY_STATUS = 1 and BIDDING_END_TIME &gt; getdate()
+  </select>
+
+  <select id="count" resultType="java.lang.Integer">
+    select count(*) from FUN_HOUSE_BIDDING where YY_STATUS = 1 and BIDDING_END_TIME &gt; getdate() and HOUSE_ID = #{caseId} and SALE_LEASE = #{caseType} and CITY_ID = #{shardCityId}
+  </select>
+  <!-- <select id="getHouseBiddingListByArchiveId" resultMap="BaseResultMap">
+  SELECT TOP 6 * FROM FUN_BUILDING_BIDDING WHERE 
+  ARCHIVE_ID = #{archiveId} AND CITY_ID = #{shardCityId} AND END_TIME >= #{nowTime} 
+  AND IS_TOP = '1' AND BUILD_ID in (select BUILD_ID from FUN_BUILD_ATTENTION 
+  where CITY_ID = #{shardCityId} and ARCHIVE_ID = #{archiveId}) AND ( QQ_STATUS = '1' OR HAOFANG_STATUS = '1' ) 
+  </select> -->
+	<select id="getHouseBiddingList" resultMap="DtoBaseResultMap">
+		<choose>
+			<when test="pMap.saleLease == 1 ">
+				SELECT
+				A.CITY_ID as cityId ,ISNULL(C.YY_STATUS,0) AS yyStatus,A.TRUE_FLAG as trueFlag,A.COMPLAINT_FLAG as
+				complaintFlag,A.SALE_STATUS AS houseStatus,
+				A.USER_ID AS userId,A.SALE_PUBLISH as housePublish,A.CREATION_TIME AS creationTime,A.SALE_USEAGE as
+				houseUseage,A.SALE_ID as houseId,
+				A.SALE_NO as houseNo,A.SALE_FLOOR as houseFloor,A.SALE_SUBJECT as houseTitle,A.BUILD_ID AS buildId,
+				A.SALE_ROOM as houseRoom,A.SALE_HALL as houseHall,A.BUILD_NAME AS buildName,A.SALE_FITMENT as
+				houseFitment,
+				A.SALE_AREA as houseArea,A.SALE_TOTAL_PRICE as houseTotalPrice,A.SALE_MAP as houseMap,
+				A.VIDEO_NUM AS videoNum,A.THUMB_URL AS thumbUrl,A.THUMBPIC_VER AS thumbpicVer,getdate() as
+				biddDbSystime,C.BIDDING_DAYS AS biddingDays,
+				C.BIDDING_PRICE as biddingPrice,C.BIDDING_END_TIME AS biddingEndTime,${pMap.saleLease} AS
+				saleLease,(case when (DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)%24) &gt; 0 then
+				((DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)/24)+1)
+				else ((DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)/24))end) as remainsDays,
+				(DATEDIFF(MI,getdate(),BIDDING_END_TIME)/60) as remainsHours,DATEDIFF(MI,getdate(),
+				C.BIDDING_END_TIME) as remainsMinus,C.BIDDING_END_TIME as biddEndTime,ISNULL(C.SALE_LEASE,0) as
+				biddFlag,C.BIDD_ID AS biddId
+				FROM FUN_SALE A LEFT JOIN FUN_HOUSE_BIDDING C ON A.SALE_ID = C.HOUSE_ID
+				AND C.BIDDING_END_TIME &gt;= getdate() AND C.SALE_LEASE = 1 AND YY_STATUS = 1
+				WHERE A.COMP_ID = #{pMap.compId} AND A.CITY_ID = #{pMap.cityId} AND A.ARCHIVE_ID = #{pMap.archiveId}
+				and A.SALE_STATUS = '1' and A.BUILD_ID &gt; '0' AND A.USER_ID &gt; '0'
+				<if test="pMap.buildId !=null ">
+					and A.BUILD_ID = #{pMap.buildId}
+				</if>
+
+				AND A.SALE_PUBLISH = 1 AND A.SALE_STATUS = 1
+				ORDER BY ${pMap.orderby} C.BIDDING_END_TIME, A.UPDATE_TIME desc
+			</when>
+			<otherwise>
+				SELECT
+				A.CITY_ID,ISNULL(C.YY_STATUS,0) AS yyStatus,A.TRUE_FLAG as trueFlag,A.COMPLAINT_FLAG as complaintFlag
+				,A.LEASE_STATUS AS houseStatus,A.USER_ID AS userId,A.LEASE_PUBLISH as housePublish,
+				A.CREATION_TIME AS creationTime,A.LEASE_USEAGE as houseUseage,A.LEASE_ID as houseId,A.LEASE_NO as
+				houseNo,
+				A.LEASE_FLOOR as houseFloor,A.LEASE_SUBJECT as housetTitle,A.BUILD_ID,
+				A.LEASE_ROOM as houseRoom,A.LEASE_HALL as houseHall,A.BUILD_NAME buildName,A.LEASE_FITMENT
+				as houseFitment,A.LEASE_AREA as houseArea,A.LEASE_TOTAL_PRICE as houseTotalPrice,
+				A.LEASE_MAP as houseMap ,A.CREATION_TIME,A.VIDEO_NUM AS videoNum ,A.THUMB_URL AS thumbUrl,A.THUMBPIC_VER,getdate() as
+				biddDbSystime,
+				C.BIDDING_DAYS biddingDays,C.BIDDING_PRICE biddingPrice,C.BIDDING_END_TIME biddingEndTime,${pMap.saleLease} AS saleLease,
+				(case when (DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)%24) &gt; 0 then
+				((DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)/24)+1) else
+				((DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)/24))end) as
+				remainsDays,(DATEDIFF(MI,getdate(),BIDDING_END_TIME)/60) as
+				remainsHours,DATEDIFF(MI,getdate(),C.BIDDING_END_TIME) as remainsMinus,
+				C.BIDDING_END_TIME as biddendtime,ISNULL(C.SALE_LEASE,0) as biddflag,C.BIDD_ID
+				FROM FUN_LEASE A LEFT JOIN FUN_HOUSE_BIDDING C ON A.LEASE_ID = C.HOUSE_ID AND C.BIDDING_END_TIME &gt;=
+				getdate() AND C.SALE_LEASE = 2 AND YY_STATUS = 1
+				WHERE A.COMP_ID = #{pMap.compId} AND A.CITY_ID = #{pMap.cityId} AND A.ARCHIVE_ID = #{pMap.archiveId}
+				AND A.LEASE_STATUS = '1' AND A.BUILD_ID &gt; '0' AND A.USER_ID &gt; '0'
+				<if test="pMap.buildId !=null ">
+					and A.BUILD_ID = #{pMap.buildId}
+				</if>
+				AND A.LEASE_PUBLISH = 1 AND A.LEASE_STATUS = 1
+				ORDER BY ${pMap.orderby} C.BIDDING_END_TIME desc, A.UPDATE_TIME desc
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="getBiddingListByCondition" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_HOUSE_BIDDING
+		where BIDDING_END_TIME &gt; getdate()
+		and HOUSE_ID = #{erpFunHouseBidding.houseId} and SALE_LEASE =
+		#{erpFunHouseBidding.saleLease} and CITY_ID =
+		#{erpFunHouseBidding.shardCityId}
+		and YY_STATUS = #{erpFunHouseBidding.yyStatus}
+		order by BIDD_ID desc
+	</select>
+	<update id="updateBiddingEndTime">
+		update FUN_HOUSE_BIDDING
+		set BIDDING_END_TIME = #{nowTime}
+		where HOUSE_ID = #{caseId} and SALE_LEASE = #{caseType} and
+		BIDDING_END_TIME &gt; #{nowTime}
+	</update>
+
+	<update id="updateBiddingEndTimeToLastTime">
+		update FUN_HOUSE_BIDDING
+		SET BIDDING_END_TIME = #{endTime}
+		WHERE BIDDING_END_TIME &gt;= #{nowDate}
+		AND ARCHIVE_ID IN
+		<foreach close=")" collection="archiveIds" index="index" item="item" open="(" separator=",">
+			#{item}
+		</foreach>
+	</update>
+
+  <select id="getShelfNumber" resultType="java.lang.Integer">
+    select COUNT(B.HOUSE_ID) AS NUMBER
+    from FUN_HOUSE_BIDDING B
+    WHERE B.CITY_ID=#{shardCityId} AND B.ARCHIVE_ID=#{archiveId} AND B.YY_STATUS =1 and B.BIDDING_END_TIME &gt;= getdate()
+  </select>
+  <select id="getFunHouseBiddingList" resultMap="BaseResultMap">
+    select BIDD_ID,CITY_ID,HOUSE_ID,SALE_LEASE,BIDDING_END_TIME,ARCHIVE_ID,UPDATE_TIME,YY_STATUS
+    from FUN_HOUSE_BIDDING
+    where YY_STATUS=#{yyStatus} and BIDDING_END_TIME &gt;=GETDATE() and CITY_ID=#{shardCityId} and SALE_LEASE=#{caseType}
+    and HOUSE_ID in
+    <foreach close=")" collection="ids" index="index" item="item" open="(" separator=",">
+      #{item}
+    </foreach>
+    order by BIDD_ID desc
+  </select>
+
+	<update id="updateFunHouseBiddingYyStatus">
+		update FUN_HOUSE_BIDDING
+		set YY_STATUS=2
+		where SALE_LEASE = #{caseType} and HOUSE_ID= #{caseId}
+		and CITY_ID = #{shardCityId} and YY_STATUS=1
+		and BIDDING_END_TIME &gt;= GETDATE() and  ARCHIVE_ID = #{archiveId}
+	</update>
+
+	<select id="biddSeqData" resultType="java.util.Map">
+		select ((select COUNT(1) from FUN_HOUSE_BIDDING
+		where SALE_LEASE = #{caseType} and HOUSE_ID != A.HOUSE_ID and BIDDING_PRICE > A.BIDDING_PRICE
+		and (yy_status=1 or yy_status=0) and BUILD_ID = A.BUILD_ID and QQ_STATUS = 1 and HAOFANG_STATUS = 1 and BIDDING_END_TIME >= GETDATE())+
+		(select COUNT(1) + 1 from FUN_HOUSE_BIDDING
+		where SALE_LEASE =  #{caseType} and HOUSE_ID != A.HOUSE_ID and BIDDING_PRICE = A.BIDDING_PRICE and BUILD_ID = A.BUILD_ID
+		and BIDDING_SUCC_TIME &lt;= A.BIDDING_SUCC_TIME and (yy_status=1 or yy_status=0) and (yy_status=1 or yy_status=0)
+		and QQ_STATUS = 1 and HAOFANG_STATUS = 1 and BIDDING_END_TIME >= GETDATE())) as BUILD_SEQ,
+		((select COUNT(1) from FUN_HOUSE_BIDDING where SALE_LEASE =  #{caseType} and HOUSE_ID != A.HOUSE_ID and BIDDING_PRICE > A.BIDDING_PRICE
+		and (yy_status=1 or yy_status=0) and QQ_STATUS = 1 and HAOFANG_STATUS = 1 and BIDDING_END_TIME >= GETDATE())+
+		(select COUNT(1) + 1 from FUN_HOUSE_BIDDING where SALE_LEASE = #{caseType} and HOUSE_ID != A.HOUSE_ID
+		and BIDDING_PRICE = A.BIDDING_PRICE and BIDDING_SUCC_TIME &lt;= A.BIDDING_SUCC_TIME
+		and (yy_status=1 or yy_status=0) and QQ_STATUS = 1 and HAOFANG_STATUS = 1 and BIDDING_END_TIME >= GETDATE())) as HOUSE_SEQ,
+		HOUSE_ID,HOUSE_USEAGE,SALE_LEASE,QQ_STATUS,HAOFANG_STATUS,BIDDING_PRICE,BIDDING_DAYS,
+		(case when (DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)%24) > 0 then ((DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)/24)+1)
+		else ((DATEDIFF(HOUR,getdate(),BIDDING_END_TIME)/24)) end) as REMAINS_DAYS,
+		(DATEDIFF(MI,getdate(),BIDDING_END_TIME)/60) as REMAINS_HOURS,DATEDIFF(MI,getdate(),BIDDING_END_TIME) as REMAINS_MINUS
+		 from FUN_HOUSE_BIDDING A where HOUSE_ID IN (${houseIds})
+		 and SALE_LEASE =  #{caseType} and BIDDING_END_TIME >= GETDATE() and QQ_STATUS = 1 and HAOFANG_STATUS = 1
+	</select>
+  </mapper>

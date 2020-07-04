@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunCompRealMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunCompReal">
+    <!--@mbggenerated-->
+    <id column="DEVLOPER_ID" jdbcType="INTEGER" property="devloperId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="PROVINCE_ID" jdbcType="INTEGER" property="provinceId" />
+    <result column="COMP_NAME" jdbcType="VARCHAR" property="compName" />
+    <result column="COMP_CNAME" jdbcType="VARCHAR" property="compCname" />
+    <result column="COMP_ADDR" jdbcType="VARCHAR" property="compAddr" />
+    <result column="LEGAL_NAME" jdbcType="VARCHAR" property="legalName" />
+    <result column="SALES_MANAGER" jdbcType="VARCHAR" property="salesManager" />
+    <result column="SALES_MOBILE" jdbcType="VARCHAR" property="salesMobile" />
+    <result column="COMP_REGCAP" jdbcType="VARCHAR" property="compRegcap" />
+    <result column="COMP_DEVCLASS" jdbcType="VARCHAR" property="compDevclass" />
+    <result column="COMP_TELE" jdbcType="VARCHAR" property="compTele" />
+    <result column="COMP_FAX" jdbcType="VARCHAR" property="compFax" />
+    <result column="COMP_LOG" jdbcType="VARCHAR" property="compLog" />
+    <result column="COMP_WEBSITE" jdbcType="VARCHAR" property="compWebsite" />
+    <result column="COMP_DESC" jdbcType="VARCHAR" property="compDesc" />
+    <result column="CRM_COMP_ID" jdbcType="INTEGER" property="crmCompId" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="COMP_STATUS" jdbcType="TINYINT" property="compStatus" />
+    <result column="ERP_COMP_NO" jdbcType="VARCHAR" property="erpCompNo" />
+    <result column="ERP_COMP_ID" jdbcType="INTEGER" property="erpCompId" />
+    <result column="SYSTEM_FLAG" jdbcType="BIT" property="systemFlag" />
+    <result column="COMP_STATUS" jdbcType="TINYINT" property="compStatus" />
+  </resultMap>
+   <resultMap type="com.myfun.repository.agencydb.dto.AgencyFunCompRealDto" id="extResultMap" extends="BaseResultMap">
+    <result column="cityName" property="cityName" jdbcType="VARCHAR" />
+    <result column="provinceName" property="provinceName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    DEVLOPER_ID, CITY_ID, PROVINCE_ID, COMP_NAME, COMP_CNAME, COMP_ADDR, LEGAL_NAME, 
+    SALES_MANAGER, SALES_MOBILE, COMP_REGCAP, COMP_DEVCLASS, COMP_TELE, COMP_FAX, COMP_LOG, 
+    COMP_WEBSITE, COMP_DESC, CRM_COMP_ID, CREATOR_UID, CREATION_TIME, COMP_STATUS, ERP_COMP_NO, 
+    ERP_COMP_ID, SYSTEM_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_COMP_REAL
+    where DEVLOPER_ID = #{devloperId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_COMP_REAL
+    where DEVLOPER_ID = #{devloperId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompReal">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="devloperId" order="BEFORE" resultType="java.lang.Integer">
+      select next value for SEQ_FUN_COMP_REAL_DEVLOPER_ID
+    </selectKey>
+    insert into FUN_COMP_REAL (DEVLOPER_ID, CITY_ID, PROVINCE_ID, 
+      COMP_NAME, COMP_CNAME, COMP_ADDR, 
+      LEGAL_NAME, SALES_MANAGER, SALES_MOBILE, 
+      COMP_REGCAP, COMP_DEVCLASS, COMP_TELE, 
+      COMP_FAX, COMP_LOG, COMP_WEBSITE, 
+      COMP_DESC, CRM_COMP_ID, CREATOR_UID, 
+      CREATION_TIME, COMP_STATUS, ERP_COMP_NO, 
+      ERP_COMP_ID, SYSTEM_FLAG)
+    values (#{devloperId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{provinceId,jdbcType=INTEGER}, 
+      #{compName,jdbcType=VARCHAR}, #{compCname,jdbcType=VARCHAR}, #{compAddr,jdbcType=VARCHAR}, 
+      #{legalName,jdbcType=VARCHAR}, #{salesManager,jdbcType=VARCHAR}, #{salesMobile,jdbcType=VARCHAR}, 
+      #{compRegcap,jdbcType=VARCHAR}, #{compDevclass,jdbcType=VARCHAR}, #{compTele,jdbcType=VARCHAR}, 
+      #{compFax,jdbcType=VARCHAR}, #{compLog,jdbcType=VARCHAR}, #{compWebsite,jdbcType=VARCHAR}, 
+      #{compDesc,jdbcType=VARCHAR}, #{crmCompId,jdbcType=INTEGER}, #{creatorUid,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{compStatus,jdbcType=TINYINT}, #{erpCompNo,jdbcType=VARCHAR}, 
+      #{erpCompId,jdbcType=INTEGER}, #{systemFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompReal">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="devloperId" order="BEFORE" resultType="java.lang.Integer">
+      select next value for SEQ_FUN_COMP_REAL_DEVLOPER_ID
+    </selectKey>
+    insert into FUN_COMP_REAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      DEVLOPER_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="compName != null">
+        COMP_NAME,
+      </if>
+      <if test="compCname != null">
+        COMP_CNAME,
+      </if>
+      <if test="compAddr != null">
+        COMP_ADDR,
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME,
+      </if>
+      <if test="salesManager != null">
+        SALES_MANAGER,
+      </if>
+      <if test="salesMobile != null">
+        SALES_MOBILE,
+      </if>
+      <if test="compRegcap != null">
+        COMP_REGCAP,
+      </if>
+      <if test="compDevclass != null">
+        COMP_DEVCLASS,
+      </if>
+      <if test="compTele != null">
+        COMP_TELE,
+      </if>
+      <if test="compFax != null">
+        COMP_FAX,
+      </if>
+      <if test="compLog != null">
+        COMP_LOG,
+      </if>
+      <if test="compWebsite != null">
+        COMP_WEBSITE,
+      </if>
+      <if test="compDesc != null">
+        COMP_DESC,
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="compStatus != null">
+        COMP_STATUS,
+      </if>
+      <if test="erpCompNo != null">
+        ERP_COMP_NO,
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID,
+      </if>
+      <if test="systemFlag != null">
+        SYSTEM_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{devloperId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="compName != null">
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compCname != null">
+        #{compCname,jdbcType=VARCHAR},
+      </if>
+      <if test="compAddr != null">
+        #{compAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="salesManager != null">
+        #{salesManager,jdbcType=VARCHAR},
+      </if>
+      <if test="salesMobile != null">
+        #{salesMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="compRegcap != null">
+        #{compRegcap,jdbcType=VARCHAR},
+      </if>
+      <if test="compDevclass != null">
+        #{compDevclass,jdbcType=VARCHAR},
+      </if>
+      <if test="compTele != null">
+        #{compTele,jdbcType=VARCHAR},
+      </if>
+      <if test="compFax != null">
+        #{compFax,jdbcType=VARCHAR},
+      </if>
+      <if test="compLog != null">
+        #{compLog,jdbcType=VARCHAR},
+      </if>
+      <if test="compWebsite != null">
+        #{compWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="compDesc != null">
+        #{compDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCompId != null">
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compStatus != null">
+        #{compStatus,jdbcType=TINYINT},
+      </if>
+      <if test="erpCompNo != null">
+        #{erpCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="erpCompId != null">
+        #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="systemFlag != null">
+        #{systemFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompReal">
+    <!--@mbggenerated-->
+    update FUN_COMP_REAL
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="compName != null">
+        COMP_NAME = #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compCname != null">
+        COMP_CNAME = #{compCname,jdbcType=VARCHAR},
+      </if>
+      <if test="compAddr != null">
+        COMP_ADDR = #{compAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME = #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="salesManager != null">
+        SALES_MANAGER = #{salesManager,jdbcType=VARCHAR},
+      </if>
+      <if test="salesMobile != null">
+        SALES_MOBILE = #{salesMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="compRegcap != null">
+        COMP_REGCAP = #{compRegcap,jdbcType=VARCHAR},
+      </if>
+      <if test="compDevclass != null">
+        COMP_DEVCLASS = #{compDevclass,jdbcType=VARCHAR},
+      </if>
+      <if test="compTele != null">
+        COMP_TELE = #{compTele,jdbcType=VARCHAR},
+      </if>
+      <if test="compFax != null">
+        COMP_FAX = #{compFax,jdbcType=VARCHAR},
+      </if>
+      <if test="compLog != null">
+        COMP_LOG = #{compLog,jdbcType=VARCHAR},
+      </if>
+      <if test="compWebsite != null">
+        COMP_WEBSITE = #{compWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="compDesc != null">
+        COMP_DESC = #{compDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compStatus != null">
+        COMP_STATUS = #{compStatus,jdbcType=TINYINT},
+      </if>
+      <if test="erpCompNo != null">
+        ERP_COMP_NO = #{erpCompNo,jdbcType=VARCHAR},
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="systemFlag != null">
+        SYSTEM_FLAG = #{systemFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where DEVLOPER_ID = #{devloperId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunCompReal">
+    <!--@mbggenerated-->
+    update FUN_COMP_REAL
+  set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      COMP_NAME = #{compName,jdbcType=VARCHAR},
+      COMP_CNAME = #{compCname,jdbcType=VARCHAR},
+      COMP_ADDR = #{compAddr,jdbcType=VARCHAR},
+      LEGAL_NAME = #{legalName,jdbcType=VARCHAR},
+      SALES_MANAGER = #{salesManager,jdbcType=VARCHAR},
+      SALES_MOBILE = #{salesMobile,jdbcType=VARCHAR},
+      COMP_REGCAP = #{compRegcap,jdbcType=VARCHAR},
+      COMP_DEVCLASS = #{compDevclass,jdbcType=VARCHAR},
+      COMP_TELE = #{compTele,jdbcType=VARCHAR},
+      COMP_FAX = #{compFax,jdbcType=VARCHAR},
+      COMP_LOG = #{compLog,jdbcType=VARCHAR},
+      COMP_WEBSITE = #{compWebsite,jdbcType=VARCHAR},
+      COMP_DESC = #{compDesc,jdbcType=VARCHAR},
+      CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      COMP_STATUS = #{compStatus,jdbcType=TINYINT},
+      ERP_COMP_NO = #{erpCompNo,jdbcType=VARCHAR},
+      ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      SYSTEM_FLAG = #{systemFlag,jdbcType=BIT}
+    where DEVLOPER_ID = #{devloperId,jdbcType=INTEGER}
+  </update>
+	<!-- business -->
+	<select id="selectByCompRealList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_COMP_REAL
+		<where>
+			<if test="crmCompId != null">
+				CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER}
+			</if>
+			<if test="cityId != null">
+				CITY_ID = #{cityId,jdbcType=SMALLINT}
+			</if>
+			<if test="provinceId != null">
+				PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+			</if>
+			<if test="compName != null and compName != ''">
+				COMP_NAME like '%${compName}%'
+			</if>
+			<if test="creationTime != null">
+				CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP}
+			</if>
+		</where>
+		order by CREATION_TIME desc
+	</select>
+  <select id="getFunCompRealList" parameterType="com.myfun.repository.agencydb.param.AgencyFunCompRealParam" resultMap="extResultMap">
+  	SELECT fp.PROVINCE_NAME provinceName,fc.CITY_NAME cityName, FUN_COMP_REAL.DEVLOPER_ID,FUN_COMP_REAL.CITY_ID,FUN_COMP_REAL.PROVINCE_ID,FUN_COMP_REAL.COMP_NAME,FUN_COMP_REAL.COMP_CNAME,FUN_COMP_REAL.COMP_ADDR,FUN_COMP_REAL.LEGAL_NAME,FUN_COMP_REAL.SALES_MANAGER,FUN_COMP_REAL.SALES_MOBILE,FUN_COMP_REAL.COMP_REGCAP,FUN_COMP_REAL.COMP_DEVCLASS,FUN_COMP_REAL.COMP_TELE,FUN_COMP_REAL.COMP_FAX,FUN_COMP_REAL.COMP_LOG,FUN_COMP_REAL.COMP_WEBSITE,FUN_COMP_REAL.COMP_DESC,FUN_COMP_REAL.CRM_COMP_ID,FUN_COMP_REAL.CREATOR_UID,FUN_COMP_REAL.CREATION_TIME,FUN_COMP_REAL.COMP_STATUS,FUN_COMP_REAL.ERP_COMP_NO,FUN_COMP_REAL.ERP_COMP_ID,FUN_COMP_REAL.SYSTEM_FLAG
+    FROM FUN_COMP_REAL
+    left join FUN_CITY fc on fc.CITY_ID = FUN_COMP_REAL.CITY_ID
+    left join FUN_PROVINCE fp on fp.PROVINCE_ID = FUN_COMP_REAL.PROVINCE_ID
+    <where>
+    	<if test="null != developId">
+    		and DEVLOPER_ID = #{developId}
+    	</if>
+    	<if test="null != provinceId">
+    		and FUN_COMP_REAL.PROVINCE_ID = #{provinceId}
+    	</if>
+    	<if test="null != compName and '' != compName">
+    		and COMP_NAME = #{compName}
+    	</if>
+    	<if test="null != crmCompId">
+    		and CRM_COMP_ID = #{crmCompId}
+    	</if>
+    	<if test="null != cityId">
+    		and FUN_COMP_REAL.CITY_ID = #{cityId}
+    	</if>
+    	<if test="null != source">
+    		and SYSTEM_FLAG = #{source}
+    	</if>
+    	<if test="null != startTime and '' != startTime">
+    		<![CDATA[ and CREATION_TIME >=  #{startTime}]]>
+    	</if>
+    	<if test="null != endTime and '' != endTime">
+    		<![CDATA[ and CREATION_TIME <=  #{endTime}]]>
+    	</if>
+    </where>
+  	ORDER BY CREATION_TIME DESC
+  </select>
+  <select id="getDeveloperList" parameterType="java.util.Map" resultMap="BaseResultMap">
+  	select top 8 <include refid="Base_Column_List" />
+  	from  FUN_COMP_REAL
+  	where COMP_NAME like '%${developerName}%'
+  </select>
+  <select id="getFunCompRealDevelopList" resultMap="BaseResultMap" parameterType="java.util.Map">
+  	SELECT <include refid="Base_Column_List" /> 
+	FROM FUN_COMP_REAL
+  	<where>
+  		<if test="1==1">
+  			and CITY_ID =  #{cityId} and ERP_COMP_ID = #{erpCompId} and SYSTEM_FLAG = 1
+  		</if>
+  		<if test="null != compCName and '' != compCName">
+  			and COMP_NAME like '%${compCName}%'
+  		</if>
+  		<if test="null != salesManager and '' != salesManager">
+  			and SALES_MANAGER like '%${salesManager}%'
+  		</if>
+  		<if test="null != salesMobile and '' != salesMobile">
+  			and SALES_MOBILE = #{salesMobile}
+  		</if>
+  		<if test="null != startTime and '' != startTime">
+    		<![CDATA[ and CREATION_TIME >=  #{startTime}]]>
+    	</if>
+    	<if test="null != endTime and '' != endTime">
+    		<![CDATA[ and CREATION_TIME <=  #{endTime}]]>
+    	</if>
+  	</where>
+      ORDER BY CREATION_TIME desc
+  </select>
+  <select id="selectByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
+  	SELECT <include refid="Base_Column_List" />
+  	FROM FUN_COMP_REAL
+  	<where>
+  		<if test="null != cityId">
+  			and CITY_ID = #{cityId}
+  		</if>
+  		<if test="null != devloperId">
+  			and DEVLOPER_ID = #{devloperId}
+  		</if>
+  	</where>
+  </select>
+</mapper>

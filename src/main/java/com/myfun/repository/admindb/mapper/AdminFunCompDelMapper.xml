@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunCompDelMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunCompDel" >
+    <!--@mbggenerated-->
+    <id column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="COMP_NO" property="compNo" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    COMP_ID, COMP_NO, CREATION_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_COMP_DEL
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_COMP_DEL
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunCompDel" >
+    <!--@mbggenerated-->
+    insert into FUN_COMP_DEL (COMP_ID, COMP_NO, CREATION_TIME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunCompDel" >
+    <!--@mbggenerated-->
+    insert into FUN_COMP_DEL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="compNo != null" >
+        COMP_NO,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null" >
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunCompDel" >
+    <!--@mbggenerated-->
+    update FUN_COMP_DEL
+    <set >
+      <if test="compNo != null" >
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunCompDel" >
+    <!--@mbggenerated-->
+    update FUN_COMP_DEL
+    set COMP_NO = #{compNo,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP}
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+</mapper>

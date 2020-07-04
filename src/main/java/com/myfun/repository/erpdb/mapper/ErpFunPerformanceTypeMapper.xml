@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunPerformanceTypeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunPerformanceType">
+    <!--@mbggenerated-->
+    <id column="PERFORMANCE_ID" jdbcType="INTEGER" property="performanceId" />
+    <result column="PERFORMANCE_NAME" jdbcType="VARCHAR" property="performanceName" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="SEQ_NO" jdbcType="INTEGER" property="seqNo" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+    <result column="CAN_DEL" jdbcType="INTEGER" property="canDel" />
+    <result column="PERFORMANCE_PROPORTION" jdbcType="NUMERIC" property="performanceProportion" />
+    <result column="IS_AUTO" jdbcType="TINYINT" property="isAuto" />
+    <result column="EN_MSG" jdbcType="VARCHAR" property="enMsg" />
+    <result column="COLLECTION_TYPE" jdbcType="TINYINT" property="collectionType" />
+    <result column="COMMISSION_TYPE" jdbcType="TINYINT" property="commissionType" />
+    <result column="ALIAS" jdbcType="VARCHAR" property="alias" />
+    <result column="EDIT_EXT_ABLE" jdbcType="TINYINT" property="editExtAble" />
+    <result column="CAN_DELETE" jdbcType="TINYINT" property="canDelete" />
+    <result column="CAN_ADD" jdbcType="TINYINT" property="canAdd" />
+    <result column="CONFIG_ABLE" jdbcType="TINYINT" property="configAble" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PERFORMANCE_ID, PERFORMANCE_NAME, COMP_ID, SEQ_NO, CREATE_TIME, IS_DEL, CAN_DEL, 
+    PERFORMANCE_PROPORTION, IS_AUTO, EN_MSG, COLLECTION_TYPE, COMMISSION_TYPE, [ALIAS], 
+    EDIT_EXT_ABLE, CAN_DELETE, CAN_ADD, CONFIG_ABLE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceTypeExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_PERFORMANCE_TYPE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PERFORMANCE_TYPE
+    where PERFORMANCE_ID = #{performanceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_PERFORMANCE_TYPE
+    where PERFORMANCE_ID = #{performanceId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceTypeExample">
+    <!--@mbggenerated-->
+    delete from FUN_PERFORMANCE_TYPE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="performanceId" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceType" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_PERFORMANCE_TYPE (PERFORMANCE_NAME, COMP_ID, SEQ_NO, 
+      CREATE_TIME, IS_DEL, CAN_DEL, 
+      PERFORMANCE_PROPORTION, IS_AUTO, EN_MSG, 
+      COLLECTION_TYPE, COMMISSION_TYPE, [ALIAS], 
+      EDIT_EXT_ABLE, CAN_DELETE, CAN_ADD, 
+      CONFIG_ABLE)
+    values (#{performanceName,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, #{seqNo,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{isDel,jdbcType=TINYINT}, #{canDel,jdbcType=INTEGER}, 
+      #{performanceProportion,jdbcType=NUMERIC}, #{isAuto,jdbcType=TINYINT}, #{enMsg,jdbcType=VARCHAR}, 
+      #{collectionType,jdbcType=TINYINT}, #{commissionType,jdbcType=TINYINT}, #{alias,jdbcType=VARCHAR}, 
+      #{editExtAble,jdbcType=TINYINT}, #{canDelete,jdbcType=TINYINT}, #{canAdd,jdbcType=TINYINT}, 
+      #{configAble,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyProperty="performanceId" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceType" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_PERFORMANCE_TYPE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="performanceName != null">
+        PERFORMANCE_NAME,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+      <if test="canDel != null">
+        CAN_DEL,
+      </if>
+      <if test="performanceProportion != null">
+        PERFORMANCE_PROPORTION,
+      </if>
+      <if test="isAuto != null">
+        IS_AUTO,
+      </if>
+      <if test="enMsg != null">
+        EN_MSG,
+      </if>
+      <if test="collectionType != null">
+        COLLECTION_TYPE,
+      </if>
+      <if test="commissionType != null">
+        COMMISSION_TYPE,
+      </if>
+      <if test="alias != null">
+        [ALIAS],
+      </if>
+      <if test="editExtAble != null">
+        EDIT_EXT_ABLE,
+      </if>
+      <if test="canDelete != null">
+        CAN_DELETE,
+      </if>
+      <if test="canAdd != null">
+        CAN_ADD,
+      </if>
+      <if test="configAble != null">
+        CONFIG_ABLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="performanceName != null">
+        #{performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="canDel != null">
+        #{canDel,jdbcType=INTEGER},
+      </if>
+      <if test="performanceProportion != null">
+        #{performanceProportion,jdbcType=NUMERIC},
+      </if>
+      <if test="isAuto != null">
+        #{isAuto,jdbcType=TINYINT},
+      </if>
+      <if test="enMsg != null">
+        #{enMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionType != null">
+        #{collectionType,jdbcType=TINYINT},
+      </if>
+      <if test="commissionType != null">
+        #{commissionType,jdbcType=TINYINT},
+      </if>
+      <if test="alias != null">
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="editExtAble != null">
+        #{editExtAble,jdbcType=TINYINT},
+      </if>
+      <if test="canDelete != null">
+        #{canDelete,jdbcType=TINYINT},
+      </if>
+      <if test="canAdd != null">
+        #{canAdd,jdbcType=TINYINT},
+      </if>
+      <if test="configAble != null">
+        #{configAble,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceTypeExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_PERFORMANCE_TYPE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_PERFORMANCE_TYPE
+    <set>
+      <if test="record.performanceId != null">
+        PERFORMANCE_ID = #{record.performanceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.performanceName != null">
+        PERFORMANCE_NAME = #{record.performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.seqNo != null">
+        SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.canDel != null">
+        CAN_DEL = #{record.canDel,jdbcType=INTEGER},
+      </if>
+      <if test="record.performanceProportion != null">
+        PERFORMANCE_PROPORTION = #{record.performanceProportion,jdbcType=NUMERIC},
+      </if>
+      <if test="record.isAuto != null">
+        IS_AUTO = #{record.isAuto,jdbcType=TINYINT},
+      </if>
+      <if test="record.enMsg != null">
+        EN_MSG = #{record.enMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.collectionType != null">
+        COLLECTION_TYPE = #{record.collectionType,jdbcType=TINYINT},
+      </if>
+      <if test="record.commissionType != null">
+        COMMISSION_TYPE = #{record.commissionType,jdbcType=TINYINT},
+      </if>
+      <if test="record.alias != null">
+        [ALIAS] = #{record.alias,jdbcType=VARCHAR},
+      </if>
+      <if test="record.editExtAble != null">
+        EDIT_EXT_ABLE = #{record.editExtAble,jdbcType=TINYINT},
+      </if>
+      <if test="record.canDelete != null">
+        CAN_DELETE = #{record.canDelete,jdbcType=TINYINT},
+      </if>
+      <if test="record.canAdd != null">
+        CAN_ADD = #{record.canAdd,jdbcType=TINYINT},
+      </if>
+      <if test="record.configAble != null">
+        CONFIG_ABLE = #{record.configAble,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_PERFORMANCE_TYPE
+    set PERFORMANCE_ID = #{record.performanceId,jdbcType=INTEGER},
+      PERFORMANCE_NAME = #{record.performanceName,jdbcType=VARCHAR},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      CAN_DEL = #{record.canDel,jdbcType=INTEGER},
+      PERFORMANCE_PROPORTION = #{record.performanceProportion,jdbcType=NUMERIC},
+      IS_AUTO = #{record.isAuto,jdbcType=TINYINT},
+      EN_MSG = #{record.enMsg,jdbcType=VARCHAR},
+      COLLECTION_TYPE = #{record.collectionType,jdbcType=TINYINT},
+      COMMISSION_TYPE = #{record.commissionType,jdbcType=TINYINT},
+      [ALIAS] = #{record.alias,jdbcType=VARCHAR},
+      EDIT_EXT_ABLE = #{record.editExtAble,jdbcType=TINYINT},
+      CAN_DELETE = #{record.canDelete,jdbcType=TINYINT},
+      CAN_ADD = #{record.canAdd,jdbcType=TINYINT},
+      CONFIG_ABLE = #{record.configAble,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceType">
+    <!--@mbggenerated-->
+    update FUN_PERFORMANCE_TYPE
+    <set>
+      <if test="performanceName != null">
+        PERFORMANCE_NAME = #{performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="canDel != null">
+        CAN_DEL = #{canDel,jdbcType=INTEGER},
+      </if>
+      <if test="performanceProportion != null">
+        PERFORMANCE_PROPORTION = #{performanceProportion,jdbcType=NUMERIC},
+      </if>
+      <if test="isAuto != null">
+        IS_AUTO = #{isAuto,jdbcType=TINYINT},
+      </if>
+      <if test="enMsg != null">
+        EN_MSG = #{enMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionType != null">
+        COLLECTION_TYPE = #{collectionType,jdbcType=TINYINT},
+      </if>
+      <if test="commissionType != null">
+        COMMISSION_TYPE = #{commissionType,jdbcType=TINYINT},
+      </if>
+      <if test="alias != null">
+        [ALIAS] = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="editExtAble != null">
+        EDIT_EXT_ABLE = #{editExtAble,jdbcType=TINYINT},
+      </if>
+      <if test="canDelete != null">
+        CAN_DELETE = #{canDelete,jdbcType=TINYINT},
+      </if>
+      <if test="canAdd != null">
+        CAN_ADD = #{canAdd,jdbcType=TINYINT},
+      </if>
+      <if test="configAble != null">
+        CONFIG_ABLE = #{configAble,jdbcType=TINYINT},
+      </if>
+    </set>
+    where PERFORMANCE_ID = #{performanceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceType">
+    <!--@mbggenerated-->
+    update FUN_PERFORMANCE_TYPE
+    set PERFORMANCE_NAME = #{performanceName,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      CAN_DEL = #{canDel,jdbcType=INTEGER},
+      PERFORMANCE_PROPORTION = #{performanceProportion,jdbcType=NUMERIC},
+      IS_AUTO = #{isAuto,jdbcType=TINYINT},
+      EN_MSG = #{enMsg,jdbcType=VARCHAR},
+      COLLECTION_TYPE = #{collectionType,jdbcType=TINYINT},
+      COMMISSION_TYPE = #{commissionType,jdbcType=TINYINT},
+      [ALIAS] = #{alias,jdbcType=VARCHAR},
+      EDIT_EXT_ABLE = #{editExtAble,jdbcType=TINYINT},
+      CAN_DELETE = #{canDelete,jdbcType=TINYINT},
+      CAN_ADD = #{canAdd,jdbcType=TINYINT},
+      CONFIG_ABLE = #{configAble,jdbcType=TINYINT}
+    where PERFORMANCE_ID = #{performanceId,jdbcType=INTEGER}
+  </update>
+  <select id="getDataListByCompId" resultMap="BaseResultMap">
+    SELECT
+     <include refid="Base_Column_List" />
+     FROM FUN_PERFORMANCE_TYPE
+     WHERE COMP_ID = #{compId} AND IS_DEL = '0' ORDER BY SEQ_NO
+  </select>
+  <select id="getFjdDataListByCompId" resultMap="BaseResultMap">
+    SELECT
+     <include refid="Base_Column_List" />
+     FROM FUN_PERFORMANCE_TYPE
+     WHERE COMP_ID = #{compId} AND IS_DEL = '0' AND CONFIG_ABLE=1 ORDER BY SEQ_NO
+  </select>
+  <insert id="insertFunPerforManceType">
+    insert into FUN_PERFORMANCE_TYPE(PERFORMANCE_NAME,COMP_ID,SEQ_NO,CREATE_TIME,IS_DEL,CAN_DEL,PERFORMANCE_PROPORTION,IS_AUTO,EN_MSG,COLLECTION_TYPE,COMMISSION_TYPE,ALIAS,EDIT_EXT_ABLE,CAN_DELETE,CAN_ADD,CONFIG_ABLE)
+    select PERFORMANCE_NAME,${compId},SEQ_NO,CREATE_TIME,IS_DEL,CAN_DEL,PERFORMANCE_PROPORTION,IS_AUTO,EN_MSG,COLLECTION_TYPE,COMMISSION_TYPE,ALIAS,EDIT_EXT_ABLE,CAN_DELETE,CAN_ADD,CONFIG_ABLE
+    from FUN_PERFORMANCE_TYPE where COMP_ID=0
+  </insert>
+
+  <select id="getHasunPerformanceTypeId" resultType="java.lang.Integer">
+    SELECT PERFORMANCE_ID
+    FROM FUN_PERFORMANCE_TYPE
+    WHERE COMP_ID = #{compId} AND IS_DEL = '0' and PERFORMANCE_NAME = #{performanceName}
+  </select>
+  
+  <select id="getPerformanceType" resultMap="BaseResultMap">
+	  SELECT
+	  <include refid="Base_Column_List" />
+	  FROM FUN_PERFORMANCE_TYPE
+	  WHERE IS_DEL = 0 AND  COMP_ID = #{compId}
+  
+  </select>
+
+  <insert id="insertFunPerforManceTypeForFjd">
+    insert into FUN_PERFORMANCE_TYPE(PERFORMANCE_NAME,COMP_ID,SEQ_NO,CREATE_TIME,IS_DEL,CAN_DEL,PERFORMANCE_PROPORTION,IS_AUTO,EN_MSG,COLLECTION_TYPE,COMMISSION_TYPE,ALIAS,EDIT_EXT_ABLE,CAN_DELETE,CAN_ADD,CONFIG_ABLE)
+    select PERFORMANCE_NAME,${compId},SEQ_NO,CREATE_TIME,IS_DEL,CAN_DEL,PERFORMANCE_PROPORTION,IS_AUTO,EN_MSG,COLLECTION_TYPE,COMMISSION_TYPE,ALIAS,EDIT_EXT_ABLE,CAN_DELETE,CAN_ADD,CONFIG_ABLE
+    from FUN_PERFORMANCE_TYPE where COMP_ID=-1 AND IS_DEL = 0
+  </insert>
+
+  <select id="getFjdHasunPerformanceTypeId" resultType="java.lang.Integer">
+    SELECT PERFORMANCE_ID
+    FROM FUN_PERFORMANCE_TYPE
+    WHERE COMP_ID = #{compId} AND IS_DEL = '0' and PERFORMANCE_NAME = #{performanceName} and COLLECTION_TYPE=#{collectionType}
+    and COMMISSION_TYPE=#{commissionType} and ALIAS=#{alias}
+  </select>
+  <select id="selectOneByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPerformanceTypeExample" resultMap="BaseResultMap">
+    select top 1
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_PERFORMANCE_TYPE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+
+  <insert id="insertFunPerforManceTypeForInit">
+    insert into FUN_PERFORMANCE_TYPE(PERFORMANCE_NAME,COMP_ID,SEQ_NO,CREATE_TIME,IS_DEL,CAN_DEL,PERFORMANCE_PROPORTION,IS_AUTO,EN_MSG,COLLECTION_TYPE,COMMISSION_TYPE,ALIAS,CAN_DELETE,CAN_ADD,CONFIG_ABLE)
+    select PERFORMANCE_NAME,${compId},SEQ_NO,CREATE_TIME,IS_DEL,CAN_DEL,PERFORMANCE_PROPORTION,IS_AUTO,EN_MSG,COLLECTION_TYPE,COMMISSION_TYPE,ALIAS,CAN_DELETE,CAN_ADD,CONFIG_ABLE
+    from FUN_PERFORMANCE_TYPE where COMP_ID=0 AND IS_DEL = 0 and COLLECTION_TYPE!=2
+  </insert>
+</mapper>

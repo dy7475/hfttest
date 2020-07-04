@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminAppLoginMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminAppLogin" >
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="LOGIN_TIME" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="VERSION_NAME" property="versionName" jdbcType="VARCHAR" />
+    <result column="DEVICE_TYPE" property="deviceType" jdbcType="INTEGER" />
+    <result column="PUSH_TOKEN" property="pushToken" jdbcType="VARCHAR" />
+    <result column="LOGIN_STATUS" property="loginStatus" jdbcType="INTEGER" />
+    <result column="SIMSERIAL" property="simserial" jdbcType="VARCHAR" />
+    <result column="IS_PUSH" property="isPush" jdbcType="INTEGER" />
+    <result column="DISTRACTION_FREE" property="distractionFree" jdbcType="INTEGER" />
+    <result column="SHOP_TOKEN" property="shopToken" jdbcType="VARCHAR" />
+    <result column="AGENCY_TOKEN" property="agencyToken" jdbcType="VARCHAR" />
+    <result column="LOGIN_COUNT" property="loginCount" jdbcType="INTEGER" />
+    <result column="LOGIN_TOKEN" property="loginToken" jdbcType="VARCHAR" />
+    <result column="CALL_FLAG" property="callFlag" jdbcType="TINYINT" />
+    <result column="CALL_USER" property="callUser" jdbcType="INTEGER" />
+    <result column="CALL_TIME" property="callTime" jdbcType="TIMESTAMP" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="MOBILE_MODEL" property="mobileModel" jdbcType="VARCHAR" />
+    <result column="IM_TOKEN" property="imToken" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.admindb.dto.AdminAppLoginDto" id="extResultMap" extends="BaseResultMap">
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="cityName" property="cityName" jdbcType="VARCHAR" />
+  
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ARCHIVE_ID, LOGIN_TIME, USER_MOBILE, VERSION_NAME, DEVICE_TYPE, PUSH_TOKEN, LOGIN_STATUS, 
+    SIMSERIAL, IS_PUSH, DISTRACTION_FREE, SHOP_TOKEN, AGENCY_TOKEN, LOGIN_COUNT, LOGIN_TOKEN, 
+    CALL_FLAG, CALL_USER, CALL_TIME, CREATION_TIME, MOBILE_MODEL, IM_TOKEN
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from APP_LOGIN
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from APP_LOGIN
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminAppLogin" >
+    <!--@mbggenerated-->
+    insert into APP_LOGIN (ARCHIVE_ID, LOGIN_TIME, USER_MOBILE, 
+      VERSION_NAME, DEVICE_TYPE, PUSH_TOKEN, 
+      LOGIN_STATUS, SIMSERIAL, IS_PUSH, 
+      DISTRACTION_FREE, SHOP_TOKEN, AGENCY_TOKEN, 
+      LOGIN_COUNT, LOGIN_TOKEN, CALL_FLAG, 
+      CALL_USER, CALL_TIME, CREATION_TIME, 
+      MOBILE_MODEL, IM_TOKEN)
+    values (#{archiveId,jdbcType=INTEGER}, #{loginTime,jdbcType=TIMESTAMP}, #{userMobile,jdbcType=VARCHAR}, 
+      #{versionName,jdbcType=VARCHAR}, #{deviceType,jdbcType=INTEGER}, #{pushToken,jdbcType=VARCHAR}, 
+      #{loginStatus,jdbcType=INTEGER}, #{simserial,jdbcType=VARCHAR}, #{isPush,jdbcType=INTEGER}, 
+      #{distractionFree,jdbcType=INTEGER}, #{shopToken,jdbcType=VARCHAR}, #{agencyToken,jdbcType=VARCHAR}, 
+      #{loginCount,jdbcType=INTEGER}, #{loginToken,jdbcType=VARCHAR}, #{callFlag,jdbcType=TINYINT}, 
+      #{callUser,jdbcType=INTEGER}, #{callTime,jdbcType=TIMESTAMP}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{mobileModel,jdbcType=VARCHAR}, #{imToken,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminAppLogin" >
+    <!--@mbggenerated-->
+    insert into APP_LOGIN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="loginTime != null" >
+        LOGIN_TIME,
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="versionName != null" >
+        VERSION_NAME,
+      </if>
+      <if test="deviceType != null" >
+        DEVICE_TYPE,
+      </if>
+      <if test="pushToken != null" >
+        PUSH_TOKEN,
+      </if>
+      <if test="loginStatus != null" >
+        LOGIN_STATUS,
+      </if>
+      <if test="simserial != null" >
+        SIMSERIAL,
+      </if>
+      <if test="isPush != null" >
+        IS_PUSH,
+      </if>
+      <if test="distractionFree != null" >
+        DISTRACTION_FREE,
+      </if>
+      <if test="shopToken != null" >
+        SHOP_TOKEN,
+      </if>
+      <if test="agencyToken != null" >
+        AGENCY_TOKEN,
+      </if>
+      <if test="loginCount != null" >
+        LOGIN_COUNT,
+      </if>
+      <if test="loginToken != null" >
+        LOGIN_TOKEN,
+      </if>
+      <if test="callFlag != null" >
+        CALL_FLAG,
+      </if>
+      <if test="callUser != null" >
+        CALL_USER,
+      </if>
+      <if test="callTime != null" >
+        CALL_TIME,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="mobileModel != null" >
+        MOBILE_MODEL,
+      </if>
+      <if test="imToken != null" >
+        IM_TOKEN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null" >
+        #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        #{deviceType,jdbcType=INTEGER},
+      </if>
+      <if test="pushToken != null" >
+        #{pushToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginStatus != null" >
+        #{loginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="simserial != null" >
+        #{simserial,jdbcType=VARCHAR},
+      </if>
+      <if test="isPush != null" >
+        #{isPush,jdbcType=INTEGER},
+      </if>
+      <if test="distractionFree != null" >
+        #{distractionFree,jdbcType=INTEGER},
+      </if>
+      <if test="shopToken != null" >
+        #{shopToken,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyToken != null" >
+        #{agencyToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginCount != null" >
+        #{loginCount,jdbcType=INTEGER},
+      </if>
+      <if test="loginToken != null" >
+        #{loginToken,jdbcType=VARCHAR},
+      </if>
+      <if test="callFlag != null" >
+        #{callFlag,jdbcType=TINYINT},
+      </if>
+      <if test="callUser != null" >
+        #{callUser,jdbcType=INTEGER},
+      </if>
+      <if test="callTime != null" >
+        #{callTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobileModel != null" >
+        #{mobileModel,jdbcType=VARCHAR},
+      </if>
+      <if test="imToken != null" >
+        #{imToken,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminAppLogin" >
+    <!--@mbggenerated-->
+    update APP_LOGIN
+    <set >
+      <if test="loginTime != null" >
+        LOGIN_TIME = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null" >
+        VERSION_NAME = #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        DEVICE_TYPE = #{deviceType,jdbcType=INTEGER},
+      </if>
+      <if test="pushToken != null" >
+        PUSH_TOKEN = #{pushToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginStatus != null" >
+        LOGIN_STATUS = #{loginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="simserial != null" >
+        SIMSERIAL = #{simserial,jdbcType=VARCHAR},
+      </if>
+      <if test="isPush != null" >
+        IS_PUSH = #{isPush,jdbcType=INTEGER},
+      </if>
+      <if test="distractionFree != null" >
+        DISTRACTION_FREE = #{distractionFree,jdbcType=INTEGER},
+      </if>
+      <if test="shopToken != null" >
+        SHOP_TOKEN = #{shopToken,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyToken != null" >
+        AGENCY_TOKEN = #{agencyToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginCount != null" >
+        LOGIN_COUNT = #{loginCount,jdbcType=INTEGER},
+      </if>
+      <if test="loginToken != null" >
+        LOGIN_TOKEN = #{loginToken,jdbcType=VARCHAR},
+      </if>
+      <if test="callFlag != null" >
+        CALL_FLAG = #{callFlag,jdbcType=TINYINT},
+      </if>
+      <if test="callUser != null" >
+        CALL_USER = #{callUser,jdbcType=INTEGER},
+      </if>
+      <if test="callTime != null" >
+        CALL_TIME = #{callTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobileModel != null" >
+        MOBILE_MODEL = #{mobileModel,jdbcType=VARCHAR},
+      </if>
+      <if test="imToken != null" >
+        IM_TOKEN = #{imToken,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminAppLogin" >
+    <!--@mbggenerated-->
+    update APP_LOGIN
+    set LOGIN_TIME = #{loginTime,jdbcType=TIMESTAMP},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      VERSION_NAME = #{versionName,jdbcType=VARCHAR},
+      DEVICE_TYPE = #{deviceType,jdbcType=INTEGER},
+      PUSH_TOKEN = #{pushToken,jdbcType=VARCHAR},
+      LOGIN_STATUS = #{loginStatus,jdbcType=INTEGER},
+      SIMSERIAL = #{simserial,jdbcType=VARCHAR},
+      IS_PUSH = #{isPush,jdbcType=INTEGER},
+      DISTRACTION_FREE = #{distractionFree,jdbcType=INTEGER},
+      SHOP_TOKEN = #{shopToken,jdbcType=VARCHAR},
+      AGENCY_TOKEN = #{agencyToken,jdbcType=VARCHAR},
+      LOGIN_COUNT = #{loginCount,jdbcType=INTEGER},
+      LOGIN_TOKEN = #{loginToken,jdbcType=VARCHAR},
+      CALL_FLAG = #{callFlag,jdbcType=TINYINT},
+      CALL_USER = #{callUser,jdbcType=INTEGER},
+      CALL_TIME = #{callTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      MOBILE_MODEL = #{mobileModel,jdbcType=VARCHAR},
+      IM_TOKEN = #{imToken,jdbcType=VARCHAR}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <select id="getAdminAppLogin" parameterType="com.myfun.repository.admindb.param.AdminAppLoginParam" resultMap="extResultMap">
+  	select APP_LOGIN.*,FA.USER_NAME userName,FA.USER_EDITION version,APP_LOGIN.VERSION_NAME versionName,FUN_CITY.CITY_NAME cityName
+  	from APP_LOGIN
+  	LEFT JOIN FUN_ARCHIVE as FA ON FA.ARCHIVE_ID = APP_LOGIN.ARCHIVE_ID
+	LEFT JOIN FUN_CITY ON FUN_CITY.CITY_ID = FA.CITY_ID 
+	<if test="(null != startLoginTime and '' != startLoginTime ) or (null != endLoginTime and '' != endLoginTime )">
+		LEFT JOIN (SELECT ARCHIVE_ID,COUNT(1) LOGIN_COUNT FROM APP_LOGIN_LOG
+		<where>
+			<if test="null != startLoginTime and ''!=startLoginTime">
+				<![CDATA[ and APP_LOGIN_LOG.LOGIN_TIME>#{startLoginTime}]]>
+			</if>
+			<if test="null != endLoginTime and ''!=endLoginTime">
+				<![CDATA[and APP_LOGIN_LOG.LOGIN_TIME<#{endLoginTime}]]>
+			</if>
+		</where>
+		GROUP BY ARCHIVE_ID) AS ALLC ON FA.ARCHIVE_ID=ALLC.ARCHIVE_ID 
+	</if>
+	<where>
+		<choose>
+			<when test="null != mobile and ''!= mobile">
+				and FA.USER_MOBILE = #{mobile}
+			</when>
+			<otherwise>
+				<if test="null != provinceId">
+					and FA.PROVINCE_ID =#{provinceId}
+				</if>	
+				<if test="null != cityId">
+					 AND FA.CITY_ID =#{cityId}
+				</if>	
+				<if test="null != version">
+					and FA.USER_EDITION = #{version}
+				</if>	
+				<if test="null != startLoginTime and ''!=startLoginTime">
+					<![CDATA[and APP_LOGIN.LOGIN_TIME>#{startLoginTime}]]>
+				</if>
+				<if test="null != endLoginTime and ''!=endLoginTime">
+					<![CDATA[and APP_LOGIN.LOGIN_TIME<#{endLoginTime}]]>
+				</if>
+				<if test="null != deviceType">
+					and APP_LOGIN.DEVICE_TYPE =#{deviceType}
+				</if>
+				<if test="null != isCall">
+					and APP_LOGIN.CALL_FLAG =#{isCall}
+				</if>
+				<if test="null != isCall">
+					and APP_LOGIN.CALL_FLAG =#{isCall}
+				</if>
+			</otherwise>
+		</choose>
+<!-- 		<if test="null != isNewVersion and isNewVersion == 1"> -->
+<!-- 			and left(APP_LOGIN.VERSION_NAME,1)=4  -->
+<!-- 		</if> -->
+<!-- 		<if test="null != isNewVersion and isNewVersion == 0"> -->
+<!-- 			<![CDATA[and left(APP_LOGIN.VERSION_NAME,1)<>4]]>  -->
+<!-- 		</if> -->
+	</where>
+  	ORDER BY APP_LOGIN.LOGIN_TIME DESC
+  </select>
+	
+	<select id="getAppLastLoginTimeDiff" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select DATEDIFF(HOUR,LOGIN_TIME,GETDATE()) as LOGIN_COUNT,LOGIN_TIME from APP_LOGIN where ARCHIVE_ID = #{archiveId}
+	</select>
+
+  <select id="getAppLoginByArchiveId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from APP_LOGIN
+    where ARCHIVE_ID = #{archiveId}
+  </select>
+
+</mapper>

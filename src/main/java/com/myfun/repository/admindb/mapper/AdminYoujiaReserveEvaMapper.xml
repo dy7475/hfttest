@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminYoujiaReserveEvaMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminYoujiaReserveEva">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="RESERVER_ID" jdbcType="INTEGER" property="reserverId" />
+    <result column="WX_ID" jdbcType="INTEGER" property="wxId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="EVA_STAR" jdbcType="TINYINT" property="evaStar" />
+    <result column="EVA_TAG" jdbcType="VARCHAR" property="evaTag" />
+    <result column="EVA_CONTENT" jdbcType="VARCHAR" property="evaContent" />
+    <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+    <result column="SHOW_STATUS" jdbcType="TINYINT" property="showStatus" />
+    <result column="EVA_TAG_INDEX" jdbcType="VARCHAR" property="evaTagIndex" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, RESERVER_ID, WX_ID, ARCHIVE_ID, CITY_ID, EVA_STAR, EVA_TAG, EVA_CONTENT, CREATE_TIME, 
+    SHOW_STATUS, EVA_TAG_INDEX
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveEvaExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from YOUJIA_RESERVE_EVA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOUJIA_RESERVE_EVA
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from YOUJIA_RESERVE_EVA
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveEvaExample">
+    <!--@mbggenerated-->
+    delete from YOUJIA_RESERVE_EVA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveEva" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into YOUJIA_RESERVE_EVA (RESERVER_ID, WX_ID, ARCHIVE_ID, 
+      CITY_ID, EVA_STAR, EVA_TAG, 
+      EVA_CONTENT, CREATE_TIME, SHOW_STATUS, 
+      EVA_TAG_INDEX)
+    values (#{reserverId,jdbcType=INTEGER}, #{wxId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER}, #{evaStar,jdbcType=TINYINT}, #{evaTag,jdbcType=VARCHAR}, 
+      #{evaContent,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{showStatus,jdbcType=TINYINT}, 
+      #{evaTagIndex,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveEva" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into YOUJIA_RESERVE_EVA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reserverId != null">
+        RESERVER_ID,
+      </if>
+      <if test="wxId != null">
+        WX_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="evaStar != null">
+        EVA_STAR,
+      </if>
+      <if test="evaTag != null">
+        EVA_TAG,
+      </if>
+      <if test="evaContent != null">
+        EVA_CONTENT,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="showStatus != null">
+        SHOW_STATUS,
+      </if>
+      <if test="evaTagIndex != null">
+        EVA_TAG_INDEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reserverId != null">
+        #{reserverId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null">
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="evaStar != null">
+        #{evaStar,jdbcType=TINYINT},
+      </if>
+      <if test="evaTag != null">
+        #{evaTag,jdbcType=VARCHAR},
+      </if>
+      <if test="evaContent != null">
+        #{evaContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=TINYINT},
+      </if>
+      <if test="evaTagIndex != null">
+        #{evaTagIndex,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveEvaExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from YOUJIA_RESERVE_EVA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE_EVA
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.reserverId != null">
+        RESERVER_ID = #{record.reserverId,jdbcType=INTEGER},
+      </if>
+      <if test="record.wxId != null">
+        WX_ID = #{record.wxId,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.evaStar != null">
+        EVA_STAR = #{record.evaStar,jdbcType=TINYINT},
+      </if>
+      <if test="record.evaTag != null">
+        EVA_TAG = #{record.evaTag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.evaContent != null">
+        EVA_CONTENT = #{record.evaContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showStatus != null">
+        SHOW_STATUS = #{record.showStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.evaTagIndex != null">
+        EVA_TAG_INDEX = #{record.evaTagIndex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE_EVA
+    set ID = #{record.id,jdbcType=INTEGER},
+      RESERVER_ID = #{record.reserverId,jdbcType=INTEGER},
+      WX_ID = #{record.wxId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      EVA_STAR = #{record.evaStar,jdbcType=TINYINT},
+      EVA_TAG = #{record.evaTag,jdbcType=VARCHAR},
+      EVA_CONTENT = #{record.evaContent,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=VARCHAR},
+      SHOW_STATUS = #{record.showStatus,jdbcType=TINYINT},
+      EVA_TAG_INDEX = #{record.evaTagIndex,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveEva">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE_EVA
+    <set>
+      <if test="reserverId != null">
+        RESERVER_ID = #{reserverId,jdbcType=INTEGER},
+      </if>
+      <if test="wxId != null">
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="evaStar != null">
+        EVA_STAR = #{evaStar,jdbcType=TINYINT},
+      </if>
+      <if test="evaTag != null">
+        EVA_TAG = #{evaTag,jdbcType=VARCHAR},
+      </if>
+      <if test="evaContent != null">
+        EVA_CONTENT = #{evaContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="showStatus != null">
+        SHOW_STATUS = #{showStatus,jdbcType=TINYINT},
+      </if>
+      <if test="evaTagIndex != null">
+        EVA_TAG_INDEX = #{evaTagIndex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveEva">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE_EVA
+    set RESERVER_ID = #{reserverId,jdbcType=INTEGER},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      EVA_STAR = #{evaStar,jdbcType=TINYINT},
+      EVA_TAG = #{evaTag,jdbcType=VARCHAR},
+      EVA_CONTENT = #{evaContent,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      SHOW_STATUS = #{showStatus,jdbcType=TINYINT},
+      EVA_TAG_INDEX = #{evaTagIndex,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

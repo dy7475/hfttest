@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTemplateFunTrackMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTemplateFunTrack" >
+    <!--@mbggenerated-->
+    <result column="TRACK_ID" property="trackId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="CASE_NO" property="caseNo" jdbcType="VARCHAR" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_STATUS" property="caseStatus" jdbcType="TINYINT" />
+    <result column="TRACK_TYPE" property="trackType" jdbcType="TINYINT" />
+    <result column="TRACK_CLASSIC" property="trackClassic" jdbcType="VARCHAR" />
+    <result column="TARGET_ID" property="targetId" jdbcType="INTEGER" />
+    <result column="TARGET_NO" property="targetNo" jdbcType="VARCHAR" />
+    <result column="TARGET_TYPE" property="targetType" jdbcType="TINYINT" />
+    <result column="TARGET_BOUND" property="targetBound" jdbcType="TINYINT" />
+    <result column="TARGET_FLAG" property="targetFlag" jdbcType="BIT" />
+    <result column="EXAMIN_TIME" property="examinTime" jdbcType="VARCHAR" />
+    <result column="TRACK_NO" property="trackNo" jdbcType="VARCHAR" />
+    <result column="TRACK_CONTENT" property="trackContent" jdbcType="VARCHAR" />
+    <result column="TRACK_WARM" property="trackWarm" jdbcType="BIT" />
+    <result column="WARM_TIME" property="warmTime" jdbcType="VARCHAR" />
+    <result column="WARM_CONTENT" property="warmContent" jdbcType="VARCHAR" />
+    <result column="TRACK_KEY" property="trackKey" jdbcType="BIT" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="USEAGE" property="useage" jdbcType="TINYINT" />
+    <result column="INCLUDE_TRACK" property="includeTrack" jdbcType="TINYINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunTrack" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_TRACK (TRACK_ID, CASE_TYPE, CASE_NO, 
+      CASE_ID, CASE_STATUS, TRACK_TYPE, 
+      TRACK_CLASSIC, TARGET_ID, TARGET_NO, 
+      TARGET_TYPE, TARGET_BOUND, TARGET_FLAG, 
+      EXAMIN_TIME, TRACK_NO, TRACK_CONTENT, 
+      TRACK_WARM, WARM_TIME, WARM_CONTENT, 
+      TRACK_KEY, CREATOR_UID, CREATION_TIME, 
+      USEAGE, INCLUDE_TRACK)
+    values (#{trackId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{caseNo,jdbcType=VARCHAR}, 
+      #{caseId,jdbcType=INTEGER}, #{caseStatus,jdbcType=TINYINT}, #{trackType,jdbcType=TINYINT}, 
+      #{trackClassic,jdbcType=VARCHAR}, #{targetId,jdbcType=INTEGER}, #{targetNo,jdbcType=VARCHAR}, 
+      #{targetType,jdbcType=TINYINT}, #{targetBound,jdbcType=TINYINT}, #{targetFlag,jdbcType=BIT}, 
+      #{examinTime,jdbcType=VARCHAR}, #{trackNo,jdbcType=VARCHAR}, #{trackContent,jdbcType=VARCHAR}, 
+      #{trackWarm,jdbcType=BIT}, #{warmTime,jdbcType=VARCHAR}, #{warmContent,jdbcType=VARCHAR}, 
+      #{trackKey,jdbcType=BIT}, #{creatorUid,jdbcType=INTEGER}, #{creationTime,jdbcType=VARCHAR}, 
+      #{useage,jdbcType=TINYINT}, #{includeTrack,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunTrack" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_TRACK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="trackId != null" >
+        TRACK_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="caseNo != null" >
+        CASE_NO,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseStatus != null" >
+        CASE_STATUS,
+      </if>
+      <if test="trackType != null" >
+        TRACK_TYPE,
+      </if>
+      <if test="trackClassic != null" >
+        TRACK_CLASSIC,
+      </if>
+      <if test="targetId != null" >
+        TARGET_ID,
+      </if>
+      <if test="targetNo != null" >
+        TARGET_NO,
+      </if>
+      <if test="targetType != null" >
+        TARGET_TYPE,
+      </if>
+      <if test="targetBound != null" >
+        TARGET_BOUND,
+      </if>
+      <if test="targetFlag != null" >
+        TARGET_FLAG,
+      </if>
+      <if test="examinTime != null" >
+        EXAMIN_TIME,
+      </if>
+      <if test="trackNo != null" >
+        TRACK_NO,
+      </if>
+      <if test="trackContent != null" >
+        TRACK_CONTENT,
+      </if>
+      <if test="trackWarm != null" >
+        TRACK_WARM,
+      </if>
+      <if test="warmTime != null" >
+        WARM_TIME,
+      </if>
+      <if test="warmContent != null" >
+        WARM_CONTENT,
+      </if>
+      <if test="trackKey != null" >
+        TRACK_KEY,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="useage != null" >
+        USEAGE,
+      </if>
+      <if test="includeTrack != null" >
+        INCLUDE_TRACK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="trackId != null" >
+        #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="caseNo != null" >
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseStatus != null" >
+        #{caseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="trackType != null" >
+        #{trackType,jdbcType=TINYINT},
+      </if>
+      <if test="trackClassic != null" >
+        #{trackClassic,jdbcType=VARCHAR},
+      </if>
+      <if test="targetId != null" >
+        #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="targetNo != null" >
+        #{targetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="targetType != null" >
+        #{targetType,jdbcType=TINYINT},
+      </if>
+      <if test="targetBound != null" >
+        #{targetBound,jdbcType=TINYINT},
+      </if>
+      <if test="targetFlag != null" >
+        #{targetFlag,jdbcType=BIT},
+      </if>
+      <if test="examinTime != null" >
+        #{examinTime,jdbcType=VARCHAR},
+      </if>
+      <if test="trackNo != null" >
+        #{trackNo,jdbcType=VARCHAR},
+      </if>
+      <if test="trackContent != null" >
+        #{trackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trackWarm != null" >
+        #{trackWarm,jdbcType=BIT},
+      </if>
+      <if test="warmTime != null" >
+        #{warmTime,jdbcType=VARCHAR},
+      </if>
+      <if test="warmContent != null" >
+        #{warmContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trackKey != null" >
+        #{trackKey,jdbcType=BIT},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="useage != null" >
+        #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="includeTrack != null" >
+        #{includeTrack,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

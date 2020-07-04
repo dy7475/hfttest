@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpKpiStatisticBrokerPerformanceMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformance">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="HOUSE_ADD" jdbcType="INTEGER" property="houseAdd" />
+    <result column="CUST_ADD" jdbcType="INTEGER" property="custAdd" />
+    <result column="HOUSE_REGISTRATION" jdbcType="INTEGER" property="houseRegistration" />
+    <result column="SUBMIT_KEY" jdbcType="INTEGER" property="submitKey" />
+    <result column="UPLOAD_PHOTO" jdbcType="INTEGER" property="uploadPhoto" />
+    <result column="REVIEW_BUILD" jdbcType="INTEGER" property="reviewBuild" />
+    <result column="FANG_KAN" jdbcType="INTEGER" property="fangKan" />
+    <result column="TAKE_LOOK_BUILD" jdbcType="INTEGER" property="takeLookBuild" />
+    <result column="TAKE_LOOK_HOUSE" jdbcType="INTEGER" property="takeLookHouse" />
+    <result column="HIDDEN_NUMBER_DIAL" jdbcType="INTEGER" property="hiddenNumberDial" />
+    <result column="HOUSE_TRACK" jdbcType="INTEGER" property="houseTrack" />
+    <result column="COMPASSIONATE_LEAVE" jdbcType="INTEGER" property="compassionateLeave" />
+    <result column="LATE" jdbcType="INTEGER" property="late" />
+    <result column="LEAVE_EARLY" jdbcType="INTEGER" property="leaveEarly" />
+    <result column="ABSENTEEISM" jdbcType="INTEGER" property="absenteeism" />
+    <result column="ATTENDANCE_UP_STD" jdbcType="INTEGER" property="attendanceUpStd" />
+    <result column="IMAGE_UP_STD" jdbcType="INTEGER" property="imageUpStd" />
+    <result column="STAR_AGENT" jdbcType="INTEGER" property="starAgent" />
+    <result column="STAR_AGENT_NO" jdbcType="VARCHAR" property="starAgentNo" />
+    <result column="EXCLUSIVE_COMMISSION" jdbcType="INTEGER" property="exclusiveCommission" />
+    <result column="RENT_BILL_INDEPENDENT" jdbcType="INTEGER" property="rentBillIndependent" />
+    <result column="RENT_BILL_INNER_COOPERATION" jdbcType="INTEGER" property="rentBillInnerCooperation" />
+    <result column="RENT_BILL_OUTER_COOPERATION" jdbcType="INTEGER" property="rentBillOuterCooperation" />
+    <result column="SALE_BILL_INDEPENDENT" jdbcType="INTEGER" property="saleBillIndependent" />
+    <result column="SALE_BILL_INNER_COOPERATION" jdbcType="INTEGER" property="saleBillInnerCooperation" />
+    <result column="SALE_BILL_OUTER_COOPERATION" jdbcType="INTEGER" property="saleBillOuterCooperation" />
+    <result column="ML_APP_REGISTRATION" jdbcType="INTEGER" property="mlAppRegistration" />
+    <result column="RECOMMEND_BUSINESS_POSITION" jdbcType="INTEGER" property="recommendBusinessPosition" />
+    <result column="RECOMMEND_MANAGE_POSITION" jdbcType="INTEGER" property="recommendManagePosition" />
+    <result column="TRAINING_ATTENDANCE" jdbcType="INTEGER" property="trainingAttendance" />
+    <result column="TRAINING_FAILED" jdbcType="INTEGER" property="trainingFailed" />
+    <result column="VIOLATE_RED_LINE" jdbcType="INTEGER" property="violateRedLine" />
+    <result column="VIOLATE_YELLOW_LINE" jdbcType="INTEGER" property="violateYellowLine" />
+    <result column="VIOLATE_BLUE_LINE" jdbcType="INTEGER" property="violateBlueLine" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="ORG_ID" jdbcType="INTEGER" property="orgId" />
+    <result column="WEBSITE_ADD" jdbcType="NUMERIC" property="websiteAdd" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, ID_NO, CITY_ID, COMP_ID, USER_ID, USER_MOBILE, USER_NAME, HOUSE_ADD, CUST_ADD, 
+    HOUSE_REGISTRATION, SUBMIT_KEY, UPLOAD_PHOTO, REVIEW_BUILD, FANG_KAN, TAKE_LOOK_BUILD, 
+    TAKE_LOOK_HOUSE, HIDDEN_NUMBER_DIAL, HOUSE_TRACK, COMPASSIONATE_LEAVE, LATE, LEAVE_EARLY, 
+    ABSENTEEISM, ATTENDANCE_UP_STD, IMAGE_UP_STD, STAR_AGENT, STAR_AGENT_NO, EXCLUSIVE_COMMISSION, 
+    RENT_BILL_INDEPENDENT, RENT_BILL_INNER_COOPERATION, RENT_BILL_OUTER_COOPERATION, 
+    SALE_BILL_INDEPENDENT, SALE_BILL_INNER_COOPERATION, SALE_BILL_OUTER_COOPERATION, 
+    ML_APP_REGISTRATION, RECOMMEND_BUSINESS_POSITION, RECOMMEND_MANAGE_POSITION, TRAINING_ATTENDANCE, 
+    TRAINING_FAILED, VIOLATE_RED_LINE, VIOLATE_YELLOW_LINE, VIOLATE_BLUE_LINE, CREATE_TIME, 
+    UPDATE_TIME, ORG_ID, WEBSITE_ADD
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformanceExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from KPI_STATISTIC_BROKER_PERFORMANCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from KPI_STATISTIC_BROKER_PERFORMANCE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from KPI_STATISTIC_BROKER_PERFORMANCE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformanceExample">
+    <!--@mbggenerated-->
+    delete from KPI_STATISTIC_BROKER_PERFORMANCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformance" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into KPI_STATISTIC_BROKER_PERFORMANCE (ID_NO, CITY_ID, COMP_ID, 
+      USER_ID, USER_MOBILE, USER_NAME, 
+      HOUSE_ADD, CUST_ADD, HOUSE_REGISTRATION, 
+      SUBMIT_KEY, UPLOAD_PHOTO, REVIEW_BUILD, 
+      FANG_KAN, TAKE_LOOK_BUILD, TAKE_LOOK_HOUSE, 
+      HIDDEN_NUMBER_DIAL, HOUSE_TRACK, COMPASSIONATE_LEAVE, 
+      LATE, LEAVE_EARLY, ABSENTEEISM, 
+      ATTENDANCE_UP_STD, IMAGE_UP_STD, STAR_AGENT, 
+      STAR_AGENT_NO, EXCLUSIVE_COMMISSION, RENT_BILL_INDEPENDENT, 
+      RENT_BILL_INNER_COOPERATION, RENT_BILL_OUTER_COOPERATION, 
+      SALE_BILL_INDEPENDENT, SALE_BILL_INNER_COOPERATION, 
+      SALE_BILL_OUTER_COOPERATION, ML_APP_REGISTRATION, 
+      RECOMMEND_BUSINESS_POSITION, RECOMMEND_MANAGE_POSITION, 
+      TRAINING_ATTENDANCE, TRAINING_FAILED, VIOLATE_RED_LINE, 
+      VIOLATE_YELLOW_LINE, VIOLATE_BLUE_LINE, CREATE_TIME, 
+      UPDATE_TIME, ORG_ID, WEBSITE_ADD
+      )
+    values (#{idNo,jdbcType=VARCHAR}, #{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{userMobile,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{houseAdd,jdbcType=INTEGER}, #{custAdd,jdbcType=INTEGER}, #{houseRegistration,jdbcType=INTEGER}, 
+      #{submitKey,jdbcType=INTEGER}, #{uploadPhoto,jdbcType=INTEGER}, #{reviewBuild,jdbcType=INTEGER}, 
+      #{fangKan,jdbcType=INTEGER}, #{takeLookBuild,jdbcType=INTEGER}, #{takeLookHouse,jdbcType=INTEGER}, 
+      #{hiddenNumberDial,jdbcType=INTEGER}, #{houseTrack,jdbcType=INTEGER}, #{compassionateLeave,jdbcType=INTEGER}, 
+      #{late,jdbcType=INTEGER}, #{leaveEarly,jdbcType=INTEGER}, #{absenteeism,jdbcType=INTEGER}, 
+      #{attendanceUpStd,jdbcType=INTEGER}, #{imageUpStd,jdbcType=INTEGER}, #{starAgent,jdbcType=INTEGER}, 
+      #{starAgentNo,jdbcType=VARCHAR}, #{exclusiveCommission,jdbcType=INTEGER}, #{rentBillIndependent,jdbcType=INTEGER}, 
+      #{rentBillInnerCooperation,jdbcType=INTEGER}, #{rentBillOuterCooperation,jdbcType=INTEGER}, 
+      #{saleBillIndependent,jdbcType=INTEGER}, #{saleBillInnerCooperation,jdbcType=INTEGER}, 
+      #{saleBillOuterCooperation,jdbcType=INTEGER}, #{mlAppRegistration,jdbcType=INTEGER}, 
+      #{recommendBusinessPosition,jdbcType=INTEGER}, #{recommendManagePosition,jdbcType=INTEGER}, 
+      #{trainingAttendance,jdbcType=INTEGER}, #{trainingFailed,jdbcType=INTEGER}, #{violateRedLine,jdbcType=INTEGER}, 
+      #{violateYellowLine,jdbcType=INTEGER}, #{violateBlueLine,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{orgId,jdbcType=INTEGER}, #{websiteAdd,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformance" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into KPI_STATISTIC_BROKER_PERFORMANCE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="houseAdd != null">
+        HOUSE_ADD,
+      </if>
+      <if test="custAdd != null">
+        CUST_ADD,
+      </if>
+      <if test="houseRegistration != null">
+        HOUSE_REGISTRATION,
+      </if>
+      <if test="submitKey != null">
+        SUBMIT_KEY,
+      </if>
+      <if test="uploadPhoto != null">
+        UPLOAD_PHOTO,
+      </if>
+      <if test="reviewBuild != null">
+        REVIEW_BUILD,
+      </if>
+      <if test="fangKan != null">
+        FANG_KAN,
+      </if>
+      <if test="takeLookBuild != null">
+        TAKE_LOOK_BUILD,
+      </if>
+      <if test="takeLookHouse != null">
+        TAKE_LOOK_HOUSE,
+      </if>
+      <if test="hiddenNumberDial != null">
+        HIDDEN_NUMBER_DIAL,
+      </if>
+      <if test="houseTrack != null">
+        HOUSE_TRACK,
+      </if>
+      <if test="compassionateLeave != null">
+        COMPASSIONATE_LEAVE,
+      </if>
+      <if test="late != null">
+        LATE,
+      </if>
+      <if test="leaveEarly != null">
+        LEAVE_EARLY,
+      </if>
+      <if test="absenteeism != null">
+        ABSENTEEISM,
+      </if>
+      <if test="attendanceUpStd != null">
+        ATTENDANCE_UP_STD,
+      </if>
+      <if test="imageUpStd != null">
+        IMAGE_UP_STD,
+      </if>
+      <if test="starAgent != null">
+        STAR_AGENT,
+      </if>
+      <if test="starAgentNo != null">
+        STAR_AGENT_NO,
+      </if>
+      <if test="exclusiveCommission != null">
+        EXCLUSIVE_COMMISSION,
+      </if>
+      <if test="rentBillIndependent != null">
+        RENT_BILL_INDEPENDENT,
+      </if>
+      <if test="rentBillInnerCooperation != null">
+        RENT_BILL_INNER_COOPERATION,
+      </if>
+      <if test="rentBillOuterCooperation != null">
+        RENT_BILL_OUTER_COOPERATION,
+      </if>
+      <if test="saleBillIndependent != null">
+        SALE_BILL_INDEPENDENT,
+      </if>
+      <if test="saleBillInnerCooperation != null">
+        SALE_BILL_INNER_COOPERATION,
+      </if>
+      <if test="saleBillOuterCooperation != null">
+        SALE_BILL_OUTER_COOPERATION,
+      </if>
+      <if test="mlAppRegistration != null">
+        ML_APP_REGISTRATION,
+      </if>
+      <if test="recommendBusinessPosition != null">
+        RECOMMEND_BUSINESS_POSITION,
+      </if>
+      <if test="recommendManagePosition != null">
+        RECOMMEND_MANAGE_POSITION,
+      </if>
+      <if test="trainingAttendance != null">
+        TRAINING_ATTENDANCE,
+      </if>
+      <if test="trainingFailed != null">
+        TRAINING_FAILED,
+      </if>
+      <if test="violateRedLine != null">
+        VIOLATE_RED_LINE,
+      </if>
+      <if test="violateYellowLine != null">
+        VIOLATE_YELLOW_LINE,
+      </if>
+      <if test="violateBlueLine != null">
+        VIOLATE_BLUE_LINE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="websiteAdd != null">
+        WEBSITE_ADD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAdd != null">
+        #{houseAdd,jdbcType=INTEGER},
+      </if>
+      <if test="custAdd != null">
+        #{custAdd,jdbcType=INTEGER},
+      </if>
+      <if test="houseRegistration != null">
+        #{houseRegistration,jdbcType=INTEGER},
+      </if>
+      <if test="submitKey != null">
+        #{submitKey,jdbcType=INTEGER},
+      </if>
+      <if test="uploadPhoto != null">
+        #{uploadPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="reviewBuild != null">
+        #{reviewBuild,jdbcType=INTEGER},
+      </if>
+      <if test="fangKan != null">
+        #{fangKan,jdbcType=INTEGER},
+      </if>
+      <if test="takeLookBuild != null">
+        #{takeLookBuild,jdbcType=INTEGER},
+      </if>
+      <if test="takeLookHouse != null">
+        #{takeLookHouse,jdbcType=INTEGER},
+      </if>
+      <if test="hiddenNumberDial != null">
+        #{hiddenNumberDial,jdbcType=INTEGER},
+      </if>
+      <if test="houseTrack != null">
+        #{houseTrack,jdbcType=INTEGER},
+      </if>
+      <if test="compassionateLeave != null">
+        #{compassionateLeave,jdbcType=INTEGER},
+      </if>
+      <if test="late != null">
+        #{late,jdbcType=INTEGER},
+      </if>
+      <if test="leaveEarly != null">
+        #{leaveEarly,jdbcType=INTEGER},
+      </if>
+      <if test="absenteeism != null">
+        #{absenteeism,jdbcType=INTEGER},
+      </if>
+      <if test="attendanceUpStd != null">
+        #{attendanceUpStd,jdbcType=INTEGER},
+      </if>
+      <if test="imageUpStd != null">
+        #{imageUpStd,jdbcType=INTEGER},
+      </if>
+      <if test="starAgent != null">
+        #{starAgent,jdbcType=INTEGER},
+      </if>
+      <if test="starAgentNo != null">
+        #{starAgentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="exclusiveCommission != null">
+        #{exclusiveCommission,jdbcType=INTEGER},
+      </if>
+      <if test="rentBillIndependent != null">
+        #{rentBillIndependent,jdbcType=INTEGER},
+      </if>
+      <if test="rentBillInnerCooperation != null">
+        #{rentBillInnerCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="rentBillOuterCooperation != null">
+        #{rentBillOuterCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="saleBillIndependent != null">
+        #{saleBillIndependent,jdbcType=INTEGER},
+      </if>
+      <if test="saleBillInnerCooperation != null">
+        #{saleBillInnerCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="saleBillOuterCooperation != null">
+        #{saleBillOuterCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="mlAppRegistration != null">
+        #{mlAppRegistration,jdbcType=INTEGER},
+      </if>
+      <if test="recommendBusinessPosition != null">
+        #{recommendBusinessPosition,jdbcType=INTEGER},
+      </if>
+      <if test="recommendManagePosition != null">
+        #{recommendManagePosition,jdbcType=INTEGER},
+      </if>
+      <if test="trainingAttendance != null">
+        #{trainingAttendance,jdbcType=INTEGER},
+      </if>
+      <if test="trainingFailed != null">
+        #{trainingFailed,jdbcType=INTEGER},
+      </if>
+      <if test="violateRedLine != null">
+        #{violateRedLine,jdbcType=INTEGER},
+      </if>
+      <if test="violateYellowLine != null">
+        #{violateYellowLine,jdbcType=INTEGER},
+      </if>
+      <if test="violateBlueLine != null">
+        #{violateBlueLine,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=INTEGER},
+      </if>
+      <if test="websiteAdd != null">
+        #{websiteAdd,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformanceExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from KPI_STATISTIC_BROKER_PERFORMANCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update KPI_STATISTIC_BROKER_PERFORMANCE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.idNo != null">
+        ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userMobile != null">
+        USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null">
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseAdd != null">
+        HOUSE_ADD = #{record.houseAdd,jdbcType=INTEGER},
+      </if>
+      <if test="record.custAdd != null">
+        CUST_ADD = #{record.custAdd,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseRegistration != null">
+        HOUSE_REGISTRATION = #{record.houseRegistration,jdbcType=INTEGER},
+      </if>
+      <if test="record.submitKey != null">
+        SUBMIT_KEY = #{record.submitKey,jdbcType=INTEGER},
+      </if>
+      <if test="record.uploadPhoto != null">
+        UPLOAD_PHOTO = #{record.uploadPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="record.reviewBuild != null">
+        REVIEW_BUILD = #{record.reviewBuild,jdbcType=INTEGER},
+      </if>
+      <if test="record.fangKan != null">
+        FANG_KAN = #{record.fangKan,jdbcType=INTEGER},
+      </if>
+      <if test="record.takeLookBuild != null">
+        TAKE_LOOK_BUILD = #{record.takeLookBuild,jdbcType=INTEGER},
+      </if>
+      <if test="record.takeLookHouse != null">
+        TAKE_LOOK_HOUSE = #{record.takeLookHouse,jdbcType=INTEGER},
+      </if>
+      <if test="record.hiddenNumberDial != null">
+        HIDDEN_NUMBER_DIAL = #{record.hiddenNumberDial,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseTrack != null">
+        HOUSE_TRACK = #{record.houseTrack,jdbcType=INTEGER},
+      </if>
+      <if test="record.compassionateLeave != null">
+        COMPASSIONATE_LEAVE = #{record.compassionateLeave,jdbcType=INTEGER},
+      </if>
+      <if test="record.late != null">
+        LATE = #{record.late,jdbcType=INTEGER},
+      </if>
+      <if test="record.leaveEarly != null">
+        LEAVE_EARLY = #{record.leaveEarly,jdbcType=INTEGER},
+      </if>
+      <if test="record.absenteeism != null">
+        ABSENTEEISM = #{record.absenteeism,jdbcType=INTEGER},
+      </if>
+      <if test="record.attendanceUpStd != null">
+        ATTENDANCE_UP_STD = #{record.attendanceUpStd,jdbcType=INTEGER},
+      </if>
+      <if test="record.imageUpStd != null">
+        IMAGE_UP_STD = #{record.imageUpStd,jdbcType=INTEGER},
+      </if>
+      <if test="record.starAgent != null">
+        STAR_AGENT = #{record.starAgent,jdbcType=INTEGER},
+      </if>
+      <if test="record.starAgentNo != null">
+        STAR_AGENT_NO = #{record.starAgentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exclusiveCommission != null">
+        EXCLUSIVE_COMMISSION = #{record.exclusiveCommission,jdbcType=INTEGER},
+      </if>
+      <if test="record.rentBillIndependent != null">
+        RENT_BILL_INDEPENDENT = #{record.rentBillIndependent,jdbcType=INTEGER},
+      </if>
+      <if test="record.rentBillInnerCooperation != null">
+        RENT_BILL_INNER_COOPERATION = #{record.rentBillInnerCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="record.rentBillOuterCooperation != null">
+        RENT_BILL_OUTER_COOPERATION = #{record.rentBillOuterCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleBillIndependent != null">
+        SALE_BILL_INDEPENDENT = #{record.saleBillIndependent,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleBillInnerCooperation != null">
+        SALE_BILL_INNER_COOPERATION = #{record.saleBillInnerCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleBillOuterCooperation != null">
+        SALE_BILL_OUTER_COOPERATION = #{record.saleBillOuterCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="record.mlAppRegistration != null">
+        ML_APP_REGISTRATION = #{record.mlAppRegistration,jdbcType=INTEGER},
+      </if>
+      <if test="record.recommendBusinessPosition != null">
+        RECOMMEND_BUSINESS_POSITION = #{record.recommendBusinessPosition,jdbcType=INTEGER},
+      </if>
+      <if test="record.recommendManagePosition != null">
+        RECOMMEND_MANAGE_POSITION = #{record.recommendManagePosition,jdbcType=INTEGER},
+      </if>
+      <if test="record.trainingAttendance != null">
+        TRAINING_ATTENDANCE = #{record.trainingAttendance,jdbcType=INTEGER},
+      </if>
+      <if test="record.trainingFailed != null">
+        TRAINING_FAILED = #{record.trainingFailed,jdbcType=INTEGER},
+      </if>
+      <if test="record.violateRedLine != null">
+        VIOLATE_RED_LINE = #{record.violateRedLine,jdbcType=INTEGER},
+      </if>
+      <if test="record.violateYellowLine != null">
+        VIOLATE_YELLOW_LINE = #{record.violateYellowLine,jdbcType=INTEGER},
+      </if>
+      <if test="record.violateBlueLine != null">
+        VIOLATE_BLUE_LINE = #{record.violateBlueLine,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.orgId != null">
+        ORG_ID = #{record.orgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.websiteAdd != null">
+        WEBSITE_ADD = #{record.websiteAdd,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update KPI_STATISTIC_BROKER_PERFORMANCE
+    set ID = #{record.id,jdbcType=INTEGER},
+      ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      HOUSE_ADD = #{record.houseAdd,jdbcType=INTEGER},
+      CUST_ADD = #{record.custAdd,jdbcType=INTEGER},
+      HOUSE_REGISTRATION = #{record.houseRegistration,jdbcType=INTEGER},
+      SUBMIT_KEY = #{record.submitKey,jdbcType=INTEGER},
+      UPLOAD_PHOTO = #{record.uploadPhoto,jdbcType=INTEGER},
+      REVIEW_BUILD = #{record.reviewBuild,jdbcType=INTEGER},
+      FANG_KAN = #{record.fangKan,jdbcType=INTEGER},
+      TAKE_LOOK_BUILD = #{record.takeLookBuild,jdbcType=INTEGER},
+      TAKE_LOOK_HOUSE = #{record.takeLookHouse,jdbcType=INTEGER},
+      HIDDEN_NUMBER_DIAL = #{record.hiddenNumberDial,jdbcType=INTEGER},
+      HOUSE_TRACK = #{record.houseTrack,jdbcType=INTEGER},
+      COMPASSIONATE_LEAVE = #{record.compassionateLeave,jdbcType=INTEGER},
+      LATE = #{record.late,jdbcType=INTEGER},
+      LEAVE_EARLY = #{record.leaveEarly,jdbcType=INTEGER},
+      ABSENTEEISM = #{record.absenteeism,jdbcType=INTEGER},
+      ATTENDANCE_UP_STD = #{record.attendanceUpStd,jdbcType=INTEGER},
+      IMAGE_UP_STD = #{record.imageUpStd,jdbcType=INTEGER},
+      STAR_AGENT = #{record.starAgent,jdbcType=INTEGER},
+      STAR_AGENT_NO = #{record.starAgentNo,jdbcType=VARCHAR},
+      EXCLUSIVE_COMMISSION = #{record.exclusiveCommission,jdbcType=INTEGER},
+      RENT_BILL_INDEPENDENT = #{record.rentBillIndependent,jdbcType=INTEGER},
+      RENT_BILL_INNER_COOPERATION = #{record.rentBillInnerCooperation,jdbcType=INTEGER},
+      RENT_BILL_OUTER_COOPERATION = #{record.rentBillOuterCooperation,jdbcType=INTEGER},
+      SALE_BILL_INDEPENDENT = #{record.saleBillIndependent,jdbcType=INTEGER},
+      SALE_BILL_INNER_COOPERATION = #{record.saleBillInnerCooperation,jdbcType=INTEGER},
+      SALE_BILL_OUTER_COOPERATION = #{record.saleBillOuterCooperation,jdbcType=INTEGER},
+      ML_APP_REGISTRATION = #{record.mlAppRegistration,jdbcType=INTEGER},
+      RECOMMEND_BUSINESS_POSITION = #{record.recommendBusinessPosition,jdbcType=INTEGER},
+      RECOMMEND_MANAGE_POSITION = #{record.recommendManagePosition,jdbcType=INTEGER},
+      TRAINING_ATTENDANCE = #{record.trainingAttendance,jdbcType=INTEGER},
+      TRAINING_FAILED = #{record.trainingFailed,jdbcType=INTEGER},
+      VIOLATE_RED_LINE = #{record.violateRedLine,jdbcType=INTEGER},
+      VIOLATE_YELLOW_LINE = #{record.violateYellowLine,jdbcType=INTEGER},
+      VIOLATE_BLUE_LINE = #{record.violateBlueLine,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      ORG_ID = #{record.orgId,jdbcType=INTEGER},
+      WEBSITE_ADD = #{record.websiteAdd,jdbcType=NUMERIC}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformance">
+    <!--@mbggenerated-->
+    update KPI_STATISTIC_BROKER_PERFORMANCE
+    <set>
+      <if test="idNo != null">
+        ID_NO = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAdd != null">
+        HOUSE_ADD = #{houseAdd,jdbcType=INTEGER},
+      </if>
+      <if test="custAdd != null">
+        CUST_ADD = #{custAdd,jdbcType=INTEGER},
+      </if>
+      <if test="houseRegistration != null">
+        HOUSE_REGISTRATION = #{houseRegistration,jdbcType=INTEGER},
+      </if>
+      <if test="submitKey != null">
+        SUBMIT_KEY = #{submitKey,jdbcType=INTEGER},
+      </if>
+      <if test="uploadPhoto != null">
+        UPLOAD_PHOTO = #{uploadPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="reviewBuild != null">
+        REVIEW_BUILD = #{reviewBuild,jdbcType=INTEGER},
+      </if>
+      <if test="fangKan != null">
+        FANG_KAN = #{fangKan,jdbcType=INTEGER},
+      </if>
+      <if test="takeLookBuild != null">
+        TAKE_LOOK_BUILD = #{takeLookBuild,jdbcType=INTEGER},
+      </if>
+      <if test="takeLookHouse != null">
+        TAKE_LOOK_HOUSE = #{takeLookHouse,jdbcType=INTEGER},
+      </if>
+      <if test="hiddenNumberDial != null">
+        HIDDEN_NUMBER_DIAL = #{hiddenNumberDial,jdbcType=INTEGER},
+      </if>
+      <if test="houseTrack != null">
+        HOUSE_TRACK = #{houseTrack,jdbcType=INTEGER},
+      </if>
+      <if test="compassionateLeave != null">
+        COMPASSIONATE_LEAVE = #{compassionateLeave,jdbcType=INTEGER},
+      </if>
+      <if test="late != null">
+        LATE = #{late,jdbcType=INTEGER},
+      </if>
+      <if test="leaveEarly != null">
+        LEAVE_EARLY = #{leaveEarly,jdbcType=INTEGER},
+      </if>
+      <if test="absenteeism != null">
+        ABSENTEEISM = #{absenteeism,jdbcType=INTEGER},
+      </if>
+      <if test="attendanceUpStd != null">
+        ATTENDANCE_UP_STD = #{attendanceUpStd,jdbcType=INTEGER},
+      </if>
+      <if test="imageUpStd != null">
+        IMAGE_UP_STD = #{imageUpStd,jdbcType=INTEGER},
+      </if>
+      <if test="starAgent != null">
+        STAR_AGENT = #{starAgent,jdbcType=INTEGER},
+      </if>
+      <if test="starAgentNo != null">
+        STAR_AGENT_NO = #{starAgentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="exclusiveCommission != null">
+        EXCLUSIVE_COMMISSION = #{exclusiveCommission,jdbcType=INTEGER},
+      </if>
+      <if test="rentBillIndependent != null">
+        RENT_BILL_INDEPENDENT = #{rentBillIndependent,jdbcType=INTEGER},
+      </if>
+      <if test="rentBillInnerCooperation != null">
+        RENT_BILL_INNER_COOPERATION = #{rentBillInnerCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="rentBillOuterCooperation != null">
+        RENT_BILL_OUTER_COOPERATION = #{rentBillOuterCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="saleBillIndependent != null">
+        SALE_BILL_INDEPENDENT = #{saleBillIndependent,jdbcType=INTEGER},
+      </if>
+      <if test="saleBillInnerCooperation != null">
+        SALE_BILL_INNER_COOPERATION = #{saleBillInnerCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="saleBillOuterCooperation != null">
+        SALE_BILL_OUTER_COOPERATION = #{saleBillOuterCooperation,jdbcType=INTEGER},
+      </if>
+      <if test="mlAppRegistration != null">
+        ML_APP_REGISTRATION = #{mlAppRegistration,jdbcType=INTEGER},
+      </if>
+      <if test="recommendBusinessPosition != null">
+        RECOMMEND_BUSINESS_POSITION = #{recommendBusinessPosition,jdbcType=INTEGER},
+      </if>
+      <if test="recommendManagePosition != null">
+        RECOMMEND_MANAGE_POSITION = #{recommendManagePosition,jdbcType=INTEGER},
+      </if>
+      <if test="trainingAttendance != null">
+        TRAINING_ATTENDANCE = #{trainingAttendance,jdbcType=INTEGER},
+      </if>
+      <if test="trainingFailed != null">
+        TRAINING_FAILED = #{trainingFailed,jdbcType=INTEGER},
+      </if>
+      <if test="violateRedLine != null">
+        VIOLATE_RED_LINE = #{violateRedLine,jdbcType=INTEGER},
+      </if>
+      <if test="violateYellowLine != null">
+        VIOLATE_YELLOW_LINE = #{violateYellowLine,jdbcType=INTEGER},
+      </if>
+      <if test="violateBlueLine != null">
+        VIOLATE_BLUE_LINE = #{violateBlueLine,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgId != null">
+        ORG_ID = #{orgId,jdbcType=INTEGER},
+      </if>
+      <if test="websiteAdd != null">
+        WEBSITE_ADD = #{websiteAdd,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformance">
+    <!--@mbggenerated-->
+    update KPI_STATISTIC_BROKER_PERFORMANCE
+    set ID_NO = #{idNo,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      HOUSE_ADD = #{houseAdd,jdbcType=INTEGER},
+      CUST_ADD = #{custAdd,jdbcType=INTEGER},
+      HOUSE_REGISTRATION = #{houseRegistration,jdbcType=INTEGER},
+      SUBMIT_KEY = #{submitKey,jdbcType=INTEGER},
+      UPLOAD_PHOTO = #{uploadPhoto,jdbcType=INTEGER},
+      REVIEW_BUILD = #{reviewBuild,jdbcType=INTEGER},
+      FANG_KAN = #{fangKan,jdbcType=INTEGER},
+      TAKE_LOOK_BUILD = #{takeLookBuild,jdbcType=INTEGER},
+      TAKE_LOOK_HOUSE = #{takeLookHouse,jdbcType=INTEGER},
+      HIDDEN_NUMBER_DIAL = #{hiddenNumberDial,jdbcType=INTEGER},
+      HOUSE_TRACK = #{houseTrack,jdbcType=INTEGER},
+      COMPASSIONATE_LEAVE = #{compassionateLeave,jdbcType=INTEGER},
+      LATE = #{late,jdbcType=INTEGER},
+      LEAVE_EARLY = #{leaveEarly,jdbcType=INTEGER},
+      ABSENTEEISM = #{absenteeism,jdbcType=INTEGER},
+      ATTENDANCE_UP_STD = #{attendanceUpStd,jdbcType=INTEGER},
+      IMAGE_UP_STD = #{imageUpStd,jdbcType=INTEGER},
+      STAR_AGENT = #{starAgent,jdbcType=INTEGER},
+      STAR_AGENT_NO = #{starAgentNo,jdbcType=VARCHAR},
+      EXCLUSIVE_COMMISSION = #{exclusiveCommission,jdbcType=INTEGER},
+      RENT_BILL_INDEPENDENT = #{rentBillIndependent,jdbcType=INTEGER},
+      RENT_BILL_INNER_COOPERATION = #{rentBillInnerCooperation,jdbcType=INTEGER},
+      RENT_BILL_OUTER_COOPERATION = #{rentBillOuterCooperation,jdbcType=INTEGER},
+      SALE_BILL_INDEPENDENT = #{saleBillIndependent,jdbcType=INTEGER},
+      SALE_BILL_INNER_COOPERATION = #{saleBillInnerCooperation,jdbcType=INTEGER},
+      SALE_BILL_OUTER_COOPERATION = #{saleBillOuterCooperation,jdbcType=INTEGER},
+      ML_APP_REGISTRATION = #{mlAppRegistration,jdbcType=INTEGER},
+      RECOMMEND_BUSINESS_POSITION = #{recommendBusinessPosition,jdbcType=INTEGER},
+      RECOMMEND_MANAGE_POSITION = #{recommendManagePosition,jdbcType=INTEGER},
+      TRAINING_ATTENDANCE = #{trainingAttendance,jdbcType=INTEGER},
+      TRAINING_FAILED = #{trainingFailed,jdbcType=INTEGER},
+      VIOLATE_RED_LINE = #{violateRedLine,jdbcType=INTEGER},
+      VIOLATE_YELLOW_LINE = #{violateYellowLine,jdbcType=INTEGER},
+      VIOLATE_BLUE_LINE = #{violateBlueLine,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      ORG_ID = #{orgId,jdbcType=INTEGER},
+      WEBSITE_ADD = #{websiteAdd,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectOneByExample" parameterType="com.myfun.repository.erpdb.po.ErpKpiStatisticBrokerPerformanceExample" resultMap="BaseResultMap">
+    select top 1 
+    <include refid="Base_Column_List" />
+    from KPI_STATISTIC_BROKER_PERFORMANCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+</mapper>

@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunCustMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunCust" >
+    <!--@mbggenerated-->
+    <id column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <id column="CUST_ID" property="custId" jdbcType="INTEGER" />
+    <result column="B_CITY_ID" property="bCityId" jdbcType="SMALLINT" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="BUILD_NAME" property="buildName" jdbcType="VARCHAR" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="CUST_SEX" property="custSex" jdbcType="SMALLINT" />
+    <result column="CUST_CCID" property="custCcid" jdbcType="VARCHAR" />
+    <result column="CUST_MOBILE" property="custMobile" jdbcType="VARCHAR" />
+    <result column="CUST_NATION" property="custNation" jdbcType="VARCHAR" />
+    <result column="CUST_BIRTHDAY" property="custBirthday" jdbcType="TIMESTAMP" />
+    <result column="CUST_ADDR" property="custAddr" jdbcType="VARCHAR" />
+    <result column="CUST_CERT" property="custCert" jdbcType="VARCHAR" />
+    <result column="CUST_LIFTBEGIN" property="custLiftbegin" jdbcType="TIMESTAMP" />
+    <result column="CUST_LIFTEND" property="custLiftend" jdbcType="TIMESTAMP" />
+    <result column="CUST_NAME2" property="custName2" jdbcType="VARCHAR" />
+    <result column="CUST_SEX2" property="custSex2" jdbcType="SMALLINT" />
+    <result column="CUST_CCID2" property="custCcid2" jdbcType="VARCHAR" />
+    <result column="CUST_MOBILE2" property="custMobile2" jdbcType="VARCHAR" />
+    <result column="REQ_AMOUNT1" property="reqAmount1" jdbcType="NUMERIC" />
+    <result column="REQ_AMOUNT2" property="reqAmount2" jdbcType="NUMERIC" />
+    <result column="REQ_LAYOUT1" property="reqLayout1" jdbcType="SMALLINT" />
+    <result column="REQ_LAYOUT2" property="reqLayout2" jdbcType="SMALLINT" />
+    <result column="REQ_AREA1" property="reqArea1" jdbcType="NUMERIC" />
+    <result column="REQ_AREA2" property="reqArea2" jdbcType="NUMERIC" />
+    <result column="CUST_REQ" property="custReq" jdbcType="VARCHAR" />
+    <result column="CUST_SOURCE" property="custSource" jdbcType="SMALLINT" />
+    <result column="PRE_TIME" property="preTime" jdbcType="VARCHAR" />
+    <result column="PRE_TIME2" property="preTime2" jdbcType="TIMESTAMP" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="INTEGER" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="CUST_STATUS" property="custStatus" jdbcType="INTEGER" />
+    <result column="VERIFY_CODE" property="verifyCode" jdbcType="SMALLINT" />
+    <result column="CUST_CHECKCODE" property="custCheckcode" jdbcType="VARCHAR" />
+    <result column="CHECK_NUMBER" property="checkNumber" jdbcType="VARCHAR" />
+    <result column="SALE_DEPTID" property="saleDeptid" jdbcType="INTEGER" />
+    <result column="SALE_UID" property="saleUid" jdbcType="INTEGER" />
+    <result column="DEAL_TIME" property="dealTime" jdbcType="TIMESTAMP" />
+    <result column="CALL_FLAG" property="callFlag" jdbcType="TINYINT" />
+    <result column="REQ_STATUS" property="reqStatus" jdbcType="TINYINT" />
+    <result column="ARRIVE_FLAG" property="arriveFlag" jdbcType="TINYINT" />
+    <result column="SETTLE_FLAGA" property="settleFlaga" jdbcType="TINYINT" />
+    <result column="SETTLE_FLAGB" property="settleFlagb" jdbcType="TINYINT" />
+    <result column="STROKE_STATUS" property="strokeStatus" jdbcType="TINYINT" />
+    <result column="APPLY_NEXT" property="applyNext" jdbcType="TINYINT" />
+    <result column="USER_APPLY" property="userApply" jdbcType="TINYINT" />
+    <result column="QR_CODE" property="qrCode" jdbcType="VARCHAR" />
+    <result column="BAND_SAW_TIME" property="bandSawTime" jdbcType="TIMESTAMP" />
+    <result column="COMMISSION_TIME" property="commissionTime" jdbcType="TIMESTAMP" />
+    <result column="BACK_COMMISSION_TIME" property="backCommissionTime" jdbcType="TIMESTAMP" />
+    <result column="CANCEL_TIME" property="cancelTime" jdbcType="TIMESTAMP" />
+    <result column="BONUS" property="bonus" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyFunCust" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="CUST_PHOTO" property="custPhoto" jdbcType="CLOB" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyFunCustDto" id="extResultMap" extends="BaseResultMap">
+  	  <result column="zyName" property="zyName" jdbcType="VARCHAR" />
+  	  <result column="zyMobile" property="zyMobile" jdbcType="VARCHAR" />
+      <result column="paidStatus" property="paidStatus" jdbcType="INTEGER" />
+      <result column="DEAL_NUM" property="dealNum" jdbcType="VARCHAR" />
+      <result column="BAND_REWARDS" property="bandRewards" jdbcType="VARCHAR" />
+      <result column="DAIKAN_NUM" property="daikanNum" jdbcType="VARCHAR" />
+      <result column="CONTACT_NO" property="contactNo" jdbcType="VARCHAR" />
+      <result column="BROKER_REWARDS" property="brokerRewards" jdbcType="VARCHAR"/>
+      <result column="PAID_TIME" property="paidTime" jdbcType="VARCHAR"/>
+      <result column="BACK_COMMISION_CAUSE" property="backCommisionCause" jdbcType="VARCHAR"/>
+      <result column="PAID_AMOUNT" property="paidAmount" jdbcType="VARCHAR"/> 
+      <result column="DEAL_REWARDS_NUM" property="dealRewardsNum" jdbcType="VARCHAR"/> 
+      <result column="BAND_REWARD_NUM" property="bandRewardNum" jdbcType="VARCHAR"/> 
+      <result column="REG_NAME" property="regName" jdbcType="VARCHAR"/> 
+      <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/> 
+      <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR"/> 
+      <result column="BUILD_REGION" property="buildRegion" jdbcType="INTEGER"/> 
+      <result column="BUILDING_ADMIN" property="buildingAdmin" jdbcType="VARCHAR"/> 
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyFunCustCountDto" id="extCountResultMap" extends="BaseResultMap">
+      <result column="custCount" property="custCount" jdbcType="INTEGER" />
+      <result column="checkCount" property="checkCount" jdbcType="INTEGER" />
+      <result column="sawCount" property="sawCount" jdbcType="INTEGER" />
+      <result column="dealCount" property="dealCount" jdbcType="INTEGER" />
+      <result column="commissionCount" property="commissionCount" jdbcType="INTEGER" />
+      <result column="commissionSum" property="commissionSum" jdbcType="INTEGER" />
+      <result column="agentCount" property="agentCount" jdbcType="INTEGER" />
+      <result column="deptCount" property="deptCount" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyCommisionDto" id="commisionResultMap">
+  	<result column="SYSTEM_FLAG" property="systemFlag" jdbcType="VARCHAR" />
+  	<result column="CUST_ID" property="custId" jdbcType="VARCHAR" />
+  	<result column="CITY_ID" property="cityId" jdbcType="VARCHAR" />
+  	<result column="BUILD_ID" property="buildId" jdbcType="VARCHAR" />
+  	<result column="B_CITY_ID" property="bCityId" jdbcType="VARCHAR" />
+  	<result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+  	<result column="CUST_MOBILE" property="custMobile" jdbcType="VARCHAR" />
+  	<result column="CUST_STATUS" property="custStatus" jdbcType="VARCHAR" />
+  	<result column="DEAL_TIME" property="dealTime" jdbcType="VARCHAR" />
+  	<result column="COMMISSION_TIME" property="commissionTime" jdbcType="VARCHAR" />
+  	<result column="BACK_COMMISSION_TIME" property="backCommissionTime" jdbcType="VARCHAR" />
+  	<result column="APPLY_NEXT" property="applyNext" jdbcType="VARCHAR" />
+  	<result column="PAID_AMOUNT" property="paidAmount" jdbcType="VARCHAR" />
+  	<result column="COMP_RATE" property="compRate" jdbcType="VARCHAR" />
+  	<result column="BROKER_AMOUNT" property="brokerAmount" jdbcType="VARCHAR" />
+  	<result column="COMP_AMOUNT" property="compAmount" jdbcType="VARCHAR" />
+  	<result column="PAID_STATUS" property="paidStatus" jdbcType="VARCHAR" />
+  	<result column="BROKER_REWARDS" property="brokerRewards" jdbcType="VARCHAR" />
+  	<result column="BUILD_NAME" property="buildName" jdbcType="VARCHAR" />
+  	<result column="COMMISSION" property="commission" jdbcType="VARCHAR" />
+  	<result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+  	<result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+  	<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+  	<result column="ARCHIVE_ID" property="archiveId" jdbcType="VARCHAR" />
+  	<result column="AGENT_MOBILE" property="agentMobile" jdbcType="VARCHAR" />
+  	<result column="AGENT_NAME" property="agentName" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" type="com.myfun.repository.agencydb.dto.AgencyFunCustCountDto" id="extResultMap2">
+  	<result column="CD_ID" property="cdId" jdbcType="INTEGER" />
+  	<result column="USER_STATUS" property="userStatus" jdbcType="INTEGER" />
+  	<!--<result column="REPEAT_DAY" property="repeatDay" jdbcType="INTEGER" />-->
+  	<result column="ROOM_TEXT" property="roomText" jdbcType="VARCHAR" />
+  	<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+  	<result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+  	<result column="USER_POSITION" property="userPosition" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CITY_ID, CUST_ID, B_CITY_ID, BUILD_ID, BUILD_NAME, CUST_NAME, CUST_SEX, CUST_CCID, 
+    CUST_MOBILE, CUST_NATION, CUST_BIRTHDAY, CUST_ADDR, CUST_CERT, CUST_LIFTBEGIN, CUST_LIFTEND, 
+    CUST_NAME2, CUST_SEX2, CUST_CCID2, CUST_MOBILE2, REQ_AMOUNT1, REQ_AMOUNT2, REQ_LAYOUT1, 
+    REQ_LAYOUT2, REQ_AREA1, REQ_AREA2, CUST_REQ, CUST_SOURCE, PRE_TIME, PRE_TIME2, COMP_ID, 
+    DEPT_ID, USER_ID, ARCHIVE_ID, CREATION_TIME, TRACK_TIME, CHECK_UID, CHECK_TIME, CUST_STATUS, 
+    VERIFY_CODE, CUST_CHECKCODE, CHECK_NUMBER, SALE_DEPTID, SALE_UID, DEAL_TIME, CALL_FLAG, 
+    REQ_STATUS, ARRIVE_FLAG, SETTLE_FLAGA, SETTLE_FLAGB, STROKE_STATUS, APPLY_NEXT, USER_APPLY, 
+    QR_CODE, BAND_SAW_TIME, COMMISSION_TIME, BACK_COMMISSION_TIME, CANCEL_TIME, BONUS
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    CUST_PHOTO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyFunCustKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_CUST
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and CUST_ID = #{custId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunCustKey" >
+    <!--@mbggenerated-->
+    delete from FUN_CUST
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and CUST_ID = #{custId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunCust" >
+    <!--@mbggenerated-->
+    insert into FUN_CUST (CITY_ID, CUST_ID, B_CITY_ID, 
+      BUILD_ID, BUILD_NAME, CUST_NAME, 
+      CUST_SEX, CUST_CCID, CUST_MOBILE, 
+      CUST_NATION, CUST_BIRTHDAY, CUST_ADDR, 
+      CUST_CERT, CUST_LIFTBEGIN, CUST_LIFTEND, 
+      CUST_NAME2, CUST_SEX2, CUST_CCID2, 
+      CUST_MOBILE2, REQ_AMOUNT1, REQ_AMOUNT2, 
+      REQ_LAYOUT1, REQ_LAYOUT2, REQ_AREA1, 
+      REQ_AREA2, CUST_REQ, CUST_SOURCE, 
+      PRE_TIME, PRE_TIME2, COMP_ID, 
+      DEPT_ID, USER_ID, ARCHIVE_ID, 
+      CREATION_TIME, TRACK_TIME, CHECK_UID, 
+      CHECK_TIME, CUST_STATUS, VERIFY_CODE, 
+      CUST_CHECKCODE, CHECK_NUMBER, SALE_DEPTID, 
+      SALE_UID, DEAL_TIME, CALL_FLAG, 
+      REQ_STATUS, ARRIVE_FLAG, SETTLE_FLAGA, 
+      SETTLE_FLAGB, STROKE_STATUS, APPLY_NEXT, 
+      USER_APPLY, QR_CODE, BAND_SAW_TIME, 
+      COMMISSION_TIME, BACK_COMMISSION_TIME, 
+      CANCEL_TIME, BONUS, CUST_PHOTO
+      )
+    values (#{cityId,jdbcType=SMALLINT}, #{custId,jdbcType=INTEGER}, #{bCityId,jdbcType=SMALLINT}, 
+      #{buildId,jdbcType=INTEGER}, #{buildName,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{custSex,jdbcType=SMALLINT}, #{custCcid,jdbcType=VARCHAR}, #{custMobile,jdbcType=VARCHAR}, 
+      #{custNation,jdbcType=VARCHAR}, #{custBirthday,jdbcType=TIMESTAMP}, #{custAddr,jdbcType=VARCHAR}, 
+      #{custCert,jdbcType=VARCHAR}, #{custLiftbegin,jdbcType=TIMESTAMP}, #{custLiftend,jdbcType=TIMESTAMP}, 
+      #{custName2,jdbcType=VARCHAR}, #{custSex2,jdbcType=SMALLINT}, #{custCcid2,jdbcType=VARCHAR}, 
+      #{custMobile2,jdbcType=VARCHAR}, #{reqAmount1,jdbcType=NUMERIC}, #{reqAmount2,jdbcType=NUMERIC}, 
+      #{reqLayout1,jdbcType=SMALLINT}, #{reqLayout2,jdbcType=SMALLINT}, #{reqArea1,jdbcType=NUMERIC}, 
+      #{reqArea2,jdbcType=NUMERIC}, #{custReq,jdbcType=VARCHAR}, #{custSource,jdbcType=SMALLINT}, 
+      #{preTime,jdbcType=VARCHAR}, #{preTime2,jdbcType=TIMESTAMP}, #{compId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{trackTime,jdbcType=TIMESTAMP}, #{checkUid,jdbcType=INTEGER}, 
+      #{checkTime,jdbcType=TIMESTAMP}, #{custStatus,jdbcType=INTEGER}, #{verifyCode,jdbcType=SMALLINT}, 
+      #{custCheckcode,jdbcType=VARCHAR}, #{checkNumber,jdbcType=VARCHAR}, #{saleDeptid,jdbcType=INTEGER}, 
+      #{saleUid,jdbcType=INTEGER}, #{dealTime,jdbcType=TIMESTAMP}, #{callFlag,jdbcType=TINYINT}, 
+      #{reqStatus,jdbcType=TINYINT}, #{arriveFlag,jdbcType=TINYINT}, #{settleFlaga,jdbcType=TINYINT}, 
+      #{settleFlagb,jdbcType=TINYINT}, #{strokeStatus,jdbcType=TINYINT}, #{applyNext,jdbcType=TINYINT}, 
+      #{userApply,jdbcType=TINYINT}, #{qrCode,jdbcType=VARCHAR}, #{bandSawTime,jdbcType=TIMESTAMP}, 
+      #{commissionTime,jdbcType=TIMESTAMP}, #{backCommissionTime,jdbcType=TIMESTAMP}, 
+      #{cancelTime,jdbcType=TIMESTAMP}, #{bonus,jdbcType=INTEGER}, #{custPhoto,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCust" >
+    <!--@mbggenerated-->
+    insert into FUN_CUST
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="bCityId != null" >
+        B_CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="buildName != null" >
+        BUILD_NAME,
+      </if>
+      <if test="custName != null" >
+        CUST_NAME,
+      </if>
+      <if test="custSex != null" >
+        CUST_SEX,
+      </if>
+      <if test="custCcid != null" >
+        CUST_CCID,
+      </if>
+      <if test="custMobile != null" >
+        CUST_MOBILE,
+      </if>
+      <if test="custNation != null" >
+        CUST_NATION,
+      </if>
+      <if test="custBirthday != null" >
+        CUST_BIRTHDAY,
+      </if>
+      <if test="custAddr != null" >
+        CUST_ADDR,
+      </if>
+      <if test="custCert != null" >
+        CUST_CERT,
+      </if>
+      <if test="custLiftbegin != null" >
+        CUST_LIFTBEGIN,
+      </if>
+      <if test="custLiftend != null" >
+        CUST_LIFTEND,
+      </if>
+      <if test="custName2 != null" >
+        CUST_NAME2,
+      </if>
+      <if test="custSex2 != null" >
+        CUST_SEX2,
+      </if>
+      <if test="custCcid2 != null" >
+        CUST_CCID2,
+      </if>
+      <if test="custMobile2 != null" >
+        CUST_MOBILE2,
+      </if>
+      <if test="reqAmount1 != null" >
+        REQ_AMOUNT1,
+      </if>
+      <if test="reqAmount2 != null" >
+        REQ_AMOUNT2,
+      </if>
+      <if test="reqLayout1 != null" >
+        REQ_LAYOUT1,
+      </if>
+      <if test="reqLayout2 != null" >
+        REQ_LAYOUT2,
+      </if>
+      <if test="reqArea1 != null" >
+        REQ_AREA1,
+      </if>
+      <if test="reqArea2 != null" >
+        REQ_AREA2,
+      </if>
+      <if test="custReq != null" >
+        CUST_REQ,
+      </if>
+      <if test="custSource != null" >
+        CUST_SOURCE,
+      </if>
+      <if test="preTime != null" >
+        PRE_TIME,
+      </if>
+      <if test="preTime2 != null" >
+        PRE_TIME2,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="custStatus != null" >
+        CUST_STATUS,
+      </if>
+      <if test="verifyCode != null" >
+        VERIFY_CODE,
+      </if>
+      <if test="custCheckcode != null" >
+        CUST_CHECKCODE,
+      </if>
+      <if test="checkNumber != null" >
+        CHECK_NUMBER,
+      </if>
+      <if test="saleDeptid != null" >
+        SALE_DEPTID,
+      </if>
+      <if test="saleUid != null" >
+        SALE_UID,
+      </if>
+      <if test="dealTime != null" >
+        DEAL_TIME,
+      </if>
+      <if test="callFlag != null" >
+        CALL_FLAG,
+      </if>
+      <if test="reqStatus != null" >
+        REQ_STATUS,
+      </if>
+      <if test="arriveFlag != null" >
+        ARRIVE_FLAG,
+      </if>
+      <if test="settleFlaga != null" >
+        SETTLE_FLAGA,
+      </if>
+      <if test="settleFlagb != null" >
+        SETTLE_FLAGB,
+      </if>
+      <if test="strokeStatus != null" >
+        STROKE_STATUS,
+      </if>
+      <if test="applyNext != null" >
+        APPLY_NEXT,
+      </if>
+      <if test="userApply != null" >
+        USER_APPLY,
+      </if>
+      <if test="qrCode != null" >
+        QR_CODE,
+      </if>
+      <if test="bandSawTime != null" >
+        BAND_SAW_TIME,
+      </if>
+      <if test="commissionTime != null" >
+        COMMISSION_TIME,
+      </if>
+      <if test="backCommissionTime != null" >
+        BACK_COMMISSION_TIME,
+      </if>
+      <if test="cancelTime != null" >
+        CANCEL_TIME,
+      </if>
+      <if test="bonus != null" >
+        BONUS,
+      </if>
+      <if test="custPhoto != null" >
+        CUST_PHOTO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="bCityId != null" >
+        #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null" >
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null" >
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custSex != null" >
+        #{custSex,jdbcType=SMALLINT},
+      </if>
+      <if test="custCcid != null" >
+        #{custCcid,jdbcType=VARCHAR},
+      </if>
+      <if test="custMobile != null" >
+        #{custMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="custNation != null" >
+        #{custNation,jdbcType=VARCHAR},
+      </if>
+      <if test="custBirthday != null" >
+        #{custBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custAddr != null" >
+        #{custAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="custCert != null" >
+        #{custCert,jdbcType=VARCHAR},
+      </if>
+      <if test="custLiftbegin != null" >
+        #{custLiftbegin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custLiftend != null" >
+        #{custLiftend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custName2 != null" >
+        #{custName2,jdbcType=VARCHAR},
+      </if>
+      <if test="custSex2 != null" >
+        #{custSex2,jdbcType=SMALLINT},
+      </if>
+      <if test="custCcid2 != null" >
+        #{custCcid2,jdbcType=VARCHAR},
+      </if>
+      <if test="custMobile2 != null" >
+        #{custMobile2,jdbcType=VARCHAR},
+      </if>
+      <if test="reqAmount1 != null" >
+        #{reqAmount1,jdbcType=NUMERIC},
+      </if>
+      <if test="reqAmount2 != null" >
+        #{reqAmount2,jdbcType=NUMERIC},
+      </if>
+      <if test="reqLayout1 != null" >
+        #{reqLayout1,jdbcType=SMALLINT},
+      </if>
+      <if test="reqLayout2 != null" >
+        #{reqLayout2,jdbcType=SMALLINT},
+      </if>
+      <if test="reqArea1 != null" >
+        #{reqArea1,jdbcType=NUMERIC},
+      </if>
+      <if test="reqArea2 != null" >
+        #{reqArea2,jdbcType=NUMERIC},
+      </if>
+      <if test="custReq != null" >
+        #{custReq,jdbcType=VARCHAR},
+      </if>
+      <if test="custSource != null" >
+        #{custSource,jdbcType=SMALLINT},
+      </if>
+      <if test="preTime != null" >
+        #{preTime,jdbcType=VARCHAR},
+      </if>
+      <if test="preTime2 != null" >
+        #{preTime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custStatus != null" >
+        #{custStatus,jdbcType=INTEGER},
+      </if>
+      <if test="verifyCode != null" >
+        #{verifyCode,jdbcType=SMALLINT},
+      </if>
+      <if test="custCheckcode != null" >
+        #{custCheckcode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkNumber != null" >
+        #{checkNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="saleDeptid != null" >
+        #{saleDeptid,jdbcType=INTEGER},
+      </if>
+      <if test="saleUid != null" >
+        #{saleUid,jdbcType=INTEGER},
+      </if>
+      <if test="dealTime != null" >
+        #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="callFlag != null" >
+        #{callFlag,jdbcType=TINYINT},
+      </if>
+      <if test="reqStatus != null" >
+        #{reqStatus,jdbcType=TINYINT},
+      </if>
+      <if test="arriveFlag != null" >
+        #{arriveFlag,jdbcType=TINYINT},
+      </if>
+      <if test="settleFlaga != null" >
+        #{settleFlaga,jdbcType=TINYINT},
+      </if>
+      <if test="settleFlagb != null" >
+        #{settleFlagb,jdbcType=TINYINT},
+      </if>
+      <if test="strokeStatus != null" >
+        #{strokeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="applyNext != null" >
+        #{applyNext,jdbcType=TINYINT},
+      </if>
+      <if test="userApply != null" >
+        #{userApply,jdbcType=TINYINT},
+      </if>
+      <if test="qrCode != null" >
+        #{qrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bandSawTime != null" >
+        #{bandSawTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commissionTime != null" >
+        #{commissionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backCommissionTime != null" >
+        #{backCommissionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null" >
+        #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bonus != null" >
+        #{bonus,jdbcType=INTEGER},
+      </if>
+      <if test="custPhoto != null" >
+        #{custPhoto,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCust" >
+    <!--@mbggenerated-->
+    update FUN_CUST
+    <set >
+      <if test="bCityId != null" >
+        B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null" >
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null" >
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custSex != null" >
+        CUST_SEX = #{custSex,jdbcType=SMALLINT},
+      </if>
+      <if test="custCcid != null" >
+        CUST_CCID = #{custCcid,jdbcType=VARCHAR},
+      </if>
+      <if test="custMobile != null" >
+        CUST_MOBILE = #{custMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="custNation != null" >
+        CUST_NATION = #{custNation,jdbcType=VARCHAR},
+      </if>
+      <if test="custBirthday != null" >
+        CUST_BIRTHDAY = #{custBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custAddr != null" >
+        CUST_ADDR = #{custAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="custCert != null" >
+        CUST_CERT = #{custCert,jdbcType=VARCHAR},
+      </if>
+      <if test="custLiftbegin != null" >
+        CUST_LIFTBEGIN = #{custLiftbegin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custLiftend != null" >
+        CUST_LIFTEND = #{custLiftend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custName2 != null" >
+        CUST_NAME2 = #{custName2,jdbcType=VARCHAR},
+      </if>
+      <if test="custSex2 != null" >
+        CUST_SEX2 = #{custSex2,jdbcType=SMALLINT},
+      </if>
+      <if test="custCcid2 != null" >
+        CUST_CCID2 = #{custCcid2,jdbcType=VARCHAR},
+      </if>
+      <if test="custMobile2 != null" >
+        CUST_MOBILE2 = #{custMobile2,jdbcType=VARCHAR},
+      </if>
+      <if test="reqAmount1 != null" >
+        REQ_AMOUNT1 = #{reqAmount1,jdbcType=NUMERIC},
+      </if>
+      <if test="reqAmount2 != null" >
+        REQ_AMOUNT2 = #{reqAmount2,jdbcType=NUMERIC},
+      </if>
+      <if test="reqLayout1 != null" >
+        REQ_LAYOUT1 = #{reqLayout1,jdbcType=SMALLINT},
+      </if>
+      <if test="reqLayout2 != null" >
+        REQ_LAYOUT2 = #{reqLayout2,jdbcType=SMALLINT},
+      </if>
+      <if test="reqArea1 != null" >
+        REQ_AREA1 = #{reqArea1,jdbcType=NUMERIC},
+      </if>
+      <if test="reqArea2 != null" >
+        REQ_AREA2 = #{reqArea2,jdbcType=NUMERIC},
+      </if>
+      <if test="custReq != null" >
+        CUST_REQ = #{custReq,jdbcType=VARCHAR},
+      </if>
+      <if test="custSource != null" >
+        CUST_SOURCE = #{custSource,jdbcType=SMALLINT},
+      </if>
+      <if test="preTime != null" >
+        PRE_TIME = #{preTime,jdbcType=VARCHAR},
+      </if>
+      <if test="preTime2 != null" >
+        PRE_TIME2 = #{preTime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custStatus != null" >
+        CUST_STATUS = #{custStatus,jdbcType=INTEGER},
+      </if>
+      <if test="verifyCode != null" >
+        VERIFY_CODE = #{verifyCode,jdbcType=SMALLINT},
+      </if>
+      <if test="custCheckcode != null" >
+        CUST_CHECKCODE = #{custCheckcode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkNumber != null" >
+        CHECK_NUMBER = #{checkNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="saleDeptid != null" >
+        SALE_DEPTID = #{saleDeptid,jdbcType=INTEGER},
+      </if>
+      <if test="saleUid != null" >
+        SALE_UID = #{saleUid,jdbcType=INTEGER},
+      </if>
+      <if test="dealTime != null" >
+        DEAL_TIME = #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="callFlag != null" >
+        CALL_FLAG = #{callFlag,jdbcType=TINYINT},
+      </if>
+      <if test="reqStatus != null" >
+        REQ_STATUS = #{reqStatus,jdbcType=TINYINT},
+      </if>
+      <if test="arriveFlag != null" >
+        ARRIVE_FLAG = #{arriveFlag,jdbcType=TINYINT},
+      </if>
+      <if test="settleFlaga != null" >
+        SETTLE_FLAGA = #{settleFlaga,jdbcType=TINYINT},
+      </if>
+      <if test="settleFlagb != null" >
+        SETTLE_FLAGB = #{settleFlagb,jdbcType=TINYINT},
+      </if>
+      <if test="strokeStatus != null" >
+        STROKE_STATUS = #{strokeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="applyNext != null" >
+        APPLY_NEXT = #{applyNext,jdbcType=TINYINT},
+      </if>
+      <if test="userApply != null" >
+        USER_APPLY = #{userApply,jdbcType=TINYINT},
+      </if>
+      <if test="qrCode != null" >
+        QR_CODE = #{qrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bandSawTime != null" >
+        BAND_SAW_TIME = #{bandSawTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commissionTime != null" >
+        COMMISSION_TIME = #{commissionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backCommissionTime != null" >
+        BACK_COMMISSION_TIME = #{backCommissionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null" >
+        CANCEL_TIME = #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bonus != null" >
+        BONUS = #{bonus,jdbcType=INTEGER},
+      </if>
+      <if test="custPhoto != null" >
+        CUST_PHOTO = #{custPhoto,jdbcType=CLOB},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and CUST_ID = #{custId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyFunCust" >
+    <!--@mbggenerated-->
+    update FUN_CUST
+    set B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CUST_SEX = #{custSex,jdbcType=SMALLINT},
+      CUST_CCID = #{custCcid,jdbcType=VARCHAR},
+      CUST_MOBILE = #{custMobile,jdbcType=VARCHAR},
+      CUST_NATION = #{custNation,jdbcType=VARCHAR},
+      CUST_BIRTHDAY = #{custBirthday,jdbcType=TIMESTAMP},
+      CUST_ADDR = #{custAddr,jdbcType=VARCHAR},
+      CUST_CERT = #{custCert,jdbcType=VARCHAR},
+      CUST_LIFTBEGIN = #{custLiftbegin,jdbcType=TIMESTAMP},
+      CUST_LIFTEND = #{custLiftend,jdbcType=TIMESTAMP},
+      CUST_NAME2 = #{custName2,jdbcType=VARCHAR},
+      CUST_SEX2 = #{custSex2,jdbcType=SMALLINT},
+      CUST_CCID2 = #{custCcid2,jdbcType=VARCHAR},
+      CUST_MOBILE2 = #{custMobile2,jdbcType=VARCHAR},
+      REQ_AMOUNT1 = #{reqAmount1,jdbcType=NUMERIC},
+      REQ_AMOUNT2 = #{reqAmount2,jdbcType=NUMERIC},
+      REQ_LAYOUT1 = #{reqLayout1,jdbcType=SMALLINT},
+      REQ_LAYOUT2 = #{reqLayout2,jdbcType=SMALLINT},
+      REQ_AREA1 = #{reqArea1,jdbcType=NUMERIC},
+      REQ_AREA2 = #{reqArea2,jdbcType=NUMERIC},
+      CUST_REQ = #{custReq,jdbcType=VARCHAR},
+      CUST_SOURCE = #{custSource,jdbcType=SMALLINT},
+      PRE_TIME = #{preTime,jdbcType=VARCHAR},
+      PRE_TIME2 = #{preTime2,jdbcType=TIMESTAMP},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      CUST_STATUS = #{custStatus,jdbcType=INTEGER},
+      VERIFY_CODE = #{verifyCode,jdbcType=SMALLINT},
+      CUST_CHECKCODE = #{custCheckcode,jdbcType=VARCHAR},
+      CHECK_NUMBER = #{checkNumber,jdbcType=VARCHAR},
+      SALE_DEPTID = #{saleDeptid,jdbcType=INTEGER},
+      SALE_UID = #{saleUid,jdbcType=INTEGER},
+      DEAL_TIME = #{dealTime,jdbcType=TIMESTAMP},
+      CALL_FLAG = #{callFlag,jdbcType=TINYINT},
+      REQ_STATUS = #{reqStatus,jdbcType=TINYINT},
+      ARRIVE_FLAG = #{arriveFlag,jdbcType=TINYINT},
+      SETTLE_FLAGA = #{settleFlaga,jdbcType=TINYINT},
+      SETTLE_FLAGB = #{settleFlagb,jdbcType=TINYINT},
+      STROKE_STATUS = #{strokeStatus,jdbcType=TINYINT},
+      APPLY_NEXT = #{applyNext,jdbcType=TINYINT},
+      USER_APPLY = #{userApply,jdbcType=TINYINT},
+      QR_CODE = #{qrCode,jdbcType=VARCHAR},
+      BAND_SAW_TIME = #{bandSawTime,jdbcType=TIMESTAMP},
+      COMMISSION_TIME = #{commissionTime,jdbcType=TIMESTAMP},
+      BACK_COMMISSION_TIME = #{backCommissionTime,jdbcType=TIMESTAMP},
+      CANCEL_TIME = #{cancelTime,jdbcType=TIMESTAMP},
+      BONUS = #{bonus,jdbcType=INTEGER},
+      CUST_PHOTO = #{custPhoto,jdbcType=CLOB}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and CUST_ID = #{custId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunCust" >
+    <!--@mbggenerated-->
+    update FUN_CUST
+    set B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CUST_SEX = #{custSex,jdbcType=SMALLINT},
+      CUST_CCID = #{custCcid,jdbcType=VARCHAR},
+      CUST_MOBILE = #{custMobile,jdbcType=VARCHAR},
+      CUST_NATION = #{custNation,jdbcType=VARCHAR},
+      CUST_BIRTHDAY = #{custBirthday,jdbcType=TIMESTAMP},
+      CUST_ADDR = #{custAddr,jdbcType=VARCHAR},
+      CUST_CERT = #{custCert,jdbcType=VARCHAR},
+      CUST_LIFTBEGIN = #{custLiftbegin,jdbcType=TIMESTAMP},
+      CUST_LIFTEND = #{custLiftend,jdbcType=TIMESTAMP},
+      CUST_NAME2 = #{custName2,jdbcType=VARCHAR},
+      CUST_SEX2 = #{custSex2,jdbcType=SMALLINT},
+      CUST_CCID2 = #{custCcid2,jdbcType=VARCHAR},
+      CUST_MOBILE2 = #{custMobile2,jdbcType=VARCHAR},
+      REQ_AMOUNT1 = #{reqAmount1,jdbcType=NUMERIC},
+      REQ_AMOUNT2 = #{reqAmount2,jdbcType=NUMERIC},
+      REQ_LAYOUT1 = #{reqLayout1,jdbcType=SMALLINT},
+      REQ_LAYOUT2 = #{reqLayout2,jdbcType=SMALLINT},
+      REQ_AREA1 = #{reqArea1,jdbcType=NUMERIC},
+      REQ_AREA2 = #{reqArea2,jdbcType=NUMERIC},
+      CUST_REQ = #{custReq,jdbcType=VARCHAR},
+      CUST_SOURCE = #{custSource,jdbcType=SMALLINT},
+      PRE_TIME = #{preTime,jdbcType=VARCHAR},
+      PRE_TIME2 = #{preTime2,jdbcType=TIMESTAMP},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      TRACK_TIME = #{trackTime,jdbcType=TIMESTAMP},
+      CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      CUST_STATUS = #{custStatus,jdbcType=INTEGER},
+      VERIFY_CODE = #{verifyCode,jdbcType=SMALLINT},
+      CUST_CHECKCODE = #{custCheckcode,jdbcType=VARCHAR},
+      CHECK_NUMBER = #{checkNumber,jdbcType=VARCHAR},
+      SALE_DEPTID = #{saleDeptid,jdbcType=INTEGER},
+      SALE_UID = #{saleUid,jdbcType=INTEGER},
+      DEAL_TIME = #{dealTime,jdbcType=TIMESTAMP},
+      CALL_FLAG = #{callFlag,jdbcType=TINYINT},
+      REQ_STATUS = #{reqStatus,jdbcType=TINYINT},
+      ARRIVE_FLAG = #{arriveFlag,jdbcType=TINYINT},
+      SETTLE_FLAGA = #{settleFlaga,jdbcType=TINYINT},
+      SETTLE_FLAGB = #{settleFlagb,jdbcType=TINYINT},
+      STROKE_STATUS = #{strokeStatus,jdbcType=TINYINT},
+      APPLY_NEXT = #{applyNext,jdbcType=TINYINT},
+      USER_APPLY = #{userApply,jdbcType=TINYINT},
+      QR_CODE = #{qrCode,jdbcType=VARCHAR},
+      BAND_SAW_TIME = #{bandSawTime,jdbcType=TIMESTAMP},
+      COMMISSION_TIME = #{commissionTime,jdbcType=TIMESTAMP},
+      BACK_COMMISSION_TIME = #{backCommissionTime,jdbcType=TIMESTAMP},
+      CANCEL_TIME = #{cancelTime,jdbcType=TIMESTAMP},
+      BONUS = #{bonus,jdbcType=INTEGER}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and CUST_ID = #{custId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByArchiveId" parameterType="java.util.Map">
+  	update FUN_CUST
+  	set USER_ID = #{manageUserId},
+  	ARCHIVE_ID = #{manageArchiveid}
+  	where ARCHIVE_ID = #{archiveId}
+  </update>
+  
+  <!-- buniess -->
+  <select id="getRecord" resultMap="BaseResultMap">
+  	SELECT CUST_NAME FROM FUN_CUST WHERE CUST_ID = #{custId}
+  </select>
+ 
+  
+  <select id="getFunCustList" parameterType="com.myfun.repository.agencydb.param.AgencyFunCustParam" resultMap="extResultMap">
+  		SELECT FUN_CUST.*,FUN_USERS.USER_NAME zyName, FUN_USERS.USER_MOBILE zyMobile,FUN_CUST_DEAL.PAID_STATUS paidStatus
+<!--   		,b.USER_NAME as AGENT_NAME,b.USER_MOBILE as AGENT_MOBILE,c.USER_NAME,c.USER_MOBILE, d.PAID_STATUS  -->
+  		from FUN_CUST
+		left join FUN_USERS  on FUN_CUST.B_CITY_ID = FUN_USERS.CITY_ID  and FUN_CUST.SALE_UID = FUN_USERS.USER_ID
+		left join FUN_CUST_DEAL on FUN_CUST.CUST_ID = FUN_CUST_DEAL.CUST_ID and FUN_CUST.CITY_ID = FUN_CUST_DEAL.CITY_ID
+		<where>
+			<if test="null != buildId">
+				and FUN_CUST.BUILD_ID = #{buildId}
+			</if>
+			<if test="null != custStatus">
+				and FUN_CUST.CUST_STATUS = #{custStatus}
+			</if>
+			<if test="null != custName and ''!= custName">
+				and FUN_CUST.CUST_NAME like '%${custName}%'
+			</if>
+			<if test="null != custMobile and ''!= custMobile">
+				and FUN_CUST.CUST_MOBILE like '%${custMobile}%'
+			</if>
+		</where>
+		order by FUN_CUST.TRACK_TIME DESC
+  </select>
+  
+  <select id="getCommisionList" parameterType="com.myfun.repository.agencydb.po.AgencyCommisionParam" resultMap="commisionResultMap">
+  		SELECT
+			c.SYSTEM_FLAG,
+			a.CUST_ID,
+			a.CITY_ID,
+			a.BUILD_ID,
+			a.B_CITY_ID,
+			a.CUST_NAME,
+			a.CUST_MOBILE,
+			a.CUST_STATUS,
+			a.DEAL_TIME,
+			a.COMMISSION_TIME,
+			a.BACK_COMMISSION_TIME,
+			a.APPLY_NEXT,
+			b.PAID_AMOUNT,
+			b.COMP_RATE,
+			b.BROKER_AMOUNT,
+			b.COMP_AMOUNT,
+			b.PAID_STATUS,
+			b.BROKER_REWARDS,
+			c.BUILD_NAME,
+			d.COMMISSION,
+			e.USER_ID,
+			e.USER_MOBILE,
+			e.USER_NAME,
+			a.ARCHIVE_ID,
+			f.USER_MOBILE AS AGENT_MOBILE,
+			f.USER_NAME AS AGENT_NAME
+		FROM
+			FUN_CUST a
+		INNER JOIN FUN_CUST_DEAL b ON a.CITY_ID = b.CITY_ID AND a.CUST_ID = b.CUST_ID 
+		INNER JOIN BUILDING_INFO c ON a.B_CITY_ID = c.CITY_ID AND a.BUILD_ID = c.BUILD_ID
+		LEFT JOIN COOPERATION_RULE d ON a.B_CITY_ID = d.CITY_ID AND a.BUILD_ID = d.BUILD_ID
+		INNER JOIN FUN_USERS e ON a.B_CITY_ID = e.CITY_ID AND a.SALE_UID = e.USER_ID
+		INNER JOIN hft_admindb.dbo.FUN_ARCHIVE f ON a.ARCHIVE_ID = f.ARCHIVE_ID
+		WHERE	1 = 1
+		<if test="crmCompId != null and crmCompId != ''">
+			and c.CRM_COMP_ID = #{crmCompId} 
+		</if>
+		<if test="cityId != null and cityId != ''">
+			and a.CITY_ID = #{cityId} 
+		</if>
+		<if test="buildName != null and buildName != ''">
+			and c.BUILD_NAME like  '%${buildName}%' 
+		</if>
+		<if test="systemFlag != null and systemFlag != '' and systemFlag == '1'">
+			and c.SYSTEM_FLAG='1'
+		</if>
+		<if test="systemFlag != null and systemFlag != '' and systemFlag != '0'">
+			and (c.SYSTEM_FLAG='0' or c.SYSTEM_FLAG is null)
+		</if>
+		<if test="userName != null and userName != '' ">
+			and a.CUST_NAME like '%${userName}%'
+		</if>
+		<if test="userMobile != null and userMobile != '' ">
+			and a.CUST_MOBILE like '%${userMobile}%'
+		</if>
+		<choose>
+			<when test="custStaus == null || custStaus == ''">
+				and a.CUST_STATUS>3
+			</when>
+			<when test="custStaus != null and custStaus == 'apply'">
+				and a.CUST_STATUS=5 and a.APPLY_NEXT = 1
+			</when>
+			<when test="custStaus != null and custStaus == 'over'">
+				and a.CUST_STATUS=5 and b.PAID_STATUS = 1
+			</when>
+			<otherwise>
+				and a.CUST_STATUS = #{custStaus} and a.APPLY_NEXT = 0 and b.PAID_STATUS = 0
+			</otherwise>
+		</choose>
+		order by DEAL_TIME desc
+  </select>
+  
+  <select id="getFunCustCount" parameterType="java.util.Map" resultMap="extCountResultMap">
+  		select 
+  		(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CUST_STATUS>0) custCount,
+  		(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CUST_STATUS>=2) checkCount,
+  		(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CUST_STATUS>=3) sawCount,
+  		(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CUST_STATUS>=4) dealCount,
+  		(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CUST_STATUS>=5) commissionCount,
+  		(select sum(PAID_AMOUNT) from FUN_CUST_DEAL where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CHECK_STATUS=1) commissionSum,
+  		(select count(1) from (select distinct ARCHIVE_ID from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId}) t) agentCount,
+  		(select count(1) from (select distinct DEPT_ID from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId}) t) deptCount
+  		
+  </select>
+  <select id="getFunCustCountWithTime" parameterType="java.util.Map" resultMap="extCountResultMap">
+  		<![CDATA[
+ 			select  
+			(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CREATION_TIME>#{stratDate} and CREATION_TIME<#{endDate} and CUST_STATUS>0) custCount,
+			(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CHECK_TIME>#{stratDate} and CHECK_TIME<#{endDate} and CUST_STATUS>=2) checkCount,
+			(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and BAND_SAW_TIME>#{stratDate} and BAND_SAW_TIME<#{endDate} and CUST_STATUS>=3) sawCount,
+			(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and DEAL_TIME>#{stratDate} and DEAL_TIME<#{endDate} and CUST_STATUS>=4) dealCount,                             
+			(select count(1) from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and COMMISSION_TIME>#{stratDate} and COMMISSION_TIME<#{endDate} and CUST_STATUS>=5) commissionCount, 
+			(select sum(PAID_AMOUNT) from FUN_CUST_DEAL where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and PAID_TIME>#{stratDate} and PAID_TIME<#{endDate}) commissionSum,
+			(select count(1) from (select distinct ARCHIVE_ID from FUN_CUST where B_CITY_ID = #{cityId} and BUILD_ID = #{buildId} and CREATION_TIME>#{stratDate} and CREATION_TIME<#{endDate}) t) agentCount
+  		]]>
+  </select>
+  
+  <select id="getCommisionView" resultMap="extResultMap">
+    select *,
+	 (select count(1) from fun_cust_deal where BROKER_REWARDS != 0 and BUILD_ID = a.BUILD_ID AND IS_BACK_COMMISION = 0) AS DEAL_NUM,
+	 (select TOP 1 REWARDS from FUN_REWARD_LOG where BUILD_ID = a.BUILD_ID and CITY_ID = a.CITY_ID and CUST_ID = a.CUST_ID and type = 1 order by creation_time desc) AS BAND_REWARDS,
+	 (select count(1) from FUN_REWARD_LOG where BUILD_ID = a.BUILD_ID and B_CITY_ID = a.B_CITY_ID and STATUS != 2) AS DAIKAN_NUM
+	from fun_cust a
+	left join fun_cust_deal b on a.CITY_ID = b.CITY_ID and a.CUST_ID = b.CUST_ID
+	left join COOPERATION_RULE c on a.BUILD_ID = c.BUILD_ID
+	left join FUN_USERS d on a.SALE_UID = d.USER_ID
+	where a.CITY_ID = #{cityId} AND a.CUST_ID = #{custId}
+  </select>
+  
+  <update id="updateNum">
+  	update BUILDING_INFO set CONFIRM_NUM = CONFIRM_NUM + 1 where CITY_ID = #{cityId} and BUILD_ID = #{buildId}
+  </update>
+  
+  <update id="updateDealNUm">
+  	update BUILDING_INFO set DEAL_NUM = DEAL_NUM + 1 where CITY_ID = #{cityId} and BUILD_ID = #{buildId}
+  </update>
+  
+  <update id="update">
+  		update FUN_CUST set CUST_STATUS = #{custStatus}, TRACK_TIME = #{trackTime}, VERIFY_CODE = null, CUST_CHECKCODE = null,
+  		SALE_UID = null, DEAL_TIME = null, BAND_SAW_TIME = null, CANCEL_TIME = null 
+  		where CITY_ID = #{cityId}
+     	 and CUST_ID = #{custId} 
+  </update>
+  
+  <select id="count" resultType="java.lang.Integer">
+  	select count(1) from FUN_CUST where CUST_MOBILE = #{custMobile} and BUILD_ID = #{buildId} and CUST_STATUS >= 3
+  </select>
+  
+  <select id="getRecords" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from FUN_CUST
+  	where B_CITY_ID = #{bCityId} and BUILD_ID = #{buildId} AND CUST_ID = #{custId} and CUST_STATUS > 0 and CUST_STATUS  <![CDATA[ < ]]>  3
+  	and (
+  			CUST_MOBILE = #{custMobile}
+  			<if test="flag == '1'">
+  				or CUST_MOBILE = #{_custmobile}
+  			</if>
+  		)
+  </select>
+  
+  <update id="updateCustStatus">
+  	update FUN_CUST set CUST_STATUS = 0, CHECK_TIME = GETDATE()
+  	where B_CITY_ID = #{bCityId} and BUILD_ID = #{buildId} AND CUST_ID = #{custId} and CUST_STATUS > 0 and CUST_STATUS  <![CDATA[ < ]]>  3
+  	and (
+  			CUST_MOBILE = #{custMobile}
+  			<if test="flag == '1'">
+  				or CUST_MOBILE = #{_custmobile}
+  			</if>
+  		)
+  </update>
+  
+  <select id="getDistCountCustInfo" parameterType="java.lang.Integer" resultType="java.util.Map">
+  	 select count(1) as register,sum(case when CUST_STATUS IN(2,3,4,5,6) then 1 else 0 end) as receive,sum(case when CUST_STATUS IN(3,4,5,6) then 1 else 0 end) as daikan, sum(case when CUST_STATUS IN(4,5,6) then 1 else 0 end) as KNOCKDOWN from FUN_CUST where ARCHIVE_ID = #{archiveId} group by ARCHIVE_ID
+  </select>
+  
+  <select id="getSuccessCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+  	SELECT COUNT(1) 
+  	FROM FUN_CUST 
+  	WHERE ARCHIVE_ID = #{archiveId} 
+  	<![CDATA[AND CUST_STATUS >= 4 ]]>
+  </select>
+  <select id="getCountCustInfo" parameterType="java.lang.Integer" resultType="java.util.Map">
+  	<![CDATA[SELECT COUNT(1) AS SUM_NUM,sum(case when count < #{countPersonNum} then 1 else 0 end ) MIN_NUM
+	FROM (SELECT ARCHIVE_ID,COUNT(1) COUNT from FUN_CUST where CUST_STATUS >= 4 group by ARCHIVE_ID) as result]]>
+  </select>
+  <select id="getDistCountOfferToBuy" resultType="java.util.Map">
+  	SELECT CONVERT(VARCHAR(7),DEAL_TIME,120) as MONTH,count(1) as NUM 
+  	FROM FUN_CUST where ARCHIVE_ID = #{archiveId} AND CUST_STATUS >= 4 
+  	<![CDATA[AND DEAL_TIME > #{startTime} AND  DEAL_TIME <  #{endTime}  GROUP BY]]> 
+  	CONVERT(VARCHAR(7),DEAL_TIME,120) order by CONVERT(VARCHAR(7),DEAL_TIME,120)
+  </select>
+  <select id="getAgencyFunCustList" parameterType="java.util.Map" resultMap="extResultMap2">
+  		SELECT C.*, CD.CD_ID, I.ROOM_TEXT, U.USER_NAME, U.USER_MOBILE, U.USER_STATUS, U.USER_POSITION 
+  		FROM FUN_CUST C 
+  		LEFT JOIN FUN_USERS U ON C.CITY_ID=U.CITY_ID AND C.USER_ID=U.USER_ID
+  		JOIN BUILDING_INFO I ON C.BUILD_ID=I.BUILD_ID AND C.CITY_ID=I.CITY_ID AND C.COMP_ID=I.ERP_COMP_ID AND I.SYSTEM_FLAG=1
+  		LEFT JOIN FUN_CUST_DEAL CD ON C.BUILD_ID=CD.BUILD_ID AND C.CITY_ID=CD.CITY_ID AND C.COMP_ID=CD.COMP_ID AND C.CUST_ID=CD.CUST_ID
+  		<where>
+	  		<if test="1==1">
+	  			and C.CITY_ID = #{cityId} and C.COMP_ID = #{compId}
+	  		</if>
+	  		<if test="null != buildId and '' != buildId">
+	  			and I.BUILD_ID IN (${buildId})
+	  		</if>
+	  		<if test="null != deptId and '' != deptId">
+	  			and C.DEPT_ID = #{deptId}
+	  		</if>
+	  		<if test="null != userIds">
+	  			and C.USER_ID IN  
+	  			<foreach collection="list" close=")" item="u" open="(" separator=",">
+	  				#{u}
+	  			</foreach>
+	  		</if>
+	  		<if test="null != userId and ''!= userId">
+	  			and C.USER_ID=#{userId}
+	  		</if>
+	  		<if test="null != custName and ''!= custName">
+	  			and C.CUST_NAME like '%${custName}%'
+	  		</if>
+	  		<if test="null != custMobile and ''!= custMobile">
+	  			and C.CUST_MOBILE=#{custMobile}
+	  		</if>
+	  		<if test="null != custStatus and ''!= custStatus">
+	  			and C.CUST_STATUS= #{custStatus}
+	  		</if>
+  		</where>
+  		ORDER BY C.CREATION_TIME DESC
+  </select>
+  <update id="updateColumn" parameterType="java.util.Map">
+  	 update BUILDING_INFO
+  	 <if test="column == confirmNum">
+  	 	set CONFIRM_NUM = CONFIRM_NUM + 1
+  	 </if>
+  	 <if test="column == dealNum">
+  	 	set DEAL_NUM = DEAL_NUM + 1
+  	 </if>
+  	 where CITY_ID = #{cityId} and BUILD_ID = #{buildId}
+  </update>
+  
+  <update id="updateFunCustByCondition" parameterType="java.util.Map">
+	update FUN_CUST
+    <set >
+      <if test="null != custStatus" >
+        CUST_STATUS = #{custStatus},
+      </if>
+      <if test="'null' == applyNext" >
+        APPLY_NEXT = null,
+      </if>
+      <if test="null != applyNext" >
+        APPLY_NEXT = #{applyNext},
+      </if>
+      <if test="'null' == saleUid" >
+        SALE_UID = null,
+      </if>
+      <if test="null != saleUid" >
+        SALE_UID = #{saleUid},
+      </if>
+      <if test="null != cancelTime" >
+        CANCEL_TIME = #{cancelTime},
+      </if>
+      <if test="null != checkUid" >
+        CHECK_UID = #{checkUid},
+      </if>
+      <if test="null != checkTime" >
+        CHECK_TIME = #{checkTime},
+      </if>
+      <if test="'null' == verifyCode" >
+        VERIFY_CODE = null,
+      </if>
+      <if test="null != verifyCode" >
+        VERIFY_CODE = #{verifyCode},
+      </if>
+      <if test="'null' == custCheckcode" >
+        CUST_CHECKCODE = null,
+      </if>
+      <if test="null != custCheckcode" >
+        CUST_CHECKCODE = #{custCheckcode},
+      </if>
+      <if test="'null' == dealTime" >
+        DEAL_TIME = null,
+      </if>
+      <if test="null != dealTime" >
+        DEAL_TIME = #{dealTime},
+      </if>
+      <if test="'null' == bandSawTime" >
+        BAND_SAW_TIME = null,
+      </if>
+      <if test="null != bandSawTime" >
+        BAND_SAW_TIME = #{bandSawTime},
+      </if>
+      <if test="null != custMobile" >
+        CUST_MOBILE = #{custMobile},
+      </if>
+      <if test="null != userApply" >
+        USER_APPLY = #{userApply},
+      </if>
+      <if test="null != commissionTime" >
+        COMMISSION_TIME = #{commissionTime},
+      </if>
+      <if test="null != backCommissionTime" >
+        BACK_COMMISSION_TIME = #{backCommissionTime},
+      </if>
+      <if test="null != trackTime" >
+        TRACK_TIME = #{trackTime},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and CUST_ID = #{custId,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateFuncustArchiveId" parameterType="java.util.Map">
+  	 update C set C.ARCHIVE_ID=#{archiveId},C.USER_ID=#{userId} 
+  	 from FUN_CUST C
+  	 <if test="null != systemFlag and '1'== systemFlag">
+  	 	left join BUILDING_INFO I ON C.BUILD_ID=I.BUILD_ID
+  	 </if>
+  	 <where>
+  	 	<if test="null != compId">
+  	 		and C.COMP_ID=#{compId}
+  	 	</if>
+  	 	<if test="null != cityId">
+  	 		and C.CITY_ID= = #{cityId}
+  	 	</if>
+  	 	<if test="null != sourceUserId">
+  	 		and C.USER_ID= = #{sourceUserId}
+  	 	</if>
+  	 	<if test="null != systemFlag and '1'== systemFlag">
+  	 		andI.SYSTEM_FLAG=#{systemFlag}
+  	 	</if>
+  	 </where>
+  </update>
+  
+  <select id="getDistFunCustTrackList" parameterType="java.util.Map" resultMap="BaseResultMap">
+  		SELECT TRACK_CONTENT,TRACK_UNAME,TRACK_TIME
+  		FROM FUN_CUST_TRACK
+  		<where>
+  			<if test="null != cityId and ''!= cityId">
+  				AND CITY_ID = #{cityId}
+  			</if>
+  			<if test="null != custId and ''!= custId">
+  				AND CUST_ID = #{custId}
+  			</if>
+  		</where>
+  		order by TRACK_TIME DESC
+  </select>
+  
+  <select id="getFunCustDetail" parameterType="java.util.Map" resultMap="extResultMap">
+  	<![CDATA[select a.*, b.CD_ID, b.BROKER_REWARDS, b.PAID_AMOUNT, e.BUILD_REGION, e.REG_NAME, d.USER_NAME, d.USER_MOBILE,e.BUILDING_ADMIN,
+  		(select count(1) from fun_cust_deal where BROKER_REWARDS <> 0 and BUILD_ID = a.BUILD_ID AND IS_BACK_COMMISION = 0) AS DEAL_NUM, 
+  		(select TOP 1 REWARDS from FUN_REWARD_LOG where BUILD_ID = a.BUILD_ID and CITY_ID = a.CITY_ID and CUST_ID = a.CUST_ID and type = 1 order by creation_time desc) AS BAND_REWARDS,
+  		(select count(1) from FUN_REWARD_LOG where BUILD_ID = a.BUILD_ID and B_CITY_ID = a.B_CITY_ID and STATUS <> 2) AS DAIKAN_NUM
+  		from fun_cust a
+  		left join FUN_CUST_DEAL b on a.CITY_ID = b.CITY_ID and a.CUST_ID = b.CUST_ID
+  		left join COOPERATION_RULE c on a.BUILD_ID = c.BUILD_ID
+  		left join FUN_USERS d on a.SALE_UID = d.USER_ID
+  		left join BUILDING_INFO e on a.CITY_ID = E.CITY_ID AND a.BUILD_ID=e.BUILD_ID
+  		where a.CITY_ID = #{cityId} AND a.CUST_ID = #{custId}
+  	]]>
+  </select>
+  <select id="getBorkerCount" parameterType="java.util.Map" resultType="java.util.Map">
+  	SELECT ARCHIVE_ID, COUNT(ARCHIVE_ID) as number from FUN_CUST 
+  	<where>
+  		<if test="1==1">
+  			and CITY_ID= #{cityId} and COMP_ID=#{compId}  AND BUILD_ID=#{buildId} 
+  		</if>
+  		<if test="null != startTime and '' != startTime">
+  			<![CDATA[and CREATION_TIME >= #{startTime}]]>
+  		</if>
+  		<if test="null != endTime and '' != endTime">
+  			<![CDATA[and CREATION_TIME <= #{endTime}]]>
+  		</if>
+  	</where>
+  	GROUP BY ARCHIVE_ID
+  </select>
+  
+  <select id="getFinishedFee" parameterType="java.util.Map" resultType="java.util.Map">
+  	SELECT CUST_STATUS, count(CUST_STATUS) as custNumber 
+  	FROM FUN_CUST 
+  	<where>
+  		<if test="1==1">
+  			AND CITY_ID=#{cityId} AND  COMP_ID=#{compId} AND BUILD_ID=#{buildId}
+  		</if>
+  		<if test="null != startTime and ''!= startTime">
+  			<![CDATA[and CREATION_TIME >= #{startTime}]]>
+  		</if>
+  		<if test="null != endTime and ''!= endTime">
+  			<![CDATA[and CREATION_TIME <= #{endTime}]]>
+  		</if>
+  	</where>
+  	 GROUP BY CUST_STATUS
+  </select>
+  
+  <select id="countMobile" parameterType="java.util.Map" resultType="java.lang.Integer">
+  		SELECT COUNT(1) FROM FUN_CUST
+  		<where>
+  			<if test="null != bCityId">
+  				AND B_CITY_ID = #{bCityId}
+  			</if>
+  			<if test="null != buildId">
+  				AND BUILD_ID = #{buildId}
+  			</if>
+  			<if test="null != firstMobile">
+  				and CUST_MOBILE like  #{firstMobile}+'%' <![CDATA[AND CUST_STATUS >=3]]>
+  			</if>
+  		</where>
+  </select>
+  
+  <select id="countModelData" parameterType="java.util.Map" resultType="java.lang.Integer">
+  		SELECT COUNT(1) FROM FUN_CUST
+  		<where>
+  			<if test="null != buildId">
+  				<![CDATA[AND BUILD_ID <> #{buildId}]]>
+  			</if>
+  			<if test="null != custMobile">
+  				and CUST_MOBILE = #{custMobile}
+  			</if>
+  			<if test="null != archiveId">
+  				and ARCHIVE_ID = #{archiveId}
+  			</if>
+  			<if test="null != startTime">
+  				<![CDATA[and CREATION_TIME >=#{startTime}]]>
+  			</if>
+  			<if test="null != endTime">
+  				<![CDATA[and CREATION_TIME <=#{endTime}]]>
+  			</if>
+  		</where>
+  </select>
+	
+	<select id="getCustCount" resultType="java.lang.Integer">
+		SELECT COUNT(1) FROM FUN_CUST WHERE CITY_ID=#{cityId} AND COMP_ID=#{compId} AND ARCHIVE_ID=#{archiveId}
+	</select>
+	
+  <select id="getDistCustInfo" resultMap="extResultMap2" parameterType="java.util.Map">
+  	SELECT CP.REPEAT_DAY,FUN_CUST.*,B.USER_NAME, B.USER_MOBILE
+  	FROM FUN_CUST
+	LEFT JOIN FUN_USERS B ON B.CITY_ID = FUN_CUST.B_CITY_ID AND B.USER_ID = FUN_CUST.SALE_UID
+	LEFT JOIN COOPERATION_RULE CP ON FUN_CUST.BUILD_ID = CP.BUILD_ID
+	<where>
+		<if test="null != cityId">
+			AND FUN_CUST.CITY_ID = #{cityId}
+		</if>
+		<if test="null != custId">
+			AND FUN_CUST.CUST_ID = #{custId}
+		</if>
+	</where>
+  </select>
+</mapper>

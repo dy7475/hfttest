@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunContractMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunContract">
+    <!--@mbggenerated-->
+    <id column="CONTRACT_ID" jdbcType="INTEGER" property="contractId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="CREATION_UID" jdbcType="INTEGER" property="creationUid" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="SEAL_POSITION" jdbcType="VARCHAR" property="sealPosition" />
+    <result column="LINE_HEIGHT" jdbcType="NUMERIC" property="lineHeight" />
+    <result column="IS_EDIT" jdbcType="TINYINT" property="isEdit" />
+    <result column="LOGO_POSITION" jdbcType="VARCHAR" property="logoPosition" />
+    <result column="TEMLET_ID" jdbcType="INTEGER" property="temletId" />
+    <result column="TEMPLATE_NAME" jdbcType="VARCHAR" property="templateName" />
+    <result column="NEW_FLAG" jdbcType="TINYINT" property="newFlag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.erpdb.po.ErpFunContract">
+    <!--@mbggenerated-->
+    <result column="CONTRACT_CONTENT" jdbcType="CLOB" property="contractContent" />
+    <result column="CONTRACT_SUB_CONTENT" jdbcType="CLOB" property="contractSubContent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CONTRACT_ID, CREATION_TIME, CREATION_UID, COMP_ID, DEPT_ID, SEAL_POSITION, LINE_HEIGHT, 
+    IS_EDIT, LOGO_POSITION, TEMLET_ID, TEMPLATE_NAME, NEW_FLAG
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    CONTRACT_CONTENT, CONTRACT_SUB_CONTENT
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpFunContractExample" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_CONTRACT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_CONTRACT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_CONTRACT
+    where CONTRACT_ID = #{contractId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_CONTRACT
+    where CONTRACT_ID = #{contractId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractExample">
+    <!--@mbggenerated-->
+    delete from FUN_CONTRACT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="contractId" parameterType="com.myfun.repository.erpdb.po.ErpFunContract" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_CONTRACT (CREATION_TIME, CREATION_UID, COMP_ID, 
+      DEPT_ID, SEAL_POSITION, LINE_HEIGHT, 
+      IS_EDIT, LOGO_POSITION, TEMLET_ID, 
+      TEMPLATE_NAME, NEW_FLAG, CONTRACT_CONTENT, 
+      CONTRACT_SUB_CONTENT)
+    values (#{creationTime,jdbcType=TIMESTAMP}, #{creationUid,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{sealPosition,jdbcType=VARCHAR}, #{lineHeight,jdbcType=NUMERIC}, 
+      #{isEdit,jdbcType=TINYINT}, #{logoPosition,jdbcType=VARCHAR}, #{temletId,jdbcType=INTEGER}, 
+      #{templateName,jdbcType=VARCHAR}, #{newFlag,jdbcType=TINYINT}, #{contractContent,jdbcType=CLOB}, 
+      #{contractSubContent,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" keyProperty="contractId" parameterType="com.myfun.repository.erpdb.po.ErpFunContract" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_CONTRACT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="creationUid != null">
+        CREATION_UID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="sealPosition != null">
+        SEAL_POSITION,
+      </if>
+      <if test="lineHeight != null">
+        LINE_HEIGHT,
+      </if>
+      <if test="isEdit != null">
+        IS_EDIT,
+      </if>
+      <if test="logoPosition != null">
+        LOGO_POSITION,
+      </if>
+      <if test="temletId != null">
+        TEMLET_ID,
+      </if>
+      <if test="templateName != null">
+        TEMPLATE_NAME,
+      </if>
+      <if test="newFlag != null">
+        NEW_FLAG,
+      </if>
+      <if test="contractContent != null">
+        CONTRACT_CONTENT,
+      </if>
+      <if test="contractSubContent != null">
+        CONTRACT_SUB_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationUid != null">
+        #{creationUid,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="sealPosition != null">
+        #{sealPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="lineHeight != null">
+        #{lineHeight,jdbcType=NUMERIC},
+      </if>
+      <if test="isEdit != null">
+        #{isEdit,jdbcType=TINYINT},
+      </if>
+      <if test="logoPosition != null">
+        #{logoPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="temletId != null">
+        #{temletId,jdbcType=INTEGER},
+      </if>
+      <if test="templateName != null">
+        #{templateName,jdbcType=VARCHAR},
+      </if>
+      <if test="newFlag != null">
+        #{newFlag,jdbcType=TINYINT},
+      </if>
+      <if test="contractContent != null">
+        #{contractContent,jdbcType=CLOB},
+      </if>
+      <if test="contractSubContent != null">
+        #{contractSubContent,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_CONTRACT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT
+    <set>
+      <if test="record.contractId != null">
+        CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creationUid != null">
+        CREATION_UID = #{record.creationUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sealPosition != null">
+        SEAL_POSITION = #{record.sealPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lineHeight != null">
+        LINE_HEIGHT = #{record.lineHeight,jdbcType=NUMERIC},
+      </if>
+      <if test="record.isEdit != null">
+        IS_EDIT = #{record.isEdit,jdbcType=TINYINT},
+      </if>
+      <if test="record.logoPosition != null">
+        LOGO_POSITION = #{record.logoPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.temletId != null">
+        TEMLET_ID = #{record.temletId,jdbcType=INTEGER},
+      </if>
+      <if test="record.templateName != null">
+        TEMPLATE_NAME = #{record.templateName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newFlag != null">
+        NEW_FLAG = #{record.newFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.contractContent != null">
+        CONTRACT_CONTENT = #{record.contractContent,jdbcType=CLOB},
+      </if>
+      <if test="record.contractSubContent != null">
+        CONTRACT_SUB_CONTENT = #{record.contractSubContent,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT
+    set CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      CREATION_UID = #{record.creationUid,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      SEAL_POSITION = #{record.sealPosition,jdbcType=VARCHAR},
+      LINE_HEIGHT = #{record.lineHeight,jdbcType=NUMERIC},
+      IS_EDIT = #{record.isEdit,jdbcType=TINYINT},
+      LOGO_POSITION = #{record.logoPosition,jdbcType=VARCHAR},
+      TEMLET_ID = #{record.temletId,jdbcType=INTEGER},
+      TEMPLATE_NAME = #{record.templateName,jdbcType=VARCHAR},
+      NEW_FLAG = #{record.newFlag,jdbcType=TINYINT},
+      CONTRACT_CONTENT = #{record.contractContent,jdbcType=CLOB},
+      CONTRACT_SUB_CONTENT = #{record.contractSubContent,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT
+    set CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      CREATION_UID = #{record.creationUid,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      SEAL_POSITION = #{record.sealPosition,jdbcType=VARCHAR},
+      LINE_HEIGHT = #{record.lineHeight,jdbcType=NUMERIC},
+      IS_EDIT = #{record.isEdit,jdbcType=TINYINT},
+      LOGO_POSITION = #{record.logoPosition,jdbcType=VARCHAR},
+      TEMLET_ID = #{record.temletId,jdbcType=INTEGER},
+      TEMPLATE_NAME = #{record.templateName,jdbcType=VARCHAR},
+      NEW_FLAG = #{record.newFlag,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunContract">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT
+    <set>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationUid != null">
+        CREATION_UID = #{creationUid,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="sealPosition != null">
+        SEAL_POSITION = #{sealPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="lineHeight != null">
+        LINE_HEIGHT = #{lineHeight,jdbcType=NUMERIC},
+      </if>
+      <if test="isEdit != null">
+        IS_EDIT = #{isEdit,jdbcType=TINYINT},
+      </if>
+      <if test="logoPosition != null">
+        LOGO_POSITION = #{logoPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="temletId != null">
+        TEMLET_ID = #{temletId,jdbcType=INTEGER},
+      </if>
+      <if test="templateName != null">
+        TEMPLATE_NAME = #{templateName,jdbcType=VARCHAR},
+      </if>
+      <if test="newFlag != null">
+        NEW_FLAG = #{newFlag,jdbcType=TINYINT},
+      </if>
+      <if test="contractContent != null">
+        CONTRACT_CONTENT = #{contractContent,jdbcType=CLOB},
+      </if>
+      <if test="contractSubContent != null">
+        CONTRACT_SUB_CONTENT = #{contractSubContent,jdbcType=CLOB},
+      </if>
+    </set>
+    where CONTRACT_ID = #{contractId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpFunContract">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT
+    set CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CREATION_UID = #{creationUid,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      SEAL_POSITION = #{sealPosition,jdbcType=VARCHAR},
+      LINE_HEIGHT = #{lineHeight,jdbcType=NUMERIC},
+      IS_EDIT = #{isEdit,jdbcType=TINYINT},
+      LOGO_POSITION = #{logoPosition,jdbcType=VARCHAR},
+      TEMLET_ID = #{temletId,jdbcType=INTEGER},
+      TEMPLATE_NAME = #{templateName,jdbcType=VARCHAR},
+      NEW_FLAG = #{newFlag,jdbcType=TINYINT},
+      CONTRACT_CONTENT = #{contractContent,jdbcType=CLOB},
+      CONTRACT_SUB_CONTENT = #{contractSubContent,jdbcType=CLOB}
+    where CONTRACT_ID = #{contractId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunContract">
+    <!--@mbggenerated-->
+    update FUN_CONTRACT
+    set CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CREATION_UID = #{creationUid,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      SEAL_POSITION = #{sealPosition,jdbcType=VARCHAR},
+      LINE_HEIGHT = #{lineHeight,jdbcType=NUMERIC},
+      IS_EDIT = #{isEdit,jdbcType=TINYINT},
+      LOGO_POSITION = #{logoPosition,jdbcType=VARCHAR},
+      TEMLET_ID = #{temletId,jdbcType=INTEGER},
+      TEMPLATE_NAME = #{templateName,jdbcType=VARCHAR},
+      NEW_FLAG = #{newFlag,jdbcType=TINYINT}
+    where CONTRACT_ID = #{contractId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getLinkInfo" resultType="java.util.Map">
+    select b.DEPT_NAME deptName, c.USER_ID userId, c.USER_NAME userName, a.CREATION_TIME creationTime
+    from FUN_CONTRACT a
+    left join FUN_DEPTS b ON a.DEPT_ID = b.DEPT_ID
+    left join FUN_USERS c on c.USER_ID = a.CREATION_UID
+    where CONTRACT_ID = #{contractId}
+  </select>
+</mapper>

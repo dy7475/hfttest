@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunSaleCtrlMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunSaleCtrl" >
+    <!--@mbggenerated-->
+    <id column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <id column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <id column="HOUSE_NO" property="houseNo" jdbcType="VARCHAR" />
+    <result column="ROOF" property="roof" jdbcType="VARCHAR" />
+    <result column="UNIT" property="unit" jdbcType="VARCHAR" />
+    <result column="NUM" property="num" jdbcType="INTEGER" />
+    <result column="HOUSE" property="house" jdbcType="VARCHAR" />
+    <result column="AREA" property="area" jdbcType="VARCHAR" />
+    <result column="PRICE" property="price" jdbcType="VARCHAR" />
+    <result column="SALE_STATUS" property="saleStatus" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_UID" property="updateUid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyFunSaleCtrlDto" id="extResultMap" extends="BaseResultMap">
+    <result column="cityName" property="cityName" jdbcType="VARCHAR" />
+    <result column="bulidingName" property="bulidingName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CITY_ID, BUILD_ID, HOUSE_NO, ROOF, UNIT, NUM, HOUSE, AREA, PRICE, SALE_STATUS, UPDATE_TIME, 
+    UPDATE_UID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyFunSaleCtrlKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_SALE_CTRL
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and HOUSE_NO = #{houseNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunSaleCtrlKey" >
+    <!--@mbggenerated-->
+    delete from FUN_SALE_CTRL
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and HOUSE_NO = #{houseNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunSaleCtrl" >
+    <!--@mbggenerated-->
+    insert into FUN_SALE_CTRL (CITY_ID, BUILD_ID, HOUSE_NO, 
+      ROOF, UNIT, NUM, HOUSE, 
+      AREA, PRICE, SALE_STATUS, 
+      UPDATE_TIME, UPDATE_UID)
+    values (#{cityId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, #{houseNo,jdbcType=VARCHAR}, 
+      #{roof,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER}, #{house,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{saleStatus,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunSaleCtrl" >
+    <!--@mbggenerated-->
+    insert into FUN_SALE_CTRL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="houseNo != null" >
+        HOUSE_NO,
+      </if>
+      <if test="roof != null" >
+        ROOF,
+      </if>
+      <if test="unit != null" >
+        UNIT,
+      </if>
+      <if test="num != null" >
+        NUM,
+      </if>
+      <if test="house != null" >
+        HOUSE,
+      </if>
+      <if test="area != null" >
+        AREA,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="saleStatus != null" >
+        SALE_STATUS,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="houseNo != null" >
+        #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="roof != null" >
+        #{roof,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="house != null" >
+        #{house,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="saleStatus != null" >
+        #{saleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null" >
+        #{updateUid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunSaleCtrl" >
+    <!--@mbggenerated-->
+    update FUN_SALE_CTRL
+    <set >
+      <if test="roof != null" >
+        ROOF = #{roof,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        UNIT = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        NUM = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="house != null" >
+        HOUSE = #{house,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        AREA = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="saleStatus != null" >
+        SALE_STATUS = #{saleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and HOUSE_NO = #{houseNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunSaleCtrl" >
+    <!--@mbggenerated-->
+    update FUN_SALE_CTRL
+    set ROOF = #{roof,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      NUM = #{num,jdbcType=INTEGER},
+      HOUSE = #{house,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=VARCHAR},
+      SALE_STATUS = #{saleStatus,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{updateUid,jdbcType=INTEGER}
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and BUILD_ID = #{buildId,jdbcType=INTEGER}
+      and HOUSE_NO = #{houseNo,jdbcType=VARCHAR}
+  </update>
+  <select id="getFunSaleCtrlList" parameterType="com.myfun.repository.agencydb.param.AgencyFunSaleCtrlParam" resultMap="extResultMap">
+  	SELECT FUN_SALE_CTRL.CITY_ID, FUN_SALE_CTRL.BUILD_ID, FUN_SALE_CTRL.HOUSE_NO, FUN_SALE_CTRL.ROOF, FUN_SALE_CTRL.UNIT,
+    FUN_SALE_CTRL.NUM, FUN_SALE_CTRL.HOUSE, FUN_SALE_CTRL.AREA, FUN_SALE_CTRL.PRICE, FUN_SALE_CTRL.SALE_STATUS,
+    FUN_SALE_CTRL.UPDATE_TIME, FUN_SALE_CTRL.UPDATE_UID, FUN_CITY.CITY_NAME cityName, BUILDING_INFO.BUILD_NAME bulidingName
+  	FROM FUN_SALE_CTRL 
+  	LEFT JOIN FUN_CITY on FUN_CITY.CITY_ID = FUN_SALE_CTRL.CITY_ID
+  	LEFT JOIN BUILDING_INFO on BUILDING_INFO.BUILD_ID = FUN_SALE_CTRL.BUILD_ID
+  	<where>
+  		<if test="null != saleStatus">
+  			and SALE_STATUS = #{saleStatus}
+  		</if>
+  		<if test="null != funNo and ''!= funNo">
+  			and HOUSE_NO = #{funNo}
+  		</if>
+  		<if test="null != buildId">
+  			and FUN_SALE_CTRL.BUILD_ID = #{buildId}
+  		</if>
+  		<if test="null != cityId">
+  			and FUN_SALE_CTRL.CITY_ID = #{cityId}
+  		</if>
+  	</where>
+  	ORDER BY FUN_SALE_CTRL.UPDATE_TIME DESC 
+  </select>
+   <update id="updateByCondition" parameterType="com.myfun.repository.agencydb.po.AgencyFunSaleCtrl" >
+    update FUN_SALE_CTRL set UPDATE_UID = #{updateUid}
+    <set >
+      <if test="roof != null" >
+        ROOF = #{roof,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        UNIT = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        NUM = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="house != null" >
+        HOUSE = #{house,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        AREA = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="saleStatus != null" >
+        SALE_STATUS = #{saleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=INTEGER} and BUILD_ID = #{buildId,jdbcType=INTEGER}  and HOUSE_NO = #{houseNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

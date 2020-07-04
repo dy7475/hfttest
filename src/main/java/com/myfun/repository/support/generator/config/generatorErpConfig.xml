@@ -1,0 +1,1628 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!--
+	改的时候把别人的移上来，自己的移下去 
+	<property name="classPathEntry" value="D:/developtools/localrepository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/>
+	<property name="classPathEntry" value="E:/WindowsSoft/repository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/>
+	<classPathEntry location="D:/mavenRepository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar" />
+	<classPathEntry location="D:/Repository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar" />
+	<classPathEntry location="E:\Repository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar" />
+	-->
+	<classPathEntry location="D:/mavenRepository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar" />
+	<context id="context1" targetRuntime="MyBatis3" defaultModelType="flat">
+		<property name="autoDelimitKeywords" value="true"/>
+		<property name="mergeable" value="true"/>
+		<property name="beginningDelimiter" value="["/>
+		<property name="endingDelimiter" value="]"/>
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="com.myfun.repository.support.generator.BaseMapperGeneratorPlugin"/>
+		<plugin type="com.myfun.repository.support.generator.SolrAnnotationGeneratorPlugin"/>
+		<plugin type="com.myfun.repository.support.generator.FiledPropertyGeneratorPlugin">
+			<property name="filedPropertyClass" value="io.swagger.annotations.ApiModelProperty" />
+		</plugin>
+		<plugin type="com.myfun.repository.support.generator.ShardDbGeneratorPlugin">
+			<property name="shardDbClass" value="com.myfun.repository.support.generator.shard.ShardDb" />
+		</plugin>
+		<commentGenerator type="com.myfun.repository.support.generator.CustCommentGenerator">
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="false" />
+			<property name="suppressDate" value="true" />
+			<property name="driverClass" value="net.sourceforge.jtds.jdbc.Driver"/>
+			<property name="connectionURL" value="jdbc:jtds:sqlserver://172.16.140.249:33434;appName=openService;DatabaseName=hft_erpdb_CD"/>
+			<property name="userId" value="user_fafa"/>
+			<property name="password" value="user_fafa123456"/>
+			<!--
+				改的时候把别人的移上来，自己的移下去
+				<property name="classPathEntry" value="D:/developtools/localrepository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/>
+				<property name="classPathEntry" value="E:/WindowsSoft/repository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/>
+				<property name="classPathEntry" value="D:/Repository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/>
+				<property name="classPathEntry" value="E:\Repository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/>
+			-->
+				<property name="classPathEntry" value="D:/mavenRepository/net/sourceforge/jtds/jtds/1.3.0/jtds-1.3.0.jar"/>
+		</commentGenerator>
+		<jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
+			connectionURL="jdbc:jtds:sqlserver://172.16.140.249:33434;appName=openService;DatabaseName=hft_erpdb_CD"
+			userId="user_fafa" password="user_fafa123456"></jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetProject="erpWeb" targetPackage="com.myfun.repository.erpdb.po"></javaModelGenerator>
+		<sqlMapGenerator targetProject="erpWeb" targetPackage="com.myfun.repository.erpdb.mapper"></sqlMapGenerator>
+		<javaClientGenerator targetProject="erpWeb" type="XMLMAPPER" targetPackage="com.myfun.repository.erpdb.dao"></javaClientGenerator>
+		<!-- <table tableName="FUN_PROVINCE" domainObjectName="ErpFunProvince"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_FINANC_PROFIT" domainObjectName="ErpFunFinancProfit"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="FP_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="TRACK_PHOTO" domainObjectName="ErpTrackPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TMP_LEASE_PER" domainObjectName="ErpTmpLeasePer"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TRACK_VIDEO" domainObjectName="ErpTrackVideo">
+			<generatedKey column="VIDEO_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="BULLET_GOOD_LOG" domainObjectName="ErpBulletGoodLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="POSITION_INFO" domainObjectName="ErpPositionInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="POSITION_ID"
+				sqlStatement="SELECT next value for SEQ_POSITION_INFO_POSITION_ID" />
+		</table>
+		<table tableName="FUN_DEAL_TAXES_FATHER" domainObjectName="ErpFunDealTaxesFather"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="BUILD_SECTION" domainObjectName="ErpBuildSection"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID"
+				sqlStatement="SELECT next value for SEQ_BUILD_SECTION_ID" />
+		</table>
+	
+		<table tableName="FUN_ALL_COUNTDATA" domainObjectName="ErpFunAllCountdata"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="FID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_AREA" domainObjectName="ErpFunArea"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="AREA_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_AREA_AREA_ID" />
+		</table>
+		<table tableName="FUN_TASK" domainObjectName="ErpFunTask"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="TASK_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_TASK_TASK_ID" />
+		</table>
+		<table tableName="FUN_HOUSE_PUBLISH_LOG" domainObjectName="ErpFunHousePublishLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="P_LOG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="TRACE_XE_ACTION_MAP" domainObjectName="ErpTraceXeActionMap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_BUILD_TRACK" domainObjectName="ErpFunBuildTrack"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="TRACK_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_BUILD_TRACK_TRACK_ID" />
+		</table>
+		<table tableName="FUN_PROFIT" domainObjectName="ErpFunProfit"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PROFIT_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_PROFIT_PROFIT_ID" />
+		</table>
+		<table tableName="PROCESS_MODEL" domainObjectName="ErpProcessModel"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="MODEL_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_MODEL_MODEL_ID" />
+		</table>
+		<table tableName="FAFA_DATA_INFO" domainObjectName="ErpFafaDataInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_EVALUATION" domainObjectName="ErpFunEvaluation"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="EVAL_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_EVALUATION_EVAL_ID" />
+		</table>
+		<table tableName="PROCESS_FINANC" domainObjectName="ErpProcessFinanc"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PF_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_FINANC_PF_ID" />
+		</table>
+		<table tableName="COOPERATE_COMPLAINT" domainObjectName="ErpCooperateComplaint"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="CC_ID"
+				sqlStatement="SELECT next value for SEQ_COOPERATE_COMPLAINT_CC_ID" />
+		</table>
+		<table tableName="FUN_CITY" domainObjectName="ErpFunCity"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_FOOT" domainObjectName="ErpFunFoot"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="FOOT_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_FOOT_FOOT_ID" />
+		</table>
+		<table tableName="BROADCAST" domainObjectName="ErpBroadcast"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+
+		<table tableName="FUN_STATION" domainObjectName="ErpFunStation"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_WAGE_TYPE" domainObjectName="ErpFunWageType"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WAGETYPE_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_WAGE_TYPE_WAGETYPE_ID" />
+		</table>
+		<table tableName="WORK_LOG" domainObjectName="ErpWorkLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WL_ID"
+				sqlStatement="SELECT next value for SEQ_WORK_LOG_WL_ID" />
+		</table>
+		<table tableName="SYS_PARA" domainObjectName="ErpSysPara"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SF_PARAMS" domainObjectName="ErpFunSfParams"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ST_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_SF_PARAMS_ST_ID" />
+		</table>
+		<table tableName="PROCESS_RUNTIME_STEP" domainObjectName="ErpProcessRuntimeStep"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="RUNSTEP_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_RUNTIME_STEP_RUNSTEP_ID" />
+		</table>
+		<table tableName="HOUSE_ROOF_ANIS" domainObjectName="ErpHouseRoofAnis"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_FRIEND_GROUP" domainObjectName="ErpFunFriendGroup"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="GROUP_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_FRIEND_GROUP_GROUP_ID" />
+		</table>
+		<table tableName="FUN_SOSO_FAILD" domainObjectName="ErpFunSosoFaild"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="WD_INTENTION_CUSTOMER" domainObjectName="ErpWdIntentionCustomer"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="INTENTION_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="ACTIONSQL_LOG_INFO" domainObjectName="ErpActionsqlLogInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="id" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="VOTE_LOG" domainObjectName="ErpVoteLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID"
+				sqlStatement="SELECT next value for SEQ_VOTE_LOG_ID" />
+		</table>
+		<table tableName="WORK_PLAN" domainObjectName="ErpWorkPlan"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WP_ID"
+				sqlStatement="SELECT next value for SEQ_WORK_PLAN_WP_ID" />
+		</table>
+		<table tableName="DIC_DEFINITIONS" domainObjectName="ErpDicDefinitions"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DIC_ID"
+				sqlStatement="SELECT next value for SEQ_DIC_DEFINITIONS_DIC_ID" />
+		</table>
+		<table tableName="PBCATTBL" domainObjectName="ErpPbcattbl"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="COOPERATE_VIEW" domainObjectName="ErpCooperateView"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="VIEW_ID"
+				sqlStatement="SELECT next value for SEQ_COOPERATE_VIEW_VIEW_ID" />
+		</table>
+		
+		<table tableName="PBCATEDT" domainObjectName="ErpPbcatedt"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_BUILDRULEQUERYLIMIT" domainObjectName="ErpFunBuildrulequerylimit"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="LIMIT_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_BUILDRULEQUERYLIMIT_LIMIT_ID" />
+		</table>
+		<table tableName="FUN_REGION" domainObjectName="ErpFunRegion"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="REG_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_REGION_REG_ID" />
+		</table>
+
+		<table tableName="BULLET" domainObjectName="ErpBullet"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="BULLET_ID"
+				sqlStatement="SELECT next value for SEQ_BULLET_BULLET_ID" />
+		</table>
+		<table tableName="FUN_PHOTO" domainObjectName="ErpFunPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PHOTO_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_PHOTO_PHOTO_ID" />
+		</table>
+	
+		<table tableName="PROCESS_MODEL_STEP" domainObjectName="ErpProcessModelStep"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="STEP_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_MODEL_STEP_STEP_ID" />
+		</table>
+		<table tableName="PBCATVLD" domainObjectName="ErpPbcatvld"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SELFDEFINE_PROFIT" domainObjectName="ErpFunSelfdefineProfit"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_MENUAL" domainObjectName="ErpFunMenual"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="MU_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_MENUAL_MU_ID" />
+		</table>
+		<table tableName="FUN_WAGE" domainObjectName="ErpFunWage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="WAGE_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_FRIEND" domainObjectName="ErpFunFriend"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_BUILD_PUSH" domainObjectName="ErpFunBuildPush"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PUSH_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_PHOTO_DIC" domainObjectName="ErpFunPhotoDic"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PHOTO_CLASS" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="TRACK_USERS" domainObjectName="ErpTrackUsers"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="ACCOUNT" domainObjectName="ErpAccount"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ACT_ID"
+				sqlStatement="SELECT next value for SEQ_ACCOUNT_ACT_ID" />
+		</table>
+		<table tableName="FUN_SELFBUILD" domainObjectName="ErpFunSelfbuild"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PBCATCOL" domainObjectName="ErpPbcatcol"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BULLET_REPLY" domainObjectName="ErpBulletReply"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="REPLY_ID"
+				sqlStatement="SELECT next value for SEQ_BULLET_REPLY_REPLY_ID" />
+		</table>
+		<table tableName="FINE" domainObjectName="ErpFine"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="FINE_ID"
+				sqlStatement="SELECT next value for SEQ_FINE_FINE_ID" />
+		</table>
+		<table tableName="ROLE_OPERS" domainObjectName="ErpRoleOpers"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHARE_SCOPE" domainObjectName="ErpShareScope"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_WEB_CTRL" domainObjectName="ErpFunWebCtrl"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PBCATFMT" domainObjectName="ErpPbcatfmt"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_AUDIT" domainObjectName="ErpFunAudit"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="AUDIT_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_AUDIT_AUDIT_ID" />
+		</table>
+		<table tableName="FUN_FRIEND_TEMP" domainObjectName="ErpFunFriendTemp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="ACTIONSQL_LOG" domainObjectName="ErpActionsqlLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="logId" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="COLL_REQ" domainObjectName="ErpCollReq"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="COLL_ID"
+				sqlStatement="SELECT next value for SEQ_COLL_REQ_COLL_ID" />
+		</table>
+		<table tableName="MODEL_STEP_RELATE" domainObjectName="ErpModelStepRelate"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_HEAD" domainObjectName="ErpFunHead"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="HEAD_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_HEAD_HEAD_ID" />
+		</table>
+		<table tableName="FUN_PROFIT_OLD" domainObjectName="ErpFunProfitOld"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LIMITE_PARA" domainObjectName="ErpLimitePara"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TMP_SALE_PER" domainObjectName="ErpTmpSalePer"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_DEAL_TAXES_SUB" domainObjectName="ErpFunDealTaxesSub"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_PROCESS" domainObjectName="ErpFunProcess"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_RESET_SMS" domainObjectName="ErpFunResetSms"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="SMS_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="VOTE" domainObjectName="ErpVote"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="VOTE_ID"
+				sqlStatement="SELECT next value for SEQ_VOTE_VOTE_ID" />
+		</table>
+		<table tableName="ACCOUNT_TYPE" domainObjectName="ErpAccountType"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="AT_ID"
+				sqlStatement="SELECT next value for SEQ_ACCOUNT_TYPE_AT_ID" />
+		</table>
+		<table tableName="FUN_PROCESS_OLD" domainObjectName="ErpFunProcessOld"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SUBWAY" domainObjectName="ErpFunSubway"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_HOUSE_PUBLISH_STATUS" domainObjectName="ErpFunHousePublishStatus"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PUB_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="BUILDING_INFO_TMP" domainObjectName="ErpBuildingInfoTmp"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="SID"
+				sqlStatement="SELECT next value for SEQ_BUILDING_INFO_TMP_SID" />
+		</table>
+		<table tableName="FUN_ROLES" domainObjectName="ErpFunRoles"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="TRACE_XE_EVENT_MAP" domainObjectName="ErpTraceXeEventMap"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_KEY_LOG" domainObjectName="ErpFunKeyLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="KEY_LOG_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_KEY_LOG_KEY_LOG_ID" />
+		</table>
+		<table tableName="FUN_EVAL_ST" domainObjectName="ErpFunEvalSt"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ST_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_EVAL_ST_ST_ID" />
+		</table>
+		<table tableName="FOOT_PHOTO" domainObjectName="ErpFootPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PHOTO_ID"
+				sqlStatement="SELECT next value for SEQ_FOOT_PHOTO_PHOTO_ID" />
+		</table>
+		<table tableName="MODEL_STEP_RELATE_SETTING" domainObjectName="ErpModelStepRelateSetting"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_DEPTSGROUP" domainObjectName="ErpFunDeptsgroup"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="GR_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_DEPTSGROUP_GR_ID" />
+		</table>
+		<table tableName="FUN_WEBTRANS_INFO" domainObjectName="ErpFunWebtransInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="ATTENDANCE" domainObjectName="ErpAttendance"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ATT_ID"
+				sqlStatement="SELECT next value for SEQ_ATTENDANCE_ATT_ID" />
+		</table>
+		<table tableName="FIELDDOCUMENT" domainObjectName="ErpFielddocument"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="USER_ROLES" domainObjectName="ErpUserRoles"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_LOGS" domainObjectName="ErpFunLogs"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="LOG_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_LOGS_LOG_ID" />
+		</table>
+		<table tableName="FUN_DEAL_OLD" domainObjectName="ErpFunDealOld"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="BUILDING_PHOTO" domainObjectName="ErpBuildingPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SALE_NEW_DATA" domainObjectName="ErpFunSaleNewData"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SALE_BAK_DATA" domainObjectName="ErpFunSaleBakData"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_LEASE_NEW_DATA" domainObjectName="ErpFunLeaseNewData"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_LEASE_BAK_DATA" domainObjectName="ErpFunLeaseBakData"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_VOIP_LOG" domainObjectName="ErpFunVoipLog"
+		enableCountByExample="false" enableUpdateByExample="false"
+		enableDeleteByExample="false" enableSelectByExample="false"
+		selectByExampleQueryId="false">
+		<generatedKey column="VOIP_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_VOIP_LOG_VOIP_ID" />
+		</table>
+		<table tableName="FUN_STATISTIC_DETAIL" domainObjectName="ErpFunStatisticDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="STATISTIC_DETAIL_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_DEPTS" domainObjectName="ErpFunDepts">
+			<generatedKey column="DEPT_ID" sqlStatement="SELECT MAX(ISNULL(DEPT_ID,0))+1 FROM FUN_DEPTS" />
+		</table>
+		<table tableName="YOU_SHARE_HOUSE_STATUS" domainObjectName="ErpYouShareHouseStatus"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="SHARE_ID" sqlStatement="SELECT MAX(ISNULL(SHARE_ID,0))+1 FROM YOU_SHARE_HOUSE_STATUS" />
+		</table>
+		<table tableName="YOU_BORKER_COMPLAINT" domainObjectName="ErpYouBorkerComplaint"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="COMPLAINT_ID" sqlStatement="SELECT MAX(ISNULL(YOU_BORKER_COMPLAINT,0))+1 FROM YOU_BORKER_COMPLAINT" />
+		</table>
+		<table tableName="YOU_BORKER_PURCHASE" domainObjectName="ErpYouBorkerPurchase"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PURCHASE_ID" sqlStatement="SELECT next value for SEQ_YOU_BORKER_PURCHASE_ID" />
+		</table>
+		<table tableName="YOU_COMPLAINT_PROOF" domainObjectName="ErpYouComplaintProof"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PROOF_ID" sqlStatement="SqlServer" identity="true" />
+		</table>
+		<table tableName="FUN_STATISTIC_TOTLE" domainObjectName="ErpFunStatisticTotle"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="STATISTIC_TOTLE_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="IP_CALL_LOG_RECORD" domainObjectName="ErpIpCallLogRecord"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="RECORD_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+
+		<table tableName="BUILDING_INFO" domainObjectName="ErpBuildingInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="BUILD_ID" sqlStatement="SELECT MAX(ISNULL(BUILD_ID,0))+1 FROM BUILDING_INFO" identity="false"/>
+		</table>
+		<table tableName="FUN_RENT_CUSTOMER" domainObjectName="ErpFunRentCustomer">
+			<generatedKey column="RENT_CUST_ID"
+			sqlStatement="SELECT next value for SEQ_FUN_RENT_CUSTOMER_RENT_CUST_ID" />
+		</table>
+		<table tableName="BUILDING_INFO" domainObjectName="ErpBuildingInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="BUILD_ID" sqlStatement="SELECT next value for SEQ_BUILDING_INFO_BUILD_ID" />
+		</table>
+		<table tableName="ATTENDANCE" domainObjectName="ErpAttendance"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ATT_ID"
+				sqlStatement="SELECT next value for SEQ_ATTENDANCE_ATT_ID" />
+		</table>
+		<table tableName="FUN_DEPTSGROUP" domainObjectName="ErpFunDeptsgroup"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="GR_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_DEPTSGROUP_GR_ID" />
+		</table>
+
+		<table tableName="SYSTEM_SETTING_LOGS" domainObjectName="ErpSystemSettingLogs"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SELECT MAX(ISNULL(ID,0))+1 FROM SYSTEM_SETTING_LOGS" identity="true" />
+		</table>
+		<table tableName="FUN_DEPTS" domainObjectName="ErpFunDepts"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DEPT_ID" sqlStatement="SELECT MAX(ISNULL(DEPT_ID,0))+1 FROM FUN_DEPTS" identity="true" />
+		</table>
+		<table tableName="FUN_EARBEST_MONEY" domainObjectName="ErpEarbestMoney"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="EARBEST_ID"
+				sqlStatement="JDBC"
+				identity="true" />
+		</table>
+
+		<table tableName="COLL_REQ" domainObjectName="ErpCollReq"
+		enableCountByExample="false" enableUpdateByExample="false"
+		enableDeleteByExample="false" enableSelectByExample="false"
+		selectByExampleQueryId="false">
+		<generatedKey column="COLL_ID"
+				sqlStatement="SELECT next value for SEQ_COLL_REQ_COLL_ID" />
+		</table>
+
+		<table tableName="FUN_ADS_CONTENT" domainObjectName="ErpFunAdsContent"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ADS_CONTENT_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+			<table tableName="FUN_KEY" domainObjectName="ErpFunKey">
+			<generatedKey column="KEY_ID" sqlStatement="SELECT next value for SEQ_FUN_KEY_KEY_ID" />
+		</table>
+		<table tableName="FUN_PHOTO_FASTDFS" domainObjectName="ErpFunPhotoFastdfs"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table tableName="FUN_DEAL_PHOTO" domainObjectName="ErpFunDealPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PHOTO_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_CONTRACT" domainObjectName="ErpFunContract"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="CONTRACT_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_PANORAMA_PHOTO" domainObjectName="ErpFunPanoramaPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PHOTO_ID" sqlStatement="SELECT next value for SEQ_FUN_PANORAMA_PHOTO_PHOTO_ID" />
+		</table>
+		
+		<table tableName="FUN_VIDEO_FASTDFS" domainObjectName="ErpFunVideoFastdfs"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table tableName="FUN_CASE_FAVORITE" domainObjectName="ErpFunCaseFavorite"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="FAVORITE_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_SECTION" domainObjectName="ErpFunSection">
+			<generatedKey column="SECTION_ID" sqlStatement="SELECT next value for SEQ_FUN_SECTION_SECTION_ID" />
+		</table>
+		<table tableName="COMP_ROLE_OPERS" domainObjectName="ErpCompRoleOpers">
+			<generatedKey column="AUTO_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ECARDS" domainObjectName="ErpFunEcards">
+			<generatedKey column="ECARD_ID" sqlStatement="SELECT next value for SEQ_FUN_ECARDS_ECARD_ID" />
+		</table>
+		<table tableName="USER_OPERS" domainObjectName="ErpUserOpers"></table>
+		<table tableName="FUN_BASEWAGE" domainObjectName="ErpFunBasewage"></table>
+		<table tableName="FUN_WAGE_TYPE" domainObjectName="ErpFunWageType">
+			<generatedKey column="WAGETYPE_ID" sqlStatement="SELECT next value for SEQ_FUN_WAGE_TYPE_WAGETYPE_ID" />
+		</table>
+		<table tableName="FUN_DEAL_PHOTO_FASTDFS" domainObjectName="ErpFunDealPhotoFastdfs"></table>
+		<table tableName="FUN_HOUSE_BIDDING" domainObjectName="ErpFunHouseBidding">
+			<generatedKey column="BIDD_ID" sqlStatement="SELECT next value for SEQ_FUN_HOUSE_BIDDING_BIDD_ID" />
+		</table>
+		<table tableName="BUILDING_PHOTO_FASTDFS" domainObjectName="ErpBuildingPhotoFastdfs">
+			<generatedKey column="PHOTO_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="WAGETYPE_USER_RELATIVE" domainObjectName="ErpWagetypeUserRelative">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_COUNTWAGE" domainObjectName="ErpFunCountwage">
+			<generatedKey column="WAGECOUNT_ID" sqlStatement="SELECT next value for SEQ_FUN_COUNTWAGE_WAGECOUNT_ID" />
+		</table>
+		<table tableName="FUN_REG" domainObjectName="ErpFunReg">
+			<generatedKey column="REG_ID" sqlStatement="SELECT next value for SEQ_FUN_REG_REG_ID" />
+		</table>
+		<table tableName="BUILDING_INFO" domainObjectName="ErpBuildingInfo">
+			<generatedKey column="BUILD_ID" sqlStatement="SELECT next value for SEQ_BUILDING_INFO_BUILD_ID" />
+		</table>
+		<table tableName="FUN_ROADS_INFO" domainObjectName="ErpFunRoadsInfo">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="BUILD_ROADS_RELATION" domainObjectName="ErpBuildRoadsRelation">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_WAGE_TYPE_NEW" domainObjectName="ErpFunWageTypeNew">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="APP_LOGIN_DEVICE" domainObjectName="ErpAppLoginDevice">
+			<generatedKey column="LOGIN_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_ROADS_INFO" domainObjectName="ErpFunRoadsInfo">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_ADS_CONTENT" domainObjectName="ErpFunAdsContent">
+			<generatedKey column="ADS_CONTENT_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="DEAL_TRACK" domainObjectName="ErpDealTrack">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_OPERS" domainObjectName="ErpFunOpers"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table tableName="FUN_BUILD_RULE" domainObjectName="ErpFunBuildRule"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ENTITY_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_DEAL_CODELOG" domainObjectName="ErpFunDealCodelog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="CODELOG_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_BUILD_ROOFUNITDOORS" domainObjectName="ErpFunBuildRoofunitdoors"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table tableName="HOUSEORCUST_FLOW_ANALYSIS" domainObjectName="ErpHouseorcustFlowAnalysis"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ANALYSIS_ID"
+				sqlStatement="SqlServer" />
+		</table>
+		<table tableName="FUN_CUST_DEMAND_SPLIT" domainObjectName="ErpFunCustDemandSplit"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer" />
+		</table>
+		<table tableName="FUN_CUST_REGSECTIONS" domainObjectName="ErpFunCustRegsections"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer" />
+		</table>
+		<table tableName="FUN_STATISTIC_DETAIL" domainObjectName="ErpFunStatisticDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="STATISTIC_DETAIL_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>		
+		<table tableName="FUN_PROLOGS" domainObjectName="ErpFunPrologs"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+		</table>
+		<table tableName="FUN_BUY_CUSTOMER" domainObjectName="ErpFunBuyCustomer">
+			<generatedKey column="BUY_CUST_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_BUY_CUSTOMER_BUY_CUST_ID" />
+		</table>
+		
+		<table tableName="FUN_RENT_CUSTOMER" domainObjectName="ErpFunRentCustomer"></table>
+			
+		<table tableName="FUN_DEAL" domainObjectName="ErpFunDeal"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="DEAL_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_DEAL_DEAL_ID" />
+		</table>
+		<table tableName="FUN_KEY" domainObjectName="ErpFunKey"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="KEY_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_KEY_KEY_ID" />
+		</table>
+		<table tableName="FUN_BUILD_ROOFUNITDOORS" domainObjectName="ErpFunBuildRoofunitdoors">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_BLACK_LIST" domainObjectName="ErpFunBlackList">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="BUILDING_SET_ROOM" domainObjectName="ErpBuildingSetRoom">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_VIEW_LOG" domainObjectName="ErpFunViewLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FUN_SALARY_TYPE" domainObjectName="ErpFunSalaryType">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_SALARY_STATISTICAL" domainObjectName="ErpFunSalaryStatistical">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="TASK_ASSESSMENT_TARGET" domainObjectName="ErpTaskAssessmentTarget">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="SALARY_TYPE_RELATIVE" domainObjectName="ErpSalaryTypeRelative">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="LEASE_PEOPLE_RELATIVE" domainObjectName="ErpLeasePeopleRelative">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="SALE_PEOPLE_RELATIVE" domainObjectName="ErpSalePeopleRelative">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="BUILDING_SET" domainObjectName="ErpBuildingSet">
+			<generatedKey column="BS_ID" sqlStatement="SELECT next value for SEQ_BUILDING_SET_BS_ID" />
+		</table>
+		<table tableName="FUN_CONTRACT_INDEX" domainObjectName="ErpFunContractIndex">
+			<generatedKey column="INDEX_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_PROCESS_RECORD" domainObjectName="ErpFunProcessRecord">
+			<generatedKey column="RECORD_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_DEAL_RECORD" domainObjectName="ErpFunDealRecord">
+			<generatedKey column="RECORD_ID" sqlStatement="SELECT next value for SEQ_FUN_DEAL_RECORD_RECORD_ID" />
+		</table>
+		<table tableName="FUN_CONTRACT_TEMPLAE" domainObjectName="ErpFunContractTemplae">
+			<generatedKey column="TEMPLATE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_INDEX_TEMPLATE" domainObjectName="ErpFunIndexTemplate">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_CONTRACT_TAG" domainObjectName="ErpFunContractTag">
+			<generatedKey column="TAG_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_INDEX_VALUE" domainObjectName="ErpFunIndexValue">
+			<generatedKey column="VALUE_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_PROFIT" domainObjectName="ErpFunProfit"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PROFIT_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_PROFIT_PROFIT_ID" />
+		</table>
+		<table tableName="PROCESS_FINANC" domainObjectName="ErpProcessFinanc">
+			<generatedKey column="PF_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_FINANC_PF_ID" />
+		</table>
+		<table tableName="PROCESS_MODEL" domainObjectName="ErpProcessModel">
+			<generatedKey column="MODEL_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_MODEL_MODEL_ID" />
+		</table>
+		<table tableName="PROCESS_RUNTIME_STEP" domainObjectName="ErpProcessRuntimeStep">
+			<generatedKey column="RUNSTEP_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_RUNTIME_STEP_RUNSTEP_ID" />
+		</table>
+		<table tableName="MODEL_STEP_RELATE" domainObjectName="ErpModelStepRelate"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PROCESS_MODEL_STEP" domainObjectName="ErpProcessModelStep">
+			<generatedKey column="STEP_ID"
+				sqlStatement="SELECT next value for SEQ_PROCESS_MODEL_STEP_STEP_ID" />
+		</table>
+		<table tableName="FUN_DEAL_TAXES" domainObjectName="ErpFunDealTaxes">
+			<generatedKey column="ID" sqlStatement="jdbc"
+				identity="true" />
+		</table>
+		<table tableName="FUN_DEAL_TAXES_FATHER" domainObjectName="ErpFunDealTaxesFather">
+			<generatedKey column="ID" sqlStatement="jdbc"
+				identity="true" />
+		</table>
+		<table tableName="FUN_DEAL_TAXES_RECORD" domainObjectName="ErpFunDealTaxesRecord">
+			<generatedKey column="ID" sqlStatement="jdbc"
+				identity="true" />
+		</table>
+		<table tableName="FUN_EARBEST_MONEYRECORD" domainObjectName="ErpFunEarbestMoneyrecord">
+			<generatedKey column="ID"
+				sqlStatement="JDBC"
+				identity="true" />
+		</table>
+		<table tableName="FUN_PHOTO" domainObjectName="ErpFunPhoto">
+			<generatedKey column="PHOTO_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_PHOTO_PHOTO_ID" />
+		</table>
+		<table tableName="FUN_PANORAMA_PHOTO" domainObjectName="ErpFunPanoramaPhoto">
+			<generatedKey column="PHOTO_ID" sqlStatement="SELECT next value for SEQ_FUN_PANORAMA_PHOTO_PHOTO_ID" />
+		</table>
+		<table tableName="FUN_EARBEST_MONEY" domainObjectName="ErpEarbestMoney">
+			<generatedKey column="EARBEST_ID"
+				sqlStatement="JDBC"
+				identity="true" />
+		</table>
+		<table tableName="FUN_RENT_CUSTOMER" domainObjectName="ErpFunRentCustomer">
+		<generatedKey column="RENT_CUST_ID"
+		sqlStatement="SELECT next value for SEQ_FUN_RENT_CUSTOMER_RENT_CUST_ID" />
+		</table>
+
+		<table tableName="IP_CALL_LOG_RECORD" domainObjectName="ErpIpCallLogRecord">
+			<generatedKey column="RECORD_ID" sqlStatement="JDBC"
+				identity="true" />
+		</table>
+		<table tableName="FUN_PANORAMA_PHOTO" domainObjectName="ErpFunPanoramaPhoto">
+			<generatedKey column="PHOTO_ID" sqlStatement="SELECT next value for SEQ_FUN_PANORAMA_PHOTO_PHOTO_ID" />
+		</table>
+		<table tableName="FUN_REGSECTION_CONTROL" domainObjectName="ErpFunRegsectionControl">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="ROLE_WAGETYPE_RELATIVE" domainObjectName="ErpRoleWagetypeRelative">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_SALARY_TYPE" domainObjectName="ErpFunSalaryType">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+				
+		<table tableName="FUN_BROKERAGE" domainObjectName="ErpFunBrokerage">
+			<generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+		</table>
+		<table tableName="FUN_POLICY_CONTROL" domainObjectName="ErpFunPolicyControl">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="ACCOUNT_TYPE" domainObjectName="ErpAccountType"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="AT_ID" sqlStatement="SELECT next value for SEQ_ACCOUNT_TYPE_AT_ID" />
+		</table>
+		<table tableName="FUN_ENTRUSTMENT_PHOTO" domainObjectName="ErpFunEntrustmentPhoto">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="AD_AUDIT" domainObjectName="ErpFunAdAudit">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="SYSTEM_SETTING_LOGS" domainObjectName="ErpSystemSettingLogs">
+			<generatedKey column="ID" sqlStatement="SELECT MAX(ISNULL(ID,0))+1 FROM SYSTEM_SETTING_LOGS" />
+		</table>
+		<table tableName="COMP_ROLES" domainObjectName="ErpCompRoles">
+			<generatedKey column="AUTO_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_MSG" domainObjectName="ErpFunMsg">
+			<generatedKey column="MSG_ID" sqlStatement="SELECT next value for SEQ_FUN_MSG_MSG_ID" identity="false"/>
+			<columnOverride column="SEND_TIME" javaType="java.util.Date"></columnOverride>
+		</table>
+		<table tableName="AUDIT_TRACK" domainObjectName="ErpAuditTrack">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+	
+		<table tableName="FUN_EMPLOYEE_DOC" domainObjectName="ErpFunEmployeeDoc">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_EMPLOYEE_FILE" domainObjectName="ErpFunEmployeeFile">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_TRACK" domainObjectName="ErpFunTrack">
+			<generatedKey column="TRACK_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_TRACK_TRACK_ID" />
+		</table>
+		<table tableName="AUDIT_TRACK" domainObjectName="ErpAuditTrack">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_TRACK" domainObjectName="ErpFunTrack">
+			<generatedKey column="TRACK_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_TRACK_TRACK_ID" />
+		</table>
+		<table tableName="FUN_VIDEO" domainObjectName="ErpFunVideo">
+			<generatedKey column="VIDEO_ID" sqlStatement="SELECT next value for SEQ_FUN_VIDEO_VIDEO_ID" />
+		</table>
+		<table tableName="TRACK_VIDEO" domainObjectName="ErpTrackVideo">
+			<generatedKey column="VIDEO_ID" sqlStatement="SELECT MAX(ISNULL(VIDEO_ID,0))+1 FROM TRACK_VIDEO" />
+		</table>
+		
+		<table tableName="FUN_ATTENDANCE_CLASS" domainObjectName="ErpFunAttendanceClass">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_SCOPE" domainObjectName="ErpFunAttendanceScope">
+			<generatedKey column="ATT_SCOPE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_SCOPE_BIZ" domainObjectName="ErpFunAttendanceScopeBiz">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_SCOPE_BIZ_PERSON" domainObjectName="ErpFunAttendanceScopeBizPerson">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_GROUP" domainObjectName="ErpFunAttendanceGroup">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_GROUP_BIZ" domainObjectName="ErpFunAttendanceGroupBiz">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_GROUP_BIZ_PERSON" domainObjectName="ErpFunAttendanceGroupBizPerson">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_FESTIVAL" domainObjectName="ErpFunAttendanceFestival">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_USER_CLASS_DETAIL" domainObjectName="ErpFunAttendanceUserClassDetail">
+			<generatedKey column="CLASS_DETAIL_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_TASK_TIMED" domainObjectName="ErpFunTaskTimed">
+			<generatedKey column="ID" sqlStatement="JDBC"
+				identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_RECORD_DETAIL" domainObjectName="ErpFunAttendanceRecordDetail">
+			<generatedKey column="ATT_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ATTENDANCE_STATISTICS" domainObjectName="ErpFunAttendanceStatistics">
+			<generatedKey column="ID" sqlStatement="JDBC"
+				identity="true" />
+		</table>
+		<table tableName="FUN_TASK" domainObjectName="ErpFunTask">
+			<generatedKey column="TASK_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_TASK_TASK_ID" />
+		</table>
+		<table tableName="FUN_BILL" domainObjectName="ErpFunBill">
+			<generatedKey column="ID" sqlStatement="JDBC"
+				identity="true" />
+		</table>
+		<table tableName="FUN_RENT_CUSTOMER" domainObjectName="ErpFunRentCustomer">
+		<generatedKey column="RENT_CUST_ID"
+			sqlStatement="SELECT next value for SEQ_FUN_RENT_CUSTOMER_RENT_CUST_ID" />
+		</table>
+		<table tableName="FUN_BUY_CUSTOMER" domainObjectName="ErpFunBuyCustomer">
+			<generatedKey column="BUY_CUST_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_BUY_CUSTOMER_BUY_CUST_ID" />
+		</table>
+		<table tableName="YOU_BUILD_DETAIL_VIEW" domainObjectName="ErpYouBuildDetailView">
+			<generatedKey column="DETAIL_VIEW_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="RICH_TEXT" domainObjectName="ErpRichText"></table>
+		<table tableName="CITYSHARE_HOUSE" domainObjectName="ErpCityShareHouse">
+			<generatedKey column="SHAREHOUSE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="CITYSHARE_BORKER_PURCHASE" domainObjectName="ErpCityshareBorkerPurchase">
+			<generatedKey column="PURCHASE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="BUILDING_PHOTO" domainObjectName="ErpBuildingPhoto">
+			<generatedKey column="PHOTO_ID"
+			sqlStatement="SELECT next value for SEQ_BUILDING_PHOTO_PHOTO_ID" />
+		</table>
+		<table tableName="AUDIT_RUNTIME_CASE" domainObjectName="ErpAuditRuntimeCase">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="CITYSHARE_HOUSE" domainObjectName="ErpCityShareHouse">
+			<generatedKey column="SHAREHOUSE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_POLICY_CONTROL" domainObjectName="ErpFunPolicyControl">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+        
+        <table tableName="FUN_CONTRACT_CATEGORY" domainObjectName="ErpFunContractCategory">
+			<generatedKey column="CATEGORY_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		
+		<table tableName="FUN_CONTRACT_INDEX" domainObjectName="ErpFunContractIndex">
+			<generatedKey column="INDEX_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		
+		<table tableName="FUN_DEAL_PHOTO" domainObjectName="ErpFunDealPhoto"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="PHOTO_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		
+		<table tableName="FUN_DEPTSGROUP" domainObjectName="ErpFunDeptsgroup"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="GR_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_DEPTSGROUP_GR_ID" />
+		</table>
+		<table tableName="FUN_VIDEO" domainObjectName="ErpFunVideo">
+			<generatedKey column="VIDEO_ID" sqlStatement="SELECT next value for SEQ_FUN_VIDEO_VIDEO_ID" />
+		</table>
+		<table tableName="FUN_HOUSE_PROXY" domainObjectName="ErpFunHouseProxy">
+			<generatedKey column="PROXY_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		
+		<table tableName="FUN_VIEW_LOG" domainObjectName="ErpFunViewLog">
+			<generatedKey column="VIEW_ID" sqlStatement="SELECT next value for SEQ_FUN_VIEW_LOG_VIEW_ID" />
+		</table>
+		<table tableName="FUN_TRACK" domainObjectName="ErpFunTrack">
+			<generatedKey column="TRACK_ID" sqlStatement="SELECT next value for SEQ_FUN_TRACK_TRACK_ID" />
+		</table>
+		<table tableName="AUDIT_CLASS" domainObjectName="ErpAuditClass">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="AUDIT_TEMPLATE" domainObjectName="ErpAuditTemplate">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="AUDIT_USER_TEMPLATE" domainObjectName="ErpAuditUserTemplate">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+	     <table tableName="FUN_ORGANIZATION_DEFINITION" domainObjectName="ErpFunOrganizationDefinition">
+	      	<generatedKey column="DEFINITION_ID" sqlStatement="JDBC" identity="true"/>
+	     </table>
+	     <table tableName="FUN_ORGANIZATION_MANAGER" domainObjectName="ErpFunOrganizationManager">
+	      	<generatedKey column="ID" sqlStatement="JDBC"  identity="true"/>
+	     </table>
+		<table tableName="FUN_KEY_OPERATION_LOG" domainObjectName="ErpFunKeyOperationLog">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_KEY_REMARK" domainObjectName="ErpFunKeyRemark">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_TRACK_EXTEND" domainObjectName="ErpFunTrackExtend">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="OUT_LOG" domainObjectName="ErpOutLog" >
+			<generatedKey column="OUT_ID" sqlStatement="SELECT next value for SEQ_OUT_LOG_OUT_ID" />
+		</table>
+		<table tableName="AUDIT_RUNTIME" domainObjectName="ErpAuditRuntime">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_BUY_CUSTOMER_EXTEND" domainObjectName="ErpFunBuyCustomerExtend" >
+		</table>
+		<table tableName="FUN_RENT_CUSTOMER_EXTEND" domainObjectName="ErpFunRentCustomerExtend" >
+		</table>
+		<table tableName="FUN_TRACK" domainObjectName="ErpFunTrack">
+			<generatedKey column="TRACK_ID" sqlStatement="SELECT next value for SEQ_FUN_TRACK_TRACK_ID" />
+		</table>
+		<table tableName="FUN_BUILD_RULE" domainObjectName="ErpFunBuildRule">
+			<generatedKey column="ENTITY_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="MARKET_VIRTUAL_GENERAL" domainObjectName="ErpMarketVirtualGeneral"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_PROPERTY_KEY_LOG" domainObjectName="ErpFunPropertyKeyLog">
+			<generatedKey column="FUN_PROPERTY_KEY_LOG_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		
+		<table tableName="WUYE_USER_RECORD" domainObjectName="ErpWuyeUserRecord">
+			<generatedKey column="WUYE_RECORD_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="WUYE_HOUSE_DYNAMIC" domainObjectName="ErpWuyeHouseDynamic">
+			<generatedKey column="HOUSE_DYNAMIC_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		</table>
+		
+		<table tableName="FUN_PROPERTY_KEY_LOG" domainObjectName="ErpFunPropertyKeyLog">
+			<generatedKey column="FUN_PROPERTY_KEY_LOG_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="BUILDING_MANAGER" domainObjectName="ErpBuildingManager" >
+			<generatedKey column="BUILDING_MANAGER_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		
+		<table tableName="BUILDING_INFO" domainObjectName="ErpBuildingInfo" >
+			<generatedKey column="BUILD_ID" sqlStatement="SELECT next value for SEQ_BUILDING_INFO_BUILD_ID" identity="false"/>
+		</table>
+		-->
+		<!-- <table tableName="FUN_UNION_DELHOUSE" domainObjectName="ErpFunUnionDelhouse" >
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_UNION_CONTACT" domainObjectName="ErpFunUnionContact" >
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table> 
+		<table tableName="FUN_UNION_COMPLAINT" domainObjectName="ErpFunUnionComplaint" >
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>-->
+		<!-- <table tableName="FUN_UNION_LEASE" domainObjectName="ErpFunUnionLease" >
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+			<columnOverride column="KEY_TIME" javaType="java.util.Date"></columnOverride>
+			<columnOverride column="EXPLRTH_DATETIME" javaType="java.util.Date"></columnOverride>
+			<columnOverride column="PHOTO_TIME" javaType="java.util.Date"></columnOverride>
+			<columnOverride column="TRACK_TIME" javaType="java.util.Date"></columnOverride>
+			<columnOverride column="TRACK_TIME2" javaType="java.util.Date"></columnOverride>
+			<columnOverride column="LEASE_CERT_TIME" javaType="java.util.Date"></columnOverride>
+		</table><table tableName="FUN_UNION_SALE" domainObjectName="ErpFunUnionSale" >
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table> -->
+		<!--<table tableName="FUN_SALE_EXTEND" domainObjectName="ErpFunSaleExtend" >
+		</table>
+		<table tableName="FUN_LEASE_EXTEND" domainObjectName="ErpFunLeaseExtend" >
+		</table>
+		<table tableName="FUN_COMMENT" domainObjectName="ErpFunComment" >
+		</table>
+		<table tableName="FUN_SELFBUILD" domainObjectName="ErpFunSelfbuild"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+		<table tableName="FUN_PRAISE" domainObjectName="ErpFunPraise" >
+		</table>
+		<table tableName="FUN_COMMENT" domainObjectName="ErpFunComment" >
+		</table> 
+		<table tableName="FUN_BUILD_RULE" domainObjectName="ErpFunBuildRule"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+			<generatedKey column="ENTITY_ID" sqlStatement="SqlServer"
+				identity="true" />
+		</table>
+		<table tableName="FUN_UNION_PHOTO" domainObjectName="ErpFunUnionPhoto" >
+			<generatedKey column="PHOTO_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_UNION_COMPLAINT" domainObjectName="ErpFunUnionComplaint" >
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+				
+		<table tableName="AUDIT_RUNTIME" domainObjectName="ErpAuditRuntime">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		
+		<table tableName="FUN_UNION_CONTACT" domainObjectName="ErpFunUnionContact" >
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table> 
+
+		<table tableName="FUN_DEPTS" domainObjectName="ErpFunDepts">
+			<generatedKey column="DEPT_ID" sqlStatement="SELECT MAX(ISNULL(DEPT_ID,0))+1 FROM FUN_DEPTS" />
+		</table>
+
+		<table tableName="FUN_SCHEDULE" domainObjectName="ErpFunSchedule">
+			<generatedKey column="SCHEDULE_ID" sqlStatement="JDBC" identity="true"/>
+		</table> 
+		<table tableName="MAKE_LOOK_HOUSE" domainObjectName="ErpMakeLookHouse">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="AUDIT_RUNTIME" domainObjectName="ErpAuditRuntime">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_TRACK" domainObjectName="ErpFunTrack">
+			<generatedKey column="TRACK_ID" sqlStatement="SELECT next value for SEQ_FUN_TRACK_TRACK_ID" />
+		</table>
+			  ！！操作顺序！！1、把之前的table移上去，2、把之前有的剪切下来，或者没有的就新写
+
+		<table tableName="BUILDING_SET_UNIT" domainObjectName="ErpBuildingSetUnit">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_ROLE_WAGE_CONFIG" domainObjectName="ErpFunRoleWageConfig">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="SSQ_CONTRACT" domainObjectName="ErpSsqContract">
+		</table>
+		<table tableName="FUN_DEAL_SHARE_USER" domainObjectName="ErpFunDealShareUser">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+	
+		<table tableName="SSQ_CONTRACT" domainObjectName="ErpSsqContract">
+		</table>
+			<table tableName="FUN_PERFORMANCE_TYPE_EXT" domainObjectName="ErpFunPerformanceTypeExt">
+			<generatedKey column="EXT_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_USERS_INVITED" domainObjectName="ErpFunUsersInvited">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		
+			
+		</table>
+		<table tableName="INVITE_USER_LOG" domainObjectName="ErpInviteUserLog">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		
+		<table tableName="FUN_PROFIT_DYNAMIC_SHARE_DETAIL" domainObjectName="ErpFunProfitDynamicShareDetail">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_PROFIT_DYNAMIC_DETAIL" domainObjectName="ErpFunProfitDynamicDetail">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_PERFORMANCE_TYPE" domainObjectName="ErpFunPerformanceType" >
+			<generatedKey column="PERFORMANCE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="BUILD_PERMISSIONS" domainObjectName="ErpBuildPermissions">
+			<generatedKey column="BP_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="USER_ROLE_EXAMINE_LOG" domainObjectName="ErpUserRoleExamineLog">
+     		 <generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+    	</table>
+    	<table tableName="ZX_ROLE_CONFIG_HIS" domainObjectName="ErpZxRoleConfigHis">
+	      <generatedKey column="CONFIG_ID" sqlStatement="JDBC" identity="true" />
+	    </table>
+    	<table tableName="FUN_DEPOSIT" domainObjectName="ErpFunDeposit">
+	      <generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+	    </table>
+		<table tableName="BUILD_RULE_BATCH_TEMP" domainObjectName="ErpBuildRuleBatchTemp">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table> 
+        <table tableName="AUDIT_RUNTIME" domainObjectName="ErpAuditRuntime">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="AUDIT_PROCESS" domainObjectName="ErpAuditProcess">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+        <table tableName="AUDIT_CLASS" domainObjectName="ErpAuditClass">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+	
+		 <table tableName="AUDIT_TEMPLATE" domainObjectName="ErpAuditTemplate">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_PARTNER" domainObjectName="ErpFunPartner">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>		
+		 <table tableName="AUDIT_USER_TEMPLATE" domainObjectName="ErpAuditUserTemplate">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 
+		 <table tableName="FUN_COMP" domainObjectName="ErpFunComp">
+			<generatedKey column="COMP_ID" sqlStatement="SELECT MAX(ISNULL(COMP_ID,0))+1 FROM FUN_COMP" />
+		</table>
+		<table tableName="DEAL_USER_RELATIVE" domainObjectName="ErpDealUserRelative">
+			<generatedKey column="RELATIVE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_DEAL_CODE" domainObjectName="ErpFunDealCode">
+			<generatedKey column="CODE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_OUTDEAL" domainObjectName="ErpFunOutdeal">
+			<generatedKey column="DEAL_ID" sqlStatement="SELECT next value for SEQ_FUN_OUTDEAL_DEAL_ID" />
+		</table>
+		<table tableName="FUN_USERS" domainObjectName="ErpFunUsers">
+			<generatedKey column="USER_ID" sqlStatement="SELECT next value for SEQ_FUN_USERS_USER_ID" />
+		</table>
+		<table tableName="FUN_DEPT_FEE_LIST" domainObjectName="ErpFunDeptFeeList">
+			<generatedKey column="FEE_DETAIL_LIST_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_DEPT_FEE_RECORD" domainObjectName="ErpFunDeptFeeRecord">
+			<generatedKey column="RECORD_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_ENTRUST_FILES" domainObjectName="ErpFunEntrustFiles">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_ENTRUST_OWNERS" domainObjectName="ErpFunEntrustOwners">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_ENTRUST_CERTIFICATE" domainObjectName="ErpFunEntrustCertificate">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_USERS" domainObjectName="ErpFunUsers">
+			<generatedKey column="USER_ID" sqlStatement="SELECT next value for SEQ_FUN_USERS_USER_ID" />
+		</table>
+		<table tableName="FUN_UPDATE_PID_APPLY" domainObjectName="ErpFunUpdatePidApply">
+	      <generatedKey column="APPLY_ID" sqlStatement="JDBC"  identity="true"/>
+	    </table>
+		<table tableName="ALI_RENTHOUSE_RESERVATION" domainObjectName="ErpAliRenthouseReservation">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="ATTENDANCE_CHANGE_RECORD" domainObjectName="ErpAttendanceChangeRecord"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey column="RECORD_ID"
+				sqlStatement="JDBC"
+				identity="true" />
+		</table>
+ 		<table tableName="FUN_MAC" domainObjectName="ErpFunMac"></table>
+
+		 <table tableName="FUN_TASK" domainObjectName="ErpFunTask">
+			<generatedKey column="TASK_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_TASK_TASK_ID" />
+		</table>
+
+		<table tableName="FUN_PROFIT_TARGET" domainObjectName="ErpFunProfitTarget">
+			<generatedKey column="ID" sqlStatement="SELECT MAX(ISNULL(ID,0))+1 FROM FUN_PROFIT_TARGET" />
+		</table>
+		 <table tableName="FUN_PROLOGS" domainObjectName="ErpFunPrologs">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 
+		<table tableName="FUN_USER_MANAGE_RANGE" domainObjectName="ErpFunUserManageRange">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="AUDIT_RUNTIME" domainObjectName="ErpAuditRuntime">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="FUN_ATTENDANCE_SCOPE" domainObjectName="ErpFunAttendanceScope">
+			<generatedKey column="ATT_SCOPE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+				
+		<table tableName="FUN_ASSESSMENT_STATISTICS" domainObjectName="ErpFunAssessmentStatistics">
+			<generatedKey column="ID" sqlStatement="SELECT SCOPE_IDENTITY()" identity="true"/>
+		</table>
+		<table tableName="FUN_PROFIT" domainObjectName="ErpFunProfit">
+			<generatedKey column="PROFIT_ID" sqlStatement="SELECT next value for SEQ_FUN_PROFIT_PROFIT_ID" />
+		</table>
+		<table tableName="FUN_ORGANIZATION" domainObjectName="ErpFunOrganization">
+	      	<generatedKey column="ORGANIZATION_ID" sqlStatement="JDBC"/>
+	     </table>
+		 <table tableName="ALIYUN_NUMBER_POOL" domainObjectName="ErpAliyunNumberPool">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="ALIYUN_PHONE" domainObjectName="ErpAliyunPhone">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="ALIYUN_PHONE_BIND_HISTORY" domainObjectName="ErpAliyunPhoneBindHistory">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="CHECK_IN_RECORD" domainObjectName="ErpCheckInRecord">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="FUN_BILL_CODELOG" domainObjectName="ErpFunBillCodelog">
+			<generatedKey column="CODELOG_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="FUN_BILL_CODE" domainObjectName="ErpFunBillCode">
+			<generatedKey column="CODE_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="BUILD_PERMISSIONS" domainObjectName="ErpBuildPermissions">
+			<generatedKey column="BP_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		
+		<table tableName="FUN_CROSS_COMP_USER" domainObjectName="ErpFunCrossCompUser">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_CROSS_COMP_STATUS" domainObjectName="ErpFunCrossCompStatus">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_CROSS_COMP_USER_OPER" domainObjectName="ErpFunCrossCompUserOper">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		 <table tableName="SYSTEM_SETTING_LOGS" domainObjectName="ErpSystemSettingLogs">
+		 	<generatedKey column="ID" sqlStatement="SELECT MAX(ISNULL(ID,0))+1 FROM SYSTEM_SETTING_LOGS" />
+		 </table>
+		<table tableName="FUN_COMP" domainObjectName="ErpFunComp">
+			<generatedKey column="COMP_ID" sqlStatement="SELECT MAX(ISNULL(COMP_ID,0))+1 FROM FUN_COMP" />
+		</table>
+		<table tableName="ALIYUN_TELEPHONE_BILL" domainObjectName="ErpAliyunTelephoneBill">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+	    <table tableName="FUN_EMPLOYEE_LOG" domainObjectName="ErpFunEmployeeLog">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_CROSS_COMP_OPER" domainObjectName="ErpFunCrossCompOper">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>				
+
+		<table tableName="FUN_LEASE_PUBLISH_INFO" domainObjectName="ErpFunLeasePublishInfo">
+		</table>
+		 <table tableName="SYS_PARA" domainObjectName="ErpSysPara"></table>
+		  <table tableName="FUN_BUY_CUSTOMER" domainObjectName="ErpFunBuyCustomer">
+			<generatedKey column="BUY_CUST_ID"
+				sqlStatement="SELECT next value for SEQ_FUN_BUY_CUSTOMER_BUY_CUST_ID" />
+		</table>
+		  
+		  <table tableName="FUN_ENTRUST" domainObjectName="ErpFunEntrust">
+			<generatedKey column="ENTRUST_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_VIEW_LOG" domainObjectName="ErpFunViewLog">
+			<generatedKey column="VIEW_ID" sqlStatement="SELECT next value for SEQ_FUN_VIEW_LOG_VIEW_ID" />
+		</table> 
+		 <table tableName="BUILDING_INFO" domainObjectName="ErpBuildingInfo"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+			<generatedKey column="BUILD_ID" sqlStatement=" SELECT next value for SEQ_BUILDING_INFO_BUILD_ID" identity="false"/>
+		</table>
+		<table tableName="FUN_ENTRUST_RECORD_KPI_LOG" domainObjectName="ErpFunEntrustRecordKpiLog">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="FUN_ENTRUST_KPI_LOG" domainObjectName="ErpFunEntrustKpiLog">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="KPI_STATISTIC_BROKER_PERFORMANCE" domainObjectName="ErpKpiStatisticBrokerPerformance">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		 <table tableName="FUN_ENTRUST" domainObjectName="ErpFunEntrust">
+			<generatedKey column="ENTRUST_ID" sqlStatement="JDBC" identity="true"/>
+		</table>
+		<table tableName="COMP_ROLES" domainObjectName="ErpCompRoles">
+			<generatedKey column="AUTO_ID" sqlStatement="JDBC" identity="true" />
+			<columnOverride column="SEQ_NO" javaType="java.lang.Integer"></columnOverride>
+		</table>
+		<table tableName="FUN_SALE_PUBLISH_INFO" domainObjectName="ErpFunSalePublishInfo">
+		</table>
+		<table tableName="FUN_ENTRUST_RECORD_NO" domainObjectName="ErpFunEntrustRecordNo">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		
+		
+		
+		<table tableName="AUDIT_USER_RUNTIME" domainObjectName="ErpAuditUserRuntime">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="AUDIT_USER_TRANSMIT_LOG" domainObjectName="ErpAuditUserTransmitLog">
+			<generatedKey column="LOG_ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="ML_WEBSITE_PARAM_UPDATE_LOG" domainObjectName="ErpMlWebsiteParamUpdateLog">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+		<table tableName="FUN_TRACK" domainObjectName="ErpFunTrack">
+			<generatedKey column="TRACK_ID" sqlStatement="SELECT next value for SEQ_FUN_TRACK_TRACK_ID" />
+		</table>
+		-->
+		
+		<table tableName="BUILD_PERMISSIONS_TRACK" domainObjectName="ErpBuildPermissionsTrack">
+			<generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>

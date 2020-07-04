@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfSmsMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfSmsMsg" >
+    <!--@mbggenerated-->
+    <result column="MSG_ID" property="msgId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="SMS_MSG" property="smsMsg" jdbcType="VARCHAR" />
+    <result column="WF_STATUS" property="wfStatus" jdbcType="TINYINT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfSmsMsg" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="msgId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_SMS_MSG (ARCHIVE_ID, CASE_ID, CITY_ID, 
+      CASE_TYPE, MOBILE, SMS_MSG, 
+      WF_STATUS, CREATION_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{caseType,jdbcType=TINYINT}, #{mobile,jdbcType=VARCHAR}, #{smsMsg,jdbcType=VARCHAR}, 
+      #{wfStatus,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfSmsMsg" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="msgId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_SMS_MSG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="smsMsg != null" >
+        SMS_MSG,
+      </if>
+      <if test="wfStatus != null" >
+        WF_STATUS,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="smsMsg != null" >
+        #{smsMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="wfStatus != null" >
+        #{wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

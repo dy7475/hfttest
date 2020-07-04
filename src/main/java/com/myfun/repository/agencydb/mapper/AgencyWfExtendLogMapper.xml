@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfExtendLogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfExtendLog" >
+    <!--@mbggenerated-->
+    <id column="WF_ID" property="wfId" jdbcType="INTEGER" />
+    <result column="WX_ID" property="wxId" jdbcType="INTEGER" />
+    <result column="WF_TYPE" property="wfType" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    WF_ID, WX_ID, WF_TYPE, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_extend_log
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_extend_log
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfExtendLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wfId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_extend_log (WX_ID, WF_TYPE, CREATE_TIME
+      )
+    values (#{wxId,jdbcType=INTEGER}, #{wfType,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfExtendLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wfId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_extend_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wxId != null" >
+        WX_ID,
+      </if>
+      <if test="wfType != null" >
+        WF_TYPE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wxId != null" >
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wfType != null" >
+        #{wfType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfExtendLog" >
+    <!--@mbggenerated-->
+    update WF_extend_log
+    <set >
+      <if test="wxId != null" >
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wfType != null" >
+        WF_TYPE = #{wfType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfExtendLog" >
+    <!--@mbggenerated-->
+    update WF_extend_log
+    set WX_ID = #{wxId,jdbcType=INTEGER},
+      WF_TYPE = #{wfType,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </update>
+</mapper>

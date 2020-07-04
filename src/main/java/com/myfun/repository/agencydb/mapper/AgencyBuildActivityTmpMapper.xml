@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyBuildActivityTmpMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyBuildActivityTmp" >
+    <!--@mbggenerated-->
+    <id column="ACT_ID" property="actId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="ACT_CONTENT" property="actContent" jdbcType="VARCHAR" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="ACT_STATUS" property="actStatus" jdbcType="TINYINT" />
+    <result column="CREATOR_UID" property="creatorUid" jdbcType="SMALLINT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="EXAM_UID" property="examUid" jdbcType="INTEGER" />
+    <result column="EXAM_TIME" property="examTime" jdbcType="TIMESTAMP" />
+    <result column="EXAM_FLAG" property="examFlag" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ACT_ID, CITY_ID, BUILD_ID, ACT_CONTENT, END_TIME, ACT_STATUS, CREATOR_UID, CREATION_TIME, 
+    EXAM_UID, EXAM_TIME, EXAM_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILD_ACTIVITY_TMP
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from BUILD_ACTIVITY_TMP
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivityTmp" >
+    <!--@mbggenerated-->
+    insert into BUILD_ACTIVITY_TMP (ACT_ID, CITY_ID, BUILD_ID, 
+      ACT_CONTENT, END_TIME, ACT_STATUS, 
+      CREATOR_UID, CREATION_TIME, EXAM_UID, 
+      EXAM_TIME, EXAM_FLAG)
+    values (#{actId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{buildId,jdbcType=INTEGER}, 
+      #{actContent,jdbcType=VARCHAR}, #{endTime,jdbcType=TIMESTAMP}, #{actStatus,jdbcType=TINYINT}, 
+      #{creatorUid,jdbcType=SMALLINT}, #{creationTime,jdbcType=TIMESTAMP}, #{examUid,jdbcType=INTEGER}, 
+      #{examTime,jdbcType=TIMESTAMP}, #{examFlag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivityTmp" >
+    <!--@mbggenerated-->
+    insert into BUILD_ACTIVITY_TMP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="actId != null" >
+        ACT_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="actContent != null" >
+        ACT_CONTENT,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="actStatus != null" >
+        ACT_STATUS,
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="examUid != null" >
+        EXAM_UID,
+      </if>
+      <if test="examTime != null" >
+        EXAM_TIME,
+      </if>
+      <if test="examFlag != null" >
+        EXAM_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="actId != null" >
+        #{actId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="actContent != null" >
+        #{actContent,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actStatus != null" >
+        #{actStatus,jdbcType=TINYINT},
+      </if>
+      <if test="creatorUid != null" >
+        #{creatorUid,jdbcType=SMALLINT},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examUid != null" >
+        #{examUid,jdbcType=INTEGER},
+      </if>
+      <if test="examTime != null" >
+        #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examFlag != null" >
+        #{examFlag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivityTmp" >
+    <!--@mbggenerated-->
+    update BUILD_ACTIVITY_TMP
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="actContent != null" >
+        ACT_CONTENT = #{actContent,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actStatus != null" >
+        ACT_STATUS = #{actStatus,jdbcType=TINYINT},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=SMALLINT},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examUid != null" >
+        EXAM_UID = #{examUid,jdbcType=INTEGER},
+      </if>
+      <if test="examTime != null" >
+        EXAM_TIME = #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examFlag != null" >
+        EXAM_FLAG = #{examFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBuildActivityTmp" >
+    <!--@mbggenerated-->
+    update BUILD_ACTIVITY_TMP
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      ACT_CONTENT = #{actContent,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      ACT_STATUS = #{actStatus,jdbcType=TINYINT},
+      CREATOR_UID = #{creatorUid,jdbcType=SMALLINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      EXAM_UID = #{examUid,jdbcType=INTEGER},
+      EXAM_TIME = #{examTime,jdbcType=TIMESTAMP},
+      EXAM_FLAG = #{examFlag,jdbcType=TINYINT}
+    where ACT_ID = #{actId,jdbcType=INTEGER}
+  </update>
+</mapper>

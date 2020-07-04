@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpPbcatfmtMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpPbcatfmt">
+    <!--@mbggenerated-->
+    <result column="pbf_name" jdbcType="VARCHAR" property="pbfName" />
+    <result column="pbf_frmt" jdbcType="VARCHAR" property="pbfFrmt" />
+    <result column="pbf_type" jdbcType="SMALLINT" property="pbfType" />
+    <result column="pbf_cntr" jdbcType="INTEGER" property="pbfCntr" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpPbcatfmt">
+    <!--@mbggenerated-->
+    insert into pbcatfmt (pbf_name, pbf_frmt, pbf_type, 
+      pbf_cntr)
+    values (#{pbfName,jdbcType=VARCHAR}, #{pbfFrmt,jdbcType=VARCHAR}, #{pbfType,jdbcType=SMALLINT}, 
+      #{pbfCntr,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpPbcatfmt">
+    <!--@mbggenerated-->
+    insert into pbcatfmt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pbfName != null">
+        pbf_name,
+      </if>
+      <if test="pbfFrmt != null">
+        pbf_frmt,
+      </if>
+      <if test="pbfType != null">
+        pbf_type,
+      </if>
+      <if test="pbfCntr != null">
+        pbf_cntr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pbfName != null">
+        #{pbfName,jdbcType=VARCHAR},
+      </if>
+      <if test="pbfFrmt != null">
+        #{pbfFrmt,jdbcType=VARCHAR},
+      </if>
+      <if test="pbfType != null">
+        #{pbfType,jdbcType=SMALLINT},
+      </if>
+      <if test="pbfCntr != null">
+        #{pbfCntr,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

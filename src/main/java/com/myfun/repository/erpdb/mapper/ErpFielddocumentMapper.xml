@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFielddocumentMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFielddocument">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="tableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="field" jdbcType="VARCHAR" property="field" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.erpdb.po.ErpFielddocument">
+    <!--@mbggenerated-->
+    <result column="description" jdbcType="CLOB" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, tableName, field
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FIELDDOCUMENT
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FIELDDOCUMENT
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFielddocument">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FIELDDOCUMENT (tableName, field, description
+      )
+    values (#{tablename,jdbcType=VARCHAR}, #{field,jdbcType=VARCHAR}, #{description,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFielddocument">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FIELDDOCUMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tablename != null">
+        tableName,
+      </if>
+      <if test="field != null">
+        field,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="field != null">
+        #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFielddocument">
+    <!--@mbggenerated-->
+    update FIELDDOCUMENT
+    <set>
+      <if test="tablename != null">
+        tableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="field != null">
+        field = #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpFielddocument">
+    <!--@mbggenerated-->
+    update FIELDDOCUMENT
+    set tableName = #{tablename,jdbcType=VARCHAR},
+      field = #{field,jdbcType=VARCHAR},
+      description = #{description,jdbcType=CLOB}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFielddocument">
+    <!--@mbggenerated-->
+    update FIELDDOCUMENT
+    set tableName = #{tablename,jdbcType=VARCHAR},
+      field = #{field,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

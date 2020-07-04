@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+           <title>div cover flash with iframe</title>  
+         </head>  
+         <body>  
+           <div id="cover_div" style="position:absolute;width:100px;height:100px;background-color:blue;z-index:9">I cover the Flash.</div>  
+           <div>  
+             <iframe id="cover_iframe" frameborder="0" style="position:absolute;width:100px;height:100px;z-index:8;"></iframe>  
+         <object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'  
+              codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0'  
+              width='400px' height='340px'>  
+           <param name='movie' value='1.swf' />  
+           <param name='quality' value='high' />  
+           <embed src='1.swf' quality='high'  
+                pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'  
+                type='application/x-shockwave-flash' width='400' height='340'>  
+               </embed>  
+         </object>  
+           </div>  
+         </body>  

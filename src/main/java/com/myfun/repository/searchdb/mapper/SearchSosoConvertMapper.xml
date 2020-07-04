@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.searchdb.dao.SearchSosoConvertMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.searchdb.po.SearchSosoConvert" >
+    <!--@mbggenerated-->
+    <id column="CONVERT_ID" property="convertId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="SOSO_ID" property="sosoId" jdbcType="INTEGER" />
+    <result column="SOSO_TYPE" property="sosoType" jdbcType="INTEGER" />
+    <result column="SOSO_PROPERTY" property="sosoProperty" jdbcType="INTEGER" />
+    <result column="CONVERT_TIME" property="convertTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CONVERT_ID, ARCHIVE_ID, SOSO_ID, SOSO_TYPE, SOSO_PROPERTY, CONVERT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SOSO_CONVERT
+    where CONVERT_ID = #{convertId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from SOSO_CONVERT
+    where CONVERT_ID = #{convertId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.searchdb.po.SearchSosoConvert" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="convertId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SOSO_CONVERT (ARCHIVE_ID, SOSO_ID, SOSO_TYPE, 
+      SOSO_PROPERTY, CONVERT_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{sosoId,jdbcType=INTEGER}, #{sosoType,jdbcType=INTEGER}, 
+      #{sosoProperty,jdbcType=INTEGER}, #{convertTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.searchdb.po.SearchSosoConvert" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="convertId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SOSO_CONVERT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="sosoId != null" >
+        SOSO_ID,
+      </if>
+      <if test="sosoType != null" >
+        SOSO_TYPE,
+      </if>
+      <if test="sosoProperty != null" >
+        SOSO_PROPERTY,
+      </if>
+      <if test="convertTime != null" >
+        CONVERT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="sosoId != null" >
+        #{sosoId,jdbcType=INTEGER},
+      </if>
+      <if test="sosoType != null" >
+        #{sosoType,jdbcType=INTEGER},
+      </if>
+      <if test="sosoProperty != null" >
+        #{sosoProperty,jdbcType=INTEGER},
+      </if>
+      <if test="convertTime != null" >
+        #{convertTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.searchdb.po.SearchSosoConvert" >
+    <!--@mbggenerated-->
+    update SOSO_CONVERT
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="sosoId != null" >
+        SOSO_ID = #{sosoId,jdbcType=INTEGER},
+      </if>
+      <if test="sosoType != null" >
+        SOSO_TYPE = #{sosoType,jdbcType=INTEGER},
+      </if>
+      <if test="sosoProperty != null" >
+        SOSO_PROPERTY = #{sosoProperty,jdbcType=INTEGER},
+      </if>
+      <if test="convertTime != null" >
+        CONVERT_TIME = #{convertTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CONVERT_ID = #{convertId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.searchdb.po.SearchSosoConvert" >
+    <!--@mbggenerated-->
+    update SOSO_CONVERT
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      SOSO_ID = #{sosoId,jdbcType=INTEGER},
+      SOSO_TYPE = #{sosoType,jdbcType=INTEGER},
+      SOSO_PROPERTY = #{sosoProperty,jdbcType=INTEGER},
+      CONVERT_TIME = #{convertTime,jdbcType=TIMESTAMP}
+    where CONVERT_ID = #{convertId,jdbcType=INTEGER}
+  </update>
+</mapper>

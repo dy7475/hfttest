@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBroadcastMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBroadcast">
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <id column="BULLET_ID" jdbcType="INTEGER" property="bulletId" />
+    <id column="BC_TYPE" jdbcType="INTEGER" property="bcType" />
+    <result column="BOUND" jdbcType="INTEGER" property="bound" />
+    <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ARCHIVE_ID, USER_ID, BULLET_ID, BC_TYPE, BOUND, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBroadcastKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BROADCAST
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and BULLET_ID = #{bulletId,jdbcType=INTEGER}
+      and BC_TYPE = #{bcType,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBroadcastKey">
+    <!--@mbggenerated-->
+    delete from BROADCAST
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and BULLET_ID = #{bulletId,jdbcType=INTEGER}
+      and BC_TYPE = #{bcType,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpBroadcast">
+    <!--@mbggenerated-->
+    insert into BROADCAST (ARCHIVE_ID, USER_ID, BULLET_ID, 
+      BC_TYPE, BOUND, CREATE_TIME
+      )
+    values (#{archiveId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{bulletId,jdbcType=INTEGER}, 
+      #{bcType,jdbcType=INTEGER}, #{bound,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpBroadcast">
+    <!--@mbggenerated-->
+    insert into BROADCAST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="bulletId != null">
+        BULLET_ID,
+      </if>
+      <if test="bcType != null">
+        BC_TYPE,
+      </if>
+      <if test="bound != null">
+        BOUND,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletId != null">
+        #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="bcType != null">
+        #{bcType,jdbcType=INTEGER},
+      </if>
+      <if test="bound != null">
+        #{bound,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBroadcast">
+    <!--@mbggenerated-->
+    update BROADCAST
+    <set>
+      <if test="bound != null">
+        BOUND = #{bound,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and BULLET_ID = #{bulletId,jdbcType=INTEGER}
+      and BC_TYPE = #{bcType,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBroadcast">
+    <!--@mbggenerated-->
+    update BROADCAST
+    set BOUND = #{bound,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+      and BULLET_ID = #{bulletId,jdbcType=INTEGER}
+      and BC_TYPE = #{bcType,jdbcType=INTEGER}
+  </update>
+  <insert id="insertBoradCast" parameterType="java.util.Map">
+  	INSERT INTO BROADCAST(ARCHIVE_ID ,USER_ID, BULLET_ID, BC_TYPE,BOUND, CREATE_TIME, YOU_JIA_FLAG) 
+      SELECT ARCHIVE_ID, USER_ID, #{bulletId} , 1 ,  #{bound},GETDATE(), #{youjiaflag} from FUN_USERS 
+	WHERE   not exists (SELECT ARCHIVE_ID FROM BROADCAST WHERE ARCHIVE_ID=FUN_USERS.ARCHIVE_ID and BULLET_ID = #{bulletId} AND BC_TYPE = 1) 
+				AND  DEPT_ID NOT IN (SELECT DEPT_ID FROM FUN_DEPTS WHERE DEPT_FLAG = 0) 
+		<if test="bound == 1">
+			and COMP_ID =  #{compId}
+		</if>
+		<if test="bound == 0">
+			and DEPT_ID = #{deptId}
+		</if>
+	</insert>
+	<insert id="insertBulletBroadcast" parameterType="java.util.Map">
+		INSERT INTO BROADCAST(USER_ID, BULLET_ID, BC_TYPE, BOUND, ARCHIVE_ID, CREATE_TIME)
+		SELECT USER_ID,#{bulletId}, 1, #{bound}, ARCHIVE_ID, GETDATE()
+		FROM FUN_USERS WHERE USER_WRITEOFF = 0
+		AND USER_ID NOT IN (SELECT USER_ID FROM BROADCAST WHERE BULLET_ID = #{bulletId} AND BC_TYPE = 1)
+		AND USER_ID != #{userId} AND COMP_ID= #{compId}
+		<if test="deptId != null and deptId != ''">AND DEPT_ID = #{deptId}</if>
+		<if test="isPartner">
+			AND PARTNER_ID = #{partnerId}
+		</if>
+	</insert>
+	<insert id="insertBulletBroadcastNewOrg">
+		INSERT INTO BROADCAST(USER_ID, BULLET_ID, BC_TYPE, BOUND, ARCHIVE_ID, CREATE_TIME)
+		SELECT USER_ID, #{bulletId}, 1, #{bound}, ARCHIVE_ID, GETDATE() FROM FUN_USERS 
+		WHERE COMP_ID = #{compId} AND USER_WRITEOFF = 0 AND USER_ID != #{userId} 
+		AND USER_ID NOT IN (SELECT USER_ID FROM BROADCAST WHERE BULLET_ID = #{bulletId} AND BC_TYPE = 1) 
+		<if test="isPartner">
+			AND PARTNER_ID = #{partnerId}
+		</if>
+		<if test="null != bound and bound == 1 and null != pubOrganizationId and pubOrganizationId != ''">
+			AND TISSUE_LINE LIKE '%:${pubOrganizationId}:%'
+		</if>
+	</insert>
+    <select id="getBroadCastList" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from BROADCAST where archive_id=#{shardArchiveId}
+        <if test="!isYouJia">
+            and (YOU_JIA_FLAG = 0 OR YOU_JIA_FLAG IS NULL )
+        </if>
+    </select>
+  <delete id="deleteByArchiveId">
+    delete BROADCAST where ARCHIVE_ID=#{archiveId}
+  </delete>
+	
+</mapper>
+

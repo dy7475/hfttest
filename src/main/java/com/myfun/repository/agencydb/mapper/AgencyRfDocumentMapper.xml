@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRfDocumentMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRfDocument" >
+    <!--@mbggenerated-->
+    <id column="DATA_ID" property="dataId" jdbcType="INTEGER" />
+    <result column="DATA_NAME" property="dataName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    DATA_ID, DATA_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RF_DOCUMENT
+    where DATA_ID = #{dataId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RF_DOCUMENT
+    where DATA_ID = #{dataId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRfDocument" >
+    <!--@mbggenerated-->
+    insert into RF_DOCUMENT (DATA_ID, DATA_NAME)
+    values (#{dataId,jdbcType=INTEGER}, #{dataName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfDocument" >
+    <!--@mbggenerated-->
+    insert into RF_DOCUMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dataId != null" >
+        DATA_ID,
+      </if>
+      <if test="dataName != null" >
+        DATA_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dataId != null" >
+        #{dataId,jdbcType=INTEGER},
+      </if>
+      <if test="dataName != null" >
+        #{dataName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfDocument" >
+    <!--@mbggenerated-->
+    update RF_DOCUMENT
+    <set >
+      <if test="dataName != null" >
+        DATA_NAME = #{dataName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DATA_ID = #{dataId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRfDocument" >
+    <!--@mbggenerated-->
+    update RF_DOCUMENT
+    set DATA_NAME = #{dataName,jdbcType=VARCHAR}
+    where DATA_ID = #{dataId,jdbcType=INTEGER}
+  </update>
+</mapper>

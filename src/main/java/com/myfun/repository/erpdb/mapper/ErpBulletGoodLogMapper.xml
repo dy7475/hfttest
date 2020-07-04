@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBulletGoodLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBulletGoodLog">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="BOUND" jdbcType="INTEGER" property="bound" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="BULLET_ID" jdbcType="INTEGER" property="bulletId" />
+    <result column="REPLAY_ID" jdbcType="INTEGER" property="replayId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, BOUND, ARCHIVE_ID, CITY_ID, BULLET_ID, REPLAY_ID, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BULLET_GOOD_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from BULLET_GOOD_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpBulletGoodLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BULLET_GOOD_LOG (BOUND, ARCHIVE_ID, CITY_ID, 
+      BULLET_ID, REPLAY_ID, CREATE_TIME
+      )
+    values (#{bound,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{bulletId,jdbcType=INTEGER}, #{replayId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpBulletGoodLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BULLET_GOOD_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bound != null">
+        BOUND,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="bulletId != null">
+        BULLET_ID,
+      </if>
+      <if test="replayId != null">
+        REPLAY_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bound != null">
+        #{bound,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletId != null">
+        #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="replayId != null">
+        #{replayId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBulletGoodLog">
+    <!--@mbggenerated-->
+    update BULLET_GOOD_LOG
+    <set>
+      <if test="bound != null">
+        BOUND = #{bound,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletId != null">
+        BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="replayId != null">
+        REPLAY_ID = #{replayId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBulletGoodLog">
+    <!--@mbggenerated-->
+    update BULLET_GOOD_LOG
+    set BOUND = #{bound,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      REPLAY_ID = #{replayId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

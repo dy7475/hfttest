@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyVoipCardMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyVoipCard" >
+    <!--@mbggenerated-->
+    <id column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+    <result column="CARD_PW" property="cardPw" jdbcType="VARCHAR" />
+    <result column="PRICE" property="price" jdbcType="NUMERIC" />
+    <result column="CARD_STATUS" property="cardStatus" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="USE_TIME" property="useTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CARD_NO, CARD_PW, PRICE, CARD_STATUS, CREATE_TIME, USE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from VOIP_CARD
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <!--@mbggenerated-->
+    delete from VOIP_CARD
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyVoipCard" >
+    <!--@mbggenerated-->
+    insert into VOIP_CARD (CARD_NO, CARD_PW, PRICE, 
+      CARD_STATUS, CREATE_TIME, USE_TIME
+      )
+    values (#{cardNo,jdbcType=VARCHAR}, #{cardPw,jdbcType=VARCHAR}, #{price,jdbcType=NUMERIC}, 
+      #{cardStatus,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{useTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyVoipCard" >
+    <!--@mbggenerated-->
+    insert into VOIP_CARD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="cardPw != null" >
+        CARD_PW,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="cardStatus != null" >
+        CARD_STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="useTime != null" >
+        USE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPw != null" >
+        #{cardPw,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="cardStatus != null" >
+        #{cardStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useTime != null" >
+        #{useTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyVoipCard" >
+    <!--@mbggenerated-->
+    update VOIP_CARD
+    <set >
+      <if test="cardPw != null" >
+        CARD_PW = #{cardPw,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="cardStatus != null" >
+        CARD_STATUS = #{cardStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useTime != null" >
+        USE_TIME = #{useTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyVoipCard" >
+    <!--@mbggenerated-->
+    update VOIP_CARD
+    set CARD_PW = #{cardPw,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=NUMERIC},
+      CARD_STATUS = #{cardStatus,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      USE_TIME = #{useTime,jdbcType=TIMESTAMP}
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </update>
+  <!-- business -->
+  <select id="selectOneValidVoipCard" resultMap="BaseResultMap">
+    select top 1
+    <include refid="Base_Column_List" />
+    from VOIP_CARD
+    where where CARD_STATUS = 0 order by newId()
+  </select>
+</mapper>

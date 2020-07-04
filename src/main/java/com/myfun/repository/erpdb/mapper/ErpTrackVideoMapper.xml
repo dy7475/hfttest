@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpTrackVideoMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpTrackVideo">
+    <!--@mbggenerated-->
+    <id column="VIDEO_ID" jdbcType="INTEGER" property="videoId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="HOUSE_ID" jdbcType="INTEGER" property="houseId" />
+    <result column="TRACK_ID" jdbcType="INTEGER" property="trackId" />
+    <result column="VIDEO_ADDR" jdbcType="VARCHAR" property="videoAddr" />
+    <result column="PHOTO_ADDR" jdbcType="VARCHAR" property="photoAddr" />
+    <result column="UPLOAD_USER" jdbcType="INTEGER" property="uploadUser" />
+    <result column="UPLOAD_DATE" jdbcType="TIMESTAMP" property="uploadDate" />
+    <result column="VIDEO_STATUS" jdbcType="INTEGER" property="videoStatus" />
+    <result column="LOCATIONS" jdbcType="VARCHAR" property="locations" />
+    <result column="VIDEO_SHOOTING_TIME" jdbcType="VARCHAR" property="videoShootingTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    VIDEO_ID, CASE_ID, CASE_TYPE, HOUSE_ID, TRACK_ID, VIDEO_ADDR, PHOTO_ADDR, UPLOAD_USER, 
+    UPLOAD_DATE, VIDEO_STATUS, LOCATIONS, VIDEO_SHOOTING_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpTrackVideoExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TRACK_VIDEO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TRACK_VIDEO
+    where VIDEO_ID = #{videoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from TRACK_VIDEO
+    where VIDEO_ID = #{videoId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpTrackVideoExample">
+    <!--@mbggenerated-->
+    delete from TRACK_VIDEO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpTrackVideo">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="videoId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(ISNULL(VIDEO_ID,0))+1 FROM TRACK_VIDEO
+    </selectKey>
+    insert into TRACK_VIDEO (VIDEO_ID, CASE_ID, CASE_TYPE, 
+      HOUSE_ID, TRACK_ID, VIDEO_ADDR, 
+      PHOTO_ADDR, UPLOAD_USER, UPLOAD_DATE, 
+      VIDEO_STATUS, LOCATIONS, VIDEO_SHOOTING_TIME
+      )
+    values (#{videoId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, 
+      #{houseId,jdbcType=INTEGER}, #{trackId,jdbcType=INTEGER}, #{videoAddr,jdbcType=VARCHAR}, 
+      #{photoAddr,jdbcType=VARCHAR}, #{uploadUser,jdbcType=INTEGER}, #{uploadDate,jdbcType=TIMESTAMP}, 
+      #{videoStatus,jdbcType=INTEGER}, #{locations,jdbcType=VARCHAR}, #{videoShootingTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpTrackVideo">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="videoId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(ISNULL(VIDEO_ID,0))+1 FROM TRACK_VIDEO
+    </selectKey>
+    insert into TRACK_VIDEO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      VIDEO_ID,
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="houseId != null">
+        HOUSE_ID,
+      </if>
+      <if test="trackId != null">
+        TRACK_ID,
+      </if>
+      <if test="videoAddr != null">
+        VIDEO_ADDR,
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR,
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER,
+      </if>
+      <if test="uploadDate != null">
+        UPLOAD_DATE,
+      </if>
+      <if test="videoStatus != null">
+        VIDEO_STATUS,
+      </if>
+      <if test="locations != null">
+        LOCATIONS,
+      </if>
+      <if test="videoShootingTime != null">
+        VIDEO_SHOOTING_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{videoId,jdbcType=INTEGER},
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="trackId != null">
+        #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="videoAddr != null">
+        #{videoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAddr != null">
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null">
+        #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null">
+        #{uploadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoStatus != null">
+        #{videoStatus,jdbcType=INTEGER},
+      </if>
+      <if test="locations != null">
+        #{locations,jdbcType=VARCHAR},
+      </if>
+      <if test="videoShootingTime != null">
+        #{videoShootingTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpTrackVideoExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from TRACK_VIDEO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update TRACK_VIDEO
+    <set>
+      <if test="record.videoId != null">
+        VIDEO_ID = #{record.videoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseId != null">
+        HOUSE_ID = #{record.houseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackId != null">
+        TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoAddr != null">
+        VIDEO_ADDR = #{record.videoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoAddr != null">
+        PHOTO_ADDR = #{record.photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uploadUser != null">
+        UPLOAD_USER = #{record.uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.uploadDate != null">
+        UPLOAD_DATE = #{record.uploadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.videoStatus != null">
+        VIDEO_STATUS = #{record.videoStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.locations != null">
+        LOCATIONS = #{record.locations,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoShootingTime != null">
+        VIDEO_SHOOTING_TIME = #{record.videoShootingTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update TRACK_VIDEO
+    set VIDEO_ID = #{record.videoId,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      HOUSE_ID = #{record.houseId,jdbcType=INTEGER},
+      TRACK_ID = #{record.trackId,jdbcType=INTEGER},
+      VIDEO_ADDR = #{record.videoAddr,jdbcType=VARCHAR},
+      PHOTO_ADDR = #{record.photoAddr,jdbcType=VARCHAR},
+      UPLOAD_USER = #{record.uploadUser,jdbcType=INTEGER},
+      UPLOAD_DATE = #{record.uploadDate,jdbcType=TIMESTAMP},
+      VIDEO_STATUS = #{record.videoStatus,jdbcType=INTEGER},
+      LOCATIONS = #{record.locations,jdbcType=VARCHAR},
+      VIDEO_SHOOTING_TIME = #{record.videoShootingTime,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpTrackVideo">
+    <!--@mbggenerated-->
+    update TRACK_VIDEO
+    <set>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="houseId != null">
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="trackId != null">
+        TRACK_ID = #{trackId,jdbcType=INTEGER},
+      </if>
+      <if test="videoAddr != null">
+        VIDEO_ADDR = #{videoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAddr != null">
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null">
+        UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null">
+        UPLOAD_DATE = #{uploadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoStatus != null">
+        VIDEO_STATUS = #{videoStatus,jdbcType=INTEGER},
+      </if>
+      <if test="locations != null">
+        LOCATIONS = #{locations,jdbcType=VARCHAR},
+      </if>
+      <if test="videoShootingTime != null">
+        VIDEO_SHOOTING_TIME = #{videoShootingTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VIDEO_ID = #{videoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpTrackVideo">
+    <!--@mbggenerated-->
+    update TRACK_VIDEO
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      TRACK_ID = #{trackId,jdbcType=INTEGER},
+      VIDEO_ADDR = #{videoAddr,jdbcType=VARCHAR},
+      PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      UPLOAD_DATE = #{uploadDate,jdbcType=TIMESTAMP},
+      VIDEO_STATUS = #{videoStatus,jdbcType=INTEGER},
+      LOCATIONS = #{locations,jdbcType=VARCHAR},
+      VIDEO_SHOOTING_TIME = #{videoShootingTime,jdbcType=VARCHAR}
+    where VIDEO_ID = #{videoId,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectLastPhotoId" resultType="java.lang.Integer">
+    select top 1 VIDEO_ID
+    from TRACK_VIDEO_FASTDFS order by VIDEO_ID asc
+  </select>
+
+  <select id="getPhotoListOrderByPhotoIdDesc" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select top 50 VIDEO_ID,PHOTO_ADDR,VIDEO_ADDR
+    from TRACK_VIDEO
+    where (PHOTO_ADDR IS not null and PHOTO_ADDR not like 'group%') or (VIDEO_ADDR IS not null and VIDEO_ADDR not like 'group%')
+    <if test="videoId != null and videoId &gt; 0">AND VIDEO_ID &lt; #{videoId}</if>
+    order by VIDEO_ID desc
+  </select>
+  
+  <select id="getErpTrackVideoListByTrackId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TRACK_VIDEO
+    where  TRACK_ID = #{trackId,jdbcType=INTEGER}
+    order by VIDEO_ID desc
+  </select>
+
+  <insert id="insertList">
+    INSERT INTO TRACK_VIDEO_FASTDFS(VIDEO_ID, VIDEO_ADDR, VIDEO_ADDR_OLD, PHOTO_ADDR, PHOTO_ADDR_OLD)
+    VALUES
+    <foreach collection="photoList" item="item" separator=",">
+      (#{item.videoId},#{item.videoAddr},#{item.videoAddrOld},#{item.photoAddr},#{item.photoAddrOld})
+    </foreach>
+  </insert>
+
+  <update id="updatePhotoAddrForList">
+    <foreach collection="photoList" item="item" separator=";">
+      update TRACK_VIDEO_FASTDFS
+      set PHOTO_ADDR=#{item.photoAddr},VIDEO_ADDR=#{item.videoAddr}
+      where VIDEO_ID = #{item.videoId}
+    </foreach>
+  </update>
+
+</mapper>

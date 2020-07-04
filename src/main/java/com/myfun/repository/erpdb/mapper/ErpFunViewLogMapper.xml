@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunViewLogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunViewLog">
+    <!--@mbggenerated-->
+    <id column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <id column="VIEW_ID" jdbcType="INTEGER" property="viewId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="TARGET_TYPE" jdbcType="TINYINT" property="targetType" />
+    <result column="USEAGE" jdbcType="TINYINT" property="useage" />
+    <result column="TARGET_ID" jdbcType="INTEGER" property="targetId" />
+    <result column="TARGET_DEPT" jdbcType="INTEGER" property="targetDept" />
+    <result column="PLATE_TYPE" jdbcType="TINYINT" property="plateType" />
+    <result column="OWNER_ID" jdbcType="INTEGER" property="ownerId" />
+    <result column="VIEW_USER" jdbcType="INTEGER" property="viewUser" />
+    <result column="VIEW_TIME" jdbcType="VARCHAR" property="viewTime" />
+    <result column="TARGET_NO" jdbcType="VARCHAR" property="targetNo" />
+    <result column="VIEW_SOURCE" jdbcType="TINYINT" property="viewSource" />
+    <result column="VIEW_STATUS" jdbcType="TINYINT" property="viewStatus" />
+    <result column="PCNAME" jdbcType="VARCHAR" property="pcname" />
+    <result column="VIEW_CASE_STATUS" jdbcType="TINYINT" property="viewCaseStatus" />
+    <result column="TISSUE_LINE" jdbcType="VARCHAR" property="tissueLine" />
+    <result column="VIEW_USER_NAME" jdbcType="VARCHAR" property="viewUserName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    COMP_ID, VIEW_ID, DEPT_ID, TARGET_TYPE, USEAGE, TARGET_ID, TARGET_DEPT, PLATE_TYPE, 
+    OWNER_ID, VIEW_USER, VIEW_TIME, TARGET_NO, VIEW_SOURCE, VIEW_STATUS, PCNAME, VIEW_CASE_STATUS, 
+    TISSUE_LINE, VIEW_USER_NAME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunViewLogExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_VIEW_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_VIEW_LOG
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbggenerated-->
+    delete from FUN_VIEW_LOG
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunViewLogExample">
+    <!--@mbggenerated-->
+    delete from FUN_VIEW_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunViewLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="viewId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_VIEW_LOG_VIEW_ID
+    </selectKey>
+    insert into FUN_VIEW_LOG (COMP_ID, VIEW_ID, DEPT_ID, 
+      TARGET_TYPE, USEAGE, TARGET_ID, 
+      TARGET_DEPT, PLATE_TYPE, OWNER_ID, 
+      VIEW_USER, VIEW_TIME, TARGET_NO, 
+      VIEW_SOURCE, VIEW_STATUS, PCNAME, 
+      VIEW_CASE_STATUS, TISSUE_LINE, VIEW_USER_NAME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{viewId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{targetType,jdbcType=TINYINT}, #{useage,jdbcType=TINYINT}, #{targetId,jdbcType=INTEGER}, 
+      #{targetDept,jdbcType=INTEGER}, #{plateType,jdbcType=TINYINT}, #{ownerId,jdbcType=INTEGER}, 
+      #{viewUser,jdbcType=INTEGER}, #{viewTime,jdbcType=VARCHAR}, #{targetNo,jdbcType=VARCHAR}, 
+      #{viewSource,jdbcType=TINYINT}, #{viewStatus,jdbcType=TINYINT}, #{pcname,jdbcType=VARCHAR}, 
+      #{viewCaseStatus,jdbcType=TINYINT}, #{tissueLine,jdbcType=VARCHAR}, #{viewUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunViewLog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="viewId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_VIEW_LOG_VIEW_ID
+    </selectKey>
+    insert into FUN_VIEW_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      VIEW_ID,
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="targetType != null">
+        TARGET_TYPE,
+      </if>
+      <if test="useage != null">
+        USEAGE,
+      </if>
+      <if test="targetId != null">
+        TARGET_ID,
+      </if>
+      <if test="targetDept != null">
+        TARGET_DEPT,
+      </if>
+      <if test="plateType != null">
+        PLATE_TYPE,
+      </if>
+      <if test="ownerId != null">
+        OWNER_ID,
+      </if>
+      <if test="viewUser != null">
+        VIEW_USER,
+      </if>
+      <if test="viewTime != null">
+        VIEW_TIME,
+      </if>
+      <if test="targetNo != null">
+        TARGET_NO,
+      </if>
+      <if test="viewSource != null">
+        VIEW_SOURCE,
+      </if>
+      <if test="viewStatus != null">
+        VIEW_STATUS,
+      </if>
+      <if test="pcname != null">
+        PCNAME,
+      </if>
+      <if test="viewCaseStatus != null">
+        VIEW_CASE_STATUS,
+      </if>
+      <if test="tissueLine != null">
+        TISSUE_LINE,
+      </if>
+      <if test="viewUserName != null">
+        VIEW_USER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      #{viewId,jdbcType=INTEGER},
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="targetType != null">
+        #{targetType,jdbcType=TINYINT},
+      </if>
+      <if test="useage != null">
+        #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="targetId != null">
+        #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="targetDept != null">
+        #{targetDept,jdbcType=INTEGER},
+      </if>
+      <if test="plateType != null">
+        #{plateType,jdbcType=TINYINT},
+      </if>
+      <if test="ownerId != null">
+        #{ownerId,jdbcType=INTEGER},
+      </if>
+      <if test="viewUser != null">
+        #{viewUser,jdbcType=INTEGER},
+      </if>
+      <if test="viewTime != null">
+        #{viewTime,jdbcType=VARCHAR},
+      </if>
+      <if test="targetNo != null">
+        #{targetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="viewSource != null">
+        #{viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="viewStatus != null">
+        #{viewStatus,jdbcType=TINYINT},
+      </if>
+      <if test="pcname != null">
+        #{pcname,jdbcType=VARCHAR},
+      </if>
+      <if test="viewCaseStatus != null">
+        #{viewCaseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="tissueLine != null">
+        #{tissueLine,jdbcType=VARCHAR},
+      </if>
+      <if test="viewUserName != null">
+        #{viewUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunViewLogExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_VIEW_LOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_VIEW_LOG
+    <set>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewId != null">
+        VIEW_ID = #{record.viewId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetType != null">
+        TARGET_TYPE = #{record.targetType,jdbcType=TINYINT},
+      </if>
+      <if test="record.useage != null">
+        USEAGE = #{record.useage,jdbcType=TINYINT},
+      </if>
+      <if test="record.targetId != null">
+        TARGET_ID = #{record.targetId,jdbcType=INTEGER},
+      </if>
+      <if test="record.targetDept != null">
+        TARGET_DEPT = #{record.targetDept,jdbcType=INTEGER},
+      </if>
+      <if test="record.plateType != null">
+        PLATE_TYPE = #{record.plateType,jdbcType=TINYINT},
+      </if>
+      <if test="record.ownerId != null">
+        OWNER_ID = #{record.ownerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewUser != null">
+        VIEW_USER = #{record.viewUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewTime != null">
+        VIEW_TIME = #{record.viewTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetNo != null">
+        TARGET_NO = #{record.targetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.viewSource != null">
+        VIEW_SOURCE = #{record.viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="record.viewStatus != null">
+        VIEW_STATUS = #{record.viewStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.pcname != null">
+        PCNAME = #{record.pcname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.viewCaseStatus != null">
+        VIEW_CASE_STATUS = #{record.viewCaseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.tissueLine != null">
+        TISSUE_LINE = #{record.tissueLine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.viewUserName != null">
+        VIEW_USER_NAME = #{record.viewUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_VIEW_LOG
+    set COMP_ID = #{record.compId,jdbcType=INTEGER},
+      VIEW_ID = #{record.viewId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      TARGET_TYPE = #{record.targetType,jdbcType=TINYINT},
+      USEAGE = #{record.useage,jdbcType=TINYINT},
+      TARGET_ID = #{record.targetId,jdbcType=INTEGER},
+      TARGET_DEPT = #{record.targetDept,jdbcType=INTEGER},
+      PLATE_TYPE = #{record.plateType,jdbcType=TINYINT},
+      OWNER_ID = #{record.ownerId,jdbcType=INTEGER},
+      VIEW_USER = #{record.viewUser,jdbcType=INTEGER},
+      VIEW_TIME = #{record.viewTime,jdbcType=VARCHAR},
+      TARGET_NO = #{record.targetNo,jdbcType=VARCHAR},
+      VIEW_SOURCE = #{record.viewSource,jdbcType=TINYINT},
+      VIEW_STATUS = #{record.viewStatus,jdbcType=TINYINT},
+      PCNAME = #{record.pcname,jdbcType=VARCHAR},
+      VIEW_CASE_STATUS = #{record.viewCaseStatus,jdbcType=TINYINT},
+      TISSUE_LINE = #{record.tissueLine,jdbcType=VARCHAR},
+      VIEW_USER_NAME = #{record.viewUserName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunViewLog">
+    <!--@mbggenerated-->
+    update FUN_VIEW_LOG
+    <set>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="targetType != null">
+        TARGET_TYPE = #{targetType,jdbcType=TINYINT},
+      </if>
+      <if test="useage != null">
+        USEAGE = #{useage,jdbcType=TINYINT},
+      </if>
+      <if test="targetId != null">
+        TARGET_ID = #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="targetDept != null">
+        TARGET_DEPT = #{targetDept,jdbcType=INTEGER},
+      </if>
+      <if test="plateType != null">
+        PLATE_TYPE = #{plateType,jdbcType=TINYINT},
+      </if>
+      <if test="ownerId != null">
+        OWNER_ID = #{ownerId,jdbcType=INTEGER},
+      </if>
+      <if test="viewUser != null">
+        VIEW_USER = #{viewUser,jdbcType=INTEGER},
+      </if>
+      <if test="viewTime != null">
+        VIEW_TIME = #{viewTime,jdbcType=VARCHAR},
+      </if>
+      <if test="targetNo != null">
+        TARGET_NO = #{targetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="viewSource != null">
+        VIEW_SOURCE = #{viewSource,jdbcType=TINYINT},
+      </if>
+      <if test="viewStatus != null">
+        VIEW_STATUS = #{viewStatus,jdbcType=TINYINT},
+      </if>
+      <if test="pcname != null">
+        PCNAME = #{pcname,jdbcType=VARCHAR},
+      </if>
+      <if test="viewCaseStatus != null">
+        VIEW_CASE_STATUS = #{viewCaseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="tissueLine != null">
+        TISSUE_LINE = #{tissueLine,jdbcType=VARCHAR},
+      </if>
+      <if test="viewUserName != null">
+        VIEW_USER_NAME = #{viewUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunViewLog">
+    <!--@mbggenerated-->
+    update FUN_VIEW_LOG
+    set DEPT_ID = #{deptId,jdbcType=INTEGER},
+      TARGET_TYPE = #{targetType,jdbcType=TINYINT},
+      USEAGE = #{useage,jdbcType=TINYINT},
+      TARGET_ID = #{targetId,jdbcType=INTEGER},
+      TARGET_DEPT = #{targetDept,jdbcType=INTEGER},
+      PLATE_TYPE = #{plateType,jdbcType=TINYINT},
+      OWNER_ID = #{ownerId,jdbcType=INTEGER},
+      VIEW_USER = #{viewUser,jdbcType=INTEGER},
+      VIEW_TIME = #{viewTime,jdbcType=VARCHAR},
+      TARGET_NO = #{targetNo,jdbcType=VARCHAR},
+      VIEW_SOURCE = #{viewSource,jdbcType=TINYINT},
+      VIEW_STATUS = #{viewStatus,jdbcType=TINYINT},
+      PCNAME = #{pcname,jdbcType=VARCHAR},
+      VIEW_CASE_STATUS = #{viewCaseStatus,jdbcType=TINYINT},
+      TISSUE_LINE = #{tissueLine,jdbcType=VARCHAR},
+      VIEW_USER_NAME = #{viewUserName,jdbcType=VARCHAR}
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+      and VIEW_ID = #{viewId,jdbcType=INTEGER}
+  </update>
+  
+	 <resultMap extends="BaseResultMap" id="MgrPhoneResultMap" type="com.myfun.repository.erpdb.dto.ErpFunViewLogDto">
+	   <result column="CASE_NAME" jdbcType="VARCHAR" property="caseName" />
+	   <result column="ROOM" jdbcType="TINYINT" property="room" />
+	   <result column="CASE_AREA" jdbcType="VARCHAR" property="caseArea" />
+	   <result column="CASE_PRICE" jdbcType="VARCHAR" property="casePrice" />
+	   <result column="PRICE_UNIT" jdbcType="TINYINT" property="priceUnit" />
+	   <result column="CASE_SEX" jdbcType="BIT" property="caseSex" />
+	   <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+	 </resultMap>
+  
+	<select id="getMgrPhoneList" parameterType="java.util.Map" resultMap="MgrPhoneResultMap">
+		SELECT A.*
+		<if test=" 1 == pMap.caseType and 'BY_USER' == pMap.operateType">
+			,C.BUILD_NAME as CASE_NAME,C.SALE_ROOM as ROOM,C.SALE_AREA as CASE_AREA,C.SALE_TOTAL_PRICE as CASE_PRICE
+		</if>
+		<if test=" 2 == pMap.caseType and 'BY_USER' == pMap.operateType">
+			,C.BUILD_NAME as CASE_NAME,C.LEASE_ROOM as ROOM,C.LEASE_AREA as CASE_AREA,C.LEASE_TOTAL_PRICE as CASE_PRICE,C.PRICE_UNIT as PRICE_UNIT
+		</if>
+		<if test=" 3 == pMap.caseType and 'BY_USER' == pMap.operateType">
+			,C.BUY_CUST_NAME as CASE_NAME,C.HOUSE_ROOM as ROOM,CONCAT(C.HOUSE_AREA_LOW,'-',C.HOUSE_AREA_HIGH) as CASE_AREA,CONCAT(C.HOUSE_PRICE_LOW,'-',C.HOUSE_PRICE_HIGH) as CASE_PRICE,C.BUY_CUST_SEX as CASE_SEX
+		</if>
+		<if test=" 4 == pMap.caseType and 'BY_USER' == pMap.operateType">
+			,C.RENT_CUST_NAME as CASE_NAME,C.HOUSE_ROOM as ROOM,CONCAT(C.HOUSE_AREA_LOW,'-',C.HOUSE_AREA_HIGH) as CASE_AREA,CONCAT(C.HOUSE_PRICE_LOW,'-',C.HOUSE_PRICE_HIGH) as CASE_PRICE,C.RENT_CUST_SEX as CASE_SEX
+		</if>
+		<if test=" 1 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			,B.BUILD_NAME as CASE_NAME,B.SALE_ROOM as ROOM,B.SALE_AREA as CASE_AREA,B.SALE_TOTAL_PRICE as CASE_PRICE
+		</if>
+		<if test=" 2 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			,B.BUILD_NAME as CASE_NAME,B.LEASE_ROOM as ROOM,B.LEASE_AREA as CASE_AREA,B.LEASE_TOTAL_PRICE as CASE_PRICE,B.PRICE_UNIT as PRICE_UNIT
+		</if>
+		<if test=" 3 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			,B.BUY_CUST_NAME as CASE_NAME,B.HOUSE_ROOM as ROOM,CONCAT(B.HOUSE_AREA_LOW,'-',B.HOUSE_AREA_HIGH) as CASE_AREA,CONCAT(B.HOUSE_PRICE_LOW,'-',B.HOUSE_PRICE_HIGH) as CASE_PRICE,B.BUY_CUST_SEX as CASE_SEX
+		</if>
+		<if test=" 4 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			,B.RENT_CUST_NAME as CASE_NAME,B.HOUSE_ROOM as ROOM,CONCAT(B.HOUSE_AREA_LOW,'-',B.HOUSE_AREA_HIGH) as CASE_AREA,CONCAT(B.HOUSE_PRICE_LOW,'-',B.HOUSE_PRICE_HIGH) as CASE_PRICE,B.RENT_CUST_SEX as CASE_SEX
+		</if>
+   		FROM FUN_VIEW_LOG A
+		<if test=" 'BY_USER' == pMap.operateType">
+			JOIN FUN_USERS B ON B.USER_ID=A.VIEW_USER
+			<if test=" 1 == pMap.caseType">
+				JOIN FUN_SALE AS C ON (A.TARGET_ID=C.SALE_ID AND C.COMP_ID = #{pMap.compId})
+			</if>
+			<if test=" 2 == pMap.caseType">
+				JOIN FUN_LEASE AS C ON (A.TARGET_ID=C.LEASE_ID AND C.COMP_ID = #{pMap.compId})
+			</if>
+			<if test=" 3 == pMap.caseType">
+				JOIN FUN_BUY_CUSTOMER AS C ON (A.TARGET_ID=C.BUY_CUST_ID AND C.COMP_ID = #{pMap.compId})
+			</if>
+			<if test=" 4 == pMap.caseType">
+				JOIN FUN_RENT_CUSTOMER AS C ON (A.TARGET_ID=C.RENT_CUST_ID AND C.COMP_ID = #{pMap.compId})
+			</if>
+		</if>
+		<if test=" 1 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			JOIN FUN_SALE AS B ON (A.TARGET_ID=B.SALE_ID AND B.COMP_ID=#{pMap.compId})
+		</if>
+		<if test=" 2 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			JOIN FUN_LEASE AS B ON (A.TARGET_ID=B.LEASE_ID AND B.COMP_ID=#{pMap.compId})
+		</if>
+		<if test=" 3 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			JOIN FUN_BUY_CUSTOMER AS B ON (A.TARGET_ID=B.BUY_CUST_ID AND B.COMP_ID=#{pMap.compId})
+		</if>
+		<if test=" 4 == pMap.caseType and 'BY_INFO' == pMap.operateType">
+			JOIN FUN_RENT_CUSTOMER AS B ON (A.TARGET_ID=B.RENT_CUST_ID AND B.COMP_ID=#{pMap.compId})
+		</if>
+		<where>
+			AND A.COMP_ID = #{pMap.compId}
+            <if test=" 'BY_USER' == pMap.operateType and null != pMap.partnerId">
+              AND C.PARTNER_ID = #{pMap.partnerId}
+            </if>
+            <if test=" 'BY_INFO' == pMap.operateType and null != pMap.partnerId">
+              AND B.PARTNER_ID = #{pMap.partnerId}
+            </if>
+			<if test=" 'BY_USER' == pMap.operateType and null != pMap.userId">
+				AND A.VIEW_USER = #{pMap.userId}
+			</if>
+			<if test=" 'BY_INFO' == pMap.operateType and null != pMap.userId">
+				AND A.OWNER_ID = #{pMap.userId}
+			</if>
+			<if test="null != pMap.deptId">AND B.DEPT_ID = #{pMap.deptId}</if>
+			<if test="null != pMap.areaId">AND B.AREA_ID = #{pMap.areaId}</if>
+			<if test="null != pMap.regId">AND B.REG_ID = #{pMap.regId}</if>
+			<if test="null != pMap.grId">AND B.GR_ID = #{pMap.grId}</if>
+			<if test="null != pMap.viewSource and '' != pMap.viewSource">
+				AND A.VIEW_SOURCE = #{pMap.viewSource}
+			</if>
+			<if test="null != pMap.caseType">
+				AND A.TARGET_TYPE = #{pMap.caseType}
+			</if>
+			<if test="null != pMap.date1">
+				AND A.VIEW_TIME &gt;= #{pMap.date1}
+			</if>
+			<if test="null != pMap.date2 ">
+				AND A.VIEW_TIME &lt;= #{pMap.date2}
+			</if>
+            <if test="pMap.newOrganization == true and pMap.organizationId != null and pMap.organizationId &gt; 0">
+              AND B.TISSUE_LINE LIKE '%:${pMap.organizationId}:%'
+            </if>
+		</where>
+        <choose>
+			<when test="null != pMap.orderStr and '' != pMap.orderStr">
+			  order by ${pMap.orderStr}
+			</when>
+			<otherwise>
+			  order by A.VIEW_TIME DESC
+			</otherwise>
+        </choose>
+	</select>
+	
+	<select id="getViewLog" resultMap="BaseResultMap">
+		select  <include refid="Base_Column_List" /> from FUN_VIEW_LOG where VIEW_USER=#{viewUserId}
+		and TARGET_TYPE=#{caseType} and TARGET_ID=#{caseId} and VIEW_TIME &gt;= #{dateNow}
+	</select>
+	
+</mapper>

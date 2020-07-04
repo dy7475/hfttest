@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<description>MYJSTL 1.0 functions library</description>
+		<display-name>MYJSTL functions</display-name>
+		<tlib-version>1.0</tlib-version>
+		<short-name>myfn</short-name>
+		<uri>http://www.sidaotu.cn/jsp/jstl/functions</uri>
+		<function>
+			<name>dateFormat</name>
+				<function-class>com.myfun.framework.web.tag.CommonFunction</function-class>
+			<function-signature>java.lang.String dateFormat(java.util.Date, java.lang.String)</function-signature>
+		</function>
+		<function>
+			<name>dateFormatStr</name>
+				<function-class>com.myfun.framework.web.tag.CommonFunction</function-class>
+			<function-signature>java.lang.String dateFormatStr(java.lang.String, java.lang.String)</function-signature>
+		</function>
+		<function>
+			<name>replace</name>
+				<function-class>com.myfun.framework.web.tag.CommonFunction</function-class>
+			<function-signature>java.lang.String replace(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+		</function>
+		<function>
+			<name>replaceAllEntity</name>
+			<function-class>com.myfun.framework.web.tag.CommonFunction</function-class>
+			<function-signature>java.lang.String replaceAllEntity(java.lang.String)</function-signature>
+		</function>
+	<function>
+		<name>getDicMsg</name>
+		<function-class>com.myfun.framework.web.tag.CommonFunction</function-class>
+		<function-signature>java.lang.String getDicMsg(java.lang.String,java.lang.String,java.lang.Integer)</function-signature>
+	</function>
+</taglib> 

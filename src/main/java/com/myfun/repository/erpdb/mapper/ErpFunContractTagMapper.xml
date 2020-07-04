@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunContractTagMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunContractTag" >
+    <!--@mbggenerated-->
+    <id column="TAG_ID" property="tagId" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UNIQUE_KEY" property="uniqueKey" jdbcType="VARCHAR" />
+    <result column="CONTRACT_ID" property="contractId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="CREATE_UID" property="createUid" jdbcType="INTEGER" />
+    <result column="TAG_SHOW" property="tagShow" jdbcType="TINYINT" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_ID" property="updateId" jdbcType="INTEGER" />
+    <result column="TAG_STATUS" property="tagStatus" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.erpdb.po.ErpFunContractTag" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="TAG_CONTENT" property="tagContent" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    TAG_ID, CREATE_TIME, UNIQUE_KEY, CONTRACT_ID, DEPT_ID, COMP_ID, CREATE_UID, TAG_SHOW, 
+    UPDATE_TIME, UPDATE_ID, TAG_STATUS
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    TAG_CONTENT
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTagExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_CONTRACT_TAG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTagExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_CONTRACT_TAG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_CONTRACT_TAG
+    where TAG_ID = #{tagId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_CONTRACT_TAG
+    where TAG_ID = #{tagId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTagExample" >
+    <!--@mbggenerated-->
+    delete from FUN_CONTRACT_TAG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTag" useGeneratedKeys="true" keyProperty="tagId" >
+    <!--@mbggenerated-->
+    insert into FUN_CONTRACT_TAG (CREATE_TIME, UNIQUE_KEY, CONTRACT_ID, 
+      DEPT_ID, COMP_ID, CREATE_UID, 
+      TAG_SHOW, UPDATE_TIME, UPDATE_ID, 
+      TAG_STATUS, TAG_CONTENT)
+    values (#{createTime,jdbcType=TIMESTAMP}, #{uniqueKey,jdbcType=VARCHAR}, #{contractId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{createUid,jdbcType=INTEGER}, 
+      #{tagShow,jdbcType=TINYINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
+      #{tagStatus,jdbcType=TINYINT}, #{tagContent,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTag" useGeneratedKeys="true" keyProperty="tagId" >
+    <!--@mbggenerated-->
+    insert into FUN_CONTRACT_TAG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="uniqueKey != null" >
+        UNIQUE_KEY,
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="tagShow != null" >
+        TAG_SHOW,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateId != null" >
+        UPDATE_ID,
+      </if>
+      <if test="tagStatus != null" >
+        TAG_STATUS,
+      </if>
+      <if test="tagContent != null" >
+        TAG_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uniqueKey != null" >
+        #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="contractId != null" >
+        #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="tagShow != null" >
+        #{tagShow,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="tagStatus != null" >
+        #{tagStatus,jdbcType=TINYINT},
+      </if>
+      <if test="tagContent != null" >
+        #{tagContent,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTagExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_CONTRACT_TAG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_TAG
+    <set >
+      <if test="record.tagId != null" >
+        TAG_ID = #{record.tagId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.uniqueKey != null" >
+        UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractId != null" >
+        CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUid != null" >
+        CREATE_UID = #{record.createUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tagShow != null" >
+        TAG_SHOW = #{record.tagShow,jdbcType=TINYINT},
+      </if>
+      <if test="record.updateTime != null" >
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateId != null" >
+        UPDATE_ID = #{record.updateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tagStatus != null" >
+        TAG_STATUS = #{record.tagStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.tagContent != null" >
+        TAG_CONTENT = #{record.tagContent,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_TAG
+    set TAG_ID = #{record.tagId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CREATE_UID = #{record.createUid,jdbcType=INTEGER},
+      TAG_SHOW = #{record.tagShow,jdbcType=TINYINT},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      UPDATE_ID = #{record.updateId,jdbcType=INTEGER},
+      TAG_STATUS = #{record.tagStatus,jdbcType=TINYINT},
+      TAG_CONTENT = #{record.tagContent,jdbcType=CLOB}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_TAG
+    set TAG_ID = #{record.tagId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UNIQUE_KEY = #{record.uniqueKey,jdbcType=VARCHAR},
+      CONTRACT_ID = #{record.contractId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CREATE_UID = #{record.createUid,jdbcType=INTEGER},
+      TAG_SHOW = #{record.tagShow,jdbcType=TINYINT},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      UPDATE_ID = #{record.updateId,jdbcType=INTEGER},
+      TAG_STATUS = #{record.tagStatus,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTag" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_TAG
+    <set >
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uniqueKey != null" >
+        UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="tagShow != null" >
+        TAG_SHOW = #{tagShow,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        UPDATE_ID = #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="tagStatus != null" >
+        TAG_STATUS = #{tagStatus,jdbcType=TINYINT},
+      </if>
+      <if test="tagContent != null" >
+        TAG_CONTENT = #{tagContent,jdbcType=CLOB},
+      </if>
+    </set>
+    where TAG_ID = #{tagId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTag" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_TAG
+    set CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CREATE_UID = #{createUid,jdbcType=INTEGER},
+      TAG_SHOW = #{tagShow,jdbcType=TINYINT},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_ID = #{updateId,jdbcType=INTEGER},
+      TAG_STATUS = #{tagStatus,jdbcType=TINYINT},
+      TAG_CONTENT = #{tagContent,jdbcType=CLOB}
+    where TAG_ID = #{tagId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunContractTag" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_TAG
+    set CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UNIQUE_KEY = #{uniqueKey,jdbcType=VARCHAR},
+      CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      CREATE_UID = #{createUid,jdbcType=INTEGER},
+      TAG_SHOW = #{tagShow,jdbcType=TINYINT},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_ID = #{updateId,jdbcType=INTEGER},
+      TAG_STATUS = #{tagStatus,jdbcType=TINYINT}
+    where TAG_ID = #{tagId,jdbcType=INTEGER}
+  </update>
+
+  <resultMap id="extBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunContractTagDto" extends="ResultMapWithBLOBs" >
+  </resultMap>
+  <select id="selectListDto" resultMap="extBaseResultMap">
+      select UNIQUE_KEY,CONTRACT_ID,CREATE_UID,TAG_CONTENT,CREATE_TIME
+      from FUN_CONTRACT_TAG where CONTRACT_ID =#{contractId} AND COMP_ID=#{compId} AND DEPT_ID = #{deptId} AND TAG_STATUS = 0
+  </select>
+</mapper>

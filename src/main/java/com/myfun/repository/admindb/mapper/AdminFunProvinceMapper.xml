@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunProvinceMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunProvince">
+    <!--@mbggenerated-->
+    <id column="PROVINCE_ID" jdbcType="SMALLINT" property="provinceId" />
+    <result column="PROVINCE_NAME" jdbcType="VARCHAR" property="provinceName" />
+    <result column="SEQ_NO" jdbcType="SMALLINT" property="seqNo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PROVINCE_ID, PROVINCE_NAME, SEQ_NO
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminFunProvinceExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_PROVINCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PROVINCE
+    where PROVINCE_ID = #{provinceId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbggenerated-->
+    delete from FUN_PROVINCE
+    where PROVINCE_ID = #{provinceId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminFunProvinceExample">
+    <!--@mbggenerated-->
+    delete from FUN_PROVINCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunProvince">
+    <!--@mbggenerated-->
+    insert into FUN_PROVINCE (PROVINCE_ID, PROVINCE_NAME, SEQ_NO
+      )
+    values (#{provinceId,jdbcType=SMALLINT}, #{provinceName,jdbcType=VARCHAR}, #{seqNo,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunProvince">
+    <!--@mbggenerated-->
+    insert into FUN_PROVINCE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="provinceName != null">
+        PROVINCE_NAME,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=SMALLINT},
+      </if>
+      <if test="provinceName != null">
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminFunProvinceExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_PROVINCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_PROVINCE
+    <set>
+      <if test="record.provinceId != null">
+        PROVINCE_ID = #{record.provinceId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.provinceName != null">
+        PROVINCE_NAME = #{record.provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seqNo != null">
+        SEQ_NO = #{record.seqNo,jdbcType=SMALLINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_PROVINCE
+    set PROVINCE_ID = #{record.provinceId,jdbcType=SMALLINT},
+      PROVINCE_NAME = #{record.provinceName,jdbcType=VARCHAR},
+      SEQ_NO = #{record.seqNo,jdbcType=SMALLINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunProvince">
+    <!--@mbggenerated-->
+    update FUN_PROVINCE
+    <set>
+      <if test="provinceName != null">
+        PROVINCE_NAME = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where PROVINCE_ID = #{provinceId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunProvince">
+    <!--@mbggenerated-->
+    update FUN_PROVINCE
+    set PROVINCE_NAME = #{provinceName,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=SMALLINT}
+    where PROVINCE_ID = #{provinceId,jdbcType=SMALLINT}
+  </update>
+  <resultMap id="BaseResultMapDto" type="com.myfun.repository.agencydb.dto.SelectDto">
+    <result column="PROVINCE_NAME" jdbcType="VARCHAR" property="text" />
+    <result column="PROVINCE_ID" jdbcType="VARCHAR" property="value" />
+  </resultMap>
+
+	<!-- buniess -->
+	<select id="selectByProvinceAll" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM FUN_PROVINCE
+		<where>
+			<if test="null != provinceName and ''!= provinceName">
+				AND PROVINCE_NAME like '%#{provinceName,jdbcType=VARCHAR}%'
+			</if>
+		</where>
+		order by SEQ_NO ASC
+	</select>
+	
+	<select id="getProvinceAll" resultMap="BaseResultMap">
+		select PROVINCE_ID, PROVINCE_NAME
+		from FUN_PROVINCE
+		<if test="proviceName!=null and proviceName!=''">
+			where PROVINCE_NAME like '%${proviceName}%'
+		</if>
+		order by SEQ_NO ASC
+	</select>
+
+  <select id="getFunProviceById" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_PROVINCE
+    WHERE PROVINCE_ID = #{provinceId}
+  </select>
+
+</mapper>

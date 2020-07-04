@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBuildingSetRoofMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBuildingSetRoof">
+    <!--@mbggenerated-->
+    <id column="BUILDING_SET_ROOF_ID" jdbcType="INTEGER" property="buildingSetRoofId" />
+    <result column="PROVINCE_ID" jdbcType="INTEGER" property="provinceId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="BUILD_ROOF" jdbcType="VARCHAR" property="buildRoof" />
+    <result column="HOUSE_STRUCT" jdbcType="INTEGER" property="houseStruct" />
+    <result column="HOUSE_YEAR" jdbcType="INTEGER" property="houseYear" />
+    <result column="HOUSE_TYPE" jdbcType="INTEGER" property="houseType" />
+    <result column="HOUSE_USEAGE" jdbcType="INTEGER" property="houseUseage" />
+    <result column="BUILD_LAND_AGE" jdbcType="INTEGER" property="buildLandAge" />
+    <result column="BUILD_LAND_NATURE" jdbcType="INTEGER" property="buildLandNature" />
+    <result column="BUILD_RIGHT_NATURE" jdbcType="INTEGER" property="buildRightNature" />
+    <result column="BUILDING_MANAGER_ID" jdbcType="INTEGER" property="buildingManagerId" />
+    <result column="BUILD_ROOF_NAME " jdbcType="VARCHAR" property="buildRoofName" />
+    <result column="UNIT_PRE_FIX" jdbcType="VARCHAR" property="unitPreFix" />
+    <result column="UNIT_SUFFIX_START " jdbcType="VARCHAR" property="unitSuffixStart" />
+    <result column="UNIT_SUFFIX_END " jdbcType="VARCHAR" property="unitSuffixEnd" />
+    <result column="INUNIT_SUFFIX_TYPE " jdbcType="TINYINT" property="inunitSuffixType" />
+    <result column="FLOOR_START" jdbcType="INTEGER" property="floorStart" />
+    <result column="FLOOR_END" jdbcType="INTEGER" property="floorEnd" />
+    <result column="BUILD_LADDER" jdbcType="VARCHAR" property="buildLadder" />
+    <result column="BUILD_DOORS " jdbcType="VARCHAR" property="buildDoors" />
+    <result column="COMPRISE_RULE" jdbcType="TINYINT" property="compriseRule" />
+    <result column="ADDED_BY_ALL_UNITS " jdbcType="TINYINT" property="addedByAllUnits" />
+    <result column="NUMBER_RULE" jdbcType="TINYINT" property="numberRule" />
+    <result column="NUMBER_TYPE" jdbcType="TINYINT" property="numberType" />
+    <result column="BUILD_UNIT_NAME " jdbcType="VARCHAR" property="buildUnitName" />
+    <result column="UNITS" jdbcType="INTEGER" property="units" />
+    <result column="DOORS" jdbcType="INTEGER" property="doors" />
+    <result column="DEL_FLAG" jdbcType="TINYINT" property="delFlag" />
+    <result column="ROOF_SUFFIX_TYPE" jdbcType="TINYINT" property="roofSuffixType" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    BUILDING_SET_ROOF_ID, PROVINCE_ID, CITY_ID, COMP_ID, COMP_NO, BUILD_ID, BUILD_ROOF, 
+    HOUSE_STRUCT, HOUSE_YEAR, HOUSE_TYPE, HOUSE_USEAGE, BUILD_LAND_AGE, BUILD_LAND_NATURE, 
+    BUILD_RIGHT_NATURE, BUILDING_MANAGER_ID, [BUILD_ROOF_NAME ], UNIT_PRE_FIX, [UNIT_SUFFIX_START ], 
+    [UNIT_SUFFIX_END ], [INUNIT_SUFFIX_TYPE ], FLOOR_START, FLOOR_END, BUILD_LADDER, 
+    [BUILD_DOORS ], COMPRISE_RULE, [ADDED_BY_ALL_UNITS ], NUMBER_RULE, NUMBER_TYPE, [BUILD_UNIT_NAME ], 
+    UNITS, DOORS, DEL_FLAG, ROOF_SUFFIX_TYPE, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetRoofExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BUILDING_SET_ROOF
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_SET_ROOF
+    where BUILDING_SET_ROOF_ID = #{buildingSetRoofId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from BUILDING_SET_ROOF
+    where BUILDING_SET_ROOF_ID = #{buildingSetRoofId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetRoofExample">
+    <!--@mbggenerated-->
+    delete from BUILDING_SET_ROOF
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="buildingSetRoofId" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetRoof" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILDING_SET_ROOF (PROVINCE_ID, CITY_ID, COMP_ID, 
+      COMP_NO, BUILD_ID, BUILD_ROOF, 
+      HOUSE_STRUCT, HOUSE_YEAR, HOUSE_TYPE, 
+      HOUSE_USEAGE, BUILD_LAND_AGE, BUILD_LAND_NATURE, 
+      BUILD_RIGHT_NATURE, BUILDING_MANAGER_ID, [BUILD_ROOF_NAME ], 
+      UNIT_PRE_FIX, [UNIT_SUFFIX_START ], [UNIT_SUFFIX_END ], 
+      [INUNIT_SUFFIX_TYPE ], FLOOR_START, FLOOR_END, 
+      BUILD_LADDER, [BUILD_DOORS ], COMPRISE_RULE, 
+      [ADDED_BY_ALL_UNITS ], NUMBER_RULE, NUMBER_TYPE, 
+      [BUILD_UNIT_NAME ], UNITS, DOORS, 
+      DEL_FLAG, ROOF_SUFFIX_TYPE, CREATE_TIME, 
+      UPDATE_TIME)
+    values (#{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, 
+      #{compNo,jdbcType=VARCHAR}, #{buildId,jdbcType=INTEGER}, #{buildRoof,jdbcType=VARCHAR}, 
+      #{houseStruct,jdbcType=INTEGER}, #{houseYear,jdbcType=INTEGER}, #{houseType,jdbcType=INTEGER}, 
+      #{houseUseage,jdbcType=INTEGER}, #{buildLandAge,jdbcType=INTEGER}, #{buildLandNature,jdbcType=INTEGER}, 
+      #{buildRightNature,jdbcType=INTEGER}, #{buildingManagerId,jdbcType=INTEGER}, #{buildRoofName,jdbcType=VARCHAR}, 
+      #{unitPreFix,jdbcType=VARCHAR}, #{unitSuffixStart,jdbcType=VARCHAR}, #{unitSuffixEnd,jdbcType=VARCHAR}, 
+      #{inunitSuffixType,jdbcType=TINYINT}, #{floorStart,jdbcType=INTEGER}, #{floorEnd,jdbcType=INTEGER}, 
+      #{buildLadder,jdbcType=VARCHAR}, #{buildDoors,jdbcType=VARCHAR}, #{compriseRule,jdbcType=TINYINT}, 
+      #{addedByAllUnits,jdbcType=TINYINT}, #{numberRule,jdbcType=TINYINT}, #{numberType,jdbcType=TINYINT}, 
+      #{buildUnitName,jdbcType=VARCHAR}, #{units,jdbcType=INTEGER}, #{doors,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=TINYINT}, #{roofSuffixType,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="buildingSetRoofId" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetRoof" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILDING_SET_ROOF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="compNo != null">
+        COMP_NO,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="buildRoof != null">
+        BUILD_ROOF,
+      </if>
+      <if test="houseStruct != null">
+        HOUSE_STRUCT,
+      </if>
+      <if test="houseYear != null">
+        HOUSE_YEAR,
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE,
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE,
+      </if>
+      <if test="buildLandAge != null">
+        BUILD_LAND_AGE,
+      </if>
+      <if test="buildLandNature != null">
+        BUILD_LAND_NATURE,
+      </if>
+      <if test="buildRightNature != null">
+        BUILD_RIGHT_NATURE,
+      </if>
+      <if test="buildingManagerId != null">
+        BUILDING_MANAGER_ID,
+      </if>
+      <if test="buildRoofName != null">
+        [BUILD_ROOF_NAME ],
+      </if>
+      <if test="unitPreFix != null">
+        UNIT_PRE_FIX,
+      </if>
+      <if test="unitSuffixStart != null">
+        [UNIT_SUFFIX_START ],
+      </if>
+      <if test="unitSuffixEnd != null">
+        [UNIT_SUFFIX_END ],
+      </if>
+      <if test="inunitSuffixType != null">
+        [INUNIT_SUFFIX_TYPE ],
+      </if>
+      <if test="floorStart != null">
+        FLOOR_START,
+      </if>
+      <if test="floorEnd != null">
+        FLOOR_END,
+      </if>
+      <if test="buildLadder != null">
+        BUILD_LADDER,
+      </if>
+      <if test="buildDoors != null">
+        [BUILD_DOORS ],
+      </if>
+      <if test="compriseRule != null">
+        COMPRISE_RULE,
+      </if>
+      <if test="addedByAllUnits != null">
+        [ADDED_BY_ALL_UNITS ],
+      </if>
+      <if test="numberRule != null">
+        NUMBER_RULE,
+      </if>
+      <if test="numberType != null">
+        NUMBER_TYPE,
+      </if>
+      <if test="buildUnitName != null">
+        [BUILD_UNIT_NAME ],
+      </if>
+      <if test="units != null">
+        UNITS,
+      </if>
+      <if test="doors != null">
+        DOORS,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+      <if test="roofSuffixType != null">
+        ROOF_SUFFIX_TYPE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRoof != null">
+        #{buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStruct != null">
+        #{houseStruct,jdbcType=INTEGER},
+      </if>
+      <if test="houseYear != null">
+        #{houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=INTEGER},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=INTEGER},
+      </if>
+      <if test="buildLandAge != null">
+        #{buildLandAge,jdbcType=INTEGER},
+      </if>
+      <if test="buildLandNature != null">
+        #{buildLandNature,jdbcType=INTEGER},
+      </if>
+      <if test="buildRightNature != null">
+        #{buildRightNature,jdbcType=INTEGER},
+      </if>
+      <if test="buildingManagerId != null">
+        #{buildingManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRoofName != null">
+        #{buildRoofName,jdbcType=VARCHAR},
+      </if>
+      <if test="unitPreFix != null">
+        #{unitPreFix,jdbcType=VARCHAR},
+      </if>
+      <if test="unitSuffixStart != null">
+        #{unitSuffixStart,jdbcType=VARCHAR},
+      </if>
+      <if test="unitSuffixEnd != null">
+        #{unitSuffixEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="inunitSuffixType != null">
+        #{inunitSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="floorStart != null">
+        #{floorStart,jdbcType=INTEGER},
+      </if>
+      <if test="floorEnd != null">
+        #{floorEnd,jdbcType=INTEGER},
+      </if>
+      <if test="buildLadder != null">
+        #{buildLadder,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDoors != null">
+        #{buildDoors,jdbcType=VARCHAR},
+      </if>
+      <if test="compriseRule != null">
+        #{compriseRule,jdbcType=TINYINT},
+      </if>
+      <if test="addedByAllUnits != null">
+        #{addedByAllUnits,jdbcType=TINYINT},
+      </if>
+      <if test="numberRule != null">
+        #{numberRule,jdbcType=TINYINT},
+      </if>
+      <if test="numberType != null">
+        #{numberType,jdbcType=TINYINT},
+      </if>
+      <if test="buildUnitName != null">
+        #{buildUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="units != null">
+        #{units,jdbcType=INTEGER},
+      </if>
+      <if test="doors != null">
+        #{doors,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="roofSuffixType != null">
+        #{roofSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetRoofExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from BUILDING_SET_ROOF
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILDING_SET_ROOF
+    <set>
+      <if test="record.buildingSetRoofId != null">
+        BUILDING_SET_ROOF_ID = #{record.buildingSetRoofId,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceId != null">
+        PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compNo != null">
+        COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildRoof != null">
+        BUILD_ROOF = #{record.buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseStruct != null">
+        HOUSE_STRUCT = #{record.houseStruct,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseYear != null">
+        HOUSE_YEAR = #{record.houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseType != null">
+        HOUSE_TYPE = #{record.houseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseUseage != null">
+        HOUSE_USEAGE = #{record.houseUseage,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildLandAge != null">
+        BUILD_LAND_AGE = #{record.buildLandAge,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildLandNature != null">
+        BUILD_LAND_NATURE = #{record.buildLandNature,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildRightNature != null">
+        BUILD_RIGHT_NATURE = #{record.buildRightNature,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildingManagerId != null">
+        BUILDING_MANAGER_ID = #{record.buildingManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildRoofName != null">
+        [BUILD_ROOF_NAME ] = #{record.buildRoofName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitPreFix != null">
+        UNIT_PRE_FIX = #{record.unitPreFix,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitSuffixStart != null">
+        [UNIT_SUFFIX_START ] = #{record.unitSuffixStart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitSuffixEnd != null">
+        [UNIT_SUFFIX_END ] = #{record.unitSuffixEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inunitSuffixType != null">
+        [INUNIT_SUFFIX_TYPE ] = #{record.inunitSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="record.floorStart != null">
+        FLOOR_START = #{record.floorStart,jdbcType=INTEGER},
+      </if>
+      <if test="record.floorEnd != null">
+        FLOOR_END = #{record.floorEnd,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildLadder != null">
+        BUILD_LADDER = #{record.buildLadder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildDoors != null">
+        [BUILD_DOORS ] = #{record.buildDoors,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compriseRule != null">
+        COMPRISE_RULE = #{record.compriseRule,jdbcType=TINYINT},
+      </if>
+      <if test="record.addedByAllUnits != null">
+        [ADDED_BY_ALL_UNITS ] = #{record.addedByAllUnits,jdbcType=TINYINT},
+      </if>
+      <if test="record.numberRule != null">
+        NUMBER_RULE = #{record.numberRule,jdbcType=TINYINT},
+      </if>
+      <if test="record.numberType != null">
+        NUMBER_TYPE = #{record.numberType,jdbcType=TINYINT},
+      </if>
+      <if test="record.buildUnitName != null">
+        [BUILD_UNIT_NAME ] = #{record.buildUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.units != null">
+        UNITS = #{record.units,jdbcType=INTEGER},
+      </if>
+      <if test="record.doors != null">
+        DOORS = #{record.doors,jdbcType=INTEGER},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.roofSuffixType != null">
+        ROOF_SUFFIX_TYPE = #{record.roofSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILDING_SET_ROOF
+    set BUILDING_SET_ROOF_ID = #{record.buildingSetRoofId,jdbcType=INTEGER},
+      PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      BUILD_ROOF = #{record.buildRoof,jdbcType=VARCHAR},
+      HOUSE_STRUCT = #{record.houseStruct,jdbcType=INTEGER},
+      HOUSE_YEAR = #{record.houseYear,jdbcType=INTEGER},
+      HOUSE_TYPE = #{record.houseType,jdbcType=INTEGER},
+      HOUSE_USEAGE = #{record.houseUseage,jdbcType=INTEGER},
+      BUILD_LAND_AGE = #{record.buildLandAge,jdbcType=INTEGER},
+      BUILD_LAND_NATURE = #{record.buildLandNature,jdbcType=INTEGER},
+      BUILD_RIGHT_NATURE = #{record.buildRightNature,jdbcType=INTEGER},
+      BUILDING_MANAGER_ID = #{record.buildingManagerId,jdbcType=INTEGER},
+      [BUILD_ROOF_NAME ] = #{record.buildRoofName,jdbcType=VARCHAR},
+      UNIT_PRE_FIX = #{record.unitPreFix,jdbcType=VARCHAR},
+      [UNIT_SUFFIX_START ] = #{record.unitSuffixStart,jdbcType=VARCHAR},
+      [UNIT_SUFFIX_END ] = #{record.unitSuffixEnd,jdbcType=VARCHAR},
+      [INUNIT_SUFFIX_TYPE ] = #{record.inunitSuffixType,jdbcType=TINYINT},
+      FLOOR_START = #{record.floorStart,jdbcType=INTEGER},
+      FLOOR_END = #{record.floorEnd,jdbcType=INTEGER},
+      BUILD_LADDER = #{record.buildLadder,jdbcType=VARCHAR},
+      [BUILD_DOORS ] = #{record.buildDoors,jdbcType=VARCHAR},
+      COMPRISE_RULE = #{record.compriseRule,jdbcType=TINYINT},
+      [ADDED_BY_ALL_UNITS ] = #{record.addedByAllUnits,jdbcType=TINYINT},
+      NUMBER_RULE = #{record.numberRule,jdbcType=TINYINT},
+      NUMBER_TYPE = #{record.numberType,jdbcType=TINYINT},
+      [BUILD_UNIT_NAME ] = #{record.buildUnitName,jdbcType=VARCHAR},
+      UNITS = #{record.units,jdbcType=INTEGER},
+      DOORS = #{record.doors,jdbcType=INTEGER},
+      DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      ROOF_SUFFIX_TYPE = #{record.roofSuffixType,jdbcType=TINYINT},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetRoof">
+    <!--@mbggenerated-->
+    update BUILDING_SET_ROOF
+    <set>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRoof != null">
+        BUILD_ROOF = #{buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="houseStruct != null">
+        HOUSE_STRUCT = #{houseStruct,jdbcType=INTEGER},
+      </if>
+      <if test="houseYear != null">
+        HOUSE_YEAR = #{houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE = #{houseType,jdbcType=INTEGER},
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE = #{houseUseage,jdbcType=INTEGER},
+      </if>
+      <if test="buildLandAge != null">
+        BUILD_LAND_AGE = #{buildLandAge,jdbcType=INTEGER},
+      </if>
+      <if test="buildLandNature != null">
+        BUILD_LAND_NATURE = #{buildLandNature,jdbcType=INTEGER},
+      </if>
+      <if test="buildRightNature != null">
+        BUILD_RIGHT_NATURE = #{buildRightNature,jdbcType=INTEGER},
+      </if>
+      <if test="buildingManagerId != null">
+        BUILDING_MANAGER_ID = #{buildingManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="buildRoofName != null">
+        [BUILD_ROOF_NAME ] = #{buildRoofName,jdbcType=VARCHAR},
+      </if>
+      <if test="unitPreFix != null">
+        UNIT_PRE_FIX = #{unitPreFix,jdbcType=VARCHAR},
+      </if>
+      <if test="unitSuffixStart != null">
+        [UNIT_SUFFIX_START ] = #{unitSuffixStart,jdbcType=VARCHAR},
+      </if>
+      <if test="unitSuffixEnd != null">
+        [UNIT_SUFFIX_END ] = #{unitSuffixEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="inunitSuffixType != null">
+        [INUNIT_SUFFIX_TYPE ] = #{inunitSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="floorStart != null">
+        FLOOR_START = #{floorStart,jdbcType=INTEGER},
+      </if>
+      <if test="floorEnd != null">
+        FLOOR_END = #{floorEnd,jdbcType=INTEGER},
+      </if>
+      <if test="buildLadder != null">
+        BUILD_LADDER = #{buildLadder,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDoors != null">
+        [BUILD_DOORS ] = #{buildDoors,jdbcType=VARCHAR},
+      </if>
+      <if test="compriseRule != null">
+        COMPRISE_RULE = #{compriseRule,jdbcType=TINYINT},
+      </if>
+      <if test="addedByAllUnits != null">
+        [ADDED_BY_ALL_UNITS ] = #{addedByAllUnits,jdbcType=TINYINT},
+      </if>
+      <if test="numberRule != null">
+        NUMBER_RULE = #{numberRule,jdbcType=TINYINT},
+      </if>
+      <if test="numberType != null">
+        NUMBER_TYPE = #{numberType,jdbcType=TINYINT},
+      </if>
+      <if test="buildUnitName != null">
+        [BUILD_UNIT_NAME ] = #{buildUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="units != null">
+        UNITS = #{units,jdbcType=INTEGER},
+      </if>
+      <if test="doors != null">
+        DOORS = #{doors,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG = #{delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="roofSuffixType != null">
+        ROOF_SUFFIX_TYPE = #{roofSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where BUILDING_SET_ROOF_ID = #{buildingSetRoofId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildingSetRoof">
+    <!--@mbggenerated-->
+    update BUILDING_SET_ROOF
+    set PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_ROOF = #{buildRoof,jdbcType=VARCHAR},
+      HOUSE_STRUCT = #{houseStruct,jdbcType=INTEGER},
+      HOUSE_YEAR = #{houseYear,jdbcType=INTEGER},
+      HOUSE_TYPE = #{houseType,jdbcType=INTEGER},
+      HOUSE_USEAGE = #{houseUseage,jdbcType=INTEGER},
+      BUILD_LAND_AGE = #{buildLandAge,jdbcType=INTEGER},
+      BUILD_LAND_NATURE = #{buildLandNature,jdbcType=INTEGER},
+      BUILD_RIGHT_NATURE = #{buildRightNature,jdbcType=INTEGER},
+      BUILDING_MANAGER_ID = #{buildingManagerId,jdbcType=INTEGER},
+      [BUILD_ROOF_NAME ] = #{buildRoofName,jdbcType=VARCHAR},
+      UNIT_PRE_FIX = #{unitPreFix,jdbcType=VARCHAR},
+      [UNIT_SUFFIX_START ] = #{unitSuffixStart,jdbcType=VARCHAR},
+      [UNIT_SUFFIX_END ] = #{unitSuffixEnd,jdbcType=VARCHAR},
+      [INUNIT_SUFFIX_TYPE ] = #{inunitSuffixType,jdbcType=TINYINT},
+      FLOOR_START = #{floorStart,jdbcType=INTEGER},
+      FLOOR_END = #{floorEnd,jdbcType=INTEGER},
+      BUILD_LADDER = #{buildLadder,jdbcType=VARCHAR},
+      [BUILD_DOORS ] = #{buildDoors,jdbcType=VARCHAR},
+      COMPRISE_RULE = #{compriseRule,jdbcType=TINYINT},
+      [ADDED_BY_ALL_UNITS ] = #{addedByAllUnits,jdbcType=TINYINT},
+      NUMBER_RULE = #{numberRule,jdbcType=TINYINT},
+      NUMBER_TYPE = #{numberType,jdbcType=TINYINT},
+      [BUILD_UNIT_NAME ] = #{buildUnitName,jdbcType=VARCHAR},
+      UNITS = #{units,jdbcType=INTEGER},
+      DOORS = #{doors,jdbcType=INTEGER},
+      DEL_FLAG = #{delFlag,jdbcType=TINYINT},
+      ROOF_SUFFIX_TYPE = #{roofSuffixType,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where BUILDING_SET_ROOF_ID = #{buildingSetRoofId,jdbcType=INTEGER}
+  </update>
+
+    <update id="updateBuildingSetRoof" parameterType="com.myfun.erpWeb.businesstools.builddic.param.ErpBuildingSetRoofUpdateParam">
+        UPDATE BUILDING_SET_ROOF
+        <set>
+            <if test="param.buildRoof != null">
+                BUILD_ROOF = #{param.buildRoof,jdbcType=VARCHAR},
+            </if>
+            <if test="param.houseStruct != null">
+                HOUSE_STRUCT = #{param.houseStruct,jdbcType=INTEGER},
+            </if>
+            <if test="param.houseYear != null">
+                HOUSE_YEAR = #{param.houseYear,jdbcType=INTEGER},
+            </if>
+            <if test="param.houseType != null">
+                HOUSE_TYPE = #{param.houseType,jdbcType=INTEGER},
+            </if>
+            <if test="param.houseUseage != null">
+                HOUSE_USEAGE = #{param.houseUseage,jdbcType=INTEGER},
+            </if>
+            <if test="param.buildLandAge != null">
+                BUILD_LAND_AGE = #{param.buildLandAge,jdbcType=INTEGER},
+            </if>
+            <if test="param.buildLandNature != null">
+                BUILD_LAND_NATURE = #{param.buildLandNature,jdbcType=INTEGER},
+            </if>
+            <if test="param.buildRightNature != null">
+                BUILD_RIGHT_NATURE = #{param.buildRightNature,jdbcType=INTEGER},
+            </if>
+            <if test="param.buildingManagerId != null">
+                BUILDING_MANAGER_ID = #{param.buildingManagerId,jdbcType=INTEGER},
+            </if>
+            <if test="param.buildRoofName != null">
+                BUILD_ROOF_NAME = #{param.buildRoofName},
+            </if>
+          <if test="param.buildUnitName != null">
+            BUILD_UNIT_NAME = #{param.buildUnitName},
+          </if>
+          UPDATE_TIME = GETDATE()
+        </set>
+        WHERE
+         COMP_ID = 0 AND BUILD_ID = #{param.buildId} AND BUILDING_SET_ROOF_ID = #{param.buildingSetRoofId}
+    </update>
+
+    <select id="getRoofUnitNameRepeatCount" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM BUILDING_SET_ROOF
+        WHERE COMP_ID = 0
+          AND BUILD_ID = #{buildId}
+          AND BUILD_ROOF = #{buildRoof}
+      <if test="buildingSetRoofId != null">
+        AND BUILDING_SET_ROOF_ID != #{buildingSetRoofId}
+      </if>
+    </select>
+
+    <delete id="delBuildRoof">
+        DELETE FROM BUILDING_SET_ROOF
+        WHERE COMP_ID = 0
+        <if test="param.buildId != null">
+            AND BUILD_ID = #{param.buildId,jdbcType=INTEGER}
+        </if>
+        <if test="param.buildingSetRoofId != null">
+            AND BUILDING_SET_ROOF_ID = #{param.buildingSetRoofId,jdbcType=INTEGER}
+        </if>
+    </delete>
+
+  <resultMap id="RoofInfoMap" type="com.myfun.repository.erpdb.dto.RoofInfoDto">
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="BUILD_ROOF" jdbcType="VARCHAR" property="buildRoof" />
+    <result column="BUILD_ROOF_NAME" jdbcType="VARCHAR" property="buildRoofName" />
+    <result column="HOUSE_USEAGE" jdbcType="INTEGER" property="houseUseage" />
+    <result column="HOUSE_YEAR" jdbcType="INTEGER" property="houseYear" />
+    <result column="UNITS" jdbcType="INTEGER" property="units" />
+    <result column="DOORS" jdbcType="INTEGER" property="doors" />
+    <result column="BUILDING_SET_ROOF_ID" jdbcType="INTEGER" property="buildingSetRoofId" />
+    <result column="BUILDING_MANAGER_ID" jdbcType="INTEGER" property="buildingManagerId" />
+  </resultMap>
+  <select id="getRoofInfos" resultMap="RoofInfoMap">
+      select B.USER_ID, A.BUILD_ROOF,A.BUILD_ROOF_NAME, A.HOUSE_USEAGE, A.HOUSE_YEAR, A.UNITS, A.DOORS, A.BUILDING_SET_ROOF_ID
+      from BUILDING_SET_ROOF A LEFT JOIN BUILDING_MANAGER B ON A.BUILDING_MANAGER_ID = B.BUILDING_MANAGER_ID and B.MANAGER_TYPE = 2
+      where A.COMP_ID = 0 AND A.BUILD_ID = #{buildId}
+  </select>
+
+  <select id="getRoofInfo" resultMap="RoofInfoMap">
+      select top 1 BUILDING_MANAGER_ID,HOUSE_USEAGE,HOUSE_YEAR,UNITS,DOORS,BUILDING_SET_ROOF_ID
+      from BUILDING_SET_ROOF
+      where COMP_ID = 0 AND BUILD_ID = #{buildId} and BUILD_ROOF = #{buildingSetRoof}
+      order by BUILDING_SET_ROOF_ID desc
+  </select>
+    <update id="updateBuildRoofUnitsAndDoors">
+        UPDATE BUILDING_SET_ROOF
+        <set>
+            <if test="param.units != null and param.unitsChange == 0">
+                UNITS = iif(ISNULL(UNITS, 0) - #{param.units,jdbcType=INTEGER}  &lt; 0, 0, UNITS - #{param.units,jdbcType=INTEGER}),
+            </if>
+            <if test="param.units != null and param.unitsChange &gt; 0">
+                UNITS = ISNULL(UNITS, 0) + #{param.units,jdbcType=INTEGER},
+            </if>
+            <if test="param.doors != null and param.doorsChange == 0">
+                DOORS = iif((ISNULL(DOORS, 0) - #{param.doors,jdbcType=INTEGER})  &lt; 0, 0, DOORS - #{param.doors,jdbcType=INTEGER}),
+            </if>
+            <if test="param.doors != null and param.doorsChange &gt; 0">
+                DOORS = ISNULL(DOORS, 0) + #{param.doors,jdbcType=INTEGER},
+            </if>
+          UPDATE_TIME = GETDATE()
+        </set>
+        WHERE COMP_ID = 0
+        <if test="param.buildId != null">
+            AND BUILD_ID = #{param.buildId,jdbcType=INTEGER}
+        </if>
+        <if test="param.buildingSetRoofId != null">
+            AND BUILDING_SET_ROOF_ID = #{param.buildingSetRoofId,jdbcType=INTEGER}
+        </if>
+    </update>
+    <select id="getBuildRoofNameVo" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpBuildingSetRoofNameVo">
+        SELECT BUILDING_SET_ROOF_ID AS buildingSetRoofId, BUILD_ROOF AS buildRoof, BUILD_ROOF_NAME AS buildRoofName, BUILD_UNIT_NAME AS buildUnitName
+        FROM BUILDING_SET_ROOF
+        WHERE COMP_ID =0 AND BUILD_ID = #{buildId}
+        ORDER BY BUILD_ROOF
+    </select>
+    <select id="getBuildingSetRoofRuleVo" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpBuildingSetRoofRuleVo">
+       SELECT A.BUILDING_SET_ROOF_ID AS buildingSetRoofId, A.BUILD_ID AS buildId,  A.BUILD_ROOF AS buildRoof,
+              B.USER_ID AS buildingManagerId, A.BUILD_ROOF_NAME AS buildRoofName,
+              A.HOUSE_STRUCT AS houseStruct, A.HOUSE_YEAR AS houseYear, A.HOUSE_TYPE AS houseType, A.HOUSE_USEAGE AS houseUseage,
+              A.BUILD_LAND_AGE AS buildLandAge, A.BUILD_LAND_NATURE AS buildLandNature, A.BUILD_RIGHT_NATURE AS buildRightNature,
+              A.UNIT_PRE_FIX AS unitPreFix, A.UNIT_SUFFIX_START AS unitSuffixStart,
+              A.UNIT_SUFFIX_END AS unitSuffixEnd, A.INUNIT_SUFFIX_TYPE AS inunitSuffixType, A.BUILD_UNIT_NAME AS buildUnitName,
+              A.FLOOR_START AS floorStart, A.FLOOR_END AS floorEnd, A.BUILD_LADDER AS buildLadder,
+              A.BUILD_DOORS AS buildDoors, A.COMPRISE_RULE AS compriseRule, A.ADDED_BY_ALL_UNITS AS addedByAllUnits,
+              A.NUMBER_RULE AS numberRule, A.NUMBER_TYPE AS numberType, A.UNITS AS units
+                FROM BUILDING_SET_ROOF A
+       LEFT JOIN BUILDING_MANAGER AS B ON A.BUILDING_MANAGER_ID = B.BUILDING_MANAGER_ID AND B.COMP_ID=0
+                WHERE A.COMP_ID = 0 AND A.BUILD_ID = #{buildId}  AND A.BUILDING_SET_ROOF_ID = #{buildingSetRoofId}
+    </select>
+    <select id="getRoofManager" resultType="java.lang.Integer">
+        select BUILDING_MANAGER_ID from BUILDING_SET_ROOF
+        where COMP_ID = 0 and BUILD_ID = #{buildId} and BUILD_ROOF = #{buildingSetRoof}
+    </select>
+    <insert id="copyTempBuildRule">
+        <!-- 拷贝楼盘栋信息 -->
+        INSERT INTO BUILDING_SET_ROOF (PROVINCE_ID, CITY_ID, COMP_ID, COMP_NO, BUILD_ID, BUILD_ROOF, HOUSE_STRUCT, HOUSE_YEAR, HOUSE_TYPE,
+        HOUSE_USEAGE, BUILD_LAND_AGE, BUILD_LAND_NATURE, BUILD_RIGHT_NATURE, BUILDING_MANAGER_ID, BUILD_ROOF_NAME, UNIT_PRE_FIX,
+        UNIT_SUFFIX_START, UNIT_SUFFIX_END, INUNIT_SUFFIX_TYPE, FLOOR_START, FLOOR_END, BUILD_LADDER, BUILD_DOORS, COMPRISE_RULE,
+        ADDED_BY_ALL_UNITS, NUMBER_RULE, NUMBER_TYPE, BUILD_UNIT_NAME, UNITS, DOORS, DEL_FLAG, CREATE_TIME, UPDATE_TIME)
+        SELECT #{provenceId}, #{shardCityId}, #{copyToCompId}, #{copyToCompNo}, #{buildId}, BUILD_ROOF, HOUSE_STRUCT, HOUSE_YEAR, HOUSE_TYPE,
+        HOUSE_USEAGE, BUILD_LAND_AGE, BUILD_LAND_NATURE, BUILD_RIGHT_NATURE, BUILDING_MANAGER_ID, BUILD_ROOF_NAME, UNIT_PRE_FIX,
+        UNIT_SUFFIX_START, UNIT_SUFFIX_END, INUNIT_SUFFIX_TYPE, FLOOR_START, FLOOR_END, BUILD_LADDER, BUILD_DOORS, COMPRISE_RULE,
+        ADDED_BY_ALL_UNITS, NUMBER_RULE, NUMBER_TYPE, BUILD_UNIT_NAME, UNITS, DOORS, DEL_FLAG, GETDATE(), GETDATE()
+        FROM BUILDING_SET_ROOF
+        WHERE COMP_ID=0 AND BUILD_ID = #{buildId} ;
+
+        <!-- 拷贝楼盘单元信息 -->
+        INSERT INTO BUILDING_SET_UNIT (PROVINCE_ID, CITY_ID, COMP_ID, COMP_NO, BUILD_ID, BUILD_ROOF, BUILD_LADDER, BUILD_DOORS,
+      BUILD_UNIT_NAME, NUMBER_RULE, NUMBER_TYPE, COMPRISE_RULE, FLOOR_START, FLOOR_END, BUILD_UNIT, DEL_FLAG, INUNIT_SUFFIX_TYPE,
+      ROOM_GENERATED, DOORS, DOOR_START, CREATE_TIME, UPDATE_TIME)
+        SELECT #{provenceId}, #{shardCityId}, #{copyToCompId}, #{copyToCompNo}, #{buildId}, BUILD_ROOF, BUILD_LADDER, BUILD_DOORS,
+      BUILD_UNIT_NAME, NUMBER_RULE, NUMBER_TYPE, COMPRISE_RULE, FLOOR_START, FLOOR_END, BUILD_UNIT, DEL_FLAG, INUNIT_SUFFIX_TYPE,
+      ROOM_GENERATED, DOORS, DOOR_START, GETDATE(), GETDATE()
+        FROM BUILDING_SET_UNIT
+        WHERE COMP_ID=0 AND BUILD_ID = #{buildId} ;
+
+        <!-- 拷贝楼盘楼层信息 -->
+        INSERT INTO BUILDING_SET_FLOOR (CITY_ID, COMP_ID, BUILD_ID, BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR, SYS_BUILD_FLOOR,
+        CREATION_TIME, UPDATE_TIME, FLOOR_USEAGE, DEL_FLAG)
+        SELECT #{shardCityId}, #{copyToCompId}, #{buildId}, BUILD_ROOF, BUILD_UNIT, BUILD_FLOOR, SYS_BUILD_FLOOR,
+        GETDATE(), GETDATE(), FLOOR_USEAGE, DEL_FLAG
+        FROM BUILDING_SET_FLOOR
+        WHERE COMP_ID=0 AND BUILD_ID = #{buildId} ;
+
+        <!-- 拷贝房间信息 -->
+        INSERT INTO BUILDING_SET_ROOM (CITY_ID, COMP_ID, BUILD_ID, SYS_ROOM_ID, ROOM_ID, HOUSE_ROOM, HOUSE_HALL, HOUSE_WEI,
+        HOUSE_YANG, HOUSE_DIRECT, HOUSE_AREA, HOUSE_INNERAREA, CREATION_TIME, UPDATE_TIME, BUILD_ROOF, BUILD_UNIT, BEYOND_RULE,
+        DEL_FLAG, ROOM_FLOOR, MERGE_ROOM, HOUSE_OWNER, CELL_PHONE, OWNER_SEX, JOINT_USER_NAME, JOINT_CELL_PHONE, JOINT_USER_SEX,
+        ADDR_MD5, SALE_FLAG, LEASE_FLAG, SALE_PRICE, LEASE_PRICE, PRICE_UNIT, NEAR_STREET)
+        SELECT #{shardCityId}, #{copyToCompId}, #{buildId}, SYS_ROOM_ID, ROOM_ID, HOUSE_ROOM, HOUSE_HALL, HOUSE_WEI,
+        HOUSE_YANG, HOUSE_DIRECT, HOUSE_AREA, HOUSE_INNERAREA, GETDATE(), GETDATE(), BUILD_ROOF, BUILD_UNIT, BEYOND_RULE,
+        DEL_FLAG, ROOM_FLOOR, MERGE_ROOM, HOUSE_OWNER, CELL_PHONE, OWNER_SEX, JOINT_USER_NAME, JOINT_CELL_PHONE, JOINT_USER_SEX,
+        ADDR_MD5, SALE_FLAG, LEASE_FLAG, SALE_PRICE, LEASE_PRICE, PRICE_UNIT, NEAR_STREET
+        FROM BUILDING_SET_ROOM
+        WHERE COMP_ID=0 AND BUILD_ID = #{buildId} ;
+
+    </insert>
+  <update id="updateIdAfterCopyTempBuildRule">
+    <!-- 更新单元表中的 BUILDING_SET_ROOF_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_ROOF_ID = B.BUILDING_SET_ROOF_ID
+    FROM
+    BUILDING_SET_UNIT A
+    JOIN BUILDING_SET_ROOF B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_ROOF = B.BUILD_ROOF
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+
+    <!-- 更新楼层表中的 BUILDING_SET_ROOF_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_ROOF_ID = B.BUILDING_SET_ROOF_ID
+    FROM
+    BUILDING_SET_FLOOR A
+    JOIN BUILDING_SET_ROOF B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_ROOF = B.BUILD_ROOF
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+
+    <!-- 更新楼层表中的 BUILDING_SET_UNIT_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_UNIT_ID = B.ID
+    FROM
+    BUILDING_SET_FLOOR A
+    JOIN BUILDING_SET_UNIT B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_ROOF = B.BUILD_ROOF AND A.BUILD_UNIT = B.BUILD_UNIT
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+
+    <!-- 更新房间表中的 BUILDING_SET_ROOF_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_ROOF_ID = B.BUILDING_SET_ROOF_ID
+    FROM
+    BUILDING_SET_ROOM A
+    JOIN BUILDING_SET_ROOF B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_ROOF = B.BUILD_ROOF
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+
+    <!-- 更新房间表中的 BUILDING_SET_UNIT_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_UNIT_ID = B.ID
+    FROM
+    BUILDING_SET_ROOM A
+    JOIN BUILDING_SET_UNIT B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_ROOF = B.BUILD_ROOF AND A.BUILD_UNIT = B.BUILD_UNIT
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+
+    <!-- 更新房间表中的 BUILDING_SET_FLOOR_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_FLOOR_ID = B.ID
+    FROM
+    BUILDING_SET_ROOM A
+    JOIN BUILDING_SET_FLOOR B ON
+    A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_ROOF = B.BUILD_ROOF AND A.BUILD_UNIT = B.BUILD_UNIT AND A.ROOM_FLOOR = B.SYS_BUILD_FLOOR
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+  </update>
+
+  <update id="updateIdAfterCopyTempBuildRuleByNumber">
+    <!-- 更新楼层表中的 BUILDING_SET_UNIT_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_UNIT_ID = B.ID
+    FROM
+    BUILDING_SET_FLOOR A
+    JOIN BUILDING_SET_UNIT B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_UNIT = B.BUILD_UNIT
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+
+    <!-- 更新房间表中的 BUILDING_SET_UNIT_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_UNIT_ID = B.ID
+    FROM
+    BUILDING_SET_ROOM A
+    JOIN BUILDING_SET_UNIT B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_UNIT = B.BUILD_UNIT
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+
+    <!-- 更新房间表中的 BUILDING_SET_FLOOR_ID -->
+    UPDATE A
+    SET A.BUILDING_SET_FLOOR_ID = B.ID
+    FROM
+    BUILDING_SET_ROOM A
+    JOIN BUILDING_SET_FLOOR B ON A.COMP_ID = B.COMP_ID AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_UNIT = B.BUILD_UNIT
+    AND A.ROOM_FLOOR = B.SYS_BUILD_FLOOR
+    WHERE
+    A.COMP_ID = #{copyToCompId} AND A.BUILD_ID = #{buildId}  ;
+  </update>
+
+  <!--<select id="selectByBuildId" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpRegisterBuildingSetRoofVO">-->
+    <!--</select>-->
+  <select id="selectRegisterByBuildId" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpRegisterBuildingSetRoofVO">
+    select
+    BUILDING_SET_ROOF_ID AS buildingSetRoofId, BUILD_ID AS buildId,
+    BUILD_ROOF as buildRoof,HOUSE_STRUCT as houseStruct,HOUSE_YEAR as houseYear,HOUSE_TYPE as houseType,HOUSE_USEAGE as
+    houseUseage
+    from BUILDING_SET_ROOF where COMP_ID = 0 and BUILD_ID = #{buildId} and BUILDING_SET_ROOF_ID in
+    <if test="list!=null">
+      <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    ORDER BY BUILD_ROOF
+  </select>
+
+    <select id="getNoManagerRoofs" resultType="java.lang.Integer">
+        select BUILDING_SET_ROOF_ID from BUILDING_SET_ROOF where COMP_ID =0 and BUILD_ID = #{buildId} and BUILDING_MANAGER_ID is null
+    </select>
+
+    <update id="updateRoofManager">
+      update BUILDING_SET_ROOF set BUILDING_MANAGER_ID = #{managerId}, UPDATE_TIME = GETDATE()
+      where COMP_ID =0 and BUILDING_SET_ROOF_ID in
+      <foreach close=")" collection="ids" item="id" open="(" separator=",">
+        #{id}
+      </foreach>
+    </update>
+
+    <update id="updateAllRoofManager">
+      update BUILDING_SET_ROOF set BUILDING_MANAGER_ID = #{managerId}, UPDATE_TIME = GETDATE()
+      where COMP_ID =0 and BUILD_ID = #{buildId}
+    </update>
+  <update id="updateRoomAndUnitCountInRoof">
+    UPDATE BUILDING_SET_ROOF
+    SET DOORS = (SELECT COUNT(*) FROM BUILDING_SET_ROOM
+                 WHERE COMP_ID =0  AND BUILD_ID = #{buildId}  AND BUILDING_SET_ROOF_ID = #{buildingSetRoofId}),
+        UNITS = (SELECT COUNT(*) FROM BUILDING_SET_UNIT
+                 WHERE COMP_ID = 0 AND BUILD_ID = #{buildId}  AND BUILDING_SET_ROOF_ID = #{buildingSetRoofId})
+    WHERE COMP_ID = 0 AND BUILD_ID = #{buildId} AND BUILDING_SET_ROOF_ID = #{buildingSetRoofId}
+  </update>
+  <update id="delRoomCountInRoof">
+    update BUILDING_SET_ROOF
+    set DOORS = IIF(ISNULL(DOORS, 0) - #{roomChangeCount} &lt; 0, 0, ISNULL(DOORS, 0) - #{roomChangeCount}), UPDATE_TIME = GETDATE()
+    where COMP_ID = 0  and BUILD_ID = #{buildId} and BUILDING_SET_ROOF_ID = #{buildingSetRoofId}
+  </update>
+
+  <update id="addRoomCountInRoof">
+    UPDATE BUILDING_SET_ROOF SET DOORS = DOORS + #{changeCount}
+    WHERE COMP_ID = #{compId} AND BUILD_ID = #{buildId}  AND BUILDING_SET_ROOF_ID = #{buildingSetRoofId}
+  </update>
+
+    <select id="getBuildingSetRoofs" resultMap="BaseResultMap">
+        SELECT
+        BUILDING_SET_ROOF_ID, BUILD_ROOF
+        FROM BUILDING_SET_ROOF
+        WHERE COMP_ID = 0 AND BUILD_ID = #{buildId}
+        AND BUILD_ROOF IN
+        <foreach close=")" collection="distinctBuildRoofList" item="buildRoof" open="(" separator=",">
+            #{buildRoof}
+        </foreach>
+    </select>
+  <insert id="batchAddRoof" parameterType="java.util.List">
+    insert into BUILDING_SET_ROOF (PROVINCE_ID, CITY_ID, COMP_ID, COMP_NO, BUILD_ID, BUILD_ROOF,
+    HOUSE_STRUCT, HOUSE_YEAR, HOUSE_TYPE, HOUSE_USEAGE, BUILD_LAND_AGE, BUILD_LAND_NATURE,
+    BUILD_RIGHT_NATURE, BUILDING_MANAGER_ID, BUILD_ROOF_NAME, UNIT_PRE_FIX, UNIT_SUFFIX_START,
+    UNIT_SUFFIX_END, INUNIT_SUFFIX_TYPE, FLOOR_START, FLOOR_END, BUILD_LADDER,
+    BUILD_DOORS, COMPRISE_RULE, ADDED_BY_ALL_UNITS, NUMBER_RULE, NUMBER_TYPE, BUILD_UNIT_NAME,
+    UNITS, DOORS, DEL_FLAG, ROOF_SUFFIX_TYPE, CREATE_TIME, UPDATE_TIME) VALUES
+    <foreach collection="roofs" index="index" item="roof" separator=",">
+      (
+      #{roof.provinceId}, #{roof.cityId}, 0, '',
+      #{roof.buildId}, #{roof.buildRoof}, #{roof.houseStruct}, #{roof.houseYear}, #{roof.houseType}, #{roof.houseUseage},
+      #{roof.buildLandAge}, #{roof.buildLandNature}, #{roof.buildRightNature}, #{roof.buildingManagerId},
+      #{roof.buildRoofName}, #{roof.unitPreFix}, #{roof.unitSuffixStart}, #{roof.unitSuffixEnd}, #{roof.inunitSuffixType},
+      #{roof.floorStart}, #{roof.floorEnd}, #{roof.buildLadder}, #{roof.buildDoors}, #{roof.compriseRule},
+      #{roof.addedByAllUnits}, #{roof.numberRule}, #{roof.numberType}, #{roof.buildUnitName}, #{roof.units}, #{roof.doors}, ISNULL(#{roof.delFlag},0), #{roof.roofSuffixType},
+      GETDATE(), GETDATE()
+      )
+    </foreach>
+  </insert>
+  <update id="batchUpdateRoof">
+    update BUILDING_SET_ROOF
+    <set>
+      <if test="record.provinceId != null">
+        PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compNo != null">
+        COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseStruct != null">
+        HOUSE_STRUCT = #{record.houseStruct,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseYear != null">
+        HOUSE_YEAR = #{record.houseYear,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseType != null">
+        HOUSE_TYPE = #{record.houseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseUseage != null">
+        HOUSE_USEAGE = #{record.houseUseage,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildLandAge != null">
+        BUILD_LAND_AGE = #{record.buildLandAge,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildLandNature != null">
+        BUILD_LAND_NATURE = #{record.buildLandNature,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildRightNature != null">
+        BUILD_RIGHT_NATURE = #{record.buildRightNature,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildingManagerId != null">
+        BUILDING_MANAGER_ID = #{record.buildingManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildRoofName != null">
+        [BUILD_ROOF_NAME ] = #{record.buildRoofName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitPreFix != null">
+        UNIT_PRE_FIX = #{record.unitPreFix,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitSuffixStart != null">
+        [UNIT_SUFFIX_START ] = #{record.unitSuffixStart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitSuffixEnd != null">
+        [UNIT_SUFFIX_END ] = #{record.unitSuffixEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inunitSuffixType != null">
+        [INUNIT_SUFFIX_TYPE ] = #{record.inunitSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="record.floorStart != null">
+        FLOOR_START = #{record.floorStart,jdbcType=INTEGER},
+      </if>
+      <if test="record.floorEnd != null">
+        FLOOR_END = #{record.floorEnd,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildLadder != null">
+        BUILD_LADDER = #{record.buildLadder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildDoors != null">
+        [BUILD_DOORS ] = #{record.buildDoors,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compriseRule != null">
+        COMPRISE_RULE = #{record.compriseRule,jdbcType=TINYINT},
+      </if>
+      <if test="record.addedByAllUnits != null">
+        [ADDED_BY_ALL_UNITS ] = #{record.addedByAllUnits,jdbcType=TINYINT},
+      </if>
+      <if test="record.numberRule != null">
+        NUMBER_RULE = #{record.numberRule,jdbcType=TINYINT},
+      </if>
+      <if test="record.numberType != null">
+        NUMBER_TYPE = #{record.numberType,jdbcType=TINYINT},
+      </if>
+      <if test="record.buildUnitName != null">
+        [BUILD_UNIT_NAME ] = #{record.buildUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.units != null">
+        UNITS = #{record.units,jdbcType=INTEGER},
+      </if>
+      <if test="record.doors != null">
+        DOORS = #{record.doors,jdbcType=INTEGER},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=TINYINT},
+      </if>
+      <if test="record.roofSuffixType != null">
+        ROOF_SUFFIX_TYPE = #{record.roofSuffixType,jdbcType=TINYINT},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = GETDATE(),
+      </if>
+    </set>
+    WHERE COMP_ID =  0 AND BUILD_ID = #{buildId}
+    <if test="needUpdateBuildRoofs != null and needUpdateBuildRoofs.size > 0">
+      AND BUILD_ROOF IN
+      <foreach close=")" collection="needUpdateBuildRoofs" item="needUpdateBuildRoof" open="(" separator=",">
+        #{needUpdateBuildRoof}
+      </foreach>
+    </if>
+  </update>
+  <select id="getRoofNameAndMarketingControlCount" resultType="com.myfun.erpWeb.businesstools.builddic.vo.ErpBuildingSetRoofNameVo">
+    SELECT A.BUILDING_SET_ROOF_ID AS buildingSetRoofId, A.BUILD_ROOF AS buildRoof, A.BUILD_ROOF_NAME AS buildRoofName, COUNT(B.ID) AS count
+    FROM BUILDING_SET_ROOF A
+    LEFT JOIN BUILDING_MARKETING_CONTROL B ON  B.COMP_ID=#{compId} AND A.BUILD_ID = B.BUILD_ID AND A.BUILD_ROOF = B.BUILDING_SET_ROOF
+    WHERE A.COMP_ID = 0 AND A.BUILD_ID = #{buildId}
+    GROUP BY A.BUILDING_SET_ROOF_ID, A.BUILD_ROOF, A.BUILD_ROOF_NAME;
+  </select>
+    <select id="getRepeatRoof" resultMap="BaseResultMap">
+        select TOP 1 BUILD_ROOF from BUILDING_SET_ROOF
+        where COMP_ID = 0 AND BUILD_ID = #{buildId}
+        <if test="condition != null">
+            AND ${condition}
+        </if>
+    </select>
+  <select id="getBuildRoofNames" resultType="com.myfun.erpWeb.businesstools.builddic.vo.BuildRoofNameInMobileVo">
+    SELECT
+    BUILDING_SET_ROOF_ID AS buildingSetRoofId, BUILD_ROOF AS buildRoof, BUILD_ROOF_NAME AS buildRoofName
+    FROM BUILDING_SET_ROOF
+    WHERE COMP_ID = 0 AND BUILD_ID = #{buildId}
+    ORDER BY BUILD_ROOF
+  </select>
+</mapper>

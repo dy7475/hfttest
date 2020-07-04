@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTeleGroupTmpMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTeleGroupTmp" >
+    <!--@mbggenerated-->
+    <id column="TMP_ID" property="tmpId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="EXT_CODE" property="extCode" jdbcType="VARCHAR" />
+    <result column="USERLIST" property="userlist" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    TMP_ID, USER_ID, PHONE, CITY_ID, BUILD_ID, GUID, EXT_CODE, USERLIST
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from TELE_GROUP_TMP
+    where TMP_ID = #{tmpId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from TELE_GROUP_TMP
+    where TMP_ID = #{tmpId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTeleGroupTmp" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="tmpId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TELE_GROUP_TMP (USER_ID, PHONE, CITY_ID, 
+      BUILD_ID, GUID, EXT_CODE, 
+      USERLIST)
+    values (#{userId,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{cityId,jdbcType=INTEGER}, 
+      #{buildId,jdbcType=INTEGER}, #{guid,jdbcType=VARCHAR}, #{extCode,jdbcType=VARCHAR}, 
+      #{userlist,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTeleGroupTmp" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="tmpId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into TELE_GROUP_TMP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="extCode != null" >
+        EXT_CODE,
+      </if>
+      <if test="userlist != null" >
+        USERLIST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="extCode != null" >
+        #{extCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userlist != null" >
+        #{userlist,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminTeleGroupTmp" >
+    <!--@mbggenerated-->
+    update TELE_GROUP_TMP
+    <set >
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="guid != null" >
+        GUID = #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="extCode != null" >
+        EXT_CODE = #{extCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userlist != null" >
+        USERLIST = #{userlist,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TMP_ID = #{tmpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminTeleGroupTmp" >
+    <!--@mbggenerated-->
+    update TELE_GROUP_TMP
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      GUID = #{guid,jdbcType=VARCHAR},
+      EXT_CODE = #{extCode,jdbcType=VARCHAR},
+      USERLIST = #{userlist,jdbcType=VARCHAR}
+    where TMP_ID = #{tmpId,jdbcType=INTEGER}
+  </update>
+</mapper>

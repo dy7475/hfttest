@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTemplateFunLeaseMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTemplateFunLease" >
+    <!--@mbggenerated-->
+    <result column="LEASE_ID" property="leaseId" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="VARCHAR" />
+    <result column="LEASE_SUBJECT" property="leaseSubject" jdbcType="VARCHAR" />
+    <result column="LEASE_OWNER" property="leaseOwner" jdbcType="VARCHAR" />
+    <result column="CELL_PHONE" property="cellPhone" jdbcType="VARCHAR" />
+    <result column="ID_CARD" property="idCard" jdbcType="VARCHAR" />
+    <result column="LEASE_ROOF" property="leaseRoof" jdbcType="VARCHAR" />
+    <result column="LEASE_UNIT" property="leaseUnit" jdbcType="VARCHAR" />
+    <result column="UNIT_FLOOR" property="unitFloor" jdbcType="VARCHAR" />
+    <result column="LEASE_NUM" property="leaseNum" jdbcType="VARCHAR" />
+    <result column="LEASE_ROOF_R" property="leaseRoofR" jdbcType="VARCHAR" />
+    <result column="LEASE_UNIT_R" property="leaseUnitR" jdbcType="VARCHAR" />
+    <result column="UNIT_FLOOR_R" property="unitFloorR" jdbcType="VARCHAR" />
+    <result column="LEASE_NUM_R" property="leaseNumR" jdbcType="VARCHAR" />
+    <result column="PLATE_TYPE" property="plateType" jdbcType="TINYINT" />
+    <result column="LEASE_ROOM" property="leaseRoom" jdbcType="TINYINT" />
+    <result column="LEASE_HALL" property="leaseHall" jdbcType="TINYINT" />
+    <result column="LEASE_WEI" property="leaseWei" jdbcType="TINYINT" />
+    <result column="LEASE_YANG" property="leaseYang" jdbcType="TINYINT" />
+    <result column="LEASE_LADDER" property="leaseLadder" jdbcType="TINYINT" />
+    <result column="LEASE_DOORS" property="leaseDoors" jdbcType="TINYINT" />
+    <result column="LEASE_TYPE" property="leaseType" jdbcType="TINYINT" />
+    <result column="LEASE_FLOOR" property="leaseFloor" jdbcType="SMALLINT" />
+    <result column="LEASE_FLOORS" property="leaseFloors" jdbcType="TINYINT" />
+    <result column="LEASE_FITMENT" property="leaseFitment" jdbcType="TINYINT" />
+    <result column="LEASE_DIRECT" property="leaseDirect" jdbcType="TINYINT" />
+    <result column="LEASE_YEAR" property="leaseYear" jdbcType="SMALLINT" />
+    <result column="LEASE_USEAGE" property="leaseUseage" jdbcType="TINYINT" />
+    <result column="LEASE_PROPERTY" property="leaseProperty" jdbcType="NUMERIC" />
+    <result column="IS_SEPERATOR" property="isSeperator" jdbcType="BIT" />
+    <result column="SHOP_USAGE" property="shopUsage" jdbcType="VARCHAR" />
+    <result column="OWNER_TYPE" property="ownerType" jdbcType="TINYINT" />
+    <result column="OFFICE_LEVEL" property="officeLevel" jdbcType="TINYINT" />
+    <result column="LEASE_STREET" property="leaseStreet" jdbcType="BIT" />
+    <result column="LEASE_ACCOUNT" property="leaseAccount" jdbcType="TINYINT" />
+    <result column="LEASE_AREA" property="leaseArea" jdbcType="NUMERIC" />
+    <result column="LEASE_INNERAREA" property="leaseInnerarea" jdbcType="NUMERIC" />
+    <result column="LEASE_TOTAL_PRICE" property="leaseTotalPrice" jdbcType="INTEGER" />
+    <result column="PRICE_UNIT" property="priceUnit" jdbcType="TINYINT" />
+    <result column="LEASE_LOWEST_PRICE" property="leaseLowestPrice" jdbcType="INTEGER" />
+    <result column="LEASE_DEPOSIT" property="leaseDeposit" jdbcType="INTEGER" />
+    <result column="LEASE_LEAVE_TIME" property="leaseLeaveTime" jdbcType="VARCHAR" />
+    <result column="LEASE_LIMITE" property="leaseLimite" jdbcType="TINYINT" />
+    <result column="HALL_STRUCTURE" property="hallStructure" jdbcType="TINYINT" />
+    <result column="UG_AREA" property="ugArea" jdbcType="NUMERIC" />
+    <result column="UG_TYPE" property="ugType" jdbcType="TINYINT" />
+    <result column="GARDEN_AREA" property="gardenArea" jdbcType="NUMERIC" />
+    <result column="GARAGE_AMOUNT" property="garageAmount" jdbcType="TINYINT" />
+    <result column="LEASE_SET" property="leaseSet" jdbcType="VARCHAR" />
+    <result column="TAG_IDS" property="tagIds" jdbcType="VARCHAR" />
+    <result column="LEASE_CHARACT" property="leaseCharact" jdbcType="VARCHAR" />
+    <result column="LEASE_MEMO" property="leaseMemo" jdbcType="VARCHAR" />
+    <result column="LEASE_SOURCE" property="leaseSource" jdbcType="TINYINT" />
+    <result column="LEASE_LEVEL" property="leaseLevel" jdbcType="TINYINT" />
+    <result column="LEASE_KEY" property="leaseKey" jdbcType="BIT" />
+    <result column="LEASE_KEY_NUM" property="leaseKeyNum" jdbcType="VARCHAR" />
+    <result column="KEY_TIME" property="keyTime" jdbcType="VARCHAR" />
+    <result column="LEASE_EXPLRTH" property="leaseExplrth" jdbcType="BIT" />
+    <result column="EXPLRTH_DATETIME" property="explrthDatetime" jdbcType="VARCHAR" />
+    <result column="LEASE_CONSIGN" property="leaseConsign" jdbcType="TINYINT" />
+    <result column="LEASE_CONSIGN_NO" property="leaseConsignNo" jdbcType="VARCHAR" />
+    <result column="WEITUO_TIME" property="weituoTime" jdbcType="VARCHAR" />
+    <result column="LEASE_COOPERATE" property="leaseCooperate" jdbcType="BIT" />
+    <result column="COOPERATE_TIME" property="cooperateTime" jdbcType="VARCHAR" />
+    <result column="COMPLAINT_FLAG" property="complaintFlag" jdbcType="BIT" />
+    <result column="LEASE_PUBLISH" property="leasePublish" jdbcType="BIT" />
+    <result column="PUBLISH_TIME" property="publishTime" jdbcType="VARCHAR" />
+    <result column="PUBLISH_SITES" property="publishSites" jdbcType="INTEGER" />
+    <result column="LEASE_MAP" property="leaseMap" jdbcType="TINYINT" />
+    <result column="PHOTO_TIME" property="photoTime" jdbcType="VARCHAR" />
+    <result column="VIDEO_NUM" property="videoNum" jdbcType="TINYINT" />
+    <result column="THUMB_URL" property="thumbUrl" jdbcType="VARCHAR" />
+    <result column="LEASE_ROOF_T" property="leaseRoofT" jdbcType="VARCHAR" />
+    <result column="LEASE_UNIT_T" property="leaseUnitT" jdbcType="VARCHAR" />
+    <result column="LEASE_NUM_T" property="leaseNumT" jdbcType="VARCHAR" />
+    <result column="LEASE_STATUS" property="leaseStatus" jdbcType="TINYINT" />
+    <result column="TRACK_TIME" property="trackTime" jdbcType="VARCHAR" />
+    <result column="FROM_SOSO" property="fromSoso" jdbcType="BIT" />
+    <result column="REPEAT_FLAG" property="repeatFlag" jdbcType="TINYINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunLease" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_LEASE (LEASE_ID, CREATION_TIME, UPDATE_TIME, 
+      LEASE_SUBJECT, LEASE_OWNER, CELL_PHONE, 
+      ID_CARD, LEASE_ROOF, LEASE_UNIT, 
+      UNIT_FLOOR, LEASE_NUM, LEASE_ROOF_R, 
+      LEASE_UNIT_R, UNIT_FLOOR_R, LEASE_NUM_R, 
+      PLATE_TYPE, LEASE_ROOM, LEASE_HALL, 
+      LEASE_WEI, LEASE_YANG, LEASE_LADDER, 
+      LEASE_DOORS, LEASE_TYPE, LEASE_FLOOR, 
+      LEASE_FLOORS, LEASE_FITMENT, LEASE_DIRECT, 
+      LEASE_YEAR, LEASE_USEAGE, LEASE_PROPERTY, 
+      IS_SEPERATOR, SHOP_USAGE, OWNER_TYPE, 
+      OFFICE_LEVEL, LEASE_STREET, LEASE_ACCOUNT, 
+      LEASE_AREA, LEASE_INNERAREA, LEASE_TOTAL_PRICE, 
+      PRICE_UNIT, LEASE_LOWEST_PRICE, LEASE_DEPOSIT, 
+      LEASE_LEAVE_TIME, LEASE_LIMITE, HALL_STRUCTURE, 
+      UG_AREA, UG_TYPE, GARDEN_AREA, 
+      GARAGE_AMOUNT, LEASE_SET, TAG_IDS, 
+      LEASE_CHARACT, LEASE_MEMO, LEASE_SOURCE, 
+      LEASE_LEVEL, LEASE_KEY, LEASE_KEY_NUM, 
+      KEY_TIME, LEASE_EXPLRTH, EXPLRTH_DATETIME, 
+      LEASE_CONSIGN, LEASE_CONSIGN_NO, WEITUO_TIME, 
+      LEASE_COOPERATE, COOPERATE_TIME, COMPLAINT_FLAG, 
+      LEASE_PUBLISH, PUBLISH_TIME, PUBLISH_SITES, 
+      LEASE_MAP, PHOTO_TIME, VIDEO_NUM, 
+      THUMB_URL, LEASE_ROOF_T, LEASE_UNIT_T, 
+      LEASE_NUM_T, LEASE_STATUS, TRACK_TIME, 
+      FROM_SOSO, REPEAT_FLAG)
+    values (#{leaseId,jdbcType=INTEGER}, #{creationTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
+      #{leaseSubject,jdbcType=VARCHAR}, #{leaseOwner,jdbcType=VARCHAR}, #{cellPhone,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{leaseRoof,jdbcType=VARCHAR}, #{leaseUnit,jdbcType=VARCHAR}, 
+      #{unitFloor,jdbcType=VARCHAR}, #{leaseNum,jdbcType=VARCHAR}, #{leaseRoofR,jdbcType=VARCHAR}, 
+      #{leaseUnitR,jdbcType=VARCHAR}, #{unitFloorR,jdbcType=VARCHAR}, #{leaseNumR,jdbcType=VARCHAR}, 
+      #{plateType,jdbcType=TINYINT}, #{leaseRoom,jdbcType=TINYINT}, #{leaseHall,jdbcType=TINYINT}, 
+      #{leaseWei,jdbcType=TINYINT}, #{leaseYang,jdbcType=TINYINT}, #{leaseLadder,jdbcType=TINYINT}, 
+      #{leaseDoors,jdbcType=TINYINT}, #{leaseType,jdbcType=TINYINT}, #{leaseFloor,jdbcType=SMALLINT}, 
+      #{leaseFloors,jdbcType=TINYINT}, #{leaseFitment,jdbcType=TINYINT}, #{leaseDirect,jdbcType=TINYINT}, 
+      #{leaseYear,jdbcType=SMALLINT}, #{leaseUseage,jdbcType=TINYINT}, #{leaseProperty,jdbcType=NUMERIC}, 
+      #{isSeperator,jdbcType=BIT}, #{shopUsage,jdbcType=VARCHAR}, #{ownerType,jdbcType=TINYINT}, 
+      #{officeLevel,jdbcType=TINYINT}, #{leaseStreet,jdbcType=BIT}, #{leaseAccount,jdbcType=TINYINT}, 
+      #{leaseArea,jdbcType=NUMERIC}, #{leaseInnerarea,jdbcType=NUMERIC}, #{leaseTotalPrice,jdbcType=INTEGER}, 
+      #{priceUnit,jdbcType=TINYINT}, #{leaseLowestPrice,jdbcType=INTEGER}, #{leaseDeposit,jdbcType=INTEGER}, 
+      #{leaseLeaveTime,jdbcType=VARCHAR}, #{leaseLimite,jdbcType=TINYINT}, #{hallStructure,jdbcType=TINYINT}, 
+      #{ugArea,jdbcType=NUMERIC}, #{ugType,jdbcType=TINYINT}, #{gardenArea,jdbcType=NUMERIC}, 
+      #{garageAmount,jdbcType=TINYINT}, #{leaseSet,jdbcType=VARCHAR}, #{tagIds,jdbcType=VARCHAR}, 
+      #{leaseCharact,jdbcType=VARCHAR}, #{leaseMemo,jdbcType=VARCHAR}, #{leaseSource,jdbcType=TINYINT}, 
+      #{leaseLevel,jdbcType=TINYINT}, #{leaseKey,jdbcType=BIT}, #{leaseKeyNum,jdbcType=VARCHAR}, 
+      #{keyTime,jdbcType=VARCHAR}, #{leaseExplrth,jdbcType=BIT}, #{explrthDatetime,jdbcType=VARCHAR}, 
+      #{leaseConsign,jdbcType=TINYINT}, #{leaseConsignNo,jdbcType=VARCHAR}, #{weituoTime,jdbcType=VARCHAR}, 
+      #{leaseCooperate,jdbcType=BIT}, #{cooperateTime,jdbcType=VARCHAR}, #{complaintFlag,jdbcType=BIT}, 
+      #{leasePublish,jdbcType=BIT}, #{publishTime,jdbcType=VARCHAR}, #{publishSites,jdbcType=INTEGER}, 
+      #{leaseMap,jdbcType=TINYINT}, #{photoTime,jdbcType=VARCHAR}, #{videoNum,jdbcType=TINYINT}, 
+      #{thumbUrl,jdbcType=VARCHAR}, #{leaseRoofT,jdbcType=VARCHAR}, #{leaseUnitT,jdbcType=VARCHAR}, 
+      #{leaseNumT,jdbcType=VARCHAR}, #{leaseStatus,jdbcType=TINYINT}, #{trackTime,jdbcType=VARCHAR}, 
+      #{fromSoso,jdbcType=BIT}, #{repeatFlag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTemplateFunLease" >
+    <!--@mbggenerated-->
+    insert into TEMPLATE_FUN_LEASE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="leaseId != null" >
+        LEASE_ID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="leaseSubject != null" >
+        LEASE_SUBJECT,
+      </if>
+      <if test="leaseOwner != null" >
+        LEASE_OWNER,
+      </if>
+      <if test="cellPhone != null" >
+        CELL_PHONE,
+      </if>
+      <if test="idCard != null" >
+        ID_CARD,
+      </if>
+      <if test="leaseRoof != null" >
+        LEASE_ROOF,
+      </if>
+      <if test="leaseUnit != null" >
+        LEASE_UNIT,
+      </if>
+      <if test="unitFloor != null" >
+        UNIT_FLOOR,
+      </if>
+      <if test="leaseNum != null" >
+        LEASE_NUM,
+      </if>
+      <if test="leaseRoofR != null" >
+        LEASE_ROOF_R,
+      </if>
+      <if test="leaseUnitR != null" >
+        LEASE_UNIT_R,
+      </if>
+      <if test="unitFloorR != null" >
+        UNIT_FLOOR_R,
+      </if>
+      <if test="leaseNumR != null" >
+        LEASE_NUM_R,
+      </if>
+      <if test="plateType != null" >
+        PLATE_TYPE,
+      </if>
+      <if test="leaseRoom != null" >
+        LEASE_ROOM,
+      </if>
+      <if test="leaseHall != null" >
+        LEASE_HALL,
+      </if>
+      <if test="leaseWei != null" >
+        LEASE_WEI,
+      </if>
+      <if test="leaseYang != null" >
+        LEASE_YANG,
+      </if>
+      <if test="leaseLadder != null" >
+        LEASE_LADDER,
+      </if>
+      <if test="leaseDoors != null" >
+        LEASE_DOORS,
+      </if>
+      <if test="leaseType != null" >
+        LEASE_TYPE,
+      </if>
+      <if test="leaseFloor != null" >
+        LEASE_FLOOR,
+      </if>
+      <if test="leaseFloors != null" >
+        LEASE_FLOORS,
+      </if>
+      <if test="leaseFitment != null" >
+        LEASE_FITMENT,
+      </if>
+      <if test="leaseDirect != null" >
+        LEASE_DIRECT,
+      </if>
+      <if test="leaseYear != null" >
+        LEASE_YEAR,
+      </if>
+      <if test="leaseUseage != null" >
+        LEASE_USEAGE,
+      </if>
+      <if test="leaseProperty != null" >
+        LEASE_PROPERTY,
+      </if>
+      <if test="isSeperator != null" >
+        IS_SEPERATOR,
+      </if>
+      <if test="shopUsage != null" >
+        SHOP_USAGE,
+      </if>
+      <if test="ownerType != null" >
+        OWNER_TYPE,
+      </if>
+      <if test="officeLevel != null" >
+        OFFICE_LEVEL,
+      </if>
+      <if test="leaseStreet != null" >
+        LEASE_STREET,
+      </if>
+      <if test="leaseAccount != null" >
+        LEASE_ACCOUNT,
+      </if>
+      <if test="leaseArea != null" >
+        LEASE_AREA,
+      </if>
+      <if test="leaseInnerarea != null" >
+        LEASE_INNERAREA,
+      </if>
+      <if test="leaseTotalPrice != null" >
+        LEASE_TOTAL_PRICE,
+      </if>
+      <if test="priceUnit != null" >
+        PRICE_UNIT,
+      </if>
+      <if test="leaseLowestPrice != null" >
+        LEASE_LOWEST_PRICE,
+      </if>
+      <if test="leaseDeposit != null" >
+        LEASE_DEPOSIT,
+      </if>
+      <if test="leaseLeaveTime != null" >
+        LEASE_LEAVE_TIME,
+      </if>
+      <if test="leaseLimite != null" >
+        LEASE_LIMITE,
+      </if>
+      <if test="hallStructure != null" >
+        HALL_STRUCTURE,
+      </if>
+      <if test="ugArea != null" >
+        UG_AREA,
+      </if>
+      <if test="ugType != null" >
+        UG_TYPE,
+      </if>
+      <if test="gardenArea != null" >
+        GARDEN_AREA,
+      </if>
+      <if test="garageAmount != null" >
+        GARAGE_AMOUNT,
+      </if>
+      <if test="leaseSet != null" >
+        LEASE_SET,
+      </if>
+      <if test="tagIds != null" >
+        TAG_IDS,
+      </if>
+      <if test="leaseCharact != null" >
+        LEASE_CHARACT,
+      </if>
+      <if test="leaseMemo != null" >
+        LEASE_MEMO,
+      </if>
+      <if test="leaseSource != null" >
+        LEASE_SOURCE,
+      </if>
+      <if test="leaseLevel != null" >
+        LEASE_LEVEL,
+      </if>
+      <if test="leaseKey != null" >
+        LEASE_KEY,
+      </if>
+      <if test="leaseKeyNum != null" >
+        LEASE_KEY_NUM,
+      </if>
+      <if test="keyTime != null" >
+        KEY_TIME,
+      </if>
+      <if test="leaseExplrth != null" >
+        LEASE_EXPLRTH,
+      </if>
+      <if test="explrthDatetime != null" >
+        EXPLRTH_DATETIME,
+      </if>
+      <if test="leaseConsign != null" >
+        LEASE_CONSIGN,
+      </if>
+      <if test="leaseConsignNo != null" >
+        LEASE_CONSIGN_NO,
+      </if>
+      <if test="weituoTime != null" >
+        WEITUO_TIME,
+      </if>
+      <if test="leaseCooperate != null" >
+        LEASE_COOPERATE,
+      </if>
+      <if test="cooperateTime != null" >
+        COOPERATE_TIME,
+      </if>
+      <if test="complaintFlag != null" >
+        COMPLAINT_FLAG,
+      </if>
+      <if test="leasePublish != null" >
+        LEASE_PUBLISH,
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME,
+      </if>
+      <if test="publishSites != null" >
+        PUBLISH_SITES,
+      </if>
+      <if test="leaseMap != null" >
+        LEASE_MAP,
+      </if>
+      <if test="photoTime != null" >
+        PHOTO_TIME,
+      </if>
+      <if test="videoNum != null" >
+        VIDEO_NUM,
+      </if>
+      <if test="thumbUrl != null" >
+        THUMB_URL,
+      </if>
+      <if test="leaseRoofT != null" >
+        LEASE_ROOF_T,
+      </if>
+      <if test="leaseUnitT != null" >
+        LEASE_UNIT_T,
+      </if>
+      <if test="leaseNumT != null" >
+        LEASE_NUM_T,
+      </if>
+      <if test="leaseStatus != null" >
+        LEASE_STATUS,
+      </if>
+      <if test="trackTime != null" >
+        TRACK_TIME,
+      </if>
+      <if test="fromSoso != null" >
+        FROM_SOSO,
+      </if>
+      <if test="repeatFlag != null" >
+        REPEAT_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="leaseId != null" >
+        #{leaseId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseSubject != null" >
+        #{leaseSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseOwner != null" >
+        #{leaseOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="cellPhone != null" >
+        #{cellPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseRoof != null" >
+        #{leaseRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseUnit != null" >
+        #{leaseUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="unitFloor != null" >
+        #{unitFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseNum != null" >
+        #{leaseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseRoofR != null" >
+        #{leaseRoofR,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseUnitR != null" >
+        #{leaseUnitR,jdbcType=VARCHAR},
+      </if>
+      <if test="unitFloorR != null" >
+        #{unitFloorR,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseNumR != null" >
+        #{leaseNumR,jdbcType=VARCHAR},
+      </if>
+      <if test="plateType != null" >
+        #{plateType,jdbcType=TINYINT},
+      </if>
+      <if test="leaseRoom != null" >
+        #{leaseRoom,jdbcType=TINYINT},
+      </if>
+      <if test="leaseHall != null" >
+        #{leaseHall,jdbcType=TINYINT},
+      </if>
+      <if test="leaseWei != null" >
+        #{leaseWei,jdbcType=TINYINT},
+      </if>
+      <if test="leaseYang != null" >
+        #{leaseYang,jdbcType=TINYINT},
+      </if>
+      <if test="leaseLadder != null" >
+        #{leaseLadder,jdbcType=TINYINT},
+      </if>
+      <if test="leaseDoors != null" >
+        #{leaseDoors,jdbcType=TINYINT},
+      </if>
+      <if test="leaseType != null" >
+        #{leaseType,jdbcType=TINYINT},
+      </if>
+      <if test="leaseFloor != null" >
+        #{leaseFloor,jdbcType=SMALLINT},
+      </if>
+      <if test="leaseFloors != null" >
+        #{leaseFloors,jdbcType=TINYINT},
+      </if>
+      <if test="leaseFitment != null" >
+        #{leaseFitment,jdbcType=TINYINT},
+      </if>
+      <if test="leaseDirect != null" >
+        #{leaseDirect,jdbcType=TINYINT},
+      </if>
+      <if test="leaseYear != null" >
+        #{leaseYear,jdbcType=SMALLINT},
+      </if>
+      <if test="leaseUseage != null" >
+        #{leaseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="leaseProperty != null" >
+        #{leaseProperty,jdbcType=NUMERIC},
+      </if>
+      <if test="isSeperator != null" >
+        #{isSeperator,jdbcType=BIT},
+      </if>
+      <if test="shopUsage != null" >
+        #{shopUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerType != null" >
+        #{ownerType,jdbcType=TINYINT},
+      </if>
+      <if test="officeLevel != null" >
+        #{officeLevel,jdbcType=TINYINT},
+      </if>
+      <if test="leaseStreet != null" >
+        #{leaseStreet,jdbcType=BIT},
+      </if>
+      <if test="leaseAccount != null" >
+        #{leaseAccount,jdbcType=TINYINT},
+      </if>
+      <if test="leaseArea != null" >
+        #{leaseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="leaseInnerarea != null" >
+        #{leaseInnerarea,jdbcType=NUMERIC},
+      </if>
+      <if test="leaseTotalPrice != null" >
+        #{leaseTotalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="priceUnit != null" >
+        #{priceUnit,jdbcType=TINYINT},
+      </if>
+      <if test="leaseLowestPrice != null" >
+        #{leaseLowestPrice,jdbcType=INTEGER},
+      </if>
+      <if test="leaseDeposit != null" >
+        #{leaseDeposit,jdbcType=INTEGER},
+      </if>
+      <if test="leaseLeaveTime != null" >
+        #{leaseLeaveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseLimite != null" >
+        #{leaseLimite,jdbcType=TINYINT},
+      </if>
+      <if test="hallStructure != null" >
+        #{hallStructure,jdbcType=TINYINT},
+      </if>
+      <if test="ugArea != null" >
+        #{ugArea,jdbcType=NUMERIC},
+      </if>
+      <if test="ugType != null" >
+        #{ugType,jdbcType=TINYINT},
+      </if>
+      <if test="gardenArea != null" >
+        #{gardenArea,jdbcType=NUMERIC},
+      </if>
+      <if test="garageAmount != null" >
+        #{garageAmount,jdbcType=TINYINT},
+      </if>
+      <if test="leaseSet != null" >
+        #{leaseSet,jdbcType=VARCHAR},
+      </if>
+      <if test="tagIds != null" >
+        #{tagIds,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseCharact != null" >
+        #{leaseCharact,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseMemo != null" >
+        #{leaseMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseSource != null" >
+        #{leaseSource,jdbcType=TINYINT},
+      </if>
+      <if test="leaseLevel != null" >
+        #{leaseLevel,jdbcType=TINYINT},
+      </if>
+      <if test="leaseKey != null" >
+        #{leaseKey,jdbcType=BIT},
+      </if>
+      <if test="leaseKeyNum != null" >
+        #{leaseKeyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="keyTime != null" >
+        #{keyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseExplrth != null" >
+        #{leaseExplrth,jdbcType=BIT},
+      </if>
+      <if test="explrthDatetime != null" >
+        #{explrthDatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseConsign != null" >
+        #{leaseConsign,jdbcType=TINYINT},
+      </if>
+      <if test="leaseConsignNo != null" >
+        #{leaseConsignNo,jdbcType=VARCHAR},
+      </if>
+      <if test="weituoTime != null" >
+        #{weituoTime,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseCooperate != null" >
+        #{leaseCooperate,jdbcType=BIT},
+      </if>
+      <if test="cooperateTime != null" >
+        #{cooperateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintFlag != null" >
+        #{complaintFlag,jdbcType=BIT},
+      </if>
+      <if test="leasePublish != null" >
+        #{leasePublish,jdbcType=BIT},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="publishSites != null" >
+        #{publishSites,jdbcType=INTEGER},
+      </if>
+      <if test="leaseMap != null" >
+        #{leaseMap,jdbcType=TINYINT},
+      </if>
+      <if test="photoTime != null" >
+        #{photoTime,jdbcType=VARCHAR},
+      </if>
+      <if test="videoNum != null" >
+        #{videoNum,jdbcType=TINYINT},
+      </if>
+      <if test="thumbUrl != null" >
+        #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseRoofT != null" >
+        #{leaseRoofT,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseUnitT != null" >
+        #{leaseUnitT,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseNumT != null" >
+        #{leaseNumT,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseStatus != null" >
+        #{leaseStatus,jdbcType=TINYINT},
+      </if>
+      <if test="trackTime != null" >
+        #{trackTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSoso != null" >
+        #{fromSoso,jdbcType=BIT},
+      </if>
+      <if test="repeatFlag != null" >
+        #{repeatFlag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminBulletReplyMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminBulletReply">
+    <!--@mbggenerated-->
+    <id column="REPLY_ID" jdbcType="INTEGER" property="replyId" />
+    <result column="BULLET_BOUND" jdbcType="INTEGER" property="bulletBound" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="BULLET_ID" jdbcType="INTEGER" property="bulletId" />
+    <result column="SHOW_TEL" jdbcType="BIT" property="showTel" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="TELE_PHONE" jdbcType="VARCHAR" property="telePhone" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="COMP_NAME" jdbcType="VARCHAR" property="compName" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="CREATION_TIME" jdbcType="VARCHAR" property="creationTime" />
+    <result column="LOU" jdbcType="SMALLINT" property="lou" />
+    <result column="ISSHIELD" jdbcType="BIT" property="isshield" />
+    <result column="ISDELETE" jdbcType="BIT" property="isdelete" />
+    <result column="USE_REPLY_ID" jdbcType="INTEGER" property="useReplyId" />
+    <result column="EDIT_TIME" jdbcType="VARCHAR" property="editTime" />
+    <result column="RELATE_ID" jdbcType="INTEGER" property="relateId" />
+    <result column="ISGOOD" jdbcType="BIT" property="isgood" />
+    <result column="GOOD_TIME" jdbcType="VARCHAR" property="goodTime" />
+    <result column="GOOD_COUNT" jdbcType="INTEGER" property="goodCount" />
+    <result column="ZAN" jdbcType="INTEGER" property="zan" />
+    <result column="SOURCE" jdbcType="TINYINT" property="source" />
+    <result column="MAIN_RELATE_ID" jdbcType="INTEGER" property="mainRelateId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminBulletReply">
+    <!--@mbggenerated-->
+    <result column="CONTENTS" jdbcType="CLOB" property="contents" />
+    <result column="ZAN_USER" jdbcType="CLOB" property="zanUser" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    REPLY_ID, BULLET_BOUND, CITY_ID, COMP_ID, BULLET_ID, SHOW_TEL, USER_NAME, TELE_PHONE, 
+    DEPT_NAME, COMP_NAME, CREATOR_UID, ARCHIVE_ID, USER_ID, CREATION_TIME, LOU, ISSHIELD, 
+    ISDELETE, USE_REPLY_ID, EDIT_TIME, RELATE_ID, ISGOOD, GOOD_TIME, GOOD_COUNT, ZAN, 
+    [SOURCE], MAIN_RELATE_ID
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    CONTENTS, ZAN_USER
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminBulletReplyExample" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BULLET_REPLY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminBulletReplyExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BULLET_REPLY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BULLET_REPLY
+    where REPLY_ID = #{replyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from BULLET_REPLY
+    where REPLY_ID = #{replyId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminBulletReplyExample">
+    <!--@mbggenerated-->
+    delete from BULLET_REPLY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminBulletReply">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="replyId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(REPLY_ID)+1 FROM BULLET_REPLY
+    </selectKey>
+    insert into BULLET_REPLY (REPLY_ID, BULLET_BOUND, CITY_ID, 
+      COMP_ID, BULLET_ID, SHOW_TEL, 
+      USER_NAME, TELE_PHONE, DEPT_NAME, 
+      COMP_NAME, CREATOR_UID, ARCHIVE_ID, 
+      USER_ID, CREATION_TIME, LOU, 
+      ISSHIELD, ISDELETE, USE_REPLY_ID, 
+      EDIT_TIME, RELATE_ID, ISGOOD, 
+      GOOD_TIME, GOOD_COUNT, ZAN, 
+      [SOURCE], MAIN_RELATE_ID, CONTENTS, 
+      ZAN_USER)
+    values (#{replyId,jdbcType=INTEGER}, #{bulletBound,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{compId,jdbcType=INTEGER}, #{bulletId,jdbcType=INTEGER}, #{showTel,jdbcType=BIT}, 
+      #{userName,jdbcType=VARCHAR}, #{telePhone,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{compName,jdbcType=VARCHAR}, #{creatorUid,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{creationTime,jdbcType=VARCHAR}, #{lou,jdbcType=SMALLINT}, 
+      #{isshield,jdbcType=BIT}, #{isdelete,jdbcType=BIT}, #{useReplyId,jdbcType=INTEGER}, 
+      #{editTime,jdbcType=VARCHAR}, #{relateId,jdbcType=INTEGER}, #{isgood,jdbcType=BIT}, 
+      #{goodTime,jdbcType=VARCHAR}, #{goodCount,jdbcType=INTEGER}, #{zan,jdbcType=INTEGER}, 
+      #{source,jdbcType=TINYINT}, #{mainRelateId,jdbcType=INTEGER}, #{contents,jdbcType=CLOB}, 
+      #{zanUser,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminBulletReply">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="replyId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT ISNULL(MAX(REPLY_ID), 0)+1 FROM BULLET_REPLY
+    </selectKey>
+    insert into BULLET_REPLY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      REPLY_ID,
+      <if test="bulletBound != null">
+        BULLET_BOUND,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="bulletId != null">
+        BULLET_ID,
+      </if>
+      <if test="showTel != null">
+        SHOW_TEL,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="telePhone != null">
+        TELE_PHONE,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="compName != null">
+        COMP_NAME,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="lou != null">
+        LOU,
+      </if>
+      <if test="isshield != null">
+        ISSHIELD,
+      </if>
+      <if test="isdelete != null">
+        ISDELETE,
+      </if>
+      <if test="useReplyId != null">
+        USE_REPLY_ID,
+      </if>
+      <if test="editTime != null">
+        EDIT_TIME,
+      </if>
+      <if test="relateId != null">
+        RELATE_ID,
+      </if>
+      <if test="isgood != null">
+        ISGOOD,
+      </if>
+      <if test="goodTime != null">
+        GOOD_TIME,
+      </if>
+      <if test="goodCount != null">
+        GOOD_COUNT,
+      </if>
+      <if test="zan != null">
+        ZAN,
+      </if>
+      <if test="source != null">
+        [SOURCE],
+      </if>
+      <if test="mainRelateId != null">
+        MAIN_RELATE_ID,
+      </if>
+      <if test="contents != null">
+        CONTENTS,
+      </if>
+      <if test="zanUser != null">
+        ZAN_USER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{replyId,jdbcType=INTEGER},
+      <if test="bulletBound != null">
+        #{bulletBound,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletId != null">
+        #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="showTel != null">
+        #{showTel,jdbcType=BIT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="telePhone != null">
+        #{telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="compName != null">
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lou != null">
+        #{lou,jdbcType=SMALLINT},
+      </if>
+      <if test="isshield != null">
+        #{isshield,jdbcType=BIT},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=BIT},
+      </if>
+      <if test="useReplyId != null">
+        #{useReplyId,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="relateId != null">
+        #{relateId,jdbcType=INTEGER},
+      </if>
+      <if test="isgood != null">
+        #{isgood,jdbcType=BIT},
+      </if>
+      <if test="goodTime != null">
+        #{goodTime,jdbcType=VARCHAR},
+      </if>
+      <if test="goodCount != null">
+        #{goodCount,jdbcType=INTEGER},
+      </if>
+      <if test="zan != null">
+        #{zan,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="mainRelateId != null">
+        #{mainRelateId,jdbcType=INTEGER},
+      </if>
+      <if test="contents != null">
+        #{contents,jdbcType=CLOB},
+      </if>
+      <if test="zanUser != null">
+        #{zanUser,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminBulletReplyExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from BULLET_REPLY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update BULLET_REPLY
+    <set>
+      <if test="record.replyId != null">
+        REPLY_ID = #{record.replyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bulletBound != null">
+        BULLET_BOUND = #{record.bulletBound,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bulletId != null">
+        BULLET_ID = #{record.bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="record.showTel != null">
+        SHOW_TEL = #{record.showTel,jdbcType=BIT},
+      </if>
+      <if test="record.userName != null">
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telePhone != null">
+        TELE_PHONE = #{record.telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptName != null">
+        DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compName != null">
+        COMP_NAME = #{record.compName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorUid != null">
+        CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lou != null">
+        LOU = #{record.lou,jdbcType=SMALLINT},
+      </if>
+      <if test="record.isshield != null">
+        ISSHIELD = #{record.isshield,jdbcType=BIT},
+      </if>
+      <if test="record.isdelete != null">
+        ISDELETE = #{record.isdelete,jdbcType=BIT},
+      </if>
+      <if test="record.useReplyId != null">
+        USE_REPLY_ID = #{record.useReplyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.editTime != null">
+        EDIT_TIME = #{record.editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relateId != null">
+        RELATE_ID = #{record.relateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isgood != null">
+        ISGOOD = #{record.isgood,jdbcType=BIT},
+      </if>
+      <if test="record.goodTime != null">
+        GOOD_TIME = #{record.goodTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodCount != null">
+        GOOD_COUNT = #{record.goodCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.zan != null">
+        ZAN = #{record.zan,jdbcType=INTEGER},
+      </if>
+      <if test="record.source != null">
+        [SOURCE] = #{record.source,jdbcType=TINYINT},
+      </if>
+      <if test="record.mainRelateId != null">
+        MAIN_RELATE_ID = #{record.mainRelateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.contents != null">
+        CONTENTS = #{record.contents,jdbcType=CLOB},
+      </if>
+      <if test="record.zanUser != null">
+        ZAN_USER = #{record.zanUser,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--@mbggenerated-->
+    update BULLET_REPLY
+    set REPLY_ID = #{record.replyId,jdbcType=INTEGER},
+      BULLET_BOUND = #{record.bulletBound,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      BULLET_ID = #{record.bulletId,jdbcType=INTEGER},
+      SHOW_TEL = #{record.showTel,jdbcType=BIT},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      TELE_PHONE = #{record.telePhone,jdbcType=VARCHAR},
+      DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      COMP_NAME = #{record.compName,jdbcType=VARCHAR},
+      CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=VARCHAR},
+      LOU = #{record.lou,jdbcType=SMALLINT},
+      ISSHIELD = #{record.isshield,jdbcType=BIT},
+      ISDELETE = #{record.isdelete,jdbcType=BIT},
+      USE_REPLY_ID = #{record.useReplyId,jdbcType=INTEGER},
+      EDIT_TIME = #{record.editTime,jdbcType=VARCHAR},
+      RELATE_ID = #{record.relateId,jdbcType=INTEGER},
+      ISGOOD = #{record.isgood,jdbcType=BIT},
+      GOOD_TIME = #{record.goodTime,jdbcType=VARCHAR},
+      GOOD_COUNT = #{record.goodCount,jdbcType=INTEGER},
+      ZAN = #{record.zan,jdbcType=INTEGER},
+      [SOURCE] = #{record.source,jdbcType=TINYINT},
+      MAIN_RELATE_ID = #{record.mainRelateId,jdbcType=INTEGER},
+      CONTENTS = #{record.contents,jdbcType=CLOB},
+      ZAN_USER = #{record.zanUser,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update BULLET_REPLY
+    set REPLY_ID = #{record.replyId,jdbcType=INTEGER},
+      BULLET_BOUND = #{record.bulletBound,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      BULLET_ID = #{record.bulletId,jdbcType=INTEGER},
+      SHOW_TEL = #{record.showTel,jdbcType=BIT},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      TELE_PHONE = #{record.telePhone,jdbcType=VARCHAR},
+      DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      COMP_NAME = #{record.compName,jdbcType=VARCHAR},
+      CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=VARCHAR},
+      LOU = #{record.lou,jdbcType=SMALLINT},
+      ISSHIELD = #{record.isshield,jdbcType=BIT},
+      ISDELETE = #{record.isdelete,jdbcType=BIT},
+      USE_REPLY_ID = #{record.useReplyId,jdbcType=INTEGER},
+      EDIT_TIME = #{record.editTime,jdbcType=VARCHAR},
+      RELATE_ID = #{record.relateId,jdbcType=INTEGER},
+      ISGOOD = #{record.isgood,jdbcType=BIT},
+      GOOD_TIME = #{record.goodTime,jdbcType=VARCHAR},
+      GOOD_COUNT = #{record.goodCount,jdbcType=INTEGER},
+      ZAN = #{record.zan,jdbcType=INTEGER},
+      [SOURCE] = #{record.source,jdbcType=TINYINT},
+      MAIN_RELATE_ID = #{record.mainRelateId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminBulletReply">
+    <!--@mbggenerated-->
+    update BULLET_REPLY
+    <set>
+      <if test="bulletBound != null">
+        BULLET_BOUND = #{bulletBound,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletId != null">
+        BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="showTel != null">
+        SHOW_TEL = #{showTel,jdbcType=BIT},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="telePhone != null">
+        TELE_PHONE = #{telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="compName != null">
+        COMP_NAME = #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lou != null">
+        LOU = #{lou,jdbcType=SMALLINT},
+      </if>
+      <if test="isshield != null">
+        ISSHIELD = #{isshield,jdbcType=BIT},
+      </if>
+      <if test="isdelete != null">
+        ISDELETE = #{isdelete,jdbcType=BIT},
+      </if>
+      <if test="useReplyId != null">
+        USE_REPLY_ID = #{useReplyId,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        EDIT_TIME = #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="relateId != null">
+        RELATE_ID = #{relateId,jdbcType=INTEGER},
+      </if>
+      <if test="isgood != null">
+        ISGOOD = #{isgood,jdbcType=BIT},
+      </if>
+      <if test="goodTime != null">
+        GOOD_TIME = #{goodTime,jdbcType=VARCHAR},
+      </if>
+      <if test="goodCount != null">
+        GOOD_COUNT = #{goodCount,jdbcType=INTEGER},
+      </if>
+      <if test="zan != null">
+        ZAN = #{zan,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        [SOURCE] = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="mainRelateId != null">
+        MAIN_RELATE_ID = #{mainRelateId,jdbcType=INTEGER},
+      </if>
+      <if test="contents != null">
+        CONTENTS = #{contents,jdbcType=CLOB},
+      </if>
+      <if test="zanUser != null">
+        ZAN_USER = #{zanUser,jdbcType=CLOB},
+      </if>
+    </set>
+    where REPLY_ID = #{replyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminBulletReply">
+    <!--@mbggenerated-->
+    update BULLET_REPLY
+    set BULLET_BOUND = #{bulletBound,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      SHOW_TEL = #{showTel,jdbcType=BIT},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      TELE_PHONE = #{telePhone,jdbcType=VARCHAR},
+      DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      COMP_NAME = #{compName,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      LOU = #{lou,jdbcType=SMALLINT},
+      ISSHIELD = #{isshield,jdbcType=BIT},
+      ISDELETE = #{isdelete,jdbcType=BIT},
+      USE_REPLY_ID = #{useReplyId,jdbcType=INTEGER},
+      EDIT_TIME = #{editTime,jdbcType=VARCHAR},
+      RELATE_ID = #{relateId,jdbcType=INTEGER},
+      ISGOOD = #{isgood,jdbcType=BIT},
+      GOOD_TIME = #{goodTime,jdbcType=VARCHAR},
+      GOOD_COUNT = #{goodCount,jdbcType=INTEGER},
+      ZAN = #{zan,jdbcType=INTEGER},
+      [SOURCE] = #{source,jdbcType=TINYINT},
+      MAIN_RELATE_ID = #{mainRelateId,jdbcType=INTEGER},
+      CONTENTS = #{contents,jdbcType=CLOB},
+      ZAN_USER = #{zanUser,jdbcType=CLOB}
+    where REPLY_ID = #{replyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminBulletReply">
+    <!--@mbggenerated-->
+    update BULLET_REPLY
+    set BULLET_BOUND = #{bulletBound,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      SHOW_TEL = #{showTel,jdbcType=BIT},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      TELE_PHONE = #{telePhone,jdbcType=VARCHAR},
+      DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      COMP_NAME = #{compName,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=VARCHAR},
+      LOU = #{lou,jdbcType=SMALLINT},
+      ISSHIELD = #{isshield,jdbcType=BIT},
+      ISDELETE = #{isdelete,jdbcType=BIT},
+      USE_REPLY_ID = #{useReplyId,jdbcType=INTEGER},
+      EDIT_TIME = #{editTime,jdbcType=VARCHAR},
+      RELATE_ID = #{relateId,jdbcType=INTEGER},
+      ISGOOD = #{isgood,jdbcType=BIT},
+      GOOD_TIME = #{goodTime,jdbcType=VARCHAR},
+      GOOD_COUNT = #{goodCount,jdbcType=INTEGER},
+      ZAN = #{zan,jdbcType=INTEGER},
+      [SOURCE] = #{source,jdbcType=TINYINT},
+      MAIN_RELATE_ID = #{mainRelateId,jdbcType=INTEGER}
+    where REPLY_ID = #{replyId,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="extResultMap" type="com.myfun.repository.admindb.dto.AdminBulletReplyDto">
+    <result column="nickName" jdbcType="VARCHAR" property="nickName" />
+    <result column="bbsPhoto" jdbcType="VARCHAR" property="bbsPhoto" />
+    <result column="userPhotoMin" jdbcType="VARCHAR" property="userPhotoMin" />
+  		
+  </resultMap>
+  <select id="getBulletReplyList" parameterType="java.lang.Integer" resultMap="extResultMap">
+<!--   	 SELECT BULLET_REPLY.*, FUN_ARCHIVE.NICK_NAME nickName, FUN_ARCHIVE.BBS_PHOTO bbsPhoto, FUN_ARCHIVE.USER_PHOTO_MIN.userPhotoMin -->
+<!--   	 from BULLET_REPLY -->
+<!--   	 left join FUN_ARCHIVE on BULLET_REPLY.ARCHIVE_ID=FUN_ARCHIVE.ARCHIVE_ID -->
+		SELECT
+		REPLY_ID, BULLET_BOUND, CITY_ID, COMP_ID, BULLET_ID, SHOW_TEL, USER_NAME, TELE_PHONE,
+		DEPT_NAME, COMP_NAME, CREATOR_UID, ARCHIVE_ID, USER_ID, CREATION_TIME, LOU, ISSHIELD,
+		ISDELETE, USE_REPLY_ID, EDIT_TIME, RELATE_ID, ISGOOD, GOOD_TIME, GOOD_COUNT, ZAN,
+		[SOURCE],CONTENTS,MAIN_RELATE_ID
+		FROM BULLET_REPLY
+		WHERE BULLET_ID = #{bulletId} AND ISDELETE = 0
+		ORDER BY CREATION_TIME DESC
+	</select>
+	
+  <update id="updateCleanReply" parameterType="java.lang.Integer">
+  		delete from BULLET_REPLY where BULLET_ID=#{bulletId} and (ISSHIELD=1 or ISDELETE=1) 
+  </update>
+  
+   <insert id="insertReply" parameterType="com.myfun.repository.admindb.po.AdminBulletReply">
+    <selectKey keyProperty="replyId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT isnull(max(REPLY_ID), 0) +1 from BULLET_REPLY
+    </selectKey>
+    insert into BULLET_REPLY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="replyId != null">
+        REPLY_ID ,
+      </if>
+      <if test="bulletBound != null">
+        BULLET_BOUND,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="bulletId != null">
+        BULLET_ID,
+      </if>
+      <if test="showTel != null">
+        SHOW_TEL,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="telePhone != null">
+        TELE_PHONE,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="compName != null">
+        COMP_NAME,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="lou != null">
+        LOU,
+      </if>
+      <if test="isshield != null">
+        ISSHIELD,
+      </if>
+      <if test="isdelete != null">
+        ISDELETE,
+      </if>
+      <if test="useReplyId != null">
+        USE_REPLY_ID,
+      </if>
+      <if test="editTime != null">
+        EDIT_TIME,
+      </if>
+      <if test="relateId != null">
+        RELATE_ID,
+      </if>
+      <if test="isgood != null">
+        ISGOOD,
+      </if>
+      <if test="goodTime != null">
+        GOOD_TIME,
+      </if>
+      <if test="goodCount != null">
+        GOOD_COUNT,
+      </if>
+      <if test="zan != null">
+        ZAN,
+      </if>
+      <if test="contents != null">
+        CONTENTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+     
+      <if test="replyId != null">
+        #{replyId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletBound != null">
+        #{bulletBound,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletId != null">
+        #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="showTel != null">
+        #{showTel,jdbcType=BIT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="telePhone != null">
+        #{telePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="compName != null">
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lou != null">
+        #{lou,jdbcType=SMALLINT},
+      </if>
+      <if test="isshield != null">
+        #{isshield,jdbcType=BIT},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=BIT},
+      </if>
+      <if test="useReplyId != null">
+        #{useReplyId,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="relateId != null">
+        #{relateId,jdbcType=INTEGER},
+      </if>
+      <if test="isgood != null">
+        #{isgood,jdbcType=BIT},
+      </if>
+      <if test="goodTime != null">
+        #{goodTime,jdbcType=VARCHAR},
+      </if>
+      <if test="goodCount != null">
+        #{goodCount,jdbcType=INTEGER},
+      </if>
+      <if test="zan != null">
+        #{zan,jdbcType=INTEGER},
+      </if>
+      <if test="contents != null">
+        #{contents,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+
+	<select id="getMaxLouNumber" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select count(LOU) from BULLET_REPLY where BULLET_ID = #{bulletId}
+	</select>
+	
+	<update id="cleanAllReply" parameterType="java.lang.Integer">
+		<![CDATA[
+		update a 
+		set a.LOU=(select count(1)  from BULLET_REPLY b where b.BULLET_ID=#{bulletId} and b.CREATION_TIME < a.CREATION_TIME)+1 from BULLET_REPLY a 
+		where a.BULLET_ID=#{bulletId}
+		]]>
+	</update>
+	
+	<update id="updateReplyCount" parameterType="java.lang.Integer">
+		update BULLET set REPLY_COUNT = (select COUNT(1) from BULLET_REPLY where
+		BULLET_ID=#{bulletId}) where BULLET_ID=#{bulletId}
+	</update>
+	
+	<update id="addZan" parameterType="java.lang.Integer">
+		UPDATE BULLET_REPLY SET ZAN = ZAN + 1 WHERE BULLET_ID=#{bulletId} AND REPLY_ID = #{replyId}
+	</update>
+	
+	<update id="deleteBulletReply">
+		UPDATE BULLET_REPLY SET ISDELETE=1 WHERE BULLET_ID = #{bulletId}
+		AND (REPLY_ID = #{replyId} OR MAIN_RELATE_ID = #{replyId})
+	</update>
+
+	<select id="getReplyByReplyId" parameterType="java.lang.Integer" resultMap="extResultMap">
+		select <include refid="Base_Column_List" /> from BULLET_REPLY where REPLY_ID = #{replyId}
+	</select>
+
+	<select id="getReplyMap" resultMap="extResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM BULLET_REPLY
+		WHERE REPLY_ID IN
+		<foreach close=")" collection="replyIdSet" item="item" open="(" separator=",">  
+			#{item}
+		</foreach>
+	</select>
+	
+</mapper>

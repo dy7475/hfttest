@@ -1,0 +1,459 @@
+package com.myfun.repository.erpdb.po;
+
+import com.myfun.repository.support.generator.shard.ShardDb;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ErpUserOpersChangeCityExample extends ShardDb {
+    /**
+     *
+     * @mbggenerated
+     */
+    protected String orderByClause;
+
+    /**
+     *
+     * @mbggenerated
+     */
+    protected boolean distinct;
+
+    /**
+     *
+     * @mbggenerated
+     */
+    protected List<Criteria> oredCriteria;
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public ErpUserOpersChangeCityExample() {
+        oredCriteria = new ArrayList<Criteria>();
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public void setOrderByClause(String orderByClause) {
+        this.orderByClause = orderByClause;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public String getOrderByClause() {
+        return orderByClause;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public void setDistinct(boolean distinct) {
+        this.distinct = distinct;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public boolean isDistinct() {
+        return distinct;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public List<Criteria> getOredCriteria() {
+        return oredCriteria;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public void or(Criteria criteria) {
+        oredCriteria.add(criteria);
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public Criteria or() {
+        Criteria criteria = createCriteriaInternal();
+        oredCriteria.add(criteria);
+        return criteria;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public Criteria createCriteria() {
+        Criteria criteria = createCriteriaInternal();
+        if (oredCriteria.size() == 0) {
+            oredCriteria.add(criteria);
+        }
+        return criteria;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    protected Criteria createCriteriaInternal() {
+        Criteria criteria = new Criteria();
+        return criteria;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public void clear() {
+        oredCriteria.clear();
+        orderByClause = null;
+        distinct = false;
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    protected abstract static class GeneratedCriteria {
+        protected List<Criterion> criteria;
+
+        protected GeneratedCriteria() {
+            super();
+            criteria = new ArrayList<Criterion>();
+        }
+
+        public boolean isValid() {
+            return criteria.size() > 0;
+        }
+
+        public List<Criterion> getAllCriteria() {
+            return criteria;
+        }
+
+        public List<Criterion> getCriteria() {
+            return criteria;
+        }
+
+        protected void addCriterion(String condition) {
+            if (condition == null) {
+                throw new RuntimeException("Value for condition cannot be null");
+            }
+            criteria.add(new Criterion(condition));
+        }
+
+        protected void addCriterion(String condition, Object value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            criteria.add(new Criterion(condition, value));
+        }
+
+        protected void addCriterion(String condition, Object value1, Object value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        public Criteria andUserIdIsNull() {
+            addCriterion("USER_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("USER_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdEqualTo(Integer value) {
+            addCriterion("USER_ID =", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotEqualTo(Integer value) {
+            addCriterion("USER_ID <>", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThan(Integer value) {
+            addCriterion("USER_ID >", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("USER_ID >=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThan(Integer value) {
+            addCriterion("USER_ID <", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("USER_ID <=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIn(List<Integer> values) {
+            addCriterion("USER_ID in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotIn(List<Integer> values) {
+            addCriterion("USER_ID not in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("USER_ID between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("USER_ID not between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdIsNull() {
+            addCriterion("OPER_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdIsNotNull() {
+            addCriterion("OPER_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdEqualTo(String value) {
+            addCriterion("OPER_ID =", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdNotEqualTo(String value) {
+            addCriterion("OPER_ID <>", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdGreaterThan(String value) {
+            addCriterion("OPER_ID >", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdGreaterThanOrEqualTo(String value) {
+            addCriterion("OPER_ID >=", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdLessThan(String value) {
+            addCriterion("OPER_ID <", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdLessThanOrEqualTo(String value) {
+            addCriterion("OPER_ID <=", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdLike(String value) {
+            addCriterion("OPER_ID like", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdNotLike(String value) {
+            addCriterion("OPER_ID not like", value, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdIn(List<String> values) {
+            addCriterion("OPER_ID in", values, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdNotIn(List<String> values) {
+            addCriterion("OPER_ID not in", values, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdBetween(String value1, String value2) {
+            addCriterion("OPER_ID between", value1, value2, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperIdNotBetween(String value1, String value2) {
+            addCriterion("OPER_ID not between", value1, value2, "operId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdIsNull() {
+            addCriterion("ORGANIZATION_DEFINITION_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdIsNotNull() {
+            addCriterion("ORGANIZATION_DEFINITION_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdEqualTo(Integer value) {
+            addCriterion("ORGANIZATION_DEFINITION_ID =", value, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdNotEqualTo(Integer value) {
+            addCriterion("ORGANIZATION_DEFINITION_ID <>", value, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdGreaterThan(Integer value) {
+            addCriterion("ORGANIZATION_DEFINITION_ID >", value, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ORGANIZATION_DEFINITION_ID >=", value, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdLessThan(Integer value) {
+            addCriterion("ORGANIZATION_DEFINITION_ID <", value, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdLessThanOrEqualTo(Integer value) {
+            addCriterion("ORGANIZATION_DEFINITION_ID <=", value, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdIn(List<Integer> values) {
+            addCriterion("ORGANIZATION_DEFINITION_ID in", values, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdNotIn(List<Integer> values) {
+            addCriterion("ORGANIZATION_DEFINITION_ID not in", values, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdBetween(Integer value1, Integer value2) {
+            addCriterion("ORGANIZATION_DEFINITION_ID between", value1, value2, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrganizationDefinitionIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("ORGANIZATION_DEFINITION_ID not between", value1, value2, "organizationDefinitionId");
+            return (Criteria) this;
+        }
+    }
+
+    /**
+     *
+     * @mbggenerated do_not_delete_during_merge
+     */
+    public static class Criteria extends GeneratedCriteria {
+
+        protected Criteria() {
+            super();
+        }
+    }
+
+    /**
+     *
+     * @mbggenerated
+     */
+    public static class Criterion {
+        private String condition;
+
+        private Object value;
+
+        private Object secondValue;
+
+        private boolean noValue;
+
+        private boolean singleValue;
+
+        private boolean betweenValue;
+
+        private boolean listValue;
+
+        private String typeHandler;
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
+        protected Criterion(String condition) {
+            super();
+            this.condition = condition;
+            this.typeHandler = null;
+            this.noValue = true;
+        }
+
+        protected Criterion(String condition, Object value, String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.typeHandler = typeHandler;
+            if (value instanceof List<?>) {
+                this.listValue = true;
+            } else {
+                this.singleValue = true;
+            }
+        }
+
+        protected Criterion(String condition, Object value) {
+            this(condition, value, null);
+        }
+
+        protected Criterion(String condition, Object value, Object secondValue, String typeHandler) {
+            super();
+            this.condition = condition;
+            this.value = value;
+            this.secondValue = secondValue;
+            this.typeHandler = typeHandler;
+            this.betweenValue = true;
+        }
+
+        protected Criterion(String condition, Object value, Object secondValue) {
+            this(condition, value, secondValue, null);
+        }
+    }
+}

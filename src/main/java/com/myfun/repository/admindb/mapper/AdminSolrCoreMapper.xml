@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminSolrCoreMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminSolrCore">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SOLR_URL" jdbcType="VARCHAR" property="solrUrl" />
+    <result column="COMMIT_INTERVAL_IN_SECONDS" jdbcType="INTEGER" property="commitIntervalInSeconds" />
+    <result column="RESTART_SHELL" jdbcType="VARCHAR" property="restartShell" />
+    <result column="EPACTAL_FIELD" jdbcType="VARCHAR" property="epactalField" />
+    <result column="SELECT_FIELD" jdbcType="VARCHAR" property="selectField" />
+    <result column="UP_CONFIGURATION_FILE_SHELL" jdbcType="VARCHAR" property="upConfigurationFileShell" />
+    <result column="DATA_CONFIG_DIR" jdbcType="VARCHAR" property="dataConfigDir" />
+    <result column="QUEUE_SIZE" jdbcType="INTEGER" property="queueSize" />
+    <result column="STATUS" jdbcType="TINYINT" property="status" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, NAME, SOLR_URL, COMMIT_INTERVAL_IN_SECONDS, RESTART_SHELL, EPACTAL_FIELD, SELECT_FIELD, 
+    UP_CONFIGURATION_FILE_SHELL, DATA_CONFIG_DIR, QUEUE_SIZE, STATUS, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SOLR_CORE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from SOLR_CORE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminSolrCore">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SOLR_CORE (NAME, SOLR_URL, COMMIT_INTERVAL_IN_SECONDS, 
+      RESTART_SHELL, EPACTAL_FIELD, SELECT_FIELD, 
+      UP_CONFIGURATION_FILE_SHELL, DATA_CONFIG_DIR, 
+      QUEUE_SIZE, STATUS, CREATE_TIME
+      )
+    values (#{name,jdbcType=VARCHAR}, #{solrUrl,jdbcType=VARCHAR}, #{commitIntervalInSeconds,jdbcType=INTEGER}, 
+      #{restartShell,jdbcType=VARCHAR}, #{epactalField,jdbcType=VARCHAR}, #{selectField,jdbcType=VARCHAR}, 
+      #{upConfigurationFileShell,jdbcType=VARCHAR}, #{dataConfigDir,jdbcType=VARCHAR}, 
+      #{queueSize,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminSolrCore">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into SOLR_CORE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="solrUrl != null">
+        SOLR_URL,
+      </if>
+      <if test="commitIntervalInSeconds != null">
+        COMMIT_INTERVAL_IN_SECONDS,
+      </if>
+      <if test="restartShell != null">
+        RESTART_SHELL,
+      </if>
+      <if test="epactalField != null">
+        EPACTAL_FIELD,
+      </if>
+      <if test="selectField != null">
+        SELECT_FIELD,
+      </if>
+      <if test="upConfigurationFileShell != null">
+        UP_CONFIGURATION_FILE_SHELL,
+      </if>
+      <if test="dataConfigDir != null">
+        DATA_CONFIG_DIR,
+      </if>
+      <if test="queueSize != null">
+        QUEUE_SIZE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="solrUrl != null">
+        #{solrUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="commitIntervalInSeconds != null">
+        #{commitIntervalInSeconds,jdbcType=INTEGER},
+      </if>
+      <if test="restartShell != null">
+        #{restartShell,jdbcType=VARCHAR},
+      </if>
+      <if test="epactalField != null">
+        #{epactalField,jdbcType=VARCHAR},
+      </if>
+      <if test="selectField != null">
+        #{selectField,jdbcType=VARCHAR},
+      </if>
+      <if test="upConfigurationFileShell != null">
+        #{upConfigurationFileShell,jdbcType=VARCHAR},
+      </if>
+      <if test="dataConfigDir != null">
+        #{dataConfigDir,jdbcType=VARCHAR},
+      </if>
+      <if test="queueSize != null">
+        #{queueSize,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminSolrCore">
+    <!--@mbggenerated-->
+    update SOLR_CORE
+    <set>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="solrUrl != null">
+        SOLR_URL = #{solrUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="commitIntervalInSeconds != null">
+        COMMIT_INTERVAL_IN_SECONDS = #{commitIntervalInSeconds,jdbcType=INTEGER},
+      </if>
+      <if test="restartShell != null">
+        RESTART_SHELL = #{restartShell,jdbcType=VARCHAR},
+      </if>
+      <if test="epactalField != null">
+        EPACTAL_FIELD = #{epactalField,jdbcType=VARCHAR},
+      </if>
+      <if test="selectField != null">
+        SELECT_FIELD = #{selectField,jdbcType=VARCHAR},
+      </if>
+      <if test="upConfigurationFileShell != null">
+        UP_CONFIGURATION_FILE_SHELL = #{upConfigurationFileShell,jdbcType=VARCHAR},
+      </if>
+      <if test="dataConfigDir != null">
+        DATA_CONFIG_DIR = #{dataConfigDir,jdbcType=VARCHAR},
+      </if>
+      <if test="queueSize != null">
+        QUEUE_SIZE = #{queueSize,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminSolrCore">
+    <!--@mbggenerated-->
+    update SOLR_CORE
+    set NAME = #{name,jdbcType=VARCHAR},
+      SOLR_URL = #{solrUrl,jdbcType=VARCHAR},
+      COMMIT_INTERVAL_IN_SECONDS = #{commitIntervalInSeconds,jdbcType=INTEGER},
+      RESTART_SHELL = #{restartShell,jdbcType=VARCHAR},
+      EPACTAL_FIELD = #{epactalField,jdbcType=VARCHAR},
+      SELECT_FIELD = #{selectField,jdbcType=VARCHAR},
+      UP_CONFIGURATION_FILE_SHELL = #{upConfigurationFileShell,jdbcType=VARCHAR},
+      DATA_CONFIG_DIR = #{dataConfigDir,jdbcType=VARCHAR},
+      QUEUE_SIZE = #{queueSize,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- business -->
+  <select id="getSolrCoreAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOLR_CORE
+    order by CREATE_TIME DESC
+  </select>
+</mapper>

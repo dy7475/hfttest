@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopArticleMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopArticle">
+    <!--@mbggenerated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="FCompId" jdbcType="INTEGER" property="fcompid" />
+    <result column="FDeptId" jdbcType="INTEGER" property="fdeptid" />
+    <result column="FCityId" jdbcType="INTEGER" property="fcityid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="default_image" jdbcType="VARCHAR" property="defaultImage" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="show_thumb" jdbcType="TINYINT" property="showThumb" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminWMicroshopArticle">
+    <!--@mbggenerated-->
+    <result column="content" jdbcType="CLOB" property="content" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    id, FCompId, FDeptId, FCityId, title, summary, default_image, [status], show_thumb, 
+    update_time, add_time
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbggenerated-->
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticleExample" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from w_microshop_article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticleExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from w_microshop_article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from w_microshop_article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from w_microshop_article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticleExample">
+    <!--@mbggenerated-->
+    delete from w_microshop_article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticle">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_article (FCompId, FDeptId, FCityId, 
+      title, summary, default_image, 
+      [status], show_thumb, update_time, 
+      add_time, content)
+    values (#{fcompid,jdbcType=INTEGER}, #{fdeptid,jdbcType=INTEGER}, #{fcityid,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{defaultImage,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{showThumb,jdbcType=TINYINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{content,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticle">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fcompid != null">
+        FCompId,
+      </if>
+      <if test="fdeptid != null">
+        FDeptId,
+      </if>
+      <if test="fcityid != null">
+        FCityId,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="defaultImage != null">
+        default_image,
+      </if>
+      <if test="status != null">
+        [status],
+      </if>
+      <if test="showThumb != null">
+        show_thumb,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fcompid != null">
+        #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fdeptid != null">
+        #{fdeptid,jdbcType=INTEGER},
+      </if>
+      <if test="fcityid != null">
+        #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultImage != null">
+        #{defaultImage,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="showThumb != null">
+        #{showThumb,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticleExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from w_microshop_article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update w_microshop_article
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.fcompid != null">
+        FCompId = #{record.fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="record.fdeptid != null">
+        FDeptId = #{record.fdeptid,jdbcType=INTEGER},
+      </if>
+      <if test="record.fcityid != null">
+        FCityId = #{record.fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summary != null">
+        summary = #{record.summary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultImage != null">
+        default_image = #{record.defaultImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        [status] = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.showThumb != null">
+        show_thumb = #{record.showThumb,jdbcType=TINYINT},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.addTime != null">
+        add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--@mbggenerated-->
+    update w_microshop_article
+    set id = #{record.id,jdbcType=INTEGER},
+      FCompId = #{record.fcompid,jdbcType=INTEGER},
+      FDeptId = #{record.fdeptid,jdbcType=INTEGER},
+      FCityId = #{record.fcityid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
+      default_image = #{record.defaultImage,jdbcType=VARCHAR},
+      [status] = #{record.status,jdbcType=TINYINT},
+      show_thumb = #{record.showThumb,jdbcType=TINYINT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      content = #{record.content,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update w_microshop_article
+    set id = #{record.id,jdbcType=INTEGER},
+      FCompId = #{record.fcompid,jdbcType=INTEGER},
+      FDeptId = #{record.fdeptid,jdbcType=INTEGER},
+      FCityId = #{record.fcityid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
+      default_image = #{record.defaultImage,jdbcType=VARCHAR},
+      [status] = #{record.status,jdbcType=TINYINT},
+      show_thumb = #{record.showThumb,jdbcType=TINYINT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticle">
+    <!--@mbggenerated-->
+    update w_microshop_article
+    <set>
+      <if test="fcompid != null">
+        FCompId = #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fdeptid != null">
+        FDeptId = #{fdeptid,jdbcType=INTEGER},
+      </if>
+      <if test="fcityid != null">
+        FCityId = #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultImage != null">
+        default_image = #{defaultImage,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        [status] = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="showThumb != null">
+        show_thumb = #{showThumb,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=CLOB},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticle">
+    <!--@mbggenerated-->
+    update w_microshop_article
+    set FCompId = #{fcompid,jdbcType=INTEGER},
+      FDeptId = #{fdeptid,jdbcType=INTEGER},
+      FCityId = #{fcityid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      default_image = #{defaultImage,jdbcType=VARCHAR},
+      [status] = #{status,jdbcType=TINYINT},
+      show_thumb = #{showThumb,jdbcType=TINYINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=CLOB}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopArticle">
+    <!--@mbggenerated-->
+    update w_microshop_article
+    set FCompId = #{fcompid,jdbcType=INTEGER},
+      FDeptId = #{fdeptid,jdbcType=INTEGER},
+      FCityId = #{fcityid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      default_image = #{defaultImage,jdbcType=VARCHAR},
+      [status] = #{status,jdbcType=TINYINT},
+      show_thumb = #{showThumb,jdbcType=TINYINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      add_time = #{addTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <insert id="insertForFastDfs">
+    <foreach collection="dfsParamList" item="dfsParam" separator=";">
+      INSERT  INTO  w_microshop_article_FASTDFS_TMP(WM_ID, DEFAULT_IMAGE_OLD,DEFAULT_IMAGE_NEW)
+      VALUES (#{dfsParam.wmId}, #{dfsParam.defaultImageOld}, #{dfsParam.defaultImageNew})
+    </foreach>
+  </insert>
+
+</mapper>

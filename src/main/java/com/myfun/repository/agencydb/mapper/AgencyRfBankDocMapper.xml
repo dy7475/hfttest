@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRfBankDocMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRfBankDoc" >
+    <!--@mbggenerated-->
+    <id column="MAP_ID" property="mapId" jdbcType="INTEGER" />
+    <result column="BANK_ID" property="bankId" jdbcType="INTEGER" />
+    <result column="DATA_ID" property="dataId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    MAP_ID, BANK_ID, DATA_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RF_BANK_DOC
+    where MAP_ID = #{mapId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RF_BANK_DOC
+    where MAP_ID = #{mapId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRfBankDoc" >
+    <!--@mbggenerated-->
+    insert into RF_BANK_DOC (MAP_ID, BANK_ID, DATA_ID
+      )
+    values (#{mapId,jdbcType=INTEGER}, #{bankId,jdbcType=INTEGER}, #{dataId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfBankDoc" >
+    <!--@mbggenerated-->
+    insert into RF_BANK_DOC
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mapId != null" >
+        MAP_ID,
+      </if>
+      <if test="bankId != null" >
+        BANK_ID,
+      </if>
+      <if test="dataId != null" >
+        DATA_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mapId != null" >
+        #{mapId,jdbcType=INTEGER},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="dataId != null" >
+        #{dataId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfBankDoc" >
+    <!--@mbggenerated-->
+    update RF_BANK_DOC
+    <set >
+      <if test="bankId != null" >
+        BANK_ID = #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="dataId != null" >
+        DATA_ID = #{dataId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where MAP_ID = #{mapId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRfBankDoc" >
+    <!--@mbggenerated-->
+    update RF_BANK_DOC
+    set BANK_ID = #{bankId,jdbcType=INTEGER},
+      DATA_ID = #{dataId,jdbcType=INTEGER}
+    where MAP_ID = #{mapId,jdbcType=INTEGER}
+  </update>
+</mapper>

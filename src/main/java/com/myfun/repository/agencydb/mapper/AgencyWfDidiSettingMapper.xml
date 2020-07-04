@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfDidiSettingMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfDidiSetting" >
+    <!--@mbggenerated-->
+    <result column="WF_ID" property="wfId" jdbcType="INTEGER" />
+    <result column="WF_KEY" property="wfKey" jdbcType="VARCHAR" />
+    <result column="WF_VALUE" property="wfValue" jdbcType="VARCHAR" />
+    <result column="WF_DESC" property="wfDesc" jdbcType="VARCHAR" />
+    <result column="WF_STATUS" property="wfStatus" jdbcType="TINYINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="OPERATOR_ID" property="operatorId" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfDidiSetting" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wfId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_DIDI_SETTING (WF_KEY, WF_VALUE, WF_DESC, 
+      WF_STATUS, CREATE_TIME, UPDATE_TIME, 
+      OPERATOR_ID)
+    values (#{wfKey,jdbcType=VARCHAR}, #{wfValue,jdbcType=VARCHAR}, #{wfDesc,jdbcType=VARCHAR}, 
+      #{wfStatus,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{operatorId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfDidiSetting" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wfId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_DIDI_SETTING
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wfKey != null" >
+        WF_KEY,
+      </if>
+      <if test="wfValue != null" >
+        WF_VALUE,
+      </if>
+      <if test="wfDesc != null" >
+        WF_DESC,
+      </if>
+      <if test="wfStatus != null" >
+        WF_STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="operatorId != null" >
+        OPERATOR_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wfKey != null" >
+        #{wfKey,jdbcType=VARCHAR},
+      </if>
+      <if test="wfValue != null" >
+        #{wfValue,jdbcType=VARCHAR},
+      </if>
+      <if test="wfDesc != null" >
+        #{wfDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="wfStatus != null" >
+        #{wfStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null" >
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

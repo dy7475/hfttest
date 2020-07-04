@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunEntrustFilesMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunEntrustFiles">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ENTRUST_ID" jdbcType="INTEGER" property="entrustId" />
+    <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+    <result column="FILE_SIZE_CN" jdbcType="VARCHAR" property="fileSizeCn" />
+    <result column="FILE_TYPE" jdbcType="TINYINT" property="fileType" />
+    <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="FILE_EXT" jdbcType="VARCHAR" property="fileExt" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, ENTRUST_ID, FILE_PATH, FILE_SIZE_CN, FILE_TYPE, FILE_NAME, UPDATE_TIME, FILE_EXT
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustFilesExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST_FILES
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ENTRUST_FILES
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST_FILES
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustFilesExample">
+    <!--@mbggenerated-->
+    delete from FUN_ENTRUST_FILES
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustFiles" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST_FILES (ENTRUST_ID, FILE_PATH, FILE_SIZE_CN, 
+      FILE_TYPE, FILE_NAME, UPDATE_TIME, 
+      FILE_EXT)
+    values (#{entrustId,jdbcType=INTEGER}, #{filePath,jdbcType=VARCHAR}, #{fileSizeCn,jdbcType=VARCHAR}, 
+      #{fileType,jdbcType=TINYINT}, #{fileName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{fileExt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustFiles" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ENTRUST_FILES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="entrustId != null">
+        ENTRUST_ID,
+      </if>
+      <if test="filePath != null">
+        FILE_PATH,
+      </if>
+      <if test="fileSizeCn != null">
+        FILE_SIZE_CN,
+      </if>
+      <if test="fileType != null">
+        FILE_TYPE,
+      </if>
+      <if test="fileName != null">
+        FILE_NAME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="fileExt != null">
+        FILE_EXT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="entrustId != null">
+        #{entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSizeCn != null">
+        #{fileSizeCn,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null">
+        #{fileType,jdbcType=TINYINT},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileExt != null">
+        #{fileExt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustFilesExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ENTRUST_FILES
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_FILES
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.entrustId != null">
+        ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="record.filePath != null">
+        FILE_PATH = #{record.filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileSizeCn != null">
+        FILE_SIZE_CN = #{record.fileSizeCn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileType != null">
+        FILE_TYPE = #{record.fileType,jdbcType=TINYINT},
+      </if>
+      <if test="record.fileName != null">
+        FILE_NAME = #{record.fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fileExt != null">
+        FILE_EXT = #{record.fileExt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_FILES
+    set ID = #{record.id,jdbcType=INTEGER},
+      ENTRUST_ID = #{record.entrustId,jdbcType=INTEGER},
+      FILE_PATH = #{record.filePath,jdbcType=VARCHAR},
+      FILE_SIZE_CN = #{record.fileSizeCn,jdbcType=VARCHAR},
+      FILE_TYPE = #{record.fileType,jdbcType=TINYINT},
+      FILE_NAME = #{record.fileName,jdbcType=VARCHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      FILE_EXT = #{record.fileExt,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustFiles">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_FILES
+    <set>
+      <if test="entrustId != null">
+        ENTRUST_ID = #{entrustId,jdbcType=INTEGER},
+      </if>
+      <if test="filePath != null">
+        FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSizeCn != null">
+        FILE_SIZE_CN = #{fileSizeCn,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null">
+        FILE_TYPE = #{fileType,jdbcType=TINYINT},
+      </if>
+      <if test="fileName != null">
+        FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileExt != null">
+        FILE_EXT = #{fileExt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEntrustFiles">
+    <!--@mbggenerated-->
+    update FUN_ENTRUST_FILES
+    set ENTRUST_ID = #{entrustId,jdbcType=INTEGER},
+      FILE_PATH = #{filePath,jdbcType=VARCHAR},
+      FILE_SIZE_CN = #{fileSizeCn,jdbcType=VARCHAR},
+      FILE_TYPE = #{fileType,jdbcType=TINYINT},
+      FILE_NAME = #{fileName,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      FILE_EXT = #{fileExt,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <resultMap id="EntrustFilesVOMap" type="com.myfun.erpWeb.house.vo.EntrustFilesVO">
+    <id column="ID" jdbcType="INTEGER" property="fileId" />
+    <result column="ENTRUST_ID" jdbcType="INTEGER" property="entrustId" />
+    <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+    <result column="FILE_SIZE_CN" jdbcType="VARCHAR" property="fileSizeCn" />
+    <result column="FILE_TYPE" jdbcType="TINYINT" property="fileType" />
+    <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+    <result column="FILE_EXT" jdbcType="VARCHAR" property="fileExt" />
+    <result column="FILE_PATH_URL" jdbcType="VARCHAR" property="filePathUrl" />
+  </resultMap>
+  
+  <select id="selectByEntrustIds" resultMap="EntrustFilesVOMap">
+    select ID, ENTRUST_ID, FILE_PATH, FILE_SIZE_CN, FILE_TYPE, FILE_NAME, FILE_EXT
+    from FUN_ENTRUST_FILES
+    WHERE ENTRUST_ID in
+    <foreach close=")" collection="entrustIds" index="index" item="item" open="(" separator=",">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

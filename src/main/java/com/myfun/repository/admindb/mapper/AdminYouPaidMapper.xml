@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminYouPaidMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminYouPaid">
+    <!--@mbggenerated-->
+    <id column="PAID_ID" jdbcType="INTEGER" property="paidId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="PAID_CATIGORY" jdbcType="VARCHAR" property="paidCatigory" />
+    <result column="PAID_TYPE" jdbcType="VARCHAR" property="paidType" />
+    <result column="YOU_AMOUNT" jdbcType="NUMERIC" property="youAmount" />
+    <result column="AMOUNT_BEFORE" jdbcType="NUMERIC" property="amountBefore" />
+    <result column="AMOUNT_AFTER" jdbcType="NUMERIC" property="amountAfter" />
+    <result column="PAID_DESC" jdbcType="VARCHAR" property="paidDesc" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PAID_ID, ARCHIVE_ID, PAID_CATIGORY, PAID_TYPE, YOU_AMOUNT, AMOUNT_BEFORE, AMOUNT_AFTER, 
+    PAID_DESC, CREATION_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOU_PAID
+    where PAID_ID = #{paidId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from YOU_PAID
+    where PAID_ID = #{paidId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminYouPaid">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="paidId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into YOU_PAID (ARCHIVE_ID, PAID_CATIGORY, PAID_TYPE, 
+      YOU_AMOUNT, AMOUNT_BEFORE, AMOUNT_AFTER, 
+      PAID_DESC, CREATION_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{paidCatigory,jdbcType=VARCHAR}, #{paidType,jdbcType=VARCHAR}, 
+      #{youAmount,jdbcType=NUMERIC}, #{amountBefore,jdbcType=NUMERIC}, #{amountAfter,jdbcType=NUMERIC}, 
+      #{paidDesc,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminYouPaid">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="paidId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into YOU_PAID
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="paidCatigory != null">
+        PAID_CATIGORY,
+      </if>
+      <if test="paidType != null">
+        PAID_TYPE,
+      </if>
+      <if test="youAmount != null">
+        YOU_AMOUNT,
+      </if>
+      <if test="amountBefore != null">
+        AMOUNT_BEFORE,
+      </if>
+      <if test="amountAfter != null">
+        AMOUNT_AFTER,
+      </if>
+      <if test="paidDesc != null">
+        PAID_DESC,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="paidCatigory != null">
+        #{paidCatigory,jdbcType=VARCHAR},
+      </if>
+      <if test="paidType != null">
+        #{paidType,jdbcType=VARCHAR},
+      </if>
+      <if test="youAmount != null">
+        #{youAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="amountBefore != null">
+        #{amountBefore,jdbcType=NUMERIC},
+      </if>
+      <if test="amountAfter != null">
+        #{amountAfter,jdbcType=NUMERIC},
+      </if>
+      <if test="paidDesc != null">
+        #{paidDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminYouPaid">
+    <!--@mbggenerated-->
+    update YOU_PAID
+    <set>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="paidCatigory != null">
+        PAID_CATIGORY = #{paidCatigory,jdbcType=VARCHAR},
+      </if>
+      <if test="paidType != null">
+        PAID_TYPE = #{paidType,jdbcType=VARCHAR},
+      </if>
+      <if test="youAmount != null">
+        YOU_AMOUNT = #{youAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="amountBefore != null">
+        AMOUNT_BEFORE = #{amountBefore,jdbcType=NUMERIC},
+      </if>
+      <if test="amountAfter != null">
+        AMOUNT_AFTER = #{amountAfter,jdbcType=NUMERIC},
+      </if>
+      <if test="paidDesc != null">
+        PAID_DESC = #{paidDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PAID_ID = #{paidId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminYouPaid">
+    <!--@mbggenerated-->
+    update YOU_PAID
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      PAID_CATIGORY = #{paidCatigory,jdbcType=VARCHAR},
+      PAID_TYPE = #{paidType,jdbcType=VARCHAR},
+      YOU_AMOUNT = #{youAmount,jdbcType=NUMERIC},
+      AMOUNT_BEFORE = #{amountBefore,jdbcType=NUMERIC},
+      AMOUNT_AFTER = #{amountAfter,jdbcType=NUMERIC},
+      PAID_DESC = #{paidDesc,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP}
+    where PAID_ID = #{paidId,jdbcType=INTEGER}
+  </update>
+</mapper>

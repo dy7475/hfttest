@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfPayMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfPay" >
+    <!--@mbggenerated-->
+    <id column="PAY_ID" property="payId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="WX_ID" property="wxId" jdbcType="INTEGER" />
+    <result column="WX_OPEN_ID" property="wxOpenId" jdbcType="VARCHAR" />
+    <result column="TRADE_NO" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="TOTAL_FEE" property="totalFee" jdbcType="DOUBLE" />
+    <result column="PAY_TYPE" property="payType" jdbcType="TINYINT" />
+    <result column="PAY_STATUS" property="payStatus" jdbcType="TINYINT" />
+    <result column="PAY_REFUND" property="payRefund" jdbcType="TINYINT" />
+    <result column="PAY_TIME" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="TRANSACTION_ID" property="transactionId" jdbcType="VARCHAR" />
+    <result column="PUSH_LOG_ID" property="pushLogId" jdbcType="INTEGER" />
+    <result column="RECOM_HOUSE_ID" property="recomHouseId" jdbcType="INTEGER" />
+    <result column="BONUS_ID" property="bonusId" jdbcType="INTEGER" />
+    <result column="BUTIE_MONEY" property="butieMoney" jdbcType="DECIMAL" />
+    <result column="RETURN_MONEY" property="returnMoney" jdbcType="DECIMAL" />
+    <result column="MINUS_MONEY" property="minusMoney" jdbcType="DECIMAL" />
+    <result column="REDPACKAGE_STATUS" property="redpackageStatus" jdbcType="TINYINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    PAY_ID, CASE_ID, CITY_ID, CASE_TYPE, WX_ID, WX_OPEN_ID, TRADE_NO, TOTAL_FEE, PAY_TYPE, 
+    PAY_STATUS, PAY_REFUND, PAY_TIME, TRANSACTION_ID, PUSH_LOG_ID, RECOM_HOUSE_ID, BONUS_ID, 
+    BUTIE_MONEY, RETURN_MONEY, MINUS_MONEY, REDPACKAGE_STATUS, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_PAY
+    where PAY_ID = #{payId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_PAY
+    where PAY_ID = #{payId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfPay" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="payId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_PAY (CASE_ID, CITY_ID, CASE_TYPE, 
+      WX_ID, WX_OPEN_ID, TRADE_NO, 
+      TOTAL_FEE, PAY_TYPE, PAY_STATUS, 
+      PAY_REFUND, PAY_TIME, TRANSACTION_ID, 
+      PUSH_LOG_ID, RECOM_HOUSE_ID, BONUS_ID, 
+      BUTIE_MONEY, RETURN_MONEY, MINUS_MONEY, 
+      REDPACKAGE_STATUS, CREATE_TIME)
+    values (#{caseId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, 
+      #{wxId,jdbcType=INTEGER}, #{wxOpenId,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, 
+      #{totalFee,jdbcType=DOUBLE}, #{payType,jdbcType=TINYINT}, #{payStatus,jdbcType=TINYINT}, 
+      #{payRefund,jdbcType=TINYINT}, #{payTime,jdbcType=TIMESTAMP}, #{transactionId,jdbcType=VARCHAR}, 
+      #{pushLogId,jdbcType=INTEGER}, #{recomHouseId,jdbcType=INTEGER}, #{bonusId,jdbcType=INTEGER}, 
+      #{butieMoney,jdbcType=DECIMAL}, #{returnMoney,jdbcType=DECIMAL}, #{minusMoney,jdbcType=DECIMAL}, 
+      #{redpackageStatus,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfPay" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="payId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_PAY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="wxId != null" >
+        WX_ID,
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID,
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO,
+      </if>
+      <if test="totalFee != null" >
+        TOTAL_FEE,
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE,
+      </if>
+      <if test="payStatus != null" >
+        PAY_STATUS,
+      </if>
+      <if test="payRefund != null" >
+        PAY_REFUND,
+      </if>
+      <if test="payTime != null" >
+        PAY_TIME,
+      </if>
+      <if test="transactionId != null" >
+        TRANSACTION_ID,
+      </if>
+      <if test="pushLogId != null" >
+        PUSH_LOG_ID,
+      </if>
+      <if test="recomHouseId != null" >
+        RECOM_HOUSE_ID,
+      </if>
+      <if test="bonusId != null" >
+        BONUS_ID,
+      </if>
+      <if test="butieMoney != null" >
+        BUTIE_MONEY,
+      </if>
+      <if test="returnMoney != null" >
+        RETURN_MONEY,
+      </if>
+      <if test="minusMoney != null" >
+        MINUS_MONEY,
+      </if>
+      <if test="redpackageStatus != null" >
+        REDPACKAGE_STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="wxId != null" >
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null" >
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFee != null" >
+        #{totalFee,jdbcType=DOUBLE},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="payStatus != null" >
+        #{payStatus,jdbcType=TINYINT},
+      </if>
+      <if test="payRefund != null" >
+        #{payRefund,jdbcType=TINYINT},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transactionId != null" >
+        #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="pushLogId != null" >
+        #{pushLogId,jdbcType=INTEGER},
+      </if>
+      <if test="recomHouseId != null" >
+        #{recomHouseId,jdbcType=INTEGER},
+      </if>
+      <if test="bonusId != null" >
+        #{bonusId,jdbcType=INTEGER},
+      </if>
+      <if test="butieMoney != null" >
+        #{butieMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="returnMoney != null" >
+        #{returnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="minusMoney != null" >
+        #{minusMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="redpackageStatus != null" >
+        #{redpackageStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfPay" >
+    <!--@mbggenerated-->
+    update WF_PAY
+    <set >
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="wxId != null" >
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFee != null" >
+        TOTAL_FEE = #{totalFee,jdbcType=DOUBLE},
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE = #{payType,jdbcType=TINYINT},
+      </if>
+      <if test="payStatus != null" >
+        PAY_STATUS = #{payStatus,jdbcType=TINYINT},
+      </if>
+      <if test="payRefund != null" >
+        PAY_REFUND = #{payRefund,jdbcType=TINYINT},
+      </if>
+      <if test="payTime != null" >
+        PAY_TIME = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transactionId != null" >
+        TRANSACTION_ID = #{transactionId,jdbcType=VARCHAR},
+      </if>
+      <if test="pushLogId != null" >
+        PUSH_LOG_ID = #{pushLogId,jdbcType=INTEGER},
+      </if>
+      <if test="recomHouseId != null" >
+        RECOM_HOUSE_ID = #{recomHouseId,jdbcType=INTEGER},
+      </if>
+      <if test="bonusId != null" >
+        BONUS_ID = #{bonusId,jdbcType=INTEGER},
+      </if>
+      <if test="butieMoney != null" >
+        BUTIE_MONEY = #{butieMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="returnMoney != null" >
+        RETURN_MONEY = #{returnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="minusMoney != null" >
+        MINUS_MONEY = #{minusMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="redpackageStatus != null" >
+        REDPACKAGE_STATUS = #{redpackageStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PAY_ID = #{payId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfPay" >
+    <!--@mbggenerated-->
+    update WF_PAY
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      TOTAL_FEE = #{totalFee,jdbcType=DOUBLE},
+      PAY_TYPE = #{payType,jdbcType=TINYINT},
+      PAY_STATUS = #{payStatus,jdbcType=TINYINT},
+      PAY_REFUND = #{payRefund,jdbcType=TINYINT},
+      PAY_TIME = #{payTime,jdbcType=TIMESTAMP},
+      TRANSACTION_ID = #{transactionId,jdbcType=VARCHAR},
+      PUSH_LOG_ID = #{pushLogId,jdbcType=INTEGER},
+      RECOM_HOUSE_ID = #{recomHouseId,jdbcType=INTEGER},
+      BONUS_ID = #{bonusId,jdbcType=INTEGER},
+      BUTIE_MONEY = #{butieMoney,jdbcType=DECIMAL},
+      RETURN_MONEY = #{returnMoney,jdbcType=DECIMAL},
+      MINUS_MONEY = #{minusMoney,jdbcType=DECIMAL},
+      REDPACKAGE_STATUS = #{redpackageStatus,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where PAY_ID = #{payId,jdbcType=INTEGER}
+  </update>
+</mapper>

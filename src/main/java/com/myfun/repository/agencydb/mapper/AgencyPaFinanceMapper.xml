@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyPaFinanceMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyPaFinance" >
+    <!--@mbggenerated-->
+    <id column="FINANCE_ID" property="financeId" jdbcType="INTEGER" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="IC_CODE" property="icCode" jdbcType="VARCHAR" />
+    <result column="APPLY_PRICE" property="applyPrice" jdbcType="DECIMAL" />
+    <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="COMP_NO" property="compNo" jdbcType="VARCHAR" />
+    <result column="DEPT_NO" property="deptNo" jdbcType="VARCHAR" />
+    <result column="FINANCE_STATUS" property="financeStatus" jdbcType="TINYINT" />
+    <result column="FINANCE_RESOURCE" property="financeResource" jdbcType="TINYINT" />
+    <result column="RIGHT_NO" property="rightNo" jdbcType="VARCHAR" />
+    <result column="REG_FROM" property="regFrom" jdbcType="TINYINT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="LOAN_PRICE" property="loanPrice" jdbcType="DECIMAL" />
+    <result column="LOAN_TIME" property="loanTime" jdbcType="TIMESTAMP" />
+    <result column="RAKEBACK_PRICE" property="rakebackPrice" jdbcType="DECIMAL" />
+    <result column="RAKEBACK_STATUS" property="rakebackStatus" jdbcType="TINYINT" />
+    <result column="RAKEBACK_TIME" property="rakebackTime" jdbcType="TIMESTAMP" />
+    <result column="IS_CASH" property="isCash" jdbcType="TINYINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="RAKEBACK_PRICE_RATE" property="rakebackPriceRate" jdbcType="DECIMAL" />
+    <result column="MONEY_BEFORE_TAXES" property="moneyBeforeTaxes" jdbcType="DECIMAL" />
+    <result column="TAXES_RATE" property="taxesRate" jdbcType="DECIMAL" />
+    <result column="TAXES_MONEY" property="taxesMoney" jdbcType="DECIMAL" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="BUILD_NAME" property="buildName" jdbcType="VARCHAR" />
+    <result column="JIANZHENG_NO" property="jianzhengNo" jdbcType="VARCHAR" />
+    <result column="ASSESSMENT_MONEY" property="assessmentMoney" jdbcType="DECIMAL" />
+    <result column="DY_NO" property="dyNo" jdbcType="VARCHAR" />
+    <result column="RAKEBACK_PRICE_TOTAL" property="rakebackPriceTotal" jdbcType="DECIMAL" />
+    <result column="COMP_RAKEBACK_PRICE" property="compRakebackPrice" jdbcType="DECIMAL" />
+    <result column="COMP_RAKEBACK_STATUS" property="compRakebackStatus" jdbcType="TINYINT" />
+    <result column="COMP_RAKEBACK_TIME" property="compRakebackTime" jdbcType="TIMESTAMP" />
+    <result column="COMP_IS_CASH" property="compIsCash" jdbcType="TINYINT" />
+    <result column="FINANCE_LIMIT" property="financeLimit" jdbcType="INTEGER" />
+    <result column="IS_CLOSE" property="isClose" jdbcType="TINYINT" />
+    <result column="OLD_ARCHIVE_ID" property="oldArchiveId" jdbcType="INTEGER" />
+    <result column="AUDIT_PASS_TIME" property="auditPassTime" jdbcType="TIMESTAMP" />
+    <result column="OLD_BROKER_WRITEOFF_TIME" property="oldBrokerWriteoffTime" jdbcType="TIMESTAMP" />
+    <result column="INTERVIEW_COUNT" property="interviewCount" jdbcType="INTEGER" />
+    <result column="CANCEL_APPLY_COUNT" property="cancelApplyCount" jdbcType="INTEGER" />
+    <result column="PROTECT_END_TIME" property="protectEndTime" jdbcType="TIMESTAMP" />
+    <result column="CANCEL_APPLY_TIME" property="cancelApplyTime" jdbcType="TIMESTAMP" />
+    <result column="CHANNEL_PASS_TIME" property="channelPassTime" jdbcType="TIMESTAMP" />
+    <result column="AUDIT_ERROR_TIME" property="auditErrorTime" jdbcType="TIMESTAMP" />
+    <result column="CUSTOMER_REVOKE_TIME" property="customerRevokeTime" jdbcType="TIMESTAMP" />
+    <result column="ENTRUST_INVITATION" property="entrustInvitation" jdbcType="TINYINT" />
+    <result column="COMP_RAKEBACK_PRICE_AFTER_TAX" property="compRakebackPriceAfterTax" jdbcType="DECIMAL" />
+    <result column="RAKEBACK_PRICE_AFTER_TAX" property="rakebackPriceAfterTax" jdbcType="DECIMAL" />
+    <result column="AUDIT_ERROR_REASON" property="auditErrorReason" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    FINANCE_ID, USER_NAME, IC_CODE, APPLY_PRICE, USER_MOBILE, ARCHIVE_ID, COMP_NO, DEPT_NO, 
+    FINANCE_STATUS, FINANCE_RESOURCE, RIGHT_NO, REG_FROM, CREATION_TIME, UPDATE_TIME, 
+    LOAN_PRICE, LOAN_TIME, RAKEBACK_PRICE, RAKEBACK_STATUS, RAKEBACK_TIME, IS_CASH, CITY_ID, 
+    RAKEBACK_PRICE_RATE, MONEY_BEFORE_TAXES, TAXES_RATE, TAXES_MONEY, BUILD_ID, BUILD_NAME, 
+    JIANZHENG_NO, ASSESSMENT_MONEY, DY_NO, RAKEBACK_PRICE_TOTAL, COMP_RAKEBACK_PRICE, 
+    COMP_RAKEBACK_STATUS, COMP_RAKEBACK_TIME, COMP_IS_CASH, FINANCE_LIMIT, IS_CLOSE, 
+    OLD_ARCHIVE_ID, AUDIT_PASS_TIME, OLD_BROKER_WRITEOFF_TIME, INTERVIEW_COUNT, CANCEL_APPLY_COUNT, 
+    PROTECT_END_TIME, CANCEL_APPLY_TIME, CHANNEL_PASS_TIME, AUDIT_ERROR_TIME, CUSTOMER_REVOKE_TIME, 
+    ENTRUST_INVITATION, COMP_RAKEBACK_PRICE_AFTER_TAX, RAKEBACK_PRICE_AFTER_TAX, AUDIT_ERROR_REASON
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from PA_FINANCE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from PA_FINANCE
+    where FINANCE_ID = #{financeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from PA_FINANCE
+    where FINANCE_ID = #{financeId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceExample" >
+    <!--@mbggenerated-->
+    delete from PA_FINANCE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinance" useGeneratedKeys="true" keyProperty="financeId" >
+    <!--@mbggenerated-->
+    insert into PA_FINANCE (USER_NAME, IC_CODE, APPLY_PRICE, 
+      USER_MOBILE, ARCHIVE_ID, COMP_NO, 
+      DEPT_NO, FINANCE_STATUS, FINANCE_RESOURCE, 
+      RIGHT_NO, REG_FROM, CREATION_TIME, 
+      UPDATE_TIME, LOAN_PRICE, LOAN_TIME, 
+      RAKEBACK_PRICE, RAKEBACK_STATUS, RAKEBACK_TIME, 
+      IS_CASH, CITY_ID, RAKEBACK_PRICE_RATE, 
+      MONEY_BEFORE_TAXES, TAXES_RATE, TAXES_MONEY, 
+      BUILD_ID, BUILD_NAME, JIANZHENG_NO, 
+      ASSESSMENT_MONEY, DY_NO, RAKEBACK_PRICE_TOTAL, 
+      COMP_RAKEBACK_PRICE, COMP_RAKEBACK_STATUS, 
+      COMP_RAKEBACK_TIME, COMP_IS_CASH, FINANCE_LIMIT, 
+      IS_CLOSE, OLD_ARCHIVE_ID, AUDIT_PASS_TIME, 
+      OLD_BROKER_WRITEOFF_TIME, INTERVIEW_COUNT, 
+      CANCEL_APPLY_COUNT, PROTECT_END_TIME, CANCEL_APPLY_TIME, 
+      CHANNEL_PASS_TIME, AUDIT_ERROR_TIME, CUSTOMER_REVOKE_TIME, 
+      ENTRUST_INVITATION, COMP_RAKEBACK_PRICE_AFTER_TAX, 
+      RAKEBACK_PRICE_AFTER_TAX, AUDIT_ERROR_REASON
+      )
+    values (#{userName,jdbcType=VARCHAR}, #{icCode,jdbcType=VARCHAR}, #{applyPrice,jdbcType=DECIMAL}, 
+      #{userMobile,jdbcType=VARCHAR}, #{archiveId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, 
+      #{deptNo,jdbcType=VARCHAR}, #{financeStatus,jdbcType=TINYINT}, #{financeResource,jdbcType=TINYINT}, 
+      #{rightNo,jdbcType=VARCHAR}, #{regFrom,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{loanPrice,jdbcType=DECIMAL}, #{loanTime,jdbcType=TIMESTAMP}, 
+      #{rakebackPrice,jdbcType=DECIMAL}, #{rakebackStatus,jdbcType=TINYINT}, #{rakebackTime,jdbcType=TIMESTAMP}, 
+      #{isCash,jdbcType=TINYINT}, #{cityId,jdbcType=INTEGER}, #{rakebackPriceRate,jdbcType=DECIMAL}, 
+      #{moneyBeforeTaxes,jdbcType=DECIMAL}, #{taxesRate,jdbcType=DECIMAL}, #{taxesMoney,jdbcType=DECIMAL}, 
+      #{buildId,jdbcType=INTEGER}, #{buildName,jdbcType=VARCHAR}, #{jianzhengNo,jdbcType=VARCHAR}, 
+      #{assessmentMoney,jdbcType=DECIMAL}, #{dyNo,jdbcType=VARCHAR}, #{rakebackPriceTotal,jdbcType=DECIMAL}, 
+      #{compRakebackPrice,jdbcType=DECIMAL}, #{compRakebackStatus,jdbcType=TINYINT}, 
+      #{compRakebackTime,jdbcType=TIMESTAMP}, #{compIsCash,jdbcType=TINYINT}, #{financeLimit,jdbcType=INTEGER}, 
+      #{isClose,jdbcType=TINYINT}, #{oldArchiveId,jdbcType=INTEGER}, #{auditPassTime,jdbcType=TIMESTAMP}, 
+      #{oldBrokerWriteoffTime,jdbcType=TIMESTAMP}, #{interviewCount,jdbcType=INTEGER}, 
+      #{cancelApplyCount,jdbcType=INTEGER}, #{protectEndTime,jdbcType=TIMESTAMP}, #{cancelApplyTime,jdbcType=TIMESTAMP}, 
+      #{channelPassTime,jdbcType=TIMESTAMP}, #{auditErrorTime,jdbcType=TIMESTAMP}, #{customerRevokeTime,jdbcType=TIMESTAMP}, 
+      #{entrustInvitation,jdbcType=TINYINT}, #{compRakebackPriceAfterTax,jdbcType=DECIMAL}, 
+      #{rakebackPriceAfterTax,jdbcType=DECIMAL}, #{auditErrorReason,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinance" useGeneratedKeys="true" keyProperty="financeId" >
+    <!--@mbggenerated-->
+    insert into PA_FINANCE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="icCode != null" >
+        IC_CODE,
+      </if>
+      <if test="applyPrice != null" >
+        APPLY_PRICE,
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="compNo != null" >
+        COMP_NO,
+      </if>
+      <if test="deptNo != null" >
+        DEPT_NO,
+      </if>
+      <if test="financeStatus != null" >
+        FINANCE_STATUS,
+      </if>
+      <if test="financeResource != null" >
+        FINANCE_RESOURCE,
+      </if>
+      <if test="rightNo != null" >
+        RIGHT_NO,
+      </if>
+      <if test="regFrom != null" >
+        REG_FROM,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="loanPrice != null" >
+        LOAN_PRICE,
+      </if>
+      <if test="loanTime != null" >
+        LOAN_TIME,
+      </if>
+      <if test="rakebackPrice != null" >
+        RAKEBACK_PRICE,
+      </if>
+      <if test="rakebackStatus != null" >
+        RAKEBACK_STATUS,
+      </if>
+      <if test="rakebackTime != null" >
+        RAKEBACK_TIME,
+      </if>
+      <if test="isCash != null" >
+        IS_CASH,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="rakebackPriceRate != null" >
+        RAKEBACK_PRICE_RATE,
+      </if>
+      <if test="moneyBeforeTaxes != null" >
+        MONEY_BEFORE_TAXES,
+      </if>
+      <if test="taxesRate != null" >
+        TAXES_RATE,
+      </if>
+      <if test="taxesMoney != null" >
+        TAXES_MONEY,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="buildName != null" >
+        BUILD_NAME,
+      </if>
+      <if test="jianzhengNo != null" >
+        JIANZHENG_NO,
+      </if>
+      <if test="assessmentMoney != null" >
+        ASSESSMENT_MONEY,
+      </if>
+      <if test="dyNo != null" >
+        DY_NO,
+      </if>
+      <if test="rakebackPriceTotal != null" >
+        RAKEBACK_PRICE_TOTAL,
+      </if>
+      <if test="compRakebackPrice != null" >
+        COMP_RAKEBACK_PRICE,
+      </if>
+      <if test="compRakebackStatus != null" >
+        COMP_RAKEBACK_STATUS,
+      </if>
+      <if test="compRakebackTime != null" >
+        COMP_RAKEBACK_TIME,
+      </if>
+      <if test="compIsCash != null" >
+        COMP_IS_CASH,
+      </if>
+      <if test="financeLimit != null" >
+        FINANCE_LIMIT,
+      </if>
+      <if test="isClose != null" >
+        IS_CLOSE,
+      </if>
+      <if test="oldArchiveId != null" >
+        OLD_ARCHIVE_ID,
+      </if>
+      <if test="auditPassTime != null" >
+        AUDIT_PASS_TIME,
+      </if>
+      <if test="oldBrokerWriteoffTime != null" >
+        OLD_BROKER_WRITEOFF_TIME,
+      </if>
+      <if test="interviewCount != null" >
+        INTERVIEW_COUNT,
+      </if>
+      <if test="cancelApplyCount != null" >
+        CANCEL_APPLY_COUNT,
+      </if>
+      <if test="protectEndTime != null" >
+        PROTECT_END_TIME,
+      </if>
+      <if test="cancelApplyTime != null" >
+        CANCEL_APPLY_TIME,
+      </if>
+      <if test="channelPassTime != null" >
+        CHANNEL_PASS_TIME,
+      </if>
+      <if test="auditErrorTime != null" >
+        AUDIT_ERROR_TIME,
+      </if>
+      <if test="customerRevokeTime != null" >
+        CUSTOMER_REVOKE_TIME,
+      </if>
+      <if test="entrustInvitation != null" >
+        ENTRUST_INVITATION,
+      </if>
+      <if test="compRakebackPriceAfterTax != null" >
+        COMP_RAKEBACK_PRICE_AFTER_TAX,
+      </if>
+      <if test="rakebackPriceAfterTax != null" >
+        RAKEBACK_PRICE_AFTER_TAX,
+      </if>
+      <if test="auditErrorReason != null" >
+        AUDIT_ERROR_REASON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="icCode != null" >
+        #{icCode,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPrice != null" >
+        #{applyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null" >
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null" >
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="financeStatus != null" >
+        #{financeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="financeResource != null" >
+        #{financeResource,jdbcType=TINYINT},
+      </if>
+      <if test="rightNo != null" >
+        #{rightNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regFrom != null" >
+        #{regFrom,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loanPrice != null" >
+        #{loanPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="loanTime != null" >
+        #{loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rakebackPrice != null" >
+        #{rakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rakebackStatus != null" >
+        #{rakebackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="rakebackTime != null" >
+        #{rakebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCash != null" >
+        #{isCash,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="rakebackPriceRate != null" >
+        #{rakebackPriceRate,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyBeforeTaxes != null" >
+        #{moneyBeforeTaxes,jdbcType=DECIMAL},
+      </if>
+      <if test="taxesRate != null" >
+        #{taxesRate,jdbcType=DECIMAL},
+      </if>
+      <if test="taxesMoney != null" >
+        #{taxesMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null" >
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="jianzhengNo != null" >
+        #{jianzhengNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentMoney != null" >
+        #{assessmentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dyNo != null" >
+        #{dyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rakebackPriceTotal != null" >
+        #{rakebackPriceTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="compRakebackPrice != null" >
+        #{compRakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="compRakebackStatus != null" >
+        #{compRakebackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="compRakebackTime != null" >
+        #{compRakebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compIsCash != null" >
+        #{compIsCash,jdbcType=TINYINT},
+      </if>
+      <if test="financeLimit != null" >
+        #{financeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="isClose != null" >
+        #{isClose,jdbcType=TINYINT},
+      </if>
+      <if test="oldArchiveId != null" >
+        #{oldArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="auditPassTime != null" >
+        #{auditPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldBrokerWriteoffTime != null" >
+        #{oldBrokerWriteoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewCount != null" >
+        #{interviewCount,jdbcType=INTEGER},
+      </if>
+      <if test="cancelApplyCount != null" >
+        #{cancelApplyCount,jdbcType=INTEGER},
+      </if>
+      <if test="protectEndTime != null" >
+        #{protectEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelApplyTime != null" >
+        #{cancelApplyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelPassTime != null" >
+        #{channelPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditErrorTime != null" >
+        #{auditErrorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerRevokeTime != null" >
+        #{customerRevokeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entrustInvitation != null" >
+        #{entrustInvitation,jdbcType=TINYINT},
+      </if>
+      <if test="compRakebackPriceAfterTax != null" >
+        #{compRakebackPriceAfterTax,jdbcType=DECIMAL},
+      </if>
+      <if test="rakebackPriceAfterTax != null" >
+        #{rakebackPriceAfterTax,jdbcType=DECIMAL},
+      </if>
+      <if test="auditErrorReason != null" >
+        #{auditErrorReason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinanceExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from PA_FINANCE
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update PA_FINANCE
+    <set >
+      <if test="record.financeId != null" >
+        FINANCE_ID = #{record.financeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null" >
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icCode != null" >
+        IC_CODE = #{record.icCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyPrice != null" >
+        APPLY_PRICE = #{record.applyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userMobile != null" >
+        USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compNo != null" >
+        COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptNo != null" >
+        DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financeStatus != null" >
+        FINANCE_STATUS = #{record.financeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.financeResource != null" >
+        FINANCE_RESOURCE = #{record.financeResource,jdbcType=TINYINT},
+      </if>
+      <if test="record.rightNo != null" >
+        RIGHT_NO = #{record.rightNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regFrom != null" >
+        REG_FROM = #{record.regFrom,jdbcType=TINYINT},
+      </if>
+      <if test="record.creationTime != null" >
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loanPrice != null" >
+        LOAN_PRICE = #{record.loanPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.loanTime != null" >
+        LOAN_TIME = #{record.loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rakebackPrice != null" >
+        RAKEBACK_PRICE = #{record.rakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rakebackStatus != null" >
+        RAKEBACK_STATUS = #{record.rakebackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.rakebackTime != null" >
+        RAKEBACK_TIME = #{record.rakebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isCash != null" >
+        IS_CASH = #{record.isCash,jdbcType=TINYINT},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.rakebackPriceRate != null" >
+        RAKEBACK_PRICE_RATE = #{record.rakebackPriceRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.moneyBeforeTaxes != null" >
+        MONEY_BEFORE_TAXES = #{record.moneyBeforeTaxes,jdbcType=DECIMAL},
+      </if>
+      <if test="record.taxesRate != null" >
+        TAXES_RATE = #{record.taxesRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.taxesMoney != null" >
+        TAXES_MONEY = #{record.taxesMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.buildId != null" >
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildName != null" >
+        BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jianzhengNo != null" >
+        JIANZHENG_NO = #{record.jianzhengNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assessmentMoney != null" >
+        ASSESSMENT_MONEY = #{record.assessmentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.dyNo != null" >
+        DY_NO = #{record.dyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rakebackPriceTotal != null" >
+        RAKEBACK_PRICE_TOTAL = #{record.rakebackPriceTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.compRakebackPrice != null" >
+        COMP_RAKEBACK_PRICE = #{record.compRakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.compRakebackStatus != null" >
+        COMP_RAKEBACK_STATUS = #{record.compRakebackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.compRakebackTime != null" >
+        COMP_RAKEBACK_TIME = #{record.compRakebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.compIsCash != null" >
+        COMP_IS_CASH = #{record.compIsCash,jdbcType=TINYINT},
+      </if>
+      <if test="record.financeLimit != null" >
+        FINANCE_LIMIT = #{record.financeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.isClose != null" >
+        IS_CLOSE = #{record.isClose,jdbcType=TINYINT},
+      </if>
+      <if test="record.oldArchiveId != null" >
+        OLD_ARCHIVE_ID = #{record.oldArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditPassTime != null" >
+        AUDIT_PASS_TIME = #{record.auditPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.oldBrokerWriteoffTime != null" >
+        OLD_BROKER_WRITEOFF_TIME = #{record.oldBrokerWriteoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.interviewCount != null" >
+        INTERVIEW_COUNT = #{record.interviewCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.cancelApplyCount != null" >
+        CANCEL_APPLY_COUNT = #{record.cancelApplyCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.protectEndTime != null" >
+        PROTECT_END_TIME = #{record.protectEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cancelApplyTime != null" >
+        CANCEL_APPLY_TIME = #{record.cancelApplyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.channelPassTime != null" >
+        CHANNEL_PASS_TIME = #{record.channelPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditErrorTime != null" >
+        AUDIT_ERROR_TIME = #{record.auditErrorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.customerRevokeTime != null" >
+        CUSTOMER_REVOKE_TIME = #{record.customerRevokeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.entrustInvitation != null" >
+        ENTRUST_INVITATION = #{record.entrustInvitation,jdbcType=TINYINT},
+      </if>
+      <if test="record.compRakebackPriceAfterTax != null" >
+        COMP_RAKEBACK_PRICE_AFTER_TAX = #{record.compRakebackPriceAfterTax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rakebackPriceAfterTax != null" >
+        RAKEBACK_PRICE_AFTER_TAX = #{record.rakebackPriceAfterTax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.auditErrorReason != null" >
+        AUDIT_ERROR_REASON = #{record.auditErrorReason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update PA_FINANCE
+    set FINANCE_ID = #{record.financeId,jdbcType=INTEGER},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      IC_CODE = #{record.icCode,jdbcType=VARCHAR},
+      APPLY_PRICE = #{record.applyPrice,jdbcType=DECIMAL},
+      USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      FINANCE_STATUS = #{record.financeStatus,jdbcType=TINYINT},
+      FINANCE_RESOURCE = #{record.financeResource,jdbcType=TINYINT},
+      RIGHT_NO = #{record.rightNo,jdbcType=VARCHAR},
+      REG_FROM = #{record.regFrom,jdbcType=TINYINT},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      LOAN_PRICE = #{record.loanPrice,jdbcType=DECIMAL},
+      LOAN_TIME = #{record.loanTime,jdbcType=TIMESTAMP},
+      RAKEBACK_PRICE = #{record.rakebackPrice,jdbcType=DECIMAL},
+      RAKEBACK_STATUS = #{record.rakebackStatus,jdbcType=TINYINT},
+      RAKEBACK_TIME = #{record.rakebackTime,jdbcType=TIMESTAMP},
+      IS_CASH = #{record.isCash,jdbcType=TINYINT},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      RAKEBACK_PRICE_RATE = #{record.rakebackPriceRate,jdbcType=DECIMAL},
+      MONEY_BEFORE_TAXES = #{record.moneyBeforeTaxes,jdbcType=DECIMAL},
+      TAXES_RATE = #{record.taxesRate,jdbcType=DECIMAL},
+      TAXES_MONEY = #{record.taxesMoney,jdbcType=DECIMAL},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      JIANZHENG_NO = #{record.jianzhengNo,jdbcType=VARCHAR},
+      ASSESSMENT_MONEY = #{record.assessmentMoney,jdbcType=DECIMAL},
+      DY_NO = #{record.dyNo,jdbcType=VARCHAR},
+      RAKEBACK_PRICE_TOTAL = #{record.rakebackPriceTotal,jdbcType=DECIMAL},
+      COMP_RAKEBACK_PRICE = #{record.compRakebackPrice,jdbcType=DECIMAL},
+      COMP_RAKEBACK_STATUS = #{record.compRakebackStatus,jdbcType=TINYINT},
+      COMP_RAKEBACK_TIME = #{record.compRakebackTime,jdbcType=TIMESTAMP},
+      COMP_IS_CASH = #{record.compIsCash,jdbcType=TINYINT},
+      FINANCE_LIMIT = #{record.financeLimit,jdbcType=INTEGER},
+      IS_CLOSE = #{record.isClose,jdbcType=TINYINT},
+      OLD_ARCHIVE_ID = #{record.oldArchiveId,jdbcType=INTEGER},
+      AUDIT_PASS_TIME = #{record.auditPassTime,jdbcType=TIMESTAMP},
+      OLD_BROKER_WRITEOFF_TIME = #{record.oldBrokerWriteoffTime,jdbcType=TIMESTAMP},
+      INTERVIEW_COUNT = #{record.interviewCount,jdbcType=INTEGER},
+      CANCEL_APPLY_COUNT = #{record.cancelApplyCount,jdbcType=INTEGER},
+      PROTECT_END_TIME = #{record.protectEndTime,jdbcType=TIMESTAMP},
+      CANCEL_APPLY_TIME = #{record.cancelApplyTime,jdbcType=TIMESTAMP},
+      CHANNEL_PASS_TIME = #{record.channelPassTime,jdbcType=TIMESTAMP},
+      AUDIT_ERROR_TIME = #{record.auditErrorTime,jdbcType=TIMESTAMP},
+      CUSTOMER_REVOKE_TIME = #{record.customerRevokeTime,jdbcType=TIMESTAMP},
+      ENTRUST_INVITATION = #{record.entrustInvitation,jdbcType=TINYINT},
+      COMP_RAKEBACK_PRICE_AFTER_TAX = #{record.compRakebackPriceAfterTax,jdbcType=DECIMAL},
+      RAKEBACK_PRICE_AFTER_TAX = #{record.rakebackPriceAfterTax,jdbcType=DECIMAL},
+      AUDIT_ERROR_REASON = #{record.auditErrorReason,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinance" >
+    <!--@mbggenerated-->
+    update PA_FINANCE
+    <set >
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="icCode != null" >
+        IC_CODE = #{icCode,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPrice != null" >
+        APPLY_PRICE = #{applyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null" >
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null" >
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="financeStatus != null" >
+        FINANCE_STATUS = #{financeStatus,jdbcType=TINYINT},
+      </if>
+      <if test="financeResource != null" >
+        FINANCE_RESOURCE = #{financeResource,jdbcType=TINYINT},
+      </if>
+      <if test="rightNo != null" >
+        RIGHT_NO = #{rightNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regFrom != null" >
+        REG_FROM = #{regFrom,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loanPrice != null" >
+        LOAN_PRICE = #{loanPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="loanTime != null" >
+        LOAN_TIME = #{loanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rakebackPrice != null" >
+        RAKEBACK_PRICE = #{rakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rakebackStatus != null" >
+        RAKEBACK_STATUS = #{rakebackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="rakebackTime != null" >
+        RAKEBACK_TIME = #{rakebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCash != null" >
+        IS_CASH = #{isCash,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="rakebackPriceRate != null" >
+        RAKEBACK_PRICE_RATE = #{rakebackPriceRate,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyBeforeTaxes != null" >
+        MONEY_BEFORE_TAXES = #{moneyBeforeTaxes,jdbcType=DECIMAL},
+      </if>
+      <if test="taxesRate != null" >
+        TAXES_RATE = #{taxesRate,jdbcType=DECIMAL},
+      </if>
+      <if test="taxesMoney != null" >
+        TAXES_MONEY = #{taxesMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null" >
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="jianzhengNo != null" >
+        JIANZHENG_NO = #{jianzhengNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assessmentMoney != null" >
+        ASSESSMENT_MONEY = #{assessmentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dyNo != null" >
+        DY_NO = #{dyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rakebackPriceTotal != null" >
+        RAKEBACK_PRICE_TOTAL = #{rakebackPriceTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="compRakebackPrice != null" >
+        COMP_RAKEBACK_PRICE = #{compRakebackPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="compRakebackStatus != null" >
+        COMP_RAKEBACK_STATUS = #{compRakebackStatus,jdbcType=TINYINT},
+      </if>
+      <if test="compRakebackTime != null" >
+        COMP_RAKEBACK_TIME = #{compRakebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compIsCash != null" >
+        COMP_IS_CASH = #{compIsCash,jdbcType=TINYINT},
+      </if>
+      <if test="financeLimit != null" >
+        FINANCE_LIMIT = #{financeLimit,jdbcType=INTEGER},
+      </if>
+      <if test="isClose != null" >
+        IS_CLOSE = #{isClose,jdbcType=TINYINT},
+      </if>
+      <if test="oldArchiveId != null" >
+        OLD_ARCHIVE_ID = #{oldArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="auditPassTime != null" >
+        AUDIT_PASS_TIME = #{auditPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldBrokerWriteoffTime != null" >
+        OLD_BROKER_WRITEOFF_TIME = #{oldBrokerWriteoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewCount != null" >
+        INTERVIEW_COUNT = #{interviewCount,jdbcType=INTEGER},
+      </if>
+      <if test="cancelApplyCount != null" >
+        CANCEL_APPLY_COUNT = #{cancelApplyCount,jdbcType=INTEGER},
+      </if>
+      <if test="protectEndTime != null" >
+        PROTECT_END_TIME = #{protectEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelApplyTime != null" >
+        CANCEL_APPLY_TIME = #{cancelApplyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelPassTime != null" >
+        CHANNEL_PASS_TIME = #{channelPassTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditErrorTime != null" >
+        AUDIT_ERROR_TIME = #{auditErrorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerRevokeTime != null" >
+        CUSTOMER_REVOKE_TIME = #{customerRevokeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entrustInvitation != null" >
+        ENTRUST_INVITATION = #{entrustInvitation,jdbcType=TINYINT},
+      </if>
+      <if test="compRakebackPriceAfterTax != null" >
+        COMP_RAKEBACK_PRICE_AFTER_TAX = #{compRakebackPriceAfterTax,jdbcType=DECIMAL},
+      </if>
+      <if test="rakebackPriceAfterTax != null" >
+        RAKEBACK_PRICE_AFTER_TAX = #{rakebackPriceAfterTax,jdbcType=DECIMAL},
+      </if>
+      <if test="auditErrorReason != null" >
+        AUDIT_ERROR_REASON = #{auditErrorReason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FINANCE_ID = #{financeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyPaFinance" >
+    <!--@mbggenerated-->
+    update PA_FINANCE
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      IC_CODE = #{icCode,jdbcType=VARCHAR},
+      APPLY_PRICE = #{applyPrice,jdbcType=DECIMAL},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      FINANCE_STATUS = #{financeStatus,jdbcType=TINYINT},
+      FINANCE_RESOURCE = #{financeResource,jdbcType=TINYINT},
+      RIGHT_NO = #{rightNo,jdbcType=VARCHAR},
+      REG_FROM = #{regFrom,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      LOAN_PRICE = #{loanPrice,jdbcType=DECIMAL},
+      LOAN_TIME = #{loanTime,jdbcType=TIMESTAMP},
+      RAKEBACK_PRICE = #{rakebackPrice,jdbcType=DECIMAL},
+      RAKEBACK_STATUS = #{rakebackStatus,jdbcType=TINYINT},
+      RAKEBACK_TIME = #{rakebackTime,jdbcType=TIMESTAMP},
+      IS_CASH = #{isCash,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      RAKEBACK_PRICE_RATE = #{rakebackPriceRate,jdbcType=DECIMAL},
+      MONEY_BEFORE_TAXES = #{moneyBeforeTaxes,jdbcType=DECIMAL},
+      TAXES_RATE = #{taxesRate,jdbcType=DECIMAL},
+      TAXES_MONEY = #{taxesMoney,jdbcType=DECIMAL},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      JIANZHENG_NO = #{jianzhengNo,jdbcType=VARCHAR},
+      ASSESSMENT_MONEY = #{assessmentMoney,jdbcType=DECIMAL},
+      DY_NO = #{dyNo,jdbcType=VARCHAR},
+      RAKEBACK_PRICE_TOTAL = #{rakebackPriceTotal,jdbcType=DECIMAL},
+      COMP_RAKEBACK_PRICE = #{compRakebackPrice,jdbcType=DECIMAL},
+      COMP_RAKEBACK_STATUS = #{compRakebackStatus,jdbcType=TINYINT},
+      COMP_RAKEBACK_TIME = #{compRakebackTime,jdbcType=TIMESTAMP},
+      COMP_IS_CASH = #{compIsCash,jdbcType=TINYINT},
+      FINANCE_LIMIT = #{financeLimit,jdbcType=INTEGER},
+      IS_CLOSE = #{isClose,jdbcType=TINYINT},
+      OLD_ARCHIVE_ID = #{oldArchiveId,jdbcType=INTEGER},
+      AUDIT_PASS_TIME = #{auditPassTime,jdbcType=TIMESTAMP},
+      OLD_BROKER_WRITEOFF_TIME = #{oldBrokerWriteoffTime,jdbcType=TIMESTAMP},
+      INTERVIEW_COUNT = #{interviewCount,jdbcType=INTEGER},
+      CANCEL_APPLY_COUNT = #{cancelApplyCount,jdbcType=INTEGER},
+      PROTECT_END_TIME = #{protectEndTime,jdbcType=TIMESTAMP},
+      CANCEL_APPLY_TIME = #{cancelApplyTime,jdbcType=TIMESTAMP},
+      CHANNEL_PASS_TIME = #{channelPassTime,jdbcType=TIMESTAMP},
+      AUDIT_ERROR_TIME = #{auditErrorTime,jdbcType=TIMESTAMP},
+      CUSTOMER_REVOKE_TIME = #{customerRevokeTime,jdbcType=TIMESTAMP},
+      ENTRUST_INVITATION = #{entrustInvitation,jdbcType=TINYINT},
+      COMP_RAKEBACK_PRICE_AFTER_TAX = #{compRakebackPriceAfterTax,jdbcType=DECIMAL},
+      RAKEBACK_PRICE_AFTER_TAX = #{rakebackPriceAfterTax,jdbcType=DECIMAL},
+      AUDIT_ERROR_REASON = #{auditErrorReason,jdbcType=VARCHAR}
+    where FINANCE_ID = #{financeId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getFinanceList" resultType="java.util.Map">
+    select CREATION_TIME AS contactTime,USER_NAME as custName,TAXES_MONEY as taxesMoney,TAXES_RATE as taxesRate,
+           LOAN_PRICE as loanPrice,COMP_RAKEBACK_PRICE as compRakebackPrice,RAKEBACK_PRICE as rakebackPrice,
+            FINANCE_ID AS cdId,ARCHIVE_ID as archiveId,#{param.accountType} AS accountType,
+           IS_CASH as isCash,RAKEBACK_STATUS as rakebackStatus,COMP_IS_CASH as compIsCash,COMP_RAKEBACK_STATUS as compRakebackStatus
+    from PA_FINANCE
+    where FINANCE_STATUS = 8
+    <if test="null != param.startTime and '' != param.startTime">
+      <![CDATA[ and CREATION_TIME >= #{param.startTime}]]>
+    </if>
+    <if test="null != param.endTime and '' != param.endTime">
+      <![CDATA[and CREATION_TIME <= #{param.endTime}]]>
+    </if>
+    <if test="param.isExtract = 0">
+        <if test="param.accountType = 1">
+          and IS_CASH = 0
+        </if>
+        <if test="param.accountType = 2 ">
+          and COMP_IS_CASH = 0
+        </if>
+    </if>
+
+    <if test="param.accountType = 1">
+      and IS_CASH = #{param.archiveId}
+    </if>
+    <if test="param.accountType = 2 ">
+      and COMP_NO = #{param.compNo}
+    </if>
+    order by  CREATION_TIME desc
+  </select>
+
+  <select id="getPaFianceAmount" resultType="java.lang.Float">
+    select sum(
+    <if test="type == 1">
+      RAKEBACK_PRICE
+    </if>
+    <if test="type == 2">
+      COMP_RAKEBACK_PRICE
+    </if>
+    ) AMOUNT
+    FROM PA_FINANCE
+    WHERE　
+    <if test="type == 1">
+      IS_CASH=0 AND ARCHIVE_ID = #{param.archiveId}
+    </if>
+    <if test="type == 2">
+      COMP_IS_CASH=0 AND COMP_NO =#{param.compNo}
+    </if>
+    AND　FINANCE_STATUS=8
+  </select>
+</mapper>

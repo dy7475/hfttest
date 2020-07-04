@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminVoteMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminVote" >
+    <!--@mbggenerated-->
+    <id column="VOTE_ID" property="voteId" jdbcType="INTEGER" />
+    <result column="BULLET_ID" property="bulletId" jdbcType="INTEGER" />
+    <result column="VOTE_TYPE" property="voteType" jdbcType="INTEGER" />
+    <result column="VOTE_CONTENT" property="voteContent" jdbcType="VARCHAR" />
+    <result column="COUNT" property="count" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.admindb.dto.AdminVoteDto" id="extResultMap" extends="BaseResultMap">
+    <result column="sumCount" property="sumCount" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    VOTE_ID, BULLET_ID, VOTE_TYPE, VOTE_CONTENT, COUNT, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from VOTE
+    where VOTE_ID = #{voteId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from VOTE
+    where VOTE_ID = #{voteId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminVote" >
+    <!--@mbggenerated-->
+    insert into VOTE (VOTE_ID, BULLET_ID, VOTE_TYPE, 
+      VOTE_CONTENT, COUNT, UPDATE_TIME
+      )
+    values (#{voteId,jdbcType=INTEGER}, #{bulletId,jdbcType=INTEGER}, #{voteType,jdbcType=INTEGER}, 
+      #{voteContent,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminVote" >
+    <selectKey keyProperty="voteId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT isnull(max(VOTE_ID), 0) +1 from VOTE
+    </selectKey>
+    insert into VOTE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="voteId != null" >
+        VOTE_ID,
+      </if>
+      <if test="bulletId != null" >
+        BULLET_ID,
+      </if>
+      <if test="voteType != null" >
+        VOTE_TYPE,
+      </if>
+      <if test="voteContent != null" >
+        VOTE_CONTENT,
+      </if>
+      <if test="count != null" >
+        COUNT,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="voteId != null" >
+        #{voteId,jdbcType=INTEGER},
+      </if>
+      <if test="bulletId != null" >
+        #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="voteType != null" >
+        #{voteType,jdbcType=INTEGER},
+      </if>
+      <if test="voteContent != null" >
+        #{voteContent,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminVote" >
+    <!--@mbggenerated-->
+    update VOTE
+    <set >
+      <if test="bulletId != null" >
+        BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      </if>
+      <if test="voteType != null" >
+        VOTE_TYPE = #{voteType,jdbcType=INTEGER},
+      </if>
+      <if test="voteContent != null" >
+        VOTE_CONTENT = #{voteContent,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        COUNT = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where VOTE_ID = #{voteId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminVote" >
+    <!--@mbggenerated-->
+    update VOTE
+    set BULLET_ID = #{bulletId,jdbcType=INTEGER},
+      VOTE_TYPE = #{voteType,jdbcType=INTEGER},
+      VOTE_CONTENT = #{voteContent,jdbcType=VARCHAR},
+      COUNT = #{count,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where VOTE_ID = #{voteId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getvoteByCondition" parameterType="com.myfun.repository.admindb.po.AdminVote" resultMap="extResultMap">
+	SELECT <include refid="Base_Column_List" />,
+		(SELECT sum(count) from VOTE where BULLET_ID=#{bulletId}) sumCount 
+	FROM VOTE WHERE BULLET_ID=#{bulletId}	
+  </select>
+  <select id="getVoteByBoundId" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from VOTE where BULLET_ID = #{bulletId}  order by VOTE_ID asc
+  </select>
+  <update id="updateVoteCount" parameterType="java.util.Map">
+  	update VOTE set COUNT=COUNT+1 where BULLET_ID=#{bulletId} and VOTE_ID in (${voteIds})
+  </update>
+</mapper>

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunBillCodeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunBillCode">
+    <!--@mbggenerated-->
+    <id column="CODE_ID" jdbcType="INTEGER" property="codeId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="BILL_TYPE" jdbcType="TINYINT" property="billType" />
+    <result column="CODE_PREFIX" jdbcType="VARCHAR" property="codePrefix" />
+    <result column="CODE_START" jdbcType="VARCHAR" property="codeStart" />
+    <result column="CODE_END" jdbcType="VARCHAR" property="codeEnd" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="STATUS" jdbcType="TINYINT" property="status" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="TOTAL_COUNT" jdbcType="INTEGER" property="totalCount" />
+    <result column="USED_COUNT" jdbcType="INTEGER" property="usedCount" />
+    <result column="BILL_WAY" jdbcType="TINYINT" property="billWay" />
+    <result column="ORGANIZATION_ID" jdbcType="INTEGER" property="organizationId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CODE_ID, COMP_ID, DEPT_ID, BILL_TYPE, CODE_PREFIX, CODE_START, CODE_END, CREATE_TIME, 
+    [STATUS], USER_ID, USER_NAME, TOTAL_COUNT, USED_COUNT, BILL_WAY, ORGANIZATION_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBillCodeExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_BILL_CODE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_BILL_CODE
+    where CODE_ID = #{codeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_BILL_CODE
+    where CODE_ID = #{codeId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBillCodeExample">
+    <!--@mbggenerated-->
+    delete from FUN_BILL_CODE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="codeId" parameterType="com.myfun.repository.erpdb.po.ErpFunBillCode" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_BILL_CODE (COMP_ID, DEPT_ID, BILL_TYPE, 
+      CODE_PREFIX, CODE_START, CODE_END, 
+      CREATE_TIME, [STATUS], USER_ID, 
+      USER_NAME, TOTAL_COUNT, USED_COUNT, 
+      BILL_WAY, ORGANIZATION_ID)
+    values (#{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{billType,jdbcType=TINYINT}, 
+      #{codePrefix,jdbcType=VARCHAR}, #{codeStart,jdbcType=VARCHAR}, #{codeEnd,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{userId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=VARCHAR}, #{totalCount,jdbcType=INTEGER}, #{usedCount,jdbcType=INTEGER}, 
+      #{billWay,jdbcType=TINYINT}, #{organizationId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="codeId" parameterType="com.myfun.repository.erpdb.po.ErpFunBillCode" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_BILL_CODE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="billType != null">
+        BILL_TYPE,
+      </if>
+      <if test="codePrefix != null">
+        CODE_PREFIX,
+      </if>
+      <if test="codeStart != null">
+        CODE_START,
+      </if>
+      <if test="codeEnd != null">
+        CODE_END,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="status != null">
+        [STATUS],
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="totalCount != null">
+        TOTAL_COUNT,
+      </if>
+      <if test="usedCount != null">
+        USED_COUNT,
+      </if>
+      <if test="billWay != null">
+        BILL_WAY,
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="billType != null">
+        #{billType,jdbcType=TINYINT},
+      </if>
+      <if test="codePrefix != null">
+        #{codePrefix,jdbcType=VARCHAR},
+      </if>
+      <if test="codeStart != null">
+        #{codeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="codeEnd != null">
+        #{codeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="usedCount != null">
+        #{usedCount,jdbcType=INTEGER},
+      </if>
+      <if test="billWay != null">
+        #{billWay,jdbcType=TINYINT},
+      </if>
+      <if test="organizationId != null">
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBillCodeExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_BILL_CODE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BILL_CODE
+    <set>
+      <if test="record.codeId != null">
+        CODE_ID = #{record.codeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.billType != null">
+        BILL_TYPE = #{record.billType,jdbcType=TINYINT},
+      </if>
+      <if test="record.codePrefix != null">
+        CODE_PREFIX = #{record.codePrefix,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codeStart != null">
+        CODE_START = #{record.codeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codeEnd != null">
+        CODE_END = #{record.codeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        [STATUS] = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null">
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalCount != null">
+        TOTAL_COUNT = #{record.totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.usedCount != null">
+        USED_COUNT = #{record.usedCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.billWay != null">
+        BILL_WAY = #{record.billWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.organizationId != null">
+        ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BILL_CODE
+    set CODE_ID = #{record.codeId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      BILL_TYPE = #{record.billType,jdbcType=TINYINT},
+      CODE_PREFIX = #{record.codePrefix,jdbcType=VARCHAR},
+      CODE_START = #{record.codeStart,jdbcType=VARCHAR},
+      CODE_END = #{record.codeEnd,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      [STATUS] = #{record.status,jdbcType=TINYINT},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      TOTAL_COUNT = #{record.totalCount,jdbcType=INTEGER},
+      USED_COUNT = #{record.usedCount,jdbcType=INTEGER},
+      BILL_WAY = #{record.billWay,jdbcType=TINYINT},
+      ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunBillCode">
+    <!--@mbggenerated-->
+    update FUN_BILL_CODE
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="billType != null">
+        BILL_TYPE = #{billType,jdbcType=TINYINT},
+      </if>
+      <if test="codePrefix != null">
+        CODE_PREFIX = #{codePrefix,jdbcType=VARCHAR},
+      </if>
+      <if test="codeStart != null">
+        CODE_START = #{codeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="codeEnd != null">
+        CODE_END = #{codeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        [STATUS] = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        TOTAL_COUNT = #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="usedCount != null">
+        USED_COUNT = #{usedCount,jdbcType=INTEGER},
+      </if>
+      <if test="billWay != null">
+        BILL_WAY = #{billWay,jdbcType=TINYINT},
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CODE_ID = #{codeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunBillCode">
+    <!--@mbggenerated-->
+    update FUN_BILL_CODE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      BILL_TYPE = #{billType,jdbcType=TINYINT},
+      CODE_PREFIX = #{codePrefix,jdbcType=VARCHAR},
+      CODE_START = #{codeStart,jdbcType=VARCHAR},
+      CODE_END = #{codeEnd,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      [STATUS] = #{status,jdbcType=TINYINT},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      TOTAL_COUNT = #{totalCount,jdbcType=INTEGER},
+      USED_COUNT = #{usedCount,jdbcType=INTEGER},
+      BILL_WAY = #{billWay,jdbcType=TINYINT},
+      ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER}
+    where CODE_ID = #{codeId,jdbcType=INTEGER}
+  </update>
+
+	<select id="getFunBillCodes" resultMap="BaseResultMap">
+		select  A.* from FUN_BILL_CODE A join fun_users B on A.USER_ID =B.USER_ID
+		WHERE A.COMP_ID=#{param.compId}
+		<if test="null != param.userId and '' != param.userId ">
+			and A.USER_ID = #{param.userId}
+		</if>
+		<if test="param.isNewOrganization != true ">
+            <if test="null != param.deptId">
+                and A.DEPT_ID = #{param.deptId}
+            </if>
+			<if test="null != param.grId">
+				and B.GR_ID = #{param.grId}
+			</if>
+		</if>
+	    <if test="param.isNewOrganization == true and param.organizationId != null">
+			and (A.ORGANIZATION_ID = 0 OR A.ORGANIZATION_ID = #{param.organizationId})
+	    </if>
+		<if test="null != param.status">
+			and A.STATUS = #{param.status}
+		</if>
+		<if test="null != param.billWay">
+			and A.BILL_WAY = #{param.billWay}
+		</if>
+		<if test="null != param.billType">
+			and A.BILL_TYPE = #{param.billType}
+		</if>
+		<if test="null != param.queryStartTime and null != param.queryEndTime ">
+			and CREATE_TIME between #{param.queryStartTime} and #{param.queryEndTime}
+		</if>
+	</select>
+	
+	<select id="getFunBillCodeByCodeId" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_BILL_CODE
+		where CODE_ID = #{codeId}
+	</select>
+	
+	<update id="updateByPrimaryId">
+		update FUN_BILL_CODE set USED_COUNT = #{usedCount}
+		where CODE_ID = #{codeId}
+	</update>
+
+    <update id="addCountByCodeId">
+      update FUN_BILL_CODE set USED_COUNT = USED_COUNT - 1
+          where COMP_ID = #{compId,jdbcType=INTEGER} and CODE_ID = #{codeId}
+    </update>
+    <update id="subCountByCodeId">
+      update FUN_BILL_CODE set USED_COUNT = USED_COUNT + 1
+          where COMP_ID = #{compId,jdbcType=INTEGER} and CODE_ID = #{codeId}
+    </update>
+</mapper>

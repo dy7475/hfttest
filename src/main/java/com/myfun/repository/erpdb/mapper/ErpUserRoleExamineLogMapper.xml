@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpUserRoleExamineLogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpUserRoleExamineLog" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="REG_ID" property="regId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="GR_ID" property="grId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="PERSONAL_ACHIEVEMENT" property="personalAchievement" jdbcType="NUMERIC" />
+    <result column="TEAM_ACHIEVEMENT" property="teamAchievement" jdbcType="NUMERIC" />
+    <result column="TEAM_MEMBERS" property="teamMembers" jdbcType="INTEGER" />
+    <result column="EXAMINE_TIME" property="examineTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="USER_POSITION" property="userPosition" jdbcType="VARCHAR" />
+    <result column="OLD_USER_POSITION" property="oldUserPosition" jdbcType="VARCHAR" />
+    <result column="EXAMINE_RESULT" property="examineResult" jdbcType="TINYINT" />
+    <result column="EXAMINE_RESULT_JSON" property="examineResultJson" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CITY_ID, COMP_ID, AREA_ID, REG_ID, DEPT_ID, GR_ID, USER_ID, ARCHIVE_ID, PERSONAL_ACHIEVEMENT, 
+    TEAM_ACHIEVEMENT, TEAM_MEMBERS, EXAMINE_TIME, CREATE_TIME, USER_POSITION, OLD_USER_POSITION, 
+    EXAMINE_RESULT, EXAMINE_RESULT_JSON
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpUserRoleExamineLogExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from USER_ROLE_EXAMINE_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from USER_ROLE_EXAMINE_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from USER_ROLE_EXAMINE_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpUserRoleExamineLogExample" >
+    <!--@mbggenerated-->
+    delete from USER_ROLE_EXAMINE_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpUserRoleExamineLog" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into USER_ROLE_EXAMINE_LOG (CITY_ID, COMP_ID, AREA_ID, 
+      REG_ID, DEPT_ID, GR_ID, 
+      USER_ID, ARCHIVE_ID, PERSONAL_ACHIEVEMENT, 
+      TEAM_ACHIEVEMENT, TEAM_MEMBERS, EXAMINE_TIME, 
+      CREATE_TIME, USER_POSITION, OLD_USER_POSITION, 
+      EXAMINE_RESULT, EXAMINE_RESULT_JSON)
+    values (#{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{regId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{personalAchievement,jdbcType=NUMERIC}, 
+      #{teamAchievement,jdbcType=NUMERIC}, #{teamMembers,jdbcType=INTEGER}, #{examineTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{userPosition,jdbcType=VARCHAR}, #{oldUserPosition,jdbcType=VARCHAR}, 
+      #{examineResult,jdbcType=TINYINT}, #{examineResultJson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpUserRoleExamineLog" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into USER_ROLE_EXAMINE_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="regId != null" >
+        REG_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="grId != null" >
+        GR_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="personalAchievement != null" >
+        PERSONAL_ACHIEVEMENT,
+      </if>
+      <if test="teamAchievement != null" >
+        TEAM_ACHIEVEMENT,
+      </if>
+      <if test="teamMembers != null" >
+        TEAM_MEMBERS,
+      </if>
+      <if test="examineTime != null" >
+        EXAMINE_TIME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="userPosition != null" >
+        USER_POSITION,
+      </if>
+      <if test="oldUserPosition != null" >
+        OLD_USER_POSITION,
+      </if>
+      <if test="examineResult != null" >
+        EXAMINE_RESULT,
+      </if>
+      <if test="examineResultJson != null" >
+        EXAMINE_RESULT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="personalAchievement != null" >
+        #{personalAchievement,jdbcType=NUMERIC},
+      </if>
+      <if test="teamAchievement != null" >
+        #{teamAchievement,jdbcType=NUMERIC},
+      </if>
+      <if test="teamMembers != null" >
+        #{teamMembers,jdbcType=INTEGER},
+      </if>
+      <if test="examineTime != null" >
+        #{examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userPosition != null" >
+        #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserPosition != null" >
+        #{oldUserPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="examineResult != null" >
+        #{examineResult,jdbcType=TINYINT},
+      </if>
+      <if test="examineResultJson != null" >
+        #{examineResultJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpUserRoleExamineLogExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from USER_ROLE_EXAMINE_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update USER_ROLE_EXAMINE_LOG
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null" >
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null" >
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.grId != null" >
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.personalAchievement != null" >
+        PERSONAL_ACHIEVEMENT = #{record.personalAchievement,jdbcType=NUMERIC},
+      </if>
+      <if test="record.teamAchievement != null" >
+        TEAM_ACHIEVEMENT = #{record.teamAchievement,jdbcType=NUMERIC},
+      </if>
+      <if test="record.teamMembers != null" >
+        TEAM_MEMBERS = #{record.teamMembers,jdbcType=INTEGER},
+      </if>
+      <if test="record.examineTime != null" >
+        EXAMINE_TIME = #{record.examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userPosition != null" >
+        USER_POSITION = #{record.userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oldUserPosition != null" >
+        OLD_USER_POSITION = #{record.oldUserPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examineResult != null" >
+        EXAMINE_RESULT = #{record.examineResult,jdbcType=TINYINT},
+      </if>
+      <if test="record.examineResultJson != null" >
+        EXAMINE_RESULT_JSON = #{record.examineResultJson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update USER_ROLE_EXAMINE_LOG
+    set ID = #{record.id,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      PERSONAL_ACHIEVEMENT = #{record.personalAchievement,jdbcType=NUMERIC},
+      TEAM_ACHIEVEMENT = #{record.teamAchievement,jdbcType=NUMERIC},
+      TEAM_MEMBERS = #{record.teamMembers,jdbcType=INTEGER},
+      EXAMINE_TIME = #{record.examineTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      USER_POSITION = #{record.userPosition,jdbcType=VARCHAR},
+      OLD_USER_POSITION = #{record.oldUserPosition,jdbcType=VARCHAR},
+      EXAMINE_RESULT = #{record.examineResult,jdbcType=TINYINT},
+      EXAMINE_RESULT_JSON = #{record.examineResultJson,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpUserRoleExamineLog" >
+    <!--@mbggenerated-->
+    update USER_ROLE_EXAMINE_LOG
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="personalAchievement != null" >
+        PERSONAL_ACHIEVEMENT = #{personalAchievement,jdbcType=NUMERIC},
+      </if>
+      <if test="teamAchievement != null" >
+        TEAM_ACHIEVEMENT = #{teamAchievement,jdbcType=NUMERIC},
+      </if>
+      <if test="teamMembers != null" >
+        TEAM_MEMBERS = #{teamMembers,jdbcType=INTEGER},
+      </if>
+      <if test="examineTime != null" >
+        EXAMINE_TIME = #{examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userPosition != null" >
+        USER_POSITION = #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserPosition != null" >
+        OLD_USER_POSITION = #{oldUserPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="examineResult != null" >
+        EXAMINE_RESULT = #{examineResult,jdbcType=TINYINT},
+      </if>
+      <if test="examineResultJson != null" >
+        EXAMINE_RESULT_JSON = #{examineResultJson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpUserRoleExamineLog" >
+    <!--@mbggenerated-->
+    update USER_ROLE_EXAMINE_LOG
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      PERSONAL_ACHIEVEMENT = #{personalAchievement,jdbcType=NUMERIC},
+      TEAM_ACHIEVEMENT = #{teamAchievement,jdbcType=NUMERIC},
+      TEAM_MEMBERS = #{teamMembers,jdbcType=INTEGER},
+      EXAMINE_TIME = #{examineTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      USER_POSITION = #{userPosition,jdbcType=VARCHAR},
+      OLD_USER_POSITION = #{oldUserPosition,jdbcType=VARCHAR},
+      EXAMINE_RESULT = #{examineResult,jdbcType=TINYINT},
+      EXAMINE_RESULT_JSON = #{examineResultJson,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getListLog" resultMap="BaseResultMap">
+  	select ID, CITY_ID, COMP_ID, AREA_ID, REG_ID, DEPT_ID, GR_ID, USER_ID, 
+	ARCHIVE_ID, PERSONAL_ACHIEVEMENT, TEAM_ACHIEVEMENT, TEAM_MEMBERS, EXAMINE_TIME, CREATE_TIME, USER_POSITION,
+	 OLD_USER_POSITION, EXAMINE_RESULT, EXAMINE_RESULT_JSON from USER_ROLE_EXAMINE_LOG WHERE ID IN (
+	 SELECT MAX(ID) from USER_ROLE_EXAMINE_LOG WHERE   USER_ID in 
+	  <foreach collection="userIds" item="userId" close=")" open="(" separator=",">
+	       #{userId}
+	   </foreach>
+		AND COMP_ID = #{compId} and EXAMINE_TIME &gt; #{time} GROUP BY USER_ID 
+	 )
+	  
+  </select>
+  
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopCollectMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopCollect" >
+    <!--@mbggenerated-->
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="FCityId" property="fcityid" jdbcType="INTEGER" />
+    <result column="case_type" property="caseType" jdbcType="CHAR" />
+    <result column="FCompId" property="fcompid" jdbcType="INTEGER" />
+    <result column="FCreateTime" property="fcreatetime" jdbcType="VARCHAR" />
+    <result column="case_id" property="caseId" jdbcType="INTEGER" />
+    <result column="weixinId" property="weixinid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    uid, FCityId, case_type, FCompId, FCreateTime, case_id, weixinId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from w_microshop_collect
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_collect
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCollect" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="uid" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_collect (FCityId, case_type, FCompId, 
+      FCreateTime, case_id, weixinId
+      )
+    values (#{fcityid,jdbcType=INTEGER}, #{caseType,jdbcType=CHAR}, #{fcompid,jdbcType=INTEGER}, 
+      #{fcreatetime,jdbcType=VARCHAR}, #{caseId,jdbcType=INTEGER}, #{weixinid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCollect" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="uid" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_collect
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fcityid != null" >
+        FCityId,
+      </if>
+      <if test="caseType != null" >
+        case_type,
+      </if>
+      <if test="fcompid != null" >
+        FCompId,
+      </if>
+      <if test="fcreatetime != null" >
+        FCreateTime,
+      </if>
+      <if test="caseId != null" >
+        case_id,
+      </if>
+      <if test="weixinid != null" >
+        weixinId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fcityid != null" >
+        #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=CHAR},
+      </if>
+      <if test="fcompid != null" >
+        #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fcreatetime != null" >
+        #{fcreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="weixinid != null" >
+        #{weixinid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCollect" >
+    <!--@mbggenerated-->
+    update w_microshop_collect
+    <set >
+      <if test="fcityid != null" >
+        FCityId = #{fcityid,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        case_type = #{caseType,jdbcType=CHAR},
+      </if>
+      <if test="fcompid != null" >
+        FCompId = #{fcompid,jdbcType=INTEGER},
+      </if>
+      <if test="fcreatetime != null" >
+        FCreateTime = #{fcreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        case_id = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="weixinid != null" >
+        weixinId = #{weixinid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopCollect" >
+    <!--@mbggenerated-->
+    update w_microshop_collect
+    set FCityId = #{fcityid,jdbcType=INTEGER},
+      case_type = #{caseType,jdbcType=CHAR},
+      FCompId = #{fcompid,jdbcType=INTEGER},
+      FCreateTime = #{fcreatetime,jdbcType=VARCHAR},
+      case_id = #{caseId,jdbcType=INTEGER},
+      weixinId = #{weixinid,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

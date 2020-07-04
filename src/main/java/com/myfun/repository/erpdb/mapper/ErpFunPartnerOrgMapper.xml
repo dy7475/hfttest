@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunPartnerOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunPartnerOrg" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="PARTNER_ID" property="partnerId" jdbcType="INTEGER" />
+    <result column="ORGANIZATION_ID" property="organizationId" jdbcType="INTEGER" />
+    <result column="PARTNER_TYPE" property="partnerType" jdbcType="TINYINT" />
+    <result column="COOPERATE_START_TIME" property="cooperateStartTime" jdbcType="TIMESTAMP" />
+    <result column="COOPERATE_END_TIME" property="cooperateEndTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DEL" property="isDel" jdbcType="TINYINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, COMP_ID, PARTNER_ID, ORGANIZATION_ID, PARTNER_TYPE, COOPERATE_START_TIME, COOPERATE_END_TIME, 
+    IS_DEL, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunPartnerOrgExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_PARTNER_ORG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PARTNER_ORG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_PARTNER_ORG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPartnerOrgExample" >
+    <!--@mbggenerated-->
+    delete from FUN_PARTNER_ORG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunPartnerOrg" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_PARTNER_ORG (COMP_ID, PARTNER_ID, ORGANIZATION_ID, 
+      PARTNER_TYPE, COOPERATE_START_TIME, COOPERATE_END_TIME, 
+      IS_DEL, CREATE_TIME, UPDATE_TIME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, #{organizationId,jdbcType=INTEGER}, 
+      #{partnerType,jdbcType=TINYINT}, #{cooperateStartTime,jdbcType=TIMESTAMP}, #{cooperateEndTime,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPartnerOrg" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_PARTNER_ORG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="partnerId != null" >
+        PARTNER_ID,
+      </if>
+      <if test="organizationId != null" >
+        ORGANIZATION_ID,
+      </if>
+      <if test="partnerType != null" >
+        PARTNER_TYPE,
+      </if>
+      <if test="cooperateStartTime != null" >
+        COOPERATE_START_TIME,
+      </if>
+      <if test="cooperateEndTime != null" >
+        COOPERATE_END_TIME,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null" >
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationId != null" >
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerType != null" >
+        #{partnerType,jdbcType=TINYINT},
+      </if>
+      <if test="cooperateStartTime != null" >
+        #{cooperateStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cooperateEndTime != null" >
+        #{cooperateEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPartnerOrgExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_PARTNER_ORG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_PARTNER_ORG
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.partnerId != null" >
+        PARTNER_ID = #{record.partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationId != null" >
+        ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.partnerType != null" >
+        PARTNER_TYPE = #{record.partnerType,jdbcType=TINYINT},
+      </if>
+      <if test="record.cooperateStartTime != null" >
+        COOPERATE_START_TIME = #{record.cooperateStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cooperateEndTime != null" >
+        COOPERATE_END_TIME = #{record.cooperateEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_PARTNER_ORG
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      PARTNER_ID = #{record.partnerId,jdbcType=INTEGER},
+      ORGANIZATION_ID = #{record.organizationId,jdbcType=INTEGER},
+      PARTNER_TYPE = #{record.partnerType,jdbcType=TINYINT},
+      COOPERATE_START_TIME = #{record.cooperateStartTime,jdbcType=TIMESTAMP},
+      COOPERATE_END_TIME = #{record.cooperateEndTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPartnerOrg" >
+    <!--@mbggenerated-->
+    update FUN_PARTNER_ORG
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null" >
+        PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationId != null" >
+        ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerType != null" >
+        PARTNER_TYPE = #{partnerType,jdbcType=TINYINT},
+      </if>
+      <if test="cooperateStartTime != null" >
+        COOPERATE_START_TIME = #{cooperateStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cooperateEndTime != null" >
+        COOPERATE_END_TIME = #{cooperateEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunPartnerOrg" >
+    <!--@mbggenerated-->
+    update FUN_PARTNER_ORG
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      ORGANIZATION_ID = #{organizationId,jdbcType=INTEGER},
+      PARTNER_TYPE = #{partnerType,jdbcType=TINYINT},
+      COOPERATE_START_TIME = #{cooperateStartTime,jdbcType=TIMESTAMP},
+      COOPERATE_END_TIME = #{cooperateEndTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="countByPartnerId" resultType="int">
+    select count(*) from FUN_PARTNER_ORG where COMP_ID = #{compId} and PARTNER_ID = #{partnerId} and IS_DEL = 0
+  </select>
+
+  <select id="selectPartnerOrgList" resultType="com.myfun.repository.erpdb.dto.PartnerOrgDto">
+    select A.ORGANIZATION_ID as organizationId,A.ORGANIZATION_NAME organizationName,A.ORGANIZATION_PATH as organizationPath,C.PARTNER_NAME as partnerName,
+    A.PARTNER_ID as partnerId,(case when A.PARTNER_ID> 0 then 1 when A.PARTNER_ID=0 then 2 else 0 end )as partnerType,
+    D.COOPERATE_START_TIME as cooperateStartTime,D.COOPERATE_END_TIME as cooperateEndTime
+    from FUN_ORGANIZATION A
+    left join FUN_ORGANIZATION_DEFINITION B on A.COMP_ID=B.COMP_ID and A.ORGANIZATION_DEFINITION_ID = B.DEFINITION_ID and PARTNER_LEVEL = #{param.partnerLevel} and B.DEL_FLAG = 0
+    left join FUN_PARTNER C on C.ID = A.PARTNER_ID and C.IS_DEL = 0
+    left join FUN_PARTNER_ORG D on A.ORGANIZATION_ID = D.ORGANIZATION_ID and D.IS_DEL = 0
+    where A.COMP_ID = #{param.compId}
+    <if test="param.partnerId != null">
+      and C.ID = #{param.partnerId}
+    </if>
+    <choose>
+      <when test="param.partnerType == 0">
+        and A.PARTNER_ID = -1
+      </when>
+      <when test="param.partnerType == 1">
+        and A.PARTNER_ID > 0
+      </when>
+      <when test="param.partnerType == 2">
+        and A.PARTNER_ID = 0
+      </when>
+    </choose>
+    <if test="param.availableTime !=null">
+      and D.COOPERATE_END_TIME>=#{param.availableTime}
+    </if>
+    order by A.UPDATE_TIME desc
+  </select>
+
+  <select id="selectByOrgId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from FUN_PARTNER_ORG
+    where COMP_ID=#{compId} 
+    <if test="null != organizationId and organizationId &gt; 0">
+	    AND ORGANIZATION_ID = #{organizationId}
+    </if>
+    AND DEL_FLAG = 0
+  </select>
+
+
+  <update id="updatePartnerId">
+    update FUN_ORGANIZATION set PARTNER_ID = #{partnerId},UPDATE_TIME = GETDATE() where COMP_ID=#{compId} and  ORGANIZATION_PATH like concat('%',#{orgPath},'%');
+    UPDATE FUN_USERS SET PARTNER_ID = #{partnerId},UPDATE_TIME = GETDATE() where COMP_ID=#{compId} and ORGANIZATION_PATH like concat('%',#{orgPath},'%');
+    UPDATE FUN_SALE SET PARTNER_ID = #{partnerId} where COMP_ID=#{compId} and TISSUE_LINE like concat('%',#{orgPath},'%');
+    UPDATE FUN_LEASE SET PARTNER_ID = #{partnerId} where COMP_ID=#{compId} and TISSUE_LINE like concat('%',#{orgPath},'%');
+    UPDATE FUN_RENT_CUSTOMER SET PARTNER_ID = #{partnerId} where COMP_ID=#{compId} and TISSUE_LINE like concat('%',#{orgPath},'%');
+    UPDATE FUN_BUY_CUSTOMER SET PARTNER_ID = #{partnerId} where COMP_ID=#{compId} and TISSUE_LINE like concat('%',#{orgPath},'%');
+  </update>
+</mapper>

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunUsersMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunUsers">
+    <!--@mbggenerated-->
+    <id column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="DEVLOPER_ID" jdbcType="INTEGER" property="devloperId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="B_CITY_ID" jdbcType="SMALLINT" property="bCityId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="LOGIN_UID" jdbcType="VARCHAR" property="loginUid" />
+    <result column="LOGIN_PWD" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="USER_SEX" jdbcType="BIT" property="userSex" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="USER_POSITION" jdbcType="VARCHAR" property="userPosition" />
+    <result column="USER_STATUS" jdbcType="VARCHAR" property="userStatus" />
+    <result column="SMS_CODE" jdbcType="VARCHAR" property="smsCode" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="USER_EMAIL" jdbcType="VARCHAR" property="userEmail" />
+    <result column="USER_PHOTO" jdbcType="VARCHAR" property="userPhoto" />
+    <result column="PAY_PWD" jdbcType="VARCHAR" property="payPwd" />
+    <result column="USER_QQ" jdbcType="VARCHAR" property="userQq" />
+    <result column="USER_JURISDICTION" jdbcType="VARCHAR" property="userJurisdiction" />
+    <result column="PHONE_400" jdbcType="VARCHAR" property="phone400" />
+    <result column="PHONE_REAL" jdbcType="VARCHAR" property="phoneReal" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CITY_ID, USER_ID, DEVLOPER_ID, DEPT_ID, B_CITY_ID, BUILD_ID, USER_NAME, LOGIN_UID, 
+    LOGIN_PWD, USER_SEX, USER_MOBILE, USER_POSITION, USER_STATUS, SMS_CODE, CREATION_TIME, 
+    USER_EMAIL, USER_PHOTO, PAY_PWD, USER_QQ, USER_JURISDICTION, PHONE_400, PHONE_REAL
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.agencydb.po.AgencyFunUsersExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_USERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_USERS
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbggenerated-->
+    delete from FUN_USERS
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.agencydb.po.AgencyFunUsersExample">
+    <!--@mbggenerated-->
+    delete from FUN_USERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunUsers">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.Integer">
+      select next value for SEQ_FUN_USERS_USER_ID
+    </selectKey>
+    insert into FUN_USERS (CITY_ID, USER_ID, DEVLOPER_ID, 
+      DEPT_ID, B_CITY_ID, BUILD_ID, 
+      USER_NAME, LOGIN_UID, LOGIN_PWD, 
+      USER_SEX, USER_MOBILE, USER_POSITION, 
+      USER_STATUS, SMS_CODE, CREATION_TIME, 
+      USER_EMAIL, USER_PHOTO, PAY_PWD, 
+      USER_QQ, USER_JURISDICTION, PHONE_400, 
+      PHONE_REAL)
+    values (#{cityId,jdbcType=SMALLINT}, #{userId,jdbcType=INTEGER}, #{devloperId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{bCityId,jdbcType=SMALLINT}, #{buildId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=VARCHAR}, #{loginUid,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, 
+      #{userSex,jdbcType=BIT}, #{userMobile,jdbcType=VARCHAR}, #{userPosition,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=VARCHAR}, #{smsCode,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userPhoto,jdbcType=VARCHAR}, #{payPwd,jdbcType=VARCHAR}, 
+      #{userQq,jdbcType=VARCHAR}, #{userJurisdiction,jdbcType=VARCHAR}, #{phone400,jdbcType=VARCHAR}, 
+      #{phoneReal,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunUsers">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.Integer">
+      select next value for SEQ_FUN_USERS_USER_ID
+    </selectKey>
+    insert into FUN_USERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      USER_ID,
+      <if test="devloperId != null">
+        DEVLOPER_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="bCityId != null">
+        B_CITY_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="loginUid != null">
+        LOGIN_UID,
+      </if>
+      <if test="loginPwd != null">
+        LOGIN_PWD,
+      </if>
+      <if test="userSex != null">
+        USER_SEX,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+      <if test="userPosition != null">
+        USER_POSITION,
+      </if>
+      <if test="userStatus != null">
+        USER_STATUS,
+      </if>
+      <if test="smsCode != null">
+        SMS_CODE,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="userEmail != null">
+        USER_EMAIL,
+      </if>
+      <if test="userPhoto != null">
+        USER_PHOTO,
+      </if>
+      <if test="payPwd != null">
+        PAY_PWD,
+      </if>
+      <if test="userQq != null">
+        USER_QQ,
+      </if>
+      <if test="userJurisdiction != null">
+        USER_JURISDICTION,
+      </if>
+      <if test="phone400 != null">
+        PHONE_400,
+      </if>
+      <if test="phoneReal != null">
+        PHONE_REAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      #{userId,jdbcType=INTEGER},
+      <if test="devloperId != null">
+        #{devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="bCityId != null">
+        #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginUid != null">
+        #{loginUid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=BIT},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userPosition != null">
+        #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="smsCode != null">
+        #{smsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="payPwd != null">
+        #{payPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="userJurisdiction != null">
+        #{userJurisdiction,jdbcType=VARCHAR},
+      </if>
+      <if test="phone400 != null">
+        #{phone400,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneReal != null">
+        #{phoneReal,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.agencydb.po.AgencyFunUsersExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_USERS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_USERS
+    <set>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.devloperId != null">
+        DEVLOPER_ID = #{record.devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bCityId != null">
+        B_CITY_ID = #{record.bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null">
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginUid != null">
+        LOGIN_UID = #{record.loginUid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginPwd != null">
+        LOGIN_PWD = #{record.loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null">
+        USER_SEX = #{record.userSex,jdbcType=BIT},
+      </if>
+      <if test="record.userMobile != null">
+        USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPosition != null">
+        USER_POSITION = #{record.userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userStatus != null">
+        USER_STATUS = #{record.userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.smsCode != null">
+        SMS_CODE = #{record.smsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userEmail != null">
+        USER_EMAIL = #{record.userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhoto != null">
+        USER_PHOTO = #{record.userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payPwd != null">
+        PAY_PWD = #{record.payPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userQq != null">
+        USER_QQ = #{record.userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userJurisdiction != null">
+        USER_JURISDICTION = #{record.userJurisdiction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone400 != null">
+        PHONE_400 = #{record.phone400,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phoneReal != null">
+        PHONE_REAL = #{record.phoneReal,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_USERS
+    set CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      DEVLOPER_ID = #{record.devloperId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      B_CITY_ID = #{record.bCityId,jdbcType=SMALLINT},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      LOGIN_UID = #{record.loginUid,jdbcType=VARCHAR},
+      LOGIN_PWD = #{record.loginPwd,jdbcType=VARCHAR},
+      USER_SEX = #{record.userSex,jdbcType=BIT},
+      USER_MOBILE = #{record.userMobile,jdbcType=VARCHAR},
+      USER_POSITION = #{record.userPosition,jdbcType=VARCHAR},
+      USER_STATUS = #{record.userStatus,jdbcType=VARCHAR},
+      SMS_CODE = #{record.smsCode,jdbcType=VARCHAR},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      USER_EMAIL = #{record.userEmail,jdbcType=VARCHAR},
+      USER_PHOTO = #{record.userPhoto,jdbcType=VARCHAR},
+      PAY_PWD = #{record.payPwd,jdbcType=VARCHAR},
+      USER_QQ = #{record.userQq,jdbcType=VARCHAR},
+      USER_JURISDICTION = #{record.userJurisdiction,jdbcType=VARCHAR},
+      PHONE_400 = #{record.phone400,jdbcType=VARCHAR},
+      PHONE_REAL = #{record.phoneReal,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunUsers">
+    <!--@mbggenerated-->
+    update FUN_USERS
+    <set>
+      <if test="devloperId != null">
+        DEVLOPER_ID = #{devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="bCityId != null">
+        B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginUid != null">
+        LOGIN_UID = #{loginUid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        LOGIN_PWD = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        USER_SEX = #{userSex,jdbcType=BIT},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userPosition != null">
+        USER_POSITION = #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        USER_STATUS = #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="smsCode != null">
+        SMS_CODE = #{smsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userEmail != null">
+        USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="payPwd != null">
+        PAY_PWD = #{payPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        USER_QQ = #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="userJurisdiction != null">
+        USER_JURISDICTION = #{userJurisdiction,jdbcType=VARCHAR},
+      </if>
+      <if test="phone400 != null">
+        PHONE_400 = #{phone400,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneReal != null">
+        PHONE_REAL = #{phoneReal,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunUsers">
+    <!--@mbggenerated-->
+    update FUN_USERS
+    set DEVLOPER_ID = #{devloperId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      LOGIN_UID = #{loginUid,jdbcType=VARCHAR},
+      LOGIN_PWD = #{loginPwd,jdbcType=VARCHAR},
+      USER_SEX = #{userSex,jdbcType=BIT},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      USER_POSITION = #{userPosition,jdbcType=VARCHAR},
+      USER_STATUS = #{userStatus,jdbcType=VARCHAR},
+      SMS_CODE = #{smsCode,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      USER_PHOTO = #{userPhoto,jdbcType=VARCHAR},
+      PAY_PWD = #{payPwd,jdbcType=VARCHAR},
+      USER_QQ = #{userQq,jdbcType=VARCHAR},
+      USER_JURISDICTION = #{userJurisdiction,jdbcType=VARCHAR},
+      PHONE_400 = #{phone400,jdbcType=VARCHAR},
+      PHONE_REAL = #{phoneReal,jdbcType=VARCHAR}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="extResultMap" type="com.myfun.repository.agencydb.dto.AgencyFunUsersDto">
+    <result column="sawCount" jdbcType="INTEGER" property="sawCount" />
+    <result column="dealCount" jdbcType="INTEGER" property="dealCount" />
+    <result column="commissionCount" jdbcType="INTEGER" property="commissionCount" />
+  </resultMap>
+  <update id="updateFunUser" parameterType="java.util.Map">
+  	update FUN_USERS set LOGIN_UID = #{newMobile}, USER_MOBILE = #{newMobile},USER_STATUS = #{userStatus} where LOGIN_UID = #{oldMobile} and USER_POSITION= #{userPosttion}
+  </update>
+  <select id="getFunUserByMobile" parameterType="java.util.Map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from FUN_USERS where USER_MOBILE = #{userMobile} and USER_STATUS&gt;0
+  </select>
+  <select id="getFunUserByBuildIdAndCityId" parameterType="java.util.Map" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from FUN_USERS where BUILD_ID = #{buildId} and CITY_ID =#{cityId} and USER_STATUS = 1
+  </select>
+  <update id="updateByCondition" parameterType="java.util.Map">
+  	update FUN_USERS
+  	set USER_MOBILE = #{pMobile},
+  	LOGIN_UID = #{pMobile},
+  	LOGIN_PWD = #{pUserPosition},
+  	USER_POSITION = #{pUserPwd},
+  	USER_STATUS = #{pStatus}
+  	where USER_MOBILE = #{cMobile} 
+  	and CITY_ID = #{cityId}
+  	and DEVLOPER_ID = #{devloperId}
+  	and BUILD_ID = #{buildId}
+  </update>
+  <select id="getFunUserListByBuildIdAndCityId" parameterType="com.myfun.repository.agencydb.param.AgencyFunUsersParam" resultMap="extResultMap">
+  	select FUN_USERS.CITY_ID, FUN_USERS.USER_ID, DEVLOPER_ID, DEPT_ID, B_CITY_ID, BUILD_ID, USER_NAME, LOGIN_UID, 
+    LOGIN_PWD, USER_SEX, USER_MOBILE, USER_POSITION, USER_STATUS, SMS_CODE, CREATION_TIME, 
+    USER_EMAIL, USER_PHOTO, PAY_PWD, USER_QQ,
+  	(select count(1) from FUN_CUST where FUN_CUST.B_CITY_ID = FUN_USERS.CITY_ID and FUN_CUST.BUILD_ID = FUN_USERS.BUILD_ID and FUN_CUST.SALE_UID = FUN_USERS.USER_ID and FUN_CUST.CUST_STATUS &gt; 2) sawCount,
+  	(select count(1) from FUN_CUST where FUN_CUST.B_CITY_ID = FUN_USERS.CITY_ID and FUN_CUST.BUILD_ID = FUN_USERS.BUILD_ID and FUN_CUST.SALE_UID = FUN_USERS.USER_ID and FUN_CUST.CUST_STATUS &gt; 3) dealCount,
+  	(select count(1) from FUN_CUST where FUN_CUST.B_CITY_ID = FUN_USERS.CITY_ID and FUN_CUST.BUILD_ID = FUN_USERS.BUILD_ID and FUN_CUST.SALE_UID = FUN_USERS.USER_ID and FUN_CUST.CUST_STATUS &gt; 4) commissionCount
+  	from FUN_USERS 
+  	where BUILD_ID = #{buildId} and USER_POSITION <![CDATA[<>]]> 'BUILD_MANAGER' and CITY_ID = #{cityId}
+  	<if test="null != userStatus and '' != userStatus">
+  		and USER_STATUS =#{userStatus}  
+  	</if>
+  	order by USER_ID ASC
+  </select>
+  
+  <select id="selectByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
+  		select <include refid="Base_Column_List" />
+  		from FUN_USERS
+  		<where>
+  			<if test="null != userMobile and ''!= userMobile">
+  				and USER_MOBILE = #{userMobile}
+  			</if>
+  		</where>
+  </select>
+  <insert id="insertForFastDfs">
+    <foreach collection="dfsParamList" item="dfsParam" separator=";">
+      INSERT  INTO  FUN_USERS_FASTDFS_TMP(USER_ID,USER_PHOTO_OLD,USER_PHOTO_NEW)
+      VALUES (#{dfsParam.userId}, #{dfsParam.userPhotoOld}, #{dfsParam.userPhotoNew})
+    </foreach>
+  </insert>
+
+</mapper>

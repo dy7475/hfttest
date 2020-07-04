@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpCityshareComplaintProofMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpCityshareComplaintProof" >
+    <!--@mbggenerated-->
+    <id column="PROOF_ID" property="proofId" jdbcType="INTEGER" />
+    <result column="COMPLAINT_ID" property="complaintId" jdbcType="INTEGER" />
+    <result column="VOIP_ID" property="voipId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    PROOF_ID, COMPLAINT_ID, VOIP_ID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpCityshareComplaintProofExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CITYSHARE_COMPLAINT_PROOF
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CITYSHARE_COMPLAINT_PROOF
+    where PROOF_ID = #{proofId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from CITYSHARE_COMPLAINT_PROOF
+    where PROOF_ID = #{proofId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpCityshareComplaintProofExample" >
+    <!--@mbggenerated-->
+    delete from CITYSHARE_COMPLAINT_PROOF
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpCityshareComplaintProof" useGeneratedKeys="true" keyProperty="proofId" >
+    <!--@mbggenerated-->
+    insert into CITYSHARE_COMPLAINT_PROOF (COMPLAINT_ID, VOIP_ID)
+    values (#{complaintId,jdbcType=INTEGER}, #{voipId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpCityshareComplaintProof" useGeneratedKeys="true" keyProperty="proofId" >
+    <!--@mbggenerated-->
+    insert into CITYSHARE_COMPLAINT_PROOF
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="complaintId != null" >
+        COMPLAINT_ID,
+      </if>
+      <if test="voipId != null" >
+        VOIP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="complaintId != null" >
+        #{complaintId,jdbcType=INTEGER},
+      </if>
+      <if test="voipId != null" >
+        #{voipId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpCityshareComplaintProofExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from CITYSHARE_COMPLAINT_PROOF
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update CITYSHARE_COMPLAINT_PROOF
+    <set >
+      <if test="record.proofId != null" >
+        PROOF_ID = #{record.proofId,jdbcType=INTEGER},
+      </if>
+      <if test="record.complaintId != null" >
+        COMPLAINT_ID = #{record.complaintId,jdbcType=INTEGER},
+      </if>
+      <if test="record.voipId != null" >
+        VOIP_ID = #{record.voipId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update CITYSHARE_COMPLAINT_PROOF
+    set PROOF_ID = #{record.proofId,jdbcType=INTEGER},
+      COMPLAINT_ID = #{record.complaintId,jdbcType=INTEGER},
+      VOIP_ID = #{record.voipId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpCityshareComplaintProof" >
+    <!--@mbggenerated-->
+    update CITYSHARE_COMPLAINT_PROOF
+    <set >
+      <if test="complaintId != null" >
+        COMPLAINT_ID = #{complaintId,jdbcType=INTEGER},
+      </if>
+      <if test="voipId != null" >
+        VOIP_ID = #{voipId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROOF_ID = #{proofId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpCityshareComplaintProof" >
+    <!--@mbggenerated-->
+    update CITYSHARE_COMPLAINT_PROOF
+    set COMPLAINT_ID = #{complaintId,jdbcType=INTEGER},
+      VOIP_ID = #{voipId,jdbcType=VARCHAR}
+    where PROOF_ID = #{proofId,jdbcType=INTEGER}
+  </update>
+</mapper>

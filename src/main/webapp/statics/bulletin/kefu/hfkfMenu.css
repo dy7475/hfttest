@@ -1,0 +1,64 @@
+#hftKF_box {
+	FONT-SIZE: 12px; Z-INDEX: 2000; width:152px; OVERFLOW: hidden;  FONT-FAMILY: Verdana, Geneva, sans-serif; POSITION: absolute;
+}
+#kfbox{WIDTH: 132px;min-height: 161px;_min-height: 161px;}
+#kfMenuMini{WIDTH: 15px;line-height:14px;cursor:pointer;border:1px solid #6B96C3;BACKGROUND: #FCFCFF;border-left:0;padding:3px 0 3px 132px;color:#666;}
+#kftop {
+	background: url(image/top-1.gif) no-repeat;
+	height: 33px;
+	width: 150px;
+}
+#kftop img{
+	cursor:pointer;
+	margin-left: 110px;
+	margin-top: 10px;
+}
+#kfcenter,#kfadv {
+	background: url(image/center-bg.gif) repeat-y;
+	width: 152px;
+	position: relative;
+}
+* HTML #kfChgBox {MARGIN-LEFT: -4px MARGIN-RIGHT: 0px;display: table-cell; }
+#kfChgBox{*position:absolute;position: absolute; top:50%; float:right;right:0;cursor:pointer;z-index:1000;}
+#kfChgBox img{ *position:relative; top:-50%;}
+#kfcenter table{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin-left: 1ex;
+}
+#kfcenter table a{
+	color: #000000;
+	text-decoration: none;
+}
+#kfcenter h1{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #0066cc;
+	background: url(image/h1-li.gif)no-repeat 0px 15px;
+	padding-top: 5px;
+	width:100px;
+	height: 20px;
+	text-indent: 1ex;
+	margin: 0;
+}
+h1.h1Bg{background: url(image/h1-li.gif)no-repeat 0px 15px;}
+#kfcenter h1 a{
+	color: #0066cc;
+	text-decoration: none;
+}
+#kfadv img{margin:0;padding:0;}
+#kfbottom{
+	background: url(image/end-1.gif) no-repeat;
+	width: 150px;
+	height: 8px;
+}
+#kfimg{
+	position: relative;
+	top: -2px;
+	margin: 0px;
+	padding: 0px;
+}
+#kfbox a{color: #333;text-decoration: none;}
+#kfbox a:hover{color: #f60; text-decoration: underline;}
+

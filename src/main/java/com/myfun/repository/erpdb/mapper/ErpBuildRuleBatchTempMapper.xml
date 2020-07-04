@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBuildRuleBatchTempMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTemp">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="BUILD_REG" jdbcType="VARCHAR" property="buildReg" />
+    <result column="BUILD_REGION" jdbcType="VARCHAR" property="buildRegion" />
+    <result column="BUILD_ADDR" jdbcType="VARCHAR" property="buildAddr" />
+    <result column="BUILD_DATE" jdbcType="VARCHAR" property="buildDate" />
+    <result column="RIGHT_YEARS" jdbcType="VARCHAR" property="rightYears" />
+    <result column="BUILD_DEVLOPER" jdbcType="VARCHAR" property="buildDevloper" />
+    <result column="PROPERTY_COMP" jdbcType="VARCHAR" property="propertyComp" />
+    <result column="COST_STANDARD" jdbcType="VARCHAR" property="costStandard" />
+    <result column="CONSTRACT_AREA" jdbcType="VARCHAR" property="constractArea" />
+    <result column="BUILD_AREA" jdbcType="VARCHAR" property="buildArea" />
+    <result column="PROJECT_SPACE" jdbcType="VARCHAR" property="projectSpace" />
+    <result column="PROJECT_GREEN" jdbcType="VARCHAR" property="projectGreen" />
+    <result column="ALL_DOORS" jdbcType="INTEGER" property="allDoors" />
+    <result column="CARS_CASE" jdbcType="VARCHAR" property="carsCase" />
+    <result column="BUS_LINE" jdbcType="VARCHAR" property="busLine" />
+    <result column="SCHOOLS" jdbcType="VARCHAR" property="schools" />
+    <result column="ADD_CASE" jdbcType="VARCHAR" property="addCase" />
+    <result column="SUBWAY_LINE" jdbcType="VARCHAR" property="subwayLine" />
+    <result column="STATION" jdbcType="VARCHAR" property="station" />
+    <result column="FINISH_DATE" jdbcType="VARCHAR" property="finishDate" />
+    <result column="BUILD_ROOF_NAME" jdbcType="VARCHAR" property="buildRoofName" />
+    <result column="BUILD_ROOF" jdbcType="VARCHAR" property="buildRoof" />
+    <result column="HOUSE_USAGE" jdbcType="INTEGER" property="houseUsage" />
+    <result column="BUILD_UNIT_NAME" jdbcType="VARCHAR" property="buildUnitName" />
+    <result column="BUILD_UNIT" jdbcType="VARCHAR" property="buildUnit" />
+    <result column="FLOOR_START" jdbcType="INTEGER" property="floorStart" />
+    <result column="FLOOR_END" jdbcType="INTEGER" property="floorEnd" />
+    <result column="ROOM_SORT_RULE" jdbcType="TINYINT" property="roomSortRule" />
+    <result column="ROOM_COMPOSITION_RULE" jdbcType="TINYINT" property="roomCompositionRule" />
+    <result column="BUILD_LADDER" jdbcType="VARCHAR" property="buildLadder" />
+    <result column="BUILD_DOORS" jdbcType="VARCHAR" property="buildDoors" />
+    <result column="DOOR_START" jdbcType="VARCHAR" property="doorStart" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="ROOM_GENERATED" jdbcType="TINYINT" property="roomGenerated" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, BUILD_NAME, BUILD_REG, BUILD_REGION, BUILD_ADDR, BUILD_DATE, RIGHT_YEARS, BUILD_DEVLOPER, 
+    PROPERTY_COMP, COST_STANDARD, CONSTRACT_AREA, BUILD_AREA, PROJECT_SPACE, PROJECT_GREEN, 
+    ALL_DOORS, CARS_CASE, BUS_LINE, SCHOOLS, ADD_CASE, SUBWAY_LINE, STATION, FINISH_DATE, 
+    BUILD_ROOF_NAME, BUILD_ROOF, HOUSE_USAGE, BUILD_UNIT_NAME, BUILD_UNIT, FLOOR_START, 
+    FLOOR_END, ROOM_SORT_RULE, ROOM_COMPOSITION_RULE, BUILD_LADDER, BUILD_DOORS, DOOR_START, 
+    COMP_ID, ROOM_GENERATED
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTempExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BUILD_RULE_BATCH_TEMP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILD_RULE_BATCH_TEMP
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from BUILD_RULE_BATCH_TEMP
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTempExample">
+    <!--@mbggenerated-->
+    delete from BUILD_RULE_BATCH_TEMP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTemp" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILD_RULE_BATCH_TEMP (BUILD_NAME, BUILD_REG, BUILD_REGION, 
+      BUILD_ADDR, BUILD_DATE, RIGHT_YEARS, 
+      BUILD_DEVLOPER, PROPERTY_COMP, COST_STANDARD, 
+      CONSTRACT_AREA, BUILD_AREA, PROJECT_SPACE, 
+      PROJECT_GREEN, ALL_DOORS, CARS_CASE, 
+      BUS_LINE, SCHOOLS, ADD_CASE, 
+      SUBWAY_LINE, STATION, FINISH_DATE, 
+      BUILD_ROOF_NAME, BUILD_ROOF, HOUSE_USAGE, 
+      BUILD_UNIT_NAME, BUILD_UNIT, FLOOR_START, 
+      FLOOR_END, ROOM_SORT_RULE, ROOM_COMPOSITION_RULE, 
+      BUILD_LADDER, BUILD_DOORS, DOOR_START, 
+      COMP_ID, ROOM_GENERATED)
+    values (#{buildName,jdbcType=VARCHAR}, #{buildReg,jdbcType=VARCHAR}, #{buildRegion,jdbcType=VARCHAR}, 
+      #{buildAddr,jdbcType=VARCHAR}, #{buildDate,jdbcType=VARCHAR}, #{rightYears,jdbcType=VARCHAR}, 
+      #{buildDevloper,jdbcType=VARCHAR}, #{propertyComp,jdbcType=VARCHAR}, #{costStandard,jdbcType=VARCHAR}, 
+      #{constractArea,jdbcType=VARCHAR}, #{buildArea,jdbcType=VARCHAR}, #{projectSpace,jdbcType=VARCHAR}, 
+      #{projectGreen,jdbcType=VARCHAR}, #{allDoors,jdbcType=INTEGER}, #{carsCase,jdbcType=VARCHAR}, 
+      #{busLine,jdbcType=VARCHAR}, #{schools,jdbcType=VARCHAR}, #{addCase,jdbcType=VARCHAR}, 
+      #{subwayLine,jdbcType=VARCHAR}, #{station,jdbcType=VARCHAR}, #{finishDate,jdbcType=VARCHAR}, 
+      #{buildRoofName,jdbcType=VARCHAR}, #{buildRoof,jdbcType=VARCHAR}, #{houseUsage,jdbcType=INTEGER}, 
+      #{buildUnitName,jdbcType=VARCHAR}, #{buildUnit,jdbcType=VARCHAR}, #{floorStart,jdbcType=INTEGER}, 
+      #{floorEnd,jdbcType=INTEGER}, #{roomSortRule,jdbcType=TINYINT}, #{roomCompositionRule,jdbcType=TINYINT}, 
+      #{buildLadder,jdbcType=VARCHAR}, #{buildDoors,jdbcType=VARCHAR}, #{doorStart,jdbcType=VARCHAR}, 
+      #{compId,jdbcType=INTEGER}, #{roomGenerated,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTemp" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into BUILD_RULE_BATCH_TEMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="buildReg != null">
+        BUILD_REG,
+      </if>
+      <if test="buildRegion != null">
+        BUILD_REGION,
+      </if>
+      <if test="buildAddr != null">
+        BUILD_ADDR,
+      </if>
+      <if test="buildDate != null">
+        BUILD_DATE,
+      </if>
+      <if test="rightYears != null">
+        RIGHT_YEARS,
+      </if>
+      <if test="buildDevloper != null">
+        BUILD_DEVLOPER,
+      </if>
+      <if test="propertyComp != null">
+        PROPERTY_COMP,
+      </if>
+      <if test="costStandard != null">
+        COST_STANDARD,
+      </if>
+      <if test="constractArea != null">
+        CONSTRACT_AREA,
+      </if>
+      <if test="buildArea != null">
+        BUILD_AREA,
+      </if>
+      <if test="projectSpace != null">
+        PROJECT_SPACE,
+      </if>
+      <if test="projectGreen != null">
+        PROJECT_GREEN,
+      </if>
+      <if test="allDoors != null">
+        ALL_DOORS,
+      </if>
+      <if test="carsCase != null">
+        CARS_CASE,
+      </if>
+      <if test="busLine != null">
+        BUS_LINE,
+      </if>
+      <if test="schools != null">
+        SCHOOLS,
+      </if>
+      <if test="addCase != null">
+        ADD_CASE,
+      </if>
+      <if test="subwayLine != null">
+        SUBWAY_LINE,
+      </if>
+      <if test="station != null">
+        STATION,
+      </if>
+      <if test="finishDate != null">
+        FINISH_DATE,
+      </if>
+      <if test="buildRoofName != null">
+        BUILD_ROOF_NAME,
+      </if>
+      <if test="buildRoof != null">
+        BUILD_ROOF,
+      </if>
+      <if test="houseUsage != null">
+        HOUSE_USAGE,
+      </if>
+      <if test="buildUnitName != null">
+        BUILD_UNIT_NAME,
+      </if>
+      <if test="buildUnit != null">
+        BUILD_UNIT,
+      </if>
+      <if test="floorStart != null">
+        FLOOR_START,
+      </if>
+      <if test="floorEnd != null">
+        FLOOR_END,
+      </if>
+      <if test="roomSortRule != null">
+        ROOM_SORT_RULE,
+      </if>
+      <if test="roomCompositionRule != null">
+        ROOM_COMPOSITION_RULE,
+      </if>
+      <if test="buildLadder != null">
+        BUILD_LADDER,
+      </if>
+      <if test="buildDoors != null">
+        BUILD_DOORS,
+      </if>
+      <if test="doorStart != null">
+        DOOR_START,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="roomGenerated != null">
+        ROOM_GENERATED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildReg != null">
+        #{buildReg,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRegion != null">
+        #{buildRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="buildAddr != null">
+        #{buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDate != null">
+        #{buildDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rightYears != null">
+        #{rightYears,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDevloper != null">
+        #{buildDevloper,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyComp != null">
+        #{propertyComp,jdbcType=VARCHAR},
+      </if>
+      <if test="costStandard != null">
+        #{costStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="constractArea != null">
+        #{constractArea,jdbcType=VARCHAR},
+      </if>
+      <if test="buildArea != null">
+        #{buildArea,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSpace != null">
+        #{projectSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGreen != null">
+        #{projectGreen,jdbcType=VARCHAR},
+      </if>
+      <if test="allDoors != null">
+        #{allDoors,jdbcType=INTEGER},
+      </if>
+      <if test="carsCase != null">
+        #{carsCase,jdbcType=VARCHAR},
+      </if>
+      <if test="busLine != null">
+        #{busLine,jdbcType=VARCHAR},
+      </if>
+      <if test="schools != null">
+        #{schools,jdbcType=VARCHAR},
+      </if>
+      <if test="addCase != null">
+        #{addCase,jdbcType=VARCHAR},
+      </if>
+      <if test="subwayLine != null">
+        #{subwayLine,jdbcType=VARCHAR},
+      </if>
+      <if test="station != null">
+        #{station,jdbcType=VARCHAR},
+      </if>
+      <if test="finishDate != null">
+        #{finishDate,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRoofName != null">
+        #{buildRoofName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRoof != null">
+        #{buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUsage != null">
+        #{houseUsage,jdbcType=INTEGER},
+      </if>
+      <if test="buildUnitName != null">
+        #{buildUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildUnit != null">
+        #{buildUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="floorStart != null">
+        #{floorStart,jdbcType=INTEGER},
+      </if>
+      <if test="floorEnd != null">
+        #{floorEnd,jdbcType=INTEGER},
+      </if>
+      <if test="roomSortRule != null">
+        #{roomSortRule,jdbcType=TINYINT},
+      </if>
+      <if test="roomCompositionRule != null">
+        #{roomCompositionRule,jdbcType=TINYINT},
+      </if>
+      <if test="buildLadder != null">
+        #{buildLadder,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDoors != null">
+        #{buildDoors,jdbcType=VARCHAR},
+      </if>
+      <if test="doorStart != null">
+        #{doorStart,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="roomGenerated != null">
+        #{roomGenerated,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTempExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from BUILD_RULE_BATCH_TEMP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILD_RULE_BATCH_TEMP
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildName != null">
+        BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildReg != null">
+        BUILD_REG = #{record.buildReg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildRegion != null">
+        BUILD_REGION = #{record.buildRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildAddr != null">
+        BUILD_ADDR = #{record.buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildDate != null">
+        BUILD_DATE = #{record.buildDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rightYears != null">
+        RIGHT_YEARS = #{record.rightYears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildDevloper != null">
+        BUILD_DEVLOPER = #{record.buildDevloper,jdbcType=VARCHAR},
+      </if>
+      <if test="record.propertyComp != null">
+        PROPERTY_COMP = #{record.propertyComp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costStandard != null">
+        COST_STANDARD = #{record.costStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.constractArea != null">
+        CONSTRACT_AREA = #{record.constractArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildArea != null">
+        BUILD_AREA = #{record.buildArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectSpace != null">
+        PROJECT_SPACE = #{record.projectSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectGreen != null">
+        PROJECT_GREEN = #{record.projectGreen,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allDoors != null">
+        ALL_DOORS = #{record.allDoors,jdbcType=INTEGER},
+      </if>
+      <if test="record.carsCase != null">
+        CARS_CASE = #{record.carsCase,jdbcType=VARCHAR},
+      </if>
+      <if test="record.busLine != null">
+        BUS_LINE = #{record.busLine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schools != null">
+        SCHOOLS = #{record.schools,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addCase != null">
+        ADD_CASE = #{record.addCase,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subwayLine != null">
+        SUBWAY_LINE = #{record.subwayLine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.station != null">
+        STATION = #{record.station,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishDate != null">
+        FINISH_DATE = #{record.finishDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildRoofName != null">
+        BUILD_ROOF_NAME = #{record.buildRoofName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildRoof != null">
+        BUILD_ROOF = #{record.buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseUsage != null">
+        HOUSE_USAGE = #{record.houseUsage,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildUnitName != null">
+        BUILD_UNIT_NAME = #{record.buildUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildUnit != null">
+        BUILD_UNIT = #{record.buildUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.floorStart != null">
+        FLOOR_START = #{record.floorStart,jdbcType=INTEGER},
+      </if>
+      <if test="record.floorEnd != null">
+        FLOOR_END = #{record.floorEnd,jdbcType=INTEGER},
+      </if>
+      <if test="record.roomSortRule != null">
+        ROOM_SORT_RULE = #{record.roomSortRule,jdbcType=TINYINT},
+      </if>
+      <if test="record.roomCompositionRule != null">
+        ROOM_COMPOSITION_RULE = #{record.roomCompositionRule,jdbcType=TINYINT},
+      </if>
+      <if test="record.buildLadder != null">
+        BUILD_LADDER = #{record.buildLadder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildDoors != null">
+        BUILD_DOORS = #{record.buildDoors,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doorStart != null">
+        DOOR_START = #{record.doorStart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.roomGenerated != null">
+        ROOM_GENERATED = #{record.roomGenerated,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update BUILD_RULE_BATCH_TEMP
+    set ID = #{record.id,jdbcType=INTEGER},
+      BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      BUILD_REG = #{record.buildReg,jdbcType=VARCHAR},
+      BUILD_REGION = #{record.buildRegion,jdbcType=VARCHAR},
+      BUILD_ADDR = #{record.buildAddr,jdbcType=VARCHAR},
+      BUILD_DATE = #{record.buildDate,jdbcType=VARCHAR},
+      RIGHT_YEARS = #{record.rightYears,jdbcType=VARCHAR},
+      BUILD_DEVLOPER = #{record.buildDevloper,jdbcType=VARCHAR},
+      PROPERTY_COMP = #{record.propertyComp,jdbcType=VARCHAR},
+      COST_STANDARD = #{record.costStandard,jdbcType=VARCHAR},
+      CONSTRACT_AREA = #{record.constractArea,jdbcType=VARCHAR},
+      BUILD_AREA = #{record.buildArea,jdbcType=VARCHAR},
+      PROJECT_SPACE = #{record.projectSpace,jdbcType=VARCHAR},
+      PROJECT_GREEN = #{record.projectGreen,jdbcType=VARCHAR},
+      ALL_DOORS = #{record.allDoors,jdbcType=INTEGER},
+      CARS_CASE = #{record.carsCase,jdbcType=VARCHAR},
+      BUS_LINE = #{record.busLine,jdbcType=VARCHAR},
+      SCHOOLS = #{record.schools,jdbcType=VARCHAR},
+      ADD_CASE = #{record.addCase,jdbcType=VARCHAR},
+      SUBWAY_LINE = #{record.subwayLine,jdbcType=VARCHAR},
+      STATION = #{record.station,jdbcType=VARCHAR},
+      FINISH_DATE = #{record.finishDate,jdbcType=VARCHAR},
+      BUILD_ROOF_NAME = #{record.buildRoofName,jdbcType=VARCHAR},
+      BUILD_ROOF = #{record.buildRoof,jdbcType=VARCHAR},
+      HOUSE_USAGE = #{record.houseUsage,jdbcType=INTEGER},
+      BUILD_UNIT_NAME = #{record.buildUnitName,jdbcType=VARCHAR},
+      BUILD_UNIT = #{record.buildUnit,jdbcType=VARCHAR},
+      FLOOR_START = #{record.floorStart,jdbcType=INTEGER},
+      FLOOR_END = #{record.floorEnd,jdbcType=INTEGER},
+      ROOM_SORT_RULE = #{record.roomSortRule,jdbcType=TINYINT},
+      ROOM_COMPOSITION_RULE = #{record.roomCompositionRule,jdbcType=TINYINT},
+      BUILD_LADDER = #{record.buildLadder,jdbcType=VARCHAR},
+      BUILD_DOORS = #{record.buildDoors,jdbcType=VARCHAR},
+      DOOR_START = #{record.doorStart,jdbcType=VARCHAR},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      ROOM_GENERATED = #{record.roomGenerated,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTemp">
+    <!--@mbggenerated-->
+    update BUILD_RULE_BATCH_TEMP
+    <set>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildReg != null">
+        BUILD_REG = #{buildReg,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRegion != null">
+        BUILD_REGION = #{buildRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="buildAddr != null">
+        BUILD_ADDR = #{buildAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDate != null">
+        BUILD_DATE = #{buildDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rightYears != null">
+        RIGHT_YEARS = #{rightYears,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDevloper != null">
+        BUILD_DEVLOPER = #{buildDevloper,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyComp != null">
+        PROPERTY_COMP = #{propertyComp,jdbcType=VARCHAR},
+      </if>
+      <if test="costStandard != null">
+        COST_STANDARD = #{costStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="constractArea != null">
+        CONSTRACT_AREA = #{constractArea,jdbcType=VARCHAR},
+      </if>
+      <if test="buildArea != null">
+        BUILD_AREA = #{buildArea,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSpace != null">
+        PROJECT_SPACE = #{projectSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGreen != null">
+        PROJECT_GREEN = #{projectGreen,jdbcType=VARCHAR},
+      </if>
+      <if test="allDoors != null">
+        ALL_DOORS = #{allDoors,jdbcType=INTEGER},
+      </if>
+      <if test="carsCase != null">
+        CARS_CASE = #{carsCase,jdbcType=VARCHAR},
+      </if>
+      <if test="busLine != null">
+        BUS_LINE = #{busLine,jdbcType=VARCHAR},
+      </if>
+      <if test="schools != null">
+        SCHOOLS = #{schools,jdbcType=VARCHAR},
+      </if>
+      <if test="addCase != null">
+        ADD_CASE = #{addCase,jdbcType=VARCHAR},
+      </if>
+      <if test="subwayLine != null">
+        SUBWAY_LINE = #{subwayLine,jdbcType=VARCHAR},
+      </if>
+      <if test="station != null">
+        STATION = #{station,jdbcType=VARCHAR},
+      </if>
+      <if test="finishDate != null">
+        FINISH_DATE = #{finishDate,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRoofName != null">
+        BUILD_ROOF_NAME = #{buildRoofName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildRoof != null">
+        BUILD_ROOF = #{buildRoof,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUsage != null">
+        HOUSE_USAGE = #{houseUsage,jdbcType=INTEGER},
+      </if>
+      <if test="buildUnitName != null">
+        BUILD_UNIT_NAME = #{buildUnitName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildUnit != null">
+        BUILD_UNIT = #{buildUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="floorStart != null">
+        FLOOR_START = #{floorStart,jdbcType=INTEGER},
+      </if>
+      <if test="floorEnd != null">
+        FLOOR_END = #{floorEnd,jdbcType=INTEGER},
+      </if>
+      <if test="roomSortRule != null">
+        ROOM_SORT_RULE = #{roomSortRule,jdbcType=TINYINT},
+      </if>
+      <if test="roomCompositionRule != null">
+        ROOM_COMPOSITION_RULE = #{roomCompositionRule,jdbcType=TINYINT},
+      </if>
+      <if test="buildLadder != null">
+        BUILD_LADDER = #{buildLadder,jdbcType=VARCHAR},
+      </if>
+      <if test="buildDoors != null">
+        BUILD_DOORS = #{buildDoors,jdbcType=VARCHAR},
+      </if>
+      <if test="doorStart != null">
+        DOOR_START = #{doorStart,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="roomGenerated != null">
+        ROOM_GENERATED = #{roomGenerated,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildRuleBatchTemp">
+    <!--@mbggenerated-->
+    update BUILD_RULE_BATCH_TEMP
+    set BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      BUILD_REG = #{buildReg,jdbcType=VARCHAR},
+      BUILD_REGION = #{buildRegion,jdbcType=VARCHAR},
+      BUILD_ADDR = #{buildAddr,jdbcType=VARCHAR},
+      BUILD_DATE = #{buildDate,jdbcType=VARCHAR},
+      RIGHT_YEARS = #{rightYears,jdbcType=VARCHAR},
+      BUILD_DEVLOPER = #{buildDevloper,jdbcType=VARCHAR},
+      PROPERTY_COMP = #{propertyComp,jdbcType=VARCHAR},
+      COST_STANDARD = #{costStandard,jdbcType=VARCHAR},
+      CONSTRACT_AREA = #{constractArea,jdbcType=VARCHAR},
+      BUILD_AREA = #{buildArea,jdbcType=VARCHAR},
+      PROJECT_SPACE = #{projectSpace,jdbcType=VARCHAR},
+      PROJECT_GREEN = #{projectGreen,jdbcType=VARCHAR},
+      ALL_DOORS = #{allDoors,jdbcType=INTEGER},
+      CARS_CASE = #{carsCase,jdbcType=VARCHAR},
+      BUS_LINE = #{busLine,jdbcType=VARCHAR},
+      SCHOOLS = #{schools,jdbcType=VARCHAR},
+      ADD_CASE = #{addCase,jdbcType=VARCHAR},
+      SUBWAY_LINE = #{subwayLine,jdbcType=VARCHAR},
+      STATION = #{station,jdbcType=VARCHAR},
+      FINISH_DATE = #{finishDate,jdbcType=VARCHAR},
+      BUILD_ROOF_NAME = #{buildRoofName,jdbcType=VARCHAR},
+      BUILD_ROOF = #{buildRoof,jdbcType=VARCHAR},
+      HOUSE_USAGE = #{houseUsage,jdbcType=INTEGER},
+      BUILD_UNIT_NAME = #{buildUnitName,jdbcType=VARCHAR},
+      BUILD_UNIT = #{buildUnit,jdbcType=VARCHAR},
+      FLOOR_START = #{floorStart,jdbcType=INTEGER},
+      FLOOR_END = #{floorEnd,jdbcType=INTEGER},
+      ROOM_SORT_RULE = #{roomSortRule,jdbcType=TINYINT},
+      ROOM_COMPOSITION_RULE = #{roomCompositionRule,jdbcType=TINYINT},
+      BUILD_LADDER = #{buildLadder,jdbcType=VARCHAR},
+      BUILD_DOORS = #{buildDoors,jdbcType=VARCHAR},
+      DOOR_START = #{doorStart,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      ROOM_GENERATED = #{roomGenerated,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

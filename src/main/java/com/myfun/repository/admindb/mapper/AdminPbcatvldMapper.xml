@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminPbcatvldMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminPbcatvld" >
+    <!--@mbggenerated-->
+    <result column="pbv_name" property="pbvName" jdbcType="VARCHAR" />
+    <result column="pbv_vald" property="pbvVald" jdbcType="VARCHAR" />
+    <result column="pbv_type" property="pbvType" jdbcType="SMALLINT" />
+    <result column="pbv_cntr" property="pbvCntr" jdbcType="INTEGER" />
+    <result column="pbv_msg" property="pbvMsg" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminPbcatvld" >
+    <!--@mbggenerated-->
+    insert into pbcatvld (pbv_name, pbv_vald, pbv_type, 
+      pbv_cntr, pbv_msg)
+    values (#{pbvName,jdbcType=VARCHAR}, #{pbvVald,jdbcType=VARCHAR}, #{pbvType,jdbcType=SMALLINT}, 
+      #{pbvCntr,jdbcType=INTEGER}, #{pbvMsg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminPbcatvld" >
+    <!--@mbggenerated-->
+    insert into pbcatvld
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pbvName != null" >
+        pbv_name,
+      </if>
+      <if test="pbvVald != null" >
+        pbv_vald,
+      </if>
+      <if test="pbvType != null" >
+        pbv_type,
+      </if>
+      <if test="pbvCntr != null" >
+        pbv_cntr,
+      </if>
+      <if test="pbvMsg != null" >
+        pbv_msg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pbvName != null" >
+        #{pbvName,jdbcType=VARCHAR},
+      </if>
+      <if test="pbvVald != null" >
+        #{pbvVald,jdbcType=VARCHAR},
+      </if>
+      <if test="pbvType != null" >
+        #{pbvType,jdbcType=SMALLINT},
+      </if>
+      <if test="pbvCntr != null" >
+        #{pbvCntr,jdbcType=INTEGER},
+      </if>
+      <if test="pbvMsg != null" >
+        #{pbvMsg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

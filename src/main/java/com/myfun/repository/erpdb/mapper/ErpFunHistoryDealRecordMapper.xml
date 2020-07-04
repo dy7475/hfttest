@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunHistoryDealRecordMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecord">
+    <!--@mbggenerated-->
+    <id column="FUN_HISTORY_DEAL_RECORD_ID" jdbcType="INTEGER" property="funHistoryDealRecordId" />
+    <result column="CREATED_USER_ID" jdbcType="VARCHAR" property="createdUserId" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="UPDATED_USER_ID" jdbcType="VARCHAR" property="updatedUserId" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="FUN_HISTORY_DEAL_CUST_ID" jdbcType="INTEGER" property="funHistoryDealCustId" />
+    <result column="CHANGE_CAUSE" jdbcType="VARCHAR" property="changeCause" />
+    <result column="BEFORE_CHANGE_USER_ID" jdbcType="INTEGER" property="beforeChangeUserId" />
+    <result column="BEFORE_CHANGE_USER_NAME" jdbcType="VARCHAR" property="beforeChangeUserName" />
+    <result column="BEFORE_CHANGE_ORG_ID" jdbcType="INTEGER" property="beforeChangeOrgId" />
+    <result column="BEFORE_CHANGE_ORG_NAME" jdbcType="VARCHAR" property="beforeChangeOrgName" />
+    <result column="AFTER_CHANGE_USER_ID" jdbcType="INTEGER" property="afterChangeUserId" />
+    <result column="AFTER_CHANGE_USER_NAME" jdbcType="VARCHAR" property="afterChangeUserName" />
+    <result column="AFTER_CHANGE_ORG_ID" jdbcType="INTEGER" property="afterChangeOrgId" />
+    <result column="AFTER_CHANGE_ORG_NAME" jdbcType="VARCHAR" property="afterChangeOrgName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    FUN_HISTORY_DEAL_RECORD_ID, CREATED_USER_ID, CREATED_TIME, UPDATED_USER_ID, UPDATED_TIME, 
+    FUN_HISTORY_DEAL_CUST_ID, CHANGE_CAUSE, BEFORE_CHANGE_USER_ID, BEFORE_CHANGE_USER_NAME, 
+    BEFORE_CHANGE_ORG_ID, BEFORE_CHANGE_ORG_NAME, AFTER_CHANGE_USER_ID, AFTER_CHANGE_USER_NAME, 
+    AFTER_CHANGE_ORG_ID, AFTER_CHANGE_ORG_NAME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecordExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_HISTORY_DEAL_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_HISTORY_DEAL_RECORD
+    where FUN_HISTORY_DEAL_RECORD_ID = #{funHistoryDealRecordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_HISTORY_DEAL_RECORD
+    where FUN_HISTORY_DEAL_RECORD_ID = #{funHistoryDealRecordId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecordExample">
+    <!--@mbggenerated-->
+    delete from FUN_HISTORY_DEAL_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="funHistoryDealRecordId" parameterType="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecord" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_HISTORY_DEAL_RECORD (CREATED_USER_ID, CREATED_TIME, UPDATED_USER_ID, 
+      UPDATED_TIME, FUN_HISTORY_DEAL_CUST_ID, CHANGE_CAUSE, 
+      BEFORE_CHANGE_USER_ID, BEFORE_CHANGE_USER_NAME, 
+      BEFORE_CHANGE_ORG_ID, BEFORE_CHANGE_ORG_NAME, 
+      AFTER_CHANGE_USER_ID, AFTER_CHANGE_USER_NAME, 
+      AFTER_CHANGE_ORG_ID, AFTER_CHANGE_ORG_NAME)
+    values (#{createdUserId,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedUserId,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{funHistoryDealCustId,jdbcType=INTEGER}, #{changeCause,jdbcType=VARCHAR}, 
+      #{beforeChangeUserId,jdbcType=INTEGER}, #{beforeChangeUserName,jdbcType=VARCHAR}, 
+      #{beforeChangeOrgId,jdbcType=INTEGER}, #{beforeChangeOrgName,jdbcType=VARCHAR}, 
+      #{afterChangeUserId,jdbcType=INTEGER}, #{afterChangeUserName,jdbcType=VARCHAR}, 
+      #{afterChangeOrgId,jdbcType=INTEGER}, #{afterChangeOrgName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="funHistoryDealRecordId" parameterType="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecord" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_HISTORY_DEAL_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createdUserId != null">
+        CREATED_USER_ID,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="updatedUserId != null">
+        UPDATED_USER_ID,
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME,
+      </if>
+      <if test="funHistoryDealCustId != null">
+        FUN_HISTORY_DEAL_CUST_ID,
+      </if>
+      <if test="changeCause != null">
+        CHANGE_CAUSE,
+      </if>
+      <if test="beforeChangeUserId != null">
+        BEFORE_CHANGE_USER_ID,
+      </if>
+      <if test="beforeChangeUserName != null">
+        BEFORE_CHANGE_USER_NAME,
+      </if>
+      <if test="beforeChangeOrgId != null">
+        BEFORE_CHANGE_ORG_ID,
+      </if>
+      <if test="beforeChangeOrgName != null">
+        BEFORE_CHANGE_ORG_NAME,
+      </if>
+      <if test="afterChangeUserId != null">
+        AFTER_CHANGE_USER_ID,
+      </if>
+      <if test="afterChangeUserName != null">
+        AFTER_CHANGE_USER_NAME,
+      </if>
+      <if test="afterChangeOrgId != null">
+        AFTER_CHANGE_ORG_ID,
+      </if>
+      <if test="afterChangeOrgName != null">
+        AFTER_CHANGE_ORG_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createdUserId != null">
+        #{createdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUserId != null">
+        #{updatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="funHistoryDealCustId != null">
+        #{funHistoryDealCustId,jdbcType=INTEGER},
+      </if>
+      <if test="changeCause != null">
+        #{changeCause,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeChangeUserId != null">
+        #{beforeChangeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="beforeChangeUserName != null">
+        #{beforeChangeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeChangeOrgId != null">
+        #{beforeChangeOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="beforeChangeOrgName != null">
+        #{beforeChangeOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="afterChangeUserId != null">
+        #{afterChangeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="afterChangeUserName != null">
+        #{afterChangeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="afterChangeOrgId != null">
+        #{afterChangeOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="afterChangeOrgName != null">
+        #{afterChangeOrgName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecordExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_HISTORY_DEAL_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_HISTORY_DEAL_RECORD
+    <set>
+      <if test="record.funHistoryDealRecordId != null">
+        FUN_HISTORY_DEAL_RECORD_ID = #{record.funHistoryDealRecordId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdUserId != null">
+        CREATED_USER_ID = #{record.createdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdTime != null">
+        CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedUserId != null">
+        UPDATED_USER_ID = #{record.updatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatedTime != null">
+        UPDATED_TIME = #{record.updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.funHistoryDealCustId != null">
+        FUN_HISTORY_DEAL_CUST_ID = #{record.funHistoryDealCustId,jdbcType=INTEGER},
+      </if>
+      <if test="record.changeCause != null">
+        CHANGE_CAUSE = #{record.changeCause,jdbcType=VARCHAR},
+      </if>
+      <if test="record.beforeChangeUserId != null">
+        BEFORE_CHANGE_USER_ID = #{record.beforeChangeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.beforeChangeUserName != null">
+        BEFORE_CHANGE_USER_NAME = #{record.beforeChangeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.beforeChangeOrgId != null">
+        BEFORE_CHANGE_ORG_ID = #{record.beforeChangeOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.beforeChangeOrgName != null">
+        BEFORE_CHANGE_ORG_NAME = #{record.beforeChangeOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.afterChangeUserId != null">
+        AFTER_CHANGE_USER_ID = #{record.afterChangeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.afterChangeUserName != null">
+        AFTER_CHANGE_USER_NAME = #{record.afterChangeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.afterChangeOrgId != null">
+        AFTER_CHANGE_ORG_ID = #{record.afterChangeOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.afterChangeOrgName != null">
+        AFTER_CHANGE_ORG_NAME = #{record.afterChangeOrgName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_HISTORY_DEAL_RECORD
+    set FUN_HISTORY_DEAL_RECORD_ID = #{record.funHistoryDealRecordId,jdbcType=INTEGER},
+      CREATED_USER_ID = #{record.createdUserId,jdbcType=VARCHAR},
+      CREATED_TIME = #{record.createdTime,jdbcType=TIMESTAMP},
+      UPDATED_USER_ID = #{record.updatedUserId,jdbcType=VARCHAR},
+      UPDATED_TIME = #{record.updatedTime,jdbcType=TIMESTAMP},
+      FUN_HISTORY_DEAL_CUST_ID = #{record.funHistoryDealCustId,jdbcType=INTEGER},
+      CHANGE_CAUSE = #{record.changeCause,jdbcType=VARCHAR},
+      BEFORE_CHANGE_USER_ID = #{record.beforeChangeUserId,jdbcType=INTEGER},
+      BEFORE_CHANGE_USER_NAME = #{record.beforeChangeUserName,jdbcType=VARCHAR},
+      BEFORE_CHANGE_ORG_ID = #{record.beforeChangeOrgId,jdbcType=INTEGER},
+      BEFORE_CHANGE_ORG_NAME = #{record.beforeChangeOrgName,jdbcType=VARCHAR},
+      AFTER_CHANGE_USER_ID = #{record.afterChangeUserId,jdbcType=INTEGER},
+      AFTER_CHANGE_USER_NAME = #{record.afterChangeUserName,jdbcType=VARCHAR},
+      AFTER_CHANGE_ORG_ID = #{record.afterChangeOrgId,jdbcType=INTEGER},
+      AFTER_CHANGE_ORG_NAME = #{record.afterChangeOrgName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecord">
+    <!--@mbggenerated-->
+    update FUN_HISTORY_DEAL_RECORD
+    <set>
+      <if test="createdUserId != null">
+        CREATED_USER_ID = #{createdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUserId != null">
+        UPDATED_USER_ID = #{updatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="funHistoryDealCustId != null">
+        FUN_HISTORY_DEAL_CUST_ID = #{funHistoryDealCustId,jdbcType=INTEGER},
+      </if>
+      <if test="changeCause != null">
+        CHANGE_CAUSE = #{changeCause,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeChangeUserId != null">
+        BEFORE_CHANGE_USER_ID = #{beforeChangeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="beforeChangeUserName != null">
+        BEFORE_CHANGE_USER_NAME = #{beforeChangeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeChangeOrgId != null">
+        BEFORE_CHANGE_ORG_ID = #{beforeChangeOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="beforeChangeOrgName != null">
+        BEFORE_CHANGE_ORG_NAME = #{beforeChangeOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="afterChangeUserId != null">
+        AFTER_CHANGE_USER_ID = #{afterChangeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="afterChangeUserName != null">
+        AFTER_CHANGE_USER_NAME = #{afterChangeUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="afterChangeOrgId != null">
+        AFTER_CHANGE_ORG_ID = #{afterChangeOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="afterChangeOrgName != null">
+        AFTER_CHANGE_ORG_NAME = #{afterChangeOrgName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FUN_HISTORY_DEAL_RECORD_ID = #{funHistoryDealRecordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunHistoryDealRecord">
+    <!--@mbggenerated-->
+    update FUN_HISTORY_DEAL_RECORD
+    set CREATED_USER_ID = #{createdUserId,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_USER_ID = #{updatedUserId,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      FUN_HISTORY_DEAL_CUST_ID = #{funHistoryDealCustId,jdbcType=INTEGER},
+      CHANGE_CAUSE = #{changeCause,jdbcType=VARCHAR},
+      BEFORE_CHANGE_USER_ID = #{beforeChangeUserId,jdbcType=INTEGER},
+      BEFORE_CHANGE_USER_NAME = #{beforeChangeUserName,jdbcType=VARCHAR},
+      BEFORE_CHANGE_ORG_ID = #{beforeChangeOrgId,jdbcType=INTEGER},
+      BEFORE_CHANGE_ORG_NAME = #{beforeChangeOrgName,jdbcType=VARCHAR},
+      AFTER_CHANGE_USER_ID = #{afterChangeUserId,jdbcType=INTEGER},
+      AFTER_CHANGE_USER_NAME = #{afterChangeUserName,jdbcType=VARCHAR},
+      AFTER_CHANGE_ORG_ID = #{afterChangeOrgId,jdbcType=INTEGER},
+      AFTER_CHANGE_ORG_NAME = #{afterChangeOrgName,jdbcType=VARCHAR}
+    where FUN_HISTORY_DEAL_RECORD_ID = #{funHistoryDealRecordId,jdbcType=INTEGER}
+  </update>
+  <!--批量插入-->
+  <insert id="insertRecordBatch" parameterType="java.util.List" >
+        insert into FUN_HISTORY_DEAL_RECORD (CREATED_USER_ID, CREATED_TIME, UPDATED_USER_ID,
+      UPDATED_TIME, FUN_HISTORY_DEAL_CUST_ID, CHANGE_CAUSE,
+      BEFORE_CHANGE_USER_ID, BEFORE_CHANGE_USER_NAME,
+      BEFORE_CHANGE_ORG_ID, BEFORE_CHANGE_ORG_NAME,
+      AFTER_CHANGE_USER_ID, AFTER_CHANGE_USER_NAME,
+      AFTER_CHANGE_ORG_ID, AFTER_CHANGE_ORG_NAME)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+    (#{createdUserId,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedUserId,jdbcType=VARCHAR},
+      #{updatedTime,jdbcType=TIMESTAMP}, #{funHistoryDealCustId,jdbcType=INTEGER}, #{changeCause,jdbcType=VARCHAR},
+      #{beforeChangeUserId,jdbcType=INTEGER}, #{beforeChangeUserName,jdbcType=VARCHAR},
+      #{beforeChangeOrgId,jdbcType=INTEGER}, #{beforeChangeOrgName,jdbcType=VARCHAR},
+      #{afterChangeUserId,jdbcType=INTEGER}, #{afterChangeUserName,jdbcType=VARCHAR},
+      #{afterChangeOrgId,jdbcType=INTEGER}, #{afterChangeOrgName,jdbcType=VARCHAR})
+
+    </foreach>
+
+  </insert>
+</mapper>

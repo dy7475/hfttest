@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpOutdealMapper">
+    <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpOutdeal">
+        <!--@mbggenerated-->
+        <id column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+        <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+        <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+        <result column="AGREEMENT_NO" jdbcType="VARCHAR" property="agreementNo" />
+        <result column="CREATOR_DATE" jdbcType="VARCHAR" property="creatorDate" />
+        <result column="CREATOR_USER_ID" jdbcType="INTEGER" property="creatorUserId" />
+        <result column="DEAL_TYPE" jdbcType="TINYINT" property="dealType" />
+        <result column="DEAL_STATUS" jdbcType="TINYINT" property="dealStatus" />
+        <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+        <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+        <result column="HOUSE_USEAGE" jdbcType="TINYINT" property="houseUseage" />
+        <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+        <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+        <result column="DEAL_TOTAL_PRICE" jdbcType="NUMERIC" property="dealTotalPrice" />
+        <result column="DEAL_COMMISSION" jdbcType="NUMERIC" property="dealCommission" />
+        <result column="TOTAL_PRICE_UNIT" jdbcType="TINYINT" property="totalPriceUnit" />
+        <result column="CASE_CHARACTER" jdbcType="VARCHAR" property="caseCharacter" />
+        <result column="CASE_USER" jdbcType="INTEGER" property="caseUser" />
+        <result column="CASE_DEAL_TYPE" jdbcType="INTEGER" property="caseDealType" />
+        <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <!--@mbggenerated-->
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <!--@mbggenerated-->
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <!--@mbggenerated-->
+        DEAL_ID, COMP_ID, DEPT_ID, AGREEMENT_NO, CREATOR_DATE, CREATOR_USER_ID, DEAL_TYPE,
+        DEAL_STATUS, CASE_ID, CASE_TYPE, HOUSE_USEAGE, AREA_ID, REG_ID, DEAL_TOTAL_PRICE,
+        DEAL_COMMISSION, TOTAL_PRICE_UNIT, CASE_CHARACTER, CASE_USER, CASE_DEAL_TYPE, ARCHIVE_ID
+    </sql>
+    <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpOutdealExample" resultMap="BaseResultMap">
+        <!--@mbggenerated-->
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from FUN_OUTDEAL
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbggenerated-->
+        select
+        <include refid="Base_Column_List" />
+        from FUN_OUTDEAL
+        where DEAL_ID = #{dealId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbggenerated-->
+        delete from FUN_OUTDEAL
+        where DEAL_ID = #{dealId,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpOutdealExample">
+        <!--@mbggenerated-->
+        delete from FUN_OUTDEAL
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+    <insert id="insert" keyProperty="dealId" parameterType="com.myfun.repository.erpdb.po.ErpOutdeal" useGeneratedKeys="true">
+        <!--@mbggenerated-->
+        insert into FUN_OUTDEAL (COMP_ID, DEPT_ID, AGREEMENT_NO,
+        CREATOR_DATE, CREATOR_USER_ID, DEAL_TYPE,
+        DEAL_STATUS, CASE_ID, CASE_TYPE,
+        HOUSE_USEAGE, AREA_ID, REG_ID,
+        DEAL_TOTAL_PRICE, DEAL_COMMISSION, TOTAL_PRICE_UNIT,
+        CASE_CHARACTER, CASE_USER, CASE_DEAL_TYPE,
+        ARCHIVE_ID)
+        values (#{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{agreementNo,jdbcType=VARCHAR},
+        #{creatorDate,jdbcType=VARCHAR}, #{creatorUserId,jdbcType=INTEGER}, #{dealType,jdbcType=TINYINT},
+        #{dealStatus,jdbcType=TINYINT}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT},
+        #{houseUseage,jdbcType=TINYINT}, #{areaId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER},
+        #{dealTotalPrice,jdbcType=NUMERIC}, #{dealCommission,jdbcType=NUMERIC}, #{totalPriceUnit,jdbcType=TINYINT},
+        #{caseCharacter,jdbcType=VARCHAR}, #{caseUser,jdbcType=INTEGER}, #{caseDealType,jdbcType=INTEGER},
+        #{archiveId,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyProperty="dealId" parameterType="com.myfun.repository.erpdb.po.ErpOutdeal" useGeneratedKeys="true">
+        <!--@mbggenerated-->
+        insert into FUN_OUTDEAL
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="compId != null">
+                COMP_ID,
+            </if>
+            <if test="deptId != null">
+                DEPT_ID,
+            </if>
+            <if test="agreementNo != null">
+                AGREEMENT_NO,
+            </if>
+            <if test="creatorDate != null">
+                CREATOR_DATE,
+            </if>
+            <if test="creatorUserId != null">
+                CREATOR_USER_ID,
+            </if>
+            <if test="dealType != null">
+                DEAL_TYPE,
+            </if>
+            <if test="dealStatus != null">
+                DEAL_STATUS,
+            </if>
+            <if test="caseId != null">
+                CASE_ID,
+            </if>
+            <if test="caseType != null">
+                CASE_TYPE,
+            </if>
+            <if test="houseUseage != null">
+                HOUSE_USEAGE,
+            </if>
+            <if test="areaId != null">
+                AREA_ID,
+            </if>
+            <if test="regId != null">
+                REG_ID,
+            </if>
+            <if test="dealTotalPrice != null">
+                DEAL_TOTAL_PRICE,
+            </if>
+            <if test="dealCommission != null">
+                DEAL_COMMISSION,
+            </if>
+            <if test="totalPriceUnit != null">
+                TOTAL_PRICE_UNIT,
+            </if>
+            <if test="caseCharacter != null">
+                CASE_CHARACTER,
+            </if>
+            <if test="caseUser != null">
+                CASE_USER,
+            </if>
+            <if test="caseDealType != null">
+                CASE_DEAL_TYPE,
+            </if>
+            <if test="archiveId != null">
+                ARCHIVE_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="compId != null">
+                #{compId,jdbcType=INTEGER},
+            </if>
+            <if test="deptId != null">
+                #{deptId,jdbcType=INTEGER},
+            </if>
+            <if test="agreementNo != null">
+                #{agreementNo,jdbcType=VARCHAR},
+            </if>
+            <if test="creatorDate != null">
+                #{creatorDate,jdbcType=VARCHAR},
+            </if>
+            <if test="creatorUserId != null">
+                #{creatorUserId,jdbcType=INTEGER},
+            </if>
+            <if test="dealType != null">
+                #{dealType,jdbcType=TINYINT},
+            </if>
+            <if test="dealStatus != null">
+                #{dealStatus,jdbcType=TINYINT},
+            </if>
+            <if test="caseId != null">
+                #{caseId,jdbcType=INTEGER},
+            </if>
+            <if test="caseType != null">
+                #{caseType,jdbcType=TINYINT},
+            </if>
+            <if test="houseUseage != null">
+                #{houseUseage,jdbcType=TINYINT},
+            </if>
+            <if test="areaId != null">
+                #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="regId != null">
+                #{regId,jdbcType=INTEGER},
+            </if>
+            <if test="dealTotalPrice != null">
+                #{dealTotalPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="dealCommission != null">
+                #{dealCommission,jdbcType=NUMERIC},
+            </if>
+            <if test="totalPriceUnit != null">
+                #{totalPriceUnit,jdbcType=TINYINT},
+            </if>
+            <if test="caseCharacter != null">
+                #{caseCharacter,jdbcType=VARCHAR},
+            </if>
+            <if test="caseUser != null">
+                #{caseUser,jdbcType=INTEGER},
+            </if>
+            <if test="caseDealType != null">
+                #{caseDealType,jdbcType=INTEGER},
+            </if>
+            <if test="archiveId != null">
+                #{archiveId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpOutdealExample" resultType="java.lang.Integer">
+        <!--@mbggenerated-->
+        select count(*) from FUN_OUTDEAL
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        <!--@mbggenerated-->
+        update FUN_OUTDEAL
+        <set>
+            <if test="record.dealId != null">
+                DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+            </if>
+            <if test="record.compId != null">
+                COMP_ID = #{record.compId,jdbcType=INTEGER},
+            </if>
+            <if test="record.deptId != null">
+                DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+            </if>
+            <if test="record.agreementNo != null">
+                AGREEMENT_NO = #{record.agreementNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.creatorDate != null">
+                CREATOR_DATE = #{record.creatorDate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.creatorUserId != null">
+                CREATOR_USER_ID = #{record.creatorUserId,jdbcType=INTEGER},
+            </if>
+            <if test="record.dealType != null">
+                DEAL_TYPE = #{record.dealType,jdbcType=TINYINT},
+            </if>
+            <if test="record.dealStatus != null">
+                DEAL_STATUS = #{record.dealStatus,jdbcType=TINYINT},
+            </if>
+            <if test="record.caseId != null">
+                CASE_ID = #{record.caseId,jdbcType=INTEGER},
+            </if>
+            <if test="record.caseType != null">
+                CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+            </if>
+            <if test="record.houseUseage != null">
+                HOUSE_USEAGE = #{record.houseUseage,jdbcType=TINYINT},
+            </if>
+            <if test="record.areaId != null">
+                AREA_ID = #{record.areaId,jdbcType=INTEGER},
+            </if>
+            <if test="record.regId != null">
+                REG_ID = #{record.regId,jdbcType=INTEGER},
+            </if>
+            <if test="record.dealTotalPrice != null">
+                DEAL_TOTAL_PRICE = #{record.dealTotalPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="record.dealCommission != null">
+                DEAL_COMMISSION = #{record.dealCommission,jdbcType=NUMERIC},
+            </if>
+            <if test="record.totalPriceUnit != null">
+                TOTAL_PRICE_UNIT = #{record.totalPriceUnit,jdbcType=TINYINT},
+            </if>
+            <if test="record.caseCharacter != null">
+                CASE_CHARACTER = #{record.caseCharacter,jdbcType=VARCHAR},
+            </if>
+            <if test="record.caseUser != null">
+                CASE_USER = #{record.caseUser,jdbcType=INTEGER},
+            </if>
+            <if test="record.caseDealType != null">
+                CASE_DEAL_TYPE = #{record.caseDealType,jdbcType=INTEGER},
+            </if>
+            <if test="record.archiveId != null">
+                ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        <!--@mbggenerated-->
+        update FUN_OUTDEAL
+        set DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+        AGREEMENT_NO = #{record.agreementNo,jdbcType=VARCHAR},
+        CREATOR_DATE = #{record.creatorDate,jdbcType=VARCHAR},
+        CREATOR_USER_ID = #{record.creatorUserId,jdbcType=INTEGER},
+        DEAL_TYPE = #{record.dealType,jdbcType=TINYINT},
+        DEAL_STATUS = #{record.dealStatus,jdbcType=TINYINT},
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+        HOUSE_USEAGE = #{record.houseUseage,jdbcType=TINYINT},
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+        DEAL_TOTAL_PRICE = #{record.dealTotalPrice,jdbcType=NUMERIC},
+        DEAL_COMMISSION = #{record.dealCommission,jdbcType=NUMERIC},
+        TOTAL_PRICE_UNIT = #{record.totalPriceUnit,jdbcType=TINYINT},
+        CASE_CHARACTER = #{record.caseCharacter,jdbcType=VARCHAR},
+        CASE_USER = #{record.caseUser,jdbcType=INTEGER},
+        CASE_DEAL_TYPE = #{record.caseDealType,jdbcType=INTEGER},
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpOutdeal">
+        <!--@mbggenerated-->
+        update FUN_OUTDEAL
+        <set>
+            <if test="compId != null">
+                COMP_ID = #{compId,jdbcType=INTEGER},
+            </if>
+            <if test="deptId != null">
+                DEPT_ID = #{deptId,jdbcType=INTEGER},
+            </if>
+            <if test="agreementNo != null">
+                AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR},
+            </if>
+            <if test="creatorDate != null">
+                CREATOR_DATE = #{creatorDate,jdbcType=VARCHAR},
+            </if>
+            <if test="creatorUserId != null">
+                CREATOR_USER_ID = #{creatorUserId,jdbcType=INTEGER},
+            </if>
+            <if test="dealType != null">
+                DEAL_TYPE = #{dealType,jdbcType=TINYINT},
+            </if>
+            <if test="dealStatus != null">
+                DEAL_STATUS = #{dealStatus,jdbcType=TINYINT},
+            </if>
+            <if test="caseId != null">
+                CASE_ID = #{caseId,jdbcType=INTEGER},
+            </if>
+            <if test="caseType != null">
+                CASE_TYPE = #{caseType,jdbcType=TINYINT},
+            </if>
+            <if test="houseUseage != null">
+                HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+            </if>
+            <if test="areaId != null">
+                AREA_ID = #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="regId != null">
+                REG_ID = #{regId,jdbcType=INTEGER},
+            </if>
+            <if test="dealTotalPrice != null">
+                DEAL_TOTAL_PRICE = #{dealTotalPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="dealCommission != null">
+                DEAL_COMMISSION = #{dealCommission,jdbcType=NUMERIC},
+            </if>
+            <if test="totalPriceUnit != null">
+                TOTAL_PRICE_UNIT = #{totalPriceUnit,jdbcType=TINYINT},
+            </if>
+            <if test="caseCharacter != null">
+                CASE_CHARACTER = #{caseCharacter,jdbcType=VARCHAR},
+            </if>
+            <if test="caseUser != null">
+                CASE_USER = #{caseUser,jdbcType=INTEGER},
+            </if>
+            <if test="caseDealType != null">
+                CASE_DEAL_TYPE = #{caseDealType,jdbcType=INTEGER},
+            </if>
+            <if test="archiveId != null">
+                ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where DEAL_ID = #{dealId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpOutdeal">
+        <!--@mbggenerated-->
+        update FUN_OUTDEAL
+        set COMP_ID = #{compId,jdbcType=INTEGER},
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+        AGREEMENT_NO = #{agreementNo,jdbcType=VARCHAR},
+        CREATOR_DATE = #{creatorDate,jdbcType=VARCHAR},
+        CREATOR_USER_ID = #{creatorUserId,jdbcType=INTEGER},
+        DEAL_TYPE = #{dealType,jdbcType=TINYINT},
+        DEAL_STATUS = #{dealStatus,jdbcType=TINYINT},
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+        HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+        REG_ID = #{regId,jdbcType=INTEGER},
+        DEAL_TOTAL_PRICE = #{dealTotalPrice,jdbcType=NUMERIC},
+        DEAL_COMMISSION = #{dealCommission,jdbcType=NUMERIC},
+        TOTAL_PRICE_UNIT = #{totalPriceUnit,jdbcType=TINYINT},
+        CASE_CHARACTER = #{caseCharacter,jdbcType=VARCHAR},
+        CASE_USER = #{caseUser,jdbcType=INTEGER},
+        CASE_DEAL_TYPE = #{caseDealType,jdbcType=INTEGER},
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+        where DEAL_ID = #{dealId,jdbcType=INTEGER}
+    </update>
+
+    <select id="getOutDealInfo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_OUTDEAL
+        <where>
+            <if test="null != param.startTime and '' != param.startTime">
+                AND CREATOR_DATE &gt;= #{param.startTime}
+            </if>
+            <if test="null != param.endTime and '' != param.endTime">
+                AND CREATOR_DATE &lt;= #{param.endTime}
+            </if>
+            <choose>
+                <when test="param.shareCompId !=null and param.shareCompIds == null">
+                    and COMP_ID = #{param.shareCompId}
+                </when>
+                <when test="param.shareCompIds != null">
+                    and COMP_ID in
+                    <foreach collection="param.shareCompIds" close=")" item="shareCompId" open="(" separator=",">
+                        #{shareCompId}
+                    </foreach>
+                </when>
+                <otherwise>
+                    <if test="null != param.deptId">
+                        and DEPT_ID = #{param.deptId}
+                    </if>
+                    <if test="null != param.regId">
+                        and REG_ID = #{param.regId}
+                    </if>
+                    <if test="null != param.areaId">
+                        and AREA_ID = #{param.areaId}
+                    </if>
+                    and COMP_ID = #{param.compId}
+                </otherwise>
+            </choose>
+            <if test="null != param.dealStatus">
+                and  DEAL_STATUS = #{param.dealStatus}
+            </if>
+            <if test="null != param.dealType">
+                and  DEAL_TYPE = #{param.dealType}
+            </if>
+            <if test="null != param.userId">
+                and  CREATOR_USER_ID = #{param.userId}
+            </if>
+        </where>
+        order by CREATOR_DATE DESC
+    </select>
+
+    <select id="getContractDealList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from FUN_OUTDEAL
+        where COMP_ID = #{param.compId} and DEAL_STATUS = 1
+        <if test="param.newOrganization == false">
+	        <if test="null != param.deptId">
+	            and DEPT_ID = #{param.deptId}
+	        </if>
+	        <if test="null != param.regId">
+	            and REG_ID = #{param.regId}
+	        </if>
+	        <if test="null != param.areaId">
+	            and AREA_ID = #{param.areaId}
+	        </if>
+        </if>
+        <if test="param.newOrganization == true and param.organizationId != null  and param.organizationId != 0">
+        	and ORGANIZATION_PATH LIKE '%:${param.organizationId}:%'
+        </if>
+        <if test="null != param.userId">
+        	<choose>
+        		<when test="param.operLevel != null and param.operLevel == 1 "><!-- 本人团队 -->
+        			AND  CASE_USER in(
+						SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{param.compId}
+						 AND TISSUE_LINE LIKE '%:${param.userId}:%' AND USER_LEVEL &lt;= #{param.userLevel} 
+        			)	
+        		</when>
+        		<when test="param.operLevel != null and param.operLevel == 2 "><!-- 下级团队 -->
+        			AND  CASE_USER in(
+						SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{param.compId}
+						AND TISSUE_LINE LIKE '%:${param.userId}:%'  
+        			)
+        		</when>
+        		<otherwise>
+        			AND  CASE_USER = #{param.userId}
+        		</otherwise>
+        	</choose>
+        </if>
+        <if test="null != param.startTime and '' != param.startTime">
+            AND CREATOR_DATE &gt;= #{param.startTime}
+        </if>
+        <if test="null != param.endTime and '' != param.endTime">
+            AND CREATOR_DATE &lt;= #{param.endTime}
+        </if>
+        <if test="null != param.dealType">
+            and  DEAL_TYPE = #{param.dealType}
+        </if>
+        <if test="null != param.caseDealType">
+            and  CASE_DEAL_TYPE = #{param.caseDealType}
+        </if>
+        <if test="null != param.houseCustType and param.houseCustType == 1">
+            and CASE_TYPE in (1,2)
+        </if>
+        <if test="null != param.houseCustType and param.houseCustType == 2">
+            and CASE_TYPE in (3,4)
+        </if>
+        order by CREATOR_DATE DESC
+    </select>
+
+    <select id="getContractDealTotalPrice" resultType="java.util.Map">
+        select
+        <choose>
+            <when test="null != param.dealType and param.dealType == 102">
+                sum (ISNULL(DEAL_COMMISSION,0)) as dealCommission
+            </when>
+            <otherwise>
+                sum (ISNULL(DEAL_TOTAL_PRICE,0)) as dealTotalPrice,
+                sum (ISNULL(DEAL_COMMISSION,0)) as dealCommission
+            </otherwise>
+        </choose>
+        from FUN_OUTDEAL
+        where COMP_ID = #{param.compId} and DEAL_STATUS = 1
+        <if test="param.newOrganization == false">
+	        <if test="null != param.deptId">
+	            and DEPT_ID = #{param.deptId}
+	        </if>
+	        <if test="null != param.regId">
+	            and REG_ID = #{param.regId}
+	        </if>
+	        <if test="null != param.areaId">
+	            and AREA_ID = #{param.areaId}
+	        </if>
+        </if>
+        <if test="param.newOrganization == true and param.organizationId != null and param.organizationId != 0">
+        	AND ORGANIZATION_PATH LIKE '%:${param.organizationId}:%'
+        </if>
+        <if test="null != param.userId">
+            and  CREATOR_USER_ID = #{param.userId}
+            
+            <choose>
+        		<when test="param.operLevel != null and param.operLevel == 1 "><!-- 本人团队 -->
+        			AND  CASE_USER in(
+						SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{param.compId}
+						  AND TISSUE_LINE LIKE '%:${param.userId}:%' AND USER_LEVEL &lt;= #{param.userLevel} 
+        			)	
+        		</when>
+        		<when test="param.operLevel != null and param.operLevel == 2 "><!-- 下级团队 -->
+        			AND  CASE_USER in(
+						SELECT USER_ID FROM FUN_USERS WHERE COMP_ID = #{param.compId}
+						  AND TISSUE_LINE LIKE '%:${param.userId}:%'  
+        			)
+        		</when>
+        		<otherwise>
+        			AND  CASE_USER = #{param.userId}
+        		</otherwise>
+        	</choose>
+        </if>
+        <if test="null != param.startTime and '' != param.startTime">
+            AND CREATOR_DATE &gt;= #{param.startTime}
+        </if>
+        <if test="null != param.endTime and '' != param.endTime">
+            AND CREATOR_DATE &lt;= #{param.endTime}
+        </if>
+        <if test="null != param.dealType">
+            and  DEAL_TYPE = #{param.dealType}
+        </if>
+        <if test="null != param.caseDealType">
+            and  CASE_DEAL_TYPE = #{param.caseDealType}
+        </if>
+        <if test="null != param.houseCustType and param.houseCustType == 1">
+            and CASE_TYPE in (1,2)
+        </if>
+        <if test="null != param.houseCustType and param.houseCustType == 2">
+            and CASE_TYPE in (3,4)
+        </if>
+    </select>
+</mapper>

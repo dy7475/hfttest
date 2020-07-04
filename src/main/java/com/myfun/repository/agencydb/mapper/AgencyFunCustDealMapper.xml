@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunCustDealMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunCustDeal">
+    <!--@mbggenerated-->
+    <id column="CD_ID" jdbcType="INTEGER" property="cdId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="B_CITY_ID" jdbcType="SMALLINT" property="bCityId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="CONTACT_NO" jdbcType="VARCHAR" property="contactNo" />
+    <result column="CUST_ID" jdbcType="INTEGER" property="custId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="CUST_SOURCE" jdbcType="TINYINT" property="custSource" />
+    <result column="HOUSE_NO" jdbcType="VARCHAR" property="houseNo" />
+    <result column="HOUSE_LAYOUT" jdbcType="VARCHAR" property="houseLayout" />
+    <result column="HOUSE_USAGE" jdbcType="VARCHAR" property="houseUsage" />
+    <result column="CONTACT_AMOUNT" jdbcType="NUMERIC" property="contactAmount" />
+    <result column="CONTACT_TIME" jdbcType="TIMESTAMP" property="contactTime" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="CHECK_STATUS" jdbcType="SMALLINT" property="checkStatus" />
+    <result column="CHECK_UID" jdbcType="INTEGER" property="checkUid" />
+    <result column="CHECK_TIME" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="PAID_AMOUNT" jdbcType="NUMERIC" property="paidAmount" />
+    <result column="PAID_STATUS" jdbcType="SMALLINT" property="paidStatus" />
+    <result column="PAID_UID" jdbcType="INTEGER" property="paidUid" />
+    <result column="PAID_TIME" jdbcType="TIMESTAMP" property="paidTime" />
+    <result column="BROKER_AMOUNT" jdbcType="NUMERIC" property="brokerAmount" />
+    <result column="BROKER_STATUS" jdbcType="SMALLINT" property="brokerStatus" />
+    <result column="BROKER_UID" jdbcType="INTEGER" property="brokerUid" />
+    <result column="BROKER_TIME" jdbcType="TIMESTAMP" property="brokerTime" />
+    <result column="IS_BACK_COMMISION" jdbcType="TINYINT" property="isBackCommision" />
+    <result column="BACK_COMMISION_CAUSE" jdbcType="VARCHAR" property="backCommisionCause" />
+    <result column="COMP_AMOUNT" jdbcType="NUMERIC" property="compAmount" />
+    <result column="BROKER_REWARDS" jdbcType="DECIMAL" property="brokerRewards" />
+    <result column="COMP_RATE" jdbcType="DECIMAL" property="compRate" />
+    <result column="DAIKAN_REWARDS" jdbcType="DECIMAL" property="daikanRewards" />
+    <result column="DEAL_REWARDS_TIME" jdbcType="TIMESTAMP" property="dealRewardsTime" />
+    <result column="HOUSE_AREA" jdbcType="NUMERIC" property="houseArea" />
+    <result column="DEAL_AMOUNT" jdbcType="NUMERIC" property="dealAmount" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyFunCustDealDto" id="extResultMap" extends="BaseResultMap">
+  	<result column="CUST_ID" jdbcType="INTEGER" property="custId" />
+  	<result column="COMMISSION_TIME" jdbcType="TIMESTAMP" property="commissionTime" />
+  	<result column="CUST_MOBILE" jdbcType="VARCHAR" property="custMobile" />
+  	<result column="CUST_STATUS" jdbcType="VARCHAR" property="custStatus" />
+  	<result column="SYSTEM_FLAG" jdbcType="BIT" property="systemflag" />
+  	<result column="MEMO_COUNT" jdbcType="INTEGER" property="memoCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CD_ID, CITY_ID, B_CITY_ID, BUILD_ID, CONTACT_NO, CUST_ID, COMP_ID, DEPT_ID, USER_ID, 
+    ARCHIVE_ID, CUST_SOURCE, HOUSE_NO, HOUSE_LAYOUT, HOUSE_USAGE, CONTACT_AMOUNT, CONTACT_TIME, 
+    CREATOR_UID, CHECK_STATUS, CHECK_UID, CHECK_TIME, PAID_AMOUNT, PAID_STATUS, PAID_UID, 
+    PAID_TIME, BROKER_AMOUNT, BROKER_STATUS, BROKER_UID, BROKER_TIME, IS_BACK_COMMISION, 
+    BACK_COMMISION_CAUSE, COMP_AMOUNT, BROKER_REWARDS, COMP_RATE, DAIKAN_REWARDS, DEAL_REWARDS_TIME, 
+    HOUSE_AREA, DEAL_AMOUNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_CUST_DEAL
+    where CD_ID = #{cdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_CUST_DEAL
+    where CD_ID = #{cdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunCustDeal">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="cdId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(CD_ID)+1 FROM FUN_CUST_DEAL
+    </selectKey>
+    insert into FUN_CUST_DEAL (CD_ID, CITY_ID, B_CITY_ID, 
+      BUILD_ID, CONTACT_NO, CUST_ID, 
+      COMP_ID, DEPT_ID, USER_ID, 
+      ARCHIVE_ID, CUST_SOURCE, HOUSE_NO, 
+      HOUSE_LAYOUT, HOUSE_USAGE, CONTACT_AMOUNT, 
+      CONTACT_TIME, CREATOR_UID, CHECK_STATUS, 
+      CHECK_UID, CHECK_TIME, PAID_AMOUNT, 
+      PAID_STATUS, PAID_UID, PAID_TIME, 
+      BROKER_AMOUNT, BROKER_STATUS, BROKER_UID, 
+      BROKER_TIME, IS_BACK_COMMISION, BACK_COMMISION_CAUSE, 
+      COMP_AMOUNT, BROKER_REWARDS, COMP_RATE, 
+      DAIKAN_REWARDS, DEAL_REWARDS_TIME, HOUSE_AREA, 
+      DEAL_AMOUNT)
+    values (#{cdId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{bCityId,jdbcType=SMALLINT}, 
+      #{buildId,jdbcType=INTEGER}, #{contactNo,jdbcType=VARCHAR}, #{custId,jdbcType=INTEGER}, 
+      #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{archiveId,jdbcType=INTEGER}, #{custSource,jdbcType=TINYINT}, #{houseNo,jdbcType=VARCHAR}, 
+      #{houseLayout,jdbcType=VARCHAR}, #{houseUsage,jdbcType=VARCHAR}, #{contactAmount,jdbcType=NUMERIC}, 
+      #{contactTime,jdbcType=TIMESTAMP}, #{creatorUid,jdbcType=INTEGER}, #{checkStatus,jdbcType=SMALLINT}, 
+      #{checkUid,jdbcType=INTEGER}, #{checkTime,jdbcType=TIMESTAMP}, #{paidAmount,jdbcType=NUMERIC}, 
+      #{paidStatus,jdbcType=SMALLINT}, #{paidUid,jdbcType=INTEGER}, #{paidTime,jdbcType=TIMESTAMP}, 
+      #{brokerAmount,jdbcType=NUMERIC}, #{brokerStatus,jdbcType=SMALLINT}, #{brokerUid,jdbcType=INTEGER}, 
+      #{brokerTime,jdbcType=TIMESTAMP}, #{isBackCommision,jdbcType=TINYINT}, #{backCommisionCause,jdbcType=VARCHAR}, 
+      #{compAmount,jdbcType=NUMERIC}, #{brokerRewards,jdbcType=DECIMAL}, #{compRate,jdbcType=DECIMAL}, 
+      #{daikanRewards,jdbcType=DECIMAL}, #{dealRewardsTime,jdbcType=TIMESTAMP}, #{houseArea,jdbcType=NUMERIC}, 
+      #{dealAmount,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCustDeal">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="cdId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT MAX(CD_ID)+1 FROM FUN_CUST_DEAL
+    </selectKey>
+    insert into FUN_CUST_DEAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      CD_ID,
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="bCityId != null">
+        B_CITY_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="contactNo != null">
+        CONTACT_NO,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="custSource != null">
+        CUST_SOURCE,
+      </if>
+      <if test="houseNo != null">
+        HOUSE_NO,
+      </if>
+      <if test="houseLayout != null">
+        HOUSE_LAYOUT,
+      </if>
+      <if test="houseUsage != null">
+        HOUSE_USAGE,
+      </if>
+      <if test="contactAmount != null">
+        CONTACT_AMOUNT,
+      </if>
+      <if test="contactTime != null">
+        CONTACT_TIME,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS,
+      </if>
+      <if test="checkUid != null">
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null">
+        CHECK_TIME,
+      </if>
+      <if test="paidAmount != null">
+        PAID_AMOUNT,
+      </if>
+      <if test="paidStatus != null">
+        PAID_STATUS,
+      </if>
+      <if test="paidUid != null">
+        PAID_UID,
+      </if>
+      <if test="paidTime != null">
+        PAID_TIME,
+      </if>
+      <if test="brokerAmount != null">
+        BROKER_AMOUNT,
+      </if>
+      <if test="brokerStatus != null">
+        BROKER_STATUS,
+      </if>
+      <if test="brokerUid != null">
+        BROKER_UID,
+      </if>
+      <if test="brokerTime != null">
+        BROKER_TIME,
+      </if>
+      <if test="isBackCommision != null">
+        IS_BACK_COMMISION,
+      </if>
+      <if test="backCommisionCause != null">
+        BACK_COMMISION_CAUSE,
+      </if>
+      <if test="compAmount != null">
+        COMP_AMOUNT,
+      </if>
+      <if test="brokerRewards != null">
+        BROKER_REWARDS,
+      </if>
+      <if test="compRate != null">
+        COMP_RATE,
+      </if>
+      <if test="daikanRewards != null">
+        DAIKAN_REWARDS,
+      </if>
+      <if test="dealRewardsTime != null">
+        DEAL_REWARDS_TIME,
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA,
+      </if>
+      <if test="dealAmount != null">
+        DEAL_AMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{cdId,jdbcType=INTEGER},
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="bCityId != null">
+        #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="contactNo != null">
+        #{contactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="custSource != null">
+        #{custSource,jdbcType=TINYINT},
+      </if>
+      <if test="houseNo != null">
+        #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="houseLayout != null">
+        #{houseLayout,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUsage != null">
+        #{houseUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAmount != null">
+        #{contactAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="contactTime != null">
+        #{contactTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null">
+        #{checkStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="checkUid != null">
+        #{checkUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paidAmount != null">
+        #{paidAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="paidStatus != null">
+        #{paidStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="paidUid != null">
+        #{paidUid,jdbcType=INTEGER},
+      </if>
+      <if test="paidTime != null">
+        #{paidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brokerAmount != null">
+        #{brokerAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="brokerStatus != null">
+        #{brokerStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="brokerUid != null">
+        #{brokerUid,jdbcType=INTEGER},
+      </if>
+      <if test="brokerTime != null">
+        #{brokerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isBackCommision != null">
+        #{isBackCommision,jdbcType=TINYINT},
+      </if>
+      <if test="backCommisionCause != null">
+        #{backCommisionCause,jdbcType=VARCHAR},
+      </if>
+      <if test="compAmount != null">
+        #{compAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="brokerRewards != null">
+        #{brokerRewards,jdbcType=DECIMAL},
+      </if>
+      <if test="compRate != null">
+        #{compRate,jdbcType=DECIMAL},
+      </if>
+      <if test="daikanRewards != null">
+        #{daikanRewards,jdbcType=DECIMAL},
+      </if>
+      <if test="dealRewardsTime != null">
+        #{dealRewardsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseArea != null">
+        #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="dealAmount != null">
+        #{dealAmount,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunCustDeal">
+    <!--@mbggenerated-->
+    update FUN_CUST_DEAL
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="bCityId != null">
+        B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="contactNo != null">
+        CONTACT_NO = #{contactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="custSource != null">
+        CUST_SOURCE = #{custSource,jdbcType=TINYINT},
+      </if>
+      <if test="houseNo != null">
+        HOUSE_NO = #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="houseLayout != null">
+        HOUSE_LAYOUT = #{houseLayout,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUsage != null">
+        HOUSE_USAGE = #{houseUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAmount != null">
+        CONTACT_AMOUNT = #{contactAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="contactTime != null">
+        CONTACT_TIME = #{contactTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null">
+        CHECK_STATUS = #{checkStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="checkUid != null">
+        CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkTime != null">
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paidAmount != null">
+        PAID_AMOUNT = #{paidAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="paidStatus != null">
+        PAID_STATUS = #{paidStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="paidUid != null">
+        PAID_UID = #{paidUid,jdbcType=INTEGER},
+      </if>
+      <if test="paidTime != null">
+        PAID_TIME = #{paidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brokerAmount != null">
+        BROKER_AMOUNT = #{brokerAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="brokerStatus != null">
+        BROKER_STATUS = #{brokerStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="brokerUid != null">
+        BROKER_UID = #{brokerUid,jdbcType=INTEGER},
+      </if>
+      <if test="brokerTime != null">
+        BROKER_TIME = #{brokerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isBackCommision != null">
+        IS_BACK_COMMISION = #{isBackCommision,jdbcType=TINYINT},
+      </if>
+      <if test="backCommisionCause != null">
+        BACK_COMMISION_CAUSE = #{backCommisionCause,jdbcType=VARCHAR},
+      </if>
+      <if test="compAmount != null">
+        COMP_AMOUNT = #{compAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="brokerRewards != null">
+        BROKER_REWARDS = #{brokerRewards,jdbcType=DECIMAL},
+      </if>
+      <if test="compRate != null">
+        COMP_RATE = #{compRate,jdbcType=DECIMAL},
+      </if>
+      <if test="daikanRewards != null">
+        DAIKAN_REWARDS = #{daikanRewards,jdbcType=DECIMAL},
+      </if>
+      <if test="dealRewardsTime != null">
+        DEAL_REWARDS_TIME = #{dealRewardsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="dealAmount != null">
+        DEAL_AMOUNT = #{dealAmount,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where CD_ID = #{cdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunCustDeal">
+    <!--@mbggenerated-->
+    update FUN_CUST_DEAL
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      CONTACT_NO = #{contactNo,jdbcType=VARCHAR},
+      CUST_ID = #{custId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CUST_SOURCE = #{custSource,jdbcType=TINYINT},
+      HOUSE_NO = #{houseNo,jdbcType=VARCHAR},
+      HOUSE_LAYOUT = #{houseLayout,jdbcType=VARCHAR},
+      HOUSE_USAGE = #{houseUsage,jdbcType=VARCHAR},
+      CONTACT_AMOUNT = #{contactAmount,jdbcType=NUMERIC},
+      CONTACT_TIME = #{contactTime,jdbcType=TIMESTAMP},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CHECK_STATUS = #{checkStatus,jdbcType=SMALLINT},
+      CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      PAID_AMOUNT = #{paidAmount,jdbcType=NUMERIC},
+      PAID_STATUS = #{paidStatus,jdbcType=SMALLINT},
+      PAID_UID = #{paidUid,jdbcType=INTEGER},
+      PAID_TIME = #{paidTime,jdbcType=TIMESTAMP},
+      BROKER_AMOUNT = #{brokerAmount,jdbcType=NUMERIC},
+      BROKER_STATUS = #{brokerStatus,jdbcType=SMALLINT},
+      BROKER_UID = #{brokerUid,jdbcType=INTEGER},
+      BROKER_TIME = #{brokerTime,jdbcType=TIMESTAMP},
+      IS_BACK_COMMISION = #{isBackCommision,jdbcType=TINYINT},
+      BACK_COMMISION_CAUSE = #{backCommisionCause,jdbcType=VARCHAR},
+      COMP_AMOUNT = #{compAmount,jdbcType=NUMERIC},
+      BROKER_REWARDS = #{brokerRewards,jdbcType=DECIMAL},
+      COMP_RATE = #{compRate,jdbcType=DECIMAL},
+      DAIKAN_REWARDS = #{daikanRewards,jdbcType=DECIMAL},
+      DEAL_REWARDS_TIME = #{dealRewardsTime,jdbcType=TIMESTAMP},
+      HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      DEAL_AMOUNT = #{dealAmount,jdbcType=NUMERIC}
+    where CD_ID = #{cdId,jdbcType=INTEGER}
+  </update>
+  <select id="count" resultType="java.lang.Integer">
+  	select count(1) from FUN_CUST_DEAL where CITY_ID = #{cityId} and CUST_ID = #{custId}
+  </select>
+  
+   <update id="updateByityIdAndCustId" parameterType="com.myfun.repository.agencydb.po.AgencyFunCustDeal" >
+    update FUN_CUST_DEAL
+    <set >
+      <if test="bCityId != null" >
+        B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="contactNo != null" >
+        CONTACT_NO = #{contactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="custSource != null" >
+        CUST_SOURCE = #{custSource,jdbcType=TINYINT},
+      </if>
+      <if test="houseNo != null" >
+        HOUSE_NO = #{houseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="houseLayout != null" >
+        HOUSE_LAYOUT = #{houseLayout,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUsage != null" >
+        HOUSE_USAGE = #{houseUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAmount != null" >
+        CONTACT_AMOUNT = #{contactAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="contactTime != null" >
+        CONTACT_TIME = #{contactTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorUid != null" >
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null" >
+        CHECK_STATUS = #{checkStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=INTEGER},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paidAmount != null" >
+        PAID_AMOUNT = #{paidAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="paidStatus != null" >
+        PAID_STATUS = #{paidStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="paidUid != null" >
+        PAID_UID = #{paidUid,jdbcType=INTEGER},
+      </if>
+      <if test="paidTime != null" >
+        PAID_TIME = #{paidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brokerAmount != null" >
+        BROKER_AMOUNT = #{brokerAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="brokerStatus != null" >
+        BROKER_STATUS = #{brokerStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="brokerUid != null" >
+        BROKER_UID = #{brokerUid,jdbcType=INTEGER},
+      </if>
+      <if test="brokerTime != null" >
+        BROKER_TIME = #{brokerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isBackCommision != null" >
+        IS_BACK_COMMISION = #{isBackCommision,jdbcType=TINYINT},
+      </if>
+      <if test="backCommisionCause != null" >
+        BACK_COMMISION_CAUSE = #{backCommisionCause,jdbcType=VARCHAR},
+      </if>
+      <if test="compAmount != null" >
+        COMP_AMOUNT = #{compAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="brokerRewards != null" >
+        BROKER_REWARDS = #{brokerRewards,jdbcType=DECIMAL},
+      </if>
+      <if test="compRate != null" >
+        COMP_RATE = #{compRate,jdbcType=DECIMAL},
+      </if>
+      <if test="daikanRewards != null" >
+        DAIKAN_REWARDS = #{daikanRewards,jdbcType=DECIMAL},
+      </if>
+      <if test="dealRewardsTime != null" >
+        DEAL_REWARDS_TIME = #{dealRewardsTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CITY_ID = #{cityId}
+    and CUST_ID = #{custId}
+    </update>
+    <select id="getDistCountBorkerAmmount" parameterType="java.util.Map" resultType="java.util.Map">
+    	SELECT ISNULL( SUM(PAID_AMOUNT) , 0 ) AS COMMISSION_MONEY,
+    		ISNULL( SUM(<choose><when test="uaType == 0">BROKER_AMOUNT</when><otherwise>COMP_AMOUNT</otherwise></choose>),0) AS BROKER_MONEY,
+    		ISNULL(SUM(BROKER_REWARDS),0) AS BROKER_REWARDS 
+    	FROM FUN_CUST_DEAL fcd 
+		LEFT JOIN BUILDING_INFO bi ON fcd.B_CITY_ID=bi.CITY_ID and fcd.BUILD_ID=bi.BUILD_ID 
+		<where>
+			<if test="uaType == 0">
+				AND fcd.archive_id = #{archiveId}
+			</if>
+			<if test="uaType == 1">
+				AND fcd.COMP_ID = #{compId}
+			</if>
+			<if test="1==1">
+				AND fcd.IS_BACK_COMMISION = 0  AND fcd.CHECK_STATUS = 1
+			</if>
+			<if test="plateType == 0">
+				AND bi.SYSTEM_FLAG= 1 
+			</if>
+			<if test="plateType == 1">
+				AND (bi.SYSTEM_FLAG= 0 OR bi.SYSTEM_FLAG IS NULL)
+			</if>
+		</where>
+    </select>
+    <select id="getCountCustInfo" parameterType="java.lang.Integer" resultType="java.lang.String">
+    	SELECT ISNULL(SUM(fcd.BROKER_AMOUNT),0) AS BROKER_AMOUNT 
+    	FROM fun_cust fc left join fun_cust_deal fcd on fc.cust_id = fcd.cust_id 
+    	WHERE fc.cust_status >= 4 and fc.archive_id = #{archiveId}
+    </select>
+    <select id="getCountCustPercentInfo" parameterType="java.lang.String" resultType="java.util.Map">
+    	select count(1) AS SUM_NUM,sum(case when count <![CDATA[<]]> #{money} then 1 else 0 end ) MIN_NUM 
+		from (select fc.archive_id,sum(fcd.BROKER_AMOUNT) count from FUN_CUST fc left join fun_cust_deal fcd on fc.cust_id = fcd.cust_id
+		where fc.CUST_STATUS >= 4   group by fc.archive_id) as result
+    </select>
+    <select id="getCountViewMap" resultType="java.util.Map">
+    	SELECT CONVERT(VARCHAR(7),CHECK_TIME,120) as MONTH,sum(fcd.BROKER_AMOUNT) as MONEY
+	    FROM FUN_CUST_DEAL fcd 
+		WHERE fcd.ARCHIVE_ID = #{archiveId} AND fcd.CHECK_STATUS = 1 and fcd.IS_BACK_COMMISION = 0 
+		AND <![CDATA[CHECK_TIME > #{startTime} and  CHECK_TIME <  #{endTime}]]> 
+		GROUP BY CONVERT(VARCHAR(7),CHECK_TIME,120) order by CONVERT(VARCHAR(7),CHECK_TIME,120)
+    </select>
+    
+    <select id="getPersonalCommList" parameterType="java.util.Map" resultMap="extResultMap">
+    	SELECT fc.CUST_ID, fc.COMMISSION_TIME,fc.CUST_NAME,fc.CUST_MOBILE,fc.CUST_STATUS,
+    		   fcd.COMP_RATE,fcd.BROKER_AMOUNT,fcd.PAID_STATUS,bi.SYSTEM_FLAG,
+    		   (select count(1) from FUN_CUST_MEMO fcm where fcd.CUST_ID=fcm.CUST_ID and fcd.CITY_ID=fcm.CITY_ID) MEMO_COUNT
+    	FROM FUN_CUST_DEAL  fcd 
+		LEFT JOIN FUN_CUST fc on fcd.CUST_ID=fc.CUST_ID and fcd.CITY_ID=fc.CITY_ID and fc.ARCHIVE_ID = #{archiveId}
+		LEFT JOIN BUILDING_INFO bi on fc.BUILD_ID=bi.BUILD_ID
+		<where>
+			<if test="1==1">
+				AND fc.COMP_ID = #{compId} and fc.ARCHIVE_ID = #{archiveId}
+			</if>
+			<if test="null != status and '' != status">
+				<choose>
+					<when test="status == 0">
+						AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 0
+					</when>
+					<when test="status == 1">
+						AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 1
+					</when>
+					<when test="status == 2">
+						AND fc.CUST_STATUS = 6
+					</when>
+				</choose>
+			</if>
+			<if test="null == status or '' == status">
+				<![CDATA[ AND fc.CUST_STATUS > 4 ]]>
+			</if>
+			<if test="null != buildId and '' != buildId">
+				AND fc.BUILD_ID = #{buildId}
+			</if>
+			<if test="null != bCityId and '' != bCityId">
+				AND fc.B_CITY_ID = #{bCityId}
+			</if>
+			<if test="null != keyword and '' != keyword">
+				AND fc.CUST_MOBILE like '%'+#{keyword}+'%'
+			</if>
+			<if test="null != deptId and '' != deptId">
+				AND fc.DEPT_ID = #{deptId}
+			</if>
+			<if test="null != endTime and '' != endTime">
+				<![CDATA[AND fc.DEAL_TIME <= #{endTime}]]>
+			</if>
+			<if test="null != startTime and '' != startTime">
+				<![CDATA[AND fc.DEAL_TIME >= #{startTime}]]>
+			</if>
+		</where>
+    </select>
+    <select id="getCustDealListForPersonalCommList" parameterType="java.util.Map" resultType="java.util.Map">
+    	select sum(case CUST_STATUS when 5 then isnull(BROKER_AMOUNT,0) else 0 end) YFP,
+    		   sum(case CUST_STATUS when 6 then isnull(BROKER_AMOUNT,0) else 0 end) YTY
+    	from FUN_CUST_DEAL fcd 
+    	left join BUILDING_INFO bi on bi.city_id=fcd.city_id and bi.build_id=fcd.build_id
+    	left join FUN_CUST fc on fcd.CUST_ID = fc.CUST_ID and fcd.CITY_ID=fc.CITY_ID and fc.ARCHIVE_ID = #{archiveId}
+		<where>
+			<if test="1==1">
+				AND fc.COMP_ID = #{compId} and fc.ARCHIVE_ID = #{archiveId}
+			</if>
+			<if test="null != status and '' != status">
+				<choose>
+					<when test="status == 0">
+						AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 0
+					</when>
+					<when test="status == 1">
+						AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 1
+					</when>
+					<when test="status == 2">
+						AND fc.CUST_STATUS = 6
+					</when>
+				</choose>
+			</if>
+			<if test="null == status or '' == status">
+				<![CDATA[ AND fc.CUST_STATUS > 4 ]]>
+			</if>
+			<if test="null != buildId and '' != buildId">
+				AND fc.BUILD_ID = #{buildId}
+			</if>
+			<if test="null != bCityId and '' != bCityId">
+				AND fc.B_CITY_ID = #{bCityId}
+			</if>
+			<if test="null != keyword and '' != keyword">
+				AND fc.CUST_MOBILE '%'+#{keyword}+'%'
+			</if>
+			<if test="null != deptId and '' != deptId">
+				AND fc.DEPT_ID = #{deptId}
+			</if>
+			<if test="null != endTime and '' != endTime">
+				<![CDATA[AND fc.DEAL_TIME <= #{endTime}]]>
+			</if>
+			<if test="null != startTime and '' != startTime">
+				<![CDATA[AND fc.DEAL_TIME >= #{startTime}]]>
+			</if>
+			<if test="null != userIds">
+				AND fc.USER_ID IN 
+				<foreach collection="list" close=")" item="userId" open="(" separator=",">
+					#{userId}
+				</foreach>
+			</if>
+		</where>
+    </select>
+    
+    <select id="getCustDealListDetail" parameterType="java.util.Map" resultMap="extResultMap">
+    	select bi.SYSTEM_FLAG,fc.ARCHIVE_ID,fcd.PAID_AMOUNT,fcd.COMP_RATE,fcd.BROKER_AMOUNT,fc.CUST_NAME,fc.DEAL_TIME,
+    			fc.CUST_MOBILE,fcd.BROKER_REWARDS,fc.APPLY_NEXT,fc.USER_APPLY,fc.CUST_ID,fc.BUILD_NAME,fc.CUST_STATUS,
+    			cr.COMMISSION,fu.USER_NAME,fu.USER_MOBILE,fcd.PAID_STATUS
+    	from FUN_CUST_DEAL fcd 
+    	left join FUN_CUST fc on fcd.CUST_ID = fc.CUST_ID and fcd.CITY_ID = fc.CITY_ID 
+    	left join FUN_USERS fu on fc.SALE_UID=fu.USER_ID and fc.CITY_ID = fu.CITY_ID
+    	left join BUILDING_INFO bi on fcd.BUILD_ID = bi.BUILD_ID and fcd.B_CITY_ID = bi.CITY_ID
+    	left join COOPERATION_RULE cr on bi.BUILD_ID=cr.BUILD_ID and fu.DEPT_ID=cr.DEPT_ID and fu.DEVLOPER_ID = cr.DEVLOPER_ID and fu.CITY_ID=cr.CITY_ID
+    	<where>
+			<if test="1==1">
+				AND fc.COMP_ID = #{compId} and fc.ARCHIVE_ID = #{archiveId} and fc.CITY_ID  =#{cityId}
+			</if>
+			<if test="null != status and '' != status">
+				<choose>
+					<when test="status == 0">
+						<![CDATA[AND fc.CUST_STATUS = 4 and fc.USER_APPLY <> 1 and fc.APPLY_NEXT<>1]]>
+					</when>
+					<when test="status == 1">
+						AND fc.CUST_STATUS = 4 and (fc.USER_APPLY = 1 or fc.APPLY_NEXT =1)
+					</when>
+					<when test="status == 2">
+						<![CDATA[AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 0 and fc.APPLY_NEXT<> 1]]>
+					</when>
+					<when test="status == 3">
+						<![CDATA[AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 1 and fc.APPLY_NEXT<> 1]]>
+					</when>
+					<when test="status == 4">
+						AND fc.CUST_STATUS = 5 and fc.APPLY_NEXT = 1
+					</when>
+					<when test="status == 5">
+						AND fc.CUST_STATUS = 6
+					</when>
+				</choose>
+			</if>
+			<if test="null == status or '' == status">
+				<![CDATA[ AND fc.CUST_STATUS >= 4 ]]>
+			</if>
+			<if test="null != buildId and '' != buildId">
+				AND fc.BUILD_ID = #{buildId}
+			</if>
+			<if test="null != bCityId and '' != bCityId">
+				AND fc.B_CITY_ID = #{bCityId}
+			</if>
+			<if test="null != keyword and '' != keyword">
+				AND fc.CUST_MOBILE like '%'+#{keyword}+'%'
+			</if>
+			<if test="null != deptId and '' != deptId">
+				AND fc.DEPT_ID = #{deptId}
+			</if>
+			<if test="null != endTime and '' != endTime">
+				<![CDATA[AND fc.DEAL_TIME <= #{endTime}]]>
+			</if>
+			<if test="null != startTime and '' != startTime">
+				<![CDATA[AND fc.DEAL_TIME >= #{startTime}]]>
+			</if>
+		</where>
+    </select>
+    
+    <select id="getCountCustDealOfStatus" parameterType="java.util.Map" resultMap="extResultMap">
+    	SELECT sum(case CUST_STATUS when 4 then PAID_AMOUNT else 0 end) NO_COMMISSION_COUNT,
+    			sum(case CUST_STATUS when 5 then PAID_AMOUNT else 0 end) COMMISSION_COUNT,
+    			sum(case CUST_STATUS when 5 then BROKER_REWARDS else 0 end) BROKER_COUNT
+    	FROM FUN_CUST_DEAL fcd 
+    	LEFT join FUN_CUST fc on fc.CUST_ID = fcd.CUST_ID and fcd.CITY_ID=fc.CITY_ID
+    	<where>
+			<if test="1==1">
+				AND fc.COMP_ID = #{compId} and fc.ARCHIVE_ID = #{archiveId} and fc.CITY_ID  =#{cityId}
+			</if>
+			<if test="null != status and '' != status">
+				<choose>
+					<when test="status == 0">
+						<![CDATA[AND fc.CUST_STATUS = 4 and fc.USER_APPLY <> 1 and fc.APPLY_NEXT<>1]]>
+					</when>
+					<when test="status == 1">
+						AND fc.CUST_STATUS = 4 and (fc.USER_APPLY = 1 or fc.APPLY_NEXT =1)
+					</when>
+					<when test="status == 2">
+						<![CDATA[AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 0 and fc.APPLY_NEXT<> 1]]>
+					</when>
+					<when test="status == 3">
+						<![CDATA[AND fc.CUST_STATUS = 5 and fcd.PAID_STATUS = 1 and fc.APPLY_NEXT<> 1]]>
+					</when>
+					<when test="status == 4">
+						AND fc.CUST_STATUS = 5 and fc.APPLY_NEXT = 1
+					</when>
+					<when test="status == 5">
+						AND fc.CUST_STATUS = 6
+					</when>
+				</choose>
+			</if>
+			<if test="null == status or '' == status">
+				<![CDATA[ AND fc.CUST_STATUS >= 4 ]]>
+			</if>
+			<if test="null != buildId and '' != buildId">
+				AND fc.BUILD_ID = #{buildId}
+			</if>
+			<if test="null != bCityId and '' != bCityId">
+				AND fc.B_CITY_ID = #{bCityId}
+			</if>
+			<if test="null != keyword and '' != keyword">
+				AND fc.CUST_MOBILE '%'+#{keyword}+'%'
+			</if>
+			<if test="null != deptId and '' != deptId">
+				AND fc.DEPT_ID = #{deptId}
+			</if>
+			<if test="null != endTime and '' != endTime">
+				<![CDATA[AND fc.DEAL_TIME <= #{endTime}]]>
+			</if>
+			<if test="null != startTime and '' != startTime">
+				<![CDATA[AND fc.DEAL_TIME >= #{startTime}]]>
+			</if>
+		</where>
+    </select>
+    <select id="daiKanCount" parameterType="java.util.Map" resultType="java.util.Map">
+    	select SUM(PAID_AMOUNT) as SETTLED_COMMISSION from FUN_CUST_DEAL
+    	<where>
+    		<if test="1==1">
+    			AND PAID_STATUS=1 and CITY_ID =#{cityId} and COMP_ID = #{compId} AND BUILD_ID= #{buildId}
+    		</if>
+    		<if test="null != startTime and '' != startTime">
+    			<![CDATA[ and CONTACT_TIME >= #{startTime}]]>
+    		</if>
+    		<if test="null != endTime and '' != endTime">
+    			<![CDATA[and CONTACT_TIME <= #{endTime}]]>
+    		</if>
+    	</where>
+    	
+    </select>
+	<select id="getNewHouseAllAmount" resultType="java.lang.Float">
+		select sum(
+		<if test="type == 1">
+			BROKER_AMOUNT
+		</if>
+		<if test="type == 2">
+			COMP_AMOUNT
+		</if>
+		) AMOUNT
+		from FUN_CUST_DEAL A LEFT JOIN BUILDING_INFO B
+		ON B.BUILD_ID = A.BUILD_ID
+		and b.ALLOW_EXTRACT=1 where A.COMP_ID = #{param.compId} AND A.CITY_ID=#{param.cityId} AND B.SYSTEM_FLAG = 1
+		<if test="type == 1">
+			AND ( A.IS_EXTRACT IS NULL OR A.IS_EXTRACT = 0 OR A.IS_EXTRACT = 1) AND A.ARCHIVE_ID = #{param.archiveId}
+			AND A.USER_ID = #{param.userId}
+		</if>
+		<if test="type == 2">
+			AND ( A.IS_EXTRACT_COMP IS NULL OR A.IS_EXTRACT_COMP = 0 OR A.IS_EXTRACT_COMP = 1) AND COMP_AMOUNT IS NOT
+			NULL
+		</if>
+		AND A.PAID_STATUS=1
+	</select>
+
+	<select id="getNewHouseAmount" resultType="java.lang.Float">
+		select sum(
+		<if test="type == 1">
+			BROKER_AMOUNT
+		</if>
+		<if test="type == 2">
+			COMP_AMOUNT
+		</if>
+		) AMOUNT
+		from FUN_CUST_DEAL A LEFT JOIN BUILDING_INFO B
+		ON B.BUILD_ID = A.BUILD_ID
+		and b.ALLOW_EXTRACT=1 where A.COMP_ID = #{param.compId} AND A.CITY_ID=#{param.cityId} AND B.SYSTEM_FLAG = 1
+		<if test="type == 1">
+			AND ( A.IS_EXTRACT IS NULL OR A.IS_EXTRACT = 0 ) AND A.ARCHIVE_ID = #{param.archiveId} AND A.USER_ID =
+			#{param.userId}
+		</if>
+		<if test="type == 2">
+			AND ( A.IS_EXTRACT_COMP IS NULL OR A.IS_EXTRACT_COMP = 0 ) AND COMP_AMOUNT IS NOT NULL
+		</if>
+		AND A.PAID_STATUS=1
+	</select>
+
+
+  <select id="getFunCustDealList"  resultType="java.util.Map">
+    select A.CONTACT_TIME as contactTime,A.CD_ID as cdId,C.CUST_NAME as custName,A.IS_EXTRACT as isExtract,A.ARCHIVE_ID as archiveId
+    <choose>
+      <when test="param.accountType =1">
+        ,A.BROKER_AMOUNT as amount
+      </when>
+      <otherwise>
+        ,A.COMP_AMOUNT as amount
+      </otherwise>
+    </choose>
+    from FUN_CUST_DEAL A LEFT JOIN BUILDING_INFO B ON B.BUILD_ID = A.BUILD_ID AND B.ALLOW_EXTRACT = 1 LEFT JOIN FUN_CUST C ON C.CUST_ID = A.CUST_ID
+    where A.COMP_ID = #{param.compId} and B.SYSTEM_FLAG = 1 and A.PAID_STATUS = 1
+    <if test="null != param.startTime and '' != param.startTime">
+      <![CDATA[ and CONTACT_TIME >= #{param.startTime}]]>
+    </if>
+    <if test="null != param.endTime and '' != param.endTime">
+      <![CDATA[and CONTACT_TIME <= #{param.endTime}]]>
+    </if>
+    <choose>
+      <when test="param.accountType =1">
+        and A.ARCHIVE_ID = #{param.archiveId} and A.USER_ID = #{param.userId}
+      </when>
+      <otherwise>
+        and COMP_AMOUNT is not null
+      </otherwise>
+    </choose>
+    <if test="param.isExtract != null and param.isExtract != ''">
+      <if test="param.isExtract = 0">
+        <choose>
+          <when test="param.accountType = 1">
+            and (A.IS_EXTRACT is null or A.IS_EXTRACT =0)
+          </when>
+          <otherwise>
+            and (A.IS_EXTRACT_COMP is null or A.IS_EXTRACT_COMP =0)
+          </otherwise>
+        </choose>
+      </if>
+    </if>
+    order by A.CD_ID
+  </select>
+</mapper>

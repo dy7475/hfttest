@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunPolicyControlMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunPolicyControl">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="INTEGER" property="caseType" />
+    <result column="TRACK_DAY" jdbcType="INTEGER" property="trackDay" />
+    <result column="FANGKAN_DAY" jdbcType="INTEGER" property="fangkanDay" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="MODIFY_PRICE_START" jdbcType="TIMESTAMP" property="modifyPriceStart" />
+    <result column="MODIFY_PRICE_BEFOR" jdbcType="NUMERIC" property="modifyPriceBefor" />
+    <result column="MODIFY_PRICE_AFTER" jdbcType="NUMERIC" property="modifyPriceAfter" />
+    <result column="MODIFY_PRICE_UNIT_BEFOR" jdbcType="TINYINT" property="modifyPriceUnitBefor" />
+    <result column="MODIFY_PRICE_UNIT_AFTER" jdbcType="TINYINT" property="modifyPriceUnitAfter" />
+    <result column="MODIFY_PRICE_END" jdbcType="TIMESTAMP" property="modifyPriceEnd" />
+    <result column="LOOK_COUNT" jdbcType="INTEGER" property="lookCount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, CASE_ID, CASE_TYPE, TRACK_DAY, FANGKAN_DAY, UPDATE_TIME, CREATION_TIME, 
+    MODIFY_PRICE_START, MODIFY_PRICE_BEFOR, MODIFY_PRICE_AFTER, MODIFY_PRICE_UNIT_BEFOR, 
+    MODIFY_PRICE_UNIT_AFTER, MODIFY_PRICE_END, LOOK_COUNT
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPolicyControlExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_POLICY_CONTROL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_POLICY_CONTROL
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_POLICY_CONTROL
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPolicyControlExample">
+    <!--@mbggenerated-->
+    delete from FUN_POLICY_CONTROL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunPolicyControl" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_POLICY_CONTROL (COMP_ID, CASE_ID, CASE_TYPE, 
+      TRACK_DAY, FANGKAN_DAY, UPDATE_TIME, 
+      CREATION_TIME, MODIFY_PRICE_START, MODIFY_PRICE_BEFOR, 
+      MODIFY_PRICE_AFTER, MODIFY_PRICE_UNIT_BEFOR, 
+      MODIFY_PRICE_UNIT_AFTER, MODIFY_PRICE_END, 
+      LOOK_COUNT)
+    values (#{compId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=INTEGER}, 
+      #{trackDay,jdbcType=INTEGER}, #{fangkanDay,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{modifyPriceStart,jdbcType=TIMESTAMP}, #{modifyPriceBefor,jdbcType=NUMERIC}, 
+      #{modifyPriceAfter,jdbcType=NUMERIC}, #{modifyPriceUnitBefor,jdbcType=TINYINT}, 
+      #{modifyPriceUnitAfter,jdbcType=TINYINT}, #{modifyPriceEnd,jdbcType=TIMESTAMP}, 
+      #{lookCount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunPolicyControl" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_POLICY_CONTROL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="trackDay != null">
+        TRACK_DAY,
+      </if>
+      <if test="fangkanDay != null">
+        FANGKAN_DAY,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="modifyPriceStart != null">
+        MODIFY_PRICE_START,
+      </if>
+      <if test="modifyPriceBefor != null">
+        MODIFY_PRICE_BEFOR,
+      </if>
+      <if test="modifyPriceAfter != null">
+        MODIFY_PRICE_AFTER,
+      </if>
+      <if test="modifyPriceUnitBefor != null">
+        MODIFY_PRICE_UNIT_BEFOR,
+      </if>
+      <if test="modifyPriceUnitAfter != null">
+        MODIFY_PRICE_UNIT_AFTER,
+      </if>
+      <if test="modifyPriceEnd != null">
+        MODIFY_PRICE_END,
+      </if>
+      <if test="lookCount != null">
+        LOOK_COUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="trackDay != null">
+        #{trackDay,jdbcType=INTEGER},
+      </if>
+      <if test="fangkanDay != null">
+        #{fangkanDay,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyPriceStart != null">
+        #{modifyPriceStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyPriceBefor != null">
+        #{modifyPriceBefor,jdbcType=NUMERIC},
+      </if>
+      <if test="modifyPriceAfter != null">
+        #{modifyPriceAfter,jdbcType=NUMERIC},
+      </if>
+      <if test="modifyPriceUnitBefor != null">
+        #{modifyPriceUnitBefor,jdbcType=TINYINT},
+      </if>
+      <if test="modifyPriceUnitAfter != null">
+        #{modifyPriceUnitAfter,jdbcType=TINYINT},
+      </if>
+      <if test="modifyPriceEnd != null">
+        #{modifyPriceEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lookCount != null">
+        #{lookCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunPolicyControlExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_POLICY_CONTROL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_POLICY_CONTROL
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null">
+        CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      </if>
+      <if test="record.trackDay != null">
+        TRACK_DAY = #{record.trackDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.fangkanDay != null">
+        FANGKAN_DAY = #{record.fangkanDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyPriceStart != null">
+        MODIFY_PRICE_START = #{record.modifyPriceStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyPriceBefor != null">
+        MODIFY_PRICE_BEFOR = #{record.modifyPriceBefor,jdbcType=NUMERIC},
+      </if>
+      <if test="record.modifyPriceAfter != null">
+        MODIFY_PRICE_AFTER = #{record.modifyPriceAfter,jdbcType=NUMERIC},
+      </if>
+      <if test="record.modifyPriceUnitBefor != null">
+        MODIFY_PRICE_UNIT_BEFOR = #{record.modifyPriceUnitBefor,jdbcType=TINYINT},
+      </if>
+      <if test="record.modifyPriceUnitAfter != null">
+        MODIFY_PRICE_UNIT_AFTER = #{record.modifyPriceUnitAfter,jdbcType=TINYINT},
+      </if>
+      <if test="record.modifyPriceEnd != null">
+        MODIFY_PRICE_END = #{record.modifyPriceEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lookCount != null">
+        LOOK_COUNT = #{record.lookCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_POLICY_CONTROL
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=INTEGER},
+      TRACK_DAY = #{record.trackDay,jdbcType=INTEGER},
+      FANGKAN_DAY = #{record.fangkanDay,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      MODIFY_PRICE_START = #{record.modifyPriceStart,jdbcType=TIMESTAMP},
+      MODIFY_PRICE_BEFOR = #{record.modifyPriceBefor,jdbcType=NUMERIC},
+      MODIFY_PRICE_AFTER = #{record.modifyPriceAfter,jdbcType=NUMERIC},
+      MODIFY_PRICE_UNIT_BEFOR = #{record.modifyPriceUnitBefor,jdbcType=TINYINT},
+      MODIFY_PRICE_UNIT_AFTER = #{record.modifyPriceUnitAfter,jdbcType=TINYINT},
+      MODIFY_PRICE_END = #{record.modifyPriceEnd,jdbcType=TIMESTAMP},
+      LOOK_COUNT = #{record.lookCount,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPolicyControl">
+    <!--@mbggenerated-->
+    update FUN_POLICY_CONTROL
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      </if>
+      <if test="trackDay != null">
+        TRACK_DAY = #{trackDay,jdbcType=INTEGER},
+      </if>
+      <if test="fangkanDay != null">
+        FANGKAN_DAY = #{fangkanDay,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyPriceStart != null">
+        MODIFY_PRICE_START = #{modifyPriceStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyPriceBefor != null">
+        MODIFY_PRICE_BEFOR = #{modifyPriceBefor,jdbcType=NUMERIC},
+      </if>
+      <if test="modifyPriceAfter != null">
+        MODIFY_PRICE_AFTER = #{modifyPriceAfter,jdbcType=NUMERIC},
+      </if>
+      <if test="modifyPriceUnitBefor != null">
+        MODIFY_PRICE_UNIT_BEFOR = #{modifyPriceUnitBefor,jdbcType=TINYINT},
+      </if>
+      <if test="modifyPriceUnitAfter != null">
+        MODIFY_PRICE_UNIT_AFTER = #{modifyPriceUnitAfter,jdbcType=TINYINT},
+      </if>
+      <if test="modifyPriceEnd != null">
+        MODIFY_PRICE_END = #{modifyPriceEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lookCount != null">
+        LOOK_COUNT = #{lookCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunPolicyControl">
+    <!--@mbggenerated-->
+    update FUN_POLICY_CONTROL
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=INTEGER},
+      TRACK_DAY = #{trackDay,jdbcType=INTEGER},
+      FANGKAN_DAY = #{fangkanDay,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      MODIFY_PRICE_START = #{modifyPriceStart,jdbcType=TIMESTAMP},
+      MODIFY_PRICE_BEFOR = #{modifyPriceBefor,jdbcType=NUMERIC},
+      MODIFY_PRICE_AFTER = #{modifyPriceAfter,jdbcType=NUMERIC},
+      MODIFY_PRICE_UNIT_BEFOR = #{modifyPriceUnitBefor,jdbcType=TINYINT},
+      MODIFY_PRICE_UNIT_AFTER = #{modifyPriceUnitAfter,jdbcType=TINYINT},
+      MODIFY_PRICE_END = #{modifyPriceEnd,jdbcType=TIMESTAMP},
+      LOOK_COUNT = #{lookCount,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+	<select id="getPolicyControl" resultMap="BaseResultMap">
+		SELECT TOP 1
+		<include refid="Base_Column_List" />
+		FROM FUN_POLICY_CONTROL
+		WHERE CASE_ID = #{caseId} AND CASE_TYPE = #{caseType}
+		ORDER BY CREATION_TIME ASC
+	</select>
+	
+	<select id="getPolicyControlListByCaseIds" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM FUN_POLICY_CONTROL
+		WHERE CASE_TYPE = #{caseType}
+		AND CASE_ID IN
+		<foreach close=")" collection="caseIds" index="index" item="caseId" open="(" separator=",">
+			#{caseId}
+		</foreach>
+	</select>
+</mapper>

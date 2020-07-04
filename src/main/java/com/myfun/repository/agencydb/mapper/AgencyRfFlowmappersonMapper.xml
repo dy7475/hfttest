@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRfFlowmappersonMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRfFlowmapperson" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PROCID" property="procid" jdbcType="INTEGER" />
+    <result column="PERSONID" property="personid" jdbcType="INTEGER" />
+    <result column="TASK" property="task" jdbcType="VARCHAR" />
+    <result column="FLOWNAME" property="flowname" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, PROCID, PERSONID, TASK, FLOWNAME, STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RF_FLOWMAPPERSON
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RF_FLOWMAPPERSON
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRfFlowmapperson" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into RF_FLOWMAPPERSON (PROCID, PERSONID, TASK, 
+      FLOWNAME, STATUS)
+    values (#{procid,jdbcType=INTEGER}, #{personid,jdbcType=INTEGER}, #{task,jdbcType=VARCHAR}, 
+      #{flowname,jdbcType=VARCHAR}, #{status,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfFlowmapperson" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into RF_FLOWMAPPERSON
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="procid != null" >
+        PROCID,
+      </if>
+      <if test="personid != null" >
+        PERSONID,
+      </if>
+      <if test="task != null" >
+        TASK,
+      </if>
+      <if test="flowname != null" >
+        FLOWNAME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="procid != null" >
+        #{procid,jdbcType=INTEGER},
+      </if>
+      <if test="personid != null" >
+        #{personid,jdbcType=INTEGER},
+      </if>
+      <if test="task != null" >
+        #{task,jdbcType=VARCHAR},
+      </if>
+      <if test="flowname != null" >
+        #{flowname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfFlowmapperson" >
+    <!--@mbggenerated-->
+    update RF_FLOWMAPPERSON
+    <set >
+      <if test="procid != null" >
+        PROCID = #{procid,jdbcType=INTEGER},
+      </if>
+      <if test="personid != null" >
+        PERSONID = #{personid,jdbcType=INTEGER},
+      </if>
+      <if test="task != null" >
+        TASK = #{task,jdbcType=VARCHAR},
+      </if>
+      <if test="flowname != null" >
+        FLOWNAME = #{flowname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=BIT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRfFlowmapperson" >
+    <!--@mbggenerated-->
+    update RF_FLOWMAPPERSON
+    set PROCID = #{procid,jdbcType=INTEGER},
+      PERSONID = #{personid,jdbcType=INTEGER},
+      TASK = #{task,jdbcType=VARCHAR},
+      FLOWNAME = #{flowname,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=BIT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

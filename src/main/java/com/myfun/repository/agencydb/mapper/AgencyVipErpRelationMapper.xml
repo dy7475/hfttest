@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyVipErpRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyVipErpRelation" >
+    <!--@mbggenerated-->
+    <id column="WF_ID" property="wfId" jdbcType="INTEGER" />
+    <result column="VIP_ID" property="vipId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="UPDATE_SYNC_FLAG" property="updateSyncFlag" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    WF_ID, VIP_ID, CITY_ID, CASE_ID, CASE_TYPE, [STATUS], UPDATE_SYNC_FLAG
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyVipErpRelationExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from VIP_ERP_RELATION
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from VIP_ERP_RELATION
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from VIP_ERP_RELATION
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.agencydb.po.AgencyVipErpRelationExample" >
+    <!--@mbggenerated-->
+    delete from VIP_ERP_RELATION
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyVipErpRelation" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wfId" order="BEFORE" >
+      SELECT isnull(max(WF_ID), 0) +1 from VIP_ERP_RELATION
+    </selectKey>
+    insert into VIP_ERP_RELATION (WF_ID, VIP_ID, CITY_ID, 
+      CASE_ID, CASE_TYPE, [STATUS], 
+      UPDATE_SYNC_FLAG)
+    values (#{wfId,jdbcType=INTEGER}, #{vipId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{status,jdbcType=INTEGER}, 
+      #{updateSyncFlag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyVipErpRelation" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="wfId" order="BEFORE" >
+      SELECT isnull(max(WF_ID), 0) +1 from VIP_ERP_RELATION
+    </selectKey>
+    insert into VIP_ERP_RELATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      WF_ID,
+      <if test="vipId != null" >
+        VIP_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="status != null" >
+        [STATUS],
+      </if>
+      <if test="updateSyncFlag != null" >
+        UPDATE_SYNC_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{wfId,jdbcType=INTEGER},
+      <if test="vipId != null" >
+        #{vipId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateSyncFlag != null" >
+        #{updateSyncFlag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.agencydb.po.AgencyVipErpRelationExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from VIP_ERP_RELATION
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update VIP_ERP_RELATION
+    <set >
+      <if test="record.wfId != null" >
+        WF_ID = #{record.wfId,jdbcType=INTEGER},
+      </if>
+      <if test="record.vipId != null" >
+        VIP_ID = #{record.vipId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseId != null" >
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.caseType != null" >
+        CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      </if>
+      <if test="record.status != null" >
+        [STATUS] = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateSyncFlag != null" >
+        UPDATE_SYNC_FLAG = #{record.updateSyncFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update VIP_ERP_RELATION
+    set WF_ID = #{record.wfId,jdbcType=INTEGER},
+      VIP_ID = #{record.vipId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{record.caseType,jdbcType=TINYINT},
+      [STATUS] = #{record.status,jdbcType=INTEGER},
+      UPDATE_SYNC_FLAG = #{record.updateSyncFlag,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyVipErpRelation" >
+    <!--@mbggenerated-->
+    update VIP_ERP_RELATION
+    <set >
+      <if test="vipId != null" >
+        VIP_ID = #{vipId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        [STATUS] = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateSyncFlag != null" >
+        UPDATE_SYNC_FLAG = #{updateSyncFlag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyVipErpRelation" >
+    <!--@mbggenerated-->
+    update VIP_ERP_RELATION
+    set VIP_ID = #{vipId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      [STATUS] = #{status,jdbcType=INTEGER},
+      UPDATE_SYNC_FLAG = #{updateSyncFlag,jdbcType=TINYINT}
+    where WF_ID = #{wfId,jdbcType=INTEGER}
+  </update>
+  <select id = "getAgencyVipErpRelation" resultMap="BaseResultMap">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from VIP_ERP_RELATION
+	    where CITY_ID=#{cityId} and CASE_TYPE = #{caseType} and CASE_ID = #{caseId}
+  </select>
+  <select id="getAgencyVipErpRelationList" resultMap="BaseResultMap">
+  		select 
+	 		<include refid="Base_Column_List" />
+	    from VIP_ERP_RELATION
+	    where VIP_ID = #{vipId}
+  </select>
+</mapper>

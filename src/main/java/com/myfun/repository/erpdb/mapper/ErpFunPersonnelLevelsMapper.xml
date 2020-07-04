@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunPersonnelLevelsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunPersonnelLevels" >
+    <!--@mbggenerated-->
+    <id column="LEVELS_ID" property="levelsId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="LEVELS_NAME" property="levelsName" jdbcType="VARCHAR" />
+    <result column="LEVELS_SALARY" property="levelsSalary" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="SEQ" property="seq" jdbcType="INTEGER" />
+    <result column="LEVELS_STATUS" property="levelsStatus" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    LEVELS_ID, COMP_ID, LEVELS_NAME, LEVELS_SALARY, CREATION_TIME, SEQ, LEVELS_STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PERSONNEL_LEVELS
+    where LEVELS_ID = #{levelsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_PERSONNEL_LEVELS
+    where LEVELS_ID = #{levelsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunPersonnelLevels" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="levelsId" order="BEFORE" >
+      SELECT MAX(ISNULL(LEVELS_ID,0))+1 FROM FUN_PERSONNEL_LEVELS
+    </selectKey>
+    insert into FUN_PERSONNEL_LEVELS (LEVELS_ID, COMP_ID, LEVELS_NAME, 
+      LEVELS_SALARY, CREATION_TIME, SEQ, 
+      LEVELS_STATUS)
+    values (#{levelsId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{levelsName,jdbcType=VARCHAR}, 
+      #{levelsSalary,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{seq,jdbcType=INTEGER}, 
+      #{levelsStatus,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPersonnelLevels" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="levelsId" order="BEFORE" >
+      SELECT MAX(ISNULL(LEVELS_ID,0))+1 FROM FUN_PERSONNEL_LEVELS
+    </selectKey>
+    insert into FUN_PERSONNEL_LEVELS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="levelsName != null" >
+        LEVELS_NAME,
+      </if>
+      <if test="levelsSalary != null" >
+        LEVELS_SALARY,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+      <if test="levelsStatus != null" >
+        LEVELS_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="levelsName != null" >
+        #{levelsName,jdbcType=VARCHAR},
+      </if>
+      <if test="levelsSalary != null" >
+        #{levelsSalary,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="levelsStatus != null" >
+        #{levelsStatus,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunPersonnelLevels" >
+    <!--@mbggenerated-->
+    update FUN_PERSONNEL_LEVELS
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="levelsName != null" >
+        LEVELS_NAME = #{levelsName,jdbcType=VARCHAR},
+      </if>
+      <if test="levelsSalary != null" >
+        LEVELS_SALARY = #{levelsSalary,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seq != null" >
+        SEQ = #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="levelsStatus != null" >
+        LEVELS_STATUS = #{levelsStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    where LEVELS_ID = #{levelsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunPersonnelLevels" >
+    <!--@mbggenerated-->
+    update FUN_PERSONNEL_LEVELS
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      LEVELS_NAME = #{levelsName,jdbcType=VARCHAR},
+      LEVELS_SALARY = #{levelsSalary,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      SEQ = #{seq,jdbcType=INTEGER},
+      LEVELS_STATUS = #{levelsStatus,jdbcType=TINYINT}
+    where LEVELS_ID = #{levelsId,jdbcType=INTEGER}
+  </update>
+  <select id="selectListByCondition" parameterType="com.myfun.repository.erpdb.po.ErpFunPersonnelLevels" resultMap="BaseResultMap">
+  	SELECT <include refid="Base_Column_List" />
+  	FROM FUN_PERSONNEL_LEVELS
+  	<where>
+  		<if test="null != compId">
+  			AND COMP_ID = #{compId}
+  		</if>
+  		<if test="null != levelsStatus">
+  			AND LEVELS_STATUS = #{levelsStatus}
+  		</if>
+  	</where>
+  	order by seq ;
+  </select>
+
+  <select id="getMaxLevelsSeqNO" resultType="java.lang.Integer">
+    select max(SEQ) maxSeq from FUN_PERSONNEL_LEVELS where COMP_ID = #{compId}
+    <if test="seq != null">
+      and SEQ &lt; #{seq}
+      and  LEVELS_STATUS = '1'
+    </if>
+  </select>
+
+  <select id="getMinLevelsSeqNO" resultType="java.lang.Integer">
+    select min(SEQ) minSeq from FUN_PERSONNEL_LEVELS where COMP_ID = #{compId} and SEQ &lt; #{seq} and LEVELS_STATUS = '1'
+  </select>
+
+  <update id="updateFunPersonnelLeveLsSeqDown">
+     update FUN_PERSONNEL_LEVELS set SEQ = SEQ + 1 where SEQ >= #{seq} and LEVELS_ID !=#{levelsId}
+  </update>
+  <update id="updateFunPersonnelLevelsSeqUp">
+    update FUN_PERSONNEL_LEVELS set SEQ = SEQ - 1 where SEQ &lt;= #{seq} and LEVELS_ID !=#{levelsId}
+  </update>
+
+</mapper>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunResetSmsMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunResetSms">
+    <!--@mbggenerated-->
+    <id column="SMS_ID" jdbcType="INTEGER" property="smsId" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="SMS_MSG" jdbcType="VARCHAR" property="smsMsg" />
+    <result column="SEND_USER_ID" jdbcType="INTEGER" property="sendUserId" />
+    <result column="RECEIVE_USER_ID" jdbcType="INTEGER" property="receiveUserId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="PA_ID" jdbcType="INTEGER" property="paId" />
+    <result column="UA_ID" jdbcType="INTEGER" property="uaId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    SMS_ID, MOBILE, SMS_MSG, SEND_USER_ID, RECEIVE_USER_ID, CREATE_TIME, PA_ID, UA_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_RESET_SMS
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_RESET_SMS
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunResetSms">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="smsId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_RESET_SMS (MOBILE, SMS_MSG, SEND_USER_ID, 
+      RECEIVE_USER_ID, CREATE_TIME, PA_ID, 
+      UA_ID)
+    values (#{mobile,jdbcType=VARCHAR}, #{smsMsg,jdbcType=VARCHAR}, #{sendUserId,jdbcType=INTEGER}, 
+      #{receiveUserId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{paId,jdbcType=INTEGER}, 
+      #{uaId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunResetSms">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="smsId" order="AFTER" resultType="java.lang.Integer">
+      SELECT MAX(ISNULL(SMS_ID,0))+1 FROM FUN_RESET_SMS
+    </selectKey>
+    insert into FUN_RESET_SMS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mobile != null">
+        MOBILE,
+      </if>
+      <if test="smsMsg != null">
+        SMS_MSG,
+      </if>
+      <if test="sendUserId != null">
+        SEND_USER_ID,
+      </if>
+      <if test="receiveUserId != null">
+        RECEIVE_USER_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="paId != null">
+        PA_ID,
+      </if>
+      <if test="uaId != null">
+        UA_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="smsMsg != null">
+        #{smsMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUserId != null">
+        #{sendUserId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveUserId != null">
+        #{receiveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paId != null">
+        #{paId,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null">
+        #{uaId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunResetSms">
+    <!--@mbggenerated-->
+    update FUN_RESET_SMS
+    <set>
+      <if test="mobile != null">
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="smsMsg != null">
+        SMS_MSG = #{smsMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUserId != null">
+        SEND_USER_ID = #{sendUserId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveUserId != null">
+        RECEIVE_USER_ID = #{receiveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paId != null">
+        PA_ID = #{paId,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null">
+        UA_ID = #{uaId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunResetSms">
+    <!--@mbggenerated-->
+    update FUN_RESET_SMS
+    set MOBILE = #{mobile,jdbcType=VARCHAR},
+      SMS_MSG = #{smsMsg,jdbcType=VARCHAR},
+      SEND_USER_ID = #{sendUserId,jdbcType=INTEGER},
+      RECEIVE_USER_ID = #{receiveUserId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      PA_ID = #{paId,jdbcType=INTEGER},
+      UA_ID = #{uaId,jdbcType=INTEGER}
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </update>
+  <select id="countMsg" resultType="java.lang.Integer">
+    select count(1) from FUN_RESET_SMS
+    <where>
+      <if test="null != pMap.sendUserId">
+        AND SEND_USER_ID = #{pMap.sendUserId}
+      </if>
+      <if test="null != pMap.startTime and null != pMap.endTime" >
+        AND CREATE_TIME BETWEEN #{pMap.startTime} AND  #{pMap.endTime}
+      </if>
+      <if test="null != pMap.receiveUserId">
+       AND RECEIVE_USER_ID = #{pMap.receiveUserId}
+      </if>
+    </where>
+
+  </select>
+</mapper>

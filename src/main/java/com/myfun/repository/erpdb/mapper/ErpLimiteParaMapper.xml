@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpLimiteParaMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpLimitePara">
+    <!--@mbggenerated-->
+    <id column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="SALE_COOP_VIEW" jdbcType="INTEGER" property="saleCoopView" />
+    <result column="LEASE_COOP_VIEW" jdbcType="INTEGER" property="leaseCoopView" />
+    <result column="DAY_SALE_COOP" jdbcType="INTEGER" property="daySaleCoop" />
+    <result column="DAY_LEASE_COOP" jdbcType="INTEGER" property="dayLeaseCoop" />
+    <result column="LIMITE_DATE" jdbcType="TIMESTAMP" property="limiteDate" />
+    <result column="COMPLT_STOP_START" jdbcType="TIMESTAMP" property="compltStopStart" />
+    <result column="STOP_COUNTS_START" jdbcType="TIMESTAMP" property="stopCountsStart" />
+    <result column="COMPLT_COUNT" jdbcType="INTEGER" property="compltCount" />
+    <result column="COMPLT_SUCCESS" jdbcType="INTEGER" property="compltSuccess" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ARCHIVE_ID, SALE_COOP_VIEW, LEASE_COOP_VIEW, DAY_SALE_COOP, DAY_LEASE_COOP, LIMITE_DATE, 
+    COMPLT_STOP_START, STOP_COUNTS_START, COMPLT_COUNT, COMPLT_SUCCESS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LIMITE_PARA
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from LIMITE_PARA
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpLimitePara">
+    <!--@mbggenerated-->
+    insert into LIMITE_PARA (ARCHIVE_ID, SALE_COOP_VIEW, LEASE_COOP_VIEW, 
+      DAY_SALE_COOP, DAY_LEASE_COOP, LIMITE_DATE, 
+      COMPLT_STOP_START, STOP_COUNTS_START, COMPLT_COUNT, 
+      COMPLT_SUCCESS)
+    values (#{archiveId,jdbcType=INTEGER}, #{saleCoopView,jdbcType=INTEGER}, #{leaseCoopView,jdbcType=INTEGER}, 
+      #{daySaleCoop,jdbcType=INTEGER}, #{dayLeaseCoop,jdbcType=INTEGER}, #{limiteDate,jdbcType=TIMESTAMP}, 
+      #{compltStopStart,jdbcType=TIMESTAMP}, #{stopCountsStart,jdbcType=TIMESTAMP}, #{compltCount,jdbcType=INTEGER}, 
+      #{compltSuccess,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpLimitePara">
+    <!--@mbggenerated-->
+    insert into LIMITE_PARA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="saleCoopView != null">
+        SALE_COOP_VIEW,
+      </if>
+      <if test="leaseCoopView != null">
+        LEASE_COOP_VIEW,
+      </if>
+      <if test="daySaleCoop != null">
+        DAY_SALE_COOP,
+      </if>
+      <if test="dayLeaseCoop != null">
+        DAY_LEASE_COOP,
+      </if>
+      <if test="limiteDate != null">
+        LIMITE_DATE,
+      </if>
+      <if test="compltStopStart != null">
+        COMPLT_STOP_START,
+      </if>
+      <if test="stopCountsStart != null">
+        STOP_COUNTS_START,
+      </if>
+      <if test="compltCount != null">
+        COMPLT_COUNT,
+      </if>
+      <if test="compltSuccess != null">
+        COMPLT_SUCCESS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="saleCoopView != null">
+        #{saleCoopView,jdbcType=INTEGER},
+      </if>
+      <if test="leaseCoopView != null">
+        #{leaseCoopView,jdbcType=INTEGER},
+      </if>
+      <if test="daySaleCoop != null">
+        #{daySaleCoop,jdbcType=INTEGER},
+      </if>
+      <if test="dayLeaseCoop != null">
+        #{dayLeaseCoop,jdbcType=INTEGER},
+      </if>
+      <if test="limiteDate != null">
+        #{limiteDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compltStopStart != null">
+        #{compltStopStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopCountsStart != null">
+        #{stopCountsStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compltCount != null">
+        #{compltCount,jdbcType=INTEGER},
+      </if>
+      <if test="compltSuccess != null">
+        #{compltSuccess,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpLimitePara">
+    <!--@mbggenerated-->
+    update LIMITE_PARA
+    <set>
+      <if test="saleCoopView != null">
+        SALE_COOP_VIEW = #{saleCoopView,jdbcType=INTEGER},
+      </if>
+      <if test="leaseCoopView != null">
+        LEASE_COOP_VIEW = #{leaseCoopView,jdbcType=INTEGER},
+      </if>
+      <if test="daySaleCoop != null">
+        DAY_SALE_COOP = #{daySaleCoop,jdbcType=INTEGER},
+      </if>
+      <if test="dayLeaseCoop != null">
+        DAY_LEASE_COOP = #{dayLeaseCoop,jdbcType=INTEGER},
+      </if>
+      <if test="limiteDate != null">
+        LIMITE_DATE = #{limiteDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compltStopStart != null">
+        COMPLT_STOP_START = #{compltStopStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopCountsStart != null">
+        STOP_COUNTS_START = #{stopCountsStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compltCount != null">
+        COMPLT_COUNT = #{compltCount,jdbcType=INTEGER},
+      </if>
+      <if test="compltSuccess != null">
+        COMPLT_SUCCESS = #{compltSuccess,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpLimitePara">
+    <!--@mbggenerated-->
+    update LIMITE_PARA
+    set SALE_COOP_VIEW = #{saleCoopView,jdbcType=INTEGER},
+      LEASE_COOP_VIEW = #{leaseCoopView,jdbcType=INTEGER},
+      DAY_SALE_COOP = #{daySaleCoop,jdbcType=INTEGER},
+      DAY_LEASE_COOP = #{dayLeaseCoop,jdbcType=INTEGER},
+      LIMITE_DATE = #{limiteDate,jdbcType=TIMESTAMP},
+      COMPLT_STOP_START = #{compltStopStart,jdbcType=TIMESTAMP},
+      STOP_COUNTS_START = #{stopCountsStart,jdbcType=TIMESTAMP},
+      COMPLT_COUNT = #{compltCount,jdbcType=INTEGER},
+      COMPLT_SUCCESS = #{compltSuccess,jdbcType=INTEGER}
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </update>
+  <select id="selectRecordCount" >
+  	select count(*)
+  	from LIMITE_PARA
+  	where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+  </select>
+</mapper>

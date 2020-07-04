@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>税费计算器</title>
+    <link href="../../css/button.css" rel="stylesheet" />
+    <link href="../../css/scroll.css" rel="stylesheet" />
+    <link href="css/jquery-ui.selectmenu.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/jqx.base.css" rel="stylesheet" />
+    
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/prefixfree.min.js" type="text/javascript"></script>
+    <script src="js/jquery.ui.selectmenu.js" type="text/javascript"></script>
+    <script src="js/public.js" type="text/javascript"></script>
+    <script src="../../printNewTemplates/js/html2canvas.min.js" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="js/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="js/jqwidgets/jqxcombobox.js"></script>
+    
+    <script src="js/index.js" type="text/javascript"></script>
+</head> <!-- oncontextmenu="return false" -->
+<body onload="window.onresize()" scroll="no" onselectstart ="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="return false">
+	<div class="divMarkLayer" id="divMarkLayer"></div>
+    <div class="divAddTemplate" id="divAddTemplate">
+        <div class="divHead1">
+            <span>设置参数</span>
+            <div class="divClose bt-close" onclick="CloseDiv()"></div>
+            <div class="divInput">
+               	模板名称：<div id='jqxComboBox' style="position: absolute;top: 14px;left: 196px;"></div>
+               	<input type="button" id="btnDelete" value="删 除"/>
+            </div>
+        </div>
+        <div class="divContent">
+            <table class="tableInfo" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="tdTitle" style="border: 0px; padding-left: 17px; width: 98px; ">科目</td>
+                    <td colspan="2" class="tdTitle" style="border: 0px;">修改费率标准</td>
+                </tr>
+            </table>
+            <div class="divScrollView">
+                <table class="tableInfo" id="saveTableInfo" border="0" cellpadding="0" cellspacing="0">
+                    <tr id="QS_1" data="1">
+                        <td>契税：</td>
+                        <td colspan="2">
+                            <div class="item">
+                                	普通住宅按报税总价×<input type="text" style="width:47px;" value="1" maxlength="6" name="QS_INPUT1" />&nbsp;%&nbsp;（90㎡以下,收取1%;90㎡以上,收取1.5%[非首套:收取2%]）
+                            </div>
+                            <div class="item">
+                                	非普通住宅、2次购房或商产：报税总价×<input type="text" style="width:47px;" value="3" maxlength="6" name="QS_INPUT2" />&nbsp;%
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="YHS_1">
+                        <td>印花税：</td>
+                        <td colspan="2">
+                            	双方个案报税总价&nbsp;<input type="text" style="width:47px;" value="0.05" maxlength="6" />&nbsp;%
+                        </td>
+                    </tr>
+                    <tr id="JYSXF_1">
+                        <td>交易手续费：</td>
+                        <td colspan="2">
+                            <div class="item">
+                                	住宅：双方各按面积×<input type="text" style="width:47px;" value="6" maxlength="6" name="JYSXF_INPUT1" />&nbsp;元/㎡
+                            </div>
+                            <div class="item">
+                                	商产：双方各报税总价×<input type="text" style="width:47px;" value="0.35" maxlength="6" name="JYSXF_INPUT2" />&nbsp;%
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="WXJJ_1">
+                        <td>维修基金：</td>
+                        <td colspan="2">
+                            <div class="item">
+                                	非电梯：<input type="text" id="noEle_INPUT1" value="22" maxlength="6" name="WXJJ_INPUT1" style="width:47px;" />&nbsp;元/平米
+                            </div>
+                            <div class="item">
+                                	电梯：<input type="text" style="width:47px;" id="ele_INPUT2" value="27.5" maxlength="6" name="WXJJ_INPUT2" />&nbsp;元/平米
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="YYS_1">
+                        <td>营业税：</td>
+                        <td class="item">
+                            	报税总价×<input type="text" id="YYS_INPUT1" value="5.55" maxlength="6" name="YYS_INPUT1" style="width:47px;" /> %
+                        </td>
+                        <td class="item">
+                            	（报税总价-原购入价）×<input type="text" id="YYS_INPUT2" value="5.55" maxlength="6" name="YYS_INPUT2" style="width:47px;" />&nbsp;%
+                        </td>
+                    </tr>
+                    <tr id="GRSDS_1">
+                        <td>个人所得税：</td>
+                        <td class="item">
+                            	报税总价×<input type="text" style="width:47px;" id="GRSDS_INPUT1" value="1" maxlength="6" name="GRSDS_INPUT1" />&nbsp;%（继承、赠予按20%征收）
+                        </td>
+                        <td class="item">
+                            	（报税总价-原购入价）×<input type="text" style="width:47px;" id="GRSDS_INPUT2" value="1" maxlength="6" />&nbsp;%
+                        </td>
+                    </tr>
+                    <tr id="CQDJF_1">
+                        <td>产权登记费：</td>
+                        <td colspan="2">
+                            <div class="item">
+                                	住宅：&nbsp;<input type="text" style="width:47px;" id="CQDJF_INPUT1" value="80" maxlength="6" name="CQDJF_INPUT1" />&nbsp;元/户
+                            </div>
+                            <div class="item">
+                                	商产：&nbsp;<input type="text" style="width:47px;" id="CQDJF_INPUT2" value="500" maxlength="6" name="CQDJF_INPUT2" />&nbsp;元/户
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="TDCRJ_1">
+                        <td>土地出让金：</td>
+                        <td colspan="2">
+                            	报税总价×<input type="text" style="width:47px;" id="TDCRJ_INPUT1" value="1.5" maxlength="6" name="TDCRJ_INPUT1" />&nbsp;% (房改房、土地属划拨的办理国土证需补缴土地出让金)
+                        </td>
+                    </tr>
+                    <tr id="GTZGBF_1">
+                        <td>国土证工本费：</td>
+                        <td colspan="2">
+                            <div class="item">
+                                	住宅&nbsp;<input type="text" style="width:47px;" id="GTZGBF_INPUT1" value="23" maxlength="6" name="GTZGBF_INPUT1" />&nbsp;元/户
+                            </div>
+                            <div class="item" style="display:none;">
+                                	商产(别墅)：&nbsp;<input type="text" style="width:47px;" id="GTZGBF_INPUT2" value="120" maxlength="6" name="GTZGBF_INPUT2" />&nbsp;元/户
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="divBottom">
+            <input type="button" value="保存" class="bt-blue" id="btnSave" onclick="saveOrUpdateTemple(this)" />
+        </div>
+    </div>
+    
+    <div class="divHead">
+        <div class="divTitle">税费计算器</div>
+        <div class="divSelect" id="divSelect">
+            <span class="divSpan">选择模板&nbsp;</span>
+            <div class="divAdd" id="setForShuiFei">新建</div>
+            <select id="tempList" style="width:120px;" name="tempList">
+                <option id="default" value="default" selected="selected" data="json_paras_default" value="-1"> 通用模板 </option>
+            </select>
+        </div>
+        <div class="divButton">
+            <input type="button" class="inputPrint bt-blue" value="打印" name="printForShuiFei" id="printShuiFei" onclick="PrintInfo();" />
+            <input type="button" class="inputCalculator bt-green" value="计算" name="calculate" id="calculate" />
+        </div>
+    </div>
+    <div class="divLeft" id="divLeft">
+        <div class="divItemOver" style="margin-top: 36px;" onclick="location.href = 'index.html'">
+            <div class="divIcon"></div><span>税费计算器</span><div class="divLeftArrow"></div>
+        </div>
+        <div class="divItem" onclick="location.href = 'Loan.html'">
+            <div class="divIcon" style="background-image: url('images/Icon/Loan1.png');"></div><span>贷款计算器</span><div class="divLeftArrow"></div>
+        </div>
+        <div class="divItem" onclick="location.href = 'Prepayment.html'">
+            <div class="divIcon" style="background-image: url('images/Icon/Prepayment1.png');"></div><span>提前还款计算器</span><div class="divLeftArrow"></div>
+        </div>
+    </div>
+    <div class="divRight" id="divRight">
+        <div class="divRightLeft">
+            <table class="tableHead" id="titleTable" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="3" class="td1">
+                        物业：<input type="text" id="propertyComp" placeholder="请输入物业名..." name="propertyComp" style="width:157px;" />
+                        面积：<input type="text" id="area" name="area" style="width:37px;" />&nbsp;㎡
+                        报税单价：<input type="text" id="price" name="price" style="width: 37px;" />&nbsp;元/㎡
+                        购入总价：<input type="text" id="buyPrice" name="buyPrice" style="width: 37px;" />&nbsp;万元
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        权属：<input type="radio" name="Ownership" checked="checked" onchange="SelectHouseOrBusiness('House')" /> 住宅<input type="radio" name="Ownership" onchange="SelectHouseOrBusiness('Business')" /> 商产
+                    </td>
+                    <td>
+                        电梯：<input type="radio" name="Elevator" checked="checked" onchange="SelectElevator('No')" /> 非电梯<input type="radio" name="Elevator" onchange="SelectElevator('Have')" /> 电梯
+                    </td>
+                    <td>
+                        税种：<input type="checkbox" name="Taxes" onchange="SalesTax(this)" />营业税 <input type="checkbox" name="Taxes" onchange="Tax(this)" />个税
+                    </td>
+                </tr>
+            </table>
+            <table class="tableInfo" id="selfDefItems" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="3" class="tdTitle">可选科目</td>
+                </tr>
+                <tr id="QS" data="1">
+                    <td>契税：</td>
+                    <td colspan="2">
+                        <div class="item">
+                            <input type="checkbox" name="QS_CHK" value="1" checked="checked" disabled="disabled" />普通住宅按报税总价×<input type="text" style="width:47px;" value="1" maxlength="6" name="QS_INPUT1" />&nbsp;%&nbsp;（90㎡以下,收取1%;90㎡以上,收取1.5%[非首套:收取2%]）
+                        </div>
+                        <div class="item" style="display:none;">
+                            <input type="checkbox" name="QS_CHK" value="2" disabled="disabled" />非普通住宅、2次购房或商产：报税总价×<input type="text" style="width:47px;" value="3" maxlength="6" name="QS_INPUT2" />&nbsp;%
+                        </div>
+                    </td>
+                </tr>
+                <tr id="YHS">
+                    <td>印花税：</td>
+                    <td colspan="2">
+                        <input type="checkbox" name="YHS_CHK" value="1" />双方个案报税总价&nbsp;<input type="text" style="width:47px;" value="0.05" maxlength="6" />&nbsp;%
+                    </td>
+                </tr>
+                <tr id="JYSXF">
+                    <td>交易手续费：</td>
+                    <td colspan="2">
+                        <div class="item">
+                            <input type="checkbox" name="JYSXF_CHK" value="1" checked="checked" disabled="disabled" />住宅：双方各按面积×<input type="text" style="width:47px;" value="6" maxlength="6" name="JYSXF_INPUT1" />&nbsp;元/㎡
+                        </div>
+                        <div class="item" style="display:none;">
+                            <input type="checkbox" name="JYSXF_CHK" value="2" disabled="disabled" />商产：双方各报税总价×<input type="text" style="width:47px;" value="0.35" maxlength="6" name="JYSXF_INPUT2" />&nbsp;%
+                        </div>
+                    </td>
+                </tr>
+                <tr id="WXJJ">
+                    <td>维修基金：</td>
+                    <td colspan="2">
+                        <div class="item">
+                            <input type="checkbox" name="WXJJ_CHK" id="noEle_CHK1" value="1" checked="checked" disabled="disabled" />非电梯&nbsp;<input type="text" id="noEle_INPUT1" value="22" maxlength="6" name="WXJJ_INPUT1" style="width:47px;" />&nbsp;元/平米
+                        </div>
+                        <div class="item" style="display:none;">
+                            <input type="checkbox" name="WXJJ_CHK" id="ele_CHK2" value="2" disabled="disabled" />电梯：<input type="text" style="width:47px;" id="ele_INPUT2" value="27.5" maxlength="6" name="WXJJ_INPUT2" />&nbsp;元/平米
+                        </div>
+                    </td>
+                </tr>
+                <tr id="YYS">
+                    <td>营业税：</td>
+                    <td class="item" style="width: 290px;">
+                        <input type="checkbox" value="1" name="YYS_CHK" onchange="SelectYYS(this,0)" />报税总价×<input type="text" id="YYS_INPUT1" value="5.55" maxlength="6" name="YYS_INPUT1" style="width:47px;" /> %
+                    </td>
+                    <td class="item">
+                        <input type="checkbox" value="2" name="YYS_CHK" onchange="SelectYYS(this,1)" />（报税总价-原购入价）×<input type="text" id="YYS_INPUT2" value="5.55" maxlength="6" name="YYS_INPUT2" style="width:47px;" />&nbsp;%
+                    </td>
+                </tr>
+                <tr id="GRSDS">
+                    <td>个人所得税：</td>
+                    <td class="item">
+                        <input type="checkbox" name="GRSDS_CHK" id="GRSDS_CHK1" onchange="SelectGRSDS(this,0)" value="1" />报税总价×<input type="text" style="width:47px;" id="GRSDS_INPUT1" value="1" maxlength="6" name="GRSDS_INPUT1" />&nbsp;%（继承、赠予按20%征收）
+                    </td>
+                    <td class="item">
+                        <input type="checkbox" name="GRSDS_CHK" id="GRSDS_CHK2" onchange="SelectGRSDS(this,1)" value="2" />（报税总价-原购入价）×<input type="text" style="width:47px;" id="GRSDS_INPUT2" value="1" maxlength="6" />&nbsp;%
+                    </td>
+                </tr>
+                <tr id="CQDJF">
+                    <td>产权登记费：</td>
+                    <td colspan="2">
+                        <div class="item">
+                            <input type="checkbox" id="CQDJF_CHK1" value="1" name="CQDJF_CHK" checked="checked" disabled="disabled" />住宅&nbsp;<input type="text" style="width:47px;" id="CQDJF_INPUT1" value="80" maxlength="6" name="CQDJF_INPUT1" />&nbsp;元/户
+                        </div>
+                        <div class="item" style="display:none;">
+                            <input type="checkbox" id="CQDJF_CHK2" value="2" name="CQDJF_CHK" disabled="disabled" />商产：&nbsp;<input type="text" style="width:47px;" id="CQDJF_INPUT2" value="500" maxlength="6" name="CQDJF_INPUT2" />&nbsp;元/户
+                        </div>
+                    </td>
+                </tr>
+                <tr id="TDCRJ">
+                    <td>土地出让金：</td>
+                    <td colspan="2">
+                        <input type="checkbox" id="TDCRJ_CHK1" value="1" name="TDCRJ_CHK" />报税总价×<input type="text" style="width:47px;" id="TDCRJ_INPUT1" value="1.5" maxlength="6" name="TDCRJ_INPUT1" />&nbsp;% (房改房、土地属划拨的办理国土证需补缴土地出让金)
+                    </td>
+                </tr>
+                <tr id="GTZGBF">
+                    <td>国土证工本费：</td>
+                    <td colspan="2">
+                        <div class="item">
+                            <input id="GTZGBF_CHK1" value="1" name="GTZGBF_CHK" type="checkbox" checked="checked" disabled="disabled" />住宅&nbsp;<input type="text" style="width:47px;" id="GTZGBF_INPUT1" value="23" maxlength="6" name="GTZGBF_INPUT1" />&nbsp;元/户
+                        </div>
+                        <div class="item" style="display:none;">
+                            <input type="checkbox" id="GTZGBF_CHK2" name="GTZGBF_CHK" value="2" disabled="disabled" />商产(别墅)：&nbsp;<input type="text" style="width:47px;" id="GTZGBF_INPUT2" value="120" maxlength="6" name="GTZGBF_INPUT2" />&nbsp;元/户
+                        </div>
+                    </td>
+                </tr>
+                <tr id="createBtnTR">
+                    <td colspan="3" style="border:0px;">
+                        <a href="javascript:void(0)" id="createNewItem" style="color: #1f96ff; font-family: '宋体'; font-size: 12px;">添加税费类别</a>
+                        <span id="createNewItemInfo" style="color:red;display:none;">请先完成上一类别的信息填写</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="divRightRight">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="2" class="tdTitle">计算结果</td>
+                </tr>
+                <tr>
+                    <td>报税总价</td>
+                    <td class="tdResult" id="totalPrice">0.00</td>
+                </tr>
+                <tr>
+                    <td>税费总计</td>
+                    <td class="tdResult" id="feeTotal">0.00</td>
+                </tr>
+                <tr>
+                    <td class="tdTitle" >买方</td>
+                    <td class="tdTitle">卖方</td>
+                </tr>
+                <tr id="QS_2">
+                    <td class="tdHeight" id="QS_TD3">0.00</td>
+                    <td id="QS_TD4">0.00</td>
+                </tr>
+                <tr id="YHS_2">
+                    <td class="tdHeight" id="YHS_TD3">-</td>
+                    <td id="YHS_TD4">-</td>
+                </tr>
+                <tr id="JYSXF_2">
+                    <td class="tdHeight" id="JYSXF_TD3">0.00</td>
+                    <td id="JYSXF_TD4">0.00</td>
+                </tr>
+                <tr id="WXJJ_2">
+                    <td class="tdHeight" id="WXJJ_TD3">0.00</td>
+                    <td id="WXJJ_TD4">0.00</td>
+                </tr>
+                <tr id="YYS_2">
+                    <td class="tdHeight" id="YYS_TD3">-</td>
+                    <td id="YYS_TD4">-</td>
+                </tr>
+                <tr id="GRSDS_2">
+                    <td class="tdHeight" id="GRSDS_TD3">-</td>
+                    <td id="GRSDS_TD4">-</td>
+                </tr>
+                <tr id="CQDJF_2">
+                    <td class="tdHeight" id="CQDJF_TD3">0.00</td>
+                    <td id="CQDJF_TD4">0.00</td>
+                </tr>
+                <tr id="TDCRJ_2">
+                    <td class="tdHeight" id="TDCRJ_TD3">-</td>
+                    <td id="TDCRJ_TD4">-</td>
+                </tr>
+                <tr id="GTZGBF_2">
+                    <td class="tdHeight" id="GTZGBF_TD3">0.00</td>
+                    <td id="GTZGBF_TD4">0.00</td>
+                </tr>
+                <tr id="createBtnTRRight">
+                    <td class="tdResult" style="line-height: 40px;" id="feeForBuyer">0.00</td>
+                    <td class="tdResult" id="feeForSeller">0.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <input id="imgBase64" type="hidden" />
+    
+	<object type='application/x-qt-plugin' classid='CCustPrinterObj' id='CCustPrinterObj' style="height:0px;width:0px;display:block;" ></object>
+	<object type='application/x-qt-plugin' classid='custObj' id='CCustObj' style="height:0px;width:0px;display:block;" ></object>
+</body>
+</html>

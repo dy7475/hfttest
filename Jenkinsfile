@@ -7,7 +7,6 @@ def helmInit() {
     sh "helm init --client-only --stable-repo-url https://mirror.azure.cn/kubernetes/charts/"
 }
 def helmRepo(Map args) {
-    sh "cat /tmp/hosts && ping registry.midland.com.cn"
     sh "helm repo add --username ${args.username} --password ${args.password} myrepo https://registry.midland.com.cn/chartrepo"
 
     println "update repo"
@@ -41,7 +40,7 @@ podTemplate(label: label, containers: [
   containerTemplate(name: 'maven', image: 'registry.midland.com.cn/helm/mvn-jdk8:3.6.3', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'docker', image: 'registry.midland.com.cn/helm/docker', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'kubectl', image: 'registry.midland.com.cn/helm/kubectl', command: 'cat', ttyEnabled: true),
-  containerTemplate(name: 'helm', image: 'registry.midland.com.cn/helm/helm:4.5', command: 'cat', ttyEnabled: true)
+  containerTemplate(name: 'helm', image: 'registry.midland.com.cn/helm/helm', command: 'cat', ttyEnabled: true)
 
 ], volumes: [
   hostPathVolume(mountPath: '/root/.m2', hostPath: '/root/.m2'),
@@ -57,6 +56,44 @@ podTemplate(label: label, containers: [
 	def myRepo = ""
 	def isonline = false
 	def spaces = env.myuserInput
+	
+	stage('Clone'){
+			myRepo = checkout scm
+			build_tag = myRepo.SVN_REVISION
+			build_name = env.BUILD_NUMBER
+			imageTag = "${build_name}-${build_tag}"
+			script {
+				if ( spaces == "online" ) {
+					isonline = true
+				}
+			}
+
+	}
+    stage('maven') {
+      container('maven') {
+	  			sh "sed -i 's/node43.com/registry.midland.com.cn/g' ./Dockerfile"
+				sh "sed -i 's/hft/helm/g' ./Dockerfile"  
+      			sh "sed -i 's/server.port=[0-9]*/server.port=8080/g' ./src/main/resources/application*"
+				sh "if [ ${myuserInput} == 'devcommon' ];then echo 'spring.profiles.active=dev' > ./src/main/resources/bootstrap.properties && sed -r -i  's/[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}:[0-9]{4}/hfteureka-server.dev/g' ./src/main/resources/bootstrap-* ;elif [ ${myuserInput} == 'graycommon' ];then echo 'spring.profiles.active=gray' > ./src/main/resources/bootstrap.properties && sed -r -i  's/[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}:[0-9]{4}/hfteureka-server.gray/g' ./src/main/resources/bootstrap-* ; else echo 'spring.profiles.active=${myuserInput}' > ./src/main/resources/bootstrap.properties ;fi"
+				sh "if [ ${myuserInput} != 'devcommon' -a ${myuserInput} != 'graycommon' ];then sed -r -i  's/[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}:[0-9]{4}/hfteureka-server/g' ./src/main/resources/bootstrap-* ;fi"
+				sh "mvn clean package -U  -Dmaven.test.skip=true -P linux"
+      }
+    }
+    stage('docker') {
+      container('docker') {
+			  withCredentials([[$class: 'UsernamePasswordMultiBinding',
+				credentialsId: 'dockerhub',
+				usernameVariable: 'DOCKER_HUB_USER',
+				passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
+				sh """
+				  docker login ${dockerRegistryUrl} -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
+				  docker build -t ${image}:${imageTag} .
+				  docker push ${image}:${imageTag}
+				  docker rmi ${image}:${imageTag}
+				  """
+			  }
+			}
+      }
 
     stage('deploy') {
 	withCredentials([[$class: 'UsernamePasswordMultiBinding',

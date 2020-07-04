@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpAliyunPhoneBindHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistory">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="NUMBER_POOL_KEY" jdbcType="VARCHAR" property="numberPoolKey" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="BIND_A" jdbcType="VARCHAR" property="bindA" />
+    <result column="BIND_X" jdbcType="VARCHAR" property="bindX" />
+    <result column="BIND_N_OR_B" jdbcType="VARCHAR" property="bindNOrB" />
+    <result column="BIND_ARCHIVE_ID" jdbcType="INTEGER" property="bindArchiveId" />
+    <result column="BIND_USER_ID" jdbcType="INTEGER" property="bindUserId" />
+    <result column="BIND_USER_NAME" jdbcType="VARCHAR" property="bindUserName" />
+    <result column="BIND_A_ORG_ID" jdbcType="INTEGER" property="bindAOrgId" />
+    <result column="BIND_A_ORG_NO" jdbcType="VARCHAR" property="bindAOrgNo" />
+    <result column="BIND_A_TIME" jdbcType="TIMESTAMP" property="bindATime" />
+    <result column="UNBIND_TIME" jdbcType="TIMESTAMP" property="unbindTime" />
+    <result column="SUBS_ID" jdbcType="VARCHAR" property="subsId" />
+    <result column="ALI_NUMBER_POOL_KEY" jdbcType="VARCHAR" property="aliNumberPoolKey" />
+    <result column="BIND_OPERATE_USER_ID" jdbcType="INTEGER" property="bindOperateUserId" />
+    <result column="UNBIND_OPERATE_USER_ID" jdbcType="INTEGER" property="unbindOperateUserId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, NUMBER_POOL_KEY, REMARK, BIND_A, BIND_X, BIND_N_OR_B, BIND_ARCHIVE_ID, 
+    BIND_USER_ID, BIND_USER_NAME, BIND_A_ORG_ID, BIND_A_ORG_NO, BIND_A_TIME, UNBIND_TIME, 
+    SUBS_ID, ALI_NUMBER_POOL_KEY, BIND_OPERATE_USER_ID, UNBIND_OPERATE_USER_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistoryExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ALIYUN_PHONE_BIND_HISTORY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ALIYUN_PHONE_BIND_HISTORY
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from ALIYUN_PHONE_BIND_HISTORY
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistoryExample">
+    <!--@mbggenerated-->
+    delete from ALIYUN_PHONE_BIND_HISTORY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistory" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ALIYUN_PHONE_BIND_HISTORY (COMP_ID, NUMBER_POOL_KEY, REMARK, 
+      BIND_A, BIND_X, BIND_N_OR_B, 
+      BIND_ARCHIVE_ID, BIND_USER_ID, BIND_USER_NAME, 
+      BIND_A_ORG_ID, BIND_A_ORG_NO, BIND_A_TIME, 
+      UNBIND_TIME, SUBS_ID, ALI_NUMBER_POOL_KEY, 
+      BIND_OPERATE_USER_ID, UNBIND_OPERATE_USER_ID)
+    values (#{compId,jdbcType=INTEGER}, #{numberPoolKey,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{bindA,jdbcType=VARCHAR}, #{bindX,jdbcType=VARCHAR}, #{bindNOrB,jdbcType=VARCHAR}, 
+      #{bindArchiveId,jdbcType=INTEGER}, #{bindUserId,jdbcType=INTEGER}, #{bindUserName,jdbcType=VARCHAR}, 
+      #{bindAOrgId,jdbcType=INTEGER}, #{bindAOrgNo,jdbcType=VARCHAR}, #{bindATime,jdbcType=TIMESTAMP}, 
+      #{unbindTime,jdbcType=TIMESTAMP}, #{subsId,jdbcType=VARCHAR}, #{aliNumberPoolKey,jdbcType=VARCHAR}, 
+      #{bindOperateUserId,jdbcType=INTEGER}, #{unbindOperateUserId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistory" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ALIYUN_PHONE_BIND_HISTORY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="numberPoolKey != null">
+        NUMBER_POOL_KEY,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="bindA != null">
+        BIND_A,
+      </if>
+      <if test="bindX != null">
+        BIND_X,
+      </if>
+      <if test="bindNOrB != null">
+        BIND_N_OR_B,
+      </if>
+      <if test="bindArchiveId != null">
+        BIND_ARCHIVE_ID,
+      </if>
+      <if test="bindUserId != null">
+        BIND_USER_ID,
+      </if>
+      <if test="bindUserName != null">
+        BIND_USER_NAME,
+      </if>
+      <if test="bindAOrgId != null">
+        BIND_A_ORG_ID,
+      </if>
+      <if test="bindAOrgNo != null">
+        BIND_A_ORG_NO,
+      </if>
+      <if test="bindATime != null">
+        BIND_A_TIME,
+      </if>
+      <if test="unbindTime != null">
+        UNBIND_TIME,
+      </if>
+      <if test="subsId != null">
+        SUBS_ID,
+      </if>
+      <if test="aliNumberPoolKey != null">
+        ALI_NUMBER_POOL_KEY,
+      </if>
+      <if test="bindOperateUserId != null">
+        BIND_OPERATE_USER_ID,
+      </if>
+      <if test="unbindOperateUserId != null">
+        UNBIND_OPERATE_USER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="numberPoolKey != null">
+        #{numberPoolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bindA != null">
+        #{bindA,jdbcType=VARCHAR},
+      </if>
+      <if test="bindX != null">
+        #{bindX,jdbcType=VARCHAR},
+      </if>
+      <if test="bindNOrB != null">
+        #{bindNOrB,jdbcType=VARCHAR},
+      </if>
+      <if test="bindArchiveId != null">
+        #{bindArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="bindUserId != null">
+        #{bindUserId,jdbcType=INTEGER},
+      </if>
+      <if test="bindUserName != null">
+        #{bindUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="bindAOrgId != null">
+        #{bindAOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="bindAOrgNo != null">
+        #{bindAOrgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bindATime != null">
+        #{bindATime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unbindTime != null">
+        #{unbindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subsId != null">
+        #{subsId,jdbcType=VARCHAR},
+      </if>
+      <if test="aliNumberPoolKey != null">
+        #{aliNumberPoolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="bindOperateUserId != null">
+        #{bindOperateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="unbindOperateUserId != null">
+        #{unbindOperateUserId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistoryExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from ALIYUN_PHONE_BIND_HISTORY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update ALIYUN_PHONE_BIND_HISTORY
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberPoolKey != null">
+        NUMBER_POOL_KEY = #{record.numberPoolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindA != null">
+        BIND_A = #{record.bindA,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindX != null">
+        BIND_X = #{record.bindX,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindNOrB != null">
+        BIND_N_OR_B = #{record.bindNOrB,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindArchiveId != null">
+        BIND_ARCHIVE_ID = #{record.bindArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bindUserId != null">
+        BIND_USER_ID = #{record.bindUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bindUserName != null">
+        BIND_USER_NAME = #{record.bindUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindAOrgId != null">
+        BIND_A_ORG_ID = #{record.bindAOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bindAOrgNo != null">
+        BIND_A_ORG_NO = #{record.bindAOrgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindATime != null">
+        BIND_A_TIME = #{record.bindATime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.unbindTime != null">
+        UNBIND_TIME = #{record.unbindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.subsId != null">
+        SUBS_ID = #{record.subsId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aliNumberPoolKey != null">
+        ALI_NUMBER_POOL_KEY = #{record.aliNumberPoolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindOperateUserId != null">
+        BIND_OPERATE_USER_ID = #{record.bindOperateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.unbindOperateUserId != null">
+        UNBIND_OPERATE_USER_ID = #{record.unbindOperateUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update ALIYUN_PHONE_BIND_HISTORY
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      NUMBER_POOL_KEY = #{record.numberPoolKey,jdbcType=VARCHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      BIND_A = #{record.bindA,jdbcType=VARCHAR},
+      BIND_X = #{record.bindX,jdbcType=VARCHAR},
+      BIND_N_OR_B = #{record.bindNOrB,jdbcType=VARCHAR},
+      BIND_ARCHIVE_ID = #{record.bindArchiveId,jdbcType=INTEGER},
+      BIND_USER_ID = #{record.bindUserId,jdbcType=INTEGER},
+      BIND_USER_NAME = #{record.bindUserName,jdbcType=VARCHAR},
+      BIND_A_ORG_ID = #{record.bindAOrgId,jdbcType=INTEGER},
+      BIND_A_ORG_NO = #{record.bindAOrgNo,jdbcType=VARCHAR},
+      BIND_A_TIME = #{record.bindATime,jdbcType=TIMESTAMP},
+      UNBIND_TIME = #{record.unbindTime,jdbcType=TIMESTAMP},
+      SUBS_ID = #{record.subsId,jdbcType=VARCHAR},
+      ALI_NUMBER_POOL_KEY = #{record.aliNumberPoolKey,jdbcType=VARCHAR},
+      BIND_OPERATE_USER_ID = #{record.bindOperateUserId,jdbcType=INTEGER},
+      UNBIND_OPERATE_USER_ID = #{record.unbindOperateUserId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistory">
+    <!--@mbggenerated-->
+    update ALIYUN_PHONE_BIND_HISTORY
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="numberPoolKey != null">
+        NUMBER_POOL_KEY = #{numberPoolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bindA != null">
+        BIND_A = #{bindA,jdbcType=VARCHAR},
+      </if>
+      <if test="bindX != null">
+        BIND_X = #{bindX,jdbcType=VARCHAR},
+      </if>
+      <if test="bindNOrB != null">
+        BIND_N_OR_B = #{bindNOrB,jdbcType=VARCHAR},
+      </if>
+      <if test="bindArchiveId != null">
+        BIND_ARCHIVE_ID = #{bindArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="bindUserId != null">
+        BIND_USER_ID = #{bindUserId,jdbcType=INTEGER},
+      </if>
+      <if test="bindUserName != null">
+        BIND_USER_NAME = #{bindUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="bindAOrgId != null">
+        BIND_A_ORG_ID = #{bindAOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="bindAOrgNo != null">
+        BIND_A_ORG_NO = #{bindAOrgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bindATime != null">
+        BIND_A_TIME = #{bindATime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unbindTime != null">
+        UNBIND_TIME = #{unbindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subsId != null">
+        SUBS_ID = #{subsId,jdbcType=VARCHAR},
+      </if>
+      <if test="aliNumberPoolKey != null">
+        ALI_NUMBER_POOL_KEY = #{aliNumberPoolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="bindOperateUserId != null">
+        BIND_OPERATE_USER_ID = #{bindOperateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="unbindOperateUserId != null">
+        UNBIND_OPERATE_USER_ID = #{unbindOperateUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpAliyunPhoneBindHistory">
+    <!--@mbggenerated-->
+    update ALIYUN_PHONE_BIND_HISTORY
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      NUMBER_POOL_KEY = #{numberPoolKey,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      BIND_A = #{bindA,jdbcType=VARCHAR},
+      BIND_X = #{bindX,jdbcType=VARCHAR},
+      BIND_N_OR_B = #{bindNOrB,jdbcType=VARCHAR},
+      BIND_ARCHIVE_ID = #{bindArchiveId,jdbcType=INTEGER},
+      BIND_USER_ID = #{bindUserId,jdbcType=INTEGER},
+      BIND_USER_NAME = #{bindUserName,jdbcType=VARCHAR},
+      BIND_A_ORG_ID = #{bindAOrgId,jdbcType=INTEGER},
+      BIND_A_ORG_NO = #{bindAOrgNo,jdbcType=VARCHAR},
+      BIND_A_TIME = #{bindATime,jdbcType=TIMESTAMP},
+      UNBIND_TIME = #{unbindTime,jdbcType=TIMESTAMP},
+      SUBS_ID = #{subsId,jdbcType=VARCHAR},
+      ALI_NUMBER_POOL_KEY = #{aliNumberPoolKey,jdbcType=VARCHAR},
+      BIND_OPERATE_USER_ID = #{bindOperateUserId,jdbcType=INTEGER},
+      UNBIND_OPERATE_USER_ID = #{unbindOperateUserId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getAliyunPhoneBindHistory" resultMap="BaseResultMap">
+  	  select a.NUMBER_POOL_KEY,a.BIND_A,a.BIND_X,a.BIND_A_ORG_ID,a.BIND_A_TIME,a.UNBIND_TIME,a.SUBS_ID,
+  	  	a.BIND_OPERATE_USER_ID,a.UNBIND_OPERATE_USER_ID,a.BIND_USER_ID
+  	  from ALIYUN_PHONE_BIND_HISTORY a left join FUN_USERS b on a.BIND_USER_ID = b.USER_ID
+  	  where a.COMP_ID = #{param.compId}
+  	  <if test="param.userId != null">
+  	  	  and a.BIND_USER_ID = #{param.userId}
+  	  </if>
+  	  <if test="param.numberPoolKey != null">
+  	  	  and a.NUMBER_POOL_KEY = #{param.numberPoolKey}
+  	  </if>
+  	  <if test="param.bindFlag == 0">
+	  	  	<if test="param.startTime != null">
+	  	  		and a.BIND_A_TIME &gt; #{param.startTime}
+	  	  	</if>
+	  	  	<if test="param.endTime != null">
+	  	  		and a.BIND_A_TIME &lt; #{param.endTime}
+	  	  	</if>
+  	  </if>
+  	  <if test="param.bindFlag == 1">
+	  	  	<if test="param.startTime != null">
+	  	  		and a.UNBIND_TIME &gt; #{param.startTime}
+	  	  	</if>
+	  	  	<if test="param.endTime != null">
+	  	  		and a.UNBIND_TIME &lt; #{param.endTime}
+	  	  	</if>
+  	  </if>
+  	  <if test="param.organizationId != null">
+  	  	and a.BIND_A_ORG_ID = #{param.organizationId}
+  	  </if>
+  	  order by a.ID
+  </select>
+</mapper>

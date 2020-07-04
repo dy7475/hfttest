@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunLeasePublishInfoMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfo">
+    <!--@mbggenerated-->
+    <id column="LEASE_ID" jdbcType="VARCHAR" property="leaseId" />
+    <result column="WEBSITE_STATE" jdbcType="VARCHAR" property="websiteState" />
+    <result column="WEBSITE_LAST_UP_TIME" jdbcType="VARCHAR" property="websiteLastUpTime" />
+    <result column="WEBSITE_LAST_DOWN_TIME" jdbcType="VARCHAR" property="websiteLastDownTime" />
+    <result column="MLHF_STATE" jdbcType="VARCHAR" property="mlhfState" />
+    <result column="MLHF_LAST_UP_TIME" jdbcType="VARCHAR" property="mlhfLastUpTime" />
+    <result column="MLHF_LAST_DOWN_TIME" jdbcType="VARCHAR" property="mlhfLastDownTime" />
+    <result column="LAST_ACTION_USER_ID" jdbcType="INTEGER" property="lastActionUserId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    LEASE_ID, WEBSITE_STATE, WEBSITE_LAST_UP_TIME, WEBSITE_LAST_DOWN_TIME, MLHF_STATE, 
+    MLHF_LAST_UP_TIME, MLHF_LAST_DOWN_TIME, LAST_ACTION_USER_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfoExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_LEASE_PUBLISH_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_LEASE_PUBLISH_INFO
+    where LEASE_ID = #{leaseId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbggenerated-->
+    delete from FUN_LEASE_PUBLISH_INFO
+    where LEASE_ID = #{leaseId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfoExample">
+    <!--@mbggenerated-->
+    delete from FUN_LEASE_PUBLISH_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfo">
+    <!--@mbggenerated-->
+    insert into FUN_LEASE_PUBLISH_INFO (LEASE_ID, WEBSITE_STATE, WEBSITE_LAST_UP_TIME, 
+      WEBSITE_LAST_DOWN_TIME, MLHF_STATE, MLHF_LAST_UP_TIME, 
+      MLHF_LAST_DOWN_TIME, LAST_ACTION_USER_ID)
+    values (#{leaseId,jdbcType=VARCHAR}, #{websiteState,jdbcType=VARCHAR}, #{websiteLastUpTime,jdbcType=VARCHAR}, 
+      #{websiteLastDownTime,jdbcType=VARCHAR}, #{mlhfState,jdbcType=VARCHAR}, #{mlhfLastUpTime,jdbcType=VARCHAR}, 
+      #{mlhfLastDownTime,jdbcType=VARCHAR}, #{lastActionUserId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfo">
+    <!--@mbggenerated-->
+    insert into FUN_LEASE_PUBLISH_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="leaseId != null">
+        LEASE_ID,
+      </if>
+      <if test="websiteState != null">
+        WEBSITE_STATE,
+      </if>
+      <if test="websiteLastUpTime != null">
+        WEBSITE_LAST_UP_TIME,
+      </if>
+      <if test="websiteLastDownTime != null">
+        WEBSITE_LAST_DOWN_TIME,
+      </if>
+      <if test="mlhfState != null">
+        MLHF_STATE,
+      </if>
+      <if test="mlhfLastUpTime != null">
+        MLHF_LAST_UP_TIME,
+      </if>
+      <if test="mlhfLastDownTime != null">
+        MLHF_LAST_DOWN_TIME,
+      </if>
+      <if test="lastActionUserId != null">
+        LAST_ACTION_USER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="leaseId != null">
+        #{leaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="websiteState != null">
+        #{websiteState,jdbcType=VARCHAR},
+      </if>
+      <if test="websiteLastUpTime != null">
+        #{websiteLastUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="websiteLastDownTime != null">
+        #{websiteLastDownTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mlhfState != null">
+        #{mlhfState,jdbcType=VARCHAR},
+      </if>
+      <if test="mlhfLastUpTime != null">
+        #{mlhfLastUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mlhfLastDownTime != null">
+        #{mlhfLastDownTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastActionUserId != null">
+        #{lastActionUserId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfoExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_LEASE_PUBLISH_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_LEASE_PUBLISH_INFO
+    <set>
+      <if test="record.leaseId != null">
+        LEASE_ID = #{record.leaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.websiteState != null">
+        WEBSITE_STATE = #{record.websiteState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.websiteLastUpTime != null">
+        WEBSITE_LAST_UP_TIME = #{record.websiteLastUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.websiteLastDownTime != null">
+        WEBSITE_LAST_DOWN_TIME = #{record.websiteLastDownTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mlhfState != null">
+        MLHF_STATE = #{record.mlhfState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mlhfLastUpTime != null">
+        MLHF_LAST_UP_TIME = #{record.mlhfLastUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mlhfLastDownTime != null">
+        MLHF_LAST_DOWN_TIME = #{record.mlhfLastDownTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastActionUserId != null">
+        LAST_ACTION_USER_ID = #{record.lastActionUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_LEASE_PUBLISH_INFO
+    set LEASE_ID = #{record.leaseId,jdbcType=VARCHAR},
+      WEBSITE_STATE = #{record.websiteState,jdbcType=VARCHAR},
+      WEBSITE_LAST_UP_TIME = #{record.websiteLastUpTime,jdbcType=VARCHAR},
+      WEBSITE_LAST_DOWN_TIME = #{record.websiteLastDownTime,jdbcType=VARCHAR},
+      MLHF_STATE = #{record.mlhfState,jdbcType=VARCHAR},
+      MLHF_LAST_UP_TIME = #{record.mlhfLastUpTime,jdbcType=VARCHAR},
+      MLHF_LAST_DOWN_TIME = #{record.mlhfLastDownTime,jdbcType=VARCHAR},
+      LAST_ACTION_USER_ID = #{record.lastActionUserId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfo">
+    <!--@mbggenerated-->
+    update FUN_LEASE_PUBLISH_INFO
+    <set>
+      <if test="websiteState != null">
+        WEBSITE_STATE = #{websiteState,jdbcType=VARCHAR},
+      </if>
+      <if test="websiteLastUpTime != null">
+        WEBSITE_LAST_UP_TIME = #{websiteLastUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="websiteLastDownTime != null">
+        WEBSITE_LAST_DOWN_TIME = #{websiteLastDownTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mlhfState != null">
+        MLHF_STATE = #{mlhfState,jdbcType=VARCHAR},
+      </if>
+      <if test="mlhfLastUpTime != null">
+        MLHF_LAST_UP_TIME = #{mlhfLastUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mlhfLastDownTime != null">
+        MLHF_LAST_DOWN_TIME = #{mlhfLastDownTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastActionUserId != null">
+        LAST_ACTION_USER_ID = #{lastActionUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where LEASE_ID = #{leaseId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunLeasePublishInfo">
+    <!--@mbggenerated-->
+    update FUN_LEASE_PUBLISH_INFO
+    set WEBSITE_STATE = #{websiteState,jdbcType=VARCHAR},
+      WEBSITE_LAST_UP_TIME = #{websiteLastUpTime,jdbcType=VARCHAR},
+      WEBSITE_LAST_DOWN_TIME = #{websiteLastDownTime,jdbcType=VARCHAR},
+      MLHF_STATE = #{mlhfState,jdbcType=VARCHAR},
+      MLHF_LAST_UP_TIME = #{mlhfLastUpTime,jdbcType=VARCHAR},
+      MLHF_LAST_DOWN_TIME = #{mlhfLastDownTime,jdbcType=VARCHAR},
+      LAST_ACTION_USER_ID = #{lastActionUserId,jdbcType=INTEGER}
+    where LEASE_ID = #{leaseId,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getUserLeasesOnWebsite" resultType="com.myfun.repository.erpdb.dto.HouseCaseIdDto">
+      select DISTINCT A.LEASE_ID from FUN_LEASE A
+      JOIN FUN_LEASE_PUBLISH_INFO F ON A.LEASE_ID=F.LEASE_ID
+      WHERE F.WEBSITE_STATE='1' AND A.USER_ID=#{userId}
+  </select>
+
+  <select id="getWaitDownHouseList" resultType="com.myfun.repository.erpdb.dto.HouseCaseIdDto">
+      select DISTINCT A.LEASE_ID houseId from FUN_LEASE A
+      JOIN FUN_LEASE_PUBLISH_INFO M ON A.LEASE_ID=M.LEASE_ID AND M.WEBSITE_STATE='1'
+      WHERE  A.LEASE_ID IN
+      <foreach close=")" collection="salesId" item="listItem" open="(" separator=",">
+        #{listItem}
+      </foreach>
+      AND NOT EXISTS (
+      SELECT 1 FROM LEASE_PEOPLE_RELATIVE B
+      JOIN FUN_USERS D ON B.USER_ID = D.USER_ID AND D.USER_WRITEOFF = 0
+      WHERE B.LEASE_ID = A.LEASE_ID AND B.PEOPLE_TYPE IN(2,3) AND B.DEL_FLAG=0
+      ) AND NOT EXISTS (
+      SELECT 1 FROM FUN_ENTRUST C
+      JOIN FUN_USERS E ON C.RECORD_USER = E.USER_ID AND E.USER_WRITEOFF = 0
+      WHERE A.LEASE_ID=C.CASE_ID AND C.CASE_TYPE=2 AND C.IS_EFFECTIVE=1
+      )
+  </select>
+
+  <select id="getNotWriteOffHouseList" resultType="com.myfun.repository.erpdb.dto.HouseCaseIdDto">
+      select DISTINCT A.LEASE_ID from FUN_LEASE A
+      LEFT JOIN LEASE_PEOPLE_RELATIVE B ON A.LEASE_ID=B.LEASE_ID AND B.DEL_FLAG=0
+      LEFT JOIN FUN_ENTRUST C ON A.LEASE_ID=C.CASE_ID AND  CASE_TYPE=2 AND IS_EFFECTIVE=1
+      LEFT JOIN FUN_USERS D ON B.USER_ID=D.USER_ID
+      LEFT JOIN FUN_USERS E ON C.RECORD_USER=E.USER_ID
+      LEFT JOIN FUN_LEASE_PUBLISH_INFO F ON A.LEASE_ID=F.LEASE_ID
+      WHERE B.PEOPLE_TYPE IN(2,3) AND D.USER_WRITEOFF=0 AND E.USER_WRITEOFF=0 AND F.WEBSITE_STATE='1'
+        AND A.USER_ID=#{userId}
+  </select>
+</mapper>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunPushApplogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunPushApplog" >
+    <!--@mbggenerated-->
+    <id column="PUSH_ID" property="pushId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="PUSH_SOSOID" property="pushSosoid" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="PUSH_TIME" property="pushTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    PUSH_ID, ARCHIVE_ID, CITY_ID, PUSH_SOSOID, CASE_TYPE, PUSH_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_PUSH_APPLOG
+    where PUSH_ID = #{pushId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_PUSH_APPLOG
+    where PUSH_ID = #{pushId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunPushApplog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="pushId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_PUSH_APPLOG (ARCHIVE_ID, CITY_ID, PUSH_SOSOID, 
+      CASE_TYPE, PUSH_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{pushSosoid,jdbcType=INTEGER}, 
+      #{caseType,jdbcType=TINYINT}, #{pushTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunPushApplog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="pushId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_PUSH_APPLOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="pushSosoid != null" >
+        PUSH_SOSOID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="pushTime != null" >
+        PUSH_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="pushSosoid != null" >
+        #{pushSosoid,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="pushTime != null" >
+        #{pushTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunPushApplog" >
+    <!--@mbggenerated-->
+    update FUN_PUSH_APPLOG
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="pushSosoid != null" >
+        PUSH_SOSOID = #{pushSosoid,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="pushTime != null" >
+        PUSH_TIME = #{pushTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PUSH_ID = #{pushId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunPushApplog" >
+    <!--@mbggenerated-->
+    update FUN_PUSH_APPLOG
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      PUSH_SOSOID = #{pushSosoid,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      PUSH_TIME = #{pushTime,jdbcType=TIMESTAMP}
+    where PUSH_ID = #{pushId,jdbcType=INTEGER}
+  </update>
+</mapper>

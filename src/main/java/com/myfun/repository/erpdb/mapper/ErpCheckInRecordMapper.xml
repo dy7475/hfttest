@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpCheckInRecordMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpCheckInRecord">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="DEVICE_TYPE" jdbcType="TINYINT" property="deviceType" />
+    <result column="LONGI" jdbcType="VARCHAR" property="longi" />
+    <result column="LATI" jdbcType="VARCHAR" property="lati" />
+    <result column="PHOTO_PATH" jdbcType="VARCHAR" property="photoPath" />
+    <result column="CHECK_IN_DESC" jdbcType="VARCHAR" property="checkInDesc" />
+    <result column="LOCATION_DESC" jdbcType="VARCHAR" property="locationDesc" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+    <result column="DEVICE_NAME" jdbcType="VARCHAR" property="deviceName" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="LOCATION_DETAIL" jdbcType="VARCHAR" property="locationDetail" />
+    <result column="OUT_ID" jdbcType="INTEGER" property="outId" />
+    <result column="ORGANIZATION_PATH" jdbcType="VARCHAR" property="organizationPath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, USER_ID, CITY_ID, COMP_ID, DEPT_ID, GR_ID, ARCHIVE_ID, DEVICE_TYPE, LONGI, LATI, 
+    PHOTO_PATH, CHECK_IN_DESC, LOCATION_DESC, CREATE_TIME, DEVICE_ID, DEVICE_NAME, AREA_ID, 
+    REG_ID, LOCATION_DETAIL, OUT_ID, ORGANIZATION_PATH
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpCheckInRecordExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CHECK_IN_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CHECK_IN_RECORD
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from CHECK_IN_RECORD
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpCheckInRecordExample">
+    <!--@mbggenerated-->
+    delete from CHECK_IN_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpCheckInRecord" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into CHECK_IN_RECORD (USER_ID, CITY_ID, COMP_ID, 
+      DEPT_ID, GR_ID, ARCHIVE_ID, 
+      DEVICE_TYPE, LONGI, LATI, 
+      PHOTO_PATH, CHECK_IN_DESC, LOCATION_DESC, 
+      CREATE_TIME, DEVICE_ID, DEVICE_NAME, 
+      AREA_ID, REG_ID, LOCATION_DETAIL, 
+      OUT_ID, ORGANIZATION_PATH)
+    values (#{userId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, 
+      #{deviceType,jdbcType=TINYINT}, #{longi,jdbcType=VARCHAR}, #{lati,jdbcType=VARCHAR}, 
+      #{photoPath,jdbcType=VARCHAR}, #{checkInDesc,jdbcType=VARCHAR}, #{locationDesc,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{deviceId,jdbcType=VARCHAR}, #{deviceName,jdbcType=VARCHAR}, 
+      #{areaId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, #{locationDetail,jdbcType=VARCHAR}, 
+      #{outId,jdbcType=INTEGER}, #{organizationPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpCheckInRecord" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into CHECK_IN_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="grId != null">
+        GR_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="deviceType != null">
+        DEVICE_TYPE,
+      </if>
+      <if test="longi != null">
+        LONGI,
+      </if>
+      <if test="lati != null">
+        LATI,
+      </if>
+      <if test="photoPath != null">
+        PHOTO_PATH,
+      </if>
+      <if test="checkInDesc != null">
+        CHECK_IN_DESC,
+      </if>
+      <if test="locationDesc != null">
+        LOCATION_DESC,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="deviceId != null">
+        DEVICE_ID,
+      </if>
+      <if test="deviceName != null">
+        DEVICE_NAME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="locationDetail != null">
+        LOCATION_DETAIL,
+      </if>
+      <if test="outId != null">
+        OUT_ID,
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceType != null">
+        #{deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="longi != null">
+        #{longi,jdbcType=VARCHAR},
+      </if>
+      <if test="lati != null">
+        #{lati,jdbcType=VARCHAR},
+      </if>
+      <if test="photoPath != null">
+        #{photoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="checkInDesc != null">
+        #{checkInDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDesc != null">
+        #{locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceName != null">
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="locationDetail != null">
+        #{locationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="outId != null">
+        #{outId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationPath != null">
+        #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpCheckInRecordExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from CHECK_IN_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update CHECK_IN_RECORD
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.grId != null">
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deviceType != null">
+        DEVICE_TYPE = #{record.deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="record.longi != null">
+        LONGI = #{record.longi,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lati != null">
+        LATI = #{record.lati,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoPath != null">
+        PHOTO_PATH = #{record.photoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkInDesc != null">
+        CHECK_IN_DESC = #{record.checkInDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locationDesc != null">
+        LOCATION_DESC = #{record.locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deviceId != null">
+        DEVICE_ID = #{record.deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deviceName != null">
+        DEVICE_NAME = #{record.deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaId != null">
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null">
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.locationDetail != null">
+        LOCATION_DETAIL = #{record.locationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outId != null">
+        OUT_ID = #{record.outId,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationPath != null">
+        ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update CHECK_IN_RECORD
+    set ID = #{record.id,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      DEVICE_TYPE = #{record.deviceType,jdbcType=TINYINT},
+      LONGI = #{record.longi,jdbcType=VARCHAR},
+      LATI = #{record.lati,jdbcType=VARCHAR},
+      PHOTO_PATH = #{record.photoPath,jdbcType=VARCHAR},
+      CHECK_IN_DESC = #{record.checkInDesc,jdbcType=VARCHAR},
+      LOCATION_DESC = #{record.locationDesc,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      DEVICE_ID = #{record.deviceId,jdbcType=VARCHAR},
+      DEVICE_NAME = #{record.deviceName,jdbcType=VARCHAR},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      LOCATION_DETAIL = #{record.locationDetail,jdbcType=VARCHAR},
+      OUT_ID = #{record.outId,jdbcType=INTEGER},
+      ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpCheckInRecord">
+    <!--@mbggenerated-->
+    update CHECK_IN_RECORD
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceType != null">
+        DEVICE_TYPE = #{deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="longi != null">
+        LONGI = #{longi,jdbcType=VARCHAR},
+      </if>
+      <if test="lati != null">
+        LATI = #{lati,jdbcType=VARCHAR},
+      </if>
+      <if test="photoPath != null">
+        PHOTO_PATH = #{photoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="checkInDesc != null">
+        CHECK_IN_DESC = #{checkInDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDesc != null">
+        LOCATION_DESC = #{locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceId != null">
+        DEVICE_ID = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceName != null">
+        DEVICE_NAME = #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="locationDetail != null">
+        LOCATION_DETAIL = #{locationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="outId != null">
+        OUT_ID = #{outId,jdbcType=INTEGER},
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpCheckInRecord">
+    <!--@mbggenerated-->
+    update CHECK_IN_RECORD
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      DEVICE_TYPE = #{deviceType,jdbcType=TINYINT},
+      LONGI = #{longi,jdbcType=VARCHAR},
+      LATI = #{lati,jdbcType=VARCHAR},
+      PHOTO_PATH = #{photoPath,jdbcType=VARCHAR},
+      CHECK_IN_DESC = #{checkInDesc,jdbcType=VARCHAR},
+      LOCATION_DESC = #{locationDesc,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      DEVICE_ID = #{deviceId,jdbcType=VARCHAR},
+      DEVICE_NAME = #{deviceName,jdbcType=VARCHAR},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      LOCATION_DETAIL = #{locationDetail,jdbcType=VARCHAR},
+      OUT_ID = #{outId,jdbcType=INTEGER},
+      ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+	<resultMap extends="BaseResultMap" id="ErpCheckInRecordDtoMap" type="com.myfun.erpWeb.managecenter.attendance.vo.ErpCheckInRecordDto" />
+	<select id="getCheckInRecordList" resultMap="ErpCheckInRecordDtoMap">
+		select <include refid="Base_Column_List" /> from CHECK_IN_RECORD
+		where
+		<if test="outId != null">
+			OUT_ID = #{outId,jdbcType=TINYINT},
+		</if>
+		<if test="checkId != null">
+			ID = #{checkId,jdbcType=TINYINT},
+		</if>
+	</select>
+</mapper>

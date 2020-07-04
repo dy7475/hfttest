@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunRoleWageWorkcountMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcount">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ROLE_WAGE_CONFIG_ID" jdbcType="INTEGER" property="roleWageConfigId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="WORKCOUNT_DIC_NAME" jdbcType="VARCHAR" property="workcountDicName" />
+    <result column="WORKCOUNT_DIC_VALUE" jdbcType="VARCHAR" property="workcountDicValue" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="TARGET_COUNT" jdbcType="INTEGER" property="targetCount" />
+    <result column="SINGLE_AMOUNT" jdbcType="NUMERIC" property="singleAmount" />
+    <result column="AMOUNT_LIMIT" jdbcType="NUMERIC" property="amountLimit" />
+    <result column="CHECK_TYPE" jdbcType="TINYINT" property="checkType" />
+    <result column="CHECK_RANGE" jdbcType="TINYINT" property="checkRange" />
+    <result column="CHECK_BUSINESS" jdbcType="TINYINT" property="checkBusiness" />
+    <result column="IS_CHECK" jdbcType="TINYINT" property="isCheck" />
+    <result column="WORKCOUNT_SEQ" jdbcType="INTEGER" property="workcountSeq" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, ROLE_WAGE_CONFIG_ID, COMP_ID, WORKCOUNT_DIC_NAME, WORKCOUNT_DIC_VALUE, CREATE_TIME, 
+    TARGET_COUNT, SINGLE_AMOUNT, AMOUNT_LIMIT, CHECK_TYPE, CHECK_RANGE, CHECK_BUSINESS, 
+    IS_CHECK, WORKCOUNT_SEQ
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcountExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ROLE_WAGE_WORKCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ROLE_WAGE_WORKCOUNT
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ROLE_WAGE_WORKCOUNT
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcountExample">
+    <!--@mbggenerated-->
+    delete from FUN_ROLE_WAGE_WORKCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcount" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ROLE_WAGE_WORKCOUNT (ROLE_WAGE_CONFIG_ID, COMP_ID, WORKCOUNT_DIC_NAME, 
+      WORKCOUNT_DIC_VALUE, CREATE_TIME, TARGET_COUNT, 
+      SINGLE_AMOUNT, AMOUNT_LIMIT, CHECK_TYPE, 
+      CHECK_RANGE, CHECK_BUSINESS, IS_CHECK, 
+      WORKCOUNT_SEQ)
+    values (#{roleWageConfigId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{workcountDicName,jdbcType=VARCHAR}, 
+      #{workcountDicValue,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{targetCount,jdbcType=INTEGER}, 
+      #{singleAmount,jdbcType=NUMERIC}, #{amountLimit,jdbcType=NUMERIC}, #{checkType,jdbcType=TINYINT}, 
+      #{checkRange,jdbcType=TINYINT}, #{checkBusiness,jdbcType=TINYINT}, #{isCheck,jdbcType=TINYINT}, 
+      #{workcountSeq,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcount" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ROLE_WAGE_WORKCOUNT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleWageConfigId != null">
+        ROLE_WAGE_CONFIG_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="workcountDicName != null">
+        WORKCOUNT_DIC_NAME,
+      </if>
+      <if test="workcountDicValue != null">
+        WORKCOUNT_DIC_VALUE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="targetCount != null">
+        TARGET_COUNT,
+      </if>
+      <if test="singleAmount != null">
+        SINGLE_AMOUNT,
+      </if>
+      <if test="amountLimit != null">
+        AMOUNT_LIMIT,
+      </if>
+      <if test="checkType != null">
+        CHECK_TYPE,
+      </if>
+      <if test="checkRange != null">
+        CHECK_RANGE,
+      </if>
+      <if test="checkBusiness != null">
+        CHECK_BUSINESS,
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK,
+      </if>
+      <if test="workcountSeq != null">
+        WORKCOUNT_SEQ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleWageConfigId != null">
+        #{roleWageConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="workcountDicName != null">
+        #{workcountDicName,jdbcType=VARCHAR},
+      </if>
+      <if test="workcountDicValue != null">
+        #{workcountDicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="targetCount != null">
+        #{targetCount,jdbcType=INTEGER},
+      </if>
+      <if test="singleAmount != null">
+        #{singleAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="amountLimit != null">
+        #{amountLimit,jdbcType=NUMERIC},
+      </if>
+      <if test="checkType != null">
+        #{checkType,jdbcType=TINYINT},
+      </if>
+      <if test="checkRange != null">
+        #{checkRange,jdbcType=TINYINT},
+      </if>
+      <if test="checkBusiness != null">
+        #{checkBusiness,jdbcType=TINYINT},
+      </if>
+      <if test="isCheck != null">
+        #{isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="workcountSeq != null">
+        #{workcountSeq,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcountExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ROLE_WAGE_WORKCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ROLE_WAGE_WORKCOUNT
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.roleWageConfigId != null">
+        ROLE_WAGE_CONFIG_ID = #{record.roleWageConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.workcountDicName != null">
+        WORKCOUNT_DIC_NAME = #{record.workcountDicName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workcountDicValue != null">
+        WORKCOUNT_DIC_VALUE = #{record.workcountDicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.targetCount != null">
+        TARGET_COUNT = #{record.targetCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.singleAmount != null">
+        SINGLE_AMOUNT = #{record.singleAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.amountLimit != null">
+        AMOUNT_LIMIT = #{record.amountLimit,jdbcType=NUMERIC},
+      </if>
+      <if test="record.checkType != null">
+        CHECK_TYPE = #{record.checkType,jdbcType=TINYINT},
+      </if>
+      <if test="record.checkRange != null">
+        CHECK_RANGE = #{record.checkRange,jdbcType=TINYINT},
+      </if>
+      <if test="record.checkBusiness != null">
+        CHECK_BUSINESS = #{record.checkBusiness,jdbcType=TINYINT},
+      </if>
+      <if test="record.isCheck != null">
+        IS_CHECK = #{record.isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="record.workcountSeq != null">
+        WORKCOUNT_SEQ = #{record.workcountSeq,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ROLE_WAGE_WORKCOUNT
+    set ID = #{record.id,jdbcType=INTEGER},
+      ROLE_WAGE_CONFIG_ID = #{record.roleWageConfigId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      WORKCOUNT_DIC_NAME = #{record.workcountDicName,jdbcType=VARCHAR},
+      WORKCOUNT_DIC_VALUE = #{record.workcountDicValue,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      TARGET_COUNT = #{record.targetCount,jdbcType=INTEGER},
+      SINGLE_AMOUNT = #{record.singleAmount,jdbcType=NUMERIC},
+      AMOUNT_LIMIT = #{record.amountLimit,jdbcType=NUMERIC},
+      CHECK_TYPE = #{record.checkType,jdbcType=TINYINT},
+      CHECK_RANGE = #{record.checkRange,jdbcType=TINYINT},
+      CHECK_BUSINESS = #{record.checkBusiness,jdbcType=TINYINT},
+      IS_CHECK = #{record.isCheck,jdbcType=TINYINT},
+      WORKCOUNT_SEQ = #{record.workcountSeq,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcount">
+    <!--@mbggenerated-->
+    update FUN_ROLE_WAGE_WORKCOUNT
+    <set>
+      <if test="roleWageConfigId != null">
+        ROLE_WAGE_CONFIG_ID = #{roleWageConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="workcountDicName != null">
+        WORKCOUNT_DIC_NAME = #{workcountDicName,jdbcType=VARCHAR},
+      </if>
+      <if test="workcountDicValue != null">
+        WORKCOUNT_DIC_VALUE = #{workcountDicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="targetCount != null">
+        TARGET_COUNT = #{targetCount,jdbcType=INTEGER},
+      </if>
+      <if test="singleAmount != null">
+        SINGLE_AMOUNT = #{singleAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="amountLimit != null">
+        AMOUNT_LIMIT = #{amountLimit,jdbcType=NUMERIC},
+      </if>
+      <if test="checkType != null">
+        CHECK_TYPE = #{checkType,jdbcType=TINYINT},
+      </if>
+      <if test="checkRange != null">
+        CHECK_RANGE = #{checkRange,jdbcType=TINYINT},
+      </if>
+      <if test="checkBusiness != null">
+        CHECK_BUSINESS = #{checkBusiness,jdbcType=TINYINT},
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK = #{isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="workcountSeq != null">
+        WORKCOUNT_SEQ = #{workcountSeq,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunRoleWageWorkcount">
+    <!--@mbggenerated-->
+    update FUN_ROLE_WAGE_WORKCOUNT
+    set ROLE_WAGE_CONFIG_ID = #{roleWageConfigId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      WORKCOUNT_DIC_NAME = #{workcountDicName,jdbcType=VARCHAR},
+      WORKCOUNT_DIC_VALUE = #{workcountDicValue,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      TARGET_COUNT = #{targetCount,jdbcType=INTEGER},
+      SINGLE_AMOUNT = #{singleAmount,jdbcType=NUMERIC},
+      AMOUNT_LIMIT = #{amountLimit,jdbcType=NUMERIC},
+      CHECK_TYPE = #{checkType,jdbcType=TINYINT},
+      CHECK_RANGE = #{checkRange,jdbcType=TINYINT},
+      CHECK_BUSINESS = #{checkBusiness,jdbcType=TINYINT},
+      IS_CHECK = #{isCheck,jdbcType=TINYINT},
+      WORKCOUNT_SEQ = #{workcountSeq,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateWorkCountById">
+    update FUN_ROLE_WAGE_WORKCOUNT set WORKCOUNT_NAME=#{workcountName},WORKCOUNT_ID=#{workcountId},
+    TARGET_COUNT=#{targetCount}, SINGLE_AMOUNT=#{singleAmount},AMOUNT_LIMIT=#{amountLimit},
+    CHECK_RANGE=#{checkRange}, CHECK_BUSINESS=#{checkBusiness},WORKCOUNT_SEQ=#{workcountSeq}
+    where ID = #{id}
+  </update>
+
+  <select id="selectConfigByRoleId" resultMap="BaseResultMap">
+    SELECT top 1 a.ID, a.ROLE_WAGE_CONFIG_ID, a.COMP_ID, a.WORKCOUNT_DIC_NAME, a.WORKCOUNT_DIC_VALUE, a.CREATE_TIME,
+               a.TARGET_COUNT, a.SINGLE_AMOUNT, a.AMOUNT_LIMIT, a.CHECK_TYPE, a.CHECK_RANGE, a.CHECK_BUSINESS,
+               a.IS_CHECK, a.WORKCOUNT_SEQ from FUN_ROLE_WAGE_WORKCOUNT a
+    JOIN FUN_ROLE_WAGE_CONFIG b on b.id= a.ROLE_WAGE_CONFIG_ID and b.ASSESSMENT_MONTH=#{assessmentMonth} and b.IS_CHECK=1 and a.COMP_ID = b.COMP_ID and a.check_type=#{checkType}
+    WHERE b.COMP_ID=#{compId} and b.ROLE_ID=#{roleId} and a.IS_CHECK=1
+  </select>
+</mapper>

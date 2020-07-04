@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunWageTypeNewMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunWageTypeNew">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="WAGETYPE_ID" jdbcType="INTEGER" property="wagetypeId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="WAGE_TYPE_NAME" jdbcType="VARCHAR" property="wageTypeName" />
+    <result column="SEQ" jdbcType="TINYINT" property="seq" />
+    <result column="CREATE_DATE" jdbcType="VARCHAR" property="createDate" />
+    <result column="WAGE_COUNT_TYPE" jdbcType="TINYINT" property="wageCountType" />
+    <result column="PERFORMANCE_TYPE" jdbcType="TINYINT" property="performanceType" />
+    <result column="ROYALTY_RANGE" jdbcType="TINYINT" property="royaltyRange" />
+    <result column="PROFIT_RANGE" jdbcType="TINYINT" property="profitRange" />
+    <result column="BASE_PROPORTION" jdbcType="NUMERIC" property="baseProportion" />
+    <result column="WAGE_TYPE_DESC" jdbcType="VARCHAR" property="wageTypeDesc" />
+    <result column="MANAGE_PLAN" jdbcType="TINYINT" property="managePlan" />
+    <result column="ASSESSMENT_MONTH" jdbcType="VARCHAR" property="assessmentMonth" />
+    <result column="IS_CHECK" jdbcType="TINYINT" property="isCheck" />
+    <result column="ROLE_WAGETYPE_RELATIVE_ID" jdbcType="INTEGER" property="roleWagetypeRelativeId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, WAGETYPE_ID, COMP_ID, DEPT_ID, WAGE_TYPE_NAME, SEQ, CREATE_DATE, WAGE_COUNT_TYPE, 
+    PERFORMANCE_TYPE, ROYALTY_RANGE, PROFIT_RANGE, BASE_PROPORTION, WAGE_TYPE_DESC, MANAGE_PLAN, 
+    ASSESSMENT_MONTH, IS_CHECK, ROLE_WAGETYPE_RELATIVE_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNewExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_WAGE_TYPE_NEW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_WAGE_TYPE_NEW
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_WAGE_TYPE_NEW
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNewExample">
+    <!--@mbggenerated-->
+    delete from FUN_WAGE_TYPE_NEW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNew" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_WAGE_TYPE_NEW (WAGETYPE_ID, COMP_ID, DEPT_ID, 
+      WAGE_TYPE_NAME, SEQ, CREATE_DATE, 
+      WAGE_COUNT_TYPE, PERFORMANCE_TYPE, ROYALTY_RANGE, 
+      PROFIT_RANGE, BASE_PROPORTION, WAGE_TYPE_DESC, 
+      MANAGE_PLAN, ASSESSMENT_MONTH, IS_CHECK, 
+      ROLE_WAGETYPE_RELATIVE_ID)
+    values (#{wagetypeId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{wageTypeName,jdbcType=VARCHAR}, #{seq,jdbcType=TINYINT}, #{createDate,jdbcType=VARCHAR}, 
+      #{wageCountType,jdbcType=TINYINT}, #{performanceType,jdbcType=TINYINT}, #{royaltyRange,jdbcType=TINYINT}, 
+      #{profitRange,jdbcType=TINYINT}, #{baseProportion,jdbcType=NUMERIC}, #{wageTypeDesc,jdbcType=VARCHAR}, 
+      #{managePlan,jdbcType=TINYINT}, #{assessmentMonth,jdbcType=VARCHAR}, #{isCheck,jdbcType=TINYINT}, 
+      #{roleWagetypeRelativeId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNew" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_WAGE_TYPE_NEW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wagetypeId != null">
+        WAGETYPE_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="wageTypeName != null">
+        WAGE_TYPE_NAME,
+      </if>
+      <if test="seq != null">
+        SEQ,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="wageCountType != null">
+        WAGE_COUNT_TYPE,
+      </if>
+      <if test="performanceType != null">
+        PERFORMANCE_TYPE,
+      </if>
+      <if test="royaltyRange != null">
+        ROYALTY_RANGE,
+      </if>
+      <if test="profitRange != null">
+        PROFIT_RANGE,
+      </if>
+      <if test="baseProportion != null">
+        BASE_PROPORTION,
+      </if>
+      <if test="wageTypeDesc != null">
+        WAGE_TYPE_DESC,
+      </if>
+      <if test="managePlan != null">
+        MANAGE_PLAN,
+      </if>
+      <if test="assessmentMonth != null">
+        ASSESSMENT_MONTH,
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK,
+      </if>
+      <if test="roleWagetypeRelativeId != null">
+        ROLE_WAGETYPE_RELATIVE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wagetypeId != null">
+        #{wagetypeId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="wageTypeName != null">
+        #{wageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=TINYINT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="wageCountType != null">
+        #{wageCountType,jdbcType=TINYINT},
+      </if>
+      <if test="performanceType != null">
+        #{performanceType,jdbcType=TINYINT},
+      </if>
+      <if test="royaltyRange != null">
+        #{royaltyRange,jdbcType=TINYINT},
+      </if>
+      <if test="profitRange != null">
+        #{profitRange,jdbcType=TINYINT},
+      </if>
+      <if test="baseProportion != null">
+        #{baseProportion,jdbcType=NUMERIC},
+      </if>
+      <if test="wageTypeDesc != null">
+        #{wageTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="managePlan != null">
+        #{managePlan,jdbcType=TINYINT},
+      </if>
+      <if test="assessmentMonth != null">
+        #{assessmentMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="isCheck != null">
+        #{isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="roleWagetypeRelativeId != null">
+        #{roleWagetypeRelativeId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNewExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_WAGE_TYPE_NEW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_WAGE_TYPE_NEW
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.wagetypeId != null">
+        WAGETYPE_ID = #{record.wagetypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.wageTypeName != null">
+        WAGE_TYPE_NAME = #{record.wageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seq != null">
+        SEQ = #{record.seq,jdbcType=TINYINT},
+      </if>
+      <if test="record.createDate != null">
+        CREATE_DATE = #{record.createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wageCountType != null">
+        WAGE_COUNT_TYPE = #{record.wageCountType,jdbcType=TINYINT},
+      </if>
+      <if test="record.performanceType != null">
+        PERFORMANCE_TYPE = #{record.performanceType,jdbcType=TINYINT},
+      </if>
+      <if test="record.royaltyRange != null">
+        ROYALTY_RANGE = #{record.royaltyRange,jdbcType=TINYINT},
+      </if>
+      <if test="record.profitRange != null">
+        PROFIT_RANGE = #{record.profitRange,jdbcType=TINYINT},
+      </if>
+      <if test="record.baseProportion != null">
+        BASE_PROPORTION = #{record.baseProportion,jdbcType=NUMERIC},
+      </if>
+      <if test="record.wageTypeDesc != null">
+        WAGE_TYPE_DESC = #{record.wageTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.managePlan != null">
+        MANAGE_PLAN = #{record.managePlan,jdbcType=TINYINT},
+      </if>
+      <if test="record.assessmentMonth != null">
+        ASSESSMENT_MONTH = #{record.assessmentMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isCheck != null">
+        IS_CHECK = #{record.isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="record.roleWagetypeRelativeId != null">
+        ROLE_WAGETYPE_RELATIVE_ID = #{record.roleWagetypeRelativeId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_WAGE_TYPE_NEW
+    set ID = #{record.id,jdbcType=INTEGER},
+      WAGETYPE_ID = #{record.wagetypeId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      WAGE_TYPE_NAME = #{record.wageTypeName,jdbcType=VARCHAR},
+      SEQ = #{record.seq,jdbcType=TINYINT},
+      CREATE_DATE = #{record.createDate,jdbcType=VARCHAR},
+      WAGE_COUNT_TYPE = #{record.wageCountType,jdbcType=TINYINT},
+      PERFORMANCE_TYPE = #{record.performanceType,jdbcType=TINYINT},
+      ROYALTY_RANGE = #{record.royaltyRange,jdbcType=TINYINT},
+      PROFIT_RANGE = #{record.profitRange,jdbcType=TINYINT},
+      BASE_PROPORTION = #{record.baseProportion,jdbcType=NUMERIC},
+      WAGE_TYPE_DESC = #{record.wageTypeDesc,jdbcType=VARCHAR},
+      MANAGE_PLAN = #{record.managePlan,jdbcType=TINYINT},
+      ASSESSMENT_MONTH = #{record.assessmentMonth,jdbcType=VARCHAR},
+      IS_CHECK = #{record.isCheck,jdbcType=TINYINT},
+      ROLE_WAGETYPE_RELATIVE_ID = #{record.roleWagetypeRelativeId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNew">
+    <!--@mbggenerated-->
+    update FUN_WAGE_TYPE_NEW
+    <set>
+      <if test="wagetypeId != null">
+        WAGETYPE_ID = #{wagetypeId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="wageTypeName != null">
+        WAGE_TYPE_NAME = #{wageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        SEQ = #{seq,jdbcType=TINYINT},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="wageCountType != null">
+        WAGE_COUNT_TYPE = #{wageCountType,jdbcType=TINYINT},
+      </if>
+      <if test="performanceType != null">
+        PERFORMANCE_TYPE = #{performanceType,jdbcType=TINYINT},
+      </if>
+      <if test="royaltyRange != null">
+        ROYALTY_RANGE = #{royaltyRange,jdbcType=TINYINT},
+      </if>
+      <if test="profitRange != null">
+        PROFIT_RANGE = #{profitRange,jdbcType=TINYINT},
+      </if>
+      <if test="baseProportion != null">
+        BASE_PROPORTION = #{baseProportion,jdbcType=NUMERIC},
+      </if>
+      <if test="wageTypeDesc != null">
+        WAGE_TYPE_DESC = #{wageTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="managePlan != null">
+        MANAGE_PLAN = #{managePlan,jdbcType=TINYINT},
+      </if>
+      <if test="assessmentMonth != null">
+        ASSESSMENT_MONTH = #{assessmentMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK = #{isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="roleWagetypeRelativeId != null">
+        ROLE_WAGETYPE_RELATIVE_ID = #{roleWagetypeRelativeId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNew">
+    <!--@mbggenerated-->
+    update FUN_WAGE_TYPE_NEW
+    set WAGETYPE_ID = #{wagetypeId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      WAGE_TYPE_NAME = #{wageTypeName,jdbcType=VARCHAR},
+      SEQ = #{seq,jdbcType=TINYINT},
+      CREATE_DATE = #{createDate,jdbcType=VARCHAR},
+      WAGE_COUNT_TYPE = #{wageCountType,jdbcType=TINYINT},
+      PERFORMANCE_TYPE = #{performanceType,jdbcType=TINYINT},
+      ROYALTY_RANGE = #{royaltyRange,jdbcType=TINYINT},
+      PROFIT_RANGE = #{profitRange,jdbcType=TINYINT},
+      BASE_PROPORTION = #{baseProportion,jdbcType=NUMERIC},
+      WAGE_TYPE_DESC = #{wageTypeDesc,jdbcType=VARCHAR},
+      MANAGE_PLAN = #{managePlan,jdbcType=TINYINT},
+      ASSESSMENT_MONTH = #{assessmentMonth,jdbcType=VARCHAR},
+      IS_CHECK = #{isCheck,jdbcType=TINYINT},
+      ROLE_WAGETYPE_RELATIVE_ID = #{roleWagetypeRelativeId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectWageTypeNewListByComp" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from FUN_WAGE_TYPE_NEW where COMP_ID = #{compId} and IS_CHECK=1 order by PERFORMANCE_TYPE;
+  </select>
+  <select id="getSalaryPlanByComp" resultMap="BaseResultMap">
+    select ID,WAGE_TYPE_NAME,PERFORMANCE_TYPE from FUN_WAGE_TYPE_NEW where COMP_ID = #{compId} order by PERFORMANCE_TYPE;
+  </select>
+  <select id="getSalaryPlanByUserId" resultMap="BaseResultMap">
+    select ID,WAGE_TYPE_NAME,PERFORMANCE_TYPE from FUN_WAGE_TYPE_NEW where COMP_ID = #{compId} and USER_ID = #{userId};
+  </select>
+  <update id="clearManagePlanInfo" parameterType="com.myfun.repository.erpdb.po.ErpFunWageTypeNew">
+    update FUN_WAGE_TYPE_NEW
+    <set>
+      <if test="updateModel.wageTypeName != null">
+        WAGE_TYPE_NAME = #{updateModel.wageTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateModel.seq != null">
+        SEQ = #{updateModel.seq,jdbcType=TINYINT},
+      </if>
+      <if test="updateModel.wageCountType != null">
+        WAGE_COUNT_TYPE = #{updateModel.wageCountType,jdbcType=TINYINT},
+      </if>
+      <if test="updateModel.performanceType != null">
+        PERFORMANCE_TYPE = #{updateModel.performanceType,jdbcType=TINYINT},
+      </if>
+        ROYALTY_RANGE = 0,
+        PROFIT_RANGE = null,
+      <if test="updateModel.baseProportion != null">
+        BASE_PROPORTION = #{updateModel.baseProportion,jdbcType=INTEGER},
+      </if>
+      <if test="updateModel.wageTypeDesc != null">
+        WAGE_TYPE_DESC = #{updateModel.wageTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="updateModel.managePlan != null">
+        MANAGE_PLAN = #{updateModel.managePlan,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{updateModel.id,jdbcType=INTEGER}
+  </update>
+  <select id="selectMyWageTypeList" resultMap="BaseResultMap">
+    select distinct A.* from FUN_WAGE_TYPE_NEW A left join  WAGETYPE_USER_RELATIVE B ON A.ID = B.WAGE_TYPE_ID
+    where A.COMP_ID = #{compId} and B.USER_ID = #{userId} and IS_CHECK=1
+  	<if test="performanceType != null">
+     and A.PERFORMANCE_TYPE = #{performanceType}
+    </if>
+  	<if test="managePlan != null">
+     and A.MANAGE_PLAN = #{managePlan}
+    </if>
+  	<if test="wageTypeName != null and ''!=wageTypeName">
+     and A.WAGE_TYPE_NAME like #{wageTypeName}
+    </if>
+  </select>
+	
+	<select id="getFunWageTypeNewByComp" resultMap="BaseResultMap">
+    	select
+    	<include refid="Base_Column_List" />
+    	from FUN_WAGE_TYPE_NEW
+    	where COMP_ID = #{compId}
+	</select>
+
+  <select id="getMyWageTypeListByIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_WAGE_TYPE_NEW
+    where COMP_ID = #{compId} and ID in
+    <foreach close=")" collection="idList" item="id" open="(" separator=",">
+      #{id}
+    </foreach>
+  </select>
+  <resultMap id="BaseResultDtoMap"  extends="BaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunWageTypeNewDto">
+
+  </resultMap>
+  <select id="getMyWageTypeDtoListByIds" resultMap="BaseResultDtoMap">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_WAGE_TYPE_NEW
+    where COMP_ID = #{compId}
+    <choose>
+      <when test="idList != null and idList.size() > 0">
+        and ID in
+        <foreach close=")" collection="idList" item="id" open="(" separator=",">
+          #{id}
+        </foreach>
+      </when>
+    <otherwise>
+      and 1 != 1
+    </otherwise>
+    </choose>
+    order by
+    case PERFORMANCE_TYPE
+    when 2 then 1
+    when 4 then 2
+    when 3 then 3
+    when 1 then 4
+    when 5 then 5
+    when 6 then 6
+    when 7 then 7
+    end
+  </select>
+  <delete id="deleteBatchByIds">
+    DELETE FROM FUN_WAGE_TYPE_NEW WHERE  COMP_ID = #{compId}
+    <choose>
+      <when test="idList != null and idList.size() > 0">
+        and ID in
+        <foreach close=")" collection="idList" item="id" open="(" separator=",">
+          #{id}
+        </foreach>
+      </when>
+      <otherwise>
+        and 1 != 1
+      </otherwise>
+    </choose>
+  </delete>
+</mapper>

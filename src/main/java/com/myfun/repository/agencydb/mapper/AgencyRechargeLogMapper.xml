@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRechargeLogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRechargeLog" >
+    <!--@mbggenerated-->
+    <id column="RECHARGE_ID" property="rechargeId" jdbcType="INTEGER" />
+    <result column="PAID_TYPE" property="paidType" jdbcType="VARCHAR" />
+    <result column="TRADE_NO" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="OUT_TRADE_NO" property="outTradeNo" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.agencydb.po.AgencyRechargeLog" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="RECHARGE_ERROR" property="rechargeError" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    RECHARGE_ID, PAID_TYPE, TRADE_NO, OUT_TRADE_NO, CREATE_TIME
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    RECHARGE_ERROR
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from RECHARGE_LOG
+    where RECHARGE_ID = #{rechargeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RECHARGE_LOG
+    where RECHARGE_ID = #{rechargeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRechargeLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="rechargeId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into RECHARGE_LOG (PAID_TYPE, TRADE_NO, OUT_TRADE_NO, 
+      CREATE_TIME, RECHARGE_ERROR)
+    values (#{paidType,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, #{outTradeNo,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{rechargeError,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRechargeLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="rechargeId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into RECHARGE_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paidType != null" >
+        PAID_TYPE,
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO,
+      </if>
+      <if test="outTradeNo != null" >
+        OUT_TRADE_NO,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="rechargeError != null" >
+        RECHARGE_ERROR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paidType != null" >
+        #{paidType,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null" >
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rechargeError != null" >
+        #{rechargeError,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRechargeLog" >
+    <!--@mbggenerated-->
+    update RECHARGE_LOG
+    <set >
+      <if test="paidType != null" >
+        PAID_TYPE = #{paidType,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null" >
+        OUT_TRADE_NO = #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rechargeError != null" >
+        RECHARGE_ERROR = #{rechargeError,jdbcType=CLOB},
+      </if>
+    </set>
+    where RECHARGE_ID = #{rechargeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.agencydb.po.AgencyRechargeLog" >
+    <!--@mbggenerated-->
+    update RECHARGE_LOG
+    set PAID_TYPE = #{paidType,jdbcType=VARCHAR},
+      TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      OUT_TRADE_NO = #{outTradeNo,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      RECHARGE_ERROR = #{rechargeError,jdbcType=CLOB}
+    where RECHARGE_ID = #{rechargeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRechargeLog" >
+    <!--@mbggenerated-->
+    update RECHARGE_LOG
+    set PAID_TYPE = #{paidType,jdbcType=VARCHAR},
+      TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      OUT_TRADE_NO = #{outTradeNo,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where RECHARGE_ID = #{rechargeId,jdbcType=INTEGER}
+  </update>
+</mapper>

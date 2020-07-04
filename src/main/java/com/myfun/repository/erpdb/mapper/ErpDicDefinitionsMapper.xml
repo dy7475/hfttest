@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpDicDefinitionsMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpDicDefinitions">
+    <!--@mbggenerated-->
+    <id column="DIC_ID" jdbcType="SMALLINT" property="dicId" />
+    <result column="DIC_GROUP_TYPE" jdbcType="VARCHAR" property="dicGroupType" />
+    <result column="DIC_TYPE" jdbcType="VARCHAR" property="dicType" />
+    <result column="PROVINCE_ID" jdbcType="SMALLINT" property="provinceId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="SEQ_NO" jdbcType="TINYINT" property="seqNo" />
+    <result column="DIC_VALUE" jdbcType="VARCHAR" property="dicValue" />
+    <result column="DIC_VALUE_1" jdbcType="VARCHAR" property="dicValue1" />
+    <result column="DIC_EN_MSG" jdbcType="VARCHAR" property="dicEnMsg" />
+    <result column="DIC_CN_MSG" jdbcType="VARCHAR" property="dicCnMsg" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    <result column="DIC_CN_MSG2" jdbcType="VARCHAR" property="dicCnMsg2" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+    <result column="DIC_VALUE_2" jdbcType="VARCHAR" property="dicValue2" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    DIC_ID, DIC_GROUP_TYPE, DIC_TYPE, PROVINCE_ID, CITY_ID, SEQ_NO, DIC_VALUE, DIC_VALUE_1, 
+    DIC_EN_MSG, DIC_CN_MSG, UPDATE_TIME, DIC_CN_MSG2, IS_DEL, DIC_VALUE_2
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitionsExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from DIC_DEFINITIONS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from DIC_DEFINITIONS
+    where DIC_ID = #{dicId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbggenerated-->
+    delete from DIC_DEFINITIONS
+    where DIC_ID = #{dicId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitionsExample">
+    <!--@mbggenerated-->
+    delete from DIC_DEFINITIONS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitions">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="dicId" order="BEFORE" resultType="java.lang.Short">
+      SELECT next value for SEQ_DIC_DEFINITIONS_DIC_ID
+    </selectKey>
+    insert into DIC_DEFINITIONS (DIC_ID, DIC_GROUP_TYPE, DIC_TYPE, 
+      PROVINCE_ID, CITY_ID, SEQ_NO, 
+      DIC_VALUE, DIC_VALUE_1, DIC_EN_MSG, 
+      DIC_CN_MSG, UPDATE_TIME, DIC_CN_MSG2, 
+      IS_DEL, DIC_VALUE_2)
+    values (#{dicId,jdbcType=SMALLINT}, #{dicGroupType,jdbcType=VARCHAR}, #{dicType,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=SMALLINT}, #{cityId,jdbcType=SMALLINT}, #{seqNo,jdbcType=TINYINT}, 
+      #{dicValue,jdbcType=VARCHAR}, #{dicValue1,jdbcType=VARCHAR}, #{dicEnMsg,jdbcType=VARCHAR}, 
+      #{dicCnMsg,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{dicCnMsg2,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=TINYINT}, #{dicValue2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitions">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="dicId" order="BEFORE" resultType="java.lang.Short">
+      SELECT next value for SEQ_DIC_DEFINITIONS_DIC_ID
+    </selectKey>
+    insert into DIC_DEFINITIONS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      DIC_ID,
+      <if test="dicGroupType != null">
+        DIC_GROUP_TYPE,
+      </if>
+      <if test="dicType != null">
+        DIC_TYPE,
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="dicValue != null">
+        DIC_VALUE,
+      </if>
+      <if test="dicValue1 != null">
+        DIC_VALUE_1,
+      </if>
+      <if test="dicEnMsg != null">
+        DIC_EN_MSG,
+      </if>
+      <if test="dicCnMsg != null">
+        DIC_CN_MSG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="dicCnMsg2 != null">
+        DIC_CN_MSG2,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+      <if test="dicValue2 != null">
+        DIC_VALUE_2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{dicId,jdbcType=SMALLINT},
+      <if test="dicGroupType != null">
+        #{dicGroupType,jdbcType=VARCHAR},
+      </if>
+      <if test="dicType != null">
+        #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=SMALLINT},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="dicValue != null">
+        #{dicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicValue1 != null">
+        #{dicValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="dicEnMsg != null">
+        #{dicEnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCnMsg != null">
+        #{dicCnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCnMsg2 != null">
+        #{dicCnMsg2,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="dicValue2 != null">
+        #{dicValue2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitionsExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from DIC_DEFINITIONS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update DIC_DEFINITIONS
+    <set>
+      <if test="record.dicId != null">
+        DIC_ID = #{record.dicId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.dicGroupType != null">
+        DIC_GROUP_TYPE = #{record.dicGroupType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicType != null">
+        DIC_TYPE = #{record.dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceId != null">
+        PROVINCE_ID = #{record.provinceId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.seqNo != null">
+        SEQ_NO = #{record.seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="record.dicValue != null">
+        DIC_VALUE = #{record.dicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicValue1 != null">
+        DIC_VALUE_1 = #{record.dicValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicEnMsg != null">
+        DIC_EN_MSG = #{record.dicEnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicCnMsg != null">
+        DIC_CN_MSG = #{record.dicCnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicCnMsg2 != null">
+        DIC_CN_MSG2 = #{record.dicCnMsg2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.dicValue2 != null">
+        DIC_VALUE_2 = #{record.dicValue2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update DIC_DEFINITIONS
+    set DIC_ID = #{record.dicId,jdbcType=SMALLINT},
+      DIC_GROUP_TYPE = #{record.dicGroupType,jdbcType=VARCHAR},
+      DIC_TYPE = #{record.dicType,jdbcType=VARCHAR},
+      PROVINCE_ID = #{record.provinceId,jdbcType=SMALLINT},
+      CITY_ID = #{record.cityId,jdbcType=SMALLINT},
+      SEQ_NO = #{record.seqNo,jdbcType=TINYINT},
+      DIC_VALUE = #{record.dicValue,jdbcType=VARCHAR},
+      DIC_VALUE_1 = #{record.dicValue1,jdbcType=VARCHAR},
+      DIC_EN_MSG = #{record.dicEnMsg,jdbcType=VARCHAR},
+      DIC_CN_MSG = #{record.dicCnMsg,jdbcType=VARCHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=VARCHAR},
+      DIC_CN_MSG2 = #{record.dicCnMsg2,jdbcType=VARCHAR},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      DIC_VALUE_2 = #{record.dicValue2,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitions">
+    <!--@mbggenerated-->
+    update DIC_DEFINITIONS
+    <set>
+      <if test="dicGroupType != null">
+        DIC_GROUP_TYPE = #{dicGroupType,jdbcType=VARCHAR},
+      </if>
+      <if test="dicType != null">
+        DIC_TYPE = #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=SMALLINT},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="dicValue != null">
+        DIC_VALUE = #{dicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicValue1 != null">
+        DIC_VALUE_1 = #{dicValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="dicEnMsg != null">
+        DIC_EN_MSG = #{dicEnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCnMsg != null">
+        DIC_CN_MSG = #{dicCnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dicCnMsg2 != null">
+        DIC_CN_MSG2 = #{dicCnMsg2,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="dicValue2 != null">
+        DIC_VALUE_2 = #{dicValue2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DIC_ID = #{dicId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitions">
+    <!--@mbggenerated-->
+    update DIC_DEFINITIONS
+    set DIC_GROUP_TYPE = #{dicGroupType,jdbcType=VARCHAR},
+      DIC_TYPE = #{dicType,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=SMALLINT},
+      CITY_ID = #{cityId,jdbcType=SMALLINT},
+      SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      DIC_VALUE = #{dicValue,jdbcType=VARCHAR},
+      DIC_VALUE_1 = #{dicValue1,jdbcType=VARCHAR},
+      DIC_EN_MSG = #{dicEnMsg,jdbcType=VARCHAR},
+      DIC_CN_MSG = #{dicCnMsg,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      DIC_CN_MSG2 = #{dicCnMsg2,jdbcType=VARCHAR},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      DIC_VALUE_2 = #{dicValue2,jdbcType=VARCHAR}
+    where DIC_ID = #{dicId,jdbcType=SMALLINT}
+  </update>
+  <cache type="com.myfun.repository.support.mybatis.cache.redis.MybatisCacheRedisImpl" />
+  <select id="getDicDefinitionsByCondition" parameterType="com.myfun.repository.erpdb.po.ErpDicDefinitions" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from DIC_DEFINITIONS
+  	<where>
+  		<if test="null != dicType and ''!= dicType">
+  			and DIC_TYPE=#{dicType}
+  		</if>
+  		<if test="null != dicValue and ''!= dicValue">
+  			and DIC_VALUE=#{dicValue}
+  		</if>
+		<!--..... -->
+  	</where>
+  </select>
+	
+	<select id="getAllDicDefinitions" resultMap="BaseResultMap" useCache="true">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM dbo.DIC_DEFINITIONS WHERE DIC_TYPE != 'DIC_TYPE'
+	</select>
+	
+	<select id="getDicDefinitions" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM dbo.DIC_DEFINITIONS WHERE DIC_TYPE = #{dicType} and DIC_VALUE=#{dicValue}
+	</select>
+	
+	<select id="getDicCnMsg" resultType="java.lang.String">
+		SELECT DIC_CN_MSG
+		FROM dbo.DIC_DEFINITIONS WHERE DIC_TYPE = #{dicType} and DIC_VALUE=#{dicValue}
+	</select>
+	
+	<select id="getDicDefinitionsByUpdateTime" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		FROM DIC_DEFINITIONS
+		WHERE UPDATE_TIME &gt; #{updateTime}
+	</select>
+
+  <resultMap id="extBaseResultVoMap" type="com.myfun.erpWeb.common.vo.ErpDicDefinitionsVo">
+    <id column="DIC_ID" jdbcType="SMALLINT" property="dicId" />
+    <result column="DIC_GROUP_TYPE" jdbcType="VARCHAR" property="dicGroupType" />
+    <result column="DIC_TYPE" jdbcType="VARCHAR" property="dicType" />
+    <result column="PROVINCE_ID" jdbcType="SMALLINT" property="provinceId" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="SEQ_NO" jdbcType="TINYINT" property="seqNo" />
+    <result column="DIC_VALUE" jdbcType="VARCHAR" property="dicValue" />
+    <result column="DIC_VALUE_1" jdbcType="VARCHAR" property="dicValue1" />
+    <result column="DIC_EN_MSG" jdbcType="VARCHAR" property="dicEnMsg" />
+    <result column="DIC_CN_MSG" jdbcType="VARCHAR" property="dicCnMsg" />
+    <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    <result column="DIC_CN_MSG2" jdbcType="VARCHAR" property="dicCnMsg2" />
+  </resultMap>
+  <select id="getDicDefinitionsVoList" resultMap="extBaseResultVoMap">
+		select
+		<include refid="Base_Column_List"/>
+		FROM DIC_DEFINITIONS
+		WHERE UPDATE_TIME > #{updateTime}
+  </select>
+  <select id="getDicListByDicValues" resultMap="BaseResultMap">
+   	SELECT <include refid="Base_Column_List" />	FROM DIC_DEFINITIONS 
+   	WHERE DIC_TYPE = #{dicType} 
+   	AND DIC_VALUE IN 
+       <foreach close=")" collection="dicValues" item="dicValue" open="(" separator=",">
+         #{dicValue}
+       </foreach>
+       ORDER BY DIC_VALUE 
+   </select>
+</mapper>

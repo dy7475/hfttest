@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunSmsRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunSmsRecord" >
+    <!--@mbggenerated-->
+    <id column="SMS_ID" property="smsId" jdbcType="INTEGER" />
+    <result column="UA_ID" property="uaId" jdbcType="INTEGER" />
+    <result column="MSG" property="msg" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="FAIL_COUNT" property="failCount" jdbcType="INTEGER" />
+    <result column="SEND_COUNT" property="sendCount" jdbcType="INTEGER" />
+    <result column="SUC_COUNT" property="sucCount" jdbcType="INTEGER" />
+    <result column="SEND_FAIL" property="sendFail" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.myfun.repository.admindb.po.AdminFunSmsRecord" extends="BaseResultMap" >
+    <!--@mbggenerated-->
+    <result column="RECEIVER" property="receiver" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    SMS_ID, UA_ID, MSG, CREATION_TIME, FAIL_COUNT, SEND_COUNT, SUC_COUNT, SEND_FAIL
+  </sql>
+  <sql id="Blob_Column_List" >
+    <!--@mbggenerated-->
+    RECEIVER
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FUN_SMS_RECORD
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_SMS_RECORD
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunSmsRecord" >
+    <!--@mbggenerated-->
+    insert into FUN_SMS_RECORD (SMS_ID, UA_ID, MSG, 
+      CREATION_TIME, FAIL_COUNT, SEND_COUNT, 
+      SUC_COUNT, SEND_FAIL, RECEIVER
+      )
+    values (#{smsId,jdbcType=INTEGER}, #{uaId,jdbcType=INTEGER}, #{msg,jdbcType=VARCHAR}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{failCount,jdbcType=INTEGER}, #{sendCount,jdbcType=INTEGER}, 
+      #{sucCount,jdbcType=INTEGER}, #{sendFail,jdbcType=VARCHAR}, #{receiver,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunSmsRecord" >
+    <!--@mbggenerated-->
+    insert into FUN_SMS_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="smsId != null" >
+        SMS_ID,
+      </if>
+      <if test="uaId != null" >
+        UA_ID,
+      </if>
+      <if test="msg != null" >
+        MSG,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="failCount != null" >
+        FAIL_COUNT,
+      </if>
+      <if test="sendCount != null" >
+        SEND_COUNT,
+      </if>
+      <if test="sucCount != null" >
+        SUC_COUNT,
+      </if>
+      <if test="sendFail != null" >
+        SEND_FAIL,
+      </if>
+      <if test="receiver != null" >
+        RECEIVER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="smsId != null" >
+        #{smsId,jdbcType=INTEGER},
+      </if>
+      <if test="uaId != null" >
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="failCount != null" >
+        #{failCount,jdbcType=INTEGER},
+      </if>
+      <if test="sendCount != null" >
+        #{sendCount,jdbcType=INTEGER},
+      </if>
+      <if test="sucCount != null" >
+        #{sucCount,jdbcType=INTEGER},
+      </if>
+      <if test="sendFail != null" >
+        #{sendFail,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null" >
+        #{receiver,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunSmsRecord" >
+    <!--@mbggenerated-->
+    update FUN_SMS_RECORD
+    <set >
+      <if test="uaId != null" >
+        UA_ID = #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="msg != null" >
+        MSG = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="failCount != null" >
+        FAIL_COUNT = #{failCount,jdbcType=INTEGER},
+      </if>
+      <if test="sendCount != null" >
+        SEND_COUNT = #{sendCount,jdbcType=INTEGER},
+      </if>
+      <if test="sucCount != null" >
+        SUC_COUNT = #{sucCount,jdbcType=INTEGER},
+      </if>
+      <if test="sendFail != null" >
+        SEND_FAIL = #{sendFail,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null" >
+        RECEIVER = #{receiver,jdbcType=CLOB},
+      </if>
+    </set>
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myfun.repository.admindb.po.AdminFunSmsRecord" >
+    <!--@mbggenerated-->
+    update FUN_SMS_RECORD
+    set UA_ID = #{uaId,jdbcType=INTEGER},
+      MSG = #{msg,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      FAIL_COUNT = #{failCount,jdbcType=INTEGER},
+      SEND_COUNT = #{sendCount,jdbcType=INTEGER},
+      SUC_COUNT = #{sucCount,jdbcType=INTEGER},
+      SEND_FAIL = #{sendFail,jdbcType=VARCHAR},
+      RECEIVER = #{receiver,jdbcType=CLOB}
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunSmsRecord" >
+    <!--@mbggenerated-->
+    update FUN_SMS_RECORD
+    set UA_ID = #{uaId,jdbcType=INTEGER},
+      MSG = #{msg,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      FAIL_COUNT = #{failCount,jdbcType=INTEGER},
+      SEND_COUNT = #{sendCount,jdbcType=INTEGER},
+      SUC_COUNT = #{sucCount,jdbcType=INTEGER},
+      SEND_FAIL = #{sendFail,jdbcType=VARCHAR}
+    where SMS_ID = #{smsId,jdbcType=INTEGER}
+  </update>
+</mapper>

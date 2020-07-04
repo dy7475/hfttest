@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpBuildingPhotoBakMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpBuildingPhotoBak" >
+    <!--@mbggenerated-->
+    <id column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <id column="PHOTO_ID" property="photoId" jdbcType="INTEGER" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="PHOTO_ADDR" property="photoAddr" jdbcType="VARCHAR" />
+    <result column="UPLOAD_USER" property="uploadUser" jdbcType="INTEGER" />
+    <result column="UPLOAD_DATE" property="uploadDate" jdbcType="VARCHAR" />
+    <result column="VERTIFY_FLAG" property="vertifyFlag" jdbcType="BIT" />
+    <result column="RELATIVE_ID" property="relativeId" jdbcType="INTEGER" />
+    <result column="IS_FIRST" property="isFirst" jdbcType="BIT" />
+    <result column="PHOTO_TYPE" property="photoType" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CITY_ID, PHOTO_ID, BUILD_ID, PHOTO_ADDR, UPLOAD_USER, UPLOAD_DATE, VERTIFY_FLAG, 
+    RELATIVE_ID, IS_FIRST, PHOTO_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BUILDING_PHOTO_bak
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    <!--@mbggenerated-->
+    delete from BUILDING_PHOTO_bak
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhotoBak" >
+    <!--@mbggenerated-->
+    insert into BUILDING_PHOTO_bak (CITY_ID, PHOTO_ID, BUILD_ID, 
+      PHOTO_ADDR, UPLOAD_USER, UPLOAD_DATE, 
+      VERTIFY_FLAG, RELATIVE_ID, IS_FIRST, 
+      PHOTO_TYPE)
+    values (#{cityId,jdbcType=SMALLINT}, #{photoId,jdbcType=INTEGER}, #{buildId,jdbcType=INTEGER}, 
+      #{photoAddr,jdbcType=VARCHAR}, #{uploadUser,jdbcType=INTEGER}, #{uploadDate,jdbcType=VARCHAR}, 
+      #{vertifyFlag,jdbcType=BIT}, #{relativeId,jdbcType=INTEGER}, #{isFirst,jdbcType=BIT}, 
+      #{photoType,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhotoBak" >
+    <!--@mbggenerated-->
+    insert into BUILDING_PHOTO_bak
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="photoId != null" >
+        PHOTO_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR,
+      </if>
+      <if test="uploadUser != null" >
+        UPLOAD_USER,
+      </if>
+      <if test="uploadDate != null" >
+        UPLOAD_DATE,
+      </if>
+      <if test="vertifyFlag != null" >
+        VERTIFY_FLAG,
+      </if>
+      <if test="relativeId != null" >
+        RELATIVE_ID,
+      </if>
+      <if test="isFirst != null" >
+        IS_FIRST,
+      </if>
+      <if test="photoType != null" >
+        PHOTO_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="photoId != null" >
+        #{photoId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null" >
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null" >
+        #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null" >
+        #{uploadDate,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null" >
+        #{vertifyFlag,jdbcType=BIT},
+      </if>
+      <if test="relativeId != null" >
+        #{relativeId,jdbcType=INTEGER},
+      </if>
+      <if test="isFirst != null" >
+        #{isFirst,jdbcType=BIT},
+      </if>
+      <if test="photoType != null" >
+        #{photoType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhotoBak" >
+    <!--@mbggenerated-->
+    update BUILDING_PHOTO_bak
+    <set >
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadUser != null" >
+        UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDate != null" >
+        UPLOAD_DATE = #{uploadDate,jdbcType=VARCHAR},
+      </if>
+      <if test="vertifyFlag != null" >
+        VERTIFY_FLAG = #{vertifyFlag,jdbcType=BIT},
+      </if>
+      <if test="relativeId != null" >
+        RELATIVE_ID = #{relativeId,jdbcType=INTEGER},
+      </if>
+      <if test="isFirst != null" >
+        IS_FIRST = #{isFirst,jdbcType=BIT},
+      </if>
+      <if test="photoType != null" >
+        PHOTO_TYPE = #{photoType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpBuildingPhotoBak" >
+    <!--@mbggenerated-->
+    update BUILDING_PHOTO_bak
+    set BUILD_ID = #{buildId,jdbcType=INTEGER},
+      PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      UPLOAD_USER = #{uploadUser,jdbcType=INTEGER},
+      UPLOAD_DATE = #{uploadDate,jdbcType=VARCHAR},
+      VERTIFY_FLAG = #{vertifyFlag,jdbcType=BIT},
+      RELATIVE_ID = #{relativeId,jdbcType=INTEGER},
+      IS_FIRST = #{isFirst,jdbcType=BIT},
+      PHOTO_TYPE = #{photoType,jdbcType=TINYINT}
+    where CITY_ID = #{cityId,jdbcType=SMALLINT}
+      and PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+</mapper>

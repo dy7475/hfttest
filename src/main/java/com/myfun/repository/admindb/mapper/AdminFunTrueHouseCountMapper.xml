@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunTrueHouseCountMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunTrueHouseCount" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="CASE_NO" property="caseNo" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="COMP_NO" property="compNo" jdbcType="VARCHAR" />
+    <result column="DEPT_NO" property="deptNo" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CASE_ID, CASE_TYPE, CITY_ID, CASE_NO, CREATION_TIME, COMP_ID, DEPT_ID, COMP_NO, 
+    DEPT_NO, ARCHIVE_ID, USER_ID, [STATUS]
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_TRUE_HOUSE_COUNT
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_TRUE_HOUSE_COUNT
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunTrueHouseCount" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_TRUE_HOUSE_COUNT (CASE_ID, CASE_TYPE, CITY_ID, 
+      CASE_NO, CREATION_TIME, COMP_ID, 
+      DEPT_ID, COMP_NO, DEPT_NO, 
+      ARCHIVE_ID, USER_ID, [STATUS]
+      )
+    values (#{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, #{cityId,jdbcType=INTEGER}, 
+      #{caseNo,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{compId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, #{deptNo,jdbcType=VARCHAR}, 
+      #{archiveId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunTrueHouseCount" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FUN_TRUE_HOUSE_COUNT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="caseNo != null" >
+        CASE_NO,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="compNo != null" >
+        COMP_NO,
+      </if>
+      <if test="deptNo != null" >
+        DEPT_NO,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="status != null" >
+        [STATUS],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseNo != null" >
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null" >
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null" >
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunTrueHouseCount" >
+    <!--@mbggenerated-->
+    update FUN_TRUE_HOUSE_COUNT
+    <set >
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseNo != null" >
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null" >
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null" >
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        [STATUS] = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunTrueHouseCount" >
+    <!--@mbggenerated-->
+    update FUN_TRUE_HOUSE_COUNT
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      [STATUS] = #{status,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+	
+	<select id="getTrueDayCount" resultType="java.util.HashMap">
+		with t1 as (
+			select count(1) userCount from (
+				select count(1) c from FUN_TRUE_HOUSE_COUNT where creation_time BETWEEN #{queryDate}+' 00:00:00' and #{queryDate}+' 23:59:59' group by archive_id
+			) a
+		),t2 as (
+			select count(1) trueCount from FUN_TRUE_HOUSE_COUNT where creation_time BETWEEN #{queryDate}+' 00:00:00' and #{queryDate}+' 23:59:59' and status=1
+		)
+		select * from t1,t2
+	</select>
+	
+	<select id="getTrueMobileCount" resultType="java.util.HashMap">
+		select count(1) trueCount from FUN_TRUE_HOUSE_COUNT a join FUN_ARCHIVE b on b.USER_MOBILE=#{mobile}
+		where a.archive_id=b.ARCHIVE_ID
+		and a.creation_time between #{startDate} and #{endDate}
+		and status=1
+	</select>
+	
+	<select id="getTrueDeptCount" resultType="java.util.HashMap">
+		select count(1) trueCount from FUN_TRUE_HOUSE_COUNT 
+		where comp_no=#{compNo} and dept_no=#{deptNo}
+		and creation_time between #{startDate} and #{endDate} and status=1
+	</select>
+	<select id="countDetails" resultType="java.lang.Integer">
+		select count(1) as counts from FUN_TRUE_HOUSE_COUNT where CITY_ID=#{param.cityId} and COMP_ID=#{param.compId} 
+		<if test="param.caseId != null" >
+			and CASE_ID = #{param.caseId,jdbcType=INTEGER}
+		</if>
+		<if test="param.caseType != null" >
+			and CASE_TYPE = #{param.caseType,jdbcType=TINYINT}
+		</if>
+		<if test="param.cityId != null" >
+			and CITY_ID = #{param.cityId,jdbcType=INTEGER}
+		</if>
+		<if test="param.caseNo != null" >
+			and CASE_NO = #{param.caseNo,jdbcType=VARCHAR}
+		</if>
+		<if test="param.startTime != null and ''!=param.startTime" >
+			and CREATION_TIME &gt;= #{param.startTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="param.endTime != null and ''!=param.endTime" >
+			and CREATION_TIME &lt;= #{param.endTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="param.compId != null" >
+			and COMP_ID = #{param.compId,jdbcType=INTEGER}
+		</if>
+		<if test="param.deptId != null" >
+			and DEPT_ID = #{param.deptId,jdbcType=INTEGER}
+		</if>
+		<if test="param.compNo != null" >
+			and COMP_NO = #{param.compNo,jdbcType=VARCHAR}
+		</if>
+		<if test="param.deptNo != null" >
+			and DEPT_NO = #{param.deptNo,jdbcType=VARCHAR}
+		</if>
+		<if test="param.archiveId != null" >
+			and ARCHIVE_ID = #{param.archiveId,jdbcType=INTEGER}
+		</if>
+		<if test="param.userId != null" >
+			and USER_ID = #{param.userId,jdbcType=INTEGER}
+		</if>
+		<if test="param.status != null" >
+			and [STATUS] = #{param.status,jdbcType=TINYINT}
+		</if>
+	</select>
+	<select id="caseDetailsList" resultType="java.util.Map">
+		select count(1) as counts,CASE_ID as caseId from FUN_TRUE_HOUSE_COUNT where CITY_ID=#{param.cityId} and COMP_ID=#{param.compId} 
+		<if test="param.caseId != null" >
+			and CASE_ID = #{param.caseId,jdbcType=INTEGER}
+		</if>
+		<if test="param.caseType != null" >
+			and CASE_TYPE = #{param.caseType,jdbcType=TINYINT}
+		</if>
+		<if test="param.cityId != null" >
+			and CITY_ID = #{param.cityId,jdbcType=INTEGER}
+		</if>
+		<if test="param.caseNo != null" >
+			and CASE_NO = #{param.caseNo,jdbcType=VARCHAR}
+		</if>
+		<if test="param.startTime != null and ''!=param.startTime" >
+			and CREATION_TIME &gt;= #{param.startTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="param.endTime != null and ''!=param.endTime" >
+			and CREATION_TIME &lt;= #{param.endTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="param.compId != null" >
+			and COMP_ID = #{param.compId,jdbcType=INTEGER}
+		</if>
+		<if test="param.deptId != null" >
+			and DEPT_ID = #{param.deptId,jdbcType=INTEGER}
+		</if>
+		<if test="param.compNo != null" >
+			and COMP_NO = #{param.compNo,jdbcType=VARCHAR}
+		</if>
+		<if test="param.deptNo != null" >
+			and DEPT_NO = #{param.deptNo,jdbcType=VARCHAR}
+		</if>
+		<if test="param.archiveId != null" >
+			and ARCHIVE_ID = #{param.archiveId,jdbcType=INTEGER}
+		</if>
+		<if test="param.userId != null" >
+			and USER_ID = #{param.userId,jdbcType=INTEGER}
+		</if>
+		<if test="param.status != null" >
+			and [STATUS] = #{param.status,jdbcType=TINYINT}
+		</if>
+		group by CASE_ID
+	</select>
+</mapper>

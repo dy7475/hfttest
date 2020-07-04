@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpAccountTypeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpAccountType">
+    <!--@mbggenerated-->
+    <id column="AT_ID" jdbcType="INTEGER" property="atId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AT_NO" jdbcType="VARCHAR" property="atNo" />
+    <result column="AT_NAME" jdbcType="VARCHAR" property="atName" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="AUDITOR" jdbcType="INTEGER" property="auditor" />
+    <result column="CHARGER" jdbcType="INTEGER" property="charger" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="AUDITOR_DEPT_ID" jdbcType="INTEGER" property="auditorDeptId" />
+    <result column="CHARGER_DEPT_ID" jdbcType="INTEGER" property="chargerDeptId" />
+    <result column="PARTNER_ID" jdbcType="INTEGER" property="partnerId" />
+    <result column="AUDITOR_ORGANIZATION_ID" jdbcType="INTEGER" property="auditorOrganizationId" />
+    <result column="CHARGER_ORGANIZATION_ID" jdbcType="INTEGER" property="chargerOrganizationId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    AT_ID, COMP_ID, AT_NO, AT_NAME, DEPT_ID, AUDITOR, CHARGER, CREATOR_UID, CREATION_TIME, 
+    AUDITOR_DEPT_ID, CHARGER_DEPT_ID, PARTNER_ID, AUDITOR_ORGANIZATION_ID, CHARGER_ORGANIZATION_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ACCOUNT_TYPE
+    where AT_ID = #{atId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from ACCOUNT_TYPE
+    where AT_ID = #{atId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpAccountType">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="atId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_ACCOUNT_TYPE_AT_ID
+    </selectKey>
+    insert into ACCOUNT_TYPE (AT_ID, COMP_ID, AT_NO, 
+      AT_NAME, DEPT_ID, AUDITOR, 
+      CHARGER, CREATOR_UID, CREATION_TIME, 
+      AUDITOR_DEPT_ID, CHARGER_DEPT_ID, PARTNER_ID, 
+      AUDITOR_ORGANIZATION_ID, CHARGER_ORGANIZATION_ID
+      )
+    values (#{atId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{atNo,jdbcType=VARCHAR}, 
+      #{atName,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{auditor,jdbcType=INTEGER}, 
+      #{charger,jdbcType=INTEGER}, #{creatorUid,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{auditorDeptId,jdbcType=INTEGER}, #{chargerDeptId,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, 
+      #{auditorOrganizationId,jdbcType=INTEGER}, #{chargerOrganizationId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpAccountType">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="atId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_ACCOUNT_TYPE_AT_ID
+    </selectKey>
+    insert into ACCOUNT_TYPE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      AT_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="atNo != null">
+        AT_NO,
+      </if>
+      <if test="atName != null">
+        AT_NAME,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="auditor != null">
+        AUDITOR,
+      </if>
+      <if test="charger != null">
+        CHARGER,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="auditorDeptId != null">
+        AUDITOR_DEPT_ID,
+      </if>
+      <if test="chargerDeptId != null">
+        CHARGER_DEPT_ID,
+      </if>
+      <if test="partnerId != null">
+        PARTNER_ID,
+      </if>
+      <if test="auditorOrganizationId != null">
+        AUDITOR_ORGANIZATION_ID,
+      </if>
+      <if test="chargerOrganizationId != null">
+        CHARGER_ORGANIZATION_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{atId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="atNo != null">
+        #{atNo,jdbcType=VARCHAR},
+      </if>
+      <if test="atName != null">
+        #{atName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="auditor != null">
+        #{auditor,jdbcType=INTEGER},
+      </if>
+      <if test="charger != null">
+        #{charger,jdbcType=INTEGER},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditorDeptId != null">
+        #{auditorDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="chargerDeptId != null">
+        #{chargerDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="auditorOrganizationId != null">
+        #{auditorOrganizationId,jdbcType=INTEGER},
+      </if>
+      <if test="chargerOrganizationId != null">
+        #{chargerOrganizationId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpAccountType">
+    <!--@mbggenerated-->
+    update ACCOUNT_TYPE
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="atNo != null">
+        AT_NO = #{atNo,jdbcType=VARCHAR},
+      </if>
+      <if test="atName != null">
+        AT_NAME = #{atName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="auditor != null">
+        AUDITOR = #{auditor,jdbcType=INTEGER},
+      </if>
+      <if test="charger != null">
+        CHARGER = #{charger,jdbcType=INTEGER},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditorDeptId != null">
+        AUDITOR_DEPT_ID = #{auditorDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="chargerDeptId != null">
+        CHARGER_DEPT_ID = #{chargerDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="auditorOrganizationId != null">
+        AUDITOR_ORGANIZATION_ID = #{auditorOrganizationId,jdbcType=INTEGER},
+      </if>
+      <if test="chargerOrganizationId != null">
+        CHARGER_ORGANIZATION_ID = #{chargerOrganizationId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where AT_ID = #{atId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpAccountType">
+    <!--@mbggenerated-->
+    update ACCOUNT_TYPE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      AT_NO = #{atNo,jdbcType=VARCHAR},
+      AT_NAME = #{atName,jdbcType=VARCHAR},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      AUDITOR = #{auditor,jdbcType=INTEGER},
+      CHARGER = #{charger,jdbcType=INTEGER},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      AUDITOR_DEPT_ID = #{auditorDeptId,jdbcType=INTEGER},
+      CHARGER_DEPT_ID = #{chargerDeptId,jdbcType=INTEGER},
+      PARTNER_ID = #{partnerId,jdbcType=INTEGER},
+      AUDITOR_ORGANIZATION_ID = #{auditorOrganizationId,jdbcType=INTEGER},
+      CHARGER_ORGANIZATION_ID = #{chargerOrganizationId,jdbcType=INTEGER}
+    where AT_ID = #{atId,jdbcType=INTEGER}
+  </update>
+	
+	<resultMap extends="BaseResultMap" id="DtoBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpAccountTypeDto">
+		
+	</resultMap>
+	
+	<select id="getAccountTypeList" resultMap="DtoBaseResultMap">
+		SELECT
+		a.AT_ID,a.COMP_ID,a.AT_NO,a.AT_NAME,a.DEPT_ID,a.AUDITOR,a.CHARGER,a.CREATOR_UID,a.CREATION_TIME,a.AUDITOR_DEPT_ID,a.CHARGER_DEPT_ID,AUDITOR_ORGANIZATION_ID,CHARGER_ORGANIZATION_ID
+		FROM ACCOUNT_TYPE a 
+		<choose>
+			<when test="param.userType !=null and param.userType==1">
+				JOIN FUN_USERS b ON b.USER_ID=a.CHARGER
+			</when>
+			<otherwise>
+				JOIN FUN_USERS b ON b.USER_ID=a.AUDITOR
+			</otherwise>
+		</choose>
+		WHERE b.comp_id=#{param.compId,jdbcType=INTEGER} 
+		<if test="param.openPartner != null and 1 == param.openPartner">
+			AND a.PARTNER_ID = #{param.partnerId} 
+		</if>
+		<choose>
+			<when test="param.newOrganization != null and 1 == param.newOrganization and param.organizationId != null and param.organizationId &gt; 0">
+                <choose>
+                    <when test="param.userType !=null and param.userType==1">
+                      AND b.TISSUE_LINE LIKE '%:${param.organizationId}:%'
+                    </when>
+                    <otherwise>
+                      AND b.TISSUE_LINE LIKE '%:${param.organizationId}:%'
+                    </otherwise>
+                </choose>
+			</when>
+			<otherwise>
+				<if test="param.areaId !=null and param.areaId != ''">
+					AND b.AREA_ID=#{param.areaId,jdbcType=INTEGER}
+				</if>
+				<if test="param.regId !=null and param.regId != ''">
+					AND b.REG_ID=#{param.regId,jdbcType=INTEGER}
+				</if>
+				<if test="param.deptId !=null and param.deptId != ''">
+					AND b.DEPT_ID=#{param.deptId,jdbcType=INTEGER}
+				</if>
+				<if test="param.grId !=null and param.grId != ''">
+					AND b.GR_ID=#{param.grId,jdbcType=INTEGER}
+				</if>
+			</otherwise>
+		</choose>
+		<if test="param.userId !=null and param.userId != ''">
+			AND b.USER_ID=#{param.userId,jdbcType=INTEGER}
+		</if>
+		<if test="param.startTime !=null and param.startTime != ''">
+			AND a.CREATION_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime !=null and param.endTime != ''">
+			AND a.CREATION_TIME &lt;= #{param.endTime}
+		</if>
+		ORDER BY A.CREATION_TIME DESC OFFSET 0 ROW FETCH NEXT 1000 ROWS ONLY
+	</select>
+	
+	<select id="getMgrUsrIsInAt" resultType="java.util.Map">
+		SELECT COUNT(*) as flag  FROM ACCOUNT_TYPE WHERE COMP_ID = #{param.compId} AND ( AUDITOR = #{param.userId} OR CHARGER = #{param.userId} ) 
+	</select>
+	
+</mapper>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAllCountdataMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunAllCountdata">
+    <!--@mbggenerated-->
+    <id column="FID" jdbcType="INTEGER" property="fid" />
+    <id column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="CITY_ID" jdbcType="SMALLINT" property="cityId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="ROOM" jdbcType="SMALLINT" property="room" />
+    <result column="PRICE" jdbcType="INTEGER" property="price" />
+    <result column="AREA" jdbcType="NUMERIC" property="area" />
+    <result column="TOTALPRICE" jdbcType="NUMERIC" property="totalprice" />
+    <result column="ROUND" jdbcType="TINYINT" property="round" />
+    <result column="FITMENT" jdbcType="TINYINT" property="fitment" />
+    <result column="STREET" jdbcType="BIT" property="street" />
+    <result column="REGION" jdbcType="INTEGER" property="region" />
+    <result column="HOUSE_TYPE" jdbcType="VARCHAR" property="houseType" />
+    <result column="HOUSE_USEAGE" jdbcType="TINYINT" property="houseUseage" />
+    <result column="FAFA_SITE" jdbcType="SMALLINT" property="fafaSite" />
+    <result column="YEAR" jdbcType="SMALLINT" property="year" />
+    <result column="SOURCE" jdbcType="TINYINT" property="source" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="MAIN_REG" jdbcType="TINYINT" property="mainReg" />
+    <result column="CREATE_DATE" jdbcType="VARCHAR" property="createDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    FID, CASE_TYPE, CITY_ID, CASE_ID, BUILD_NAME, BUILD_ID, ROOM, PRICE, AREA, TOTALPRICE, 
+    ROUND, FITMENT, STREET, REGION, HOUSE_TYPE, HOUSE_USEAGE, FAFA_SITE, YEAR, SOURCE, 
+    USER_ID, DEPT_ID, MAIN_REG, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAllCountdataKey" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ALL_COUNTDATA
+    where FID = #{fid,jdbcType=INTEGER}
+      and CASE_TYPE = #{caseType,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAllCountdataKey">
+    <!--@mbggenerated-->
+    delete from FUN_ALL_COUNTDATA
+    where FID = #{fid,jdbcType=INTEGER}
+      and CASE_TYPE = #{caseType,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunAllCountdata">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="fid" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_ALL_COUNTDATA (CASE_TYPE, CITY_ID, CASE_ID, 
+      BUILD_NAME, BUILD_ID, ROOM, 
+      PRICE, AREA, TOTALPRICE, 
+      ROUND, FITMENT, STREET, 
+      REGION, HOUSE_TYPE, HOUSE_USEAGE, 
+      FAFA_SITE, YEAR, SOURCE, 
+      USER_ID, DEPT_ID, MAIN_REG, 
+      CREATE_DATE)
+    values (#{caseType,jdbcType=TINYINT}, #{cityId,jdbcType=SMALLINT}, #{caseId,jdbcType=INTEGER}, 
+      #{buildName,jdbcType=VARCHAR}, #{buildId,jdbcType=INTEGER}, #{room,jdbcType=SMALLINT}, 
+      #{price,jdbcType=INTEGER}, #{area,jdbcType=NUMERIC}, #{totalprice,jdbcType=NUMERIC}, 
+      #{round,jdbcType=TINYINT}, #{fitment,jdbcType=TINYINT}, #{street,jdbcType=BIT}, 
+      #{region,jdbcType=INTEGER}, #{houseType,jdbcType=VARCHAR}, #{houseUseage,jdbcType=TINYINT}, 
+      #{fafaSite,jdbcType=SMALLINT}, #{year,jdbcType=SMALLINT}, #{source,jdbcType=TINYINT}, 
+      #{userId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{mainReg,jdbcType=TINYINT}, 
+      #{createDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAllCountdata">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="fid" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_ALL_COUNTDATA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="room != null">
+        ROOM,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="area != null">
+        AREA,
+      </if>
+      <if test="totalprice != null">
+        TOTALPRICE,
+      </if>
+      <if test="round != null">
+        ROUND,
+      </if>
+      <if test="fitment != null">
+        FITMENT,
+      </if>
+      <if test="street != null">
+        STREET,
+      </if>
+      <if test="region != null">
+        REGION,
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE,
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE,
+      </if>
+      <if test="fafaSite != null">
+        FAFA_SITE,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="mainReg != null">
+        MAIN_REG,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=SMALLINT},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=NUMERIC},
+      </if>
+      <if test="totalprice != null">
+        #{totalprice,jdbcType=NUMERIC},
+      </if>
+      <if test="round != null">
+        #{round,jdbcType=TINYINT},
+      </if>
+      <if test="fitment != null">
+        #{fitment,jdbcType=TINYINT},
+      </if>
+      <if test="street != null">
+        #{street,jdbcType=BIT},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=INTEGER},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null">
+        #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="fafaSite != null">
+        #{fafaSite,jdbcType=SMALLINT},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=SMALLINT},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="mainReg != null">
+        #{mainReg,jdbcType=TINYINT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAllCountdata">
+    <!--@mbggenerated-->
+    update FUN_ALL_COUNTDATA
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="room != null">
+        ROOM = #{room,jdbcType=SMALLINT},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        AREA = #{area,jdbcType=NUMERIC},
+      </if>
+      <if test="totalprice != null">
+        TOTALPRICE = #{totalprice,jdbcType=NUMERIC},
+      </if>
+      <if test="round != null">
+        ROUND = #{round,jdbcType=TINYINT},
+      </if>
+      <if test="fitment != null">
+        FITMENT = #{fitment,jdbcType=TINYINT},
+      </if>
+      <if test="street != null">
+        STREET = #{street,jdbcType=BIT},
+      </if>
+      <if test="region != null">
+        REGION = #{region,jdbcType=INTEGER},
+      </if>
+      <if test="houseType != null">
+        HOUSE_TYPE = #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseUseage != null">
+        HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      </if>
+      <if test="fafaSite != null">
+        FAFA_SITE = #{fafaSite,jdbcType=SMALLINT},
+      </if>
+      <if test="year != null">
+        YEAR = #{year,jdbcType=SMALLINT},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="mainReg != null">
+        MAIN_REG = #{mainReg,jdbcType=TINYINT},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FID = #{fid,jdbcType=INTEGER}
+      and CASE_TYPE = #{caseType,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAllCountdata">
+    <!--@mbggenerated-->
+    update FUN_ALL_COUNTDATA
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      ROOM = #{room,jdbcType=SMALLINT},
+      PRICE = #{price,jdbcType=INTEGER},
+      AREA = #{area,jdbcType=NUMERIC},
+      TOTALPRICE = #{totalprice,jdbcType=NUMERIC},
+      ROUND = #{round,jdbcType=TINYINT},
+      FITMENT = #{fitment,jdbcType=TINYINT},
+      STREET = #{street,jdbcType=BIT},
+      REGION = #{region,jdbcType=INTEGER},
+      HOUSE_TYPE = #{houseType,jdbcType=VARCHAR},
+      HOUSE_USEAGE = #{houseUseage,jdbcType=TINYINT},
+      FAFA_SITE = #{fafaSite,jdbcType=SMALLINT},
+      YEAR = #{year,jdbcType=SMALLINT},
+      SOURCE = #{source,jdbcType=TINYINT},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      MAIN_REG = #{mainReg,jdbcType=TINYINT},
+      CREATE_DATE = #{createDate,jdbcType=VARCHAR}
+    where FID = #{fid,jdbcType=INTEGER}
+      and CASE_TYPE = #{caseType,jdbcType=TINYINT}
+  </update>
+</mapper>

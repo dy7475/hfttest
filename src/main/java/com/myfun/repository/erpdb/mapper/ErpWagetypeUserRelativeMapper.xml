@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpWagetypeUserRelativeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpWagetypeUserRelative">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="WAGE_TYPE_ID" jdbcType="VARCHAR" property="wageTypeId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="ROYALTY_RANGE" jdbcType="TINYINT" property="royaltyRange" />
+    <result column="RANGE_ID" jdbcType="VARCHAR" property="rangeId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, USER_ID, WAGE_TYPE_ID, CREATE_TIME, ROYALTY_RANGE, RANGE_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpWagetypeUserRelativeExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from WAGETYPE_USER_RELATIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WAGETYPE_USER_RELATIVE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from WAGETYPE_USER_RELATIVE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpWagetypeUserRelativeExample">
+    <!--@mbggenerated-->
+    delete from WAGETYPE_USER_RELATIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpWagetypeUserRelative" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into WAGETYPE_USER_RELATIVE (USER_ID, WAGE_TYPE_ID, CREATE_TIME, 
+      ROYALTY_RANGE, RANGE_ID)
+    values (#{userId,jdbcType=INTEGER}, #{wageTypeId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{royaltyRange,jdbcType=TINYINT}, #{rangeId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpWagetypeUserRelative" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into WAGETYPE_USER_RELATIVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="wageTypeId != null">
+        WAGE_TYPE_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="royaltyRange != null">
+        ROYALTY_RANGE,
+      </if>
+      <if test="rangeId != null">
+        RANGE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="wageTypeId != null">
+        #{wageTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="royaltyRange != null">
+        #{royaltyRange,jdbcType=TINYINT},
+      </if>
+      <if test="rangeId != null">
+        #{rangeId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpWagetypeUserRelativeExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from WAGETYPE_USER_RELATIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update WAGETYPE_USER_RELATIVE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.wageTypeId != null">
+        WAGE_TYPE_ID = #{record.wageTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.royaltyRange != null">
+        ROYALTY_RANGE = #{record.royaltyRange,jdbcType=TINYINT},
+      </if>
+      <if test="record.rangeId != null">
+        RANGE_ID = #{record.rangeId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update WAGETYPE_USER_RELATIVE
+    set ID = #{record.id,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      WAGE_TYPE_ID = #{record.wageTypeId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      ROYALTY_RANGE = #{record.royaltyRange,jdbcType=TINYINT},
+      RANGE_ID = #{record.rangeId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpWagetypeUserRelative">
+    <!--@mbggenerated-->
+    update WAGETYPE_USER_RELATIVE
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="wageTypeId != null">
+        WAGE_TYPE_ID = #{wageTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="royaltyRange != null">
+        ROYALTY_RANGE = #{royaltyRange,jdbcType=TINYINT},
+      </if>
+      <if test="rangeId != null">
+        RANGE_ID = #{rangeId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpWagetypeUserRelative">
+    <!--@mbggenerated-->
+    update WAGETYPE_USER_RELATIVE
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      WAGE_TYPE_ID = #{wageTypeId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      ROYALTY_RANGE = #{royaltyRange,jdbcType=TINYINT},
+      RANGE_ID = #{rangeId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+	<resultMap extends="BaseResultMap" id="BaseResultMapDto" type="com.myfun.repository.erpdb.dto.ErpWagetypeUserRelativeDto">
+		<result column="WAGE_TYPE_NAME" jdbcType="VARCHAR" property="wageTypeName" />
+		<result column="MANAGE_PLAN" jdbcType="VARCHAR" property="managePlan" />
+		<result column="PERFORMANCE_TYPE" jdbcType="VARCHAR" property="performanceType" />
+	</resultMap>
+	<select id="getUserWageTypeList" resultMap="BaseResultMapDto">
+		SELECT
+		A.USER_ID, A.WAGE_TYPE_ID, B.WAGE_TYPE_NAME, B.MANAGE_PLAN, B.PERFORMANCE_TYPE
+		FROM WAGETYPE_USER_RELATIVE A JOIN FUN_WAGE_TYPE_NEW B ON A.WAGE_TYPE_ID=B.ID
+		<where>
+			<!-- 都没传就什么都不查 -->
+			<if test="userIds == null and wageTypeId == null">
+				AND 1 = 2
+			</if>
+			<if test="userIds != null">
+				AND A.USER_ID IN 
+				<foreach close=")" collection="userIds" item="userId" open="(" separator=",">
+					#{userId}
+				</foreach>
+			</if>
+			<if test="wageTypeId != null">
+				AND WAGE_TYPE_ID = #{wageTypeId}
+			</if>
+		</where>
+	</select>
+	<select id="getSalaryPlanByUserId" resultType="java.util.Map">
+		SELECT
+		A.USER_ID as userId, A.WAGE_TYPE_ID as id,B.MANAGE_PLAN as managePlan,B.PERFORMANCE_TYPE as performanceType,B.WAGE_TYPE_NAME as wageTypeName
+		FROM WAGETYPE_USER_RELATIVE A JOIN FUN_WAGE_TYPE_NEW B ON A.WAGE_TYPE_ID=B.ID 
+		where B.COMP_ID = #{compId} and A.USER_ID = #{userId} order by B.PERFORMANCE_TYPE
+	</select>
+	<select id="getOneSalaryPlanUserList" resultType="java.util.Map">
+		WITH t_planuser as (
+			select ID,ROYALTY_RANGE,RANGE_ID,USER_ID from WAGETYPE_USER_RELATIVE where WAGE_TYPE_ID=#{wageTypeId}
+		)
+		select  B.ID as id,A.USER_ID as userId,A.USER_NAME as userName,iif(B.USER_ID IS NOT NULL,1,0) as checkFlag,B.ROYALTY_RANGE as royaltyRange,B.RANGE_ID as rangeId from FUN_USERS A left join t_planuser B ON A.USER_ID = B.USER_ID
+		where A.COMP_ID = #{compId} 
+		<if test="deptId != null">
+			and A.DEPT_ID = #{deptId}
+		</if>
+		<if test="userRole != null">
+			and A.USER_POSITION = #{userRole}
+		</if>
+		and A.USER_JOB_DATE&lt;=#{endTime} and (A.USER_WRITEOFF=0 or (A.USER_WRITEOFF !=0 and A.WRITEOFF_TIME&gt;=#{startTime}))
+	</select>
+	<select id="getUserWageTypeRelativeMap" resultType="java.util.Map">
+		SELECT A.WAGE_TYPE_ID,B.MANAGE_PLAN from WAGETYPE_USER_RELATIVE A LEFT JOIN FUN_WAGE_TYPE_NEW B ON A.WAGE_TYPE_ID = B.ID 
+		where B.COMP_ID = #{compId} and A.USER_ID = #{userId}
+	</select>
+	
+	<select id="getUserWageTypeRelativeAndManagePlanMap" resultType="java.util.Map">
+		SELECT B.MANAGE_PLAN,A.USER_ID from WAGETYPE_USER_RELATIVE A LEFT JOIN FUN_WAGE_TYPE_NEW B ON A.WAGE_TYPE_ID = B.ID 
+		 join (select MANAGE_PLAN,PERFORMANCE_TYPE from FUN_WAGE_TYPE_NEW where ID = #{wageTypeId}) C ON B.MANAGE_PLAN = C.MANAGE_PLAN and B.PERFORMANCE_TYPE = C.PERFORMANCE_TYPE where B.COMP_ID = #{compId} and A.WAGE_TYPE_ID!=#{wageTypeId}
+	</select>
+	<update id="updateWagetypeUserRelative">
+		MERGE INTO WAGETYPE_USER_RELATIVE A USING (
+			SELECT #{wageTypeId} AS WAGE_TYPE_ID, D.USER_ID FROM FUN_USERS D 
+			left join WAGETYPE_USER_RELATIVE C ON  D.USER_ID=C.USER_ID 
+			left join FUN_WAGE_TYPE_NEW B ON C.WAGE_TYPE_ID = B.ID
+			WHERE
+			D.USER_WRITEOFF = 0 AND D.COMP_ID=#{compId}
+			<if test="deptId != null">
+				AND D.DEPT_ID= #{deptId}
+			</if>
+			<if test="userPosition != null">
+				AND D.USER_POSITION= #{userPosition}
+			</if>
+			GROUP BY D.USER_ID
+		)B
+		ON A.WAGE_TYPE_ID=B.WAGE_TYPE_ID AND A.USER_ID=B.USER_ID 
+		when matched THEN update set A.WAGE_TYPE_ID = B.WAGE_TYPE_ID
+		WHEN NOT MATCHED THEN INSERT(USER_ID, WAGE_TYPE_ID, CREATE_TIME, ROYALTY_RANGE,SALARY_TYPE_ID)
+		VALUES (B.USER_ID,B.WAGE_TYPE_ID,GETDATE(),0,#{salaryTypeId});
+	</update>
+	<update id="updateWagetypeUserRelativeOffUserId">
+		MERGE INTO WAGETYPE_USER_RELATIVE A USING (
+			SELECT #{wageTypeId} AS WAGE_TYPE_ID, D.USER_ID FROM FUN_USERS D 
+			left join WAGETYPE_USER_RELATIVE C ON  D.USER_ID=C.USER_ID 
+			left join FUN_WAGE_TYPE_NEW B ON C.WAGE_TYPE_ID = B.ID
+			WHERE
+			D.USER_WRITEOFF = 0 AND D.COMP_ID=#{compId}
+			<if test="deptId != null">
+				AND D.DEPT_ID= #{deptId}
+			</if>
+			<if test="userId != null">
+				AND D.USER_ID= #{userId}
+			</if>
+			GROUP BY D.USER_ID
+		)B
+		ON A.WAGE_TYPE_ID=B.WAGE_TYPE_ID AND A.USER_ID=B.USER_ID 
+		when matched THEN update set A.WAGE_TYPE_ID = B.WAGE_TYPE_ID
+		WHEN NOT MATCHED THEN INSERT(USER_ID, WAGE_TYPE_ID, CREATE_TIME, ROYALTY_RANGE,SALARY_TYPE_ID)
+		VALUES (B.USER_ID,B.WAGE_TYPE_ID,GETDATE(),0,#{salaryTypeId});
+	</update>
+	<select id="getWageTypeDataOFfOffSalaryTypeId" resultType="java.util.Map">
+		SELECT 
+		iif(PERFORMANCE_TYPE=0,B.ID,null) as totalId,iif(PERFORMANCE_TYPE=1,B.ID,null) as transferId,
+		iif(PERFORMANCE_TYPE=2,B.ID,null) as secondhandId,iif(PERFORMANCE_TYPE=3,B.ID,null) as financeId, 
+		iif(PERFORMANCE_TYPE=4,B.ID,null) as leaseId,iif(PERFORMANCE_TYPE=5,B.ID,null) as newhouseId
+		 from WAGETYPE_USER_RELATIVE A LEFT JOIN FUN_WAGE_TYPE_NEW B ON A.WAGE_TYPE_ID = B.ID 
+		where B.COMP_ID = #{compId} and A.SALARY_TYPE_ID = #{salaryId}
+	</select>
+	<delete id="deleteWageTypeUserRelativeByRole">
+		delete C
+		FROM FUN_USERS D
+		left join WAGETYPE_USER_RELATIVE C ON  D.USER_ID=C.USER_ID
+		left join FUN_WAGE_TYPE_NEW B ON C.WAGE_TYPE_ID = B.ID
+		WHERE
+		D.USER_WRITEOFF = 0 AND D.COMP_ID=#{compId}
+		AND D.USER_POSITION= #{roleId}
+		AND B.MANAGE_PLAN=#{managePlan} AND B.PERFORMANCE_TYPE =#{performanceType}
+	</delete>
+	<delete id="deleteWageTypeUserRelativeByUserId">
+		delete C
+		FROM FUN_USERS D
+		LEFT join WAGETYPE_USER_RELATIVE C ON  D.USER_ID=C.USER_ID
+		LEFT join FUN_WAGE_TYPE_NEW B ON C.WAGE_TYPE_ID = B.ID
+		WHERE
+		D.COMP_ID=#{compId}
+		AND D.USER_ID= #{userId}
+		AND B.MANAGE_PLAN=#{managePlan} AND B.PERFORMANCE_TYPE =#{performanceType}
+	</delete>
+	<select id="selectWageTypeByWageTypeIdAndUserId" resultType="int">
+		SELECT 
+		USER_ID
+		from WAGETYPE_USER_RELATIVE
+		where WAGE_TYPE_ID = #{wagetypeId} and USER_ID=#{userId}
+	</select>
+	
+</mapper>

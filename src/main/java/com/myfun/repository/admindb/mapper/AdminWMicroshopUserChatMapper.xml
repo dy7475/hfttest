@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminWMicroshopUserChatMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminWMicroshopUserChat" >
+    <!--@mbggenerated-->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="chat_name" property="chatName" jdbcType="VARCHAR" />
+    <result column="chat_pwd" property="chatPwd" jdbcType="VARCHAR" />
+    <result column="chat_token" property="chatToken" jdbcType="VARCHAR" />
+    <result column="chat_host" property="chatHost" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    id, chat_name, chat_pwd, chat_token, chat_host
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from w_microshop_user_chat
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from w_microshop_user_chat
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopUserChat" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_user_chat (chat_name, chat_pwd, chat_token, 
+      chat_host)
+    values (#{chatName,jdbcType=VARCHAR}, #{chatPwd,jdbcType=VARCHAR}, #{chatToken,jdbcType=VARCHAR}, 
+      #{chatHost,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopUserChat" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into w_microshop_user_chat
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chatName != null" >
+        chat_name,
+      </if>
+      <if test="chatPwd != null" >
+        chat_pwd,
+      </if>
+      <if test="chatToken != null" >
+        chat_token,
+      </if>
+      <if test="chatHost != null" >
+        chat_host,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chatName != null" >
+        #{chatName,jdbcType=VARCHAR},
+      </if>
+      <if test="chatPwd != null" >
+        #{chatPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="chatToken != null" >
+        #{chatToken,jdbcType=VARCHAR},
+      </if>
+      <if test="chatHost != null" >
+        #{chatHost,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopUserChat" >
+    <!--@mbggenerated-->
+    update w_microshop_user_chat
+    <set >
+      <if test="chatName != null" >
+        chat_name = #{chatName,jdbcType=VARCHAR},
+      </if>
+      <if test="chatPwd != null" >
+        chat_pwd = #{chatPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="chatToken != null" >
+        chat_token = #{chatToken,jdbcType=VARCHAR},
+      </if>
+      <if test="chatHost != null" >
+        chat_host = #{chatHost,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminWMicroshopUserChat" >
+    <!--@mbggenerated-->
+    update w_microshop_user_chat
+    set chat_name = #{chatName,jdbcType=VARCHAR},
+      chat_pwd = #{chatPwd,jdbcType=VARCHAR},
+      chat_token = #{chatToken,jdbcType=VARCHAR},
+      chat_host = #{chatHost,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

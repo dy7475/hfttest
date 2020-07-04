@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminBanMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminBan" >
+    <!--@mbggenerated-->
+    <id column="BAN_ID" property="banId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <result column="BAN_USER_NAME" property="banUserName" jdbcType="VARCHAR" />
+    <result column="CAUSE" property="cause" jdbcType="VARCHAR" />
+    <result column="MSG" property="msg" jdbcType="VARCHAR" />
+    <result column="BEGIN_TIME" property="beginTime" jdbcType="TIMESTAMP" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="TYPE" property="type" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    BAN_ID, ARCHIVE_ID, CITY_ID, BAN_USER_NAME, CAUSE, MSG, BEGIN_TIME, END_TIME, TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BAN
+    where BAN_ID = #{banId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from BAN
+    where BAN_ID = #{banId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminBan" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="banId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BAN (ARCHIVE_ID, CITY_ID, BAN_USER_NAME, 
+      CAUSE, MSG, BEGIN_TIME, 
+      END_TIME, TYPE)
+    values (#{archiveId,jdbcType=INTEGER}, #{cityId,jdbcType=SMALLINT}, #{banUserName,jdbcType=VARCHAR}, 
+      #{cause,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, #{beginTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{type,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminBan" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="banId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into BAN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="banUserName != null" >
+        BAN_USER_NAME,
+      </if>
+      <if test="cause != null" >
+        CAUSE,
+      </if>
+      <if test="msg != null" >
+        MSG,
+      </if>
+      <if test="beginTime != null" >
+        BEGIN_TIME,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="banUserName != null" >
+        #{banUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="cause != null" >
+        #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null" >
+        #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminBan" >
+    <!--@mbggenerated-->
+    update BAN
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="banUserName != null" >
+        BAN_USER_NAME = #{banUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="cause != null" >
+        CAUSE = #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        MSG = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null" >
+        BEGIN_TIME = #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=TINYINT},
+      </if>
+    </set>
+    where BAN_ID = #{banId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminBan" >
+    <!--@mbggenerated-->
+    update BAN
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=SMALLINT},
+      BAN_USER_NAME = #{banUserName,jdbcType=VARCHAR},
+      CAUSE = #{cause,jdbcType=VARCHAR},
+      MSG = #{msg,jdbcType=VARCHAR},
+      BEGIN_TIME = #{beginTime,jdbcType=TIMESTAMP},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      TYPE = #{type,jdbcType=TINYINT}
+    where BAN_ID = #{banId,jdbcType=INTEGER}
+  </update>
+  <select id="getSlientRecordByArchiveId" parameterType="com.myfun.repository.admindb.po.AdminBan" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List" />
+    from BAN
+    where ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+    and TYPE = #{type,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByArchiveId" parameterType="com.myfun.repository.admindb.po.AdminBan">
+  	delete from BAN where BAN_ID=(select top 1 BAN_ID from BAN where ARCHIVE_ID=#{archiveId} and TYPE=#{type} order by BEGIN_TIME desc)
+  </delete>
+  <select id="getBanList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select top 5 <include refid="Base_Column_List" /> from BAN where ARCHIVE_ID=#{archiveId} and TYPE=1 order by BEGIN_TIME desc
+  </select>
+  <select id="getDownList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select top 5 <include refid="Base_Column_List" /> from BAN where ARCHIVE_ID=#{archiveId} and TYPE=2 order by BEGIN_TIME desc
+  </select>
+
+	<select id="getIsBanIng" resultType="java.lang.Integer">
+		SELECT COUNT(1) FROM BAN
+		<where>
+			<if test="null != type">AND TYPE = #{type}</if>
+			<if test="null != archiveId">AND ARCHIVE_ID = #{archiveId}</if>
+			<if test="null != nowDate">AND END_TIME &gt; #{nowDate}</if>
+		</where>
+	</select>
+	
+	<delete id="deleteBan" parameterType="java.lang.Integer">
+		DELETE FROM BAN WHERE BAN_ID=(
+			SELECT TOP 1 BAN_ID FROM BAN 
+			WHERE ARCHIVE_ID=#{archiveId} AND TYPE=1 ORDER BY BEGIN_TIME DESC
+		)
+	</delete>
+	
+</mapper>

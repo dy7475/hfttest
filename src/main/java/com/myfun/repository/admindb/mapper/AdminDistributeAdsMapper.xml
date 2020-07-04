@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminDistributeAdsMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminDistributeAds" >
+    <!--@mbggenerated-->
+    <id column="PHOTO_ID" property="photoId" jdbcType="INTEGER" />
+    <result column="PHOTO_ADDR" property="photoAddr" jdbcType="VARCHAR" />
+    <result column="PHOTO_SUBJECT" property="photoSubject" jdbcType="VARCHAR" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="TINYINT" />
+    <result column="PUBLISH_URL" property="publishUrl" jdbcType="VARCHAR" />
+    <result column="PUBLISH_DUE" property="publishDue" jdbcType="TIMESTAMP" />
+    <result column="PUBLISH_FLAG" property="publishFlag" jdbcType="TINYINT" />
+    <result column="PUBLISH_CITY" property="publishCity" jdbcType="VARCHAR" />
+    <result column="PUBLISH_COMP" property="publishComp" jdbcType="INTEGER" />
+    <result column="PUBLISH_USER" property="publishUser" jdbcType="INTEGER" />
+    <result column="PUBLISH_TIME" property="publishTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_USER" property="updateUser" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    PHOTO_ID, PHOTO_ADDR, PHOTO_SUBJECT, SEQ_NO, PUBLISH_URL, PUBLISH_DUE, PUBLISH_FLAG, 
+    PUBLISH_CITY, PUBLISH_COMP, PUBLISH_USER, PUBLISH_TIME, UPDATE_USER, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from DISTRIBUTE_ADS
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from DISTRIBUTE_ADS
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminDistributeAds" >
+    <!--@mbggenerated-->
+    insert into DISTRIBUTE_ADS (PHOTO_ID, PHOTO_ADDR, PHOTO_SUBJECT, 
+      SEQ_NO, PUBLISH_URL, PUBLISH_DUE, 
+      PUBLISH_FLAG, PUBLISH_CITY, PUBLISH_COMP, 
+      PUBLISH_USER, PUBLISH_TIME, UPDATE_USER, 
+      UPDATE_TIME)
+    values (#{photoId,jdbcType=INTEGER}, #{photoAddr,jdbcType=VARCHAR}, #{photoSubject,jdbcType=VARCHAR}, 
+      #{seqNo,jdbcType=TINYINT}, #{publishUrl,jdbcType=VARCHAR}, #{publishDue,jdbcType=TIMESTAMP}, 
+      #{publishFlag,jdbcType=TINYINT}, #{publishCity,jdbcType=VARCHAR}, #{publishComp,jdbcType=INTEGER}, 
+      #{publishUser,jdbcType=INTEGER}, #{publishTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminDistributeAds" >
+    <!--@mbggenerated-->
+    insert into DISTRIBUTE_ADS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="photoId != null" >
+        PHOTO_ID,
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR,
+      </if>
+      <if test="photoSubject != null" >
+        PHOTO_SUBJECT,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="publishUrl != null" >
+        PUBLISH_URL,
+      </if>
+      <if test="publishDue != null" >
+        PUBLISH_DUE,
+      </if>
+      <if test="publishFlag != null" >
+        PUBLISH_FLAG,
+      </if>
+      <if test="publishCity != null" >
+        PUBLISH_CITY,
+      </if>
+      <if test="publishComp != null" >
+        PUBLISH_COMP,
+      </if>
+      <if test="publishUser != null" >
+        PUBLISH_USER,
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME,
+      </if>
+      <if test="updateUser != null" >
+        UPDATE_USER,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="photoId != null" >
+        #{photoId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null" >
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="photoSubject != null" >
+        #{photoSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="publishUrl != null" >
+        #{publishUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDue != null" >
+        #{publishDue,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishFlag != null" >
+        #{publishFlag,jdbcType=TINYINT},
+      </if>
+      <if test="publishCity != null" >
+        #{publishCity,jdbcType=VARCHAR},
+      </if>
+      <if test="publishComp != null" >
+        #{publishComp,jdbcType=INTEGER},
+      </if>
+      <if test="publishUser != null" >
+        #{publishUser,jdbcType=INTEGER},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminDistributeAds" >
+    <!--@mbggenerated-->
+    update DISTRIBUTE_ADS
+    <set >
+      <if test="photoAddr != null" >
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="photoSubject != null" >
+        PHOTO_SUBJECT = #{photoSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      </if>
+      <if test="publishUrl != null" >
+        PUBLISH_URL = #{publishUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDue != null" >
+        PUBLISH_DUE = #{publishDue,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishFlag != null" >
+        PUBLISH_FLAG = #{publishFlag,jdbcType=TINYINT},
+      </if>
+      <if test="publishCity != null" >
+        PUBLISH_CITY = #{publishCity,jdbcType=VARCHAR},
+      </if>
+      <if test="publishComp != null" >
+        PUBLISH_COMP = #{publishComp,jdbcType=INTEGER},
+      </if>
+      <if test="publishUser != null" >
+        PUBLISH_USER = #{publishUser,jdbcType=INTEGER},
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminDistributeAds" >
+    <!--@mbggenerated-->
+    update DISTRIBUTE_ADS
+    set PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      PHOTO_SUBJECT = #{photoSubject,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=TINYINT},
+      PUBLISH_URL = #{publishUrl,jdbcType=VARCHAR},
+      PUBLISH_DUE = #{publishDue,jdbcType=TIMESTAMP},
+      PUBLISH_FLAG = #{publishFlag,jdbcType=TINYINT},
+      PUBLISH_CITY = #{publishCity,jdbcType=VARCHAR},
+      PUBLISH_COMP = #{publishComp,jdbcType=INTEGER},
+      PUBLISH_USER = #{publishUser,jdbcType=INTEGER},
+      PUBLISH_TIME = #{publishTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where PHOTO_ID = #{photoId,jdbcType=INTEGER}
+  </update>
+</mapper>

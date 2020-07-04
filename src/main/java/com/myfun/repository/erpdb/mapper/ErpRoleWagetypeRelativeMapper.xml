@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpRoleWagetypeRelativeMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelative">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="TRANSFER_ID" jdbcType="INTEGER" property="transferId" />
+    <result column="TOTAL_ID" jdbcType="INTEGER" property="totalId" />
+    <result column="SECONDHAND_ID" jdbcType="INTEGER" property="secondhandId" />
+    <result column="LEASE_ID" jdbcType="INTEGER" property="leaseId" />
+    <result column="FINANCE_ID" jdbcType="INTEGER" property="financeId" />
+    <result column="NEWHOUSE_ID" jdbcType="INTEGER" property="newhouseId" />
+    <result column="SALARY_TYPE_ID" jdbcType="INTEGER" property="salaryTypeId" />
+    <result column="MANAGE_TYPE" jdbcType="TINYINT" property="manageType" />
+    <result column="COUNT_TYPE" jdbcType="TINYINT" property="countType" />
+    <result column="IS_CHECK" jdbcType="TINYINT" property="isCheck" />
+    <result column="NEWTOTAL_ID" jdbcType="INTEGER" property="newtotalId" />
+    <result column="ROYALTY_TYPE" jdbcType="TINYINT" property="royaltyType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, TRANSFER_ID, TOTAL_ID, SECONDHAND_ID, LEASE_ID, FINANCE_ID, NEWHOUSE_ID, 
+    SALARY_TYPE_ID, MANAGE_TYPE, COUNT_TYPE, IS_CHECK, NEWTOTAL_ID, ROYALTY_TYPE
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelativeExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ROLE_WAGETYPE_RELATIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ROLE_WAGETYPE_RELATIVE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from ROLE_WAGETYPE_RELATIVE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelativeExample">
+    <!--@mbggenerated-->
+    delete from ROLE_WAGETYPE_RELATIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelative" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ROLE_WAGETYPE_RELATIVE (COMP_ID, TRANSFER_ID, TOTAL_ID, 
+      SECONDHAND_ID, LEASE_ID, FINANCE_ID, 
+      NEWHOUSE_ID, SALARY_TYPE_ID, MANAGE_TYPE, 
+      COUNT_TYPE, IS_CHECK, NEWTOTAL_ID, 
+      ROYALTY_TYPE)
+    values (#{compId,jdbcType=INTEGER}, #{transferId,jdbcType=INTEGER}, #{totalId,jdbcType=INTEGER}, 
+      #{secondhandId,jdbcType=INTEGER}, #{leaseId,jdbcType=INTEGER}, #{financeId,jdbcType=INTEGER}, 
+      #{newhouseId,jdbcType=INTEGER}, #{salaryTypeId,jdbcType=INTEGER}, #{manageType,jdbcType=TINYINT}, 
+      #{countType,jdbcType=TINYINT}, #{isCheck,jdbcType=TINYINT}, #{newtotalId,jdbcType=INTEGER}, 
+      #{royaltyType,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelative" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into ROLE_WAGETYPE_RELATIVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="transferId != null">
+        TRANSFER_ID,
+      </if>
+      <if test="totalId != null">
+        TOTAL_ID,
+      </if>
+      <if test="secondhandId != null">
+        SECONDHAND_ID,
+      </if>
+      <if test="leaseId != null">
+        LEASE_ID,
+      </if>
+      <if test="financeId != null">
+        FINANCE_ID,
+      </if>
+      <if test="newhouseId != null">
+        NEWHOUSE_ID,
+      </if>
+      <if test="salaryTypeId != null">
+        SALARY_TYPE_ID,
+      </if>
+      <if test="manageType != null">
+        MANAGE_TYPE,
+      </if>
+      <if test="countType != null">
+        COUNT_TYPE,
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK,
+      </if>
+      <if test="newtotalId != null">
+        NEWTOTAL_ID,
+      </if>
+      <if test="royaltyType != null">
+        ROYALTY_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="transferId != null">
+        #{transferId,jdbcType=INTEGER},
+      </if>
+      <if test="totalId != null">
+        #{totalId,jdbcType=INTEGER},
+      </if>
+      <if test="secondhandId != null">
+        #{secondhandId,jdbcType=INTEGER},
+      </if>
+      <if test="leaseId != null">
+        #{leaseId,jdbcType=INTEGER},
+      </if>
+      <if test="financeId != null">
+        #{financeId,jdbcType=INTEGER},
+      </if>
+      <if test="newhouseId != null">
+        #{newhouseId,jdbcType=INTEGER},
+      </if>
+      <if test="salaryTypeId != null">
+        #{salaryTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="manageType != null">
+        #{manageType,jdbcType=TINYINT},
+      </if>
+      <if test="countType != null">
+        #{countType,jdbcType=TINYINT},
+      </if>
+      <if test="isCheck != null">
+        #{isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="newtotalId != null">
+        #{newtotalId,jdbcType=INTEGER},
+      </if>
+      <if test="royaltyType != null">
+        #{royaltyType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelativeExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from ROLE_WAGETYPE_RELATIVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update ROLE_WAGETYPE_RELATIVE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.transferId != null">
+        TRANSFER_ID = #{record.transferId,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalId != null">
+        TOTAL_ID = #{record.totalId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondhandId != null">
+        SECONDHAND_ID = #{record.secondhandId,jdbcType=INTEGER},
+      </if>
+      <if test="record.leaseId != null">
+        LEASE_ID = #{record.leaseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.financeId != null">
+        FINANCE_ID = #{record.financeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.newhouseId != null">
+        NEWHOUSE_ID = #{record.newhouseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.salaryTypeId != null">
+        SALARY_TYPE_ID = #{record.salaryTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.manageType != null">
+        MANAGE_TYPE = #{record.manageType,jdbcType=TINYINT},
+      </if>
+      <if test="record.countType != null">
+        COUNT_TYPE = #{record.countType,jdbcType=TINYINT},
+      </if>
+      <if test="record.isCheck != null">
+        IS_CHECK = #{record.isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="record.newtotalId != null">
+        NEWTOTAL_ID = #{record.newtotalId,jdbcType=INTEGER},
+      </if>
+      <if test="record.royaltyType != null">
+        ROYALTY_TYPE = #{record.royaltyType,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update ROLE_WAGETYPE_RELATIVE
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      TRANSFER_ID = #{record.transferId,jdbcType=INTEGER},
+      TOTAL_ID = #{record.totalId,jdbcType=INTEGER},
+      SECONDHAND_ID = #{record.secondhandId,jdbcType=INTEGER},
+      LEASE_ID = #{record.leaseId,jdbcType=INTEGER},
+      FINANCE_ID = #{record.financeId,jdbcType=INTEGER},
+      NEWHOUSE_ID = #{record.newhouseId,jdbcType=INTEGER},
+      SALARY_TYPE_ID = #{record.salaryTypeId,jdbcType=INTEGER},
+      MANAGE_TYPE = #{record.manageType,jdbcType=TINYINT},
+      COUNT_TYPE = #{record.countType,jdbcType=TINYINT},
+      IS_CHECK = #{record.isCheck,jdbcType=TINYINT},
+      NEWTOTAL_ID = #{record.newtotalId,jdbcType=INTEGER},
+      ROYALTY_TYPE = #{record.royaltyType,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelative">
+    <!--@mbggenerated-->
+    update ROLE_WAGETYPE_RELATIVE
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="transferId != null">
+        TRANSFER_ID = #{transferId,jdbcType=INTEGER},
+      </if>
+      <if test="totalId != null">
+        TOTAL_ID = #{totalId,jdbcType=INTEGER},
+      </if>
+      <if test="secondhandId != null">
+        SECONDHAND_ID = #{secondhandId,jdbcType=INTEGER},
+      </if>
+      <if test="leaseId != null">
+        LEASE_ID = #{leaseId,jdbcType=INTEGER},
+      </if>
+      <if test="financeId != null">
+        FINANCE_ID = #{financeId,jdbcType=INTEGER},
+      </if>
+      <if test="newhouseId != null">
+        NEWHOUSE_ID = #{newhouseId,jdbcType=INTEGER},
+      </if>
+      <if test="salaryTypeId != null">
+        SALARY_TYPE_ID = #{salaryTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="manageType != null">
+        MANAGE_TYPE = #{manageType,jdbcType=TINYINT},
+      </if>
+      <if test="countType != null">
+        COUNT_TYPE = #{countType,jdbcType=TINYINT},
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK = #{isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="newtotalId != null">
+        NEWTOTAL_ID = #{newtotalId,jdbcType=INTEGER},
+      </if>
+      <if test="royaltyType != null">
+        ROYALTY_TYPE = #{royaltyType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpRoleWagetypeRelative">
+    <!--@mbggenerated-->
+    update ROLE_WAGETYPE_RELATIVE
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      TRANSFER_ID = #{transferId,jdbcType=INTEGER},
+      TOTAL_ID = #{totalId,jdbcType=INTEGER},
+      SECONDHAND_ID = #{secondhandId,jdbcType=INTEGER},
+      LEASE_ID = #{leaseId,jdbcType=INTEGER},
+      FINANCE_ID = #{financeId,jdbcType=INTEGER},
+      NEWHOUSE_ID = #{newhouseId,jdbcType=INTEGER},
+      SALARY_TYPE_ID = #{salaryTypeId,jdbcType=INTEGER},
+      MANAGE_TYPE = #{manageType,jdbcType=TINYINT},
+      COUNT_TYPE = #{countType,jdbcType=TINYINT},
+      IS_CHECK = #{isCheck,jdbcType=TINYINT},
+      NEWTOTAL_ID = #{newtotalId,jdbcType=INTEGER},
+      ROYALTY_TYPE = #{royaltyType,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectBySalaryId" resultType="map">
+    select TRANSFER_ID as transferId,TOTAL_ID as totalId,SECONDHAND_ID as secondhandId,LEASE_ID as leaseId,FINANCE_ID as financeId,NEWHOUSE_ID as newhouseId,SALARY_TYPE_ID as salaryTypeId,COUNT_TYPE as countType from ROLE_WAGETYPE_RELATIVE
+    where  COMP_ID = #{compId,jdbcType=INTEGER} and SALARY_TYPE_ID = #{salaryId,jdbcType=INTEGER}
+  </select>
+  <select id="countIsUseByWageTypeId" resultType="_int">
+   select count(1) from ROLE_WAGETYPE_RELATIVE where 
+    COMP_ID = #{compId} and (
+      TRANSFER_ID = #{wageTypeId,jdbcType=INTEGER}
+      or TOTAL_ID = #{wageTypeId,jdbcType=INTEGER}
+      or SECONDHAND_ID = #{wageTypeId,jdbcType=INTEGER}
+      or LEASE_ID = #{wageTypeId,jdbcType=INTEGER}
+      or FINANCE_ID = #{wageTypeId,jdbcType=INTEGER}
+      or NEWHOUSE_ID = #{wageTypeId,jdbcType=INTEGER}
+  		)
+  </select>
+
+
+  <update id="updateById">
+    update ROLE_WAGETYPE_RELATIVE SET
+      TRANSFER_ID = #{param.transferId,jdbcType=INTEGER},
+      TOTAL_ID = #{param.totalId,jdbcType=INTEGER},
+      SECONDHAND_ID = #{param.secondhandId,jdbcType=INTEGER},
+      LEASE_ID = #{param.leaseId,jdbcType=INTEGER},
+      FINANCE_ID = #{param.financeId,jdbcType=INTEGER},
+      NEWHOUSE_ID = #{param.newhouseId,jdbcType=INTEGER}  where ID=#{param.id}
+  </update>
+
+  <update id="canUpdateFiledIsNull" >
+    <!--@mbggenerated-->
+    update ROLE_WAGETYPE_RELATIVE
+    <set>
+      <if test="param.compId != null">
+        COMP_ID = #{param.compId,jdbcType=INTEGER},
+      </if>
+      TRANSFER_ID = #{param.transferId,jdbcType=INTEGER},
+      TOTAL_ID = #{param.totalId,jdbcType=INTEGER},
+      SECONDHAND_ID = #{param.secondhandId,jdbcType=INTEGER},
+      LEASE_ID = #{param.leaseId,jdbcType=INTEGER},
+      FINANCE_ID = #{param.financeId,jdbcType=INTEGER},
+      NEWHOUSE_ID = #{param.newhouseId,jdbcType=INTEGER},
+      NEWTOTAL_ID = #{param.newtotalId,jdbcType=INTEGER},
+      <if test="param.salaryTypeId != null">
+        SALARY_TYPE_ID = #{param.salaryTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="param.manageType != null">
+        MANAGE_TYPE = #{param.manageType,jdbcType=TINYINT},
+      </if>
+      <if test="param.countType != null">
+        COUNT_TYPE = #{param.countType,jdbcType=TINYINT},
+      </if>
+      <if test="param.isCheck != null">
+        IS_CHECK = #{param.isCheck,jdbcType=TINYINT},
+      </if>
+      <if test="param.royaltyType != null">
+        ROYALTY_TYPE = #{param.royaltyType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where ID = #{param.id,jdbcType=INTEGER}
+  </update>
+</mapper>

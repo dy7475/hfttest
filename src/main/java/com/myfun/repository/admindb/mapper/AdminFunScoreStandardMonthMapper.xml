@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunScoreStandardMonthMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunScoreStandardMonth">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="ORDERS_STATUS" jdbcType="INTEGER" property="ordersStatus" />
+    <result column="REGISTER_PINGAN" jdbcType="INTEGER" property="registerPingan" />
+    <result column="EXCELLENT_SETTING" jdbcType="INTEGER" property="excellentSetting" />
+    <result column="PRINT_TAXATION" jdbcType="INTEGER" property="printTaxation" />
+    <result column="PRINT_LABEL" jdbcType="INTEGER" property="printLabel" />
+    <result column="FAFA_FUNC_CLICK" jdbcType="INTEGER" property="fafaFuncClick" />
+    <result column="FAFA_STATISTICS_CLICK" jdbcType="INTEGER" property="fafaStatisticsClick" />
+    <result column="ADD_HOUSE_STATUS" jdbcType="INTEGER" property="addHouseStatus" />
+    <result column="ADD_KJL_LAYOUT_PHOTO" jdbcType="INTEGER" property="addKjlLayoutPhoto" />
+    <result column="ADD_FIVE_FUN_PHOTO" jdbcType="INTEGER" property="addFiveFunPhoto" />
+    <result column="SOSO_VIEW_COUNT" jdbcType="INTEGER" property="sosoViewCount" />
+    <result column="OPEN_PUBLISH" jdbcType="INTEGER" property="openPublish" />
+    <result column="ALL_USER_RIGHT" jdbcType="INTEGER" property="allUserRight" />
+    <result column="ADD_HOUSE_COUNT" jdbcType="INTEGER" property="addHouseCount" />
+    <result column="VEDIOOR720" jdbcType="INTEGER" property="vedioor720" />
+    <result column="HOUSE_CUST_MATCHING" jdbcType="INTEGER" property="houseCustMatching" />
+    <result column="UPDATE_TARGET_ACHIEVEMENT" jdbcType="INTEGER" property="updateTargetAchievement" />
+    <result column="EXAMINE_TASK" jdbcType="INTEGER" property="examineTask" />
+    <result column="SHARE_TO_DEMAND" jdbcType="INTEGER" property="shareToDemand" />
+    <result column="LOG_HFT_APP" jdbcType="INTEGER" property="logHftApp" />
+    <result column="DATA_ANALYSIS" jdbcType="INTEGER" property="dataAnalysis" />
+    <result column="DEPT_THREE_BUILD_MASTER" jdbcType="INTEGER" property="deptThreeBuildMaster" />
+    <result column="DEPT_ALL_WTHOUSE_PUBLISH" jdbcType="INTEGER" property="deptAllWthousePublish" />
+    <result column="OPERATIONS_ANALYSIS" jdbcType="INTEGER" property="operationsAnalysis" />
+    <result column="DEPT_ALL_HAS_TRUEHOUSE" jdbcType="INTEGER" property="deptAllHasTruehouse" />
+    <result column="USER_TRACK_SATISFY" jdbcType="INTEGER" property="userTrackSatisfy" />
+    <result column="VIDEO_CUST_DK_COUNT" jdbcType="INTEGER" property="videoCustDkCount" />
+    <result column="SHARE_TO_FRIENDS" jdbcType="INTEGER" property="shareToFriends" />
+    <result column="RECOMMEND_HOUSE" jdbcType="INTEGER" property="recommendHouse" />
+    <result column="SHARE_RECOMMEND_TO_FRIENDS" jdbcType="INTEGER" property="shareRecommendToFriends" />
+    <result column="BINDING_FAFA_PORT" jdbcType="INTEGER" property="bindingFafaPort" />
+    <result column="DEPT_ALL_HOUSE_SYNCHRONIZED" jdbcType="INTEGER" property="deptAllHouseSynchronized" />
+    <result column="HOUSE_VIDEO" jdbcType="INTEGER" property="houseVideo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, CITY_ID, COMP_ID, AREA_ID, REG_ID, DEPT_ID, GR_ID, USER_ID, ARCHIVE_ID, COMP_NO, 
+    DEPT_NO, CREATION_TIME, ORDERS_STATUS, REGISTER_PINGAN, EXCELLENT_SETTING, PRINT_TAXATION, 
+    PRINT_LABEL, FAFA_FUNC_CLICK, FAFA_STATISTICS_CLICK, ADD_HOUSE_STATUS, ADD_KJL_LAYOUT_PHOTO, 
+    ADD_FIVE_FUN_PHOTO, SOSO_VIEW_COUNT, OPEN_PUBLISH, ALL_USER_RIGHT, ADD_HOUSE_COUNT, 
+    VEDIOOR720, HOUSE_CUST_MATCHING, UPDATE_TARGET_ACHIEVEMENT, EXAMINE_TASK, SHARE_TO_DEMAND, 
+    LOG_HFT_APP, DATA_ANALYSIS, DEPT_THREE_BUILD_MASTER, DEPT_ALL_WTHOUSE_PUBLISH, OPERATIONS_ANALYSIS, 
+    DEPT_ALL_HAS_TRUEHOUSE, USER_TRACK_SATISFY, VIDEO_CUST_DK_COUNT, SHARE_TO_FRIENDS, 
+    RECOMMEND_HOUSE, SHARE_RECOMMEND_TO_FRIENDS, BINDING_FAFA_PORT, DEPT_ALL_HOUSE_SYNCHRONIZED, 
+    HOUSE_VIDEO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_SCORE_STANDARD_MONTH
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_SCORE_STANDARD_MONTH
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminFunScoreStandardMonth" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_SCORE_STANDARD_MONTH (CITY_ID, COMP_ID, AREA_ID, 
+      REG_ID, DEPT_ID, GR_ID, 
+      USER_ID, ARCHIVE_ID, COMP_NO, 
+      DEPT_NO, CREATION_TIME, ORDERS_STATUS, 
+      REGISTER_PINGAN, EXCELLENT_SETTING, PRINT_TAXATION, 
+      PRINT_LABEL, FAFA_FUNC_CLICK, FAFA_STATISTICS_CLICK, 
+      ADD_HOUSE_STATUS, ADD_KJL_LAYOUT_PHOTO, ADD_FIVE_FUN_PHOTO, 
+      SOSO_VIEW_COUNT, OPEN_PUBLISH, ALL_USER_RIGHT, 
+      ADD_HOUSE_COUNT, VEDIOOR720, HOUSE_CUST_MATCHING, 
+      UPDATE_TARGET_ACHIEVEMENT, EXAMINE_TASK, SHARE_TO_DEMAND, 
+      LOG_HFT_APP, DATA_ANALYSIS, DEPT_THREE_BUILD_MASTER, 
+      DEPT_ALL_WTHOUSE_PUBLISH, OPERATIONS_ANALYSIS, 
+      DEPT_ALL_HAS_TRUEHOUSE, USER_TRACK_SATISFY, 
+      VIDEO_CUST_DK_COUNT, SHARE_TO_FRIENDS, RECOMMEND_HOUSE, 
+      SHARE_RECOMMEND_TO_FRIENDS, BINDING_FAFA_PORT, 
+      DEPT_ALL_HOUSE_SYNCHRONIZED, HOUSE_VIDEO)
+    values (#{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{regId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, 
+      #{deptNo,jdbcType=VARCHAR}, #{creationTime,jdbcType=TIMESTAMP}, #{ordersStatus,jdbcType=INTEGER}, 
+      #{registerPingan,jdbcType=INTEGER}, #{excellentSetting,jdbcType=INTEGER}, #{printTaxation,jdbcType=INTEGER}, 
+      #{printLabel,jdbcType=INTEGER}, #{fafaFuncClick,jdbcType=INTEGER}, #{fafaStatisticsClick,jdbcType=INTEGER}, 
+      #{addHouseStatus,jdbcType=INTEGER}, #{addKjlLayoutPhoto,jdbcType=INTEGER}, #{addFiveFunPhoto,jdbcType=INTEGER}, 
+      #{sosoViewCount,jdbcType=INTEGER}, #{openPublish,jdbcType=INTEGER}, #{allUserRight,jdbcType=INTEGER}, 
+      #{addHouseCount,jdbcType=INTEGER}, #{vedioor720,jdbcType=INTEGER}, #{houseCustMatching,jdbcType=INTEGER}, 
+      #{updateTargetAchievement,jdbcType=INTEGER}, #{examineTask,jdbcType=INTEGER}, #{shareToDemand,jdbcType=INTEGER}, 
+      #{logHftApp,jdbcType=INTEGER}, #{dataAnalysis,jdbcType=INTEGER}, #{deptThreeBuildMaster,jdbcType=INTEGER}, 
+      #{deptAllWthousePublish,jdbcType=INTEGER}, #{operationsAnalysis,jdbcType=INTEGER}, 
+      #{deptAllHasTruehouse,jdbcType=INTEGER}, #{userTrackSatisfy,jdbcType=INTEGER}, 
+      #{videoCustDkCount,jdbcType=INTEGER}, #{shareToFriends,jdbcType=INTEGER}, #{recommendHouse,jdbcType=INTEGER}, 
+      #{shareRecommendToFriends,jdbcType=INTEGER}, #{bindingFafaPort,jdbcType=INTEGER}, 
+      #{deptAllHouseSynchronized,jdbcType=INTEGER}, #{houseVideo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminFunScoreStandardMonth" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_SCORE_STANDARD_MONTH
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="grId != null">
+        GR_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="compNo != null">
+        COMP_NO,
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="ordersStatus != null">
+        ORDERS_STATUS,
+      </if>
+      <if test="registerPingan != null">
+        REGISTER_PINGAN,
+      </if>
+      <if test="excellentSetting != null">
+        EXCELLENT_SETTING,
+      </if>
+      <if test="printTaxation != null">
+        PRINT_TAXATION,
+      </if>
+      <if test="printLabel != null">
+        PRINT_LABEL,
+      </if>
+      <if test="fafaFuncClick != null">
+        FAFA_FUNC_CLICK,
+      </if>
+      <if test="fafaStatisticsClick != null">
+        FAFA_STATISTICS_CLICK,
+      </if>
+      <if test="addHouseStatus != null">
+        ADD_HOUSE_STATUS,
+      </if>
+      <if test="addKjlLayoutPhoto != null">
+        ADD_KJL_LAYOUT_PHOTO,
+      </if>
+      <if test="addFiveFunPhoto != null">
+        ADD_FIVE_FUN_PHOTO,
+      </if>
+      <if test="sosoViewCount != null">
+        SOSO_VIEW_COUNT,
+      </if>
+      <if test="openPublish != null">
+        OPEN_PUBLISH,
+      </if>
+      <if test="allUserRight != null">
+        ALL_USER_RIGHT,
+      </if>
+      <if test="addHouseCount != null">
+        ADD_HOUSE_COUNT,
+      </if>
+      <if test="vedioor720 != null">
+        VEDIOOR720,
+      </if>
+      <if test="houseCustMatching != null">
+        HOUSE_CUST_MATCHING,
+      </if>
+      <if test="updateTargetAchievement != null">
+        UPDATE_TARGET_ACHIEVEMENT,
+      </if>
+      <if test="examineTask != null">
+        EXAMINE_TASK,
+      </if>
+      <if test="shareToDemand != null">
+        SHARE_TO_DEMAND,
+      </if>
+      <if test="logHftApp != null">
+        LOG_HFT_APP,
+      </if>
+      <if test="dataAnalysis != null">
+        DATA_ANALYSIS,
+      </if>
+      <if test="deptThreeBuildMaster != null">
+        DEPT_THREE_BUILD_MASTER,
+      </if>
+      <if test="deptAllWthousePublish != null">
+        DEPT_ALL_WTHOUSE_PUBLISH,
+      </if>
+      <if test="operationsAnalysis != null">
+        OPERATIONS_ANALYSIS,
+      </if>
+      <if test="deptAllHasTruehouse != null">
+        DEPT_ALL_HAS_TRUEHOUSE,
+      </if>
+      <if test="userTrackSatisfy != null">
+        USER_TRACK_SATISFY,
+      </if>
+      <if test="videoCustDkCount != null">
+        VIDEO_CUST_DK_COUNT,
+      </if>
+      <if test="shareToFriends != null">
+        SHARE_TO_FRIENDS,
+      </if>
+      <if test="recommendHouse != null">
+        RECOMMEND_HOUSE,
+      </if>
+      <if test="shareRecommendToFriends != null">
+        SHARE_RECOMMEND_TO_FRIENDS,
+      </if>
+      <if test="bindingFafaPort != null">
+        BINDING_FAFA_PORT,
+      </if>
+      <if test="deptAllHouseSynchronized != null">
+        DEPT_ALL_HOUSE_SYNCHRONIZED,
+      </if>
+      <if test="houseVideo != null">
+        HOUSE_VIDEO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordersStatus != null">
+        #{ordersStatus,jdbcType=INTEGER},
+      </if>
+      <if test="registerPingan != null">
+        #{registerPingan,jdbcType=INTEGER},
+      </if>
+      <if test="excellentSetting != null">
+        #{excellentSetting,jdbcType=INTEGER},
+      </if>
+      <if test="printTaxation != null">
+        #{printTaxation,jdbcType=INTEGER},
+      </if>
+      <if test="printLabel != null">
+        #{printLabel,jdbcType=INTEGER},
+      </if>
+      <if test="fafaFuncClick != null">
+        #{fafaFuncClick,jdbcType=INTEGER},
+      </if>
+      <if test="fafaStatisticsClick != null">
+        #{fafaStatisticsClick,jdbcType=INTEGER},
+      </if>
+      <if test="addHouseStatus != null">
+        #{addHouseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addKjlLayoutPhoto != null">
+        #{addKjlLayoutPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="addFiveFunPhoto != null">
+        #{addFiveFunPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="sosoViewCount != null">
+        #{sosoViewCount,jdbcType=INTEGER},
+      </if>
+      <if test="openPublish != null">
+        #{openPublish,jdbcType=INTEGER},
+      </if>
+      <if test="allUserRight != null">
+        #{allUserRight,jdbcType=INTEGER},
+      </if>
+      <if test="addHouseCount != null">
+        #{addHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="vedioor720 != null">
+        #{vedioor720,jdbcType=INTEGER},
+      </if>
+      <if test="houseCustMatching != null">
+        #{houseCustMatching,jdbcType=INTEGER},
+      </if>
+      <if test="updateTargetAchievement != null">
+        #{updateTargetAchievement,jdbcType=INTEGER},
+      </if>
+      <if test="examineTask != null">
+        #{examineTask,jdbcType=INTEGER},
+      </if>
+      <if test="shareToDemand != null">
+        #{shareToDemand,jdbcType=INTEGER},
+      </if>
+      <if test="logHftApp != null">
+        #{logHftApp,jdbcType=INTEGER},
+      </if>
+      <if test="dataAnalysis != null">
+        #{dataAnalysis,jdbcType=INTEGER},
+      </if>
+      <if test="deptThreeBuildMaster != null">
+        #{deptThreeBuildMaster,jdbcType=INTEGER},
+      </if>
+      <if test="deptAllWthousePublish != null">
+        #{deptAllWthousePublish,jdbcType=INTEGER},
+      </if>
+      <if test="operationsAnalysis != null">
+        #{operationsAnalysis,jdbcType=INTEGER},
+      </if>
+      <if test="deptAllHasTruehouse != null">
+        #{deptAllHasTruehouse,jdbcType=INTEGER},
+      </if>
+      <if test="userTrackSatisfy != null">
+        #{userTrackSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="videoCustDkCount != null">
+        #{videoCustDkCount,jdbcType=INTEGER},
+      </if>
+      <if test="shareToFriends != null">
+        #{shareToFriends,jdbcType=INTEGER},
+      </if>
+      <if test="recommendHouse != null">
+        #{recommendHouse,jdbcType=INTEGER},
+      </if>
+      <if test="shareRecommendToFriends != null">
+        #{shareRecommendToFriends,jdbcType=INTEGER},
+      </if>
+      <if test="bindingFafaPort != null">
+        #{bindingFafaPort,jdbcType=INTEGER},
+      </if>
+      <if test="deptAllHouseSynchronized != null">
+        #{deptAllHouseSynchronized,jdbcType=INTEGER},
+      </if>
+      <if test="houseVideo != null">
+        #{houseVideo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunScoreStandardMonth">
+    <!--@mbggenerated-->
+    update FUN_SCORE_STANDARD_MONTH
+    <set>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordersStatus != null">
+        ORDERS_STATUS = #{ordersStatus,jdbcType=INTEGER},
+      </if>
+      <if test="registerPingan != null">
+        REGISTER_PINGAN = #{registerPingan,jdbcType=INTEGER},
+      </if>
+      <if test="excellentSetting != null">
+        EXCELLENT_SETTING = #{excellentSetting,jdbcType=INTEGER},
+      </if>
+      <if test="printTaxation != null">
+        PRINT_TAXATION = #{printTaxation,jdbcType=INTEGER},
+      </if>
+      <if test="printLabel != null">
+        PRINT_LABEL = #{printLabel,jdbcType=INTEGER},
+      </if>
+      <if test="fafaFuncClick != null">
+        FAFA_FUNC_CLICK = #{fafaFuncClick,jdbcType=INTEGER},
+      </if>
+      <if test="fafaStatisticsClick != null">
+        FAFA_STATISTICS_CLICK = #{fafaStatisticsClick,jdbcType=INTEGER},
+      </if>
+      <if test="addHouseStatus != null">
+        ADD_HOUSE_STATUS = #{addHouseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="addKjlLayoutPhoto != null">
+        ADD_KJL_LAYOUT_PHOTO = #{addKjlLayoutPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="addFiveFunPhoto != null">
+        ADD_FIVE_FUN_PHOTO = #{addFiveFunPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="sosoViewCount != null">
+        SOSO_VIEW_COUNT = #{sosoViewCount,jdbcType=INTEGER},
+      </if>
+      <if test="openPublish != null">
+        OPEN_PUBLISH = #{openPublish,jdbcType=INTEGER},
+      </if>
+      <if test="allUserRight != null">
+        ALL_USER_RIGHT = #{allUserRight,jdbcType=INTEGER},
+      </if>
+      <if test="addHouseCount != null">
+        ADD_HOUSE_COUNT = #{addHouseCount,jdbcType=INTEGER},
+      </if>
+      <if test="vedioor720 != null">
+        VEDIOOR720 = #{vedioor720,jdbcType=INTEGER},
+      </if>
+      <if test="houseCustMatching != null">
+        HOUSE_CUST_MATCHING = #{houseCustMatching,jdbcType=INTEGER},
+      </if>
+      <if test="updateTargetAchievement != null">
+        UPDATE_TARGET_ACHIEVEMENT = #{updateTargetAchievement,jdbcType=INTEGER},
+      </if>
+      <if test="examineTask != null">
+        EXAMINE_TASK = #{examineTask,jdbcType=INTEGER},
+      </if>
+      <if test="shareToDemand != null">
+        SHARE_TO_DEMAND = #{shareToDemand,jdbcType=INTEGER},
+      </if>
+      <if test="logHftApp != null">
+        LOG_HFT_APP = #{logHftApp,jdbcType=INTEGER},
+      </if>
+      <if test="dataAnalysis != null">
+        DATA_ANALYSIS = #{dataAnalysis,jdbcType=INTEGER},
+      </if>
+      <if test="deptThreeBuildMaster != null">
+        DEPT_THREE_BUILD_MASTER = #{deptThreeBuildMaster,jdbcType=INTEGER},
+      </if>
+      <if test="deptAllWthousePublish != null">
+        DEPT_ALL_WTHOUSE_PUBLISH = #{deptAllWthousePublish,jdbcType=INTEGER},
+      </if>
+      <if test="operationsAnalysis != null">
+        OPERATIONS_ANALYSIS = #{operationsAnalysis,jdbcType=INTEGER},
+      </if>
+      <if test="deptAllHasTruehouse != null">
+        DEPT_ALL_HAS_TRUEHOUSE = #{deptAllHasTruehouse,jdbcType=INTEGER},
+      </if>
+      <if test="userTrackSatisfy != null">
+        USER_TRACK_SATISFY = #{userTrackSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="videoCustDkCount != null">
+        VIDEO_CUST_DK_COUNT = #{videoCustDkCount,jdbcType=INTEGER},
+      </if>
+      <if test="shareToFriends != null">
+        SHARE_TO_FRIENDS = #{shareToFriends,jdbcType=INTEGER},
+      </if>
+      <if test="recommendHouse != null">
+        RECOMMEND_HOUSE = #{recommendHouse,jdbcType=INTEGER},
+      </if>
+      <if test="shareRecommendToFriends != null">
+        SHARE_RECOMMEND_TO_FRIENDS = #{shareRecommendToFriends,jdbcType=INTEGER},
+      </if>
+      <if test="bindingFafaPort != null">
+        BINDING_FAFA_PORT = #{bindingFafaPort,jdbcType=INTEGER},
+      </if>
+      <if test="deptAllHouseSynchronized != null">
+        DEPT_ALL_HOUSE_SYNCHRONIZED = #{deptAllHouseSynchronized,jdbcType=INTEGER},
+      </if>
+      <if test="houseVideo != null">
+        HOUSE_VIDEO = #{houseVideo,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunScoreStandardMonth">
+    <!--@mbggenerated-->
+    update FUN_SCORE_STANDARD_MONTH
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      ORDERS_STATUS = #{ordersStatus,jdbcType=INTEGER},
+      REGISTER_PINGAN = #{registerPingan,jdbcType=INTEGER},
+      EXCELLENT_SETTING = #{excellentSetting,jdbcType=INTEGER},
+      PRINT_TAXATION = #{printTaxation,jdbcType=INTEGER},
+      PRINT_LABEL = #{printLabel,jdbcType=INTEGER},
+      FAFA_FUNC_CLICK = #{fafaFuncClick,jdbcType=INTEGER},
+      FAFA_STATISTICS_CLICK = #{fafaStatisticsClick,jdbcType=INTEGER},
+      ADD_HOUSE_STATUS = #{addHouseStatus,jdbcType=INTEGER},
+      ADD_KJL_LAYOUT_PHOTO = #{addKjlLayoutPhoto,jdbcType=INTEGER},
+      ADD_FIVE_FUN_PHOTO = #{addFiveFunPhoto,jdbcType=INTEGER},
+      SOSO_VIEW_COUNT = #{sosoViewCount,jdbcType=INTEGER},
+      OPEN_PUBLISH = #{openPublish,jdbcType=INTEGER},
+      ALL_USER_RIGHT = #{allUserRight,jdbcType=INTEGER},
+      ADD_HOUSE_COUNT = #{addHouseCount,jdbcType=INTEGER},
+      VEDIOOR720 = #{vedioor720,jdbcType=INTEGER},
+      HOUSE_CUST_MATCHING = #{houseCustMatching,jdbcType=INTEGER},
+      UPDATE_TARGET_ACHIEVEMENT = #{updateTargetAchievement,jdbcType=INTEGER},
+      EXAMINE_TASK = #{examineTask,jdbcType=INTEGER},
+      SHARE_TO_DEMAND = #{shareToDemand,jdbcType=INTEGER},
+      LOG_HFT_APP = #{logHftApp,jdbcType=INTEGER},
+      DATA_ANALYSIS = #{dataAnalysis,jdbcType=INTEGER},
+      DEPT_THREE_BUILD_MASTER = #{deptThreeBuildMaster,jdbcType=INTEGER},
+      DEPT_ALL_WTHOUSE_PUBLISH = #{deptAllWthousePublish,jdbcType=INTEGER},
+      OPERATIONS_ANALYSIS = #{operationsAnalysis,jdbcType=INTEGER},
+      DEPT_ALL_HAS_TRUEHOUSE = #{deptAllHasTruehouse,jdbcType=INTEGER},
+      USER_TRACK_SATISFY = #{userTrackSatisfy,jdbcType=INTEGER},
+      VIDEO_CUST_DK_COUNT = #{videoCustDkCount,jdbcType=INTEGER},
+      SHARE_TO_FRIENDS = #{shareToFriends,jdbcType=INTEGER},
+      RECOMMEND_HOUSE = #{recommendHouse,jdbcType=INTEGER},
+      SHARE_RECOMMEND_TO_FRIENDS = #{shareRecommendToFriends,jdbcType=INTEGER},
+      BINDING_FAFA_PORT = #{bindingFafaPort,jdbcType=INTEGER},
+      DEPT_ALL_HOUSE_SYNCHRONIZED = #{deptAllHouseSynchronized,jdbcType=INTEGER},
+      HOUSE_VIDEO = #{houseVideo,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectCondition" resultMap="BaseResultMap">
+      select <include refid="Base_Column_List" />
+      from FUN_SCORE_STANDARD_MONTH
+      <where>
+        <if test="null != pMap.compId">
+            and COMP_ID = #{pMap.compId}
+        </if>
+        <if test="null != pMap.compNo">
+            and COMP_NO = #{pMap.compNo}
+        </if>
+        <if test="null != pMap.deptNo">
+            and DEPT_NO = #{pMap.deptNo}
+        </if>
+        <if test="null != pMap.startTime">
+          and CREATION_TIME &gt;= #{pMap.startTime}
+        </if>
+        <if test="null != pMap.endTime">
+          and CREATION_TIME &lt; #{pMap.endTime}
+        </if>
+        <if test="null != pMap.cityId">
+          and CITY_ID = #{pMap.cityId}
+        </if>
+		<if test="null != pMap.deptId">
+		  and DEPT_ID = #{pMap.deptId}
+		</if>
+      </where>
+  </select>
+</mapper>

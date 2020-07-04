@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminYoujiaPosManageMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminYoujiaPosManage">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PROVINCE_ID" jdbcType="INTEGER" property="provinceId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="ADMIN_COMP_ID" jdbcType="INTEGER" property="adminCompId" />
+    <result column="ADMIN_DEPT_ID" jdbcType="INTEGER" property="adminDeptId" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="DEPT_CONTACT" jdbcType="VARCHAR" property="deptContact" />
+    <result column="CONTACT_PHONE" jdbcType="VARCHAR" property="contactPhone" />
+    <result column="YUNXIN_ID" jdbcType="VARCHAR" property="yunxinId" />
+    <result column="EQUIPMENT_ID" jdbcType="VARCHAR" property="equipmentId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CRM_COMP_ID" jdbcType="INTEGER" property="crmCompId" />
+    <result column="CREATE_USER_ID" jdbcType="INTEGER" property="createUserId" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="FLAG" jdbcType="TINYINT" property="flag" />
+    <result column="ERP_COMP_ID" jdbcType="INTEGER" property="erpCompId" />
+    <result column="ERP_DEPT_ID" jdbcType="INTEGER" property="erpDeptId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, PROVINCE_ID, CITY_ID, COMP_NO, DEPT_NO, ADMIN_COMP_ID, ADMIN_DEPT_ID, DEPT_NAME, 
+    DEPT_CONTACT, CONTACT_PHONE, YUNXIN_ID, EQUIPMENT_ID, CREATE_TIME, CRM_COMP_ID, CREATE_USER_ID, 
+    UPDATE_TIME, FLAG, ERP_COMP_ID, ERP_DEPT_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaPosManageExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from YOUJIA_POS_MANAGE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOUJIA_POS_MANAGE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from YOUJIA_POS_MANAGE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaPosManageExample">
+    <!--@mbggenerated-->
+    delete from YOUJIA_POS_MANAGE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminYoujiaPosManage" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into YOUJIA_POS_MANAGE (PROVINCE_ID, CITY_ID, COMP_NO, 
+      DEPT_NO, ADMIN_COMP_ID, ADMIN_DEPT_ID, 
+      DEPT_NAME, DEPT_CONTACT, CONTACT_PHONE, 
+      YUNXIN_ID, EQUIPMENT_ID, CREATE_TIME, 
+      CRM_COMP_ID, CREATE_USER_ID, UPDATE_TIME, 
+      FLAG, ERP_COMP_ID, ERP_DEPT_ID
+      )
+    values (#{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, 
+      #{deptNo,jdbcType=VARCHAR}, #{adminCompId,jdbcType=INTEGER}, #{adminDeptId,jdbcType=INTEGER}, 
+      #{deptName,jdbcType=VARCHAR}, #{deptContact,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR}, 
+      #{yunxinId,jdbcType=VARCHAR}, #{equipmentId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{crmCompId,jdbcType=INTEGER}, #{createUserId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=TINYINT}, #{erpCompId,jdbcType=INTEGER}, #{erpDeptId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminYoujiaPosManage" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into YOUJIA_POS_MANAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compNo != null">
+        COMP_NO,
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO,
+      </if>
+      <if test="adminCompId != null">
+        ADMIN_COMP_ID,
+      </if>
+      <if test="adminDeptId != null">
+        ADMIN_DEPT_ID,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="deptContact != null">
+        DEPT_CONTACT,
+      </if>
+      <if test="contactPhone != null">
+        CONTACT_PHONE,
+      </if>
+      <if test="yunxinId != null">
+        YUNXIN_ID,
+      </if>
+      <if test="equipmentId != null">
+        EQUIPMENT_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID,
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID,
+      </if>
+      <if test="erpDeptId != null">
+        ERP_DEPT_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCompId != null">
+        #{adminCompId,jdbcType=INTEGER},
+      </if>
+      <if test="adminDeptId != null">
+        #{adminDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptContact != null">
+        #{deptContact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxinId != null">
+        #{yunxinId,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentId != null">
+        #{equipmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crmCompId != null">
+        #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=TINYINT},
+      </if>
+      <if test="erpCompId != null">
+        #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="erpDeptId != null">
+        #{erpDeptId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaPosManageExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from YOUJIA_POS_MANAGE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update YOUJIA_POS_MANAGE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceId != null">
+        PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compNo != null">
+        COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptNo != null">
+        DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminCompId != null">
+        ADMIN_COMP_ID = #{record.adminCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminDeptId != null">
+        ADMIN_DEPT_ID = #{record.adminDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptName != null">
+        DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptContact != null">
+        DEPT_CONTACT = #{record.deptContact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactPhone != null">
+        CONTACT_PHONE = #{record.contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yunxinId != null">
+        YUNXIN_ID = #{record.yunxinId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equipmentId != null">
+        EQUIPMENT_ID = #{record.equipmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.crmCompId != null">
+        CRM_COMP_ID = #{record.crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUserId != null">
+        CREATE_USER_ID = #{record.createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.flag != null">
+        FLAG = #{record.flag,jdbcType=TINYINT},
+      </if>
+      <if test="record.erpCompId != null">
+        ERP_COMP_ID = #{record.erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="record.erpDeptId != null">
+        ERP_DEPT_ID = #{record.erpDeptId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update YOUJIA_POS_MANAGE
+    set ID = #{record.id,jdbcType=INTEGER},
+      PROVINCE_ID = #{record.provinceId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      COMP_NO = #{record.compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{record.deptNo,jdbcType=VARCHAR},
+      ADMIN_COMP_ID = #{record.adminCompId,jdbcType=INTEGER},
+      ADMIN_DEPT_ID = #{record.adminDeptId,jdbcType=INTEGER},
+      DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      DEPT_CONTACT = #{record.deptContact,jdbcType=VARCHAR},
+      CONTACT_PHONE = #{record.contactPhone,jdbcType=VARCHAR},
+      YUNXIN_ID = #{record.yunxinId,jdbcType=VARCHAR},
+      EQUIPMENT_ID = #{record.equipmentId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      CRM_COMP_ID = #{record.crmCompId,jdbcType=INTEGER},
+      CREATE_USER_ID = #{record.createUserId,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      FLAG = #{record.flag,jdbcType=TINYINT},
+      ERP_COMP_ID = #{record.erpCompId,jdbcType=INTEGER},
+      ERP_DEPT_ID = #{record.erpDeptId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminYoujiaPosManage">
+    <!--@mbggenerated-->
+    update YOUJIA_POS_MANAGE
+    <set>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCompId != null">
+        ADMIN_COMP_ID = #{adminCompId,jdbcType=INTEGER},
+      </if>
+      <if test="adminDeptId != null">
+        ADMIN_DEPT_ID = #{adminDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptContact != null">
+        DEPT_CONTACT = #{deptContact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxinId != null">
+        YUNXIN_ID = #{yunxinId,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentId != null">
+        EQUIPMENT_ID = #{equipmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crmCompId != null">
+        CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID = #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=TINYINT},
+      </if>
+      <if test="erpCompId != null">
+        ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      </if>
+      <if test="erpDeptId != null">
+        ERP_DEPT_ID = #{erpDeptId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminYoujiaPosManage">
+    <!--@mbggenerated-->
+    update YOUJIA_POS_MANAGE
+    set PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_NO = #{compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      ADMIN_COMP_ID = #{adminCompId,jdbcType=INTEGER},
+      ADMIN_DEPT_ID = #{adminDeptId,jdbcType=INTEGER},
+      DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      DEPT_CONTACT = #{deptContact,jdbcType=VARCHAR},
+      CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      YUNXIN_ID = #{yunxinId,jdbcType=VARCHAR},
+      EQUIPMENT_ID = #{equipmentId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CRM_COMP_ID = #{crmCompId,jdbcType=INTEGER},
+      CREATE_USER_ID = #{createUserId,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      FLAG = #{flag,jdbcType=TINYINT},
+      ERP_COMP_ID = #{erpCompId,jdbcType=INTEGER},
+      ERP_DEPT_ID = #{erpDeptId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getPosCount" resultType="java.lang.Integer">
+    select COUNT (*)
+    from YOUJIA_POS_MANAGE
+    WHERE FLAG = 1 AND COMP_NO=#{compNo} AND DEPT_NO=#{deptNo}
+  </select>
+
+</mapper>

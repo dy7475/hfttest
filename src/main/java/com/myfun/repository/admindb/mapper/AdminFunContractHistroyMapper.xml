@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunContractHistroyMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunContractHistroy" >
+    <!--@mbggenerated-->
+    <id column="HIS_ID" property="hisId" jdbcType="INTEGER" />
+    <result column="CONTRACT_ID" property="contractId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="PARTY_PARAM" property="partyParam" jdbcType="VARCHAR" />
+    <result column="HIS_DATE" property="hisDate" jdbcType="TIMESTAMP" />
+    <result column="BAI_GOLD" property="baiGold" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    HIS_ID, CONTRACT_ID, COMP_ID, DEPT_ID, PARTY_PARAM, HIS_DATE, BAI_GOLD
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_CONTRACT_HISTROY
+    where HIS_ID = #{hisId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_CONTRACT_HISTROY
+    where HIS_ID = #{hisId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunContractHistroy" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="hisId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_CONTRACT_HISTROY (CONTRACT_ID, COMP_ID, DEPT_ID, 
+      PARTY_PARAM, HIS_DATE, BAI_GOLD
+      )
+    values (#{contractId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{partyParam,jdbcType=VARCHAR}, #{hisDate,jdbcType=TIMESTAMP}, #{baiGold,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunContractHistroy" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="hisId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_CONTRACT_HISTROY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="contractId != null" >
+        CONTRACT_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="partyParam != null" >
+        PARTY_PARAM,
+      </if>
+      <if test="hisDate != null" >
+        HIS_DATE,
+      </if>
+      <if test="baiGold != null" >
+        BAI_GOLD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="contractId != null" >
+        #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="partyParam != null" >
+        #{partyParam,jdbcType=VARCHAR},
+      </if>
+      <if test="hisDate != null" >
+        #{hisDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="baiGold != null" >
+        #{baiGold,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunContractHistroy" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_HISTROY
+    <set >
+      <if test="contractId != null" >
+        CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="partyParam != null" >
+        PARTY_PARAM = #{partyParam,jdbcType=VARCHAR},
+      </if>
+      <if test="hisDate != null" >
+        HIS_DATE = #{hisDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="baiGold != null" >
+        BAI_GOLD = #{baiGold,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HIS_ID = #{hisId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunContractHistroy" >
+    <!--@mbggenerated-->
+    update FUN_CONTRACT_HISTROY
+    set CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      PARTY_PARAM = #{partyParam,jdbcType=VARCHAR},
+      HIS_DATE = #{hisDate,jdbcType=TIMESTAMP},
+      BAI_GOLD = #{baiGold,jdbcType=VARCHAR}
+    where HIS_ID = #{hisId,jdbcType=INTEGER}
+  </update>
+  
+  <!-- buniess -->
+  <delete id="deleteByDeptId">
+  	delete from FUN_CONTRACT_HISTROY where DEPT_ID = #{deptId}
+  </delete>
+  <select id="selectByDeptIdIdDescTop1" resultMap="BaseResultMap">
+  	SELECT TOP 1 <include refid="Base_Column_List" /> FROM FUN_CONTRACT_HISTROY WHERE DEPT_ID = #{deptId} ORDER BY HIS_ID DESC
+  </select>
+</mapper>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminYoujiaReserveMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminYoujiaReserve">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="YOUJIA_USER_ID" jdbcType="INTEGER" property="youjiaUserId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="RESERVE_NAME" jdbcType="VARCHAR" property="reserveName" />
+    <result column="RESERVE_PHONE" jdbcType="VARCHAR" property="reservePhone" />
+    <result column="RESERVE_TIME" jdbcType="TIMESTAMP" property="reserveTime" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+    <result column="RESERVE_FROM" jdbcType="TINYINT" property="reserveFrom" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="IS_DK" jdbcType="TINYINT" property="isDk" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, YOUJIA_USER_ID, CREATE_TIME, RESERVE_NAME, RESERVE_PHONE, RESERVE_TIME, NOTE, 
+    RESERVE_FROM, CITY_ID, IS_DK, COMP_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from YOUJIA_RESERVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOUJIA_RESERVE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from YOUJIA_RESERVE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveExample">
+    <!--@mbggenerated-->
+    delete from YOUJIA_RESERVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserve" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into YOUJIA_RESERVE (YOUJIA_USER_ID, CREATE_TIME, RESERVE_NAME, 
+      RESERVE_PHONE, RESERVE_TIME, NOTE, 
+      RESERVE_FROM, CITY_ID, IS_DK, 
+      COMP_ID)
+    values (#{youjiaUserId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{reserveName,jdbcType=VARCHAR}, 
+      #{reservePhone,jdbcType=VARCHAR}, #{reserveTime,jdbcType=TIMESTAMP}, #{note,jdbcType=VARCHAR}, 
+      #{reserveFrom,jdbcType=TINYINT}, #{cityId,jdbcType=INTEGER}, #{isDk,jdbcType=TINYINT}, 
+      #{compId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserve" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into YOUJIA_RESERVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="youjiaUserId != null">
+        YOUJIA_USER_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="reserveName != null">
+        RESERVE_NAME,
+      </if>
+      <if test="reservePhone != null">
+        RESERVE_PHONE,
+      </if>
+      <if test="reserveTime != null">
+        RESERVE_TIME,
+      </if>
+      <if test="note != null">
+        NOTE,
+      </if>
+      <if test="reserveFrom != null">
+        RESERVE_FROM,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="isDk != null">
+        IS_DK,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="youjiaUserId != null">
+        #{youjiaUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveName != null">
+        #{reserveName,jdbcType=VARCHAR},
+      </if>
+      <if test="reservePhone != null">
+        #{reservePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveTime != null">
+        #{reserveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveFrom != null">
+        #{reserveFrom,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="isDk != null">
+        #{isDk,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserveExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from YOUJIA_RESERVE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.youjiaUserId != null">
+        YOUJIA_USER_ID = #{record.youjiaUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.reserveName != null">
+        RESERVE_NAME = #{record.reserveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reservePhone != null">
+        RESERVE_PHONE = #{record.reservePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserveTime != null">
+        RESERVE_TIME = #{record.reserveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.note != null">
+        NOTE = #{record.note,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserveFrom != null">
+        RESERVE_FROM = #{record.reserveFrom,jdbcType=TINYINT},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isDk != null">
+        IS_DK = #{record.isDk,jdbcType=TINYINT},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE
+    set ID = #{record.id,jdbcType=INTEGER},
+      YOUJIA_USER_ID = #{record.youjiaUserId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      RESERVE_NAME = #{record.reserveName,jdbcType=VARCHAR},
+      RESERVE_PHONE = #{record.reservePhone,jdbcType=VARCHAR},
+      RESERVE_TIME = #{record.reserveTime,jdbcType=TIMESTAMP},
+      NOTE = #{record.note,jdbcType=VARCHAR},
+      RESERVE_FROM = #{record.reserveFrom,jdbcType=TINYINT},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      IS_DK = #{record.isDk,jdbcType=TINYINT},
+      COMP_ID = #{record.compId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserve">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE
+    <set>
+      <if test="youjiaUserId != null">
+        YOUJIA_USER_ID = #{youjiaUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveName != null">
+        RESERVE_NAME = #{reserveName,jdbcType=VARCHAR},
+      </if>
+      <if test="reservePhone != null">
+        RESERVE_PHONE = #{reservePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveTime != null">
+        RESERVE_TIME = #{reserveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null">
+        NOTE = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveFrom != null">
+        RESERVE_FROM = #{reserveFrom,jdbcType=TINYINT},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="isDk != null">
+        IS_DK = #{isDk,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminYoujiaReserve">
+    <!--@mbggenerated-->
+    update YOUJIA_RESERVE
+    set YOUJIA_USER_ID = #{youjiaUserId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      RESERVE_NAME = #{reserveName,jdbcType=VARCHAR},
+      RESERVE_PHONE = #{reservePhone,jdbcType=VARCHAR},
+      RESERVE_TIME = #{reserveTime,jdbcType=TIMESTAMP},
+      NOTE = #{note,jdbcType=VARCHAR},
+      RESERVE_FROM = #{reserveFrom,jdbcType=TINYINT},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      IS_DK = #{isDk,jdbcType=TINYINT},
+      COMP_ID = #{compId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <resultMap extends="BaseResultMap" id="extBaseResultMap" type="com.myfun.repository.admindb.dto.AdminYoujiaReserveDto">
+    <result column="WX_PHOTO" jdbcType="VARCHAR" property="wxPhoto" />
+  </resultMap>
+
+  <select id="getDaiKanList" resultMap="extBaseResultMap">
+    SELECT a.id,a.YOUJIA_USER_ID,a.RESERVE_NAME,a.RESERVE_PHONE, c.headimgurl WX_PHOTO, a.RESERVE_TIME
+    FROM YOUJIA_RESERVE a
+    JOIN YOUJIA_RESERVE_HOUSE_EVA b on a.ID = b.RESERVER_ID
+    LEFT JOIN  w_microshop_member c on a.YOUJIA_USER_ID=c.uid
+    <where>
+      <if test="null != userId">
+        AND b.HOUSE_USER_ID=#{userId}
+      </if>
+      <if test="null != compId">
+        AND a.COMP_ID=#{compId}
+      </if>
+      <if test="null != grId">
+        AND b.GR_ID=#{grId}
+      </if>
+      <if test="null != keyWords and '' != keyWords">
+        AND (RESERVE_NAME like '%${keyWords}%' or RESERVE_PHONE like '%${keyWords}%')
+      </if>
+      <if test="null != startTime">
+        AND a.RESERVE_TIME &gt;= #{startTime}
+      </if>
+      <if test="null != endTime">
+        AND a.RESERVE_TIME &lt;= #{endTime}
+      </if>
+    </where>
+    GROUP BY a.id,a.YOUJIA_USER_ID,a.RESERVE_NAME,a.RESERVE_PHONE,c.headimgurl, a.RESERVE_TIME
+    order by a.id desc
+  </select>
+
+  <select id="selectNotFinish" resultMap="BaseResultMap">
+    SELECT TOP 1 <include refid="Base_Column_List" /> FROM YOUJIA_RESERVE WHERE CITY_ID=#{cityId} AND COMP_ID=#{compId} AND IS_DK=0
+  </select>
+</mapper>

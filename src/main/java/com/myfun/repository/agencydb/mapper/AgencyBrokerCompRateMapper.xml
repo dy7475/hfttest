@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyBrokerCompRateMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyBrokerCompRate" >
+    <!--@mbggenerated-->
+    <id column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <id column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="PAID_RATE" property="paidRate" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    CITY_ID, COMP_ID, PAID_RATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.myfun.repository.agencydb.po.AgencyBrokerCompRateKey" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from BROKER_COMP_RATE
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBrokerCompRateKey" >
+    <!--@mbggenerated-->
+    delete from BROKER_COMP_RATE
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyBrokerCompRate" >
+    <!--@mbggenerated-->
+    insert into BROKER_COMP_RATE (CITY_ID, COMP_ID, PAID_RATE
+      )
+    values (#{cityId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{paidRate,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyBrokerCompRate" >
+    <!--@mbggenerated-->
+    insert into BROKER_COMP_RATE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="paidRate != null" >
+        PAID_RATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="paidRate != null" >
+        #{paidRate,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyBrokerCompRate" >
+    <!--@mbggenerated-->
+    update BROKER_COMP_RATE
+    <set >
+      <if test="paidRate != null" >
+        PAID_RATE = #{paidRate,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyBrokerCompRate" >
+    <!--@mbggenerated-->
+    update BROKER_COMP_RATE
+    set PAID_RATE = #{paidRate,jdbcType=DECIMAL}
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+      and COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+</mapper>

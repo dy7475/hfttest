@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAttendanceRecordDetailMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetail">
+    <!--@mbggenerated-->
+    <id column="ATT_ID" jdbcType="INTEGER" property="attId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="ATT_X" jdbcType="VARCHAR" property="attX" />
+    <result column="ATT_Y" jdbcType="VARCHAR" property="attY" />
+    <result column="LOCATION_DESC" jdbcType="VARCHAR" property="locationDesc" />
+    <result column="CONFIG_ATT_TIME" jdbcType="TIMESTAMP" property="configAttTime" />
+    <result column="LOCAL_ATT_TIME" jdbcType="TIMESTAMP" property="localAttTime" />
+    <result column="SERVER_ATT_TIME" jdbcType="TIMESTAMP" property="serverAttTime" />
+    <result column="ATT_ATTRIBUTE" jdbcType="TINYINT" property="attAttribute" />
+    <result column="ATT_REST" jdbcType="TINYINT" property="attRest" />
+    <result column="ATT_TYPE" jdbcType="TINYINT" property="attType" />
+    <result column="OFF_LINE_UPLOAD" jdbcType="TINYINT" property="offLineUpload" />
+    <result column="ATT_GR_ID" jdbcType="INTEGER" property="attGrId" />
+    <result column="ATT_ClASS_ID" jdbcType="INTEGER" property="attClassId" />
+    <result column="ATT_NUM" jdbcType="TINYINT" property="attNum" />
+    <result column="EXTRA_PATH" jdbcType="VARCHAR" property="extraPath" />
+    <result column="EXTRA_TYPE" jdbcType="TINYINT" property="extraType" />
+    <result column="EXTRA_EXIST" jdbcType="TINYINT" property="extraExist" />
+    <result column="ATT_REMARK" jdbcType="VARCHAR" property="attRemark" />
+    <result column="LOCATION_ATT_RESULT" jdbcType="TINYINT" property="locationAttResult" />
+    <result column="TIME_ATT_RESULT" jdbcType="TINYINT" property="timeAttResult" />
+    <result column="MANAGE_LOCATION_ATT_RESULT" jdbcType="TINYINT" property="manageLocationAttResult" />
+    <result column="MANAGE_TIME_ATT_RESULT" jdbcType="TINYINT" property="manageTimeAttResult" />
+    <result column="ATT_SUM_COUNT" jdbcType="TINYINT" property="attSumCount" />
+    <result column="EDIT_DEPT_ID" jdbcType="INTEGER" property="editDeptId" />
+    <result column="EDIT_USER_ID" jdbcType="INTEGER" property="editUserId" />
+    <result column="EDIT_REMARK" jdbcType="VARCHAR" property="editRemark" />
+    <result column="ATT_OUGHT_DATE" jdbcType="TIMESTAMP" property="attOughtDate" />
+    <result column="ATT_SCOPE_ID" jdbcType="INTEGER" property="attScopeId" />
+    <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+    <result column="DEVICE_TYPE" jdbcType="TINYINT" property="deviceType" />
+    <result column="DEVICE_NAME" jdbcType="VARCHAR" property="deviceName" />
+    <result column="BELATE_MINUTE" jdbcType="INTEGER" property="belateMinute" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="ATT_CONFIG_LOCATION" jdbcType="VARCHAR" property="attConfigLocation" />
+    <result column="ATT_CONFIG_DISTANCE" jdbcType="INTEGER" property="attConfigDistance" />
+    <result column="ATT_CLASS_CLOCKTIME" jdbcType="VARCHAR" property="attClassClocktime" />
+    <result column="ATT_RESULT_WEIGHT" jdbcType="TINYINT" property="attResultWeight" />
+    <result column="ATT_GROUP_NAME" jdbcType="VARCHAR" property="attGroupName" />
+    <result column="ATT_CLASS_NAME" jdbcType="VARCHAR" property="attClassName" />
+    <result column="ATT_WAY" jdbcType="TINYINT" property="attWay" />
+    <result column="WIFI_ID" jdbcType="INTEGER" property="wifiId" />
+    <result column="ATT_WIFI_SSID" jdbcType="VARCHAR" property="attWifiSsid" />
+    <result column="ATT_WIFI_MAC" jdbcType="VARCHAR" property="attWifiMac" />
+    <result column="ACTUAL_LOCATION_DESC" jdbcType="VARCHAR" property="actualLocationDesc" />
+    <result column="EDIT_DATE" jdbcType="TIMESTAMP" property="editDate" />
+    <result column="AUDIT_ID" jdbcType="INTEGER" property="auditId" />
+    <result column="LEAVE_AUDIT_NAME" jdbcType="VARCHAR" property="leaveAuditName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ATT_ID, USER_ID, COMP_ID, AREA_ID, REG_ID, DEPT_ID, CITY_ID, GR_ID, CREATE_TIME, 
+    ATT_X, ATT_Y, LOCATION_DESC, CONFIG_ATT_TIME, LOCAL_ATT_TIME, SERVER_ATT_TIME, ATT_ATTRIBUTE, 
+    ATT_REST, ATT_TYPE, OFF_LINE_UPLOAD, ATT_GR_ID, ATT_ClASS_ID, ATT_NUM, EXTRA_PATH, 
+    EXTRA_TYPE, EXTRA_EXIST, ATT_REMARK, LOCATION_ATT_RESULT, TIME_ATT_RESULT, MANAGE_LOCATION_ATT_RESULT, 
+    MANAGE_TIME_ATT_RESULT, ATT_SUM_COUNT, EDIT_DEPT_ID, EDIT_USER_ID, EDIT_REMARK, ATT_OUGHT_DATE, 
+    ATT_SCOPE_ID, DEVICE_ID, DEVICE_TYPE, DEVICE_NAME, BELATE_MINUTE, ARCHIVE_ID, ATT_CONFIG_LOCATION, 
+    ATT_CONFIG_DISTANCE, ATT_CLASS_CLOCKTIME, ATT_RESULT_WEIGHT, ATT_GROUP_NAME, ATT_CLASS_NAME, 
+    ATT_WAY, WIFI_ID, ATT_WIFI_SSID, ATT_WIFI_MAC, ACTUAL_LOCATION_DESC, EDIT_DATE, AUDIT_ID, 
+    LEAVE_AUDIT_NAME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetailExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_RECORD_DETAIL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_RECORD_DETAIL
+    where ATT_ID = #{attId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_RECORD_DETAIL
+    where ATT_ID = #{attId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetailExample">
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_RECORD_DETAIL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="attId" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetail" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_RECORD_DETAIL (USER_ID, COMP_ID, AREA_ID, 
+      REG_ID, DEPT_ID, CITY_ID, 
+      GR_ID, CREATE_TIME, ATT_X, 
+      ATT_Y, LOCATION_DESC, CONFIG_ATT_TIME, 
+      LOCAL_ATT_TIME, SERVER_ATT_TIME, ATT_ATTRIBUTE, 
+      ATT_REST, ATT_TYPE, OFF_LINE_UPLOAD, 
+      ATT_GR_ID, ATT_ClASS_ID, ATT_NUM, 
+      EXTRA_PATH, EXTRA_TYPE, EXTRA_EXIST, 
+      ATT_REMARK, LOCATION_ATT_RESULT, TIME_ATT_RESULT, 
+      MANAGE_LOCATION_ATT_RESULT, MANAGE_TIME_ATT_RESULT, 
+      ATT_SUM_COUNT, EDIT_DEPT_ID, EDIT_USER_ID, 
+      EDIT_REMARK, ATT_OUGHT_DATE, ATT_SCOPE_ID, 
+      DEVICE_ID, DEVICE_TYPE, DEVICE_NAME, 
+      BELATE_MINUTE, ARCHIVE_ID, ATT_CONFIG_LOCATION, 
+      ATT_CONFIG_DISTANCE, ATT_CLASS_CLOCKTIME, ATT_RESULT_WEIGHT, 
+      ATT_GROUP_NAME, ATT_CLASS_NAME, ATT_WAY, 
+      WIFI_ID, ATT_WIFI_SSID, ATT_WIFI_MAC, 
+      ACTUAL_LOCATION_DESC, EDIT_DATE, AUDIT_ID, 
+      LEAVE_AUDIT_NAME)
+    values (#{userId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{regId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{grId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{attX,jdbcType=VARCHAR}, 
+      #{attY,jdbcType=VARCHAR}, #{locationDesc,jdbcType=VARCHAR}, #{configAttTime,jdbcType=TIMESTAMP}, 
+      #{localAttTime,jdbcType=TIMESTAMP}, #{serverAttTime,jdbcType=TIMESTAMP}, #{attAttribute,jdbcType=TINYINT}, 
+      #{attRest,jdbcType=TINYINT}, #{attType,jdbcType=TINYINT}, #{offLineUpload,jdbcType=TINYINT}, 
+      #{attGrId,jdbcType=INTEGER}, #{attClassId,jdbcType=INTEGER}, #{attNum,jdbcType=TINYINT}, 
+      #{extraPath,jdbcType=VARCHAR}, #{extraType,jdbcType=TINYINT}, #{extraExist,jdbcType=TINYINT}, 
+      #{attRemark,jdbcType=VARCHAR}, #{locationAttResult,jdbcType=TINYINT}, #{timeAttResult,jdbcType=TINYINT}, 
+      #{manageLocationAttResult,jdbcType=TINYINT}, #{manageTimeAttResult,jdbcType=TINYINT}, 
+      #{attSumCount,jdbcType=TINYINT}, #{editDeptId,jdbcType=INTEGER}, #{editUserId,jdbcType=INTEGER}, 
+      #{editRemark,jdbcType=VARCHAR}, #{attOughtDate,jdbcType=TIMESTAMP}, #{attScopeId,jdbcType=INTEGER}, 
+      #{deviceId,jdbcType=VARCHAR}, #{deviceType,jdbcType=TINYINT}, #{deviceName,jdbcType=VARCHAR}, 
+      #{belateMinute,jdbcType=INTEGER}, #{archiveId,jdbcType=INTEGER}, #{attConfigLocation,jdbcType=VARCHAR}, 
+      #{attConfigDistance,jdbcType=INTEGER}, #{attClassClocktime,jdbcType=VARCHAR}, #{attResultWeight,jdbcType=TINYINT}, 
+      #{attGroupName,jdbcType=VARCHAR}, #{attClassName,jdbcType=VARCHAR}, #{attWay,jdbcType=TINYINT}, 
+      #{wifiId,jdbcType=INTEGER}, #{attWifiSsid,jdbcType=VARCHAR}, #{attWifiMac,jdbcType=VARCHAR}, 
+      #{actualLocationDesc,jdbcType=VARCHAR}, #{editDate,jdbcType=TIMESTAMP}, #{auditId,jdbcType=INTEGER}, 
+      #{leaveAuditName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="attId" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetail" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_RECORD_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="grId != null">
+        GR_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="attX != null">
+        ATT_X,
+      </if>
+      <if test="attY != null">
+        ATT_Y,
+      </if>
+      <if test="locationDesc != null">
+        LOCATION_DESC,
+      </if>
+      <if test="configAttTime != null">
+        CONFIG_ATT_TIME,
+      </if>
+      <if test="localAttTime != null">
+        LOCAL_ATT_TIME,
+      </if>
+      <if test="serverAttTime != null">
+        SERVER_ATT_TIME,
+      </if>
+      <if test="attAttribute != null">
+        ATT_ATTRIBUTE,
+      </if>
+      <if test="attRest != null">
+        ATT_REST,
+      </if>
+      <if test="attType != null">
+        ATT_TYPE,
+      </if>
+      <if test="offLineUpload != null">
+        OFF_LINE_UPLOAD,
+      </if>
+      <if test="attGrId != null">
+        ATT_GR_ID,
+      </if>
+      <if test="attClassId != null">
+        ATT_ClASS_ID,
+      </if>
+      <if test="attNum != null">
+        ATT_NUM,
+      </if>
+      <if test="extraPath != null">
+        EXTRA_PATH,
+      </if>
+      <if test="extraType != null">
+        EXTRA_TYPE,
+      </if>
+      <if test="extraExist != null">
+        EXTRA_EXIST,
+      </if>
+      <if test="attRemark != null">
+        ATT_REMARK,
+      </if>
+      <if test="locationAttResult != null">
+        LOCATION_ATT_RESULT,
+      </if>
+      <if test="timeAttResult != null">
+        TIME_ATT_RESULT,
+      </if>
+      <if test="manageLocationAttResult != null">
+        MANAGE_LOCATION_ATT_RESULT,
+      </if>
+      <if test="manageTimeAttResult != null">
+        MANAGE_TIME_ATT_RESULT,
+      </if>
+      <if test="attSumCount != null">
+        ATT_SUM_COUNT,
+      </if>
+      <if test="editDeptId != null">
+        EDIT_DEPT_ID,
+      </if>
+      <if test="editUserId != null">
+        EDIT_USER_ID,
+      </if>
+      <if test="editRemark != null">
+        EDIT_REMARK,
+      </if>
+      <if test="attOughtDate != null">
+        ATT_OUGHT_DATE,
+      </if>
+      <if test="attScopeId != null">
+        ATT_SCOPE_ID,
+      </if>
+      <if test="deviceId != null">
+        DEVICE_ID,
+      </if>
+      <if test="deviceType != null">
+        DEVICE_TYPE,
+      </if>
+      <if test="deviceName != null">
+        DEVICE_NAME,
+      </if>
+      <if test="belateMinute != null">
+        BELATE_MINUTE,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="attConfigLocation != null">
+        ATT_CONFIG_LOCATION,
+      </if>
+      <if test="attConfigDistance != null">
+        ATT_CONFIG_DISTANCE,
+      </if>
+      <if test="attClassClocktime != null">
+        ATT_CLASS_CLOCKTIME,
+      </if>
+      <if test="attResultWeight != null">
+        ATT_RESULT_WEIGHT,
+      </if>
+      <if test="attGroupName != null">
+        ATT_GROUP_NAME,
+      </if>
+      <if test="attClassName != null">
+        ATT_CLASS_NAME,
+      </if>
+      <if test="attWay != null">
+        ATT_WAY,
+      </if>
+      <if test="wifiId != null">
+        WIFI_ID,
+      </if>
+      <if test="attWifiSsid != null">
+        ATT_WIFI_SSID,
+      </if>
+      <if test="attWifiMac != null">
+        ATT_WIFI_MAC,
+      </if>
+      <if test="actualLocationDesc != null">
+        ACTUAL_LOCATION_DESC,
+      </if>
+      <if test="editDate != null">
+        EDIT_DATE,
+      </if>
+      <if test="auditId != null">
+        AUDIT_ID,
+      </if>
+      <if test="leaveAuditName != null">
+        LEAVE_AUDIT_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attX != null">
+        #{attX,jdbcType=VARCHAR},
+      </if>
+      <if test="attY != null">
+        #{attY,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDesc != null">
+        #{locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="configAttTime != null">
+        #{configAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="localAttTime != null">
+        #{localAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverAttTime != null">
+        #{serverAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attAttribute != null">
+        #{attAttribute,jdbcType=TINYINT},
+      </if>
+      <if test="attRest != null">
+        #{attRest,jdbcType=TINYINT},
+      </if>
+      <if test="attType != null">
+        #{attType,jdbcType=TINYINT},
+      </if>
+      <if test="offLineUpload != null">
+        #{offLineUpload,jdbcType=TINYINT},
+      </if>
+      <if test="attGrId != null">
+        #{attGrId,jdbcType=INTEGER},
+      </if>
+      <if test="attClassId != null">
+        #{attClassId,jdbcType=INTEGER},
+      </if>
+      <if test="attNum != null">
+        #{attNum,jdbcType=TINYINT},
+      </if>
+      <if test="extraPath != null">
+        #{extraPath,jdbcType=VARCHAR},
+      </if>
+      <if test="extraType != null">
+        #{extraType,jdbcType=TINYINT},
+      </if>
+      <if test="extraExist != null">
+        #{extraExist,jdbcType=TINYINT},
+      </if>
+      <if test="attRemark != null">
+        #{attRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="locationAttResult != null">
+        #{locationAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="timeAttResult != null">
+        #{timeAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="manageLocationAttResult != null">
+        #{manageLocationAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="manageTimeAttResult != null">
+        #{manageTimeAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="attSumCount != null">
+        #{attSumCount,jdbcType=TINYINT},
+      </if>
+      <if test="editDeptId != null">
+        #{editDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="editUserId != null">
+        #{editUserId,jdbcType=INTEGER},
+      </if>
+      <if test="editRemark != null">
+        #{editRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="attOughtDate != null">
+        #{attOughtDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attScopeId != null">
+        #{attScopeId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null">
+        #{deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="deviceName != null">
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="belateMinute != null">
+        #{belateMinute,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="attConfigLocation != null">
+        #{attConfigLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="attConfigDistance != null">
+        #{attConfigDistance,jdbcType=INTEGER},
+      </if>
+      <if test="attClassClocktime != null">
+        #{attClassClocktime,jdbcType=VARCHAR},
+      </if>
+      <if test="attResultWeight != null">
+        #{attResultWeight,jdbcType=TINYINT},
+      </if>
+      <if test="attGroupName != null">
+        #{attGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassName != null">
+        #{attClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="attWay != null">
+        #{attWay,jdbcType=TINYINT},
+      </if>
+      <if test="wifiId != null">
+        #{wifiId,jdbcType=INTEGER},
+      </if>
+      <if test="attWifiSsid != null">
+        #{attWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="attWifiMac != null">
+        #{attWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="actualLocationDesc != null">
+        #{actualLocationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="editDate != null">
+        #{editDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditId != null">
+        #{auditId,jdbcType=INTEGER},
+      </if>
+      <if test="leaveAuditName != null">
+        #{leaveAuditName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetailExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ATTENDANCE_RECORD_DETAIL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_RECORD_DETAIL
+    <set>
+      <if test="record.attId != null">
+        ATT_ID = #{record.attId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null">
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null">
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null">
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.grId != null">
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.attX != null">
+        ATT_X = #{record.attX,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attY != null">
+        ATT_Y = #{record.attY,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locationDesc != null">
+        LOCATION_DESC = #{record.locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.configAttTime != null">
+        CONFIG_ATT_TIME = #{record.configAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.localAttTime != null">
+        LOCAL_ATT_TIME = #{record.localAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.serverAttTime != null">
+        SERVER_ATT_TIME = #{record.serverAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.attAttribute != null">
+        ATT_ATTRIBUTE = #{record.attAttribute,jdbcType=TINYINT},
+      </if>
+      <if test="record.attRest != null">
+        ATT_REST = #{record.attRest,jdbcType=TINYINT},
+      </if>
+      <if test="record.attType != null">
+        ATT_TYPE = #{record.attType,jdbcType=TINYINT},
+      </if>
+      <if test="record.offLineUpload != null">
+        OFF_LINE_UPLOAD = #{record.offLineUpload,jdbcType=TINYINT},
+      </if>
+      <if test="record.attGrId != null">
+        ATT_GR_ID = #{record.attGrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attClassId != null">
+        ATT_ClASS_ID = #{record.attClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attNum != null">
+        ATT_NUM = #{record.attNum,jdbcType=TINYINT},
+      </if>
+      <if test="record.extraPath != null">
+        EXTRA_PATH = #{record.extraPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extraType != null">
+        EXTRA_TYPE = #{record.extraType,jdbcType=TINYINT},
+      </if>
+      <if test="record.extraExist != null">
+        EXTRA_EXIST = #{record.extraExist,jdbcType=TINYINT},
+      </if>
+      <if test="record.attRemark != null">
+        ATT_REMARK = #{record.attRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locationAttResult != null">
+        LOCATION_ATT_RESULT = #{record.locationAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="record.timeAttResult != null">
+        TIME_ATT_RESULT = #{record.timeAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="record.manageLocationAttResult != null">
+        MANAGE_LOCATION_ATT_RESULT = #{record.manageLocationAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="record.manageTimeAttResult != null">
+        MANAGE_TIME_ATT_RESULT = #{record.manageTimeAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="record.attSumCount != null">
+        ATT_SUM_COUNT = #{record.attSumCount,jdbcType=TINYINT},
+      </if>
+      <if test="record.editDeptId != null">
+        EDIT_DEPT_ID = #{record.editDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.editUserId != null">
+        EDIT_USER_ID = #{record.editUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.editRemark != null">
+        EDIT_REMARK = #{record.editRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attOughtDate != null">
+        ATT_OUGHT_DATE = #{record.attOughtDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.attScopeId != null">
+        ATT_SCOPE_ID = #{record.attScopeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deviceId != null">
+        DEVICE_ID = #{record.deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deviceType != null">
+        DEVICE_TYPE = #{record.deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="record.deviceName != null">
+        DEVICE_NAME = #{record.deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.belateMinute != null">
+        BELATE_MINUTE = #{record.belateMinute,jdbcType=INTEGER},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attConfigLocation != null">
+        ATT_CONFIG_LOCATION = #{record.attConfigLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attConfigDistance != null">
+        ATT_CONFIG_DISTANCE = #{record.attConfigDistance,jdbcType=INTEGER},
+      </if>
+      <if test="record.attClassClocktime != null">
+        ATT_CLASS_CLOCKTIME = #{record.attClassClocktime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attResultWeight != null">
+        ATT_RESULT_WEIGHT = #{record.attResultWeight,jdbcType=TINYINT},
+      </if>
+      <if test="record.attGroupName != null">
+        ATT_GROUP_NAME = #{record.attGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attClassName != null">
+        ATT_CLASS_NAME = #{record.attClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attWay != null">
+        ATT_WAY = #{record.attWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.wifiId != null">
+        WIFI_ID = #{record.wifiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attWifiSsid != null">
+        ATT_WIFI_SSID = #{record.attWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attWifiMac != null">
+        ATT_WIFI_MAC = #{record.attWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actualLocationDesc != null">
+        ACTUAL_LOCATION_DESC = #{record.actualLocationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.editDate != null">
+        EDIT_DATE = #{record.editDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditId != null">
+        AUDIT_ID = #{record.auditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.leaveAuditName != null">
+        LEAVE_AUDIT_NAME = #{record.leaveAuditName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_RECORD_DETAIL
+    set ATT_ID = #{record.attId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      ATT_X = #{record.attX,jdbcType=VARCHAR},
+      ATT_Y = #{record.attY,jdbcType=VARCHAR},
+      LOCATION_DESC = #{record.locationDesc,jdbcType=VARCHAR},
+      CONFIG_ATT_TIME = #{record.configAttTime,jdbcType=TIMESTAMP},
+      LOCAL_ATT_TIME = #{record.localAttTime,jdbcType=TIMESTAMP},
+      SERVER_ATT_TIME = #{record.serverAttTime,jdbcType=TIMESTAMP},
+      ATT_ATTRIBUTE = #{record.attAttribute,jdbcType=TINYINT},
+      ATT_REST = #{record.attRest,jdbcType=TINYINT},
+      ATT_TYPE = #{record.attType,jdbcType=TINYINT},
+      OFF_LINE_UPLOAD = #{record.offLineUpload,jdbcType=TINYINT},
+      ATT_GR_ID = #{record.attGrId,jdbcType=INTEGER},
+      ATT_ClASS_ID = #{record.attClassId,jdbcType=INTEGER},
+      ATT_NUM = #{record.attNum,jdbcType=TINYINT},
+      EXTRA_PATH = #{record.extraPath,jdbcType=VARCHAR},
+      EXTRA_TYPE = #{record.extraType,jdbcType=TINYINT},
+      EXTRA_EXIST = #{record.extraExist,jdbcType=TINYINT},
+      ATT_REMARK = #{record.attRemark,jdbcType=VARCHAR},
+      LOCATION_ATT_RESULT = #{record.locationAttResult,jdbcType=TINYINT},
+      TIME_ATT_RESULT = #{record.timeAttResult,jdbcType=TINYINT},
+      MANAGE_LOCATION_ATT_RESULT = #{record.manageLocationAttResult,jdbcType=TINYINT},
+      MANAGE_TIME_ATT_RESULT = #{record.manageTimeAttResult,jdbcType=TINYINT},
+      ATT_SUM_COUNT = #{record.attSumCount,jdbcType=TINYINT},
+      EDIT_DEPT_ID = #{record.editDeptId,jdbcType=INTEGER},
+      EDIT_USER_ID = #{record.editUserId,jdbcType=INTEGER},
+      EDIT_REMARK = #{record.editRemark,jdbcType=VARCHAR},
+      ATT_OUGHT_DATE = #{record.attOughtDate,jdbcType=TIMESTAMP},
+      ATT_SCOPE_ID = #{record.attScopeId,jdbcType=INTEGER},
+      DEVICE_ID = #{record.deviceId,jdbcType=VARCHAR},
+      DEVICE_TYPE = #{record.deviceType,jdbcType=TINYINT},
+      DEVICE_NAME = #{record.deviceName,jdbcType=VARCHAR},
+      BELATE_MINUTE = #{record.belateMinute,jdbcType=INTEGER},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      ATT_CONFIG_LOCATION = #{record.attConfigLocation,jdbcType=VARCHAR},
+      ATT_CONFIG_DISTANCE = #{record.attConfigDistance,jdbcType=INTEGER},
+      ATT_CLASS_CLOCKTIME = #{record.attClassClocktime,jdbcType=VARCHAR},
+      ATT_RESULT_WEIGHT = #{record.attResultWeight,jdbcType=TINYINT},
+      ATT_GROUP_NAME = #{record.attGroupName,jdbcType=VARCHAR},
+      ATT_CLASS_NAME = #{record.attClassName,jdbcType=VARCHAR},
+      ATT_WAY = #{record.attWay,jdbcType=TINYINT},
+      WIFI_ID = #{record.wifiId,jdbcType=INTEGER},
+      ATT_WIFI_SSID = #{record.attWifiSsid,jdbcType=VARCHAR},
+      ATT_WIFI_MAC = #{record.attWifiMac,jdbcType=VARCHAR},
+      ACTUAL_LOCATION_DESC = #{record.actualLocationDesc,jdbcType=VARCHAR},
+      EDIT_DATE = #{record.editDate,jdbcType=TIMESTAMP},
+      AUDIT_ID = #{record.auditId,jdbcType=INTEGER},
+      LEAVE_AUDIT_NAME = #{record.leaveAuditName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetail">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_RECORD_DETAIL
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attX != null">
+        ATT_X = #{attX,jdbcType=VARCHAR},
+      </if>
+      <if test="attY != null">
+        ATT_Y = #{attY,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDesc != null">
+        LOCATION_DESC = #{locationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="configAttTime != null">
+        CONFIG_ATT_TIME = #{configAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="localAttTime != null">
+        LOCAL_ATT_TIME = #{localAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverAttTime != null">
+        SERVER_ATT_TIME = #{serverAttTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attAttribute != null">
+        ATT_ATTRIBUTE = #{attAttribute,jdbcType=TINYINT},
+      </if>
+      <if test="attRest != null">
+        ATT_REST = #{attRest,jdbcType=TINYINT},
+      </if>
+      <if test="attType != null">
+        ATT_TYPE = #{attType,jdbcType=TINYINT},
+      </if>
+      <if test="offLineUpload != null">
+        OFF_LINE_UPLOAD = #{offLineUpload,jdbcType=TINYINT},
+      </if>
+      <if test="attGrId != null">
+        ATT_GR_ID = #{attGrId,jdbcType=INTEGER},
+      </if>
+      <if test="attClassId != null">
+        ATT_ClASS_ID = #{attClassId,jdbcType=INTEGER},
+      </if>
+      <if test="attNum != null">
+        ATT_NUM = #{attNum,jdbcType=TINYINT},
+      </if>
+      <if test="extraPath != null">
+        EXTRA_PATH = #{extraPath,jdbcType=VARCHAR},
+      </if>
+      <if test="extraType != null">
+        EXTRA_TYPE = #{extraType,jdbcType=TINYINT},
+      </if>
+      <if test="extraExist != null">
+        EXTRA_EXIST = #{extraExist,jdbcType=TINYINT},
+      </if>
+      <if test="attRemark != null">
+        ATT_REMARK = #{attRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="locationAttResult != null">
+        LOCATION_ATT_RESULT = #{locationAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="timeAttResult != null">
+        TIME_ATT_RESULT = #{timeAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="manageLocationAttResult != null">
+        MANAGE_LOCATION_ATT_RESULT = #{manageLocationAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="manageTimeAttResult != null">
+        MANAGE_TIME_ATT_RESULT = #{manageTimeAttResult,jdbcType=TINYINT},
+      </if>
+      <if test="attSumCount != null">
+        ATT_SUM_COUNT = #{attSumCount,jdbcType=TINYINT},
+      </if>
+      <if test="editDeptId != null">
+        EDIT_DEPT_ID = #{editDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="editUserId != null">
+        EDIT_USER_ID = #{editUserId,jdbcType=INTEGER},
+      </if>
+      <if test="editRemark != null">
+        EDIT_REMARK = #{editRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="attOughtDate != null">
+        ATT_OUGHT_DATE = #{attOughtDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attScopeId != null">
+        ATT_SCOPE_ID = #{attScopeId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        DEVICE_ID = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null">
+        DEVICE_TYPE = #{deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="deviceName != null">
+        DEVICE_NAME = #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="belateMinute != null">
+        BELATE_MINUTE = #{belateMinute,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="attConfigLocation != null">
+        ATT_CONFIG_LOCATION = #{attConfigLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="attConfigDistance != null">
+        ATT_CONFIG_DISTANCE = #{attConfigDistance,jdbcType=INTEGER},
+      </if>
+      <if test="attClassClocktime != null">
+        ATT_CLASS_CLOCKTIME = #{attClassClocktime,jdbcType=VARCHAR},
+      </if>
+      <if test="attResultWeight != null">
+        ATT_RESULT_WEIGHT = #{attResultWeight,jdbcType=TINYINT},
+      </if>
+      <if test="attGroupName != null">
+        ATT_GROUP_NAME = #{attGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassName != null">
+        ATT_CLASS_NAME = #{attClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="attWay != null">
+        ATT_WAY = #{attWay,jdbcType=TINYINT},
+      </if>
+      <if test="wifiId != null">
+        WIFI_ID = #{wifiId,jdbcType=INTEGER},
+      </if>
+      <if test="attWifiSsid != null">
+        ATT_WIFI_SSID = #{attWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="attWifiMac != null">
+        ATT_WIFI_MAC = #{attWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="actualLocationDesc != null">
+        ACTUAL_LOCATION_DESC = #{actualLocationDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="editDate != null">
+        EDIT_DATE = #{editDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditId != null">
+        AUDIT_ID = #{auditId,jdbcType=INTEGER},
+      </if>
+      <if test="leaveAuditName != null">
+        LEAVE_AUDIT_NAME = #{leaveAuditName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ATT_ID = #{attId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceRecordDetail">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_RECORD_DETAIL
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      ATT_X = #{attX,jdbcType=VARCHAR},
+      ATT_Y = #{attY,jdbcType=VARCHAR},
+      LOCATION_DESC = #{locationDesc,jdbcType=VARCHAR},
+      CONFIG_ATT_TIME = #{configAttTime,jdbcType=TIMESTAMP},
+      LOCAL_ATT_TIME = #{localAttTime,jdbcType=TIMESTAMP},
+      SERVER_ATT_TIME = #{serverAttTime,jdbcType=TIMESTAMP},
+      ATT_ATTRIBUTE = #{attAttribute,jdbcType=TINYINT},
+      ATT_REST = #{attRest,jdbcType=TINYINT},
+      ATT_TYPE = #{attType,jdbcType=TINYINT},
+      OFF_LINE_UPLOAD = #{offLineUpload,jdbcType=TINYINT},
+      ATT_GR_ID = #{attGrId,jdbcType=INTEGER},
+      ATT_ClASS_ID = #{attClassId,jdbcType=INTEGER},
+      ATT_NUM = #{attNum,jdbcType=TINYINT},
+      EXTRA_PATH = #{extraPath,jdbcType=VARCHAR},
+      EXTRA_TYPE = #{extraType,jdbcType=TINYINT},
+      EXTRA_EXIST = #{extraExist,jdbcType=TINYINT},
+      ATT_REMARK = #{attRemark,jdbcType=VARCHAR},
+      LOCATION_ATT_RESULT = #{locationAttResult,jdbcType=TINYINT},
+      TIME_ATT_RESULT = #{timeAttResult,jdbcType=TINYINT},
+      MANAGE_LOCATION_ATT_RESULT = #{manageLocationAttResult,jdbcType=TINYINT},
+      MANAGE_TIME_ATT_RESULT = #{manageTimeAttResult,jdbcType=TINYINT},
+      ATT_SUM_COUNT = #{attSumCount,jdbcType=TINYINT},
+      EDIT_DEPT_ID = #{editDeptId,jdbcType=INTEGER},
+      EDIT_USER_ID = #{editUserId,jdbcType=INTEGER},
+      EDIT_REMARK = #{editRemark,jdbcType=VARCHAR},
+      ATT_OUGHT_DATE = #{attOughtDate,jdbcType=TIMESTAMP},
+      ATT_SCOPE_ID = #{attScopeId,jdbcType=INTEGER},
+      DEVICE_ID = #{deviceId,jdbcType=VARCHAR},
+      DEVICE_TYPE = #{deviceType,jdbcType=TINYINT},
+      DEVICE_NAME = #{deviceName,jdbcType=VARCHAR},
+      BELATE_MINUTE = #{belateMinute,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      ATT_CONFIG_LOCATION = #{attConfigLocation,jdbcType=VARCHAR},
+      ATT_CONFIG_DISTANCE = #{attConfigDistance,jdbcType=INTEGER},
+      ATT_CLASS_CLOCKTIME = #{attClassClocktime,jdbcType=VARCHAR},
+      ATT_RESULT_WEIGHT = #{attResultWeight,jdbcType=TINYINT},
+      ATT_GROUP_NAME = #{attGroupName,jdbcType=VARCHAR},
+      ATT_CLASS_NAME = #{attClassName,jdbcType=VARCHAR},
+      ATT_WAY = #{attWay,jdbcType=TINYINT},
+      WIFI_ID = #{wifiId,jdbcType=INTEGER},
+      ATT_WIFI_SSID = #{attWifiSsid,jdbcType=VARCHAR},
+      ATT_WIFI_MAC = #{attWifiMac,jdbcType=VARCHAR},
+      ACTUAL_LOCATION_DESC = #{actualLocationDesc,jdbcType=VARCHAR},
+      EDIT_DATE = #{editDate,jdbcType=TIMESTAMP},
+      AUDIT_ID = #{auditId,jdbcType=INTEGER},
+      LEAVE_AUDIT_NAME = #{leaveAuditName,jdbcType=VARCHAR}
+    where ATT_ID = #{attId,jdbcType=INTEGER}
+  </update>
+   <select id="selectRecordByUserId" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" />
+    FROM FUN_ATTENDANCE_RECORD_DETAIL
+    WHERE USER_ID =#{userId}
+    AND ATT_ATTRIBUTE=#{attAttribute}
+    AND ATT_NUM =#{attNum}
+    AND COMP_ID =#{compId}
+    AND DEPT_ID =#{deptId}
+  </select>
+  
+   <select id="getAttendanceRecordDetailList" resultMap="BaseResultMap">
+   with t_max_id as (
+   	select max(ATT_ID) as ID,ATT_NUM,ATT_ATTRIBUTE from FUN_ATTENDANCE_RECORD_DETAIL where COMP_ID = #{compId} 
+   	and USER_ID = #{userId} and ATT_OUGHT_DATE = #{attDate} 
+   	<if test="attNum!=null">
+   		and ATT_NUM = #{attNum}
+   	</if>
+   	<if test="attAttribute!=null">
+   		and ATT_ATTRIBUTE = #{attAttribute}
+   	</if>
+   	group by ATT_NUM,ATT_ATTRIBUTE
+   )
+    SELECT A.*
+    FROM FUN_ATTENDANCE_RECORD_DETAIL A JOIN t_max_id B ON A.ATT_ID = B.ID
+    WHERE A.COMP_ID =#{compId} order by A.ATT_ID asc
+  </select>
+  
+   <select id="getAttendanceRecordDetailListMap" resultType="map">
+	   <if test="startTime!=null">
+		   with t_max_id as (
+		   	select max(ATT_ID) as ID,ATT_NUM,ATT_ATTRIBUTE,ATT_OUGHT_DATE from FUN_ATTENDANCE_RECORD_DETAIL where COMP_ID = #{compId} 
+		   	and ARCHIVE_ID = #{archiveId} 
+		   	<if test="attNum!=null">
+		   		and ATT_NUM = #{attNum}
+		   	</if>
+		   	<if test="attAttribute!=null">
+		   		and ATT_ATTRIBUTE = #{attAttribute}
+		   	</if>
+		   	<if test="startTime!=null">
+		   		and ATT_OUGHT_DATE &gt;= #{startTime}
+		   	</if>
+		   	<if test="endTime!=null">
+		   		and ATT_OUGHT_DATE &lt;= #{endTime}
+		   	</if>
+		   	group by ATT_NUM,ATT_ATTRIBUTE,ATT_OUGHT_DATE
+		   )
+		   SELECT A.ATT_ID as attId,A.ATT_OUGHT_DATE as attOughtDate,A.SERVER_ATT_TIME as serverAttTime,A.CONFIG_ATT_TIME as configAttTime,A.ATT_ATTRIBUTE as attAttribute,
+		    A.MANAGE_LOCATION_ATT_RESULT as manageLocationAttResult,A.MANAGE_TIME_ATT_RESULT as manageTimeAttResult
+		    ,A.EXTRA_PATH as extraPath,A.EXTRA_TYPE as extraType,A.ATT_REMARK as attRemark,A.BELATE_MINUTE as belateMinute,A.ATT_CLASS_NAME as attClassName,A.LOCATION_DESC as locationDesc
+		    FROM FUN_ATTENDANCE_RECORD_DETAIL A JOIN t_max_id B ON A.ATT_ID = B.ID
+		    WHERE A.COMP_ID =#{compId}
+		   <choose>
+			   <when test="isOutAtt!=null and 1 == isOutAtt">
+				   and A.MANAGE_TIME_ATT_RESULT IN (2,4,6) and A.MANAGE_LOCATION_ATT_RESULT = 2
+			   </when>
+			   <otherwise>
+				   <if test="attResult!=null and ''!=attResult">
+					   and A.MANAGE_TIME_ATT_RESULT = #{attResult}
+				   </if>
+			   </otherwise>
+		   </choose>
+	  </if>
+	   <if test="startTime==null">
+		   with t_max_id as (
+		   	select max(ATT_ID) as ID,ATT_NUM,ATT_ATTRIBUTE from FUN_ATTENDANCE_RECORD_DETAIL where COMP_ID = #{compId} 
+		   	and ARCHIVE_ID = #{archiveId} and ATT_OUGHT_DATE = #{attDate} 
+		   	<if test="attNum!=null">
+		   		and ATT_NUM = #{attNum}
+		   	</if>
+		   	<if test="attAttribute!=null">
+		   		and ATT_ATTRIBUTE = #{attAttribute}
+		   	</if>
+		   	group by ATT_NUM,ATT_ATTRIBUTE
+		   )
+		    SELECT A.ATT_ID as attId,A.ATT_OUGHT_DATE as attOughtDate,A.SERVER_ATT_TIME as serverAttTime,A.CONFIG_ATT_TIME as configAttTime,A.ATT_ATTRIBUTE as attAttribute,
+		    A.MANAGE_LOCATION_ATT_RESULT as manageLocationAttResult,A.MANAGE_TIME_ATT_RESULT as manageTimeAttResult
+		    ,A.EXTRA_PATH as extraPath,A.EXTRA_TYPE as extraType,A.ATT_REMARK as attRemark,A.EDIT_REMARK as editRemark,A.BELATE_MINUTE as belateMinute,A.ATT_NUM as attNum,A.ATT_CLASS_NAME as attClassName
+		    ,A.LOCATION_DESC as locationDesc,A.ATT_CONFIG_LOCATION as attConfigLocation
+		    FROM FUN_ATTENDANCE_RECORD_DETAIL A JOIN t_max_id B ON A.ATT_ID = B.ID
+		    WHERE A.COMP_ID =#{compId} order by A.ATT_ID asc
+	  </if>
+  </select>
+  
+
+  
+	<select id="getRecordByUserId" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM FUN_ATTENDANCE_RECORD_DETAIL where USER_ID=#{userId} and ATT_OUGHT_DATE=#{attDate}
+	</select>
+
+	<select id="getAttendanceALLRecordByMonth" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List" />
+		FROM FUN_ATTENDANCE_RECORD_DETAIL
+		where
+		USER_ID=#{userId} and
+		ATT_OUGHT_DATE BETWEEN #{startDate}
+		and
+		#{endDate}
+	</select>
+	
+	<select id="getAttendanceRecordByUserId" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM FUN_ATTENDANCE_RECORD_DETAIL
+		where
+		USER_ID = #{userId} and ATT_OUGHT_DATE=#{attDate}
+	</select>
+	
+	<select id="getAttendanceRecordStatisticalAnalysisDetailOffOneDay" resultType="map">
+		select
+			MAX(ATT_RESULT_WEIGHT) as attResultWeight, USER_ID as userId
+		from FUN_ATTENDANCE_RECORD_DETAIL 
+			where
+				COMP_ID = #{compId} 
+		   	<if test="areaId!=null">
+		   		and AREA_ID = #{areaId}
+		   	</if>
+		   	<if test="regId!=null">
+		   		and REG_ID = #{regId}
+		   	</if>
+		   	<if test="deptId!=null">
+		   		and DEPT_ID = #{deptId}
+		   	</if>
+		   	<if test="grId!=null">
+		   		and GR_ID = #{grId}
+		   	</if>
+		   	<if test="userId!=null">
+		   		and USER_ID = #{userId}
+		   	</if>
+				and ATT_OUGHT_DATE = #{attDate} group by USER_ID
+	</select>
+	
+	<select id="getAttendanceRecordStatisticalAnalysisDetailListOffOneDay" resultType="map">
+		
+		select
+			MAX(ATT_RESULT_WEIGHT) as attResultWeight, USER_ID as userId
+		from FUN_ATTENDANCE_RECORD_DETAIL 
+			where
+				COMP_ID = #{compId} 
+		   	<if test="areaId!=null">
+		   		and AREA_ID = #{areaId}
+		   	</if>
+		   	<if test="regId!=null">
+		   		and REG_ID = #{regId}
+		   	</if>
+		   	<if test="deptId!=null">
+		   		and DEPT_ID = #{deptId}
+		   	</if>
+		   	<if test="grId!=null">
+		   		and GR_ID = #{grId}
+		   	</if>
+		   	<if test="userId!=null">
+		   		and USER_ID = #{userId}
+		   	</if>
+				and ATT_OUGHT_DATE = #{attDate} group by USER_ID 
+			<if test="attWeightTypes!=null">
+			having max(ATT_RESULT_WEIGHT) IN
+				<foreach close=")" collection="attWeightTypes" item="attWeightType" open="(" separator=",">
+		   			 #{attWeightType}
+		   		</foreach>
+		   	</if>
+				
+	</select>
+	
+	<select id="getAttendanceRecordStatisticalAnalysisDetailOffOneMonth" resultType="map">
+		select
+			max(ATT_RESULT_WEIGHT) as attType, CONVERT(VARCHAR(10),ATT_OUGHT_DATE,120) as attDate
+		from FUN_ATTENDANCE_RECORD_DETAIL 
+			where
+				COMP_ID = #{compId} and USER_ID = #{userId} and ATT_OUGHT_DATE &gt;= #{startDate} and ATT_OUGHT_DATE &lt; #{endDate} group by ATT_OUGHT_DATE
+	</select>
+	
+	<select id="getAttendanceRecordDetailListMapByRange" resultType="map">
+	 	 with t_max_id as (
+		  	select max(ATT_ID) as ID,ATT_NUM,ATT_ATTRIBUTE,USER_ID from FUN_ATTENDANCE_RECORD_DETAIL where
+		 	COMP_ID =#{compId} and ATT_OUGHT_DATE = #{attDate} 
+		 	<if test="userIds!=null">
+		   	 	AND USER_ID in
+			    <foreach close=")" collection="userIds" item="userId" open="(" separator=",">
+			    	#{userId}
+			    </foreach>
+		    </if>
+		   	group by ATT_NUM,ATT_ATTRIBUTE,USER_ID
+		   )
+	    SELECT A.ATT_ID as attId,A.AREA_ID as areaId,A.REG_ID as regId,A.DEPT_ID as deptId,A.GR_ID as grId,A.USER_ID as userId,A.ARCHIVE_ID as archiveId,A.ATT_OUGHT_DATE as attOughtDate,A.SERVER_ATT_TIME as serverAttTime,A.CONFIG_ATT_TIME as configAttTime,A.ATT_ATTRIBUTE as attAttribute,
+		    A.MANAGE_LOCATION_ATT_RESULT as manageLocationAttResult,A.MANAGE_TIME_ATT_RESULT as manageTimeAttResult
+		    ,A.EXTRA_PATH as extraPath,A.EXTRA_TYPE as extraType,A.ATT_REMARK as attRemark,A.BELATE_MINUTE as belateMinute,A.ATT_NUM as attNum
+		    ,A.LOCATION_DESC as locationDesc,A.ATT_CONFIG_LOCATION as attConfigLocation
+		    FROM FUN_ATTENDANCE_RECORD_DETAIL A JOIN t_max_id B ON A.ATT_ID = B.ID
+	    WHERE A.COMP_ID =#{compId} and A.ATT_OUGHT_DATE = #{attDate} 
+  </select>
+  <select id="getAttendanceRecordStatisticalCountGroupByWeight" resultType="map">
+		select
+			count(1) as attResultCount, ATT_RESULT_WEIGHT as attResultWeight
+		from FUN_ATTENDANCE_RECORD_DETAIL 
+			where
+				COMP_ID = #{compId} 
+		   	<if test="userId!=null">
+		   		and USER_ID = #{userId}
+		   	</if>
+		   		AND MANAGE_TIME_ATT_RESULT!='0'
+		   		AND ATT_RESULT_WEIGHT!=4 AND ATT_RESULT_WEIGHT!=1
+				and ATT_OUGHT_DATE &gt;= #{startDate} and ATT_OUGHT_DATE &lt; #{endDate} group by ATT_RESULT_WEIGHT
+  </select>
+</mapper>

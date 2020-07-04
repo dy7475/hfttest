@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminPushMessageDebugMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminPushMessageDebug" >
+    <!--@mbggenerated-->
+    <id column="MSG_ID" property="msgId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="PHOTO_ADDR" property="photoAddr" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="MARK" property="mark" jdbcType="VARCHAR" />
+    <result column="MSG_CONTENT" property="msgContent" jdbcType="VARCHAR" />
+    <result column="IM_TYPE" property="imType" jdbcType="INTEGER" />
+    <result column="MSG_TYPE" property="msgType" jdbcType="INTEGER" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="JSON" property="json" jdbcType="VARCHAR" />
+    <result column="IS_PUSH" property="isPush" jdbcType="TINYINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    MSG_ID, ARCHIVE_ID, PHOTO_ADDR, TITLE, MARK, MSG_CONTENT, IM_TYPE, MSG_TYPE, URL, 
+    JSON, IS_PUSH, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from PUSH_MESSAGE_DEBUG
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from PUSH_MESSAGE_DEBUG
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminPushMessageDebug" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="msgId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into PUSH_MESSAGE_DEBUG (ARCHIVE_ID, PHOTO_ADDR, TITLE, 
+      MARK, MSG_CONTENT, IM_TYPE, 
+      MSG_TYPE, URL, JSON, 
+      IS_PUSH, CREATE_TIME)
+    values (#{archiveId,jdbcType=INTEGER}, #{photoAddr,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=VARCHAR}, #{msgContent,jdbcType=VARCHAR}, #{imType,jdbcType=INTEGER}, 
+      #{msgType,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{json,jdbcType=VARCHAR}, 
+      #{isPush,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminPushMessageDebug" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="msgId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into PUSH_MESSAGE_DEBUG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="mark != null" >
+        MARK,
+      </if>
+      <if test="msgContent != null" >
+        MSG_CONTENT,
+      </if>
+      <if test="imType != null" >
+        IM_TYPE,
+      </if>
+      <if test="msgType != null" >
+        MSG_TYPE,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+      <if test="json != null" >
+        JSON,
+      </if>
+      <if test="isPush != null" >
+        IS_PUSH,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null" >
+        #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="msgContent != null" >
+        #{msgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="imType != null" >
+        #{imType,jdbcType=INTEGER},
+      </if>
+      <if test="msgType != null" >
+        #{msgType,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="json != null" >
+        #{json,jdbcType=VARCHAR},
+      </if>
+      <if test="isPush != null" >
+        #{isPush,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminPushMessageDebug" >
+    <!--@mbggenerated-->
+    update PUSH_MESSAGE_DEBUG
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAddr != null" >
+        PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null" >
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="msgContent != null" >
+        MSG_CONTENT = #{msgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="imType != null" >
+        IM_TYPE = #{imType,jdbcType=INTEGER},
+      </if>
+      <if test="msgType != null" >
+        MSG_TYPE = #{msgType,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="json != null" >
+        JSON = #{json,jdbcType=VARCHAR},
+      </if>
+      <if test="isPush != null" >
+        IS_PUSH = #{isPush,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminPushMessageDebug" >
+    <!--@mbggenerated-->
+    update PUSH_MESSAGE_DEBUG
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      PHOTO_ADDR = #{photoAddr,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=VARCHAR},
+      MSG_CONTENT = #{msgContent,jdbcType=VARCHAR},
+      IM_TYPE = #{imType,jdbcType=INTEGER},
+      MSG_TYPE = #{msgType,jdbcType=INTEGER},
+      URL = #{url,jdbcType=VARCHAR},
+      JSON = #{json,jdbcType=VARCHAR},
+      IS_PUSH = #{isPush,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where MSG_ID = #{msgId,jdbcType=INTEGER}
+  </update>
+</mapper>

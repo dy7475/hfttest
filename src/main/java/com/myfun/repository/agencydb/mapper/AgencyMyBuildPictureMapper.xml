@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyMyBuildPictureMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyMyBuildPicture" >
+    <!--@mbggenerated-->
+    <id column="my_picture_id" property="myPictureId" jdbcType="INTEGER" />
+    <result column="building_id" property="buildingId" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+    <result column="picture_src" property="pictureSrc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    my_picture_id, building_id, group_id, group_name, picture_src
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from MY_BUILD_PICTURE
+    where my_picture_id = #{myPictureId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from MY_BUILD_PICTURE
+    where my_picture_id = #{myPictureId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyMyBuildPicture" >
+    <!--@mbggenerated-->
+    insert into MY_BUILD_PICTURE (my_picture_id, building_id, group_id, 
+      group_name, picture_src)
+    values (#{myPictureId,jdbcType=INTEGER}, #{buildingId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, 
+      #{groupName,jdbcType=VARCHAR}, #{pictureSrc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyMyBuildPicture" >
+    <!--@mbggenerated-->
+    insert into MY_BUILD_PICTURE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="myPictureId != null" >
+        my_picture_id,
+      </if>
+      <if test="buildingId != null" >
+        building_id,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="pictureSrc != null" >
+        picture_src,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="myPictureId != null" >
+        #{myPictureId,jdbcType=INTEGER},
+      </if>
+      <if test="buildingId != null" >
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureSrc != null" >
+        #{pictureSrc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyMyBuildPicture" >
+    <!--@mbggenerated-->
+    update MY_BUILD_PICTURE
+    <set >
+      <if test="buildingId != null" >
+        building_id = #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureSrc != null" >
+        picture_src = #{pictureSrc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where my_picture_id = #{myPictureId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyMyBuildPicture" >
+    <!--@mbggenerated-->
+    update MY_BUILD_PICTURE
+    set building_id = #{buildingId,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR},
+      group_name = #{groupName,jdbcType=VARCHAR},
+      picture_src = #{pictureSrc,jdbcType=VARCHAR}
+    where my_picture_id = #{myPictureId,jdbcType=INTEGER}
+  </update>
+</mapper>

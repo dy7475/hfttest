@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminTSignMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminTSign" >
+    <!--@mbggenerated-->
+    <id column="T_SIGNIN_ID" property="tSigninId" jdbcType="INTEGER" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="T_SIGN_DATE" property="tSignDate" jdbcType="TIMESTAMP" />
+    <result column="T_DAYSSIGN_IN" property="tDayssignIn" jdbcType="INTEGER" />
+    <result column="T_FLAG" property="tFlag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    T_SIGNIN_ID, ARCHIVE_ID, T_SIGN_DATE, T_DAYSSIGN_IN, T_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from T_SIGN
+    where T_SIGNIN_ID = #{tSigninId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from T_SIGN
+    where T_SIGNIN_ID = #{tSigninId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminTSign" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="tSigninId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into T_SIGN (ARCHIVE_ID, T_SIGN_DATE, T_DAYSSIGN_IN, 
+      T_FLAG)
+    values (#{archiveId,jdbcType=INTEGER}, #{tSignDate,jdbcType=TIMESTAMP}, #{tDayssignIn,jdbcType=INTEGER}, 
+      #{tFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminTSign" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="tSigninId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into T_SIGN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="tSignDate != null" >
+        T_SIGN_DATE,
+      </if>
+      <if test="tDayssignIn != null" >
+        T_DAYSSIGN_IN,
+      </if>
+      <if test="tFlag != null" >
+        T_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="tSignDate != null" >
+        #{tSignDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tDayssignIn != null" >
+        #{tDayssignIn,jdbcType=INTEGER},
+      </if>
+      <if test="tFlag != null" >
+        #{tFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminTSign" >
+    <!--@mbggenerated-->
+    update T_SIGN
+    <set >
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="tSignDate != null" >
+        T_SIGN_DATE = #{tSignDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tDayssignIn != null" >
+        T_DAYSSIGN_IN = #{tDayssignIn,jdbcType=INTEGER},
+      </if>
+      <if test="tFlag != null" >
+        T_FLAG = #{tFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where T_SIGNIN_ID = #{tSigninId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminTSign" >
+    <!--@mbggenerated-->
+    update T_SIGN
+    set ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      T_SIGN_DATE = #{tSignDate,jdbcType=TIMESTAMP},
+      T_DAYSSIGN_IN = #{tDayssignIn,jdbcType=INTEGER},
+      T_FLAG = #{tFlag,jdbcType=VARCHAR}
+    where T_SIGNIN_ID = #{tSigninId,jdbcType=INTEGER}
+  </update>
+</mapper>

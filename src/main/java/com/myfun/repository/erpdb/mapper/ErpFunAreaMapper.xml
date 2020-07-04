@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAreaMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunArea">
+    <!--@mbggenerated-->
+    <id column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="SEQ_NO" jdbcType="INTEGER" property="seqNo" />
+    <result column="ADMIN_USER" jdbcType="INTEGER" property="adminUser" />
+    <result column="AREA_ADMIN" jdbcType="VARCHAR" property="areaAdmin" />
+    <result column="AREA_TELE" jdbcType="VARCHAR" property="areaTele" />
+    <result column="AREA_DESC" jdbcType="VARCHAR" property="areaDesc" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="UPDATE_UID" jdbcType="INTEGER" property="updateUid" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    AREA_ID, COMP_ID, AREA_NAME, SEQ_NO, ADMIN_USER, AREA_ADMIN, AREA_TELE, AREA_DESC, 
+    CREATOR_UID, CREATION_TIME, UPDATE_UID, UPDATE_TIME, IS_DEL
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAreaExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_AREA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_AREA
+    where AREA_ID = #{areaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_AREA
+    where AREA_ID = #{areaId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAreaExample">
+    <!--@mbggenerated-->
+    delete from FUN_AREA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunArea">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="areaId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_AREA_AREA_ID
+    </selectKey>
+    insert into FUN_AREA (AREA_ID, COMP_ID, AREA_NAME, 
+      SEQ_NO, ADMIN_USER, AREA_ADMIN, 
+      AREA_TELE, AREA_DESC, CREATOR_UID, 
+      CREATION_TIME, UPDATE_UID, UPDATE_TIME, 
+      IS_DEL)
+    values (#{areaId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{areaName,jdbcType=VARCHAR}, 
+      #{seqNo,jdbcType=INTEGER}, #{adminUser,jdbcType=INTEGER}, #{areaAdmin,jdbcType=VARCHAR}, 
+      #{areaTele,jdbcType=VARCHAR}, #{areaDesc,jdbcType=VARCHAR}, #{creatorUid,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{updateUid,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunArea">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="areaId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_FUN_AREA_AREA_ID
+    </selectKey>
+    insert into FUN_AREA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      AREA_ID,
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="adminUser != null">
+        ADMIN_USER,
+      </if>
+      <if test="areaAdmin != null">
+        AREA_ADMIN,
+      </if>
+      <if test="areaTele != null">
+        AREA_TELE,
+      </if>
+      <if test="areaDesc != null">
+        AREA_DESC,
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{areaId,jdbcType=INTEGER},
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="adminUser != null">
+        #{adminUser,jdbcType=INTEGER},
+      </if>
+      <if test="areaAdmin != null">
+        #{areaAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="areaTele != null">
+        #{areaTele,jdbcType=VARCHAR},
+      </if>
+      <if test="areaDesc != null">
+        #{areaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAreaExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_AREA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_AREA
+    <set>
+      <if test="record.areaId != null">
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaName != null">
+        AREA_NAME = #{record.areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seqNo != null">
+        SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminUser != null">
+        ADMIN_USER = #{record.adminUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaAdmin != null">
+        AREA_ADMIN = #{record.areaAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaTele != null">
+        AREA_TELE = #{record.areaTele,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaDesc != null">
+        AREA_DESC = #{record.areaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorUid != null">
+        CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUid != null">
+        UPDATE_UID = #{record.updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_AREA
+    set AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_NAME = #{record.areaName,jdbcType=VARCHAR},
+      SEQ_NO = #{record.seqNo,jdbcType=INTEGER},
+      ADMIN_USER = #{record.adminUser,jdbcType=INTEGER},
+      AREA_ADMIN = #{record.areaAdmin,jdbcType=VARCHAR},
+      AREA_TELE = #{record.areaTele,jdbcType=VARCHAR},
+      AREA_DESC = #{record.areaDesc,jdbcType=VARCHAR},
+      CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{record.updateUid,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunArea">
+    <!--@mbggenerated-->
+    update FUN_AREA
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null">
+        SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      </if>
+      <if test="adminUser != null">
+        ADMIN_USER = #{adminUser,jdbcType=INTEGER},
+      </if>
+      <if test="areaAdmin != null">
+        AREA_ADMIN = #{areaAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="areaTele != null">
+        AREA_TELE = #{areaTele,jdbcType=VARCHAR},
+      </if>
+      <if test="areaDesc != null">
+        AREA_DESC = #{areaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    where AREA_ID = #{areaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunArea">
+    <!--@mbggenerated-->
+    update FUN_AREA
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=INTEGER},
+      ADMIN_USER = #{adminUser,jdbcType=INTEGER},
+      AREA_ADMIN = #{areaAdmin,jdbcType=VARCHAR},
+      AREA_TELE = #{areaTele,jdbcType=VARCHAR},
+      AREA_DESC = #{areaDesc,jdbcType=VARCHAR},
+      CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{updateUid,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=TINYINT}
+    where AREA_ID = #{areaId,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="ErpFunAreaDtoMap" type="com.myfun.repository.erpdb.dto.ErpFunAreaDto">
+  
+  </resultMap>
+	
+	<resultMap id="DealDtoResultMap" type="com.myfun.repository.erpdb.dto.ErpFunDealDto">
+		<result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+		<result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+		<result column="REG_ID" jdbcType="INTEGER" property="regId" />
+		<result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+		<result column="USER_ID" jdbcType="INTEGER" property="userId" />
+		<result column="GR_ID" jdbcType="INTEGER" property="grId" />
+		<result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+		<result column="RANGE" jdbcType="INTEGER" property="range" />
+	
+	</resultMap>
+	<!-- business -->
+	<select id="selectByCondition" parameterType="com.myfun.repository.erpdb.po.ErpFunArea" resultMap="ErpFunAreaDtoMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM FUN_AREA
+		WHERE COMP_ID = #{compId} AND IS_DEL = #{isDel}
+		ORDER BY CREATION_TIME DESC ,SEQ_NO DESC
+	</select>
+	
+	<select id="getAllAreaCount" resultMap="BaseResultMap">
+		SELECT *
+		FROM FUN_AREA
+		WHERE IS_DEL = 0 and COMP_ID = #{compId}
+	</select>
+
+  <select id="selectAreaList" resultMap="BaseResultMap">
+      select <include refid="Base_Column_List"/> from FUN_AREA
+      where COMP_ID=#{compId} and (is_del=0
+      <if test="null != updateTime and updateTime != ''">
+      	OR ( UPDATE_TIME &gt;= #{updateTime} AND is_del = 1) 
+      </if>
+      )
+      <choose>
+          <when test="manageRangeRangeType == 1">and COMP_ID  IN
+              <foreach close=")" collection="userManageRangeIds" item="userManageRangeId" open="(" separator=",">
+                  #{userManageRangeId}
+              </foreach>
+          </when>
+          <when test="manageRangeRangeType == 2">and AREA_ID  IN
+              <foreach close=")" collection="userManageRangeIds" item="userManageRangeId" open="(" separator=",">
+                  #{userManageRangeId}
+              </foreach>
+          </when>
+          <otherwise>
+              and 1 != 1
+          </otherwise>
+      </choose>
+
+
+  </select>
+  
+  <select id="selectAreaListRank" resultMap="BaseResultMap">
+      select * from FUN_AREA
+      where COMP_ID=#{compId} and is_del=0 and AREA_ID = #{areaId}
+  </select>
+  <select id="getDataListByCompId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>  from FUN_AREA
+    where COMP_ID=#{compId} and IS_DEL = 0
+    order by CREATION_TIME DESC ,SEQ_NO DESC
+  </select>
+
+  <select id="countByAreaName" resultType="java.lang.Integer">
+    select count (*) from FUN_AREA
+    where COMP_ID=#{compId} and IS_DEL='0' and AREA_NAME = #{areaName}
+  </select>
+
+  <select id="getAreaByAreaId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_AREA
+    where COMP_ID=#{compId} and IS_DEL='0' and AREA_ID = #{areaId}
+  </select>
+	
+	<select id="getRangeListData" resultMap="DealDtoResultMap">
+		<choose>
+			<when test="param.serchRange == 'COMP_ID'">
+				<choose>
+					<when test="param.dimension == 'AREA'">
+						select AREA_ID,AREA_ID AS RANGE
+						from FUN_AREA
+						where IS_DEL=0 and COMP_ID IN (${param.serchRangeIds})
+					</when>
+					<when test="param.dimension == 'REG'">
+						<if test="param.flag==1">
+							select AREA_ID,REG_ID,CONCAT(AREA_ID,'_',REG_ID) AS RANGE
+							from FUN_REGION
+							where IS_DEL=0 and COMP_ID IN (${param.serchRangeIds})
+						</if>
+						<if test="param.flag==0">
+							select REG_ID,CONCAT(REG_ID,'') AS RANGE
+							from FUN_REGION
+							where IS_DEL=0 and COMP_ID IN (${param.serchRangeIds})
+						</if>
+					</when>
+					<when test="param.dimension == 'DEPT'">
+						<if test="param.flag==1">
+							select AREA_ID,REG_ID,DEPT_ID,CONCAT(AREA_ID,'_',REG_ID,'_',DEPT_ID) AS RANGE
+							from FUN_DEPTS
+							where DEPT_FLAG=2 and COMP_ID IN (${param.serchRangeIds})
+						</if>
+						<if test="param.flag==0">
+							select REG_ID,DEPT_ID,CONCAT(REG_ID,'_',DEPT_ID) AS RANGE
+							from FUN_DEPTS
+							where DEPT_FLAG=2 and COMP_ID IN (${param.serchRangeIds})
+						</if>
+					</when>
+					<when test="param.dimension == 'GROUP'">
+						<if test="param.flag==1">
+							select c.AREA_ID,b.REG_ID,a.DEPT_ID,a.GR_ID,CONCAT(c.AREA_ID,'_',b.REG_ID,'_',a.DEPT_ID,'_',a.GR_ID) AS RANGE
+							from FUN_DEPTSGROUP a left join FUN_DEPTS b on a.DEPT_ID=b.DEPT_ID left join FUN_REGION c on b.reg_ID=c.reg_ID
+							where a.comp_id IN (${param.serchRangeIds}) and a.is_del=0
+						</if>
+						<if test="param.flag==0">
+							select b.REG_ID,a.DEPT_ID,a.GR_ID,CONCAT(b.REG_ID,'_',a.DEPT_ID,'_',a.GR_ID) AS RANGE
+							from FUN_DEPTSGROUP a left join FUN_DEPTS b on a.DEPT_ID=b.DEPT_ID
+							where a.comp_id IN (${param.serchRangeIds}) and a.is_del=0
+						</if>
+					</when>
+					<when test="param.dimension == 'USER'">
+						<if test="param.flag==1">
+							select USER_ID,AREA_ID,DEPT_ID,GR_ID,REG_ID, ARCHIVE_ID,ARCHIVE_ID AS RANGE
+							from FUN_USERS
+							where USER_WRITEOFF=0 and COMP_ID IN (${param.serchRangeIds})
+						</if>
+						<if test="param.flag==0">
+							select DEPT_ID,GR_ID,REG_ID,USER_ID, ARCHIVE_ID, ARCHIVE_ID AS RANGE
+							from FUN_USERS
+							where USER_WRITEOFF=0 and COMP_ID IN (${param.serchRangeIds})
+						</if>
+					</when>
+				</choose>
+			</when>
+			<when test="param.serchRange == 'AREA_ID'">
+				<if test="param.dimension == 'REG'">
+					select AREA_ID,REG_ID,CONCAT(AREA_ID,'_',REG_ID) AS RANGE
+					from FUN_REGION
+					where IS_DEL=0 and COMP_ID=#{param.compId} and AREA_ID IN (${param.serchRangeIds})
+				</if>
+				<if test="param.dimension == 'DEPT'">
+					select a.DEPT_ID,a.AREA_ID,a.REG_ID,CONCAT(a.AREA_ID,'_',a.REG_ID,'_',a.DEPT_ID) AS RANGE
+					from FUN_DEPTS a join hft_admindb.dbo.fun_depts b on a.DEPT_NO=b.DEPT_NO and a.COMP_NO = b.COMP_NO
+					where (b.DEPT_FLAG=2 or (b.DEPT_FLAG=1 and b.TRY_TIME&gt;CONVERT(varchar,GETDATE(),20)))  and a.COMP_ID=#{param.compId} and a.AREA_ID IN (${param.serchRangeIds})
+				</if>
+				<if test="param.dimension == 'GROUP'">
+					select c.AREA_ID,b.REG_ID,a.DEPT_ID,a.GR_ID,CONCAT(c.AREA_ID,'_',b.REG_ID,'_',a.DEPT_ID,'_',a.GR_ID)  as RANGE
+					from FUN_DEPTSGROUP a left join FUN_DEPTS b on a.DEPT_ID=b.DEPT_ID left join fun_region c on b.reg_ID=c.reg_ID
+					where b.AREA_ID IN (${param.serchRangeIds}) and  b.COMP_ID=#{param.compId} and a.is_del=0
+				</if>
+				<if test="param.dimension == 'USER'">
+					select USER_ID,AREA_ID,DEPT_ID,GR_ID,REG_ID, ARCHIVE_ID,ARCHIVE_ID AS RANGE
+					from FUN_USERS
+					where USER_WRITEOFF=0 and COMP_ID=#{param.compId} and AREA_ID IN (${param.serchRangeIds})
+				</if>
+			</when>
+			<when test="param.serchRange == 'REG_ID'">
+				<if test="param.dimension == 'DEPT'">
+					<if test="param.flag==1">
+						select a.DEPT_ID,a.AREA_ID,a.REG_ID,CONCAT(a.AREA_ID,'_',a.REG_ID,'_',a.DEPT_ID) AS RANGE
+						FUN_DEPTS a join hft_admindb.dbo.fun_depts b on a.DEPT_NO=b.DEPT_NO and a.COMP_NO = b.COMP_NO
+						where (b.DEPT_FLAG=2 or (b.DEPT_FLAG=1 and b.TRY_TIME&gt;getTimeNow())) and a.REG_ID IN (${param.serchRangeIds}) and a.COMP_ID=#{param.compId}
+					</if>
+					<if test="param.flag==0">
+						select a.DEPT_ID,a.REG_ID,CONCAT(a.REG_ID,'_',a.DEPT_ID) AS RANGE
+						FUN_DEPTS a join hft_admindb.dbo.fun_depts b on a.DEPT_NO=b.DEPT_NO and a.COMP_NO = b.COMP_NO
+						where (b.DEPT_FLAG=2 or (b.DEPT_FLAG=1 and b.TRY_TIME&gt;getTimeNow())) and a.REG_ID IN (${param.serchRangeIds}) and a.COMP_ID=#{param.compId}
+					</if>
+				</if>
+				<if test="param.dimension == 'GROUP'">
+					<if test="param.flag==1">
+						select c.AREA_ID,b.REG_ID,a.DEPT_ID,a.GR_ID,CONCAT(c.AREA_ID,'_',b.REG_ID,'_',a.DEPT_ID,'_',a.GR_ID)  as RANGE
+						from FUN_DEPTSGROUP a left join FUN_DEPTS b on a.DEPT_ID=b.DEPT_ID  left join fun_region c on b.reg_ID=c.reg_ID
+						where b.REG_ID IN (${param.serchRangeIds}) and b.COMP_ID=#{param.compId} and a.is_del=0
+					</if>
+					<if test="param.flag==0">
+						select b.REG_ID,a.DEPT_ID,a.GR_ID,CONCAT(b.REG_ID,'_',a.DEPT_ID,'_',a.GR_ID)  as RANGE
+						from FUN_DEPTSGROUP a left join FUN_DEPTS b on a.DEPT_ID=b.DEPT_ID
+						where b.REG_ID IN (${param.serchRangeIds}) and b.COMP_ID=#{param.compId} and a.is_del=0
+					</if>
+				</if>
+				<if test="param.dimension == 'USER'">
+					<if test="param.flag==1">
+						select USER_ID,AREA_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID,ARCHIVE_ID AS RANGE
+						from FUN_USERS
+						where USER_WRITEOFF=0 and REG_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+					</if>
+					<if test="param.flag==0">
+						select USER_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID,ARCHIVE_ID AS RANGE
+						from FUN_USERS
+						where USER_WRITEOFF=0 and REG_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+					</if>
+				
+				</if>
+			</when>
+			<when test="param.serchRange == 'DEPT_ID'">
+				<if test="param.dimension == 'GROUP'">
+					<if test="param.flag==1">
+						select c.AREA_ID,b.REG_ID,a.DEPT_ID,a.GR_ID,CONCAT(c.AREA_ID,'_',b.REG_ID,'_',a.DEPT_ID,'_',a.GR_ID)  as RANGE
+						from FUN_DEPTSGROUP a left join FUN_DEPTS b on a.DEPT_ID=b.DEPT_ID  left join fun_region c on b.reg_ID=c.reg_ID
+						where b.DEPT_ID IN (${param.serchRangeIds}) and b.COMP_ID=#{param.compId} and a.is_del=0
+					</if>
+					<if test="param.flag==0">
+						select b.REG_ID,a.DEPT_ID,a.GR_ID,CONCAT(b.REG_ID,'_',a.DEPT_ID,'_',a.GR_ID)  as RANGE
+						from FUN_DEPTSGROUP a left join FUN_DEPTS b on a.DEPT_ID=b.DEPT_ID
+						where b.DEPT_ID IN (${param.serchRangeIds}) and b.COMP_ID=#{param.compId} and a.is_del=0
+					</if>
+				</if>
+				<if test="param.dimension == 'USER'">
+					<if test="param.flag==1">
+						select USER_ID,AREA_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID AS RANGE
+						from FUN_USERS
+						where USER_WRITEOFF=0 and USER_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+					
+					</if>
+					<if test="param.flag==0">
+						select USER_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID AS RANGE
+						from FUN_USERS
+						where USER_WRITEOFF=0 and USER_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+					</if>
+				</if>
+			</when>
+			<when test="param.serchRange == 'GROUP_ID'">
+				<if test="param.dimension == 'USER'">
+					<if test="param.flag==1">
+						select USER_ID,AREA_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID AS RANGE
+						from FUN_USERS
+						where USER_WRITEOFF=0 and USER_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+					
+					</if>
+					<if test="param.flag==0">
+						select USER_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID AS RANGE
+						from FUN_USERS
+						where USER_WRITEOFF=0 and USER_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+					</if>
+				</if>
+			</when>
+			<otherwise>
+				<if test="param.flag==1">
+					select USER_ID,AREA_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID AS RANGE
+					from FUN_USERS
+					where USER_WRITEOFF=0 and USER_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+				</if>
+				<if test="param.flag==0">
+					select USER_ID,DEPT_ID,GR_ID,REG_ID,ARCHIVE_ID AS RANGE
+					from FUN_USERS
+					where USER_WRITEOFF=0 and USER_ID IN (${param.serchRangeIds}) and COMP_ID=#{param.compId}
+				</if>
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="executeBySQL" resultType="java.util.Map">
+		SELECT ${columnName} FROM ${tableName} WHERE  where 1=1 AND ${whereSql}
+	</select>
+	
+	<update id="updateByAdminUser">
+		UPDATE FUN_AREA SET ADMIN_USER = NULL,AREA_ADMIN = NULL WHERE COMP_ID = #{compId} AND AREA_ID = #{areaId}
+	</update>
+	
+	<select id="getCompAreaId" resultType="java.lang.Integer">
+		SELECT TOP 1 AREA_ID FROM dbo.FUN_AREA WHERE COMP_ID = #{compId} AND IS_DEL = 0 ORDER BY AREA_ID
+	</select>
+</mapper>

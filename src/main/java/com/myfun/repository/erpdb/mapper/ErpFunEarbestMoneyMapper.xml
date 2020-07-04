@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunEarbestMoneyMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunEarbestMoney">
+    <!--@mbggenerated-->
+    <id column="EARBEST_ID" jdbcType="INTEGER" property="earbestId" />
+    <result column="RECEIPT_NO" jdbcType="VARCHAR" property="receiptNo" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="PERFORMANCE_NAME" jdbcType="VARCHAR" property="performanceName" />
+    <result column="RECEIPT_MONEY" jdbcType="INTEGER" property="receiptMoney" />
+    <result column="RECEIPT_DEPT_ID" jdbcType="INTEGER" property="receiptDeptId" />
+    <result column="RECEIPT_DEPT_NAME" jdbcType="VARCHAR" property="receiptDeptName" />
+    <result column="RECEIPT_USER_ID" jdbcType="INTEGER" property="receiptUserId" />
+    <result column="RECEIPT_USER_NAME" jdbcType="VARCHAR" property="receiptUserName" />
+    <result column="RECEIPT_TIME" jdbcType="TIMESTAMP" property="receiptTime" />
+    <result column="REFUND_DEPT_ID" jdbcType="INTEGER" property="refundDeptId" />
+    <result column="REFUND_DEPT_NAME" jdbcType="VARCHAR" property="refundDeptName" />
+    <result column="REFUND_USER_ID" jdbcType="INTEGER" property="refundUserId" />
+    <result column="REFUND_USER_NAME" jdbcType="VARCHAR" property="refundUserName" />
+    <result column="REFUND_TIME" jdbcType="TIMESTAMP" property="refundTime" />
+    <result column="DEPOSIT_DEPT_ID" jdbcType="INTEGER" property="depositDeptId" />
+    <result column="DEPOSIT_DEPT_NAME" jdbcType="VARCHAR" property="depositDeptName" />
+    <result column="DEPOSIT_USER_ID" jdbcType="INTEGER" property="depositUserId" />
+    <result column="DEPOSIT_USER_NAME" jdbcType="VARCHAR" property="depositUserName" />
+    <result column="DEPOSIT_TIME" jdbcType="TIMESTAMP" property="depositTime" />
+    <result column="CONFIRM_DEPT_ID" jdbcType="INTEGER" property="confirmDeptId" />
+    <result column="CONFIRM_DEPT_NAME" jdbcType="VARCHAR" property="confirmDeptName" />
+    <result column="CONFIRM_USER_ID" jdbcType="INTEGER" property="confirmUserId" />
+    <result column="CONFIRM_USER_NAME" jdbcType="VARCHAR" property="confirmUserName" />
+    <result column="CONFIRM_TIME" jdbcType="TIMESTAMP" property="confirmTime" />
+    <result column="CASE_NO" jdbcType="VARCHAR" property="caseNo" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="BUILD_ID" jdbcType="INTEGER" property="buildId" />
+    <result column="BUILD_NAME" jdbcType="VARCHAR" property="buildName" />
+    <result column="HOUSE_ROOM" jdbcType="TINYINT" property="houseRoom" />
+    <result column="HOUSE_HALL" jdbcType="TINYINT" property="houseHall" />
+    <result column="HOUSE_WEI" jdbcType="TINYINT" property="houseWei" />
+    <result column="HOUSE_AREA" jdbcType="NUMERIC" property="houseArea" />
+    <result column="CUST_NO" jdbcType="VARCHAR" property="custNo" />
+    <result column="CUST_ID" jdbcType="INTEGER" property="custId" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="CUST_IDCARD" jdbcType="VARCHAR" property="custIdcard" />
+    <result column="CUST_MOBILE" jdbcType="VARCHAR" property="custMobile" />
+    <result column="DEAL_ID" jdbcType="INTEGER" property="dealId" />
+    <result column="DEAL_NO" jdbcType="VARCHAR" property="dealNo" />
+    <result column="IS_DEL" jdbcType="TINYINT" property="isDel" />
+    <result column="EARBEST_STATUS" jdbcType="TINYINT" property="earbestStatus" />
+    <result column="EARBEST_REMARK" jdbcType="VARCHAR" property="earbestRemark" />
+    <result column="REFUND_EXPLAIN" jdbcType="VARCHAR" property="refundExplain" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_USER" jdbcType="INTEGER" property="createUser" />
+    <result column="CREATE_USER_NAME" jdbcType="VARCHAR" property="createUserName" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="INTELLIGENT_SEARCH" jdbcType="VARCHAR" property="intelligentSearch" />
+    <result column="CUST_IDCARD_DECODE" jdbcType="VARCHAR" property="custIdcardDecode" />
+    <result column="PAYMENT_TYPE" jdbcType="VARCHAR" property="paymentType" />
+    <result column="IS_PRINT" jdbcType="TINYINT" property="isPrint" />
+    <result column="BILL_CODE_ID" jdbcType="INTEGER" property="billCodeId" />
+    <result column="BILL_CODE_NO" jdbcType="VARCHAR" property="billCodeNo" />
+    <result column="BILL_WAY" jdbcType="TINYINT" property="billWay" />
+    <result column="BILL_PHOTO" jdbcType="VARCHAR" property="billPhoto" />
+    <result column="CUST_ID_CARD_TYPE" jdbcType="INTEGER" property="custIdCardType" />
+    <result column="OPERATION_TYPE" jdbcType="TINYINT" property="operationType" />
+    <result column="PROPERTY_ADDRESS" jdbcType="VARCHAR" property="propertyAddress" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    EARBEST_ID, RECEIPT_NO, COMP_ID, DEPT_ID, PERFORMANCE_NAME, RECEIPT_MONEY, RECEIPT_DEPT_ID, 
+    RECEIPT_DEPT_NAME, RECEIPT_USER_ID, RECEIPT_USER_NAME, RECEIPT_TIME, REFUND_DEPT_ID, 
+    REFUND_DEPT_NAME, REFUND_USER_ID, REFUND_USER_NAME, REFUND_TIME, DEPOSIT_DEPT_ID, 
+    DEPOSIT_DEPT_NAME, DEPOSIT_USER_ID, DEPOSIT_USER_NAME, DEPOSIT_TIME, CONFIRM_DEPT_ID, 
+    CONFIRM_DEPT_NAME, CONFIRM_USER_ID, CONFIRM_USER_NAME, CONFIRM_TIME, CASE_NO, CASE_ID, 
+    BUILD_ID, BUILD_NAME, HOUSE_ROOM, HOUSE_HALL, HOUSE_WEI, HOUSE_AREA, CUST_NO, CUST_ID, 
+    CUST_NAME, CUST_IDCARD, CUST_MOBILE, DEAL_ID, DEAL_NO, IS_DEL, EARBEST_STATUS, EARBEST_REMARK, 
+    REFUND_EXPLAIN, CREATE_TIME, CREATE_USER, CREATE_USER_NAME, UPDATE_TIME, INTELLIGENT_SEARCH, 
+    CUST_IDCARD_DECODE, PAYMENT_TYPE, IS_PRINT, BILL_CODE_ID, BILL_CODE_NO, BILL_WAY, 
+    BILL_PHOTO, CUST_ID_CARD_TYPE, OPERATION_TYPE, PROPERTY_ADDRESS
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEarbestMoneyExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_EARBEST_MONEY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_EARBEST_MONEY
+    where EARBEST_ID = #{earbestId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_EARBEST_MONEY
+    where EARBEST_ID = #{earbestId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEarbestMoneyExample">
+    <!--@mbggenerated-->
+    delete from FUN_EARBEST_MONEY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="earbestId" parameterType="com.myfun.repository.erpdb.po.ErpFunEarbestMoney" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_EARBEST_MONEY (RECEIPT_NO, COMP_ID, DEPT_ID, 
+      PERFORMANCE_NAME, RECEIPT_MONEY, RECEIPT_DEPT_ID, 
+      RECEIPT_DEPT_NAME, RECEIPT_USER_ID, RECEIPT_USER_NAME, 
+      RECEIPT_TIME, REFUND_DEPT_ID, REFUND_DEPT_NAME, 
+      REFUND_USER_ID, REFUND_USER_NAME, REFUND_TIME, 
+      DEPOSIT_DEPT_ID, DEPOSIT_DEPT_NAME, DEPOSIT_USER_ID, 
+      DEPOSIT_USER_NAME, DEPOSIT_TIME, CONFIRM_DEPT_ID, 
+      CONFIRM_DEPT_NAME, CONFIRM_USER_ID, CONFIRM_USER_NAME, 
+      CONFIRM_TIME, CASE_NO, CASE_ID, 
+      BUILD_ID, BUILD_NAME, HOUSE_ROOM, 
+      HOUSE_HALL, HOUSE_WEI, HOUSE_AREA, 
+      CUST_NO, CUST_ID, CUST_NAME, 
+      CUST_IDCARD, CUST_MOBILE, DEAL_ID, 
+      DEAL_NO, IS_DEL, EARBEST_STATUS, 
+      EARBEST_REMARK, REFUND_EXPLAIN, CREATE_TIME, 
+      CREATE_USER, CREATE_USER_NAME, UPDATE_TIME, 
+      INTELLIGENT_SEARCH, CUST_IDCARD_DECODE, PAYMENT_TYPE, 
+      IS_PRINT, BILL_CODE_ID, BILL_CODE_NO, 
+      BILL_WAY, BILL_PHOTO, CUST_ID_CARD_TYPE, 
+      OPERATION_TYPE, PROPERTY_ADDRESS
+      )
+    values (#{receiptNo,jdbcType=VARCHAR}, #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, 
+      #{performanceName,jdbcType=VARCHAR}, #{receiptMoney,jdbcType=INTEGER}, #{receiptDeptId,jdbcType=INTEGER}, 
+      #{receiptDeptName,jdbcType=VARCHAR}, #{receiptUserId,jdbcType=INTEGER}, #{receiptUserName,jdbcType=VARCHAR}, 
+      #{receiptTime,jdbcType=TIMESTAMP}, #{refundDeptId,jdbcType=INTEGER}, #{refundDeptName,jdbcType=VARCHAR}, 
+      #{refundUserId,jdbcType=INTEGER}, #{refundUserName,jdbcType=VARCHAR}, #{refundTime,jdbcType=TIMESTAMP}, 
+      #{depositDeptId,jdbcType=INTEGER}, #{depositDeptName,jdbcType=VARCHAR}, #{depositUserId,jdbcType=INTEGER}, 
+      #{depositUserName,jdbcType=VARCHAR}, #{depositTime,jdbcType=TIMESTAMP}, #{confirmDeptId,jdbcType=INTEGER}, 
+      #{confirmDeptName,jdbcType=VARCHAR}, #{confirmUserId,jdbcType=INTEGER}, #{confirmUserName,jdbcType=VARCHAR}, 
+      #{confirmTime,jdbcType=TIMESTAMP}, #{caseNo,jdbcType=VARCHAR}, #{caseId,jdbcType=INTEGER}, 
+      #{buildId,jdbcType=INTEGER}, #{buildName,jdbcType=VARCHAR}, #{houseRoom,jdbcType=TINYINT}, 
+      #{houseHall,jdbcType=TINYINT}, #{houseWei,jdbcType=TINYINT}, #{houseArea,jdbcType=NUMERIC}, 
+      #{custNo,jdbcType=VARCHAR}, #{custId,jdbcType=INTEGER}, #{custName,jdbcType=VARCHAR}, 
+      #{custIdcard,jdbcType=VARCHAR}, #{custMobile,jdbcType=VARCHAR}, #{dealId,jdbcType=INTEGER}, 
+      #{dealNo,jdbcType=VARCHAR}, #{isDel,jdbcType=TINYINT}, #{earbestStatus,jdbcType=TINYINT}, 
+      #{earbestRemark,jdbcType=VARCHAR}, #{refundExplain,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=INTEGER}, #{createUserName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{intelligentSearch,jdbcType=VARCHAR}, #{custIdcardDecode,jdbcType=VARCHAR}, #{paymentType,jdbcType=VARCHAR}, 
+      #{isPrint,jdbcType=TINYINT}, #{billCodeId,jdbcType=INTEGER}, #{billCodeNo,jdbcType=VARCHAR}, 
+      #{billWay,jdbcType=TINYINT}, #{billPhoto,jdbcType=VARCHAR}, #{custIdCardType,jdbcType=INTEGER}, 
+      #{operationType,jdbcType=TINYINT}, #{propertyAddress,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyProperty="earbestId" parameterType="com.myfun.repository.erpdb.po.ErpFunEarbestMoney" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_EARBEST_MONEY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="receiptNo != null">
+        RECEIPT_NO,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="performanceName != null">
+        PERFORMANCE_NAME,
+      </if>
+      <if test="receiptMoney != null">
+        RECEIPT_MONEY,
+      </if>
+      <if test="receiptDeptId != null">
+        RECEIPT_DEPT_ID,
+      </if>
+      <if test="receiptDeptName != null">
+        RECEIPT_DEPT_NAME,
+      </if>
+      <if test="receiptUserId != null">
+        RECEIPT_USER_ID,
+      </if>
+      <if test="receiptUserName != null">
+        RECEIPT_USER_NAME,
+      </if>
+      <if test="receiptTime != null">
+        RECEIPT_TIME,
+      </if>
+      <if test="refundDeptId != null">
+        REFUND_DEPT_ID,
+      </if>
+      <if test="refundDeptName != null">
+        REFUND_DEPT_NAME,
+      </if>
+      <if test="refundUserId != null">
+        REFUND_USER_ID,
+      </if>
+      <if test="refundUserName != null">
+        REFUND_USER_NAME,
+      </if>
+      <if test="refundTime != null">
+        REFUND_TIME,
+      </if>
+      <if test="depositDeptId != null">
+        DEPOSIT_DEPT_ID,
+      </if>
+      <if test="depositDeptName != null">
+        DEPOSIT_DEPT_NAME,
+      </if>
+      <if test="depositUserId != null">
+        DEPOSIT_USER_ID,
+      </if>
+      <if test="depositUserName != null">
+        DEPOSIT_USER_NAME,
+      </if>
+      <if test="depositTime != null">
+        DEPOSIT_TIME,
+      </if>
+      <if test="confirmDeptId != null">
+        CONFIRM_DEPT_ID,
+      </if>
+      <if test="confirmDeptName != null">
+        CONFIRM_DEPT_NAME,
+      </if>
+      <if test="confirmUserId != null">
+        CONFIRM_USER_ID,
+      </if>
+      <if test="confirmUserName != null">
+        CONFIRM_USER_NAME,
+      </if>
+      <if test="confirmTime != null">
+        CONFIRM_TIME,
+      </if>
+      <if test="caseNo != null">
+        CASE_NO,
+      </if>
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="buildId != null">
+        BUILD_ID,
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME,
+      </if>
+      <if test="houseRoom != null">
+        HOUSE_ROOM,
+      </if>
+      <if test="houseHall != null">
+        HOUSE_HALL,
+      </if>
+      <if test="houseWei != null">
+        HOUSE_WEI,
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA,
+      </if>
+      <if test="custNo != null">
+        CUST_NO,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="custIdcard != null">
+        CUST_IDCARD,
+      </if>
+      <if test="custMobile != null">
+        CUST_MOBILE,
+      </if>
+      <if test="dealId != null">
+        DEAL_ID,
+      </if>
+      <if test="dealNo != null">
+        DEAL_NO,
+      </if>
+      <if test="isDel != null">
+        IS_DEL,
+      </if>
+      <if test="earbestStatus != null">
+        EARBEST_STATUS,
+      </if>
+      <if test="earbestRemark != null">
+        EARBEST_REMARK,
+      </if>
+      <if test="refundExplain != null">
+        REFUND_EXPLAIN,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="createUserName != null">
+        CREATE_USER_NAME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="intelligentSearch != null">
+        INTELLIGENT_SEARCH,
+      </if>
+      <if test="custIdcardDecode != null">
+        CUST_IDCARD_DECODE,
+      </if>
+      <if test="paymentType != null">
+        PAYMENT_TYPE,
+      </if>
+      <if test="isPrint != null">
+        IS_PRINT,
+      </if>
+      <if test="billCodeId != null">
+        BILL_CODE_ID,
+      </if>
+      <if test="billCodeNo != null">
+        BILL_CODE_NO,
+      </if>
+      <if test="billWay != null">
+        BILL_WAY,
+      </if>
+      <if test="billPhoto != null">
+        BILL_PHOTO,
+      </if>
+      <if test="custIdCardType != null">
+        CUST_ID_CARD_TYPE,
+      </if>
+      <if test="operationType != null">
+        OPERATION_TYPE,
+      </if>
+      <if test="propertyAddress != null">
+        PROPERTY_ADDRESS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="receiptNo != null">
+        #{receiptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="performanceName != null">
+        #{performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptMoney != null">
+        #{receiptMoney,jdbcType=INTEGER},
+      </if>
+      <if test="receiptDeptId != null">
+        #{receiptDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="receiptDeptName != null">
+        #{receiptDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptUserId != null">
+        #{receiptUserId,jdbcType=INTEGER},
+      </if>
+      <if test="receiptUserName != null">
+        #{receiptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptTime != null">
+        #{receiptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundDeptId != null">
+        #{refundDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="refundDeptName != null">
+        #{refundDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="refundUserId != null">
+        #{refundUserId,jdbcType=INTEGER},
+      </if>
+      <if test="refundUserName != null">
+        #{refundUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTime != null">
+        #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositDeptId != null">
+        #{depositDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="depositDeptName != null">
+        #{depositDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="depositUserId != null">
+        #{depositUserId,jdbcType=INTEGER},
+      </if>
+      <if test="depositUserName != null">
+        #{depositUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="depositTime != null">
+        #{depositTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="confirmDeptId != null">
+        #{confirmDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="confirmDeptName != null">
+        #{confirmDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmUserId != null">
+        #{confirmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="confirmUserName != null">
+        #{confirmUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmTime != null">
+        #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseNo != null">
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRoom != null">
+        #{houseRoom,jdbcType=TINYINT},
+      </if>
+      <if test="houseHall != null">
+        #{houseHall,jdbcType=TINYINT},
+      </if>
+      <if test="houseWei != null">
+        #{houseWei,jdbcType=TINYINT},
+      </if>
+      <if test="houseArea != null">
+        #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="custNo != null">
+        #{custNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdcard != null">
+        #{custIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="custMobile != null">
+        #{custMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="dealId != null">
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="dealNo != null">
+        #{dealNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="earbestStatus != null">
+        #{earbestStatus,jdbcType=TINYINT},
+      </if>
+      <if test="earbestRemark != null">
+        #{earbestRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="refundExplain != null">
+        #{refundExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intelligentSearch != null">
+        #{intelligentSearch,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdcardDecode != null">
+        #{custIdcardDecode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null">
+        #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="isPrint != null">
+        #{isPrint,jdbcType=TINYINT},
+      </if>
+      <if test="billCodeId != null">
+        #{billCodeId,jdbcType=INTEGER},
+      </if>
+      <if test="billCodeNo != null">
+        #{billCodeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billWay != null">
+        #{billWay,jdbcType=TINYINT},
+      </if>
+      <if test="billPhoto != null">
+        #{billPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCardType != null">
+        #{custIdCardType,jdbcType=INTEGER},
+      </if>
+      <if test="operationType != null">
+        #{operationType,jdbcType=TINYINT},
+      </if>
+      <if test="propertyAddress != null">
+        #{propertyAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunEarbestMoneyExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_EARBEST_MONEY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_EARBEST_MONEY
+    <set>
+      <if test="record.earbestId != null">
+        EARBEST_ID = #{record.earbestId,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiptNo != null">
+        RECEIPT_NO = #{record.receiptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.performanceName != null">
+        PERFORMANCE_NAME = #{record.performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiptMoney != null">
+        RECEIPT_MONEY = #{record.receiptMoney,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiptDeptId != null">
+        RECEIPT_DEPT_ID = #{record.receiptDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiptDeptName != null">
+        RECEIPT_DEPT_NAME = #{record.receiptDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiptUserId != null">
+        RECEIPT_USER_ID = #{record.receiptUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiptUserName != null">
+        RECEIPT_USER_NAME = #{record.receiptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiptTime != null">
+        RECEIPT_TIME = #{record.receiptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.refundDeptId != null">
+        REFUND_DEPT_ID = #{record.refundDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundDeptName != null">
+        REFUND_DEPT_NAME = #{record.refundDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundUserId != null">
+        REFUND_USER_ID = #{record.refundUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundUserName != null">
+        REFUND_USER_NAME = #{record.refundUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundTime != null">
+        REFUND_TIME = #{record.refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.depositDeptId != null">
+        DEPOSIT_DEPT_ID = #{record.depositDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.depositDeptName != null">
+        DEPOSIT_DEPT_NAME = #{record.depositDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.depositUserId != null">
+        DEPOSIT_USER_ID = #{record.depositUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.depositUserName != null">
+        DEPOSIT_USER_NAME = #{record.depositUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.depositTime != null">
+        DEPOSIT_TIME = #{record.depositTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.confirmDeptId != null">
+        CONFIRM_DEPT_ID = #{record.confirmDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.confirmDeptName != null">
+        CONFIRM_DEPT_NAME = #{record.confirmDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.confirmUserId != null">
+        CONFIRM_USER_ID = #{record.confirmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.confirmUserName != null">
+        CONFIRM_USER_NAME = #{record.confirmUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.confirmTime != null">
+        CONFIRM_TIME = #{record.confirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.caseNo != null">
+        CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caseId != null">
+        CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildId != null">
+        BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildName != null">
+        BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseRoom != null">
+        HOUSE_ROOM = #{record.houseRoom,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseHall != null">
+        HOUSE_HALL = #{record.houseHall,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseWei != null">
+        HOUSE_WEI = #{record.houseWei,jdbcType=TINYINT},
+      </if>
+      <if test="record.houseArea != null">
+        HOUSE_AREA = #{record.houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="record.custNo != null">
+        CUST_NO = #{record.custNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custId != null">
+        CUST_ID = #{record.custId,jdbcType=INTEGER},
+      </if>
+      <if test="record.custName != null">
+        CUST_NAME = #{record.custName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custIdcard != null">
+        CUST_IDCARD = #{record.custIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custMobile != null">
+        CUST_MOBILE = #{record.custMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dealId != null">
+        DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dealNo != null">
+        DEAL_NO = #{record.dealNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null">
+        IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      </if>
+      <if test="record.earbestStatus != null">
+        EARBEST_STATUS = #{record.earbestStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.earbestRemark != null">
+        EARBEST_REMARK = #{record.earbestRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundExplain != null">
+        REFUND_EXPLAIN = #{record.refundExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUserName != null">
+        CREATE_USER_NAME = #{record.createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.intelligentSearch != null">
+        INTELLIGENT_SEARCH = #{record.intelligentSearch,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custIdcardDecode != null">
+        CUST_IDCARD_DECODE = #{record.custIdcardDecode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentType != null">
+        PAYMENT_TYPE = #{record.paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPrint != null">
+        IS_PRINT = #{record.isPrint,jdbcType=TINYINT},
+      </if>
+      <if test="record.billCodeId != null">
+        BILL_CODE_ID = #{record.billCodeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.billCodeNo != null">
+        BILL_CODE_NO = #{record.billCodeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billWay != null">
+        BILL_WAY = #{record.billWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.billPhoto != null">
+        BILL_PHOTO = #{record.billPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custIdCardType != null">
+        CUST_ID_CARD_TYPE = #{record.custIdCardType,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationType != null">
+        OPERATION_TYPE = #{record.operationType,jdbcType=TINYINT},
+      </if>
+      <if test="record.propertyAddress != null">
+        PROPERTY_ADDRESS = #{record.propertyAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_EARBEST_MONEY
+    set EARBEST_ID = #{record.earbestId,jdbcType=INTEGER},
+      RECEIPT_NO = #{record.receiptNo,jdbcType=VARCHAR},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      PERFORMANCE_NAME = #{record.performanceName,jdbcType=VARCHAR},
+      RECEIPT_MONEY = #{record.receiptMoney,jdbcType=INTEGER},
+      RECEIPT_DEPT_ID = #{record.receiptDeptId,jdbcType=INTEGER},
+      RECEIPT_DEPT_NAME = #{record.receiptDeptName,jdbcType=VARCHAR},
+      RECEIPT_USER_ID = #{record.receiptUserId,jdbcType=INTEGER},
+      RECEIPT_USER_NAME = #{record.receiptUserName,jdbcType=VARCHAR},
+      RECEIPT_TIME = #{record.receiptTime,jdbcType=TIMESTAMP},
+      REFUND_DEPT_ID = #{record.refundDeptId,jdbcType=INTEGER},
+      REFUND_DEPT_NAME = #{record.refundDeptName,jdbcType=VARCHAR},
+      REFUND_USER_ID = #{record.refundUserId,jdbcType=INTEGER},
+      REFUND_USER_NAME = #{record.refundUserName,jdbcType=VARCHAR},
+      REFUND_TIME = #{record.refundTime,jdbcType=TIMESTAMP},
+      DEPOSIT_DEPT_ID = #{record.depositDeptId,jdbcType=INTEGER},
+      DEPOSIT_DEPT_NAME = #{record.depositDeptName,jdbcType=VARCHAR},
+      DEPOSIT_USER_ID = #{record.depositUserId,jdbcType=INTEGER},
+      DEPOSIT_USER_NAME = #{record.depositUserName,jdbcType=VARCHAR},
+      DEPOSIT_TIME = #{record.depositTime,jdbcType=TIMESTAMP},
+      CONFIRM_DEPT_ID = #{record.confirmDeptId,jdbcType=INTEGER},
+      CONFIRM_DEPT_NAME = #{record.confirmDeptName,jdbcType=VARCHAR},
+      CONFIRM_USER_ID = #{record.confirmUserId,jdbcType=INTEGER},
+      CONFIRM_USER_NAME = #{record.confirmUserName,jdbcType=VARCHAR},
+      CONFIRM_TIME = #{record.confirmTime,jdbcType=TIMESTAMP},
+      CASE_NO = #{record.caseNo,jdbcType=VARCHAR},
+      CASE_ID = #{record.caseId,jdbcType=INTEGER},
+      BUILD_ID = #{record.buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{record.buildName,jdbcType=VARCHAR},
+      HOUSE_ROOM = #{record.houseRoom,jdbcType=TINYINT},
+      HOUSE_HALL = #{record.houseHall,jdbcType=TINYINT},
+      HOUSE_WEI = #{record.houseWei,jdbcType=TINYINT},
+      HOUSE_AREA = #{record.houseArea,jdbcType=NUMERIC},
+      CUST_NO = #{record.custNo,jdbcType=VARCHAR},
+      CUST_ID = #{record.custId,jdbcType=INTEGER},
+      CUST_NAME = #{record.custName,jdbcType=VARCHAR},
+      CUST_IDCARD = #{record.custIdcard,jdbcType=VARCHAR},
+      CUST_MOBILE = #{record.custMobile,jdbcType=VARCHAR},
+      DEAL_ID = #{record.dealId,jdbcType=INTEGER},
+      DEAL_NO = #{record.dealNo,jdbcType=VARCHAR},
+      IS_DEL = #{record.isDel,jdbcType=TINYINT},
+      EARBEST_STATUS = #{record.earbestStatus,jdbcType=TINYINT},
+      EARBEST_REMARK = #{record.earbestRemark,jdbcType=VARCHAR},
+      REFUND_EXPLAIN = #{record.refundExplain,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      CREATE_USER = #{record.createUser,jdbcType=INTEGER},
+      CREATE_USER_NAME = #{record.createUserName,jdbcType=VARCHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      INTELLIGENT_SEARCH = #{record.intelligentSearch,jdbcType=VARCHAR},
+      CUST_IDCARD_DECODE = #{record.custIdcardDecode,jdbcType=VARCHAR},
+      PAYMENT_TYPE = #{record.paymentType,jdbcType=VARCHAR},
+      IS_PRINT = #{record.isPrint,jdbcType=TINYINT},
+      BILL_CODE_ID = #{record.billCodeId,jdbcType=INTEGER},
+      BILL_CODE_NO = #{record.billCodeNo,jdbcType=VARCHAR},
+      BILL_WAY = #{record.billWay,jdbcType=TINYINT},
+      BILL_PHOTO = #{record.billPhoto,jdbcType=VARCHAR},
+      CUST_ID_CARD_TYPE = #{record.custIdCardType,jdbcType=INTEGER},
+      OPERATION_TYPE = #{record.operationType,jdbcType=TINYINT},
+      PROPERTY_ADDRESS = #{record.propertyAddress,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunEarbestMoney">
+    <!--@mbggenerated-->
+    update FUN_EARBEST_MONEY
+    <set>
+      <if test="receiptNo != null">
+        RECEIPT_NO = #{receiptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="performanceName != null">
+        PERFORMANCE_NAME = #{performanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptMoney != null">
+        RECEIPT_MONEY = #{receiptMoney,jdbcType=INTEGER},
+      </if>
+      <if test="receiptDeptId != null">
+        RECEIPT_DEPT_ID = #{receiptDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="receiptDeptName != null">
+        RECEIPT_DEPT_NAME = #{receiptDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptUserId != null">
+        RECEIPT_USER_ID = #{receiptUserId,jdbcType=INTEGER},
+      </if>
+      <if test="receiptUserName != null">
+        RECEIPT_USER_NAME = #{receiptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptTime != null">
+        RECEIPT_TIME = #{receiptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundDeptId != null">
+        REFUND_DEPT_ID = #{refundDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="refundDeptName != null">
+        REFUND_DEPT_NAME = #{refundDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="refundUserId != null">
+        REFUND_USER_ID = #{refundUserId,jdbcType=INTEGER},
+      </if>
+      <if test="refundUserName != null">
+        REFUND_USER_NAME = #{refundUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTime != null">
+        REFUND_TIME = #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositDeptId != null">
+        DEPOSIT_DEPT_ID = #{depositDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="depositDeptName != null">
+        DEPOSIT_DEPT_NAME = #{depositDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="depositUserId != null">
+        DEPOSIT_USER_ID = #{depositUserId,jdbcType=INTEGER},
+      </if>
+      <if test="depositUserName != null">
+        DEPOSIT_USER_NAME = #{depositUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="depositTime != null">
+        DEPOSIT_TIME = #{depositTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="confirmDeptId != null">
+        CONFIRM_DEPT_ID = #{confirmDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="confirmDeptName != null">
+        CONFIRM_DEPT_NAME = #{confirmDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmUserId != null">
+        CONFIRM_USER_ID = #{confirmUserId,jdbcType=INTEGER},
+      </if>
+      <if test="confirmUserName != null">
+        CONFIRM_USER_NAME = #{confirmUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmTime != null">
+        CONFIRM_TIME = #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseNo != null">
+        CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null">
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="buildName != null">
+        BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="houseRoom != null">
+        HOUSE_ROOM = #{houseRoom,jdbcType=TINYINT},
+      </if>
+      <if test="houseHall != null">
+        HOUSE_HALL = #{houseHall,jdbcType=TINYINT},
+      </if>
+      <if test="houseWei != null">
+        HOUSE_WEI = #{houseWei,jdbcType=TINYINT},
+      </if>
+      <if test="houseArea != null">
+        HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      </if>
+      <if test="custNo != null">
+        CUST_NO = #{custNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdcard != null">
+        CUST_IDCARD = #{custIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="custMobile != null">
+        CUST_MOBILE = #{custMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="dealId != null">
+        DEAL_ID = #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="dealNo != null">
+        DEAL_NO = #{dealNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        IS_DEL = #{isDel,jdbcType=TINYINT},
+      </if>
+      <if test="earbestStatus != null">
+        EARBEST_STATUS = #{earbestStatus,jdbcType=TINYINT},
+      </if>
+      <if test="earbestRemark != null">
+        EARBEST_REMARK = #{earbestRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="refundExplain != null">
+        REFUND_EXPLAIN = #{refundExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createUserName != null">
+        CREATE_USER_NAME = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intelligentSearch != null">
+        INTELLIGENT_SEARCH = #{intelligentSearch,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdcardDecode != null">
+        CUST_IDCARD_DECODE = #{custIdcardDecode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null">
+        PAYMENT_TYPE = #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="isPrint != null">
+        IS_PRINT = #{isPrint,jdbcType=TINYINT},
+      </if>
+      <if test="billCodeId != null">
+        BILL_CODE_ID = #{billCodeId,jdbcType=INTEGER},
+      </if>
+      <if test="billCodeNo != null">
+        BILL_CODE_NO = #{billCodeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billWay != null">
+        BILL_WAY = #{billWay,jdbcType=TINYINT},
+      </if>
+      <if test="billPhoto != null">
+        BILL_PHOTO = #{billPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="custIdCardType != null">
+        CUST_ID_CARD_TYPE = #{custIdCardType,jdbcType=INTEGER},
+      </if>
+      <if test="operationType != null">
+        OPERATION_TYPE = #{operationType,jdbcType=TINYINT},
+      </if>
+      <if test="propertyAddress != null">
+        PROPERTY_ADDRESS = #{propertyAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EARBEST_ID = #{earbestId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunEarbestMoney">
+    <!--@mbggenerated-->
+    update FUN_EARBEST_MONEY
+    set RECEIPT_NO = #{receiptNo,jdbcType=VARCHAR},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      PERFORMANCE_NAME = #{performanceName,jdbcType=VARCHAR},
+      RECEIPT_MONEY = #{receiptMoney,jdbcType=INTEGER},
+      RECEIPT_DEPT_ID = #{receiptDeptId,jdbcType=INTEGER},
+      RECEIPT_DEPT_NAME = #{receiptDeptName,jdbcType=VARCHAR},
+      RECEIPT_USER_ID = #{receiptUserId,jdbcType=INTEGER},
+      RECEIPT_USER_NAME = #{receiptUserName,jdbcType=VARCHAR},
+      RECEIPT_TIME = #{receiptTime,jdbcType=TIMESTAMP},
+      REFUND_DEPT_ID = #{refundDeptId,jdbcType=INTEGER},
+      REFUND_DEPT_NAME = #{refundDeptName,jdbcType=VARCHAR},
+      REFUND_USER_ID = #{refundUserId,jdbcType=INTEGER},
+      REFUND_USER_NAME = #{refundUserName,jdbcType=VARCHAR},
+      REFUND_TIME = #{refundTime,jdbcType=TIMESTAMP},
+      DEPOSIT_DEPT_ID = #{depositDeptId,jdbcType=INTEGER},
+      DEPOSIT_DEPT_NAME = #{depositDeptName,jdbcType=VARCHAR},
+      DEPOSIT_USER_ID = #{depositUserId,jdbcType=INTEGER},
+      DEPOSIT_USER_NAME = #{depositUserName,jdbcType=VARCHAR},
+      DEPOSIT_TIME = #{depositTime,jdbcType=TIMESTAMP},
+      CONFIRM_DEPT_ID = #{confirmDeptId,jdbcType=INTEGER},
+      CONFIRM_DEPT_NAME = #{confirmDeptName,jdbcType=VARCHAR},
+      CONFIRM_USER_ID = #{confirmUserId,jdbcType=INTEGER},
+      CONFIRM_USER_NAME = #{confirmUserName,jdbcType=VARCHAR},
+      CONFIRM_TIME = #{confirmTime,jdbcType=TIMESTAMP},
+      CASE_NO = #{caseNo,jdbcType=VARCHAR},
+      CASE_ID = #{caseId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      BUILD_NAME = #{buildName,jdbcType=VARCHAR},
+      HOUSE_ROOM = #{houseRoom,jdbcType=TINYINT},
+      HOUSE_HALL = #{houseHall,jdbcType=TINYINT},
+      HOUSE_WEI = #{houseWei,jdbcType=TINYINT},
+      HOUSE_AREA = #{houseArea,jdbcType=NUMERIC},
+      CUST_NO = #{custNo,jdbcType=VARCHAR},
+      CUST_ID = #{custId,jdbcType=INTEGER},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CUST_IDCARD = #{custIdcard,jdbcType=VARCHAR},
+      CUST_MOBILE = #{custMobile,jdbcType=VARCHAR},
+      DEAL_ID = #{dealId,jdbcType=INTEGER},
+      DEAL_NO = #{dealNo,jdbcType=VARCHAR},
+      IS_DEL = #{isDel,jdbcType=TINYINT},
+      EARBEST_STATUS = #{earbestStatus,jdbcType=TINYINT},
+      EARBEST_REMARK = #{earbestRemark,jdbcType=VARCHAR},
+      REFUND_EXPLAIN = #{refundExplain,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_USER = #{createUser,jdbcType=INTEGER},
+      CREATE_USER_NAME = #{createUserName,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      INTELLIGENT_SEARCH = #{intelligentSearch,jdbcType=VARCHAR},
+      CUST_IDCARD_DECODE = #{custIdcardDecode,jdbcType=VARCHAR},
+      PAYMENT_TYPE = #{paymentType,jdbcType=VARCHAR},
+      IS_PRINT = #{isPrint,jdbcType=TINYINT},
+      BILL_CODE_ID = #{billCodeId,jdbcType=INTEGER},
+      BILL_CODE_NO = #{billCodeNo,jdbcType=VARCHAR},
+      BILL_WAY = #{billWay,jdbcType=TINYINT},
+      BILL_PHOTO = #{billPhoto,jdbcType=VARCHAR},
+      CUST_ID_CARD_TYPE = #{custIdCardType,jdbcType=INTEGER},
+      OPERATION_TYPE = #{operationType,jdbcType=TINYINT},
+      PROPERTY_ADDRESS = #{propertyAddress,jdbcType=VARCHAR}
+    where EARBEST_ID = #{earbestId,jdbcType=INTEGER}
+  </update>
+  <resultMap extends="BaseResultMap" id="extBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunEarbestMoneyDto">
+    <result column="PAY_ACCOUNT" jdbcType="VARCHAR" property="payAccount" />
+    <result column="PAY_STATUS" jdbcType="TINYINT" property="payStatus" />
+    <result column="RECEIPT_USER_MOBILE" jdbcType="VARCHAR" property="receiptUserMobile" />
+  </resultMap>
+  <select id="selectEarbestMoneyList" resultMap="extBaseResultMap">
+    select
+    b.PAY_ACCOUNT , b.PAY_STATUS,A.EARBEST_ID,A.RECEIPT_NO,A.CUST_NO,A.PERFORMANCE_NAME,A.RECEIPT_MONEY,A.RECEIPT_DEPT_ID,A.RECEIPT_DEPT_NAME,A.RECEIPT_USER_NAME,A.RECEIPT_TIME,A.BUILD_NAME,A.CREATE_USER_NAME,A.EARBEST_STATUS,A.UPDATE_TIME,A.RECEIPT_USER_NAME,A.REFUND_USER_NAME,A.DEPOSIT_USER_NAME,A.HOUSE_ROOM
+    from FUN_EARBEST_MONEY A
+    LEFT JOIN POS_PAYMENT_ORDER b on a.EARBEST_ID = b.FINANCE_ID and FINANCE_TYPE = 1 and pay_status!=3
+    <if test="'CREATE_USER'==param.userType">
+      JOIN FUN_USERS C ON C.USER_ID=A.CREATE_USER
+    </if>
+    <if test="'RECEIPT_USER_ID'==param.userType">
+      JOIN FUN_USERS C ON C.USER_ID=A.RECEIPT_USER_ID
+    </if>
+    <if test="'CONFIRM_USER_ID'==param.userType">
+      JOIN FUN_USERS C ON C.USER_ID=A.CONFIRM_USER_ID
+    </if>
+    where A.COMP_ID = #{param.compId,jdbcType=INTEGER}
+    <if test="param.receiptNo != null and ''!=param.receiptNo">
+      and  INTELLIGENT_SEARCH like #{param.receiptNo}
+    </if>
+    <if test="param.userId !=null">
+      and  C.USER_ID = #{param.userId,jdbcType=INTEGER}
+    </if>
+    <if test="param.areaId !=null">
+      and  C.AREA_ID = #{param.areaId,jdbcType=INTEGER}
+    </if>
+    <if test="param.regId !=null">
+      and  C.REG_ID = #{param.regId,jdbcType=INTEGER}
+    </if>
+    <if test="param.deptId !=null">
+      and  C.DEPT_ID = #{param.deptId,jdbcType=INTEGER}
+    </if>
+    <if test="param.grId !=null">
+      and  C.GR_ID = #{param.grId,jdbcType=INTEGER}
+    </if>
+    <if test="param.buildIds !=null">
+      and  A.BUILD_ID IN <foreach close=")" collection="param.buildIds" item="buildId" open="(" separator=",">#{buildId}</foreach>
+    </if>
+    <if test="param.status !=null">
+      and  A.EARBEST_STATUS = #{param.status,jdbcType=TINYINT}
+    </if>
+    <if test="param.custName !=null">
+      and  A.CUST_NAME = #{param.custName}
+    </if>
+    <if test="param.startTime !=null and ''!=param.startTime">
+      and ${param.dateType} &gt;= #{param.startTime}
+    </if>
+    <if test="param.endTime !=null and ''!=param.endTime">
+      and ${param.dateType} &lt;= #{param.endTime}
+    </if>
+    and A.IS_DEL = 0
+    order by ${param.orderBy}
+  </select>
+  <select id="count" resultType="java.lang.Integer">
+    select count(1) as ATTR from FUN_EARBEST_MONEY
+    where COMP_ID = #{erpEarbestMoney.compId,jdbcType=INTEGER}
+    <if test="erpEarbestMoney.receiptNo != null">
+      and RECEIPT_NO = #{erpEarbestMoney.receiptNo,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.deptId != null">
+      and DEPT_ID = #{erpEarbestMoney.deptId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.performanceName != null">
+      and PERFORMANCE_NAME = #{erpEarbestMoney.performanceName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.receiptMoney != null">
+      and RECEIPT_MONEY = #{erpEarbestMoney.receiptMoney,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.receiptDeptId != null">
+      and RECEIPT_DEPT_ID = #{erpEarbestMoney.receiptDeptId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.receiptDeptName != null">
+      and RECEIPT_DEPT_NAME = #{erpEarbestMoney.receiptDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.receiptUserId != null">
+      and RECEIPT_USER_ID = #{erpEarbestMoney.receiptUserId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.receiptUserName != null">
+      and RECEIPT_USER_NAME = #{erpEarbestMoney.receiptUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.refundDeptId != null">
+      and REFUND_DEPT_ID = #{erpEarbestMoney.refundDeptId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.refundDeptName != null">
+      and REFUND_DEPT_NAME = #{erpEarbestMoney.refundDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.refundUserId != null">
+      and REFUND_USER_ID = #{erpEarbestMoney.refundUserId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.refundUserName != null">
+      and REFUND_USER_NAME = #{erpEarbestMoney.refundUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.depositDeptId != null">
+      and DEPOSIT_DEPT_ID = #{erpEarbestMoney.depositDeptId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.depositDeptName != null">
+      and DEPOSIT_DEPT_NAME = #{erpEarbestMoney.depositDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.depositUserId != null">
+      and DEPOSIT_USER_ID = #{erpEarbestMoney.depositUserId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.depositUserName != null">
+      and DEPOSIT_USER_NAME = #{erpEarbestMoney.depositUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.confirmDeptId != null">
+      and CONFIRM_DEPT_ID = #{erpEarbestMoney.confirmDeptId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.confirmDeptName != null">
+      and CONFIRM_DEPT_NAME = #{erpEarbestMoney.confirmDeptName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.confirmUserId != null">
+      and CONFIRM_USER_ID = #{erpEarbestMoney.confirmUserId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.confirmUserName != null">
+      and CONFIRM_USER_NAME = #{erpEarbestMoney.confirmUserName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.caseNo != null">
+      and CASE_NO = #{erpEarbestMoney.caseNo,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.caseId != null">
+      and CASE_ID = #{erpEarbestMoney.caseId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.buildId != null">
+      and BUILD_ID = #{erpEarbestMoney.buildId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.buildName != null">
+      and BUILD_NAME = #{erpEarbestMoney.buildName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.houseRoom != null">
+      and HOUSE_ROOM = #{erpEarbestMoney.houseRoom,jdbcType=TINYINT}
+    </if>
+    <if test="erpEarbestMoney.houseHall != null">
+      and HOUSE_HALL = #{erpEarbestMoney.houseHall,jdbcType=TINYINT}
+    </if>
+    <if test="erpEarbestMoney.houseWei != null">
+      and HOUSE_WEI = #{erpEarbestMoney.houseWei,jdbcType=TINYINT}
+    </if>
+    <if test="erpEarbestMoney.houseArea != null">
+      and HOUSE_AREA = #{erpEarbestMoney.houseArea,jdbcType=NUMERIC}
+    </if>
+    <if test="erpEarbestMoney.custNo != null">
+      and CUST_NO = #{erpEarbestMoney.custNo,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.custId != null">
+      and CUST_ID = #{erpEarbestMoney.custId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.custName != null">
+      and CUST_NAME = #{erpEarbestMoney.custName,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.custIdcard != null">
+      and CUST_IDCARD = #{erpEarbestMoney.custIdcard,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.custMobile != null">
+      and CUST_MOBILE = #{erpEarbestMoney.custMobile,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.dealId != null">
+      and DEAL_ID = #{erpEarbestMoney.dealId,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.dealNo != null">
+      and DEAL_NO = #{erpEarbestMoney.dealNo,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.isDel != null">
+      and IS_DEL = #{erpEarbestMoney.isDel,jdbcType=TINYINT}
+    </if>
+    <if test="erpEarbestMoney.earbestStatus != null">
+      and EARBEST_STATUS = #{erpEarbestMoney.earbestStatus,jdbcType=TINYINT}
+    </if>
+    <if test="erpEarbestMoney.earbestRemark != null">
+      and EARBEST_REMARK = #{erpEarbestMoney.earbestRemark,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.refundExplain != null">
+      and REFUND_EXPLAIN = #{erpEarbestMoney.refundExplain,jdbcType=VARCHAR}
+    </if>
+    <if test="erpEarbestMoney.createTime != null">
+      and CREATE_TIME = #{erpEarbestMoney.createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="erpEarbestMoney.createUser != null">
+      and CREATE_USER = #{erpEarbestMoney.createUser,jdbcType=INTEGER}
+    </if>
+    <if test="erpEarbestMoney.createUserName != null">
+      and CREATE_USER_NAME = #{erpEarbestMoney.createUserName,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="selectEarbestMoneyDetail" resultMap="extBaseResultMap">
+    select
+   	b.PAY_STATUS, A.*,
+   	C.USER_MOBILE AS RECEIPT_USER_MOBILE
+    from FUN_EARBEST_MONEY A
+    JOIN FUN_USERS C ON C.USER_ID=A.RECEIPT_USER_ID
+    LEFT JOIN POS_PAYMENT_ORDER b ON A.EARBEST_ID = b.FINANCE_ID AND FINANCE_TYPE = 1 and pay_status !=3
+   	where EARBEST_ID = #{earbestId,jdbcType=INTEGER}
+  </select>
+  <update id="delBillPhoto">
+  	update FUN_EARBEST_MONEY set BILL_PHOTO = null where EARBEST_ID = #{earbestId,jdbcType=INTEGER}
+  </update>
+
+  <select id="countEarbestListByDealId" resultType="java.lang.Integer">
+    select
+    count(*) from FUN_EARBEST_MONEY
+    where COMP_ID = #{compId}
+    and DEAL_ID = #{dealId}
+    and IS_DEL = 0
+    and EARBEST_STATUS = 0
+  </select>
+
+  <select id="countEarbestListByHouseCustId" resultType="java.lang.Integer">
+    select
+     count(*) from FUN_EARBEST_MONEY
+    where COMP_ID = #{compId}
+    and CUST_ID = #{custId}
+    and CUST_NO = #{custNo}
+    and CASE_ID = #{caseId}
+    and CASE_NO = #{caseNo}
+    AND DEAL_ID is null
+    and IS_DEL = 0
+    and EARBEST_STATUS = 0
+  </select>
+
+  <select id="selectEarbestListByDealId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FUN_EARBEST_MONEY
+    where COMP_ID = #{compId}
+    and DEAL_ID = #{dealId}
+    and IS_DEL = 0
+    ORDER BY UPDATE_TIME DESC
+  </select>
+
+  <select id="selectEarbestListByHouseCustId" resultMap="BaseResultMap">
+    select
+     <include refid="Base_Column_List" />
+     from FUN_EARBEST_MONEY
+    where COMP_ID = #{compId}
+    and CUST_ID = #{custId}
+    and CUST_NO = #{custNo}
+    and CASE_ID = #{caseId}
+    and CASE_NO = #{caseNo}
+    <if test="audited == true">
+      and EARBEST_STATUS = 1
+    </if>
+    AND DEAL_ID is null
+    and IS_DEL = 0
+    ORDER BY UPDATE_TIME DESC
+  </select>
+
+  <update id="updateDealInfoByIds">
+    update FUN_EARBEST_MONEY set DEAL_ID = #{dealId},DEAL_NO=#{contactNo} where COMP_ID = #{compId} and EARBEST_ID in
+    <foreach close=")" collection="ids" item="id" open="(" separator=",">
+      #{id}
+    </foreach>
+  </update>
+</mapper>

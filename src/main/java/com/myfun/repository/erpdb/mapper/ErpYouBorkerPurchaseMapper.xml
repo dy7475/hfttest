@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpYouBorkerPurchaseMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpYouBorkerPurchase">
+    <!--@mbggenerated-->
+    <id column="PURCHASE_ID" jdbcType="INTEGER" property="purchaseId" />
+    <result column="CASE_ID" jdbcType="INTEGER" property="caseId" />
+    <result column="CASE_TYPE" jdbcType="TINYINT" property="caseType" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="IS_RETURN_INTEGRAL" jdbcType="TINYINT" property="isReturnIntegral" />
+    <result column="COST_INTEGRAL" jdbcType="DECIMAL" property="costIntegral" />
+    <result column="COMPLAIN_FLAG" jdbcType="TINYINT" property="complainFlag" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="YOU_SHARE_FLAG" jdbcType="TINYINT" property="youShareFlag" />
+    <result column="YOU_SHARE_ID" jdbcType="INTEGER" property="youShareId" />
+    <result column="TARGET_COMPLAIN_FLAG" jdbcType="INTEGER" property="targetComplainFlag" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.erpdb.dto.ErpYouBorkerPurchaseDto" id="exResultMap" extends="BaseResultMap">
+  	<result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    PURCHASE_ID, CASE_ID, CASE_TYPE, COMP_ID, DEPT_ID, USER_ID, ARCHIVE_ID, IS_RETURN_INTEGRAL, 
+    COST_INTEGRAL, COMPLAIN_FLAG, CREATION_TIME, CITY_ID, YOU_SHARE_FLAG, YOU_SHARE_ID, 
+    TARGET_COMPLAIN_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from YOU_BORKER_PURCHASE
+    where PURCHASE_ID = #{purchaseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from YOU_BORKER_PURCHASE
+    where PURCHASE_ID = #{purchaseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpYouBorkerPurchase">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="purchaseId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_YOU_BORKER_PURCHASE_ID
+    </selectKey>
+    insert into YOU_BORKER_PURCHASE (PURCHASE_ID, CASE_ID, CASE_TYPE, 
+      COMP_ID, DEPT_ID, USER_ID, 
+      ARCHIVE_ID, IS_RETURN_INTEGRAL, COST_INTEGRAL, 
+      COMPLAIN_FLAG, CREATION_TIME, CITY_ID, 
+      YOU_SHARE_FLAG, YOU_SHARE_ID, TARGET_COMPLAIN_FLAG
+      )
+    values (#{purchaseId,jdbcType=INTEGER}, #{caseId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, 
+      #{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{archiveId,jdbcType=INTEGER}, #{isReturnIntegral,jdbcType=TINYINT}, #{costIntegral,jdbcType=DECIMAL}, 
+      #{complainFlag,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, #{cityId,jdbcType=INTEGER}, 
+      #{youShareFlag,jdbcType=TINYINT}, #{youShareId,jdbcType=INTEGER}, #{targetComplainFlag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpYouBorkerPurchase">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="purchaseId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT next value for SEQ_YOU_BORKER_PURCHASE_ID
+    </selectKey>
+    insert into YOU_BORKER_PURCHASE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      PURCHASE_ID,
+      <if test="caseId != null">
+        CASE_ID,
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE,
+      </if>
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="isReturnIntegral != null">
+        IS_RETURN_INTEGRAL,
+      </if>
+      <if test="costIntegral != null">
+        COST_INTEGRAL,
+      </if>
+      <if test="complainFlag != null">
+        COMPLAIN_FLAG,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="youShareFlag != null">
+        YOU_SHARE_FLAG,
+      </if>
+      <if test="youShareId != null">
+        YOU_SHARE_ID,
+      </if>
+      <if test="targetComplainFlag != null">
+        TARGET_COMPLAIN_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{purchaseId,jdbcType=INTEGER},
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="isReturnIntegral != null">
+        #{isReturnIntegral,jdbcType=TINYINT},
+      </if>
+      <if test="costIntegral != null">
+        #{costIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="complainFlag != null">
+        #{complainFlag,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="youShareFlag != null">
+        #{youShareFlag,jdbcType=TINYINT},
+      </if>
+      <if test="youShareId != null">
+        #{youShareId,jdbcType=INTEGER},
+      </if>
+      <if test="targetComplainFlag != null">
+        #{targetComplainFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpYouBorkerPurchase">
+    <!--@mbggenerated-->
+    update YOU_BORKER_PURCHASE
+    <set>
+      <if test="caseId != null">
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null">
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="isReturnIntegral != null">
+        IS_RETURN_INTEGRAL = #{isReturnIntegral,jdbcType=TINYINT},
+      </if>
+      <if test="costIntegral != null">
+        COST_INTEGRAL = #{costIntegral,jdbcType=DECIMAL},
+      </if>
+      <if test="complainFlag != null">
+        COMPLAIN_FLAG = #{complainFlag,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="youShareFlag != null">
+        YOU_SHARE_FLAG = #{youShareFlag,jdbcType=TINYINT},
+      </if>
+      <if test="youShareId != null">
+        YOU_SHARE_ID = #{youShareId,jdbcType=INTEGER},
+      </if>
+      <if test="targetComplainFlag != null">
+        TARGET_COMPLAIN_FLAG = #{targetComplainFlag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where PURCHASE_ID = #{purchaseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpYouBorkerPurchase">
+    <!--@mbggenerated-->
+    update YOU_BORKER_PURCHASE
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      IS_RETURN_INTEGRAL = #{isReturnIntegral,jdbcType=TINYINT},
+      COST_INTEGRAL = #{costIntegral,jdbcType=DECIMAL},
+      COMPLAIN_FLAG = #{complainFlag,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      YOU_SHARE_FLAG = #{youShareFlag,jdbcType=TINYINT},
+      YOU_SHARE_ID = #{youShareId,jdbcType=INTEGER},
+      TARGET_COMPLAIN_FLAG = #{targetComplainFlag,jdbcType=INTEGER}
+    where PURCHASE_ID = #{purchaseId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getPurchaseRecords" parameterType="com.myfun.repository.erpdb.po.ErpYouBorkerPurchase" resultMap="exResultMap">
+  	SELECT FU.USER_NAME, FU.USER_MOBILE, FD.DEPT_NAME, YBC.* 
+	from YOU_BORKER_PURCHASE YBC 
+	LEFT JOIN FUN_USERS FU ON YBC.USER_ID=FU.USER_ID 
+	AND YBC.ARCHIVE_ID=FU.ARCHIVE_ID 
+	LEFT JOIN FUN_DEPTS FD ON YBC.DEPT_ID=FD.DEPT_ID 
+	WHERE YBC.YOU_SHARE_ID=#{youShareId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByPurchaseId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+	  SELECT <include refid="Base_Column_List" /> from YOU_BORKER_PURCHASE
+	  where PURCHASE_ID =#{purchaseId,jdbcType=INTEGER}
+  </select>
+  
+  <update id="updateBorkerPurchaseAll" parameterType="java.lang.String">
+  	UPDATE YOU_BORKER_PURCHASE SET COMPLAIN_FLAG = 0 
+  	WHERE YOU_SHARE_ID=#{targetInfoId,jdbcType=VARCHAR} 
+  	AND COMPLAIN_FLAG=1
+  </update>
+  
+  <update id="updateByShareId" parameterType="com.myfun.repository.erpdb.po.ErpYouBorkerPurchase">
+  	UPDATE YOU_BORKER_PURCHASE SET YOU_SHARE_FLAG=0 
+  	WHERE YOU_SHARE_ID=#{youShareId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getHousePurchaseList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	SELECT <include refid="Base_Column_List" /> FROM YOU_BORKER_PURCHASE
+  	WHERE IS_RETURN_INTEGRAL!=1 
+  	AND YOU_SHARE_ID=#{purchaseId,jdbcType=INTEGER}
+  </select>
+</mapper>

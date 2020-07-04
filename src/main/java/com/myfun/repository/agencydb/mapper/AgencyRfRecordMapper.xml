@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyRfRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyRfRecord" >
+    <!--@mbggenerated-->
+    <id column="RECORD_ID" property="recordId" jdbcType="INTEGER" />
+    <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="OPERATE_PERSON" property="operatePerson" jdbcType="VARCHAR" />
+    <result column="OPERATING_INSTRUCTIONS" property="operatingInstructions" jdbcType="VARCHAR" />
+    <result column="OPERATE_TYPE" property="operateType" jdbcType="VARCHAR" />
+    <result column="APPLY_ID" property="applyId" jdbcType="INTEGER" />
+    <result column="FOLLOW_METHOD" property="followMethod" jdbcType="TINYINT" />
+    <result column="FOLLOW_REMIND" property="followRemind" jdbcType="BIT" />
+    <result column="REMIND_DATE" property="remindDate" jdbcType="TIMESTAMP" />
+    <result column="REMIND_CONTENT" property="remindContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    RECORD_ID, OPERATE_TIME, OPERATE_PERSON, OPERATING_INSTRUCTIONS, OPERATE_TYPE, APPLY_ID, 
+    FOLLOW_METHOD, FOLLOW_REMIND, REMIND_DATE, REMIND_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from RF_RECORD
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from RF_RECORD
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyRfRecord" >
+    <!--@mbggenerated-->
+    insert into RF_RECORD (RECORD_ID, OPERATE_TIME, OPERATE_PERSON, 
+      OPERATING_INSTRUCTIONS, OPERATE_TYPE, APPLY_ID, 
+      FOLLOW_METHOD, FOLLOW_REMIND, REMIND_DATE, 
+      REMIND_CONTENT)
+    values (#{recordId,jdbcType=INTEGER}, #{operateTime,jdbcType=TIMESTAMP}, #{operatePerson,jdbcType=VARCHAR}, 
+      #{operatingInstructions,jdbcType=VARCHAR}, #{operateType,jdbcType=VARCHAR}, #{applyId,jdbcType=INTEGER}, 
+      #{followMethod,jdbcType=TINYINT}, #{followRemind,jdbcType=BIT}, #{remindDate,jdbcType=TIMESTAMP}, 
+      #{remindContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfRecord" >
+    <!--@mbggenerated-->
+    insert into RF_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordId != null" >
+        RECORD_ID,
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME,
+      </if>
+      <if test="operatePerson != null" >
+        OPERATE_PERSON,
+      </if>
+      <if test="operatingInstructions != null" >
+        OPERATING_INSTRUCTIONS,
+      </if>
+      <if test="operateType != null" >
+        OPERATE_TYPE,
+      </if>
+      <if test="applyId != null" >
+        APPLY_ID,
+      </if>
+      <if test="followMethod != null" >
+        FOLLOW_METHOD,
+      </if>
+      <if test="followRemind != null" >
+        FOLLOW_REMIND,
+      </if>
+      <if test="remindDate != null" >
+        REMIND_DATE,
+      </if>
+      <if test="remindContent != null" >
+        REMIND_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordId != null" >
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="operateTime != null" >
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatePerson != null" >
+        #{operatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="operatingInstructions != null" >
+        #{operatingInstructions,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null" >
+        #{operateType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyId != null" >
+        #{applyId,jdbcType=INTEGER},
+      </if>
+      <if test="followMethod != null" >
+        #{followMethod,jdbcType=TINYINT},
+      </if>
+      <if test="followRemind != null" >
+        #{followRemind,jdbcType=BIT},
+      </if>
+      <if test="remindDate != null" >
+        #{remindDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remindContent != null" >
+        #{remindContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyRfRecord" >
+    <!--@mbggenerated-->
+    update RF_RECORD
+    <set >
+      <if test="operateTime != null" >
+        OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatePerson != null" >
+        OPERATE_PERSON = #{operatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="operatingInstructions != null" >
+        OPERATING_INSTRUCTIONS = #{operatingInstructions,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null" >
+        OPERATE_TYPE = #{operateType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyId != null" >
+        APPLY_ID = #{applyId,jdbcType=INTEGER},
+      </if>
+      <if test="followMethod != null" >
+        FOLLOW_METHOD = #{followMethod,jdbcType=TINYINT},
+      </if>
+      <if test="followRemind != null" >
+        FOLLOW_REMIND = #{followRemind,jdbcType=BIT},
+      </if>
+      <if test="remindDate != null" >
+        REMIND_DATE = #{remindDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remindContent != null" >
+        REMIND_CONTENT = #{remindContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyRfRecord" >
+    <!--@mbggenerated-->
+    update RF_RECORD
+    set OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      OPERATE_PERSON = #{operatePerson,jdbcType=VARCHAR},
+      OPERATING_INSTRUCTIONS = #{operatingInstructions,jdbcType=VARCHAR},
+      OPERATE_TYPE = #{operateType,jdbcType=VARCHAR},
+      APPLY_ID = #{applyId,jdbcType=INTEGER},
+      FOLLOW_METHOD = #{followMethod,jdbcType=TINYINT},
+      FOLLOW_REMIND = #{followRemind,jdbcType=BIT},
+      REMIND_DATE = #{remindDate,jdbcType=TIMESTAMP},
+      REMIND_CONTENT = #{remindContent,jdbcType=VARCHAR}
+    where RECORD_ID = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

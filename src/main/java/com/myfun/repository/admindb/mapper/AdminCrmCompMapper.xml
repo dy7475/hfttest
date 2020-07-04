@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.admindb.dao.AdminCrmCompMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminCrmComp">
+    <!--@mbggenerated-->
+    <id column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="COMP_NO" jdbcType="VARCHAR" property="compNo" />
+    <result column="DEPT_NO" jdbcType="VARCHAR" property="deptNo" />
+    <result column="PROVINCE_ID" jdbcType="INTEGER" property="provinceId" />
+    <result column="CITY_ID" jdbcType="INTEGER" property="cityId" />
+    <result column="COMP_NAME" jdbcType="VARCHAR" property="compName" />
+    <result column="COMP_CNAME" jdbcType="VARCHAR" property="compCname" />
+    <result column="COMP_ADDR" jdbcType="VARCHAR" property="compAddr" />
+    <result column="REG_NAME" jdbcType="VARCHAR" property="regName" />
+    <result column="COMP_CONTACT" jdbcType="VARCHAR" property="compContact" />
+    <result column="CONTACT_PHONE" jdbcType="VARCHAR" property="contactPhone" />
+    <result column="COMP_TELE" jdbcType="VARCHAR" property="compTele" />
+    <result column="SUPER_COMP" jdbcType="BIT" property="superComp" />
+    <result column="REGIST_FLAG" jdbcType="BIT" property="registFlag" />
+    <result column="PWD_DESC" jdbcType="VARCHAR" property="pwdDesc" />
+    <result column="ROUTE_MAC" jdbcType="VARCHAR" property="routeMac" />
+    <result column="IS_DISTRIBUTE" jdbcType="BIT" property="isDistribute" />
+    <result column="FATHER_COMP" jdbcType="INTEGER" property="fatherComp" />
+    <result column="WRITEOFF_FLAG" jdbcType="BIT" property="writeoffFlag" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="WRITEOFF_TIME" jdbcType="TIMESTAMP" property="writeoffTime" />
+    <result column="IS_CARRIERS" jdbcType="BIT" property="isCarriers" />
+    <result column="COMP_TYPE" jdbcType="TINYINT" property="compType" />
+    <result column="PLOT_SWITCH" jdbcType="TINYINT" property="plotSwitch" />
+    <result column="YOUJIA_DEPT_AUTO_PAYMENT" jdbcType="TINYINT" property="youjiaDeptAutoPayment" />
+    <result column="AGENT_BUILD_AUTO_PAYMENT" jdbcType="TINYINT" property="agentBuildAutoPayment" />
+    <result column="ACOUNTS_WARN_FLAG" jdbcType="TINYINT" property="acountsWarnFlag" />
+    <result column="ACCREDIT_FEE" jdbcType="NUMERIC" property="accreditFee" />
+    <result column="DEPOSIT" jdbcType="NUMERIC" property="deposit" />
+    <result column="FINANCE_FLAG" jdbcType="TINYINT" property="financeFlag" />
+    <result column="ERP_SYSTEM_NAME" jdbcType="VARCHAR" property="erpSystemName" />
+    <result column="ERP_SYSTEM_ICON" jdbcType="VARCHAR" property="erpSystemIcon" />
+    <result column="ERP_SYSTEM_NAVIGATION_BACKGROUND" jdbcType="VARCHAR" property="erpSystemNavigationBackground" />
+    <result column="ERP_SYSTEM_POPUP_WINDOW_BACKGROUND" jdbcType="VARCHAR" property="erpSystemPopupWindowBackground" />
+    <result column="ERP_SYSTEM_TONAL" jdbcType="VARCHAR" property="erpSystemTonal" />
+    <result column="YOU_GROUP_NAME" jdbcType="VARCHAR" property="youGroupName" />
+    <result column="YOU_GROUP_LOGO" jdbcType="VARCHAR" property="youGroupLogo" />
+    <result column="YOU_GROUP_MOBILE" jdbcType="VARCHAR" property="youGroupMobile" />
+    <result column="COMP_WEIXIN_STATUS" jdbcType="TINYINT" property="compWeixinStatus" />
+    <result column="MICRO_PROGRAM_STATUS" jdbcType="TINYINT" property="microProgramStatus" />
+    <result column="BANK_NAME" jdbcType="VARCHAR" property="bankName" />
+    <result column="BANK_CARD_NUMBER" jdbcType="VARCHAR" property="bankCardNumber" />
+    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
+    <result column="COMP_IN_CHAPTER" jdbcType="VARCHAR" property="compInChapter" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    COMP_ID, COMP_NO, DEPT_NO, PROVINCE_ID, CITY_ID, COMP_NAME, COMP_CNAME, COMP_ADDR, 
+    REG_NAME, COMP_CONTACT, CONTACT_PHONE, COMP_TELE, SUPER_COMP, REGIST_FLAG, PWD_DESC, 
+    ROUTE_MAC, IS_DISTRIBUTE, FATHER_COMP, WRITEOFF_FLAG, CREATE_TIME, WRITEOFF_TIME, 
+    IS_CARRIERS, COMP_TYPE, PLOT_SWITCH, YOUJIA_DEPT_AUTO_PAYMENT, AGENT_BUILD_AUTO_PAYMENT, 
+    ACOUNTS_WARN_FLAG, ACCREDIT_FEE, DEPOSIT, FINANCE_FLAG, ERP_SYSTEM_NAME, ERP_SYSTEM_ICON, 
+    ERP_SYSTEM_NAVIGATION_BACKGROUND, ERP_SYSTEM_POPUP_WINDOW_BACKGROUND, ERP_SYSTEM_TONAL, 
+    YOU_GROUP_NAME, YOU_GROUP_LOGO, YOU_GROUP_MOBILE, COMP_WEIXIN_STATUS, MICRO_PROGRAM_STATUS, 
+    BANK_NAME, BANK_CARD_NUMBER, ACCOUNT_NAME, COMP_IN_CHAPTER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from CRM_COMP
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from CRM_COMP
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminCrmComp">
+    <!--@mbggenerated-->
+    insert into CRM_COMP (COMP_ID, COMP_NO, DEPT_NO, 
+      PROVINCE_ID, CITY_ID, COMP_NAME, 
+      COMP_CNAME, COMP_ADDR, REG_NAME, 
+      COMP_CONTACT, CONTACT_PHONE, COMP_TELE, 
+      SUPER_COMP, REGIST_FLAG, PWD_DESC, 
+      ROUTE_MAC, IS_DISTRIBUTE, FATHER_COMP, 
+      WRITEOFF_FLAG, CREATE_TIME, WRITEOFF_TIME, 
+      IS_CARRIERS, COMP_TYPE, PLOT_SWITCH, 
+      YOUJIA_DEPT_AUTO_PAYMENT, AGENT_BUILD_AUTO_PAYMENT, 
+      ACOUNTS_WARN_FLAG, ACCREDIT_FEE, DEPOSIT, 
+      FINANCE_FLAG, ERP_SYSTEM_NAME, ERP_SYSTEM_ICON, 
+      ERP_SYSTEM_NAVIGATION_BACKGROUND, ERP_SYSTEM_POPUP_WINDOW_BACKGROUND, 
+      ERP_SYSTEM_TONAL, YOU_GROUP_NAME, YOU_GROUP_LOGO, 
+      YOU_GROUP_MOBILE, COMP_WEIXIN_STATUS, MICRO_PROGRAM_STATUS, 
+      BANK_NAME, BANK_CARD_NUMBER, ACCOUNT_NAME, 
+      COMP_IN_CHAPTER)
+    values (#{compId,jdbcType=INTEGER}, #{compNo,jdbcType=VARCHAR}, #{deptNo,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{compName,jdbcType=VARCHAR}, 
+      #{compCname,jdbcType=VARCHAR}, #{compAddr,jdbcType=VARCHAR}, #{regName,jdbcType=VARCHAR}, 
+      #{compContact,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR}, #{compTele,jdbcType=VARCHAR}, 
+      #{superComp,jdbcType=BIT}, #{registFlag,jdbcType=BIT}, #{pwdDesc,jdbcType=VARCHAR}, 
+      #{routeMac,jdbcType=VARCHAR}, #{isDistribute,jdbcType=BIT}, #{fatherComp,jdbcType=INTEGER}, 
+      #{writeoffFlag,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{writeoffTime,jdbcType=TIMESTAMP}, 
+      #{isCarriers,jdbcType=BIT}, #{compType,jdbcType=TINYINT}, #{plotSwitch,jdbcType=TINYINT}, 
+      #{youjiaDeptAutoPayment,jdbcType=TINYINT}, #{agentBuildAutoPayment,jdbcType=TINYINT}, 
+      #{acountsWarnFlag,jdbcType=TINYINT}, #{accreditFee,jdbcType=NUMERIC}, #{deposit,jdbcType=NUMERIC}, 
+      #{financeFlag,jdbcType=TINYINT}, #{erpSystemName,jdbcType=VARCHAR}, #{erpSystemIcon,jdbcType=VARCHAR}, 
+      #{erpSystemNavigationBackground,jdbcType=VARCHAR}, #{erpSystemPopupWindowBackground,jdbcType=VARCHAR}, 
+      #{erpSystemTonal,jdbcType=VARCHAR}, #{youGroupName,jdbcType=VARCHAR}, #{youGroupLogo,jdbcType=VARCHAR}, 
+      #{youGroupMobile,jdbcType=VARCHAR}, #{compWeixinStatus,jdbcType=TINYINT}, #{microProgramStatus,jdbcType=TINYINT}, 
+      #{bankName,jdbcType=VARCHAR}, #{bankCardNumber,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{compInChapter,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminCrmComp">
+    <!--@mbggenerated-->
+    insert into CRM_COMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="compNo != null">
+        COMP_NO,
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO,
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="compName != null">
+        COMP_NAME,
+      </if>
+      <if test="compCname != null">
+        COMP_CNAME,
+      </if>
+      <if test="compAddr != null">
+        COMP_ADDR,
+      </if>
+      <if test="regName != null">
+        REG_NAME,
+      </if>
+      <if test="compContact != null">
+        COMP_CONTACT,
+      </if>
+      <if test="contactPhone != null">
+        CONTACT_PHONE,
+      </if>
+      <if test="compTele != null">
+        COMP_TELE,
+      </if>
+      <if test="superComp != null">
+        SUPER_COMP,
+      </if>
+      <if test="registFlag != null">
+        REGIST_FLAG,
+      </if>
+      <if test="pwdDesc != null">
+        PWD_DESC,
+      </if>
+      <if test="routeMac != null">
+        ROUTE_MAC,
+      </if>
+      <if test="isDistribute != null">
+        IS_DISTRIBUTE,
+      </if>
+      <if test="fatherComp != null">
+        FATHER_COMP,
+      </if>
+      <if test="writeoffFlag != null">
+        WRITEOFF_FLAG,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="writeoffTime != null">
+        WRITEOFF_TIME,
+      </if>
+      <if test="isCarriers != null">
+        IS_CARRIERS,
+      </if>
+      <if test="compType != null">
+        COMP_TYPE,
+      </if>
+      <if test="plotSwitch != null">
+        PLOT_SWITCH,
+      </if>
+      <if test="youjiaDeptAutoPayment != null">
+        YOUJIA_DEPT_AUTO_PAYMENT,
+      </if>
+      <if test="agentBuildAutoPayment != null">
+        AGENT_BUILD_AUTO_PAYMENT,
+      </if>
+      <if test="acountsWarnFlag != null">
+        ACOUNTS_WARN_FLAG,
+      </if>
+      <if test="accreditFee != null">
+        ACCREDIT_FEE,
+      </if>
+      <if test="deposit != null">
+        DEPOSIT,
+      </if>
+      <if test="financeFlag != null">
+        FINANCE_FLAG,
+      </if>
+      <if test="erpSystemName != null">
+        ERP_SYSTEM_NAME,
+      </if>
+      <if test="erpSystemIcon != null">
+        ERP_SYSTEM_ICON,
+      </if>
+      <if test="erpSystemNavigationBackground != null">
+        ERP_SYSTEM_NAVIGATION_BACKGROUND,
+      </if>
+      <if test="erpSystemPopupWindowBackground != null">
+        ERP_SYSTEM_POPUP_WINDOW_BACKGROUND,
+      </if>
+      <if test="erpSystemTonal != null">
+        ERP_SYSTEM_TONAL,
+      </if>
+      <if test="youGroupName != null">
+        YOU_GROUP_NAME,
+      </if>
+      <if test="youGroupLogo != null">
+        YOU_GROUP_LOGO,
+      </if>
+      <if test="youGroupMobile != null">
+        YOU_GROUP_MOBILE,
+      </if>
+      <if test="compWeixinStatus != null">
+        COMP_WEIXIN_STATUS,
+      </if>
+      <if test="microProgramStatus != null">
+        MICRO_PROGRAM_STATUS,
+      </if>
+      <if test="bankName != null">
+        BANK_NAME,
+      </if>
+      <if test="bankCardNumber != null">
+        BANK_CARD_NUMBER,
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME,
+      </if>
+      <if test="compInChapter != null">
+        COMP_IN_CHAPTER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="compNo != null">
+        #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compName != null">
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compCname != null">
+        #{compCname,jdbcType=VARCHAR},
+      </if>
+      <if test="compAddr != null">
+        #{compAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="regName != null">
+        #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="compContact != null">
+        #{compContact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="compTele != null">
+        #{compTele,jdbcType=VARCHAR},
+      </if>
+      <if test="superComp != null">
+        #{superComp,jdbcType=BIT},
+      </if>
+      <if test="registFlag != null">
+        #{registFlag,jdbcType=BIT},
+      </if>
+      <if test="pwdDesc != null">
+        #{pwdDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="routeMac != null">
+        #{routeMac,jdbcType=VARCHAR},
+      </if>
+      <if test="isDistribute != null">
+        #{isDistribute,jdbcType=BIT},
+      </if>
+      <if test="fatherComp != null">
+        #{fatherComp,jdbcType=INTEGER},
+      </if>
+      <if test="writeoffFlag != null">
+        #{writeoffFlag,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="writeoffTime != null">
+        #{writeoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCarriers != null">
+        #{isCarriers,jdbcType=BIT},
+      </if>
+      <if test="compType != null">
+        #{compType,jdbcType=TINYINT},
+      </if>
+      <if test="plotSwitch != null">
+        #{plotSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaDeptAutoPayment != null">
+        #{youjiaDeptAutoPayment,jdbcType=TINYINT},
+      </if>
+      <if test="agentBuildAutoPayment != null">
+        #{agentBuildAutoPayment,jdbcType=TINYINT},
+      </if>
+      <if test="acountsWarnFlag != null">
+        #{acountsWarnFlag,jdbcType=TINYINT},
+      </if>
+      <if test="accreditFee != null">
+        #{accreditFee,jdbcType=NUMERIC},
+      </if>
+      <if test="deposit != null">
+        #{deposit,jdbcType=NUMERIC},
+      </if>
+      <if test="financeFlag != null">
+        #{financeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="erpSystemName != null">
+        #{erpSystemName,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemIcon != null">
+        #{erpSystemIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemNavigationBackground != null">
+        #{erpSystemNavigationBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemPopupWindowBackground != null">
+        #{erpSystemPopupWindowBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemTonal != null">
+        #{erpSystemTonal,jdbcType=VARCHAR},
+      </if>
+      <if test="youGroupName != null">
+        #{youGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="youGroupLogo != null">
+        #{youGroupLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="youGroupMobile != null">
+        #{youGroupMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="compWeixinStatus != null">
+        #{compWeixinStatus,jdbcType=TINYINT},
+      </if>
+      <if test="microProgramStatus != null">
+        #{microProgramStatus,jdbcType=TINYINT},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null">
+        #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="compInChapter != null">
+        #{compInChapter,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminCrmComp">
+    <!--@mbggenerated-->
+    update CRM_COMP
+    <set>
+      <if test="compNo != null">
+        COMP_NO = #{compNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="compName != null">
+        COMP_NAME = #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compCname != null">
+        COMP_CNAME = #{compCname,jdbcType=VARCHAR},
+      </if>
+      <if test="compAddr != null">
+        COMP_ADDR = #{compAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="regName != null">
+        REG_NAME = #{regName,jdbcType=VARCHAR},
+      </if>
+      <if test="compContact != null">
+        COMP_CONTACT = #{compContact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="compTele != null">
+        COMP_TELE = #{compTele,jdbcType=VARCHAR},
+      </if>
+      <if test="superComp != null">
+        SUPER_COMP = #{superComp,jdbcType=BIT},
+      </if>
+      <if test="registFlag != null">
+        REGIST_FLAG = #{registFlag,jdbcType=BIT},
+      </if>
+      <if test="pwdDesc != null">
+        PWD_DESC = #{pwdDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="routeMac != null">
+        ROUTE_MAC = #{routeMac,jdbcType=VARCHAR},
+      </if>
+      <if test="isDistribute != null">
+        IS_DISTRIBUTE = #{isDistribute,jdbcType=BIT},
+      </if>
+      <if test="fatherComp != null">
+        FATHER_COMP = #{fatherComp,jdbcType=INTEGER},
+      </if>
+      <if test="writeoffFlag != null">
+        WRITEOFF_FLAG = #{writeoffFlag,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="writeoffTime != null">
+        WRITEOFF_TIME = #{writeoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCarriers != null">
+        IS_CARRIERS = #{isCarriers,jdbcType=BIT},
+      </if>
+      <if test="compType != null">
+        COMP_TYPE = #{compType,jdbcType=TINYINT},
+      </if>
+      <if test="plotSwitch != null">
+        PLOT_SWITCH = #{plotSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="youjiaDeptAutoPayment != null">
+        YOUJIA_DEPT_AUTO_PAYMENT = #{youjiaDeptAutoPayment,jdbcType=TINYINT},
+      </if>
+      <if test="agentBuildAutoPayment != null">
+        AGENT_BUILD_AUTO_PAYMENT = #{agentBuildAutoPayment,jdbcType=TINYINT},
+      </if>
+      <if test="acountsWarnFlag != null">
+        ACOUNTS_WARN_FLAG = #{acountsWarnFlag,jdbcType=TINYINT},
+      </if>
+      <if test="accreditFee != null">
+        ACCREDIT_FEE = #{accreditFee,jdbcType=NUMERIC},
+      </if>
+      <if test="deposit != null">
+        DEPOSIT = #{deposit,jdbcType=NUMERIC},
+      </if>
+      <if test="financeFlag != null">
+        FINANCE_FLAG = #{financeFlag,jdbcType=TINYINT},
+      </if>
+      <if test="erpSystemName != null">
+        ERP_SYSTEM_NAME = #{erpSystemName,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemIcon != null">
+        ERP_SYSTEM_ICON = #{erpSystemIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemNavigationBackground != null">
+        ERP_SYSTEM_NAVIGATION_BACKGROUND = #{erpSystemNavigationBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemPopupWindowBackground != null">
+        ERP_SYSTEM_POPUP_WINDOW_BACKGROUND = #{erpSystemPopupWindowBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="erpSystemTonal != null">
+        ERP_SYSTEM_TONAL = #{erpSystemTonal,jdbcType=VARCHAR},
+      </if>
+      <if test="youGroupName != null">
+        YOU_GROUP_NAME = #{youGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="youGroupLogo != null">
+        YOU_GROUP_LOGO = #{youGroupLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="youGroupMobile != null">
+        YOU_GROUP_MOBILE = #{youGroupMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="compWeixinStatus != null">
+        COMP_WEIXIN_STATUS = #{compWeixinStatus,jdbcType=TINYINT},
+      </if>
+      <if test="microProgramStatus != null">
+        MICRO_PROGRAM_STATUS = #{microProgramStatus,jdbcType=TINYINT},
+      </if>
+      <if test="bankName != null">
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null">
+        BANK_CARD_NUMBER = #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="compInChapter != null">
+        COMP_IN_CHAPTER = #{compInChapter,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminCrmComp">
+    <!--@mbggenerated-->
+    update CRM_COMP
+    set COMP_NO = #{compNo,jdbcType=VARCHAR},
+      DEPT_NO = #{deptNo,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      COMP_NAME = #{compName,jdbcType=VARCHAR},
+      COMP_CNAME = #{compCname,jdbcType=VARCHAR},
+      COMP_ADDR = #{compAddr,jdbcType=VARCHAR},
+      REG_NAME = #{regName,jdbcType=VARCHAR},
+      COMP_CONTACT = #{compContact,jdbcType=VARCHAR},
+      CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      COMP_TELE = #{compTele,jdbcType=VARCHAR},
+      SUPER_COMP = #{superComp,jdbcType=BIT},
+      REGIST_FLAG = #{registFlag,jdbcType=BIT},
+      PWD_DESC = #{pwdDesc,jdbcType=VARCHAR},
+      ROUTE_MAC = #{routeMac,jdbcType=VARCHAR},
+      IS_DISTRIBUTE = #{isDistribute,jdbcType=BIT},
+      FATHER_COMP = #{fatherComp,jdbcType=INTEGER},
+      WRITEOFF_FLAG = #{writeoffFlag,jdbcType=BIT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      WRITEOFF_TIME = #{writeoffTime,jdbcType=TIMESTAMP},
+      IS_CARRIERS = #{isCarriers,jdbcType=BIT},
+      COMP_TYPE = #{compType,jdbcType=TINYINT},
+      PLOT_SWITCH = #{plotSwitch,jdbcType=TINYINT},
+      YOUJIA_DEPT_AUTO_PAYMENT = #{youjiaDeptAutoPayment,jdbcType=TINYINT},
+      AGENT_BUILD_AUTO_PAYMENT = #{agentBuildAutoPayment,jdbcType=TINYINT},
+      ACOUNTS_WARN_FLAG = #{acountsWarnFlag,jdbcType=TINYINT},
+      ACCREDIT_FEE = #{accreditFee,jdbcType=NUMERIC},
+      DEPOSIT = #{deposit,jdbcType=NUMERIC},
+      FINANCE_FLAG = #{financeFlag,jdbcType=TINYINT},
+      ERP_SYSTEM_NAME = #{erpSystemName,jdbcType=VARCHAR},
+      ERP_SYSTEM_ICON = #{erpSystemIcon,jdbcType=VARCHAR},
+      ERP_SYSTEM_NAVIGATION_BACKGROUND = #{erpSystemNavigationBackground,jdbcType=VARCHAR},
+      ERP_SYSTEM_POPUP_WINDOW_BACKGROUND = #{erpSystemPopupWindowBackground,jdbcType=VARCHAR},
+      ERP_SYSTEM_TONAL = #{erpSystemTonal,jdbcType=VARCHAR},
+      YOU_GROUP_NAME = #{youGroupName,jdbcType=VARCHAR},
+      YOU_GROUP_LOGO = #{youGroupLogo,jdbcType=VARCHAR},
+      YOU_GROUP_MOBILE = #{youGroupMobile,jdbcType=VARCHAR},
+      COMP_WEIXIN_STATUS = #{compWeixinStatus,jdbcType=TINYINT},
+      MICRO_PROGRAM_STATUS = #{microProgramStatus,jdbcType=TINYINT},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      BANK_CARD_NUMBER = #{bankCardNumber,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      COMP_IN_CHAPTER = #{compInChapter,jdbcType=VARCHAR}
+    where COMP_ID = #{compId,jdbcType=INTEGER}
+  </update>
+  <select id="getCrmCompNo" resultMap="BaseResultMap">
+      select b.* from CRM_COMP_RANGE a join CRM_COMP b on a.COMP_ID=b.COMP_ID
+      where RANGE_TYPE=3 and a.WRITEOFF_FLAG=0 and a.RANGE_ID=#{compId}
+  </select>
+
+  <select id="getListByCompId" resultMap="BaseResultMap">
+   select b.YOU_GROUP_NAME,b.YOU_GROUP_LOGO,b.YOU_GROUP_MOBILE,b.COMP_ID
+   FROM CRM_COMP_RANGE a join CRM_COMP b on a.COMP_ID=b.COMP_ID
+   WHERE RANGE_TYPE = 3 AND a.WRITEOFF_FLAG = 0 AND a.RANGE_ID = #{compId} AND b.COMP_TYPE=5
+  </select>
+
+</mapper>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.admindb.dao.AdminFunWebtransInfoBakMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.admindb.po.AdminFunWebtransInfoBak" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="NUMERIC" />
+    <result column="DB_NAME" property="dbName" jdbcType="VARCHAR" />
+    <result column="TABLE_NAME" property="tableName" jdbcType="VARCHAR" />
+    <result column="CASE_ID" property="caseId" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="DEAL_TYPE" property="dealType" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="PROCESS_FLAG" property="processFlag" jdbcType="INTEGER" />
+    <result column="CASE_ID_OLD" property="caseIdOld" jdbcType="VARCHAR" />
+    <result column="DB_CONNID" property="dbConnid" jdbcType="VARCHAR" />
+    <result column="BAIDU_FLAG" property="baiduFlag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, DB_NAME, TABLE_NAME, CASE_ID, CITY_ID, DEAL_TYPE, CREATION_TIME, PROCESS_FLAG, 
+    CASE_ID_OLD, DB_CONNID, BAIDU_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_WEBTRANS_INFO_BAK
+    where ID = #{id,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    <!--@mbggenerated-->
+    delete from FUN_WEBTRANS_INFO_BAK
+    where ID = #{id,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.admindb.po.AdminFunWebtransInfoBak" >
+    <!--@mbggenerated-->
+    insert into FUN_WEBTRANS_INFO_BAK (ID, DB_NAME, TABLE_NAME, 
+      CASE_ID, CITY_ID, DEAL_TYPE, 
+      CREATION_TIME, PROCESS_FLAG, CASE_ID_OLD, 
+      DB_CONNID, BAIDU_FLAG)
+    values (#{id,jdbcType=NUMERIC}, #{dbName,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR}, 
+      #{caseId,jdbcType=VARCHAR}, #{cityId,jdbcType=INTEGER}, #{dealType,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{processFlag,jdbcType=INTEGER}, #{caseIdOld,jdbcType=VARCHAR}, 
+      #{dbConnid,jdbcType=VARCHAR}, #{baiduFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.admindb.po.AdminFunWebtransInfoBak" >
+    <!--@mbggenerated-->
+    insert into FUN_WEBTRANS_INFO_BAK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="dbName != null" >
+        DB_NAME,
+      </if>
+      <if test="tableName != null" >
+        TABLE_NAME,
+      </if>
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="dealType != null" >
+        DEAL_TYPE,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="processFlag != null" >
+        PROCESS_FLAG,
+      </if>
+      <if test="caseIdOld != null" >
+        CASE_ID_OLD,
+      </if>
+      <if test="dbConnid != null" >
+        DB_CONNID,
+      </if>
+      <if test="baiduFlag != null" >
+        BAIDU_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=NUMERIC},
+      </if>
+      <if test="dbName != null" >
+        #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null" >
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="dealType != null" >
+        #{dealType,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processFlag != null" >
+        #{processFlag,jdbcType=INTEGER},
+      </if>
+      <if test="caseIdOld != null" >
+        #{caseIdOld,jdbcType=VARCHAR},
+      </if>
+      <if test="dbConnid != null" >
+        #{dbConnid,jdbcType=VARCHAR},
+      </if>
+      <if test="baiduFlag != null" >
+        #{baiduFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.admindb.po.AdminFunWebtransInfoBak" >
+    <!--@mbggenerated-->
+    update FUN_WEBTRANS_INFO_BAK
+    <set >
+      <if test="dbName != null" >
+        DB_NAME = #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null" >
+        TABLE_NAME = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="dealType != null" >
+        DEAL_TYPE = #{dealType,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processFlag != null" >
+        PROCESS_FLAG = #{processFlag,jdbcType=INTEGER},
+      </if>
+      <if test="caseIdOld != null" >
+        CASE_ID_OLD = #{caseIdOld,jdbcType=VARCHAR},
+      </if>
+      <if test="dbConnid != null" >
+        DB_CONNID = #{dbConnid,jdbcType=VARCHAR},
+      </if>
+      <if test="baiduFlag != null" >
+        BAIDU_FLAG = #{baiduFlag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.admindb.po.AdminFunWebtransInfoBak" >
+    <!--@mbggenerated-->
+    update FUN_WEBTRANS_INFO_BAK
+    set DB_NAME = #{dbName,jdbcType=VARCHAR},
+      TABLE_NAME = #{tableName,jdbcType=VARCHAR},
+      CASE_ID = #{caseId,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      DEAL_TYPE = #{dealType,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      PROCESS_FLAG = #{processFlag,jdbcType=INTEGER},
+      CASE_ID_OLD = #{caseIdOld,jdbcType=VARCHAR},
+      DB_CONNID = #{dbConnid,jdbcType=VARCHAR},
+      BAIDU_FLAG = #{baiduFlag,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
+</mapper>

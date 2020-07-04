@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyCooperationRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyCooperationRule" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="DEVLOPER_ID" property="devloperId" jdbcType="INTEGER" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="SOLE_SPECIAL" property="soleSpecial" jdbcType="VARCHAR" />
+    <result column="GROUP_SPECIAL" property="groupSpecial" jdbcType="VARCHAR" />
+    <result column="COMMISSION" property="commission" jdbcType="VARCHAR" />
+    <result column="BAND_SAW" property="bandSaw" jdbcType="VARCHAR" />
+    <result column="DEAL_REWARD" property="dealReward" jdbcType="DECIMAL" />
+    <result column="COOPERATE_START" property="cooperateStart" jdbcType="VARCHAR" />
+    <result column="COOPERATE_END" property="cooperateEnd" jdbcType="VARCHAR" />
+    <result column="BALANCE" property="balance" jdbcType="VARCHAR" />
+    <result column="CONTRACT_NO" property="contractNo" jdbcType="VARCHAR" />
+    <result column="CREATE_UID" property="createUid" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="CASH_DAY" property="cashDay" jdbcType="INTEGER" />
+    <result column="REPEAT_DAY" property="repeatDay" jdbcType="INTEGER" />
+    <result column="DEAL_REWARDS_NUM" property="dealRewardsNum" jdbcType="INTEGER" />
+    <result column="DRAW" property="draw" jdbcType="INTEGER" />
+    <result column="COMMISSIONCYCLE_TYPE" property="commissioncycleType" jdbcType="INTEGER" />
+    <result column="DEFINE_COMMISSIONCYCLE" property="defineCommissioncycle" jdbcType="INTEGER" />
+    <result column="COMMISSION_DAY" property="commissionDay" jdbcType="INTEGER" />
+    <result column="DEAL_PAYMENT" property="dealPayment" jdbcType="INTEGER" />
+    <result column="DEALCYCLE_TYPE" property="dealcycleType" jdbcType="INTEGER" />
+    <result column="DEFINE_DEALCYCLE" property="defineDealcycle" jdbcType="INTEGER" />
+    <result column="DEAL_DAY" property="dealDay" jdbcType="INTEGER" />
+    <result column="BAND_REWARD" property="bandReward" jdbcType="INTEGER" />
+    <result column="BAND_REWARD_NUM" property="bandRewardNum" jdbcType="INTEGER" />
+    <result column="BAND_PAYMENT" property="bandPayment" jdbcType="INTEGER" />
+    <result column="BANDCYCLE_TYPE" property="bandcycleType" jdbcType="INTEGER" />
+    <result column="DEFINE_BANDCYCLE" property="defineBandcycle" jdbcType="INTEGER" />
+    <result column="BAND_DAY" property="bandDay" jdbcType="INTEGER" />
+    <result column="PAID_END_DAY" property="paidEndDay" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyCooperationRuleDto" id="baseMapDto">
+  	 <result column="cooperateStart" property="dealRewardsNum" jdbcType="VARCHAR" />
+  	 <result column="DEAL_NUM" property="dealNum" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, CITY_ID, DEPT_ID, DEVLOPER_ID, BUILD_ID, SOLE_SPECIAL, GROUP_SPECIAL, COMMISSION, 
+    BAND_SAW, DEAL_REWARD, COOPERATE_START, COOPERATE_END, BALANCE, CONTRACT_NO, CREATE_UID, 
+    CREATION_TIME, CASH_DAY, REPEAT_DAY, DEAL_REWARDS_NUM, DRAW, COMMISSIONCYCLE_TYPE, 
+    DEFINE_COMMISSIONCYCLE, COMMISSION_DAY, DEAL_PAYMENT, DEALCYCLE_TYPE, DEFINE_DEALCYCLE, 
+    DEAL_DAY, BAND_REWARD, BAND_REWARD_NUM, BAND_PAYMENT, BANDCYCLE_TYPE, DEFINE_BANDCYCLE, 
+    BAND_DAY, PAID_END_DAY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from COOPERATION_RULE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from COOPERATION_RULE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyCooperationRule" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into COOPERATION_RULE (CITY_ID, DEPT_ID, DEVLOPER_ID, 
+      BUILD_ID, SOLE_SPECIAL, GROUP_SPECIAL, 
+      COMMISSION, BAND_SAW, DEAL_REWARD, 
+      COOPERATE_START, COOPERATE_END, BALANCE, 
+      CONTRACT_NO, CREATE_UID, CREATION_TIME, 
+      CASH_DAY, REPEAT_DAY, DEAL_REWARDS_NUM, 
+      DRAW, COMMISSIONCYCLE_TYPE, DEFINE_COMMISSIONCYCLE, 
+      COMMISSION_DAY, DEAL_PAYMENT, DEALCYCLE_TYPE, 
+      DEFINE_DEALCYCLE, DEAL_DAY, BAND_REWARD, 
+      BAND_REWARD_NUM, BAND_PAYMENT, BANDCYCLE_TYPE, 
+      DEFINE_BANDCYCLE, BAND_DAY, PAID_END_DAY
+      )
+    values (#{cityId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{devloperId,jdbcType=INTEGER}, 
+      #{buildId,jdbcType=INTEGER}, #{soleSpecial,jdbcType=VARCHAR}, #{groupSpecial,jdbcType=VARCHAR}, 
+      #{commission,jdbcType=VARCHAR}, #{bandSaw,jdbcType=VARCHAR}, #{dealReward,jdbcType=DECIMAL}, 
+      #{cooperateStart,jdbcType=VARCHAR}, #{cooperateEnd,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR}, 
+      #{contractNo,jdbcType=VARCHAR}, #{createUid,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, 
+      #{cashDay,jdbcType=INTEGER}, #{repeatDay,jdbcType=INTEGER}, #{dealRewardsNum,jdbcType=INTEGER}, 
+      #{draw,jdbcType=INTEGER}, #{commissioncycleType,jdbcType=INTEGER}, #{defineCommissioncycle,jdbcType=INTEGER}, 
+      #{commissionDay,jdbcType=INTEGER}, #{dealPayment,jdbcType=INTEGER}, #{dealcycleType,jdbcType=INTEGER}, 
+      #{defineDealcycle,jdbcType=INTEGER}, #{dealDay,jdbcType=INTEGER}, #{bandReward,jdbcType=INTEGER}, 
+      #{bandRewardNum,jdbcType=INTEGER}, #{bandPayment,jdbcType=INTEGER}, #{bandcycleType,jdbcType=INTEGER}, 
+      #{defineBandcycle,jdbcType=INTEGER}, #{bandDay,jdbcType=INTEGER}, #{paidEndDay,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyCooperationRule" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into COOPERATION_RULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="devloperId != null" >
+        DEVLOPER_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="soleSpecial != null" >
+        SOLE_SPECIAL,
+      </if>
+      <if test="groupSpecial != null" >
+        GROUP_SPECIAL,
+      </if>
+      <if test="commission != null" >
+        COMMISSION,
+      </if>
+      <if test="bandSaw != null" >
+        BAND_SAW,
+      </if>
+      <if test="dealReward != null" >
+        DEAL_REWARD,
+      </if>
+      <if test="cooperateStart != null" >
+        COOPERATE_START,
+      </if>
+      <if test="cooperateEnd != null" >
+        COOPERATE_END,
+      </if>
+      <if test="balance != null" >
+        BALANCE,
+      </if>
+      <if test="contractNo != null" >
+        CONTRACT_NO,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="cashDay != null" >
+        CASH_DAY,
+      </if>
+      <if test="repeatDay != null" >
+        REPEAT_DAY,
+      </if>
+      <if test="dealRewardsNum != null" >
+        DEAL_REWARDS_NUM,
+      </if>
+      <if test="draw != null" >
+        DRAW,
+      </if>
+      <if test="commissioncycleType != null" >
+        COMMISSIONCYCLE_TYPE,
+      </if>
+      <if test="defineCommissioncycle != null" >
+        DEFINE_COMMISSIONCYCLE,
+      </if>
+      <if test="commissionDay != null" >
+        COMMISSION_DAY,
+      </if>
+      <if test="dealPayment != null" >
+        DEAL_PAYMENT,
+      </if>
+      <if test="dealcycleType != null" >
+        DEALCYCLE_TYPE,
+      </if>
+      <if test="defineDealcycle != null" >
+        DEFINE_DEALCYCLE,
+      </if>
+      <if test="dealDay != null" >
+        DEAL_DAY,
+      </if>
+      <if test="bandReward != null" >
+        BAND_REWARD,
+      </if>
+      <if test="bandRewardNum != null" >
+        BAND_REWARD_NUM,
+      </if>
+      <if test="bandPayment != null" >
+        BAND_PAYMENT,
+      </if>
+      <if test="bandcycleType != null" >
+        BANDCYCLE_TYPE,
+      </if>
+      <if test="defineBandcycle != null" >
+        DEFINE_BANDCYCLE,
+      </if>
+      <if test="bandDay != null" >
+        BAND_DAY,
+      </if>
+      <if test="paidEndDay != null" >
+        PAID_END_DAY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="devloperId != null" >
+        #{devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="soleSpecial != null" >
+        #{soleSpecial,jdbcType=VARCHAR},
+      </if>
+      <if test="groupSpecial != null" >
+        #{groupSpecial,jdbcType=VARCHAR},
+      </if>
+      <if test="commission != null" >
+        #{commission,jdbcType=VARCHAR},
+      </if>
+      <if test="bandSaw != null" >
+        #{bandSaw,jdbcType=VARCHAR},
+      </if>
+      <if test="dealReward != null" >
+        #{dealReward,jdbcType=DECIMAL},
+      </if>
+      <if test="cooperateStart != null" >
+        #{cooperateStart,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperateEnd != null" >
+        #{cooperateEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashDay != null" >
+        #{cashDay,jdbcType=INTEGER},
+      </if>
+      <if test="repeatDay != null" >
+        #{repeatDay,jdbcType=INTEGER},
+      </if>
+      <if test="dealRewardsNum != null" >
+        #{dealRewardsNum,jdbcType=INTEGER},
+      </if>
+      <if test="draw != null" >
+        #{draw,jdbcType=INTEGER},
+      </if>
+      <if test="commissioncycleType != null" >
+        #{commissioncycleType,jdbcType=INTEGER},
+      </if>
+      <if test="defineCommissioncycle != null" >
+        #{defineCommissioncycle,jdbcType=INTEGER},
+      </if>
+      <if test="commissionDay != null" >
+        #{commissionDay,jdbcType=INTEGER},
+      </if>
+      <if test="dealPayment != null" >
+        #{dealPayment,jdbcType=INTEGER},
+      </if>
+      <if test="dealcycleType != null" >
+        #{dealcycleType,jdbcType=INTEGER},
+      </if>
+      <if test="defineDealcycle != null" >
+        #{defineDealcycle,jdbcType=INTEGER},
+      </if>
+      <if test="dealDay != null" >
+        #{dealDay,jdbcType=INTEGER},
+      </if>
+      <if test="bandReward != null" >
+        #{bandReward,jdbcType=INTEGER},
+      </if>
+      <if test="bandRewardNum != null" >
+        #{bandRewardNum,jdbcType=INTEGER},
+      </if>
+      <if test="bandPayment != null" >
+        #{bandPayment,jdbcType=INTEGER},
+      </if>
+      <if test="bandcycleType != null" >
+        #{bandcycleType,jdbcType=INTEGER},
+      </if>
+      <if test="defineBandcycle != null" >
+        #{defineBandcycle,jdbcType=INTEGER},
+      </if>
+      <if test="bandDay != null" >
+        #{bandDay,jdbcType=INTEGER},
+      </if>
+      <if test="paidEndDay != null" >
+        #{paidEndDay,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyCooperationRule" >
+    <!--@mbggenerated-->
+    update COOPERATION_RULE
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="devloperId != null" >
+        DEVLOPER_ID = #{devloperId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="soleSpecial != null" >
+        SOLE_SPECIAL = #{soleSpecial,jdbcType=VARCHAR},
+      </if>
+      <if test="groupSpecial != null" >
+        GROUP_SPECIAL = #{groupSpecial,jdbcType=VARCHAR},
+      </if>
+      <if test="commission != null" >
+        COMMISSION = #{commission,jdbcType=VARCHAR},
+      </if>
+      <if test="bandSaw != null" >
+        BAND_SAW = #{bandSaw,jdbcType=VARCHAR},
+      </if>
+      <if test="dealReward != null" >
+        DEAL_REWARD = #{dealReward,jdbcType=DECIMAL},
+      </if>
+      <if test="cooperateStart != null" >
+        COOPERATE_START = #{cooperateStart,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperateEnd != null" >
+        COOPERATE_END = #{cooperateEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        BALANCE = #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null" >
+        CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashDay != null" >
+        CASH_DAY = #{cashDay,jdbcType=INTEGER},
+      </if>
+      <if test="repeatDay != null" >
+        REPEAT_DAY = #{repeatDay,jdbcType=INTEGER},
+      </if>
+      <if test="dealRewardsNum != null" >
+        DEAL_REWARDS_NUM = #{dealRewardsNum,jdbcType=INTEGER},
+      </if>
+      <if test="draw != null" >
+        DRAW = #{draw,jdbcType=INTEGER},
+      </if>
+      <if test="commissioncycleType != null" >
+        COMMISSIONCYCLE_TYPE = #{commissioncycleType,jdbcType=INTEGER},
+      </if>
+      <if test="defineCommissioncycle != null" >
+        DEFINE_COMMISSIONCYCLE = #{defineCommissioncycle,jdbcType=INTEGER},
+      </if>
+      <if test="commissionDay != null" >
+        COMMISSION_DAY = #{commissionDay,jdbcType=INTEGER},
+      </if>
+      <if test="dealPayment != null" >
+        DEAL_PAYMENT = #{dealPayment,jdbcType=INTEGER},
+      </if>
+      <if test="dealcycleType != null" >
+        DEALCYCLE_TYPE = #{dealcycleType,jdbcType=INTEGER},
+      </if>
+      <if test="defineDealcycle != null" >
+        DEFINE_DEALCYCLE = #{defineDealcycle,jdbcType=INTEGER},
+      </if>
+      <if test="dealDay != null" >
+        DEAL_DAY = #{dealDay,jdbcType=INTEGER},
+      </if>
+      <if test="bandReward != null" >
+        BAND_REWARD = #{bandReward,jdbcType=INTEGER},
+      </if>
+      <if test="bandRewardNum != null" >
+        BAND_REWARD_NUM = #{bandRewardNum,jdbcType=INTEGER},
+      </if>
+      <if test="bandPayment != null" >
+        BAND_PAYMENT = #{bandPayment,jdbcType=INTEGER},
+      </if>
+      <if test="bandcycleType != null" >
+        BANDCYCLE_TYPE = #{bandcycleType,jdbcType=INTEGER},
+      </if>
+      <if test="defineBandcycle != null" >
+        DEFINE_BANDCYCLE = #{defineBandcycle,jdbcType=INTEGER},
+      </if>
+      <if test="bandDay != null" >
+        BAND_DAY = #{bandDay,jdbcType=INTEGER},
+      </if>
+      <if test="paidEndDay != null" >
+        PAID_END_DAY = #{paidEndDay,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyCooperationRule" >
+    <!--@mbggenerated-->
+    update COOPERATION_RULE
+    set CITY_ID = #{cityId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      DEVLOPER_ID = #{devloperId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      SOLE_SPECIAL = #{soleSpecial,jdbcType=VARCHAR},
+      GROUP_SPECIAL = #{groupSpecial,jdbcType=VARCHAR},
+      COMMISSION = #{commission,jdbcType=VARCHAR},
+      BAND_SAW = #{bandSaw,jdbcType=VARCHAR},
+      DEAL_REWARD = #{dealReward,jdbcType=DECIMAL},
+      COOPERATE_START = #{cooperateStart,jdbcType=VARCHAR},
+      COOPERATE_END = #{cooperateEnd,jdbcType=VARCHAR},
+      BALANCE = #{balance,jdbcType=VARCHAR},
+      CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+      CREATE_UID = #{createUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      CASH_DAY = #{cashDay,jdbcType=INTEGER},
+      REPEAT_DAY = #{repeatDay,jdbcType=INTEGER},
+      DEAL_REWARDS_NUM = #{dealRewardsNum,jdbcType=INTEGER},
+      DRAW = #{draw,jdbcType=INTEGER},
+      COMMISSIONCYCLE_TYPE = #{commissioncycleType,jdbcType=INTEGER},
+      DEFINE_COMMISSIONCYCLE = #{defineCommissioncycle,jdbcType=INTEGER},
+      COMMISSION_DAY = #{commissionDay,jdbcType=INTEGER},
+      DEAL_PAYMENT = #{dealPayment,jdbcType=INTEGER},
+      DEALCYCLE_TYPE = #{dealcycleType,jdbcType=INTEGER},
+      DEFINE_DEALCYCLE = #{defineDealcycle,jdbcType=INTEGER},
+      DEAL_DAY = #{dealDay,jdbcType=INTEGER},
+      BAND_REWARD = #{bandReward,jdbcType=INTEGER},
+      BAND_REWARD_NUM = #{bandRewardNum,jdbcType=INTEGER},
+      BAND_PAYMENT = #{bandPayment,jdbcType=INTEGER},
+      BANDCYCLE_TYPE = #{bandcycleType,jdbcType=INTEGER},
+      DEFINE_BANDCYCLE = #{defineBandcycle,jdbcType=INTEGER},
+      BAND_DAY = #{bandDay,jdbcType=INTEGER},
+      PAID_END_DAY = #{paidEndDay,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectRuleByBuildId" parameterType="java.util.Map" resultMap="BaseResultMap">
+  		select <include refid="Base_Column_List" /> from COOPERATION_RULE where BUILD_ID = #{buildId} and CITY_ID = #{cityId}
+  </select>
+  
+  <select id="selectDealNumAndDealRewardsNum" resultMap="baseMapDto">
+  	select DEAL_REWARDS_NUM, 
+  	(select count(1) from fun_cust_deal where CITY_ID = COOPERATION_RULE.CITY_ID and BROKER_REWARDS != 0 and BUILD_ID = COOPERATION_RULE.BUILD_ID ) as DEAL_NUM
+  	from COOPERATION_RULE
+  	where CITY_ID = #{bCtyTd} and BUILD_ID = #{buildId}
+  </select>
+  
+  <select id="selectByCityIdAndBuildId" resultMap="BaseResultMap">
+  	select top 1 <include refid="Base_Column_List" /> from COOPERATION_RULE
+  	where CITY_ID = #{bcityId} and BUILD_ID = #{buildId}
+  </select>
+  <select id="getDistCooperationRuleDetailed" parameterType="java.util.Map" resultMap="BaseResultMap">
+	SELECT <include refid="Base_Column_List" /> 
+	FROM  COOPERATION_RULE
+	<where>
+		<if test="null != ruleId">
+			AND ID = #{ruleId}
+		</if>
+		<if test="null != buildId">
+			AND BUILD_ID = #{buildId}
+		</if>
+		<if test="null != cityId">
+			AND CITY_ID = #{cityId}
+		</if>
+		<if test="null != devloperId">
+			AND DEVLOPER_ID = #{devloperId}
+		</if>
+	</where>
+  </select>
+  	
+  
+</mapper>

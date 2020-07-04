@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunDealCodelogMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunDealCodelog">
+    <!--@mbggenerated-->
+    <id column="CODELOG_ID" jdbcType="INTEGER" property="codelogId" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="CODE_PREFIX" jdbcType="VARCHAR" property="codePrefix" />
+    <result column="CODE_COUNT" jdbcType="INTEGER" property="codeCount" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="CODE_ID" jdbcType="INTEGER" property="codeId" />
+    <result column="CODE_NO" jdbcType="VARCHAR" property="codeNo" />
+    <result column="USE_STATUS" jdbcType="TINYINT" property="useStatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    CODELOG_ID, COMP_ID, CODE_PREFIX, CODE_COUNT, DEPT_ID, CODE_ID, CODE_NO, USE_STATUS
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDealCodelogExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_DEAL_CODELOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_DEAL_CODELOG
+    where CODELOG_ID = #{codelogId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_DEAL_CODELOG
+    where CODELOG_ID = #{codelogId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDealCodelogExample">
+    <!--@mbggenerated-->
+    delete from FUN_DEAL_CODELOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunDealCodelog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="codelogId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_DEAL_CODELOG (COMP_ID, CODE_PREFIX, CODE_COUNT, 
+      DEPT_ID, CODE_ID, CODE_NO, 
+      USE_STATUS)
+    values (#{compId,jdbcType=INTEGER}, #{codePrefix,jdbcType=VARCHAR}, #{codeCount,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{codeId,jdbcType=INTEGER}, #{codeNo,jdbcType=VARCHAR}, 
+      #{useStatus,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunDealCodelog">
+    <!--@mbggenerated-->
+    <selectKey keyProperty="codelogId" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_DEAL_CODELOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="codePrefix != null">
+        CODE_PREFIX,
+      </if>
+      <if test="codeCount != null">
+        CODE_COUNT,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="codeId != null">
+        CODE_ID,
+      </if>
+      <if test="codeNo != null">
+        CODE_NO,
+      </if>
+      <if test="useStatus != null">
+        USE_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="codePrefix != null">
+        #{codePrefix,jdbcType=VARCHAR},
+      </if>
+      <if test="codeCount != null">
+        #{codeCount,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="codeId != null">
+        #{codeId,jdbcType=INTEGER},
+      </if>
+      <if test="codeNo != null">
+        #{codeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="useStatus != null">
+        #{useStatus,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDealCodelogExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_DEAL_CODELOG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_DEAL_CODELOG
+    <set>
+      <if test="record.codelogId != null">
+        CODELOG_ID = #{record.codelogId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.codePrefix != null">
+        CODE_PREFIX = #{record.codePrefix,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codeCount != null">
+        CODE_COUNT = #{record.codeCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.codeId != null">
+        CODE_ID = #{record.codeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.codeNo != null">
+        CODE_NO = #{record.codeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useStatus != null">
+        USE_STATUS = #{record.useStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_DEAL_CODELOG
+    set CODELOG_ID = #{record.codelogId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      CODE_PREFIX = #{record.codePrefix,jdbcType=VARCHAR},
+      CODE_COUNT = #{record.codeCount,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      CODE_ID = #{record.codeId,jdbcType=INTEGER},
+      CODE_NO = #{record.codeNo,jdbcType=VARCHAR},
+      USE_STATUS = #{record.useStatus,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunDealCodelog">
+    <!--@mbggenerated-->
+    update FUN_DEAL_CODELOG
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="codePrefix != null">
+        CODE_PREFIX = #{codePrefix,jdbcType=VARCHAR},
+      </if>
+      <if test="codeCount != null">
+        CODE_COUNT = #{codeCount,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="codeId != null">
+        CODE_ID = #{codeId,jdbcType=INTEGER},
+      </if>
+      <if test="codeNo != null">
+        CODE_NO = #{codeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="useStatus != null">
+        USE_STATUS = #{useStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    where CODELOG_ID = #{codelogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunDealCodelog">
+    <!--@mbggenerated-->
+    update FUN_DEAL_CODELOG
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      CODE_PREFIX = #{codePrefix,jdbcType=VARCHAR},
+      CODE_COUNT = #{codeCount,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      CODE_ID = #{codeId,jdbcType=INTEGER},
+      CODE_NO = #{codeNo,jdbcType=VARCHAR},
+      USE_STATUS = #{useStatus,jdbcType=TINYINT}
+    where CODELOG_ID = #{codelogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateFunDealCodeLog">
+	UPDATE FUN_DEAL_CODELOG SET
+	<if test="param.status != null and param.status == 0">
+		USE_STATUS=2
+		WHERE CODE_ID = #{param.codeId}
+		AND USE_STATUS = 0
+	</if>
+	<if test="param.status != null and param.status == 1">
+		USE_STATUS=0
+		WHERE CODE_ID = #{param.codeId}
+		AND USE_STATUS = 2
+	</if>
+</update>
+<select id="countModelData" resultType="java.lang.Integer">
+	SELECT COUNT(*) AS ATTR_NAME FROM 
+	FUN_DEAL_CODELOG 
+	WITH (NOLOCK) 
+	<where>
+		<if test="param.codeNoLen != null and ''!= param.codeNoLen ">
+		AND len(CODE_NO) = #{param.codeNoLen} 
+		</if>
+		<if test="param.compId != null and '' != param.compId ">
+		AND COMP_ID = #{param.compId} 
+		</if>
+		<if test="param.codePrefix != null and '' != param.codePrefix">
+		AND CODE_PREFIX = #{param.codePrefix}
+		</if>
+		<if test="param.codeCountStart != null and '' != param.codeCountStart ">
+		AND CODE_COUNT &gt;= #{param.codeCountStart}
+		</if>
+		<if test="param.codeCountEnd !=null and '' != param.codeCountEnd">
+		AND CODE_COUNT &lt;= #{param.codeCountEnd} 
+		</if>
+	</where>
+</select>
+	<select id="getIsAllowCount" resultType="java.lang.Integer">
+		SELECT COUNT(1) AS isAllowCount
+		FROM FUN_DEAL_CODELOG A LEFT JOIN FUN_DEAL_CODE B ON A.CODE_ID=B.CODE_ID
+		where A.COMP_ID=#{compId} and A.CODE_NO=#{codeNo} and A.USE_STATUS=0 and B.STATUS=1 and B.DEAL_TYPE !=#{dealType}
+	</select>
+
+	<select id="getCodeId" resultType="java.lang.Integer">
+		SELECT A.CODE_ID
+		FROM FUN_DEAL_CODELOG A LEFT JOIN FUN_DEAL_CODE B ON A.CODE_ID=B.CODE_ID
+		where A.COMP_ID=#{compId} and A.CODE_NO=#{codeNo} and A.USE_STATUS=0 and B.STATUS=1 and B.DEAL_TYPE !=#{dealType}
+		<if test="deptId != null">
+			AND B.DEPT_ID = #{deptId}
+		</if>
+	</select>
+	
+	<delete id="deleteByCodeId">
+		delete from FUN_DEAL_CODELOG
+    	where CODE_ID = #{codeId}
+	</delete>
+ 
+</mapper>

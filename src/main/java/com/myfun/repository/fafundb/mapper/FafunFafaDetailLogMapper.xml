@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.fafundb.dao.FafunFafaDetailLogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.fafundb.po.FafunFafaDetailLog" >
+    <!--@mbggenerated-->
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="S_ID" property="sId" jdbcType="INTEGER" />
+    <result column="SITE_ID" property="siteId" jdbcType="INTEGER" />
+    <result column="OPER_TYPE" property="operType" jdbcType="TINYINT" />
+    <result column="STATUS_ID" property="statusId" jdbcType="INTEGER" />
+    <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER" />
+    <result column="HOUSE_USEAGE" property="houseUseage" jdbcType="INTEGER" />
+    <result column="SALE_LEASE" property="saleLease" jdbcType="TINYINT" />
+    <result column="DELETE_ID" property="deleteId" jdbcType="VARCHAR" />
+    <result column="HOUSE_FLAG" property="houseFlag" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="STATUS_INFO" property="statusInfo" jdbcType="VARCHAR" />
+    <result column="REG_ID" property="regId" jdbcType="INTEGER" />
+    <result column="GR_ID" property="grId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="BaseResultMapDto" type="com.myfun.repository.fafundb.dto.FafunFafaDetailLogDto">
+	  <result column="EXCEPTION_COUNT" jdbcType="INTEGER" property="exceptionCount" />
+	  <result column="ACTIVE_LVL" jdbcType="VARCHAR" property="activeLvl" />
+	  <result column="SITE_NAME" jdbcType="VARCHAR" property="siteName" />
+	  <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+	  <result column="MSG_INCOMPLETE_EXCEPTION" jdbcType="VARCHAR" property="msgIncompleteException" />
+	  <result column="BUILD_EXCEPTION" jdbcType="VARCHAR" property="buildException" />
+	  <result column="SHOP_INFO_EXCEPTION" jdbcType="VARCHAR" property="shopInfoException" />
+	  <result column="NETWORK_EXCEPTION" jdbcType="VARCHAR" property="networkException" />
+	  <result column="PUB_MAX_EXCEPTION" jdbcType="VARCHAR" property="pubMaxException" />
+	  <result column="SITE_FIX_EXCEPTION" jdbcType="VARCHAR" property="siteFixException" />
+	  <result column="OTHER_EXCEPTION" jdbcType="VARCHAR" property="otherException" />
+	  <result column="SUM_EXCEPTION" jdbcType="VARCHAR" property="sumException" />
+	  <result column="FF_COUNT" property="ffCount" jdbcType="INTEGER" />
+	  <result column="CORE_TIME" jdbcType="VARCHAR" property="coreTime" />
+	  <result column="TOTAL_SCORE" jdbcType="INTEGER" property="totalScore" />
+	  
+  </resultMap>
+  <resultMap id="BaseResultMapRankDto" extends="BaseResultMap"
+	type="com.myfun.repository.fafundb.dto.FafaSiteClickRankDto">
+	<result column="PUB_COUNT" jdbcType="INTEGER" property="pubCount" />
+	<result column="DEL_COUNT" jdbcType="INTEGER" property="delCount" />
+	<result column="REF_COUNT" jdbcType="INTEGER" property="refCount" />
+	<result column="SITE_COUNT" jdbcType="INTEGER" property="siteCount" />
+	<result column="SUM_COUNT" jdbcType="INTEGER" property="sumCount" />
+	<result column="ACTIVE_LVL" jdbcType="VARCHAR" property="activeLvl" />
+	<result column="SITE_NAME" jdbcType="VARCHAR" property="siteName" />
+	<result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+	<result column="RANKING" jdbcType="INTEGER" property="ranking" />
+</resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ID, S_ID, SITE_ID, OPER_TYPE, STATUS_ID, HOUSE_ID, HOUSE_USEAGE, SALE_LEASE, DELETE_ID, 
+    HOUSE_FLAG, CREATE_TIME, ARCHIVE_ID, CITY_ID, STATUS_INFO, REG_ID, GR_ID, DEPT_ID, 
+    COMP_ID, AREA_ID, USER_ID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.fafundb.po.FafunFafaDetailLogExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FAFA_DETAIL_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FAFA_DETAIL_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FAFA_DETAIL_LOG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.fafundb.po.FafunFafaDetailLogExample" >
+    <!--@mbggenerated-->
+    delete from FAFA_DETAIL_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.fafundb.po.FafunFafaDetailLog" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FAFA_DETAIL_LOG (S_ID, SITE_ID, OPER_TYPE, 
+      STATUS_ID, HOUSE_ID, HOUSE_USEAGE, 
+      SALE_LEASE, DELETE_ID, HOUSE_FLAG, 
+      CREATE_TIME, ARCHIVE_ID, CITY_ID, 
+      STATUS_INFO, REG_ID, GR_ID, 
+      DEPT_ID, COMP_ID, AREA_ID, 
+      USER_ID)
+    values (#{sId,jdbcType=INTEGER}, #{siteId,jdbcType=INTEGER}, #{operType,jdbcType=TINYINT}, 
+      #{statusId,jdbcType=INTEGER}, #{houseId,jdbcType=INTEGER}, #{houseUseage,jdbcType=INTEGER}, 
+      #{saleLease,jdbcType=TINYINT}, #{deleteId,jdbcType=VARCHAR}, #{houseFlag,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{archiveId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{statusInfo,jdbcType=VARCHAR}, #{regId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.fafundb.po.FafunFafaDetailLog" useGeneratedKeys="true" keyProperty="id" >
+    <!--@mbggenerated-->
+    insert into FAFA_DETAIL_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        S_ID,
+      </if>
+      <if test="siteId != null" >
+        SITE_ID,
+      </if>
+      <if test="operType != null" >
+        OPER_TYPE,
+      </if>
+      <if test="statusId != null" >
+        STATUS_ID,
+      </if>
+      <if test="houseId != null" >
+        HOUSE_ID,
+      </if>
+      <if test="houseUseage != null" >
+        HOUSE_USEAGE,
+      </if>
+      <if test="saleLease != null" >
+        SALE_LEASE,
+      </if>
+      <if test="deleteId != null" >
+        DELETE_ID,
+      </if>
+      <if test="houseFlag != null" >
+        HOUSE_FLAG,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="statusInfo != null" >
+        STATUS_INFO,
+      </if>
+      <if test="regId != null" >
+        REG_ID,
+      </if>
+      <if test="grId != null" >
+        GR_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="siteId != null" >
+        #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="operType != null" >
+        #{operType,jdbcType=TINYINT},
+      </if>
+      <if test="statusId != null" >
+        #{statusId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null" >
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="houseUseage != null" >
+        #{houseUseage,jdbcType=INTEGER},
+      </if>
+      <if test="saleLease != null" >
+        #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="deleteId != null" >
+        #{deleteId,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFlag != null" >
+        #{houseFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="statusInfo != null" >
+        #{statusInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.fafundb.po.FafunFafaDetailLogExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FAFA_DETAIL_LOG
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FAFA_DETAIL_LOG
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sId != null" >
+        S_ID = #{record.sId,jdbcType=INTEGER},
+      </if>
+      <if test="record.siteId != null" >
+        SITE_ID = #{record.siteId,jdbcType=INTEGER},
+      </if>
+      <if test="record.operType != null" >
+        OPER_TYPE = #{record.operType,jdbcType=TINYINT},
+      </if>
+      <if test="record.statusId != null" >
+        STATUS_ID = #{record.statusId,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseId != null" >
+        HOUSE_ID = #{record.houseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseUseage != null" >
+        HOUSE_USEAGE = #{record.houseUseage,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleLease != null" >
+        SALE_LEASE = #{record.saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="record.deleteId != null" >
+        DELETE_ID = #{record.deleteId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseFlag != null" >
+        HOUSE_FLAG = #{record.houseFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.archiveId != null" >
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.statusInfo != null" >
+        STATUS_INFO = #{record.statusInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regId != null" >
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.grId != null" >
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null" >
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FAFA_DETAIL_LOG
+    set ID = #{record.id,jdbcType=INTEGER},
+      S_ID = #{record.sId,jdbcType=INTEGER},
+      SITE_ID = #{record.siteId,jdbcType=INTEGER},
+      OPER_TYPE = #{record.operType,jdbcType=TINYINT},
+      STATUS_ID = #{record.statusId,jdbcType=INTEGER},
+      HOUSE_ID = #{record.houseId,jdbcType=INTEGER},
+      HOUSE_USEAGE = #{record.houseUseage,jdbcType=INTEGER},
+      SALE_LEASE = #{record.saleLease,jdbcType=TINYINT},
+      DELETE_ID = #{record.deleteId,jdbcType=VARCHAR},
+      HOUSE_FLAG = #{record.houseFlag,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=INTEGER},
+      STATUS_INFO = #{record.statusInfo,jdbcType=VARCHAR},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.fafundb.po.FafunFafaDetailLog" >
+    <!--@mbggenerated-->
+    update FAFA_DETAIL_LOG
+    <set >
+      <if test="sId != null" >
+        S_ID = #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="siteId != null" >
+        SITE_ID = #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="operType != null" >
+        OPER_TYPE = #{operType,jdbcType=TINYINT},
+      </if>
+      <if test="statusId != null" >
+        STATUS_ID = #{statusId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null" >
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="houseUseage != null" >
+        HOUSE_USEAGE = #{houseUseage,jdbcType=INTEGER},
+      </if>
+      <if test="saleLease != null" >
+        SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      </if>
+      <if test="deleteId != null" >
+        DELETE_ID = #{deleteId,jdbcType=VARCHAR},
+      </if>
+      <if test="houseFlag != null" >
+        HOUSE_FLAG = #{houseFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="statusInfo != null" >
+        STATUS_INFO = #{statusInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="regId != null" >
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null" >
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.fafundb.po.FafunFafaDetailLog" >
+    <!--@mbggenerated-->
+    update FAFA_DETAIL_LOG
+    set S_ID = #{sId,jdbcType=INTEGER},
+      SITE_ID = #{siteId,jdbcType=INTEGER},
+      OPER_TYPE = #{operType,jdbcType=TINYINT},
+      STATUS_ID = #{statusId,jdbcType=INTEGER},
+      HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      HOUSE_USEAGE = #{houseUseage,jdbcType=INTEGER},
+      SALE_LEASE = #{saleLease,jdbcType=TINYINT},
+      DELETE_ID = #{deleteId,jdbcType=VARCHAR},
+      HOUSE_FLAG = #{houseFlag,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      STATUS_INFO = #{statusInfo,jdbcType=VARCHAR},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+	<select id="getEachSiteHousePushCount" resultMap="BaseResultMapRankDto">
+		SELECT
+		<choose>
+			<when test="param.countType != null and param.countType == 'USER'">
+				ARCHIVE_ID,
+			</when>
+			<otherwise>
+				SITE_ID,
+			</otherwise>
+		</choose>
+		ISNULL(SUM (IIF(OPER_TYPE = 1, 1, 0)),0) AS PUB_COUNT,
+		ISNULL(SUM (IIF(OPER_TYPE = 2, 1, 0)),0) AS DEL_COUNT,
+		ISNULL(SUM (IIF(OPER_TYPE = 4, 1, 0)),0) AS REF_COUNT,
+		SUM (1) AS SUM_COUNT
+		FROM
+		FAFA_DETAIL_LOG
+		WHERE COMP_ID = #{param.compId}
+		AND CITY_ID = #{param.cityId}
+		<if test="param.dimension != null and '' != param.dimension">
+			AND SALE_LEASE = #{param.dimension}
+		</if>
+		<if
+			test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+			AND ${param.serchRange}_ID = #{param.serchRangeId}
+		</if>
+		<if test="param.startTime != null and '' != param.startTime">
+			AND CREATE_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime != null and '' != param.endTime">
+			AND CREATE_TIME &lt; #{param.endTime}
+		</if>
+		GROUP BY
+		<if test="param.countType != null and param.countType == 'USER' ">
+			ARCHIVE_ID
+		</if>
+		<if test="param.countType != null and param.countType == 'SITE' ">
+			SITE_ID
+		</if>
+		ORDER BY SUM_COUNT DESC
+	</select>
+	<select id="getPushExpectionCount" resultMap="BaseResultMapDto">
+	SELECT STATUS_ID,COUNT(1) AS EXCEPION_COUNT
+	FROM FAFA_DETAIL_LOG
+	WHERE COMP_ID = #{param.compId}
+	<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+		AND ${param.serchRange}_ID = #{param.serchRangeId}
+	</if>
+	GROUP BY STATUS_ID
+	</select>
+	<select id="getFafaComprehensiveStatistic" resultMap="BaseResultMapRankDto">
+		SELECT
+		<if test="param.dimension != null and '' != param.dimension">
+			${param.dimension}_ID,
+		</if>
+		<if test="param.sqlColumn != null and '' != param.sqlColumn">
+			${param.sqlColumn},
+		</if>
+		ISNULL(SUM(IIF(OPER_TYPE = 1,1,0)),0) AS PUB_COUNT,
+		ISNULL(SUM(IIF(OPER_TYPE = 4,1,0)),0) AS REF_COUNT,
+		ISNULL(SUM(IIF(OPER_TYPE = 2,1,0)),0) AS DEL_COUNT,
+		ISNULL(COUNT(DISTINCT SITE_ID),0) AS SITE_COUNT,
+		ISNULL(SUM(IIF(OPER_TYPE = 1,1,0))+SUM(IIF(OPER_TYPE = 4,1,0))+SUM(IIF(OPER_TYPE = 2,1,0)),0) as SUM_COUNT 
+		FROM 
+		FAFA_DETAIL_LOG 
+		WHERE COMP_ID = #{param.compId} 
+		AND CITY_ID = #{param.cityId}
+		<if test="param.startTime != null and '' != param.startTime">
+		AND CREATE_TIME &gt;= #{param.startTime} 
+		</if>
+		<if test="param.endTime != null and '' != param.endTime">
+		AND CREATE_TIME &lt;= #{param.endTime} 
+		</if>
+		<if test="param.userId != null and '' != param.userId">
+		AND USER_ID = #{param.userId} 
+		</if>
+		<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+			AND ${param.serchRange}_ID = #{param.serchRangeId}
+		</if>
+		 GROUP BY 
+		<if test="param.dimension != null and '' != param.dimension">
+		${param.dimension}_ID,
+		</if>
+		<if test="param.sqlColumn != null and '' != param.sqlColumn">
+			${param.sqlColumn}
+		</if>
+		ORDER BY SUM_COUNT
+		DESC
+	</select>
+	<select id="getHousePushCountData" resultType="java.lang.Integer">
+		SELECT 
+		ISNULL(SUM (IIF(OPER_TYPE = 1, 1, 0)),0) AS PUB_COUNT 
+		FROM 
+		FAFA_DETAIL_LOG 
+		WHERE
+		COMP_ID = #{param.compId} 
+		AND CITY_ID = #{param.cityId}
+		<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+		AND ${param.serchRange}_ID = #{param.serchRangeId} 
+		</if>
+		AND CREATE_TIME &gt;= #{param.startTime}
+		AND CREATE_TIME &lt; #{param.endTime}
+	</select>
+	<select id="getFafaExceptionCountSite" resultMap="BaseResultMapDto">
+		SELECT 
+		SITE_ID,STATUS_ID,COUNT(ID) EXCEPTION_COUNT FROM FAFA_DETAIL_LOG
+		WHERE
+		COMP_ID = #{param.compId}
+		AND CITY_ID = #{param.cityId}
+		<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+		AND ${param.serchRange}_ID = #{param.serchRangeId} 
+		</if>
+		AND CREATE_TIME &gt;= #{param.startTime} 
+		AND CREATE_TIME &lt; #{param.endTime} 
+		GROUP BY 
+		SITE_ID,STATUS_ID
+		ORDER BY EXCEPTION_COUNT
+		DESC
+	</select>
+	<select id="getFafaExceptionCountUSER" resultMap="BaseResultMapDto">
+	SELECT ARCHIVE_ID,USER_ID,STATUS_ID,COUNT(ID) EXCEPTION_COUNT
+	FROM FAFA_DETAIL_LOG
+	WHERE
+	COMP_ID = #{param.compId}
+	AND CITY_ID = #{param.cityId}
+	<if test="param.deptId != null and '' != param.deptId">
+		AND DEPT_ID = #{param.deptId}
+	</if>
+	<!-- AND USER_ID IN <foreach collection="param.userIds" item="userId" index="index" 
+		open="(" separator="," close=")"> #{userId} </foreach> -->
+	<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+		AND ${param.serchRange}_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.startTime != null and '' != param.startTime">
+		AND CREATE_TIME &gt;= #{param.startTime}
+	</if>
+	<if test="param.endTime != null and '' != param.endTime">
+		AND CREATE_TIME &lt; #{param.endTime}
+	</if>
+	<if test="param.userId != null and '' != param.userId">
+		AND USER_ID = #{param.userId}
+	</if>
+	GROUP BY ARCHIVE_ID,USER_ID,STATUS_ID
+	ORDER BY EXCEPTION_COUNT
+	DESC
+</select>
+	<select id="getExpectionCountStatistic" resultMap="BaseResultMapDto">
+		SELECT 
+		<if test="param.dimension != null and '' != param.dimension">
+		${param.dimension}_ID,
+		</if>
+		STATUS_ID,
+		COUNT(ID) EXCEPTION_COUNT
+		FROM FAFA_DETAIL_LOG
+		WHERE
+		COMP_ID = #{param.compId}
+		AND CITY_ID = #{param.cityId}
+		<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+			AND ${param.serchRange}_ID = #{param.serchRangeId}
+		</if>
+		<if test="param.startTime != null and '' != param.startTime">
+			AND CREATE_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime != null and '' != param.endTime">
+			AND CREATE_TIME &lt; #{param.endTime}
+		</if>
+		GROUP BY 
+		<if test="param.dimension != null and '' != param.dimension">
+		${param.dimension}_ID,
+		</if>
+		STATUS_ID
+		ORDER BY EXCEPTION_COUNT
+		DESC
+	</select>
+	<select id="getExpectionCountByUser" resultMap="BaseResultMapDto">
+		SELECT 
+		USER_ID,
+		COUNT(ID) EXCEPTION_COUNT
+		FROM 
+		FAFA_DETAIL_LOG
+		WHERE
+		COMP_ID = #{param.compId}
+		AND CITY_ID = #{param.cityId}
+		<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+			AND ${param.serchRange}_ID = #{param.serchRangeId}
+		</if>
+		<if test="param.startTime != null and '' != param.startTime">
+			AND CREATE_TIME &gt;= #{param.startTime}
+		</if>
+		<if test="param.endTime != null and '' != param.endTime">
+			AND CREATE_TIME &lt; #{param.endTime}
+		</if>
+		GROUP BY 
+		<if test="param.dimension != null and '' != param.dimension">
+		${param.dimension}_ID,
+		</if>
+		USER_ID
+		ORDER BY EXCEPTION_COUNT
+		DESC
+	</select>
+	<select id="getUserTableOrChartCount" resultMap="BaseResultMapRankDto">
+	SELECT
+	<choose>
+		<when test="param.countType != null and 'USER' == param.countType">
+			ARCHIVE_ID,SITE_ID,
+		</when>
+		<otherwise>
+			SITE_ID,
+		</otherwise>
+	</choose>
+	ISNULL(SUM (IIF(OPER_TYPE = 1, 1, 0)),0) AS PUB_COUNT,
+	ISNULL(SUM (IIF(OPER_TYPE = 2, 1, 0)),0) AS DEL_COUNT,
+	ISNULL(SUM (IIF(OPER_TYPE = 4, 1, 0)),0) AS REF_COUNT,
+	SUM(1) AS SUM_COUNT
+	FROM
+	FAFA_DETAIL_LOG
+	WHERE
+	COMP_ID = #{param.compId}
+	AND CITY_ID = #{param.cityId}
+	<if test="param.serchRange != null and '' != param.serchRange and '' != param.serchRangeId and param.serchRangeId != null">
+		AND ${param.serchRange}_ID = #{param.serchRangeId}
+	</if>
+	<if test="param.dimension != null and '' !=param.dimension">
+		AND SALE_LEASE = #{param.dimension}
+	</if>
+	<if test="param.userId != null and '' !=param.userId">
+		AND USER_ID = #{param.userId}
+	</if>
+	AND CREATE_TIME &gt;= #{param.startTime}
+	AND CREATE_TIME &lt; #{param.endTime}
+	GROUP BY
+	<choose>
+		<when test="param.countType != null and 'USER' == param.countType">
+			ARCHIVE_ID,SITE_ID
+		</when>
+		<otherwise>
+			SITE_ID
+		</otherwise>
+	</choose>
+</select>
+	
+	<select id="getFafaCountList" resultMap="BaseResultMapDto">
+		SELECT SUM(1) AS FF_COUNT,CONVERT(varchar(10), CREATE_TIME, 120) AS CORE_TIME,sum(1)*2 AS TOTAL_SCORE
+		FROM FAFA_DETAIL_LOG
+		WHERE COMP_ID = #{compId} AND CITY_ID = #{shardCityId} AND CREATE_TIME &gt;= #{dateTimeStr}
+		and USER_ID  = #{userId} and OPER_TYPE = 1 and STATUS_ID = 1010000
+		GROUP BY USER_ID,CONVERT(varchar(10), CREATE_TIME, 120)
+	</select>
+
+	<select id="getSpecifyFafaCountList" resultMap="BaseResultMapDto">
+		SELECT USER_ID, SUM(1) AS FF_COUNT FROM FAFA_DETAIL_LOG 
+		WHERE COMP_ID = #{compId} AND CITY_ID = #{shardCityId}
+		<if test="null != userIds">
+			AND USER_ID IN
+			<foreach collection="userIds" close=")" index="index" item="userId" open="(" separator=",">
+				#{userId}
+			</foreach>
+		</if>
+		<if test="null != archiveId and archiveId != ''">
+			AND ARCHIVE_ID = #{archiveId}
+		</if>
+		AND OPER_TYPE = 1 AND STATUS_ID = 1010000
+		AND CREATE_TIME &gt;= #{dateTime}
+		AND CREATE_TIME &lt;= #{dateTime}
+	</select>
+</mapper>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyFunRewardLogMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyFunRewardLog" >
+    <!--@mbggenerated-->
+    <id column="LOG_ID" property="logId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="SMALLINT" />
+    <result column="B_CITY_ID" property="bCityId" jdbcType="SMALLINT" />
+    <result column="CUST_ID" property="custId" jdbcType="INTEGER" />
+    <result column="BUILD_ID" property="buildId" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="TINYINT" />
+    <result column="REWARDS" property="rewards" jdbcType="DECIMAL" />
+    <result column="TYPE" property="type" jdbcType="TINYINT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVE_ID" property="archiveId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap type="com.myfun.repository.agencydb.dto.AgencyFunRewardLogDto" id="extResultMap" extends="BaseResultMap">
+	 <result column="PAID_STATUS" property="paidStatus" jdbcType="INTEGER" />
+	 <result column="CUST_STATUS" property="custStatus" jdbcType="INTEGER" />
+	 <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+	 <result column="CUST_MOBILE" property="custMobile" jdbcType="VARCHAR" />
+	 <result column="BUILD_NAME" property="buildName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    LOG_ID, CITY_ID, B_CITY_ID, CUST_ID, BUILD_ID, STATUS, REWARDS, TYPE, CREATION_TIME, 
+    ARCHIVE_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_REWARD_LOG
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_REWARD_LOG
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyFunRewardLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="logId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_REWARD_LOG (CITY_ID, B_CITY_ID, CUST_ID, 
+      BUILD_ID, STATUS, REWARDS, 
+      TYPE, CREATION_TIME, ARCHIVE_ID
+      )
+    values (#{cityId,jdbcType=SMALLINT}, #{bCityId,jdbcType=SMALLINT}, #{custId,jdbcType=INTEGER}, 
+      #{buildId,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{rewards,jdbcType=DECIMAL}, 
+      #{type,jdbcType=TINYINT}, #{creationTime,jdbcType=TIMESTAMP}, #{archiveId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunRewardLog" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="logId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into FUN_REWARD_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="bCityId != null" >
+        B_CITY_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="rewards != null" >
+        REWARDS,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME,
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="bCityId != null" >
+        #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="rewards != null" >
+        #{rewards,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveId != null" >
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyFunRewardLog" >
+    <!--@mbggenerated-->
+    update FUN_REWARD_LOG
+    <set >
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="bCityId != null" >
+        B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      </if>
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="buildId != null" >
+        BUILD_ID = #{buildId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="rewards != null" >
+        REWARDS = #{rewards,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="creationTime != null" >
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveId != null" >
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyFunRewardLog" >
+    <!--@mbggenerated-->
+    update FUN_REWARD_LOG
+    set CITY_ID = #{cityId,jdbcType=SMALLINT},
+      B_CITY_ID = #{bCityId,jdbcType=SMALLINT},
+      CUST_ID = #{custId,jdbcType=INTEGER},
+      BUILD_ID = #{buildId,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=TINYINT},
+      REWARDS = #{rewards,jdbcType=DECIMAL},
+      TYPE = #{type,jdbcType=TINYINT},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER}
+    where LOG_ID = #{logId,jdbcType=INTEGER}
+  </update>
+  
+  <!-- buniess -->
+  <select id="count" resultType="java.lang.Integer">
+  	select count(1) from FUN_REWARD_LOG where B_CITY_ID = #{bcityId} and BUILD_ID = #{buildId} and STATUS != #{staus}
+  </select>
+  
+  <update id="updateStatus">
+  	update  FUN_REWARD_LOG set STATUS = 2 where STATUS = 0 and CITY_ID = #{cityId} and CUST_ID = #{custId} and BUILD_ID = #{buildId} and TYPE = 1
+  </update>
+  
+  <select id="getDistDaikanRewardsList" parameterType="java.util.Map" resultMap="extResultMap">
+  		SELECT frl.CREATION_TIME, fcd.PAID_STATUS, fc.CUST_NAME, fc.CUST_MOBILE,fc.BUILD_NAME,
+  			frl.REWARDS,fc.CUST_STATUS,frl.STATUS
+  		FROM FUN_REWARD_LOG frl 
+  		LEFT JOIN FUN_CUST fc ON frl.CUST_ID = fc.CUST_ID and frl.BUILD_ID = fc.BUILD_ID and frl.CITY_ID = fc.CITY_ID 
+  		LEFT JOIN FUN_CUST_DEAL fcd ON fc.CUST_ID = fcd.CUST_ID and fc.CITY_ID = fcd.CITY_ID
+  		<where>
+			<if test="1==1">
+				AND frl.ARCHIVE_ID =#{archiveId1} and fc.COMP_ID = #{compId}
+			</if>
+			<if test="null != status and '' != status">
+				<![CDATA[ AND fc.CUST_STATUS = #{status} ]]>
+			</if>
+			<if test="null != buildId and '' != buildId">
+				AND frl.BUILD_ID = #{buildId}
+			</if>
+			<if test="null != bCityId and '' != bCityId">
+				AND frl.B_CITY_ID = #{bCityId}
+			</if>
+			<if test="null != keyword and '' != keyword">
+				AND fc.CUST_MOBILE like '%'+#{keyword}+'%'
+			</if>
+			<if test="null != deptId and '' != deptId">
+				AND fc.DEPT_ID = #{deptId}
+			</if>
+			<if test="null != archiveId and '' != archiveId">
+				AND fc.ARCHIVE_ID = #{archiveId}
+			</if>
+			<if test="null != endTime and '' != endTime">
+				<![CDATA[AND frl.CREATION_TIME <= #{endTime}]]>
+			</if>
+			<if test="null != startTime and '' != startTime">
+				<![CDATA[AND frl.CREATION_TIME >= #{startTime}]]>
+			</if>
+			<if test="null != userIds">
+				AND fc.USER_ID IN 
+				<foreach collection="list" close=")" item="userId" open="(" separator=",">
+					#{userId}
+				</foreach>
+			</if>
+		</where>
+  		order by frl.CREATION_TIME DESC
+  </select>
+</mapper>

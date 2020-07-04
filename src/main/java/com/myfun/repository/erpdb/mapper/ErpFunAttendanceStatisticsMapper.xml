@@ -1,0 +1,2237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunAttendanceStatisticsMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunAttendanceStatistics">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="COMP_ID" jdbcType="INTEGER" property="compId" />
+    <result column="AREA_ID" jdbcType="INTEGER" property="areaId" />
+    <result column="REG_ID" jdbcType="INTEGER" property="regId" />
+    <result column="DEPT_ID" jdbcType="INTEGER" property="deptId" />
+    <result column="GR_ID" jdbcType="INTEGER" property="grId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="ATT_DATE" jdbcType="TIMESTAMP" property="attDate" />
+    <result column="ATT_GR_ID" jdbcType="INTEGER" property="attGrId" />
+    <result column="ATT_ClASS_ID" jdbcType="INTEGER" property="attClassId" />
+    <result column="ATT_ClASS_NAME" jdbcType="VARCHAR" property="attClassName" />
+    <result column="ATT_CLASS_CLOCKTIME" jdbcType="VARCHAR" property="attClassClocktime" />
+    <result column="OFF_WORK" jdbcType="TINYINT" property="offWork" />
+    <result column="FIRST_WORK_ON" jdbcType="TINYINT" property="firstWorkOn" />
+    <result column="FIRST_WORKON_TYPE" jdbcType="TINYINT" property="firstWorkonType" />
+    <result column="FIRST_WORKON_CHANGEUSER" jdbcType="INTEGER" property="firstWorkonChangeuser" />
+    <result column="FIRST_WORKON_CHANGEDEPT" jdbcType="INTEGER" property="firstWorkonChangedept" />
+    <result column="FIRST_WORK_ONTIME" jdbcType="TIMESTAMP" property="firstWorkOntime" />
+    <result column="SECOND_WORK_ON" jdbcType="TINYINT" property="secondWorkOn" />
+    <result column="SECOND_WORKON_TYPE" jdbcType="TINYINT" property="secondWorkonType" />
+    <result column="SECOND_WORKON_CHANGEUSER" jdbcType="INTEGER" property="secondWorkonChangeuser" />
+    <result column="SECOND_WORKON_CHANGEDEPT" jdbcType="INTEGER" property="secondWorkonChangedept" />
+    <result column="SECOND_WORK_ONTIME" jdbcType="TIMESTAMP" property="secondWorkOntime" />
+    <result column="THREE_WORK_ON" jdbcType="TINYINT" property="threeWorkOn" />
+    <result column="THREE_WORKON_TYPE" jdbcType="TINYINT" property="threeWorkonType" />
+    <result column="THREE_WORKON_CHANGEUSER" jdbcType="INTEGER" property="threeWorkonChangeuser" />
+    <result column="THREE_WORKON_CHANGEDEPT" jdbcType="INTEGER" property="threeWorkonChangedept" />
+    <result column="THREE_WORK_ONTIME" jdbcType="TIMESTAMP" property="threeWorkOntime" />
+    <result column="FIRST_WORK_OFF" jdbcType="TINYINT" property="firstWorkOff" />
+    <result column="FIRST_WORKOFF_TYPE" jdbcType="TINYINT" property="firstWorkoffType" />
+    <result column="FIRST_WORKOFF_CHANGEUSER" jdbcType="INTEGER" property="firstWorkoffChangeuser" />
+    <result column="FIRST_WORKOFF_CHANGEDEPT" jdbcType="INTEGER" property="firstWorkoffChangedept" />
+    <result column="FIRST_WORK_OFFTIME" jdbcType="TIMESTAMP" property="firstWorkOfftime" />
+    <result column="SECOND_WORK_OFF" jdbcType="TINYINT" property="secondWorkOff" />
+    <result column="SECOND_WORKOFF_TYPE" jdbcType="TINYINT" property="secondWorkoffType" />
+    <result column="SECOND_WORKOFF_CHANGEUSER" jdbcType="INTEGER" property="secondWorkoffChangeuser" />
+    <result column="SECOND_WORKOFF_CHANGEDEPT" jdbcType="INTEGER" property="secondWorkoffChangedept" />
+    <result column="SECOND_WORK_OFFTIME" jdbcType="TIMESTAMP" property="secondWorkOfftime" />
+    <result column="THREE_WORK_OFF" jdbcType="TINYINT" property="threeWorkOff" />
+    <result column="THREE_WORKOFF_TYPE" jdbcType="TINYINT" property="threeWorkoffType" />
+    <result column="THREE_WORKOFF_CHANGEUSER" jdbcType="INTEGER" property="threeWorkoffChangeuser" />
+    <result column="THREE_WORKOFF_CHANGEDEPT" jdbcType="INTEGER" property="threeWorkoffChangedept" />
+    <result column="THREE_WORK_OFFTIME" jdbcType="TIMESTAMP" property="threeWorkOfftime" />
+    <result column="ATT_SUM_COUNT" jdbcType="TINYINT" property="attSumCount" />
+    <result column="FIRST_WORKON_CHANGEREMARK" jdbcType="VARCHAR" property="firstWorkonChangeremark" />
+    <result column="SECOND_WORKON_CHANGEREMARK" jdbcType="VARCHAR" property="secondWorkonChangeremark" />
+    <result column="THREE_WORKON_CHANGEREMARK" jdbcType="VARCHAR" property="threeWorkonChangeremark" />
+    <result column="FIRST_WORKOFF_CHANGEREMARK" jdbcType="VARCHAR" property="firstWorkoffChangeremark" />
+    <result column="SECOND_WORKOFF_CHANGEREMARK" jdbcType="VARCHAR" property="secondWorkoffChangeremark" />
+    <result column="THREE_WORKOFF_CHANGEREMARK" jdbcType="VARCHAR" property="threeWorkoffChangeremark" />
+    <result column="ARCHIVE_ID" jdbcType="INTEGER" property="archiveId" />
+    <result column="FIRST_WORK_ONCONFIGTIME" jdbcType="VARCHAR" property="firstWorkOnconfigtime" />
+    <result column="FIRST_WORK_OFFCONFIGTIME" jdbcType="VARCHAR" property="firstWorkOffconfigtime" />
+    <result column="SECOND_WORK_ONCONFIGTIME" jdbcType="VARCHAR" property="secondWorkOnconfigtime" />
+    <result column="SECOND_WORK_OFFCONFIGTIME" jdbcType="VARCHAR" property="secondWorkOffconfigtime" />
+    <result column="THREE_WORK_ONCONFIGTIME" jdbcType="VARCHAR" property="threeWorkOnconfigtime" />
+    <result column="THREE_WORK_OFFCONFIGTIME" jdbcType="VARCHAR" property="threeWorkOffconfigtime" />
+    <result column="ATT_CLASS_TYPE" jdbcType="TINYINT" property="attClassType" />
+    <result column="ATT_GR_NAME" jdbcType="VARCHAR" property="attGrName" />
+    <result column="FIRST_WORKON_ATT_WAY" jdbcType="TINYINT" property="firstWorkonAttWay" />
+    <result column="FIRST_WORKON_WIFI_ID" jdbcType="INTEGER" property="firstWorkonWifiId" />
+    <result column="FIRST_WORKON_ATT_WIFI_SSID" jdbcType="VARCHAR" property="firstWorkonAttWifiSsid" />
+    <result column="FIRST_WORKON_ATT_WIFI_MAC" jdbcType="VARCHAR" property="firstWorkonAttWifiMac" />
+    <result column="FIRST_WORKOFF_ATT_WAY" jdbcType="TINYINT" property="firstWorkoffAttWay" />
+    <result column="FIRST_WORKOFF_WIFI_ID" jdbcType="INTEGER" property="firstWorkoffWifiId" />
+    <result column="FIRST_WORKOFF_ATT_WIFI_SSID" jdbcType="VARCHAR" property="firstWorkoffAttWifiSsid" />
+    <result column="FIRST_WORKOFF_ATT_WIFI_MAC" jdbcType="VARCHAR" property="firstWorkoffAttWifiMac" />
+    <result column="SECOND_WORKON_ATT_WAY" jdbcType="TINYINT" property="secondWorkonAttWay" />
+    <result column="SECOND_WORKON_WIFI_ID" jdbcType="INTEGER" property="secondWorkonWifiId" />
+    <result column="SECOND_WORKON_ATT_WIFI_SSID" jdbcType="VARCHAR" property="secondWorkonAttWifiSsid" />
+    <result column="SECOND_WORKON_ATT_WIFI_MAC" jdbcType="VARCHAR" property="secondWorkonAttWifiMac" />
+    <result column="SECOND_WORKOFF_ATT_WAY" jdbcType="TINYINT" property="secondWorkoffAttWay" />
+    <result column="SECOND_WORKOFF_WIFI_ID" jdbcType="INTEGER" property="secondWorkoffWifiId" />
+    <result column="SECOND_WORKOFF_ATT_WIFI_SSID" jdbcType="VARCHAR" property="secondWorkoffAttWifiSsid" />
+    <result column="SECOND_WORKOFF_ATT_WIFI_MAC" jdbcType="VARCHAR" property="secondWorkoffAttWifiMac" />
+    <result column="THREE_WORKON_ATT_WAY" jdbcType="TINYINT" property="threeWorkonAttWay" />
+    <result column="THREE_WORKON_WIFI_ID" jdbcType="INTEGER" property="threeWorkonWifiId" />
+    <result column="THREE_WORKON_ATT_WIFI_SSID" jdbcType="VARCHAR" property="threeWorkonAttWifiSsid" />
+    <result column="THREE_WORKON_ATT_WIFI_MAC" jdbcType="VARCHAR" property="threeWorkonAttWifiMac" />
+    <result column="THREE_WORKOFF_ATT_WAY" jdbcType="TINYINT" property="threeWorkoffAttWay" />
+    <result column="THREE_WORKOFF_WIFI_ID" jdbcType="INTEGER" property="threeWorkoffWifiId" />
+    <result column="THREE_WORKOFF_ATT_WIFI_SSID" jdbcType="VARCHAR" property="threeWorkoffAttWifiSsid" />
+    <result column="THREE_WORKOFF_ATT_WIFI_MAC" jdbcType="VARCHAR" property="threeWorkoffAttWifiMac" />
+    <result column="FIRST_WORKON_CHANGEDATE" jdbcType="TIMESTAMP" property="firstWorkonChangedate" />
+    <result column="SECOND_WORKON_CHANGEDATE" jdbcType="TIMESTAMP" property="secondWorkonChangedate" />
+    <result column="THREE_WORKON_CHANGEDATE" jdbcType="TIMESTAMP" property="threeWorkonChangedate" />
+    <result column="FIRST_WORKOFF_CHANGEDATE" jdbcType="TIMESTAMP" property="firstWorkoffChangedate" />
+    <result column="SECOND_WORKOFF_CHANGEDATE" jdbcType="TIMESTAMP" property="secondWorkoffChangedate" />
+    <result column="THREE_WORKOFF_CHANGEDATE" jdbcType="TIMESTAMP" property="threeWorkoffChangedate" />
+    <result column="FIRST_WORKON_AUDIT_ID" jdbcType="INTEGER" property="firstWorkonAuditId" />
+    <result column="SECOND_WORKON_AUDIT_ID" jdbcType="INTEGER" property="secondWorkonAuditId" />
+    <result column="THREE_WORKON_AUDIT_ID" jdbcType="INTEGER" property="threeWorkonAuditId" />
+    <result column="FIRST_WORKOFF_AUDIT_ID" jdbcType="INTEGER" property="firstWorkoffAuditId" />
+    <result column="SECOND_WORKOFF_AUDIT_ID" jdbcType="INTEGER" property="secondWorkoffAuditId" />
+    <result column="THREE_WORKOFF_AUDIT_ID" jdbcType="INTEGER" property="threeWorkoffAuditId" />
+    <result column="FIRST_WORKON_LEAVE_NAME" jdbcType="VARCHAR" property="firstWorkonLeaveName" />
+    <result column="SECOND_WORKON_LEAVE_NAME" jdbcType="VARCHAR" property="secondWorkonLeaveName" />
+    <result column="THREE_WORKON_LEAVE_NAME" jdbcType="VARCHAR" property="threeWorkonLeaveName" />
+    <result column="FIRST_WORKOFF_LEAVE_NAME" jdbcType="VARCHAR" property="firstWorkoffLeaveName" />
+    <result column="SECOND_WORKOFF_LEAVE_NAME" jdbcType="VARCHAR" property="secondWorkoffLeaveName" />
+    <result column="THREE_WORKOFF_LEAVE_NAME" jdbcType="VARCHAR" property="threeWorkoffLeaveName" />
+    <result column="FIRST_WORKON_CLASS_ID" jdbcType="INTEGER" property="firstWorkonClassId" />
+    <result column="SECOND_WORKON_CLASS_ID" jdbcType="INTEGER" property="secondWorkonClassId" />
+    <result column="THREE_WORKON_CLASS_ID" jdbcType="INTEGER" property="threeWorkonClassId" />
+    <result column="FIRST_WORKOFF_CLASS_ID" jdbcType="INTEGER" property="firstWorkoffClassId" />
+    <result column="SECOND_WORKOFF_CLASS_ID" jdbcType="INTEGER" property="secondWorkoffClassId" />
+    <result column="THREE_WORKOFF_CLASS_ID" jdbcType="INTEGER" property="threeWorkoffClassId" />
+    <result column="ATTENDANCE_CLASS_TIME_SEGMENT" jdbcType="VARCHAR" property="attendanceClassTimeSegment" />
+    <result column="ORGANIZATION_PATH" jdbcType="VARCHAR" property="organizationPath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, COMP_ID, AREA_ID, REG_ID, DEPT_ID, GR_ID, USER_ID, CREATION_TIME, ATT_DATE, ATT_GR_ID, 
+    ATT_ClASS_ID, ATT_ClASS_NAME, ATT_CLASS_CLOCKTIME, OFF_WORK, FIRST_WORK_ON, FIRST_WORKON_TYPE, 
+    FIRST_WORKON_CHANGEUSER, FIRST_WORKON_CHANGEDEPT, FIRST_WORK_ONTIME, SECOND_WORK_ON, 
+    SECOND_WORKON_TYPE, SECOND_WORKON_CHANGEUSER, SECOND_WORKON_CHANGEDEPT, SECOND_WORK_ONTIME, 
+    THREE_WORK_ON, THREE_WORKON_TYPE, THREE_WORKON_CHANGEUSER, THREE_WORKON_CHANGEDEPT, 
+    THREE_WORK_ONTIME, FIRST_WORK_OFF, FIRST_WORKOFF_TYPE, FIRST_WORKOFF_CHANGEUSER, 
+    FIRST_WORKOFF_CHANGEDEPT, FIRST_WORK_OFFTIME, SECOND_WORK_OFF, SECOND_WORKOFF_TYPE, 
+    SECOND_WORKOFF_CHANGEUSER, SECOND_WORKOFF_CHANGEDEPT, SECOND_WORK_OFFTIME, THREE_WORK_OFF, 
+    THREE_WORKOFF_TYPE, THREE_WORKOFF_CHANGEUSER, THREE_WORKOFF_CHANGEDEPT, THREE_WORK_OFFTIME, 
+    ATT_SUM_COUNT, FIRST_WORKON_CHANGEREMARK, SECOND_WORKON_CHANGEREMARK, THREE_WORKON_CHANGEREMARK, 
+    FIRST_WORKOFF_CHANGEREMARK, SECOND_WORKOFF_CHANGEREMARK, THREE_WORKOFF_CHANGEREMARK, 
+    ARCHIVE_ID, FIRST_WORK_ONCONFIGTIME, FIRST_WORK_OFFCONFIGTIME, SECOND_WORK_ONCONFIGTIME, 
+    SECOND_WORK_OFFCONFIGTIME, THREE_WORK_ONCONFIGTIME, THREE_WORK_OFFCONFIGTIME, ATT_CLASS_TYPE, 
+    ATT_GR_NAME, FIRST_WORKON_ATT_WAY, FIRST_WORKON_WIFI_ID, FIRST_WORKON_ATT_WIFI_SSID, 
+    FIRST_WORKON_ATT_WIFI_MAC, FIRST_WORKOFF_ATT_WAY, FIRST_WORKOFF_WIFI_ID, FIRST_WORKOFF_ATT_WIFI_SSID, 
+    FIRST_WORKOFF_ATT_WIFI_MAC, SECOND_WORKON_ATT_WAY, SECOND_WORKON_WIFI_ID, SECOND_WORKON_ATT_WIFI_SSID, 
+    SECOND_WORKON_ATT_WIFI_MAC, SECOND_WORKOFF_ATT_WAY, SECOND_WORKOFF_WIFI_ID, SECOND_WORKOFF_ATT_WIFI_SSID, 
+    SECOND_WORKOFF_ATT_WIFI_MAC, THREE_WORKON_ATT_WAY, THREE_WORKON_WIFI_ID, THREE_WORKON_ATT_WIFI_SSID, 
+    THREE_WORKON_ATT_WIFI_MAC, THREE_WORKOFF_ATT_WAY, THREE_WORKOFF_WIFI_ID, THREE_WORKOFF_ATT_WIFI_SSID, 
+    THREE_WORKOFF_ATT_WIFI_MAC, FIRST_WORKON_CHANGEDATE, SECOND_WORKON_CHANGEDATE, THREE_WORKON_CHANGEDATE, 
+    FIRST_WORKOFF_CHANGEDATE, SECOND_WORKOFF_CHANGEDATE, THREE_WORKOFF_CHANGEDATE, FIRST_WORKON_AUDIT_ID, 
+    SECOND_WORKON_AUDIT_ID, THREE_WORKON_AUDIT_ID, FIRST_WORKOFF_AUDIT_ID, SECOND_WORKOFF_AUDIT_ID, 
+    THREE_WORKOFF_AUDIT_ID, FIRST_WORKON_LEAVE_NAME, SECOND_WORKON_LEAVE_NAME, THREE_WORKON_LEAVE_NAME, 
+    FIRST_WORKOFF_LEAVE_NAME, SECOND_WORKOFF_LEAVE_NAME, THREE_WORKOFF_LEAVE_NAME, FIRST_WORKON_CLASS_ID, 
+    SECOND_WORKON_CLASS_ID, THREE_WORKON_CLASS_ID, FIRST_WORKOFF_CLASS_ID, SECOND_WORKOFF_CLASS_ID, 
+    THREE_WORKOFF_CLASS_ID, ATTENDANCE_CLASS_TIME_SEGMENT, ORGANIZATION_PATH
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatisticsExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_STATISTICS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_ATTENDANCE_STATISTICS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_STATISTICS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatisticsExample">
+    <!--@mbggenerated-->
+    delete from FUN_ATTENDANCE_STATISTICS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatistics" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_STATISTICS (COMP_ID, AREA_ID, REG_ID, 
+      DEPT_ID, GR_ID, USER_ID, 
+      CREATION_TIME, ATT_DATE, ATT_GR_ID, 
+      ATT_ClASS_ID, ATT_ClASS_NAME, ATT_CLASS_CLOCKTIME, 
+      OFF_WORK, FIRST_WORK_ON, FIRST_WORKON_TYPE, 
+      FIRST_WORKON_CHANGEUSER, FIRST_WORKON_CHANGEDEPT, 
+      FIRST_WORK_ONTIME, SECOND_WORK_ON, SECOND_WORKON_TYPE, 
+      SECOND_WORKON_CHANGEUSER, SECOND_WORKON_CHANGEDEPT, 
+      SECOND_WORK_ONTIME, THREE_WORK_ON, THREE_WORKON_TYPE, 
+      THREE_WORKON_CHANGEUSER, THREE_WORKON_CHANGEDEPT, 
+      THREE_WORK_ONTIME, FIRST_WORK_OFF, FIRST_WORKOFF_TYPE, 
+      FIRST_WORKOFF_CHANGEUSER, FIRST_WORKOFF_CHANGEDEPT, 
+      FIRST_WORK_OFFTIME, SECOND_WORK_OFF, SECOND_WORKOFF_TYPE, 
+      SECOND_WORKOFF_CHANGEUSER, SECOND_WORKOFF_CHANGEDEPT, 
+      SECOND_WORK_OFFTIME, THREE_WORK_OFF, THREE_WORKOFF_TYPE, 
+      THREE_WORKOFF_CHANGEUSER, THREE_WORKOFF_CHANGEDEPT, 
+      THREE_WORK_OFFTIME, ATT_SUM_COUNT, FIRST_WORKON_CHANGEREMARK, 
+      SECOND_WORKON_CHANGEREMARK, THREE_WORKON_CHANGEREMARK, 
+      FIRST_WORKOFF_CHANGEREMARK, SECOND_WORKOFF_CHANGEREMARK, 
+      THREE_WORKOFF_CHANGEREMARK, ARCHIVE_ID, FIRST_WORK_ONCONFIGTIME, 
+      FIRST_WORK_OFFCONFIGTIME, SECOND_WORK_ONCONFIGTIME, 
+      SECOND_WORK_OFFCONFIGTIME, THREE_WORK_ONCONFIGTIME, 
+      THREE_WORK_OFFCONFIGTIME, ATT_CLASS_TYPE, ATT_GR_NAME, 
+      FIRST_WORKON_ATT_WAY, FIRST_WORKON_WIFI_ID, FIRST_WORKON_ATT_WIFI_SSID, 
+      FIRST_WORKON_ATT_WIFI_MAC, FIRST_WORKOFF_ATT_WAY, 
+      FIRST_WORKOFF_WIFI_ID, FIRST_WORKOFF_ATT_WIFI_SSID, 
+      FIRST_WORKOFF_ATT_WIFI_MAC, SECOND_WORKON_ATT_WAY, 
+      SECOND_WORKON_WIFI_ID, SECOND_WORKON_ATT_WIFI_SSID, 
+      SECOND_WORKON_ATT_WIFI_MAC, SECOND_WORKOFF_ATT_WAY, 
+      SECOND_WORKOFF_WIFI_ID, SECOND_WORKOFF_ATT_WIFI_SSID, 
+      SECOND_WORKOFF_ATT_WIFI_MAC, THREE_WORKON_ATT_WAY, 
+      THREE_WORKON_WIFI_ID, THREE_WORKON_ATT_WIFI_SSID, 
+      THREE_WORKON_ATT_WIFI_MAC, THREE_WORKOFF_ATT_WAY, 
+      THREE_WORKOFF_WIFI_ID, THREE_WORKOFF_ATT_WIFI_SSID, 
+      THREE_WORKOFF_ATT_WIFI_MAC, FIRST_WORKON_CHANGEDATE, 
+      SECOND_WORKON_CHANGEDATE, THREE_WORKON_CHANGEDATE, 
+      FIRST_WORKOFF_CHANGEDATE, SECOND_WORKOFF_CHANGEDATE, 
+      THREE_WORKOFF_CHANGEDATE, FIRST_WORKON_AUDIT_ID, 
+      SECOND_WORKON_AUDIT_ID, THREE_WORKON_AUDIT_ID, 
+      FIRST_WORKOFF_AUDIT_ID, SECOND_WORKOFF_AUDIT_ID, 
+      THREE_WORKOFF_AUDIT_ID, FIRST_WORKON_LEAVE_NAME, 
+      SECOND_WORKON_LEAVE_NAME, THREE_WORKON_LEAVE_NAME, 
+      FIRST_WORKOFF_LEAVE_NAME, SECOND_WORKOFF_LEAVE_NAME, 
+      THREE_WORKOFF_LEAVE_NAME, FIRST_WORKON_CLASS_ID, 
+      SECOND_WORKON_CLASS_ID, THREE_WORKON_CLASS_ID, 
+      FIRST_WORKOFF_CLASS_ID, SECOND_WORKOFF_CLASS_ID, 
+      THREE_WORKOFF_CLASS_ID, ATTENDANCE_CLASS_TIME_SEGMENT, 
+      ORGANIZATION_PATH)
+    values (#{compId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{regId,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=INTEGER}, #{grId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{attDate,jdbcType=TIMESTAMP}, #{attGrId,jdbcType=INTEGER}, 
+      #{attClassId,jdbcType=INTEGER}, #{attClassName,jdbcType=VARCHAR}, #{attClassClocktime,jdbcType=VARCHAR}, 
+      #{offWork,jdbcType=TINYINT}, #{firstWorkOn,jdbcType=TINYINT}, #{firstWorkonType,jdbcType=TINYINT}, 
+      #{firstWorkonChangeuser,jdbcType=INTEGER}, #{firstWorkonChangedept,jdbcType=INTEGER}, 
+      #{firstWorkOntime,jdbcType=TIMESTAMP}, #{secondWorkOn,jdbcType=TINYINT}, #{secondWorkonType,jdbcType=TINYINT}, 
+      #{secondWorkonChangeuser,jdbcType=INTEGER}, #{secondWorkonChangedept,jdbcType=INTEGER}, 
+      #{secondWorkOntime,jdbcType=TIMESTAMP}, #{threeWorkOn,jdbcType=TINYINT}, #{threeWorkonType,jdbcType=TINYINT}, 
+      #{threeWorkonChangeuser,jdbcType=INTEGER}, #{threeWorkonChangedept,jdbcType=INTEGER}, 
+      #{threeWorkOntime,jdbcType=TIMESTAMP}, #{firstWorkOff,jdbcType=TINYINT}, #{firstWorkoffType,jdbcType=TINYINT}, 
+      #{firstWorkoffChangeuser,jdbcType=INTEGER}, #{firstWorkoffChangedept,jdbcType=INTEGER}, 
+      #{firstWorkOfftime,jdbcType=TIMESTAMP}, #{secondWorkOff,jdbcType=TINYINT}, #{secondWorkoffType,jdbcType=TINYINT}, 
+      #{secondWorkoffChangeuser,jdbcType=INTEGER}, #{secondWorkoffChangedept,jdbcType=INTEGER}, 
+      #{secondWorkOfftime,jdbcType=TIMESTAMP}, #{threeWorkOff,jdbcType=TINYINT}, #{threeWorkoffType,jdbcType=TINYINT}, 
+      #{threeWorkoffChangeuser,jdbcType=INTEGER}, #{threeWorkoffChangedept,jdbcType=INTEGER}, 
+      #{threeWorkOfftime,jdbcType=TIMESTAMP}, #{attSumCount,jdbcType=TINYINT}, #{firstWorkonChangeremark,jdbcType=VARCHAR}, 
+      #{secondWorkonChangeremark,jdbcType=VARCHAR}, #{threeWorkonChangeremark,jdbcType=VARCHAR}, 
+      #{firstWorkoffChangeremark,jdbcType=VARCHAR}, #{secondWorkoffChangeremark,jdbcType=VARCHAR}, 
+      #{threeWorkoffChangeremark,jdbcType=VARCHAR}, #{archiveId,jdbcType=INTEGER}, #{firstWorkOnconfigtime,jdbcType=VARCHAR}, 
+      #{firstWorkOffconfigtime,jdbcType=VARCHAR}, #{secondWorkOnconfigtime,jdbcType=VARCHAR}, 
+      #{secondWorkOffconfigtime,jdbcType=VARCHAR}, #{threeWorkOnconfigtime,jdbcType=VARCHAR}, 
+      #{threeWorkOffconfigtime,jdbcType=VARCHAR}, #{attClassType,jdbcType=TINYINT}, #{attGrName,jdbcType=VARCHAR}, 
+      #{firstWorkonAttWay,jdbcType=TINYINT}, #{firstWorkonWifiId,jdbcType=INTEGER}, #{firstWorkonAttWifiSsid,jdbcType=VARCHAR}, 
+      #{firstWorkonAttWifiMac,jdbcType=VARCHAR}, #{firstWorkoffAttWay,jdbcType=TINYINT}, 
+      #{firstWorkoffWifiId,jdbcType=INTEGER}, #{firstWorkoffAttWifiSsid,jdbcType=VARCHAR}, 
+      #{firstWorkoffAttWifiMac,jdbcType=VARCHAR}, #{secondWorkonAttWay,jdbcType=TINYINT}, 
+      #{secondWorkonWifiId,jdbcType=INTEGER}, #{secondWorkonAttWifiSsid,jdbcType=VARCHAR}, 
+      #{secondWorkonAttWifiMac,jdbcType=VARCHAR}, #{secondWorkoffAttWay,jdbcType=TINYINT}, 
+      #{secondWorkoffWifiId,jdbcType=INTEGER}, #{secondWorkoffAttWifiSsid,jdbcType=VARCHAR}, 
+      #{secondWorkoffAttWifiMac,jdbcType=VARCHAR}, #{threeWorkonAttWay,jdbcType=TINYINT}, 
+      #{threeWorkonWifiId,jdbcType=INTEGER}, #{threeWorkonAttWifiSsid,jdbcType=VARCHAR}, 
+      #{threeWorkonAttWifiMac,jdbcType=VARCHAR}, #{threeWorkoffAttWay,jdbcType=TINYINT}, 
+      #{threeWorkoffWifiId,jdbcType=INTEGER}, #{threeWorkoffAttWifiSsid,jdbcType=VARCHAR}, 
+      #{threeWorkoffAttWifiMac,jdbcType=VARCHAR}, #{firstWorkonChangedate,jdbcType=TIMESTAMP}, 
+      #{secondWorkonChangedate,jdbcType=TIMESTAMP}, #{threeWorkonChangedate,jdbcType=TIMESTAMP}, 
+      #{firstWorkoffChangedate,jdbcType=TIMESTAMP}, #{secondWorkoffChangedate,jdbcType=TIMESTAMP}, 
+      #{threeWorkoffChangedate,jdbcType=TIMESTAMP}, #{firstWorkonAuditId,jdbcType=INTEGER}, 
+      #{secondWorkonAuditId,jdbcType=INTEGER}, #{threeWorkonAuditId,jdbcType=INTEGER}, 
+      #{firstWorkoffAuditId,jdbcType=INTEGER}, #{secondWorkoffAuditId,jdbcType=INTEGER}, 
+      #{threeWorkoffAuditId,jdbcType=INTEGER}, #{firstWorkonLeaveName,jdbcType=VARCHAR}, 
+      #{secondWorkonLeaveName,jdbcType=VARCHAR}, #{threeWorkonLeaveName,jdbcType=VARCHAR}, 
+      #{firstWorkoffLeaveName,jdbcType=VARCHAR}, #{secondWorkoffLeaveName,jdbcType=VARCHAR}, 
+      #{threeWorkoffLeaveName,jdbcType=VARCHAR}, #{firstWorkonClassId,jdbcType=INTEGER}, 
+      #{secondWorkonClassId,jdbcType=INTEGER}, #{threeWorkonClassId,jdbcType=INTEGER}, 
+      #{firstWorkoffClassId,jdbcType=INTEGER}, #{secondWorkoffClassId,jdbcType=INTEGER}, 
+      #{threeWorkoffClassId,jdbcType=INTEGER}, #{attendanceClassTimeSegment,jdbcType=VARCHAR}, 
+      #{organizationPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatistics" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_ATTENDANCE_STATISTICS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        COMP_ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="regId != null">
+        REG_ID,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="grId != null">
+        GR_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="attDate != null">
+        ATT_DATE,
+      </if>
+      <if test="attGrId != null">
+        ATT_GR_ID,
+      </if>
+      <if test="attClassId != null">
+        ATT_ClASS_ID,
+      </if>
+      <if test="attClassName != null">
+        ATT_ClASS_NAME,
+      </if>
+      <if test="attClassClocktime != null">
+        ATT_CLASS_CLOCKTIME,
+      </if>
+      <if test="offWork != null">
+        OFF_WORK,
+      </if>
+      <if test="firstWorkOn != null">
+        FIRST_WORK_ON,
+      </if>
+      <if test="firstWorkonType != null">
+        FIRST_WORKON_TYPE,
+      </if>
+      <if test="firstWorkonChangeuser != null">
+        FIRST_WORKON_CHANGEUSER,
+      </if>
+      <if test="firstWorkonChangedept != null">
+        FIRST_WORKON_CHANGEDEPT,
+      </if>
+      <if test="firstWorkOntime != null">
+        FIRST_WORK_ONTIME,
+      </if>
+      <if test="secondWorkOn != null">
+        SECOND_WORK_ON,
+      </if>
+      <if test="secondWorkonType != null">
+        SECOND_WORKON_TYPE,
+      </if>
+      <if test="secondWorkonChangeuser != null">
+        SECOND_WORKON_CHANGEUSER,
+      </if>
+      <if test="secondWorkonChangedept != null">
+        SECOND_WORKON_CHANGEDEPT,
+      </if>
+      <if test="secondWorkOntime != null">
+        SECOND_WORK_ONTIME,
+      </if>
+      <if test="threeWorkOn != null">
+        THREE_WORK_ON,
+      </if>
+      <if test="threeWorkonType != null">
+        THREE_WORKON_TYPE,
+      </if>
+      <if test="threeWorkonChangeuser != null">
+        THREE_WORKON_CHANGEUSER,
+      </if>
+      <if test="threeWorkonChangedept != null">
+        THREE_WORKON_CHANGEDEPT,
+      </if>
+      <if test="threeWorkOntime != null">
+        THREE_WORK_ONTIME,
+      </if>
+      <if test="firstWorkOff != null">
+        FIRST_WORK_OFF,
+      </if>
+      <if test="firstWorkoffType != null">
+        FIRST_WORKOFF_TYPE,
+      </if>
+      <if test="firstWorkoffChangeuser != null">
+        FIRST_WORKOFF_CHANGEUSER,
+      </if>
+      <if test="firstWorkoffChangedept != null">
+        FIRST_WORKOFF_CHANGEDEPT,
+      </if>
+      <if test="firstWorkOfftime != null">
+        FIRST_WORK_OFFTIME,
+      </if>
+      <if test="secondWorkOff != null">
+        SECOND_WORK_OFF,
+      </if>
+      <if test="secondWorkoffType != null">
+        SECOND_WORKOFF_TYPE,
+      </if>
+      <if test="secondWorkoffChangeuser != null">
+        SECOND_WORKOFF_CHANGEUSER,
+      </if>
+      <if test="secondWorkoffChangedept != null">
+        SECOND_WORKOFF_CHANGEDEPT,
+      </if>
+      <if test="secondWorkOfftime != null">
+        SECOND_WORK_OFFTIME,
+      </if>
+      <if test="threeWorkOff != null">
+        THREE_WORK_OFF,
+      </if>
+      <if test="threeWorkoffType != null">
+        THREE_WORKOFF_TYPE,
+      </if>
+      <if test="threeWorkoffChangeuser != null">
+        THREE_WORKOFF_CHANGEUSER,
+      </if>
+      <if test="threeWorkoffChangedept != null">
+        THREE_WORKOFF_CHANGEDEPT,
+      </if>
+      <if test="threeWorkOfftime != null">
+        THREE_WORK_OFFTIME,
+      </if>
+      <if test="attSumCount != null">
+        ATT_SUM_COUNT,
+      </if>
+      <if test="firstWorkonChangeremark != null">
+        FIRST_WORKON_CHANGEREMARK,
+      </if>
+      <if test="secondWorkonChangeremark != null">
+        SECOND_WORKON_CHANGEREMARK,
+      </if>
+      <if test="threeWorkonChangeremark != null">
+        THREE_WORKON_CHANGEREMARK,
+      </if>
+      <if test="firstWorkoffChangeremark != null">
+        FIRST_WORKOFF_CHANGEREMARK,
+      </if>
+      <if test="secondWorkoffChangeremark != null">
+        SECOND_WORKOFF_CHANGEREMARK,
+      </if>
+      <if test="threeWorkoffChangeremark != null">
+        THREE_WORKOFF_CHANGEREMARK,
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID,
+      </if>
+      <if test="firstWorkOnconfigtime != null">
+        FIRST_WORK_ONCONFIGTIME,
+      </if>
+      <if test="firstWorkOffconfigtime != null">
+        FIRST_WORK_OFFCONFIGTIME,
+      </if>
+      <if test="secondWorkOnconfigtime != null">
+        SECOND_WORK_ONCONFIGTIME,
+      </if>
+      <if test="secondWorkOffconfigtime != null">
+        SECOND_WORK_OFFCONFIGTIME,
+      </if>
+      <if test="threeWorkOnconfigtime != null">
+        THREE_WORK_ONCONFIGTIME,
+      </if>
+      <if test="threeWorkOffconfigtime != null">
+        THREE_WORK_OFFCONFIGTIME,
+      </if>
+      <if test="attClassType != null">
+        ATT_CLASS_TYPE,
+      </if>
+      <if test="attGrName != null">
+        ATT_GR_NAME,
+      </if>
+      <if test="firstWorkonAttWay != null">
+        FIRST_WORKON_ATT_WAY,
+      </if>
+      <if test="firstWorkonWifiId != null">
+        FIRST_WORKON_WIFI_ID,
+      </if>
+      <if test="firstWorkonAttWifiSsid != null">
+        FIRST_WORKON_ATT_WIFI_SSID,
+      </if>
+      <if test="firstWorkonAttWifiMac != null">
+        FIRST_WORKON_ATT_WIFI_MAC,
+      </if>
+      <if test="firstWorkoffAttWay != null">
+        FIRST_WORKOFF_ATT_WAY,
+      </if>
+      <if test="firstWorkoffWifiId != null">
+        FIRST_WORKOFF_WIFI_ID,
+      </if>
+      <if test="firstWorkoffAttWifiSsid != null">
+        FIRST_WORKOFF_ATT_WIFI_SSID,
+      </if>
+      <if test="firstWorkoffAttWifiMac != null">
+        FIRST_WORKOFF_ATT_WIFI_MAC,
+      </if>
+      <if test="secondWorkonAttWay != null">
+        SECOND_WORKON_ATT_WAY,
+      </if>
+      <if test="secondWorkonWifiId != null">
+        SECOND_WORKON_WIFI_ID,
+      </if>
+      <if test="secondWorkonAttWifiSsid != null">
+        SECOND_WORKON_ATT_WIFI_SSID,
+      </if>
+      <if test="secondWorkonAttWifiMac != null">
+        SECOND_WORKON_ATT_WIFI_MAC,
+      </if>
+      <if test="secondWorkoffAttWay != null">
+        SECOND_WORKOFF_ATT_WAY,
+      </if>
+      <if test="secondWorkoffWifiId != null">
+        SECOND_WORKOFF_WIFI_ID,
+      </if>
+      <if test="secondWorkoffAttWifiSsid != null">
+        SECOND_WORKOFF_ATT_WIFI_SSID,
+      </if>
+      <if test="secondWorkoffAttWifiMac != null">
+        SECOND_WORKOFF_ATT_WIFI_MAC,
+      </if>
+      <if test="threeWorkonAttWay != null">
+        THREE_WORKON_ATT_WAY,
+      </if>
+      <if test="threeWorkonWifiId != null">
+        THREE_WORKON_WIFI_ID,
+      </if>
+      <if test="threeWorkonAttWifiSsid != null">
+        THREE_WORKON_ATT_WIFI_SSID,
+      </if>
+      <if test="threeWorkonAttWifiMac != null">
+        THREE_WORKON_ATT_WIFI_MAC,
+      </if>
+      <if test="threeWorkoffAttWay != null">
+        THREE_WORKOFF_ATT_WAY,
+      </if>
+      <if test="threeWorkoffWifiId != null">
+        THREE_WORKOFF_WIFI_ID,
+      </if>
+      <if test="threeWorkoffAttWifiSsid != null">
+        THREE_WORKOFF_ATT_WIFI_SSID,
+      </if>
+      <if test="threeWorkoffAttWifiMac != null">
+        THREE_WORKOFF_ATT_WIFI_MAC,
+      </if>
+      <if test="firstWorkonChangedate != null">
+        FIRST_WORKON_CHANGEDATE,
+      </if>
+      <if test="secondWorkonChangedate != null">
+        SECOND_WORKON_CHANGEDATE,
+      </if>
+      <if test="threeWorkonChangedate != null">
+        THREE_WORKON_CHANGEDATE,
+      </if>
+      <if test="firstWorkoffChangedate != null">
+        FIRST_WORKOFF_CHANGEDATE,
+      </if>
+      <if test="secondWorkoffChangedate != null">
+        SECOND_WORKOFF_CHANGEDATE,
+      </if>
+      <if test="threeWorkoffChangedate != null">
+        THREE_WORKOFF_CHANGEDATE,
+      </if>
+      <if test="firstWorkonAuditId != null">
+        FIRST_WORKON_AUDIT_ID,
+      </if>
+      <if test="secondWorkonAuditId != null">
+        SECOND_WORKON_AUDIT_ID,
+      </if>
+      <if test="threeWorkonAuditId != null">
+        THREE_WORKON_AUDIT_ID,
+      </if>
+      <if test="firstWorkoffAuditId != null">
+        FIRST_WORKOFF_AUDIT_ID,
+      </if>
+      <if test="secondWorkoffAuditId != null">
+        SECOND_WORKOFF_AUDIT_ID,
+      </if>
+      <if test="threeWorkoffAuditId != null">
+        THREE_WORKOFF_AUDIT_ID,
+      </if>
+      <if test="firstWorkonLeaveName != null">
+        FIRST_WORKON_LEAVE_NAME,
+      </if>
+      <if test="secondWorkonLeaveName != null">
+        SECOND_WORKON_LEAVE_NAME,
+      </if>
+      <if test="threeWorkonLeaveName != null">
+        THREE_WORKON_LEAVE_NAME,
+      </if>
+      <if test="firstWorkoffLeaveName != null">
+        FIRST_WORKOFF_LEAVE_NAME,
+      </if>
+      <if test="secondWorkoffLeaveName != null">
+        SECOND_WORKOFF_LEAVE_NAME,
+      </if>
+      <if test="threeWorkoffLeaveName != null">
+        THREE_WORKOFF_LEAVE_NAME,
+      </if>
+      <if test="firstWorkonClassId != null">
+        FIRST_WORKON_CLASS_ID,
+      </if>
+      <if test="secondWorkonClassId != null">
+        SECOND_WORKON_CLASS_ID,
+      </if>
+      <if test="threeWorkonClassId != null">
+        THREE_WORKON_CLASS_ID,
+      </if>
+      <if test="firstWorkoffClassId != null">
+        FIRST_WORKOFF_CLASS_ID,
+      </if>
+      <if test="secondWorkoffClassId != null">
+        SECOND_WORKOFF_CLASS_ID,
+      </if>
+      <if test="threeWorkoffClassId != null">
+        THREE_WORKOFF_CLASS_ID,
+      </if>
+      <if test="attendanceClassTimeSegment != null">
+        ATTENDANCE_CLASS_TIME_SEGMENT,
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="compId != null">
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attDate != null">
+        #{attDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attGrId != null">
+        #{attGrId,jdbcType=INTEGER},
+      </if>
+      <if test="attClassId != null">
+        #{attClassId,jdbcType=INTEGER},
+      </if>
+      <if test="attClassName != null">
+        #{attClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassClocktime != null">
+        #{attClassClocktime,jdbcType=VARCHAR},
+      </if>
+      <if test="offWork != null">
+        #{offWork,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkOn != null">
+        #{firstWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonType != null">
+        #{firstWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonChangeuser != null">
+        #{firstWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkonChangedept != null">
+        #{firstWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkOntime != null">
+        #{firstWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkOn != null">
+        #{secondWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkonType != null">
+        #{secondWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkonChangeuser != null">
+        #{secondWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonChangedept != null">
+        #{secondWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkOntime != null">
+        #{secondWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkOn != null">
+        #{threeWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkonType != null">
+        #{threeWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkonChangeuser != null">
+        #{threeWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonChangedept != null">
+        #{threeWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkOntime != null">
+        #{threeWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstWorkOff != null">
+        #{firstWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkoffType != null">
+        #{firstWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkoffChangeuser != null">
+        #{firstWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffChangedept != null">
+        #{firstWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkOfftime != null">
+        #{firstWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkOff != null">
+        #{secondWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkoffType != null">
+        #{secondWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkoffChangeuser != null">
+        #{secondWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffChangedept != null">
+        #{secondWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkOfftime != null">
+        #{secondWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkOff != null">
+        #{threeWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkoffType != null">
+        #{threeWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkoffChangeuser != null">
+        #{threeWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffChangedept != null">
+        #{threeWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkOfftime != null">
+        #{threeWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attSumCount != null">
+        #{attSumCount,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonChangeremark != null">
+        #{firstWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonChangeremark != null">
+        #{secondWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonChangeremark != null">
+        #{threeWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffChangeremark != null">
+        #{firstWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffChangeremark != null">
+        #{secondWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffChangeremark != null">
+        #{threeWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkOnconfigtime != null">
+        #{firstWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkOffconfigtime != null">
+        #{firstWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkOnconfigtime != null">
+        #{secondWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkOffconfigtime != null">
+        #{secondWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkOnconfigtime != null">
+        #{threeWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkOffconfigtime != null">
+        #{threeWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassType != null">
+        #{attClassType,jdbcType=TINYINT},
+      </if>
+      <if test="attGrName != null">
+        #{attGrName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonAttWay != null">
+        #{firstWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonWifiId != null">
+        #{firstWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkonAttWifiSsid != null">
+        #{firstWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonAttWifiMac != null">
+        #{firstWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffAttWay != null">
+        #{firstWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkoffWifiId != null">
+        #{firstWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffAttWifiSsid != null">
+        #{firstWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffAttWifiMac != null">
+        #{firstWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonAttWay != null">
+        #{secondWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkonWifiId != null">
+        #{secondWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonAttWifiSsid != null">
+        #{secondWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonAttWifiMac != null">
+        #{secondWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffAttWay != null">
+        #{secondWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkoffWifiId != null">
+        #{secondWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffAttWifiSsid != null">
+        #{secondWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffAttWifiMac != null">
+        #{secondWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonAttWay != null">
+        #{threeWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkonWifiId != null">
+        #{threeWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonAttWifiSsid != null">
+        #{threeWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonAttWifiMac != null">
+        #{threeWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffAttWay != null">
+        #{threeWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkoffWifiId != null">
+        #{threeWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffAttWifiSsid != null">
+        #{threeWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffAttWifiMac != null">
+        #{threeWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonChangedate != null">
+        #{firstWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkonChangedate != null">
+        #{secondWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkonChangedate != null">
+        #{threeWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstWorkoffChangedate != null">
+        #{firstWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkoffChangedate != null">
+        #{secondWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkoffChangedate != null">
+        #{threeWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstWorkonAuditId != null">
+        #{firstWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonAuditId != null">
+        #{secondWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonAuditId != null">
+        #{threeWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffAuditId != null">
+        #{firstWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffAuditId != null">
+        #{secondWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffAuditId != null">
+        #{threeWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkonLeaveName != null">
+        #{firstWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonLeaveName != null">
+        #{secondWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonLeaveName != null">
+        #{threeWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffLeaveName != null">
+        #{firstWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffLeaveName != null">
+        #{secondWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffLeaveName != null">
+        #{threeWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonClassId != null">
+        #{firstWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonClassId != null">
+        #{secondWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonClassId != null">
+        #{threeWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffClassId != null">
+        #{firstWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffClassId != null">
+        #{secondWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffClassId != null">
+        #{threeWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="attendanceClassTimeSegment != null">
+        #{attendanceClassTimeSegment,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationPath != null">
+        #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatisticsExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_ATTENDANCE_STATISTICS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_STATISTICS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null">
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null">
+        AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.regId != null">
+        REG_ID = #{record.regId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null">
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.grId != null">
+        GR_ID = #{record.grId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.attDate != null">
+        ATT_DATE = #{record.attDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.attGrId != null">
+        ATT_GR_ID = #{record.attGrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attClassId != null">
+        ATT_ClASS_ID = #{record.attClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attClassName != null">
+        ATT_ClASS_NAME = #{record.attClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attClassClocktime != null">
+        ATT_CLASS_CLOCKTIME = #{record.attClassClocktime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.offWork != null">
+        OFF_WORK = #{record.offWork,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkOn != null">
+        FIRST_WORK_ON = #{record.firstWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkonType != null">
+        FIRST_WORKON_TYPE = #{record.firstWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkonChangeuser != null">
+        FIRST_WORKON_CHANGEUSER = #{record.firstWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkonChangedept != null">
+        FIRST_WORKON_CHANGEDEPT = #{record.firstWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkOntime != null">
+        FIRST_WORK_ONTIME = #{record.firstWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondWorkOn != null">
+        SECOND_WORK_ON = #{record.secondWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="record.secondWorkonType != null">
+        SECOND_WORKON_TYPE = #{record.secondWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="record.secondWorkonChangeuser != null">
+        SECOND_WORKON_CHANGEUSER = #{record.secondWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkonChangedept != null">
+        SECOND_WORKON_CHANGEDEPT = #{record.secondWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkOntime != null">
+        SECOND_WORK_ONTIME = #{record.secondWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.threeWorkOn != null">
+        THREE_WORK_ON = #{record.threeWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="record.threeWorkonType != null">
+        THREE_WORKON_TYPE = #{record.threeWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="record.threeWorkonChangeuser != null">
+        THREE_WORKON_CHANGEUSER = #{record.threeWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkonChangedept != null">
+        THREE_WORKON_CHANGEDEPT = #{record.threeWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkOntime != null">
+        THREE_WORK_ONTIME = #{record.threeWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firstWorkOff != null">
+        FIRST_WORK_OFF = #{record.firstWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkoffType != null">
+        FIRST_WORKOFF_TYPE = #{record.firstWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkoffChangeuser != null">
+        FIRST_WORKOFF_CHANGEUSER = #{record.firstWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkoffChangedept != null">
+        FIRST_WORKOFF_CHANGEDEPT = #{record.firstWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkOfftime != null">
+        FIRST_WORK_OFFTIME = #{record.firstWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondWorkOff != null">
+        SECOND_WORK_OFF = #{record.secondWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="record.secondWorkoffType != null">
+        SECOND_WORKOFF_TYPE = #{record.secondWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="record.secondWorkoffChangeuser != null">
+        SECOND_WORKOFF_CHANGEUSER = #{record.secondWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkoffChangedept != null">
+        SECOND_WORKOFF_CHANGEDEPT = #{record.secondWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkOfftime != null">
+        SECOND_WORK_OFFTIME = #{record.secondWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.threeWorkOff != null">
+        THREE_WORK_OFF = #{record.threeWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="record.threeWorkoffType != null">
+        THREE_WORKOFF_TYPE = #{record.threeWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="record.threeWorkoffChangeuser != null">
+        THREE_WORKOFF_CHANGEUSER = #{record.threeWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkoffChangedept != null">
+        THREE_WORKOFF_CHANGEDEPT = #{record.threeWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkOfftime != null">
+        THREE_WORK_OFFTIME = #{record.threeWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.attSumCount != null">
+        ATT_SUM_COUNT = #{record.attSumCount,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkonChangeremark != null">
+        FIRST_WORKON_CHANGEREMARK = #{record.firstWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkonChangeremark != null">
+        SECOND_WORKON_CHANGEREMARK = #{record.secondWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkonChangeremark != null">
+        THREE_WORKON_CHANGEREMARK = #{record.threeWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkoffChangeremark != null">
+        FIRST_WORKOFF_CHANGEREMARK = #{record.firstWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkoffChangeremark != null">
+        SECOND_WORKOFF_CHANGEREMARK = #{record.secondWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkoffChangeremark != null">
+        THREE_WORKOFF_CHANGEREMARK = #{record.threeWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.archiveId != null">
+        ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkOnconfigtime != null">
+        FIRST_WORK_ONCONFIGTIME = #{record.firstWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkOffconfigtime != null">
+        FIRST_WORK_OFFCONFIGTIME = #{record.firstWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkOnconfigtime != null">
+        SECOND_WORK_ONCONFIGTIME = #{record.secondWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkOffconfigtime != null">
+        SECOND_WORK_OFFCONFIGTIME = #{record.secondWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkOnconfigtime != null">
+        THREE_WORK_ONCONFIGTIME = #{record.threeWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkOffconfigtime != null">
+        THREE_WORK_OFFCONFIGTIME = #{record.threeWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attClassType != null">
+        ATT_CLASS_TYPE = #{record.attClassType,jdbcType=TINYINT},
+      </if>
+      <if test="record.attGrName != null">
+        ATT_GR_NAME = #{record.attGrName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkonAttWay != null">
+        FIRST_WORKON_ATT_WAY = #{record.firstWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkonWifiId != null">
+        FIRST_WORKON_WIFI_ID = #{record.firstWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkonAttWifiSsid != null">
+        FIRST_WORKON_ATT_WIFI_SSID = #{record.firstWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkonAttWifiMac != null">
+        FIRST_WORKON_ATT_WIFI_MAC = #{record.firstWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkoffAttWay != null">
+        FIRST_WORKOFF_ATT_WAY = #{record.firstWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.firstWorkoffWifiId != null">
+        FIRST_WORKOFF_WIFI_ID = #{record.firstWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkoffAttWifiSsid != null">
+        FIRST_WORKOFF_ATT_WIFI_SSID = #{record.firstWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkoffAttWifiMac != null">
+        FIRST_WORKOFF_ATT_WIFI_MAC = #{record.firstWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkonAttWay != null">
+        SECOND_WORKON_ATT_WAY = #{record.secondWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.secondWorkonWifiId != null">
+        SECOND_WORKON_WIFI_ID = #{record.secondWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkonAttWifiSsid != null">
+        SECOND_WORKON_ATT_WIFI_SSID = #{record.secondWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkonAttWifiMac != null">
+        SECOND_WORKON_ATT_WIFI_MAC = #{record.secondWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkoffAttWay != null">
+        SECOND_WORKOFF_ATT_WAY = #{record.secondWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.secondWorkoffWifiId != null">
+        SECOND_WORKOFF_WIFI_ID = #{record.secondWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkoffAttWifiSsid != null">
+        SECOND_WORKOFF_ATT_WIFI_SSID = #{record.secondWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkoffAttWifiMac != null">
+        SECOND_WORKOFF_ATT_WIFI_MAC = #{record.secondWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkonAttWay != null">
+        THREE_WORKON_ATT_WAY = #{record.threeWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.threeWorkonWifiId != null">
+        THREE_WORKON_WIFI_ID = #{record.threeWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkonAttWifiSsid != null">
+        THREE_WORKON_ATT_WIFI_SSID = #{record.threeWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkonAttWifiMac != null">
+        THREE_WORKON_ATT_WIFI_MAC = #{record.threeWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkoffAttWay != null">
+        THREE_WORKOFF_ATT_WAY = #{record.threeWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="record.threeWorkoffWifiId != null">
+        THREE_WORKOFF_WIFI_ID = #{record.threeWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkoffAttWifiSsid != null">
+        THREE_WORKOFF_ATT_WIFI_SSID = #{record.threeWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkoffAttWifiMac != null">
+        THREE_WORKOFF_ATT_WIFI_MAC = #{record.threeWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkonChangedate != null">
+        FIRST_WORKON_CHANGEDATE = #{record.firstWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondWorkonChangedate != null">
+        SECOND_WORKON_CHANGEDATE = #{record.secondWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.threeWorkonChangedate != null">
+        THREE_WORKON_CHANGEDATE = #{record.threeWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firstWorkoffChangedate != null">
+        FIRST_WORKOFF_CHANGEDATE = #{record.firstWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondWorkoffChangedate != null">
+        SECOND_WORKOFF_CHANGEDATE = #{record.secondWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.threeWorkoffChangedate != null">
+        THREE_WORKOFF_CHANGEDATE = #{record.threeWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firstWorkonAuditId != null">
+        FIRST_WORKON_AUDIT_ID = #{record.firstWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkonAuditId != null">
+        SECOND_WORKON_AUDIT_ID = #{record.secondWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkonAuditId != null">
+        THREE_WORKON_AUDIT_ID = #{record.threeWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkoffAuditId != null">
+        FIRST_WORKOFF_AUDIT_ID = #{record.firstWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkoffAuditId != null">
+        SECOND_WORKOFF_AUDIT_ID = #{record.secondWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkoffAuditId != null">
+        THREE_WORKOFF_AUDIT_ID = #{record.threeWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkonLeaveName != null">
+        FIRST_WORKON_LEAVE_NAME = #{record.firstWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkonLeaveName != null">
+        SECOND_WORKON_LEAVE_NAME = #{record.secondWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkonLeaveName != null">
+        THREE_WORKON_LEAVE_NAME = #{record.threeWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkoffLeaveName != null">
+        FIRST_WORKOFF_LEAVE_NAME = #{record.firstWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondWorkoffLeaveName != null">
+        SECOND_WORKOFF_LEAVE_NAME = #{record.secondWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.threeWorkoffLeaveName != null">
+        THREE_WORKOFF_LEAVE_NAME = #{record.threeWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstWorkonClassId != null">
+        FIRST_WORKON_CLASS_ID = #{record.firstWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkonClassId != null">
+        SECOND_WORKON_CLASS_ID = #{record.secondWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkonClassId != null">
+        THREE_WORKON_CLASS_ID = #{record.threeWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstWorkoffClassId != null">
+        FIRST_WORKOFF_CLASS_ID = #{record.firstWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondWorkoffClassId != null">
+        SECOND_WORKOFF_CLASS_ID = #{record.secondWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeWorkoffClassId != null">
+        THREE_WORKOFF_CLASS_ID = #{record.threeWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attendanceClassTimeSegment != null">
+        ATTENDANCE_CLASS_TIME_SEGMENT = #{record.attendanceClassTimeSegment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationPath != null">
+        ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_STATISTICS
+    set ID = #{record.id,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      AREA_ID = #{record.areaId,jdbcType=INTEGER},
+      REG_ID = #{record.regId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      GR_ID = #{record.grId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      ATT_DATE = #{record.attDate,jdbcType=TIMESTAMP},
+      ATT_GR_ID = #{record.attGrId,jdbcType=INTEGER},
+      ATT_ClASS_ID = #{record.attClassId,jdbcType=INTEGER},
+      ATT_ClASS_NAME = #{record.attClassName,jdbcType=VARCHAR},
+      ATT_CLASS_CLOCKTIME = #{record.attClassClocktime,jdbcType=VARCHAR},
+      OFF_WORK = #{record.offWork,jdbcType=TINYINT},
+      FIRST_WORK_ON = #{record.firstWorkOn,jdbcType=TINYINT},
+      FIRST_WORKON_TYPE = #{record.firstWorkonType,jdbcType=TINYINT},
+      FIRST_WORKON_CHANGEUSER = #{record.firstWorkonChangeuser,jdbcType=INTEGER},
+      FIRST_WORKON_CHANGEDEPT = #{record.firstWorkonChangedept,jdbcType=INTEGER},
+      FIRST_WORK_ONTIME = #{record.firstWorkOntime,jdbcType=TIMESTAMP},
+      SECOND_WORK_ON = #{record.secondWorkOn,jdbcType=TINYINT},
+      SECOND_WORKON_TYPE = #{record.secondWorkonType,jdbcType=TINYINT},
+      SECOND_WORKON_CHANGEUSER = #{record.secondWorkonChangeuser,jdbcType=INTEGER},
+      SECOND_WORKON_CHANGEDEPT = #{record.secondWorkonChangedept,jdbcType=INTEGER},
+      SECOND_WORK_ONTIME = #{record.secondWorkOntime,jdbcType=TIMESTAMP},
+      THREE_WORK_ON = #{record.threeWorkOn,jdbcType=TINYINT},
+      THREE_WORKON_TYPE = #{record.threeWorkonType,jdbcType=TINYINT},
+      THREE_WORKON_CHANGEUSER = #{record.threeWorkonChangeuser,jdbcType=INTEGER},
+      THREE_WORKON_CHANGEDEPT = #{record.threeWorkonChangedept,jdbcType=INTEGER},
+      THREE_WORK_ONTIME = #{record.threeWorkOntime,jdbcType=TIMESTAMP},
+      FIRST_WORK_OFF = #{record.firstWorkOff,jdbcType=TINYINT},
+      FIRST_WORKOFF_TYPE = #{record.firstWorkoffType,jdbcType=TINYINT},
+      FIRST_WORKOFF_CHANGEUSER = #{record.firstWorkoffChangeuser,jdbcType=INTEGER},
+      FIRST_WORKOFF_CHANGEDEPT = #{record.firstWorkoffChangedept,jdbcType=INTEGER},
+      FIRST_WORK_OFFTIME = #{record.firstWorkOfftime,jdbcType=TIMESTAMP},
+      SECOND_WORK_OFF = #{record.secondWorkOff,jdbcType=TINYINT},
+      SECOND_WORKOFF_TYPE = #{record.secondWorkoffType,jdbcType=TINYINT},
+      SECOND_WORKOFF_CHANGEUSER = #{record.secondWorkoffChangeuser,jdbcType=INTEGER},
+      SECOND_WORKOFF_CHANGEDEPT = #{record.secondWorkoffChangedept,jdbcType=INTEGER},
+      SECOND_WORK_OFFTIME = #{record.secondWorkOfftime,jdbcType=TIMESTAMP},
+      THREE_WORK_OFF = #{record.threeWorkOff,jdbcType=TINYINT},
+      THREE_WORKOFF_TYPE = #{record.threeWorkoffType,jdbcType=TINYINT},
+      THREE_WORKOFF_CHANGEUSER = #{record.threeWorkoffChangeuser,jdbcType=INTEGER},
+      THREE_WORKOFF_CHANGEDEPT = #{record.threeWorkoffChangedept,jdbcType=INTEGER},
+      THREE_WORK_OFFTIME = #{record.threeWorkOfftime,jdbcType=TIMESTAMP},
+      ATT_SUM_COUNT = #{record.attSumCount,jdbcType=TINYINT},
+      FIRST_WORKON_CHANGEREMARK = #{record.firstWorkonChangeremark,jdbcType=VARCHAR},
+      SECOND_WORKON_CHANGEREMARK = #{record.secondWorkonChangeremark,jdbcType=VARCHAR},
+      THREE_WORKON_CHANGEREMARK = #{record.threeWorkonChangeremark,jdbcType=VARCHAR},
+      FIRST_WORKOFF_CHANGEREMARK = #{record.firstWorkoffChangeremark,jdbcType=VARCHAR},
+      SECOND_WORKOFF_CHANGEREMARK = #{record.secondWorkoffChangeremark,jdbcType=VARCHAR},
+      THREE_WORKOFF_CHANGEREMARK = #{record.threeWorkoffChangeremark,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{record.archiveId,jdbcType=INTEGER},
+      FIRST_WORK_ONCONFIGTIME = #{record.firstWorkOnconfigtime,jdbcType=VARCHAR},
+      FIRST_WORK_OFFCONFIGTIME = #{record.firstWorkOffconfigtime,jdbcType=VARCHAR},
+      SECOND_WORK_ONCONFIGTIME = #{record.secondWorkOnconfigtime,jdbcType=VARCHAR},
+      SECOND_WORK_OFFCONFIGTIME = #{record.secondWorkOffconfigtime,jdbcType=VARCHAR},
+      THREE_WORK_ONCONFIGTIME = #{record.threeWorkOnconfigtime,jdbcType=VARCHAR},
+      THREE_WORK_OFFCONFIGTIME = #{record.threeWorkOffconfigtime,jdbcType=VARCHAR},
+      ATT_CLASS_TYPE = #{record.attClassType,jdbcType=TINYINT},
+      ATT_GR_NAME = #{record.attGrName,jdbcType=VARCHAR},
+      FIRST_WORKON_ATT_WAY = #{record.firstWorkonAttWay,jdbcType=TINYINT},
+      FIRST_WORKON_WIFI_ID = #{record.firstWorkonWifiId,jdbcType=INTEGER},
+      FIRST_WORKON_ATT_WIFI_SSID = #{record.firstWorkonAttWifiSsid,jdbcType=VARCHAR},
+      FIRST_WORKON_ATT_WIFI_MAC = #{record.firstWorkonAttWifiMac,jdbcType=VARCHAR},
+      FIRST_WORKOFF_ATT_WAY = #{record.firstWorkoffAttWay,jdbcType=TINYINT},
+      FIRST_WORKOFF_WIFI_ID = #{record.firstWorkoffWifiId,jdbcType=INTEGER},
+      FIRST_WORKOFF_ATT_WIFI_SSID = #{record.firstWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      FIRST_WORKOFF_ATT_WIFI_MAC = #{record.firstWorkoffAttWifiMac,jdbcType=VARCHAR},
+      SECOND_WORKON_ATT_WAY = #{record.secondWorkonAttWay,jdbcType=TINYINT},
+      SECOND_WORKON_WIFI_ID = #{record.secondWorkonWifiId,jdbcType=INTEGER},
+      SECOND_WORKON_ATT_WIFI_SSID = #{record.secondWorkonAttWifiSsid,jdbcType=VARCHAR},
+      SECOND_WORKON_ATT_WIFI_MAC = #{record.secondWorkonAttWifiMac,jdbcType=VARCHAR},
+      SECOND_WORKOFF_ATT_WAY = #{record.secondWorkoffAttWay,jdbcType=TINYINT},
+      SECOND_WORKOFF_WIFI_ID = #{record.secondWorkoffWifiId,jdbcType=INTEGER},
+      SECOND_WORKOFF_ATT_WIFI_SSID = #{record.secondWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      SECOND_WORKOFF_ATT_WIFI_MAC = #{record.secondWorkoffAttWifiMac,jdbcType=VARCHAR},
+      THREE_WORKON_ATT_WAY = #{record.threeWorkonAttWay,jdbcType=TINYINT},
+      THREE_WORKON_WIFI_ID = #{record.threeWorkonWifiId,jdbcType=INTEGER},
+      THREE_WORKON_ATT_WIFI_SSID = #{record.threeWorkonAttWifiSsid,jdbcType=VARCHAR},
+      THREE_WORKON_ATT_WIFI_MAC = #{record.threeWorkonAttWifiMac,jdbcType=VARCHAR},
+      THREE_WORKOFF_ATT_WAY = #{record.threeWorkoffAttWay,jdbcType=TINYINT},
+      THREE_WORKOFF_WIFI_ID = #{record.threeWorkoffWifiId,jdbcType=INTEGER},
+      THREE_WORKOFF_ATT_WIFI_SSID = #{record.threeWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      THREE_WORKOFF_ATT_WIFI_MAC = #{record.threeWorkoffAttWifiMac,jdbcType=VARCHAR},
+      FIRST_WORKON_CHANGEDATE = #{record.firstWorkonChangedate,jdbcType=TIMESTAMP},
+      SECOND_WORKON_CHANGEDATE = #{record.secondWorkonChangedate,jdbcType=TIMESTAMP},
+      THREE_WORKON_CHANGEDATE = #{record.threeWorkonChangedate,jdbcType=TIMESTAMP},
+      FIRST_WORKOFF_CHANGEDATE = #{record.firstWorkoffChangedate,jdbcType=TIMESTAMP},
+      SECOND_WORKOFF_CHANGEDATE = #{record.secondWorkoffChangedate,jdbcType=TIMESTAMP},
+      THREE_WORKOFF_CHANGEDATE = #{record.threeWorkoffChangedate,jdbcType=TIMESTAMP},
+      FIRST_WORKON_AUDIT_ID = #{record.firstWorkonAuditId,jdbcType=INTEGER},
+      SECOND_WORKON_AUDIT_ID = #{record.secondWorkonAuditId,jdbcType=INTEGER},
+      THREE_WORKON_AUDIT_ID = #{record.threeWorkonAuditId,jdbcType=INTEGER},
+      FIRST_WORKOFF_AUDIT_ID = #{record.firstWorkoffAuditId,jdbcType=INTEGER},
+      SECOND_WORKOFF_AUDIT_ID = #{record.secondWorkoffAuditId,jdbcType=INTEGER},
+      THREE_WORKOFF_AUDIT_ID = #{record.threeWorkoffAuditId,jdbcType=INTEGER},
+      FIRST_WORKON_LEAVE_NAME = #{record.firstWorkonLeaveName,jdbcType=VARCHAR},
+      SECOND_WORKON_LEAVE_NAME = #{record.secondWorkonLeaveName,jdbcType=VARCHAR},
+      THREE_WORKON_LEAVE_NAME = #{record.threeWorkonLeaveName,jdbcType=VARCHAR},
+      FIRST_WORKOFF_LEAVE_NAME = #{record.firstWorkoffLeaveName,jdbcType=VARCHAR},
+      SECOND_WORKOFF_LEAVE_NAME = #{record.secondWorkoffLeaveName,jdbcType=VARCHAR},
+      THREE_WORKOFF_LEAVE_NAME = #{record.threeWorkoffLeaveName,jdbcType=VARCHAR},
+      FIRST_WORKON_CLASS_ID = #{record.firstWorkonClassId,jdbcType=INTEGER},
+      SECOND_WORKON_CLASS_ID = #{record.secondWorkonClassId,jdbcType=INTEGER},
+      THREE_WORKON_CLASS_ID = #{record.threeWorkonClassId,jdbcType=INTEGER},
+      FIRST_WORKOFF_CLASS_ID = #{record.firstWorkoffClassId,jdbcType=INTEGER},
+      SECOND_WORKOFF_CLASS_ID = #{record.secondWorkoffClassId,jdbcType=INTEGER},
+      THREE_WORKOFF_CLASS_ID = #{record.threeWorkoffClassId,jdbcType=INTEGER},
+      ATTENDANCE_CLASS_TIME_SEGMENT = #{record.attendanceClassTimeSegment,jdbcType=VARCHAR},
+      ORGANIZATION_PATH = #{record.organizationPath,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatistics">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_STATISTICS
+    <set>
+      <if test="compId != null">
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null">
+        REG_ID = #{regId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="grId != null">
+        GR_ID = #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attDate != null">
+        ATT_DATE = #{attDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attGrId != null">
+        ATT_GR_ID = #{attGrId,jdbcType=INTEGER},
+      </if>
+      <if test="attClassId != null">
+        ATT_ClASS_ID = #{attClassId,jdbcType=INTEGER},
+      </if>
+      <if test="attClassName != null">
+        ATT_ClASS_NAME = #{attClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassClocktime != null">
+        ATT_CLASS_CLOCKTIME = #{attClassClocktime,jdbcType=VARCHAR},
+      </if>
+      <if test="offWork != null">
+        OFF_WORK = #{offWork,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkOn != null">
+        FIRST_WORK_ON = #{firstWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonType != null">
+        FIRST_WORKON_TYPE = #{firstWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonChangeuser != null">
+        FIRST_WORKON_CHANGEUSER = #{firstWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkonChangedept != null">
+        FIRST_WORKON_CHANGEDEPT = #{firstWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkOntime != null">
+        FIRST_WORK_ONTIME = #{firstWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkOn != null">
+        SECOND_WORK_ON = #{secondWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkonType != null">
+        SECOND_WORKON_TYPE = #{secondWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkonChangeuser != null">
+        SECOND_WORKON_CHANGEUSER = #{secondWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonChangedept != null">
+        SECOND_WORKON_CHANGEDEPT = #{secondWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkOntime != null">
+        SECOND_WORK_ONTIME = #{secondWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkOn != null">
+        THREE_WORK_ON = #{threeWorkOn,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkonType != null">
+        THREE_WORKON_TYPE = #{threeWorkonType,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkonChangeuser != null">
+        THREE_WORKON_CHANGEUSER = #{threeWorkonChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonChangedept != null">
+        THREE_WORKON_CHANGEDEPT = #{threeWorkonChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkOntime != null">
+        THREE_WORK_ONTIME = #{threeWorkOntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstWorkOff != null">
+        FIRST_WORK_OFF = #{firstWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkoffType != null">
+        FIRST_WORKOFF_TYPE = #{firstWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkoffChangeuser != null">
+        FIRST_WORKOFF_CHANGEUSER = #{firstWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffChangedept != null">
+        FIRST_WORKOFF_CHANGEDEPT = #{firstWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkOfftime != null">
+        FIRST_WORK_OFFTIME = #{firstWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkOff != null">
+        SECOND_WORK_OFF = #{secondWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkoffType != null">
+        SECOND_WORKOFF_TYPE = #{secondWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkoffChangeuser != null">
+        SECOND_WORKOFF_CHANGEUSER = #{secondWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffChangedept != null">
+        SECOND_WORKOFF_CHANGEDEPT = #{secondWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkOfftime != null">
+        SECOND_WORK_OFFTIME = #{secondWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkOff != null">
+        THREE_WORK_OFF = #{threeWorkOff,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkoffType != null">
+        THREE_WORKOFF_TYPE = #{threeWorkoffType,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkoffChangeuser != null">
+        THREE_WORKOFF_CHANGEUSER = #{threeWorkoffChangeuser,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffChangedept != null">
+        THREE_WORKOFF_CHANGEDEPT = #{threeWorkoffChangedept,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkOfftime != null">
+        THREE_WORK_OFFTIME = #{threeWorkOfftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attSumCount != null">
+        ATT_SUM_COUNT = #{attSumCount,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonChangeremark != null">
+        FIRST_WORKON_CHANGEREMARK = #{firstWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonChangeremark != null">
+        SECOND_WORKON_CHANGEREMARK = #{secondWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonChangeremark != null">
+        THREE_WORKON_CHANGEREMARK = #{threeWorkonChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffChangeremark != null">
+        FIRST_WORKOFF_CHANGEREMARK = #{firstWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffChangeremark != null">
+        SECOND_WORKOFF_CHANGEREMARK = #{secondWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffChangeremark != null">
+        THREE_WORKOFF_CHANGEREMARK = #{threeWorkoffChangeremark,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkOnconfigtime != null">
+        FIRST_WORK_ONCONFIGTIME = #{firstWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkOffconfigtime != null">
+        FIRST_WORK_OFFCONFIGTIME = #{firstWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkOnconfigtime != null">
+        SECOND_WORK_ONCONFIGTIME = #{secondWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkOffconfigtime != null">
+        SECOND_WORK_OFFCONFIGTIME = #{secondWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkOnconfigtime != null">
+        THREE_WORK_ONCONFIGTIME = #{threeWorkOnconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkOffconfigtime != null">
+        THREE_WORK_OFFCONFIGTIME = #{threeWorkOffconfigtime,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassType != null">
+        ATT_CLASS_TYPE = #{attClassType,jdbcType=TINYINT},
+      </if>
+      <if test="attGrName != null">
+        ATT_GR_NAME = #{attGrName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonAttWay != null">
+        FIRST_WORKON_ATT_WAY = #{firstWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkonWifiId != null">
+        FIRST_WORKON_WIFI_ID = #{firstWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkonAttWifiSsid != null">
+        FIRST_WORKON_ATT_WIFI_SSID = #{firstWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonAttWifiMac != null">
+        FIRST_WORKON_ATT_WIFI_MAC = #{firstWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffAttWay != null">
+        FIRST_WORKOFF_ATT_WAY = #{firstWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="firstWorkoffWifiId != null">
+        FIRST_WORKOFF_WIFI_ID = #{firstWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffAttWifiSsid != null">
+        FIRST_WORKOFF_ATT_WIFI_SSID = #{firstWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffAttWifiMac != null">
+        FIRST_WORKOFF_ATT_WIFI_MAC = #{firstWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonAttWay != null">
+        SECOND_WORKON_ATT_WAY = #{secondWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkonWifiId != null">
+        SECOND_WORKON_WIFI_ID = #{secondWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonAttWifiSsid != null">
+        SECOND_WORKON_ATT_WIFI_SSID = #{secondWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonAttWifiMac != null">
+        SECOND_WORKON_ATT_WIFI_MAC = #{secondWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffAttWay != null">
+        SECOND_WORKOFF_ATT_WAY = #{secondWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="secondWorkoffWifiId != null">
+        SECOND_WORKOFF_WIFI_ID = #{secondWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffAttWifiSsid != null">
+        SECOND_WORKOFF_ATT_WIFI_SSID = #{secondWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffAttWifiMac != null">
+        SECOND_WORKOFF_ATT_WIFI_MAC = #{secondWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonAttWay != null">
+        THREE_WORKON_ATT_WAY = #{threeWorkonAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkonWifiId != null">
+        THREE_WORKON_WIFI_ID = #{threeWorkonWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonAttWifiSsid != null">
+        THREE_WORKON_ATT_WIFI_SSID = #{threeWorkonAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonAttWifiMac != null">
+        THREE_WORKON_ATT_WIFI_MAC = #{threeWorkonAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffAttWay != null">
+        THREE_WORKOFF_ATT_WAY = #{threeWorkoffAttWay,jdbcType=TINYINT},
+      </if>
+      <if test="threeWorkoffWifiId != null">
+        THREE_WORKOFF_WIFI_ID = #{threeWorkoffWifiId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffAttWifiSsid != null">
+        THREE_WORKOFF_ATT_WIFI_SSID = #{threeWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffAttWifiMac != null">
+        THREE_WORKOFF_ATT_WIFI_MAC = #{threeWorkoffAttWifiMac,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonChangedate != null">
+        FIRST_WORKON_CHANGEDATE = #{firstWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkonChangedate != null">
+        SECOND_WORKON_CHANGEDATE = #{secondWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkonChangedate != null">
+        THREE_WORKON_CHANGEDATE = #{threeWorkonChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstWorkoffChangedate != null">
+        FIRST_WORKOFF_CHANGEDATE = #{firstWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondWorkoffChangedate != null">
+        SECOND_WORKOFF_CHANGEDATE = #{secondWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="threeWorkoffChangedate != null">
+        THREE_WORKOFF_CHANGEDATE = #{threeWorkoffChangedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstWorkonAuditId != null">
+        FIRST_WORKON_AUDIT_ID = #{firstWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonAuditId != null">
+        SECOND_WORKON_AUDIT_ID = #{secondWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonAuditId != null">
+        THREE_WORKON_AUDIT_ID = #{threeWorkonAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffAuditId != null">
+        FIRST_WORKOFF_AUDIT_ID = #{firstWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffAuditId != null">
+        SECOND_WORKOFF_AUDIT_ID = #{secondWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffAuditId != null">
+        THREE_WORKOFF_AUDIT_ID = #{threeWorkoffAuditId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkonLeaveName != null">
+        FIRST_WORKON_LEAVE_NAME = #{firstWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkonLeaveName != null">
+        SECOND_WORKON_LEAVE_NAME = #{secondWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkonLeaveName != null">
+        THREE_WORKON_LEAVE_NAME = #{threeWorkonLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkoffLeaveName != null">
+        FIRST_WORKOFF_LEAVE_NAME = #{firstWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="secondWorkoffLeaveName != null">
+        SECOND_WORKOFF_LEAVE_NAME = #{secondWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="threeWorkoffLeaveName != null">
+        THREE_WORKOFF_LEAVE_NAME = #{threeWorkoffLeaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWorkonClassId != null">
+        FIRST_WORKON_CLASS_ID = #{firstWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkonClassId != null">
+        SECOND_WORKON_CLASS_ID = #{secondWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkonClassId != null">
+        THREE_WORKON_CLASS_ID = #{threeWorkonClassId,jdbcType=INTEGER},
+      </if>
+      <if test="firstWorkoffClassId != null">
+        FIRST_WORKOFF_CLASS_ID = #{firstWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="secondWorkoffClassId != null">
+        SECOND_WORKOFF_CLASS_ID = #{secondWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="threeWorkoffClassId != null">
+        THREE_WORKOFF_CLASS_ID = #{threeWorkoffClassId,jdbcType=INTEGER},
+      </if>
+      <if test="attendanceClassTimeSegment != null">
+        ATTENDANCE_CLASS_TIME_SEGMENT = #{attendanceClassTimeSegment,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationPath != null">
+        ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatistics">
+    <!--@mbggenerated-->
+    update FUN_ATTENDANCE_STATISTICS
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      REG_ID = #{regId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      GR_ID = #{grId,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      ATT_DATE = #{attDate,jdbcType=TIMESTAMP},
+      ATT_GR_ID = #{attGrId,jdbcType=INTEGER},
+      ATT_ClASS_ID = #{attClassId,jdbcType=INTEGER},
+      ATT_ClASS_NAME = #{attClassName,jdbcType=VARCHAR},
+      ATT_CLASS_CLOCKTIME = #{attClassClocktime,jdbcType=VARCHAR},
+      OFF_WORK = #{offWork,jdbcType=TINYINT},
+      FIRST_WORK_ON = #{firstWorkOn,jdbcType=TINYINT},
+      FIRST_WORKON_TYPE = #{firstWorkonType,jdbcType=TINYINT},
+      FIRST_WORKON_CHANGEUSER = #{firstWorkonChangeuser,jdbcType=INTEGER},
+      FIRST_WORKON_CHANGEDEPT = #{firstWorkonChangedept,jdbcType=INTEGER},
+      FIRST_WORK_ONTIME = #{firstWorkOntime,jdbcType=TIMESTAMP},
+      SECOND_WORK_ON = #{secondWorkOn,jdbcType=TINYINT},
+      SECOND_WORKON_TYPE = #{secondWorkonType,jdbcType=TINYINT},
+      SECOND_WORKON_CHANGEUSER = #{secondWorkonChangeuser,jdbcType=INTEGER},
+      SECOND_WORKON_CHANGEDEPT = #{secondWorkonChangedept,jdbcType=INTEGER},
+      SECOND_WORK_ONTIME = #{secondWorkOntime,jdbcType=TIMESTAMP},
+      THREE_WORK_ON = #{threeWorkOn,jdbcType=TINYINT},
+      THREE_WORKON_TYPE = #{threeWorkonType,jdbcType=TINYINT},
+      THREE_WORKON_CHANGEUSER = #{threeWorkonChangeuser,jdbcType=INTEGER},
+      THREE_WORKON_CHANGEDEPT = #{threeWorkonChangedept,jdbcType=INTEGER},
+      THREE_WORK_ONTIME = #{threeWorkOntime,jdbcType=TIMESTAMP},
+      FIRST_WORK_OFF = #{firstWorkOff,jdbcType=TINYINT},
+      FIRST_WORKOFF_TYPE = #{firstWorkoffType,jdbcType=TINYINT},
+      FIRST_WORKOFF_CHANGEUSER = #{firstWorkoffChangeuser,jdbcType=INTEGER},
+      FIRST_WORKOFF_CHANGEDEPT = #{firstWorkoffChangedept,jdbcType=INTEGER},
+      FIRST_WORK_OFFTIME = #{firstWorkOfftime,jdbcType=TIMESTAMP},
+      SECOND_WORK_OFF = #{secondWorkOff,jdbcType=TINYINT},
+      SECOND_WORKOFF_TYPE = #{secondWorkoffType,jdbcType=TINYINT},
+      SECOND_WORKOFF_CHANGEUSER = #{secondWorkoffChangeuser,jdbcType=INTEGER},
+      SECOND_WORKOFF_CHANGEDEPT = #{secondWorkoffChangedept,jdbcType=INTEGER},
+      SECOND_WORK_OFFTIME = #{secondWorkOfftime,jdbcType=TIMESTAMP},
+      THREE_WORK_OFF = #{threeWorkOff,jdbcType=TINYINT},
+      THREE_WORKOFF_TYPE = #{threeWorkoffType,jdbcType=TINYINT},
+      THREE_WORKOFF_CHANGEUSER = #{threeWorkoffChangeuser,jdbcType=INTEGER},
+      THREE_WORKOFF_CHANGEDEPT = #{threeWorkoffChangedept,jdbcType=INTEGER},
+      THREE_WORK_OFFTIME = #{threeWorkOfftime,jdbcType=TIMESTAMP},
+      ATT_SUM_COUNT = #{attSumCount,jdbcType=TINYINT},
+      FIRST_WORKON_CHANGEREMARK = #{firstWorkonChangeremark,jdbcType=VARCHAR},
+      SECOND_WORKON_CHANGEREMARK = #{secondWorkonChangeremark,jdbcType=VARCHAR},
+      THREE_WORKON_CHANGEREMARK = #{threeWorkonChangeremark,jdbcType=VARCHAR},
+      FIRST_WORKOFF_CHANGEREMARK = #{firstWorkoffChangeremark,jdbcType=VARCHAR},
+      SECOND_WORKOFF_CHANGEREMARK = #{secondWorkoffChangeremark,jdbcType=VARCHAR},
+      THREE_WORKOFF_CHANGEREMARK = #{threeWorkoffChangeremark,jdbcType=VARCHAR},
+      ARCHIVE_ID = #{archiveId,jdbcType=INTEGER},
+      FIRST_WORK_ONCONFIGTIME = #{firstWorkOnconfigtime,jdbcType=VARCHAR},
+      FIRST_WORK_OFFCONFIGTIME = #{firstWorkOffconfigtime,jdbcType=VARCHAR},
+      SECOND_WORK_ONCONFIGTIME = #{secondWorkOnconfigtime,jdbcType=VARCHAR},
+      SECOND_WORK_OFFCONFIGTIME = #{secondWorkOffconfigtime,jdbcType=VARCHAR},
+      THREE_WORK_ONCONFIGTIME = #{threeWorkOnconfigtime,jdbcType=VARCHAR},
+      THREE_WORK_OFFCONFIGTIME = #{threeWorkOffconfigtime,jdbcType=VARCHAR},
+      ATT_CLASS_TYPE = #{attClassType,jdbcType=TINYINT},
+      ATT_GR_NAME = #{attGrName,jdbcType=VARCHAR},
+      FIRST_WORKON_ATT_WAY = #{firstWorkonAttWay,jdbcType=TINYINT},
+      FIRST_WORKON_WIFI_ID = #{firstWorkonWifiId,jdbcType=INTEGER},
+      FIRST_WORKON_ATT_WIFI_SSID = #{firstWorkonAttWifiSsid,jdbcType=VARCHAR},
+      FIRST_WORKON_ATT_WIFI_MAC = #{firstWorkonAttWifiMac,jdbcType=VARCHAR},
+      FIRST_WORKOFF_ATT_WAY = #{firstWorkoffAttWay,jdbcType=TINYINT},
+      FIRST_WORKOFF_WIFI_ID = #{firstWorkoffWifiId,jdbcType=INTEGER},
+      FIRST_WORKOFF_ATT_WIFI_SSID = #{firstWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      FIRST_WORKOFF_ATT_WIFI_MAC = #{firstWorkoffAttWifiMac,jdbcType=VARCHAR},
+      SECOND_WORKON_ATT_WAY = #{secondWorkonAttWay,jdbcType=TINYINT},
+      SECOND_WORKON_WIFI_ID = #{secondWorkonWifiId,jdbcType=INTEGER},
+      SECOND_WORKON_ATT_WIFI_SSID = #{secondWorkonAttWifiSsid,jdbcType=VARCHAR},
+      SECOND_WORKON_ATT_WIFI_MAC = #{secondWorkonAttWifiMac,jdbcType=VARCHAR},
+      SECOND_WORKOFF_ATT_WAY = #{secondWorkoffAttWay,jdbcType=TINYINT},
+      SECOND_WORKOFF_WIFI_ID = #{secondWorkoffWifiId,jdbcType=INTEGER},
+      SECOND_WORKOFF_ATT_WIFI_SSID = #{secondWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      SECOND_WORKOFF_ATT_WIFI_MAC = #{secondWorkoffAttWifiMac,jdbcType=VARCHAR},
+      THREE_WORKON_ATT_WAY = #{threeWorkonAttWay,jdbcType=TINYINT},
+      THREE_WORKON_WIFI_ID = #{threeWorkonWifiId,jdbcType=INTEGER},
+      THREE_WORKON_ATT_WIFI_SSID = #{threeWorkonAttWifiSsid,jdbcType=VARCHAR},
+      THREE_WORKON_ATT_WIFI_MAC = #{threeWorkonAttWifiMac,jdbcType=VARCHAR},
+      THREE_WORKOFF_ATT_WAY = #{threeWorkoffAttWay,jdbcType=TINYINT},
+      THREE_WORKOFF_WIFI_ID = #{threeWorkoffWifiId,jdbcType=INTEGER},
+      THREE_WORKOFF_ATT_WIFI_SSID = #{threeWorkoffAttWifiSsid,jdbcType=VARCHAR},
+      THREE_WORKOFF_ATT_WIFI_MAC = #{threeWorkoffAttWifiMac,jdbcType=VARCHAR},
+      FIRST_WORKON_CHANGEDATE = #{firstWorkonChangedate,jdbcType=TIMESTAMP},
+      SECOND_WORKON_CHANGEDATE = #{secondWorkonChangedate,jdbcType=TIMESTAMP},
+      THREE_WORKON_CHANGEDATE = #{threeWorkonChangedate,jdbcType=TIMESTAMP},
+      FIRST_WORKOFF_CHANGEDATE = #{firstWorkoffChangedate,jdbcType=TIMESTAMP},
+      SECOND_WORKOFF_CHANGEDATE = #{secondWorkoffChangedate,jdbcType=TIMESTAMP},
+      THREE_WORKOFF_CHANGEDATE = #{threeWorkoffChangedate,jdbcType=TIMESTAMP},
+      FIRST_WORKON_AUDIT_ID = #{firstWorkonAuditId,jdbcType=INTEGER},
+      SECOND_WORKON_AUDIT_ID = #{secondWorkonAuditId,jdbcType=INTEGER},
+      THREE_WORKON_AUDIT_ID = #{threeWorkonAuditId,jdbcType=INTEGER},
+      FIRST_WORKOFF_AUDIT_ID = #{firstWorkoffAuditId,jdbcType=INTEGER},
+      SECOND_WORKOFF_AUDIT_ID = #{secondWorkoffAuditId,jdbcType=INTEGER},
+      THREE_WORKOFF_AUDIT_ID = #{threeWorkoffAuditId,jdbcType=INTEGER},
+      FIRST_WORKON_LEAVE_NAME = #{firstWorkonLeaveName,jdbcType=VARCHAR},
+      SECOND_WORKON_LEAVE_NAME = #{secondWorkonLeaveName,jdbcType=VARCHAR},
+      THREE_WORKON_LEAVE_NAME = #{threeWorkonLeaveName,jdbcType=VARCHAR},
+      FIRST_WORKOFF_LEAVE_NAME = #{firstWorkoffLeaveName,jdbcType=VARCHAR},
+      SECOND_WORKOFF_LEAVE_NAME = #{secondWorkoffLeaveName,jdbcType=VARCHAR},
+      THREE_WORKOFF_LEAVE_NAME = #{threeWorkoffLeaveName,jdbcType=VARCHAR},
+      FIRST_WORKON_CLASS_ID = #{firstWorkonClassId,jdbcType=INTEGER},
+      SECOND_WORKON_CLASS_ID = #{secondWorkonClassId,jdbcType=INTEGER},
+      THREE_WORKON_CLASS_ID = #{threeWorkonClassId,jdbcType=INTEGER},
+      FIRST_WORKOFF_CLASS_ID = #{firstWorkoffClassId,jdbcType=INTEGER},
+      SECOND_WORKOFF_CLASS_ID = #{secondWorkoffClassId,jdbcType=INTEGER},
+      THREE_WORKOFF_CLASS_ID = #{threeWorkoffClassId,jdbcType=INTEGER},
+      ATTENDANCE_CLASS_TIME_SEGMENT = #{attendanceClassTimeSegment,jdbcType=VARCHAR},
+      ORGANIZATION_PATH = #{organizationPath,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+	<resultMap extends="BaseResultMap" id="DtoBaseResultMap" type="com.myfun.repository.erpdb.dto.ErpFunAttendanceStatisticsDto">
+		<result column="RANGE" jdbcType="INTEGER" property="range" />
+	</resultMap>
+	<select id="selectByDtoExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatisticsExample" resultMap="DtoBaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />,CONCAT(AREA_ID,'_',REG_ID,'_',DEPT_ID,'_',GR_ID,'_',USER_ID) as
+		RANGE
+		from FUN_ATTENDANCE_STATISTICS
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectPageAttByUserByDtoExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatisticsExample" resultMap="DtoBaseResultMap">
+		select
+			distinct USER_ID
+		from FUN_ATTENDANCE_STATISTICS
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	
+	<resultMap extends="BaseResultMap" id="VoBaseResultMap" type="com.myfun.erpWeb.openApi.attendance.vo.ErpFunAttendanceStatisticsVO">
+		<result column="RANGE" jdbcType="INTEGER" property="range" />
+	</resultMap>
+	
+	<select id="selectVoByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunAttendanceStatisticsExample" resultMap="VoBaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />,CONCAT(AREA_ID,'_',REG_ID,'_',DEPT_ID,'_',GR_ID,'_',USER_ID) as
+		RANGE
+		from FUN_ATTENDANCE_STATISTICS
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	
+	<select id="getAttendanceStatisticlAnalysisReportOffMonth" resultType="map">
+		select CONCAT(AREA_ID,'_',REG_ID,'_',DEPT_ID,'_',GR_ID,'_',USER_ID) as
+		range,
+		AREA_ID as areaId,REG_ID as regId,DEPT_ID as deptId,GR_ID as grId,USER_ID as
+		userId,
+		sum(iif(OFF_WORK=0 or (OFF_WORK=2 and (FIRST_WORK_ON != 0 or SECOND_WORK_ON !=0 or THREE_WORK_ON !=0 or FIRST_WORK_OFF != 0 or SECOND_WORK_OFF !=0 or THREE_WORK_OFF !=0)),1,0)) as attendanceDays,sum(iif(OFF_WORK=1,1,0)) as restDays,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_OFF in (1) or SECOND_WORK_OFF in
+		(1) or THREE_WORK_OFF in (1)),1,0) ) as leaveEarlyCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_ON in (2) or SECOND_WORK_ON in
+		(2) or THREE_WORK_ON in (2)),1,0)) as lateCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_ON = 6 or SECOND_WORK_ON=6 or
+		THREE_WORK_ON =6),1,0)) as seriouslyLateCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_ON = 8 or SECOND_WORK_ON=8 or THREE_WORK_ON =8),1,0))
+		as lateAbsenteeismCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_OFF = 7 or SECOND_WORK_OFF=7 or THREE_WORK_OFF
+		=7),1,0)) as leaveEarlyAbsenteeismCount,
+		sum(iif(OFF_WORK=0 and ATT_SUM_COUNT=1,iif(FIRST_WORK_ON=0 and FIRST_WORK_ONTIME&lt;='${currentDate}',1,0),iif(OFF_WORK=0 and
+		ATT_SUM_COUNT=2,(iif(FIRST_WORK_ON=0 and FIRST_WORK_ONTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_ON=0 and SECOND_WORK_ONTIME&lt;='${currentDate}',1,0)),iif(ATT_SUM_COUNT=3
+		and
+		OFF_WORK=0 ,(iif(FIRST_WORK_ON=0 and FIRST_WORK_ONTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_ON=0 and SECOND_WORK_ONTIME&lt;='${currentDate}',1,0)+iif(THREE_WORK_ON=0 and THREE_WORK_ONTIME&lt;='${currentDate}',1,0)),0))))
+		as missingAttOnCount,
+		sum(iif(OFF_WORK=0 and ATT_SUM_COUNT=1,iif(FIRST_WORK_OFF=0 and FIRST_WORK_OFFTIME&lt;='${lastMissCardDate}',1,0),iif(OFF_WORK=0 and
+		ATT_SUM_COUNT=2,(iif(FIRST_WORK_OFF=0 and FIRST_WORK_OFFTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_OFF=0 and SECOND_WORK_OFFTIME&lt;='${lastMissCardDate}',1,0)),iif(ATT_SUM_COUNT=3
+		and
+		OFF_WORK=0 ,(iif(FIRST_WORK_OFF=0 and FIRST_WORK_OFFTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_OFF=0 and SECOND_WORK_OFFTIME&lt;='${currentDate}',1,0)+iif(THREE_WORK_OFF=0 and THREE_WORK_OFFTIME&lt;='${lastMissCardDate}',1,0)),0))))
+			as missingAttOffCount,
+		SUM (iif (
+			OFF_WORK = 3 AND ATT_DATE &lt;'${currentAttDate}',iif (ATT_SUM_COUNT = 1 AND FIRST_WORK_ON = 0 AND FIRST_WORK_OFF = 0,1,
+			iif (ATT_SUM_COUNT = 2 AND FIRST_WORK_ON = 0 AND FIRST_WORK_OFF = 0 AND SECOND_WORK_ON = 0 AND SECOND_WORK_OFF = 0,1,iif (
+		    ATT_SUM_COUNT = 3 AND FIRST_WORK_ON = 0 AND FIRST_WORK_OFF = 0 AND SECOND_WORK_ON = 0 AND SECOND_WORK_OFF = 0 AND THREE_WORK_ON = 0 AND THREE_WORK_OFF = 0,1,0 ))),0)) as missingAttCount,
+		SUM (iif (OFF_WORK = 0 AND ATT_SUM_COUNT = 1,iif (FIRST_WORKON_TYPE = 2	AND FIRST_WORK_ON IN (2,4,6),1,0) + iif (FIRST_WORKOFF_TYPE = 2
+		AND FIRST_WORK_OFF IN (2,4,6),1,0	),iif (	OFF_WORK = 0 AND ATT_SUM_COUNT = 2,	(iif (FIRST_WORKON_TYPE = 2 AND FIRST_WORK_ON IN (2,4,6),1,0) +
+		iif (FIRST_WORKOFF_TYPE = 2 AND FIRST_WORK_OFF IN (2,4,6),1,0) + iif (SECOND_WORKON_TYPE = 2 AND SECOND_WORK_ON IN (2,4,6),1,0) +
+		iif (SECOND_WORKOFF_TYPE = 2 AND SECOND_WORK_OFF IN (2,4,6),1,0)),iif (ATT_SUM_COUNT = 3 AND OFF_WORK = 0,(iif (FIRST_WORKON_TYPE = 2 AND FIRST_WORK_ON IN (2,4,6),1,0) +
+		iif (FIRST_WORKOFF_TYPE = 2 AND FIRST_WORK_OFF IN (2,4,6),1,0) + iif (SECOND_WORKON_TYPE = 2 AND SECOND_WORK_ON IN (2,4,6),1,0) +
+		iif (SECOND_WORKOFF_TYPE = 2 AND SECOND_WORK_OFF IN (2,4,6),1,0) + iif (THREE_WORKOFF_TYPE = 2 AND THREE_WORK_OFF IN (2,4,6),1,0) +
+		iif (THREE_WORKON_TYPE = 2 AND THREE_WORK_ON IN (2,4,6),1,0)),0)))) AS outAttCount
+		from FUN_ATTENDANCE_STATISTICS
+		where COMP_ID = #{param.compId}
+		<if test="param.searchRange != null and 'COMP'!=param.searchRange">
+			and ${param.searchRange} = #{param.searchRangeId}
+		</if>
+        <if test="param.organizationId != null and param.organizationId != 0">
+          AND ORGANIZATION_PATH LIKE '%:${param.organizationId}:%'
+        </if>
+        <if test="param.userId != null">
+          AND USER_ID = #{param.userId}
+        </if>
+		and ATT_DATE &gt;= #{param.startTime}
+		and ATT_DATE &lt;= #{param.endTime}
+		group by CONCAT(AREA_ID,'_',REG_ID,'_',DEPT_ID,'_',GR_ID,'_',USER_ID),
+		AREA_ID,REG_ID,DEPT_ID,GR_ID,USER_ID
+
+	</select>
+
+	<select id="getAttendanceStatisticlAnalysisReportOffMonthNeworg" resultType="map">
+		select ORGANIZATION_PATH as
+		range,USER_ID as userId,
+		sum(iif(OFF_WORK=0 or (OFF_WORK=2 and (FIRST_WORK_ON != 0 or SECOND_WORK_ON !=0 or THREE_WORK_ON !=0 or FIRST_WORK_OFF != 0 or SECOND_WORK_OFF !=0 or THREE_WORK_OFF !=0)),1,0)) as attendanceDays,sum(iif(OFF_WORK=1,1,0)) as restDays,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_OFF in (1) or SECOND_WORK_OFF in
+		(1) or THREE_WORK_OFF in (1)),1,0) ) as leaveEarlyCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_ON in (2) or SECOND_WORK_ON in
+		(2) or THREE_WORK_ON in (2)),1,0)) as lateCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_ON = 6 or SECOND_WORK_ON=6 or
+		THREE_WORK_ON =6),1,0)) as seriouslyLateCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_ON = 8 or SECOND_WORK_ON=8 or THREE_WORK_ON =8),1,0))
+		as lateAbsenteeismCount,
+		sum(iif(OFF_WORK=0 and (FIRST_WORK_OFF = 7 or SECOND_WORK_OFF=7 or THREE_WORK_OFF
+		=7),1,0)) as leaveEarlyAbsenteeismCount,
+		sum(iif(OFF_WORK=0 and ATT_SUM_COUNT=1,iif(FIRST_WORK_ON=0 and FIRST_WORK_ONTIME&lt;='${currentDate}',1,0),iif(OFF_WORK=0 and
+		ATT_SUM_COUNT=2,(iif(FIRST_WORK_ON=0 and FIRST_WORK_ONTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_ON=0 and SECOND_WORK_ONTIME&lt;='${currentDate}',1,0)),iif(ATT_SUM_COUNT=3
+		and
+		OFF_WORK=0 ,(iif(FIRST_WORK_ON=0 and FIRST_WORK_ONTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_ON=0 and SECOND_WORK_ONTIME&lt;='${currentDate}',1,0)+iif(THREE_WORK_ON=0 and THREE_WORK_ONTIME&lt;='${currentDate}',1,0)),0))))
+		as missingAttOnCount,
+		sum(iif(OFF_WORK=0 and ATT_SUM_COUNT=1,iif(FIRST_WORK_OFF=0 and FIRST_WORK_OFFTIME&lt;='${lastMissCardDate}',1,0),iif(OFF_WORK=0 and
+		ATT_SUM_COUNT=2,(iif(FIRST_WORK_OFF=0 and FIRST_WORK_OFFTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_OFF=0 and SECOND_WORK_OFFTIME&lt;='${lastMissCardDate}',1,0)),iif(ATT_SUM_COUNT=3
+		and
+		OFF_WORK=0 ,(iif(FIRST_WORK_OFF=0 and FIRST_WORK_OFFTIME&lt;='${currentDate}',1,0)+iif(SECOND_WORK_OFF=0 and SECOND_WORK_OFFTIME&lt;='${currentDate}',1,0)+iif(THREE_WORK_OFF=0 and THREE_WORK_OFFTIME&lt;='${lastMissCardDate}',1,0)),0))))
+			as missingAttOffCount,
+		SUM (iif (
+			OFF_WORK = 3 AND ATT_DATE &lt;'${currentAttDate}',iif (ATT_SUM_COUNT = 1 AND FIRST_WORK_ON = 0 AND FIRST_WORK_OFF = 0,1,
+			iif (ATT_SUM_COUNT = 2 AND FIRST_WORK_ON = 0 AND FIRST_WORK_OFF = 0 AND SECOND_WORK_ON = 0 AND SECOND_WORK_OFF = 0,1,iif (
+		    ATT_SUM_COUNT = 3 AND FIRST_WORK_ON = 0 AND FIRST_WORK_OFF = 0 AND SECOND_WORK_ON = 0 AND SECOND_WORK_OFF = 0 AND THREE_WORK_ON = 0 AND THREE_WORK_OFF = 0,1,0 ))),0)) as missingAttCount,
+		SUM (iif (OFF_WORK = 0 AND ATT_SUM_COUNT = 1,iif (FIRST_WORKON_TYPE = 2	AND FIRST_WORK_ON IN (2,4,6),1,0) + iif (FIRST_WORKOFF_TYPE = 2
+		AND FIRST_WORK_OFF IN (2,4,6),1,0	),iif (	OFF_WORK = 0 AND ATT_SUM_COUNT = 2,	(iif (FIRST_WORKON_TYPE = 2 AND FIRST_WORK_ON IN (2,4,6),1,0) +
+		iif (FIRST_WORKOFF_TYPE = 2 AND FIRST_WORK_OFF IN (2,4,6),1,0) + iif (SECOND_WORKON_TYPE = 2 AND SECOND_WORK_ON IN (2,4,6),1,0) +
+		iif (SECOND_WORKOFF_TYPE = 2 AND SECOND_WORK_OFF IN (2,4,6),1,0)),iif (ATT_SUM_COUNT = 3 AND OFF_WORK = 0,(iif (FIRST_WORKON_TYPE = 2 AND FIRST_WORK_ON IN (2,4,6),1,0) +
+		iif (FIRST_WORKOFF_TYPE = 2 AND FIRST_WORK_OFF IN (2,4,6),1,0) + iif (SECOND_WORKON_TYPE = 2 AND SECOND_WORK_ON IN (2,4,6),1,0) +
+		iif (SECOND_WORKOFF_TYPE = 2 AND SECOND_WORK_OFF IN (2,4,6),1,0) + iif (THREE_WORKOFF_TYPE = 2 AND THREE_WORK_OFF IN (2,4,6),1,0) +
+		iif (THREE_WORKON_TYPE = 2 AND THREE_WORK_ON IN (2,4,6),1,0)),0)))) AS outAttCount
+		from FUN_ATTENDANCE_STATISTICS
+		where COMP_ID = #{param.compId}
+		<if test="param.searchRange != null and 'COMP'!=param.searchRange">
+			and ${param.searchRange} = #{param.searchRangeId}
+		</if>
+		<if test="param.organizationId != null and param.organizationId != 0">
+            AND ORGANIZATION_PATH LIKE '%:${param.organizationId}:%'
+        </if>
+        <if test="param.userId != null">
+          AND USER_ID = #{param.userId}
+        </if>
+		and ATT_DATE &gt;= #{param.startTime}
+		and ATT_DATE &lt;= #{param.endTime}
+		group by ORGANIZATION_PATH,USER_ID
+
+	</select>
+
+	<select id="getAttendanceStatisticlAnalysisList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from FUN_ATTENDANCE_STATISTICS
+		where COMP_ID = #{param.compId}
+		<if test="param.searchRange != null and 'COMP'!=param.searchRange">
+			and ${param.searchRange} = #{param.searchRangeId}
+		</if>
+		and ATT_DATE &gt;= #{param.startTime}
+		and ATT_DATE &lt;= #{param.endTime}
+		order by
+		AREA_ID asc,REG_ID asc,DEPT_ID asc,GR_ID asc,USER_ID asc
+	</select>
+
+  <select id="getAttendanceStatisticlMinerList" resultMap="BaseResultMap">
+    select
+  <include refid="Base_Column_List" />
+	from FUN_ATTENDANCE_STATISTICS
+    where COMP_ID = #{compId} 
+   	and ARCHIVE_ID = #{archiveId}
+    and  ATT_DATE &gt;= #{startTime}
+    and  ATT_DATE &lt;= #{endTime}
+	<if test="attResult!=null and '-2'==attResult">
+    	and OFF_WORK = 0
+	</if>
+	<if test="attResult!=null and '-2'!=attResult">
+    	and OFF_WORK = #{attResult}
+	</if>
+  	order by
+   	ATT_DATE asc
+  </select>
+  
+  <select id="getAttendanceStatisticOffUser" resultMap="BaseResultMap">
+    select  
+    top 1
+  <include refid="Base_Column_List" />
+	from FUN_ATTENDANCE_STATISTICS
+    where COMP_ID = #{compId} 
+   	and ARCHIVE_ID = #{archiveId}
+    and  ATT_DATE = #{attDate}
+    order by ID desc
+  </select>
+  
+  <select id="getAttendanceStatisticListOffOneDay" resultMap="BaseResultMap">
+    select  
+  		<include refid="Base_Column_List" />
+	from FUN_ATTENDANCE_STATISTICS
+	    where COMP_ID = #{compId} 
+		  	<if test="areaId!=null">
+		   		and AREA_ID = #{areaId}
+		   	</if>
+		   	<if test="regId!=null">
+		   		and REG_ID = #{regId}
+		   	</if>
+		   	<if test="deptId!=null">
+		   		and DEPT_ID = #{deptId}
+		   	</if>
+		   	<if test="grId!=null">
+		   		and GR_ID = #{grId}
+		   	</if>
+		   	<if test="userId!=null">
+		   		and USER_ID = #{userId}
+		   	</if>
+		   	<if test="userIdList != null">
+		   		and USER_ID NOT IN 
+		   		<foreach close=")" collection="userIdList" item="id" open="(" separator=",">
+		   			#{id}
+		   		</foreach>
+		   	</if>
+		    and ATT_DATE = #{attDate}
+		    and OFF_WORK =0
+  </select>
+
+	<select id="getAttendanceStatisticListOffOneMonth" resultMap="BaseResultMap">
+	    select  
+	  		<include refid="Base_Column_List" />
+		from FUN_ATTENDANCE_STATISTICS
+		    where COMP_ID = #{compId} 
+			  	<if test="areaId!=null">
+			   		and AREA_ID = #{areaId}
+			   	</if>
+			   	<if test="regId!=null">
+			   		and REG_ID = #{regId}
+			   	</if>
+			   	<if test="deptId!=null">
+			   		and DEPT_ID = #{deptId}
+			   	</if>
+			   	<if test="grId!=null">
+			   		and GR_ID = #{grId}
+			   	</if>
+			   	<if test="userId!=null">
+			   		and USER_ID = #{userId}
+			   	</if>
+			   	<if test="userIdList != null">
+			   		and USER_ID NOT IN 
+			   		<foreach close=")" collection="userIdList" item="id" open="(" separator=",">
+			   			#{id}
+			   		</foreach>
+			   	</if>
+			   	<if test="attDateList != null">
+			   		and ATT_DATE NOT IN 
+			   		<foreach close=")" collection="attDateList" item="attDate" open="(" separator=",">
+			   			#{attDate}
+			   		</foreach>
+			   	</if>
+			   	
+			    and ATT_DATE &gt;= #{attStartDate} 
+			    and ATT_DATE &lt; #{attEndDate}
+			    and OFF_WORK IN (0,1,3)
+  	</select>
+  
+<select id="getAttendanceStatisticsListMapByRange" resultMap="BaseResultMap">
+    select  
+  		<include refid="Base_Column_List" />
+	from FUN_ATTENDANCE_STATISTICS
+	    where COMP_ID = #{compId} 
+		   	<if test="userIdList != null">
+		   		and USER_ID IN 
+		   		<foreach close=")" collection="userIdList" item="id" open="(" separator=",">
+		   			#{id}
+		   		</foreach>
+		   	</if>
+		    and ATT_DATE = #{attDate} 
+  </select>
+	<select id="getAttendanceNotMissCardStatisticListOffOneMonth" resultMap="BaseResultMap">
+	    select  
+	  		<include refid="Base_Column_List" />
+		from FUN_ATTENDANCE_STATISTICS
+		    where COMP_ID = #{compId} 
+			  	<if test="areaId!=null">
+			   		and AREA_ID = #{areaId}
+			   	</if>
+			   	<if test="regId!=null">
+			   		and REG_ID = #{regId}
+			   	</if>
+			   	<if test="deptId!=null">
+			   		and DEPT_ID = #{deptId}
+			   	</if>
+			   	<if test="grId!=null">
+			   		and GR_ID = #{grId}
+			   	</if>
+			   	<if test="userId!=null">
+			   		and USER_ID = #{userId}
+			   	</if>
+			   	<if test="userIdList != null">
+			   		and USER_ID NOT IN 
+			   		<foreach close=")" collection="userIdList" item="id" open="(" separator=",">
+			   			#{id}
+			   		</foreach>
+			   	</if>
+			    and ATT_DATE &gt;= #{attStartDate} 
+			    and ATT_DATE &lt; #{attEndDate}
+			    and OFF_WORK != 3
+  	</select>
+  	
+  	<update id="updateAttendanceStatistics">
+  		UPDATE FUN_ATTENDANCE_STATISTICS SET OFF_WORK = #{offWork}
+  		WHERE COMP_ID = #{compId} AND ATT_DATE = #{attDate} AND USER_ID = #{userId}
+  		<if test="null != attClassId and attClassId != ''">
+  			AND ATT_ClASS_ID = #{attClassId}
+  		</if>
+  	</update>
+
+  <select id="getMaxAttSumCountOfMonth" resultType="integer">
+    select max(ATT_SUM_COUNT) from FUN_ATTENDANCE_STATISTICS WHERE
+    COMP_ID = #{compId} AND ATT_DATE &gt;= #{attDateStart} AND ATT_DATE &lt;= #{attDateEnd} AND ATT_ClASS_ID&gt;0
+  </select>
+
+</mapper>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunDeptFeeDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetail" >
+    <!--@mbggenerated-->
+    <id column="DEPT_FEE_ID" property="deptFeeId" jdbcType="INTEGER" />
+    <result column="COMP_ID" property="compId" jdbcType="INTEGER" />
+    <result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+    <result column="ADUIT_STATUS" property="aduitStatus" jdbcType="TINYINT" />
+    <result column="ADUIT_USER_ID" property="aduitUserId" jdbcType="INTEGER" />
+    <result column="ADUIT_USER_NAME" property="aduitUserName" jdbcType="VARCHAR" />
+    <result column="COUNT_TIME" property="countTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <!--@mbggenerated-->
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    DEPT_FEE_ID, COMP_ID, DEPT_ID, ADUIT_STATUS, ADUIT_USER_ID, ADUIT_USER_NAME, COUNT_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetailExample" >
+    <!--@mbggenerated-->
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_DEPT_FEE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_DEPT_FEE_DETAIL
+    where DEPT_FEE_ID = #{deptFeeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from FUN_DEPT_FEE_DETAIL
+    where DEPT_FEE_ID = #{deptFeeId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetailExample" >
+    <!--@mbggenerated-->
+    delete from FUN_DEPT_FEE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetail" useGeneratedKeys="true" keyProperty="deptFeeId" >
+    <!--@mbggenerated-->
+    insert into FUN_DEPT_FEE_DETAIL (COMP_ID, DEPT_ID, ADUIT_STATUS, 
+      ADUIT_USER_ID, ADUIT_USER_NAME, COUNT_TIME
+      )
+    values (#{compId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{aduitStatus,jdbcType=TINYINT}, 
+      #{aduitUserId,jdbcType=INTEGER}, #{aduitUserName,jdbcType=VARCHAR}, #{countTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetail" useGeneratedKeys="true" keyProperty="deptFeeId" >
+    <!--@mbggenerated-->
+    insert into FUN_DEPT_FEE_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        COMP_ID,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="aduitStatus != null" >
+        ADUIT_STATUS,
+      </if>
+      <if test="aduitUserId != null" >
+        ADUIT_USER_ID,
+      </if>
+      <if test="aduitUserName != null" >
+        ADUIT_USER_NAME,
+      </if>
+      <if test="countTime != null" >
+        COUNT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="compId != null" >
+        #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="aduitStatus != null" >
+        #{aduitStatus,jdbcType=TINYINT},
+      </if>
+      <if test="aduitUserId != null" >
+        #{aduitUserId,jdbcType=INTEGER},
+      </if>
+      <if test="aduitUserName != null" >
+        #{aduitUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="countTime != null" >
+        #{countTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetailExample" resultType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select count(*) from FUN_DEPT_FEE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_DETAIL
+    <set >
+      <if test="record.deptFeeId != null" >
+        DEPT_FEE_ID = #{record.deptFeeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.compId != null" >
+        COMP_ID = #{record.compId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      </if>
+      <if test="record.aduitStatus != null" >
+        ADUIT_STATUS = #{record.aduitStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.aduitUserId != null" >
+        ADUIT_USER_ID = #{record.aduitUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.aduitUserName != null" >
+        ADUIT_USER_NAME = #{record.aduitUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.countTime != null" >
+        COUNT_TIME = #{record.countTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_DETAIL
+    set DEPT_FEE_ID = #{record.deptFeeId,jdbcType=INTEGER},
+      COMP_ID = #{record.compId,jdbcType=INTEGER},
+      DEPT_ID = #{record.deptId,jdbcType=INTEGER},
+      ADUIT_STATUS = #{record.aduitStatus,jdbcType=TINYINT},
+      ADUIT_USER_ID = #{record.aduitUserId,jdbcType=INTEGER},
+      ADUIT_USER_NAME = #{record.aduitUserName,jdbcType=VARCHAR},
+      COUNT_TIME = #{record.countTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetail" >
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_DETAIL
+    <set >
+      <if test="compId != null" >
+        COMP_ID = #{compId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="aduitStatus != null" >
+        ADUIT_STATUS = #{aduitStatus,jdbcType=TINYINT},
+      </if>
+      <if test="aduitUserId != null" >
+        ADUIT_USER_ID = #{aduitUserId,jdbcType=INTEGER},
+      </if>
+      <if test="aduitUserName != null" >
+        ADUIT_USER_NAME = #{aduitUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="countTime != null" >
+        COUNT_TIME = #{countTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where DEPT_FEE_ID = #{deptFeeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunDeptFeeDetail" >
+    <!--@mbggenerated-->
+    update FUN_DEPT_FEE_DETAIL
+    set COMP_ID = #{compId,jdbcType=INTEGER},
+      DEPT_ID = #{deptId,jdbcType=INTEGER},
+      ADUIT_STATUS = #{aduitStatus,jdbcType=TINYINT},
+      ADUIT_USER_ID = #{aduitUserId,jdbcType=INTEGER},
+      ADUIT_USER_NAME = #{aduitUserName,jdbcType=VARCHAR},
+      COUNT_TIME = #{countTime,jdbcType=TIMESTAMP}
+    where DEPT_FEE_ID = #{deptFeeId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getFunDeptFeeDetailList" resultMap="BaseResultMap">
+    select DISTINCT FUN_DEPT_FEE_DETAIL.DEPT_FEE_ID,FUN_DEPT_FEE_DETAIL.COMP_ID,FUN_DEPT_FEE_DETAIL.DEPT_ID
+    from FUN_DEPT_FEE_LIST  LEFT JOIN FUN_DEPT_FEE_DETAIL ON FUN_DEPT_FEE_LIST.DEPT_FEE_ID = FUN_DEPT_FEE_DETAIL.DEPT_FEE_ID
+    where FUN_DEPT_FEE_LIST.FEE_ID=#{feeId} and FUN_DEPT_FEE_DETAIL.COUNT_TIME=#{currentTime}
+  </select>
+</mapper>

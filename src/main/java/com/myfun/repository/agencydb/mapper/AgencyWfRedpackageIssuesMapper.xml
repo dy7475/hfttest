@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfun.repository.agencydb.dao.AgencyWfRedpackageIssuesMapper" >
+  <resultMap id="BaseResultMap" type="com.myfun.repository.agencydb.po.AgencyWfRedpackageIssues" >
+    <!--@mbggenerated-->
+    <id column="ISSUE_ID" property="issueId" jdbcType="INTEGER" />
+    <result column="CASE_ID" property="caseId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="CASE_TYPE" property="caseType" jdbcType="TINYINT" />
+    <result column="WX_ID" property="wxId" jdbcType="INTEGER" />
+    <result column="WX_OPEN_ID" property="wxOpenId" jdbcType="VARCHAR" />
+    <result column="AMOUNT" property="amount" jdbcType="DOUBLE" />
+    <result column="QUANTITY" property="quantity" jdbcType="INTEGER" />
+    <result column="SURPLUS_AMOUNT" property="surplusAmount" jdbcType="DOUBLE" />
+    <result column="SURPLUS_QUANTITY" property="surplusQuantity" jdbcType="DOUBLE" />
+    <result column="TYPE" property="type" jdbcType="TINYINT" />
+    <result column="SEQUENCE" property="sequence" jdbcType="VARCHAR" />
+    <result column="BUTIE_SEQUENCE" property="butieSequence" jdbcType="VARCHAR" />
+    <result column="BUTIE_RATE" property="butieRate" jdbcType="DOUBLE" />
+    <result column="STATUS" property="status" jdbcType="TINYINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="lock_version" property="lockVersion" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--@mbggenerated-->
+    ISSUE_ID, CASE_ID, CITY_ID, CASE_TYPE, WX_ID, WX_OPEN_ID, AMOUNT, QUANTITY, SURPLUS_AMOUNT, 
+    SURPLUS_QUANTITY, TYPE, SEQUENCE, BUTIE_SEQUENCE, BUTIE_RATE, STATUS, CREATE_TIME, 
+    lock_version
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WF_REDPACKAGE_ISSUES
+    where ISSUE_ID = #{issueId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <!--@mbggenerated-->
+    delete from WF_REDPACKAGE_ISSUES
+    where ISSUE_ID = #{issueId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackageIssues" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="issueId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REDPACKAGE_ISSUES (CASE_ID, CITY_ID, CASE_TYPE, 
+      WX_ID, WX_OPEN_ID, AMOUNT, 
+      QUANTITY, SURPLUS_AMOUNT, SURPLUS_QUANTITY, 
+      TYPE, SEQUENCE, BUTIE_SEQUENCE, 
+      BUTIE_RATE, STATUS, CREATE_TIME, 
+      lock_version)
+    values (#{caseId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{caseType,jdbcType=TINYINT}, 
+      #{wxId,jdbcType=INTEGER}, #{wxOpenId,jdbcType=VARCHAR}, #{amount,jdbcType=DOUBLE}, 
+      #{quantity,jdbcType=INTEGER}, #{surplusAmount,jdbcType=DOUBLE}, #{surplusQuantity,jdbcType=DOUBLE}, 
+      #{type,jdbcType=TINYINT}, #{sequence,jdbcType=VARCHAR}, #{butieSequence,jdbcType=VARCHAR}, 
+      #{butieRate,jdbcType=DOUBLE}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lockVersion,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackageIssues" >
+    <!--@mbggenerated-->
+    <selectKey resultType="java.lang.Integer" keyProperty="issueId" order="AFTER" >
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into WF_REDPACKAGE_ISSUES
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="caseId != null" >
+        CASE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE,
+      </if>
+      <if test="wxId != null" >
+        WX_ID,
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID,
+      </if>
+      <if test="amount != null" >
+        AMOUNT,
+      </if>
+      <if test="quantity != null" >
+        QUANTITY,
+      </if>
+      <if test="surplusAmount != null" >
+        SURPLUS_AMOUNT,
+      </if>
+      <if test="surplusQuantity != null" >
+        SURPLUS_QUANTITY,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="sequence != null" >
+        SEQUENCE,
+      </if>
+      <if test="butieSequence != null" >
+        BUTIE_SEQUENCE,
+      </if>
+      <if test="butieRate != null" >
+        BUTIE_RATE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="lockVersion != null" >
+        lock_version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="caseId != null" >
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="wxId != null" >
+        #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null" >
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="surplusAmount != null" >
+        #{surplusAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="surplusQuantity != null" >
+        #{surplusQuantity,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="sequence != null" >
+        #{sequence,jdbcType=VARCHAR},
+      </if>
+      <if test="butieSequence != null" >
+        #{butieSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="butieRate != null" >
+        #{butieRate,jdbcType=DOUBLE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lockVersion != null" >
+        #{lockVersion,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackageIssues" >
+    <!--@mbggenerated-->
+    update WF_REDPACKAGE_ISSUES
+    <set >
+      <if test="caseId != null" >
+        CASE_ID = #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="caseType != null" >
+        CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      </if>
+      <if test="wxId != null" >
+        WX_ID = #{wxId,jdbcType=INTEGER},
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        AMOUNT = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="quantity != null" >
+        QUANTITY = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="surplusAmount != null" >
+        SURPLUS_AMOUNT = #{surplusAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="surplusQuantity != null" >
+        SURPLUS_QUANTITY = #{surplusQuantity,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="sequence != null" >
+        SEQUENCE = #{sequence,jdbcType=VARCHAR},
+      </if>
+      <if test="butieSequence != null" >
+        BUTIE_SEQUENCE = #{butieSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="butieRate != null" >
+        BUTIE_RATE = #{butieRate,jdbcType=DOUBLE},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lockVersion != null" >
+        lock_version = #{lockVersion,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ISSUE_ID = #{issueId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.agencydb.po.AgencyWfRedpackageIssues" >
+    <!--@mbggenerated-->
+    update WF_REDPACKAGE_ISSUES
+    set CASE_ID = #{caseId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      CASE_TYPE = #{caseType,jdbcType=TINYINT},
+      WX_ID = #{wxId,jdbcType=INTEGER},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=DOUBLE},
+      QUANTITY = #{quantity,jdbcType=INTEGER},
+      SURPLUS_AMOUNT = #{surplusAmount,jdbcType=DOUBLE},
+      SURPLUS_QUANTITY = #{surplusQuantity,jdbcType=DOUBLE},
+      TYPE = #{type,jdbcType=TINYINT},
+      SEQUENCE = #{sequence,jdbcType=VARCHAR},
+      BUTIE_SEQUENCE = #{butieSequence,jdbcType=VARCHAR},
+      BUTIE_RATE = #{butieRate,jdbcType=DOUBLE},
+      STATUS = #{status,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      lock_version = #{lockVersion,jdbcType=INTEGER}
+    where ISSUE_ID = #{issueId,jdbcType=INTEGER}
+  </update>
+</mapper>

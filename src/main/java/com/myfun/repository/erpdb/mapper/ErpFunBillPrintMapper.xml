@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myfun.repository.erpdb.dao.ErpFunBillPrintMapper">
+  <resultMap id="BaseResultMap" type="com.myfun.repository.erpdb.po.ErpFunBillPrint">
+    <!--@mbggenerated-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CREATOR_UID" jdbcType="INTEGER" property="creatorUid" />
+    <result column="CREATION_TIME" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="PRINT_COUNT" jdbcType="INTEGER" property="printCount" />
+    <result column="PRINT_COUNT_USER" jdbcType="INTEGER" property="printCountUser" />
+    <result column="LAST_PRINT_TIME" jdbcType="TIMESTAMP" property="lastPrintTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbggenerated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbggenerated-->
+    ID, CREATOR_UID, CREATION_TIME, PRINT_COUNT, PRINT_COUNT_USER, LAST_PRINT_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBillPrintExample" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FUN_BILL_PRINT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbggenerated-->
+    select 
+    <include refid="Base_Column_List" />
+    from FUN_BILL_PRINT
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbggenerated-->
+    delete from FUN_BILL_PRINT
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBillPrintExample">
+    <!--@mbggenerated-->
+    delete from FUN_BILL_PRINT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunBillPrint" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_BILL_PRINT (CREATOR_UID, CREATION_TIME, PRINT_COUNT, 
+      PRINT_COUNT_USER, LAST_PRINT_TIME)
+    values (#{creatorUid,jdbcType=INTEGER}, #{creationTime,jdbcType=TIMESTAMP}, #{printCount,jdbcType=INTEGER}, 
+      #{printCountUser,jdbcType=INTEGER}, #{lastPrintTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.myfun.repository.erpdb.po.ErpFunBillPrint" useGeneratedKeys="true">
+    <!--@mbggenerated-->
+    insert into FUN_BILL_PRINT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creatorUid != null">
+        CREATOR_UID,
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME,
+      </if>
+      <if test="printCount != null">
+        PRINT_COUNT,
+      </if>
+      <if test="printCountUser != null">
+        PRINT_COUNT_USER,
+      </if>
+      <if test="lastPrintTime != null">
+        LAST_PRINT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creatorUid != null">
+        #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="printCount != null">
+        #{printCount,jdbcType=INTEGER},
+      </if>
+      <if test="printCountUser != null">
+        #{printCountUser,jdbcType=INTEGER},
+      </if>
+      <if test="lastPrintTime != null">
+        #{lastPrintTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myfun.repository.erpdb.po.ErpFunBillPrintExample" resultType="java.lang.Integer">
+    <!--@mbggenerated-->
+    select count(*) from FUN_BILL_PRINT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BILL_PRINT
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.creatorUid != null">
+        CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationTime != null">
+        CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.printCount != null">
+        PRINT_COUNT = #{record.printCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.printCountUser != null">
+        PRINT_COUNT_USER = #{record.printCountUser,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastPrintTime != null">
+        LAST_PRINT_TIME = #{record.lastPrintTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbggenerated-->
+    update FUN_BILL_PRINT
+    set ID = #{record.id,jdbcType=INTEGER},
+      CREATOR_UID = #{record.creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{record.creationTime,jdbcType=TIMESTAMP},
+      PRINT_COUNT = #{record.printCount,jdbcType=INTEGER},
+      PRINT_COUNT_USER = #{record.printCountUser,jdbcType=INTEGER},
+      LAST_PRINT_TIME = #{record.lastPrintTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfun.repository.erpdb.po.ErpFunBillPrint">
+    <!--@mbggenerated-->
+    update FUN_BILL_PRINT
+    <set>
+      <if test="creatorUid != null">
+        CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="printCount != null">
+        PRINT_COUNT = #{printCount,jdbcType=INTEGER},
+      </if>
+      <if test="printCountUser != null">
+        PRINT_COUNT_USER = #{printCountUser,jdbcType=INTEGER},
+      </if>
+      <if test="lastPrintTime != null">
+        LAST_PRINT_TIME = #{lastPrintTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfun.repository.erpdb.po.ErpFunBillPrint">
+    <!--@mbggenerated-->
+    update FUN_BILL_PRINT
+    set CREATOR_UID = #{creatorUid,jdbcType=INTEGER},
+      CREATION_TIME = #{creationTime,jdbcType=TIMESTAMP},
+      PRINT_COUNT = #{printCount,jdbcType=INTEGER},
+      PRINT_COUNT_USER = #{printCountUser,jdbcType=INTEGER},
+      LAST_PRINT_TIME = #{lastPrintTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateBillPrintCountAndUserInfo">
+    update FUN_BILL_PRINT
+    set PRINT_COUNT = PRINT_COUNT+1,
+      PRINT_COUNT_USER = #{userId},
+      LAST_PRINT_TIME = GETDATE()
+    where ID = #{printId}
+  </update>
+	
+	<delete id="deleteByIds">
+		delete B from FUN_BILL A join FUN_BILL_PRINT B ON A.BILL_PRINT_ID = B.ID
+		where A.COMP_ID = #{compId} and A.FIANAC_ID in
+		<foreach collection="fianacIds" separator="," item="fianacId" close=")" open="(">
+			#{fianacId}
+		</foreach>
+	</delete>
+ 
+</mapper>
