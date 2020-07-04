@@ -5,11 +5,10 @@ import com.myfun.repository.erpdb.po.ErpDicDefinitions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.io.Serializable;
 import java.util.List;
 
 @ApiModel("字典VO")
-public class ErpDicDefinitionsVo  {
+public class ErpDicDefinitionsVo {
 
 	@ApiModelProperty("ID号，SEQ_DIC_DEFINITIONS_DIC_ID")
 	private Short dicId;

@@ -3,7 +3,6 @@ package com.myfun.erpWeb.managecenter.vo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +10,7 @@ import java.util.List;
  * @date 2018-12-07 13:49
  */
 @ApiModel
-public class BuildInfoVO  {
+public class BuildInfoVO {
 	@ApiModelProperty("楼盘id")
 	private Integer buildId;
 	@ApiModelProperty("检索码")
