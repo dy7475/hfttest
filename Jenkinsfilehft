@@ -46,7 +46,7 @@ podTemplate(label: label, containers: [
   hostPathVolume(mountPath: '/root/.m2', hostPath: '/root/.m2'),
   hostPathVolume(mountPath: '/tmp/jenkins/.kube', hostPath: '/root/.kube'),
   hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
-], serviceAccount: 'jenkins') {
+], serviceAccount: 'jenkins2') {
   node(label) {
 	def dockerRegistryUrl = "172.16.12.51"
 	def imageEndpoint = "chartrepo"
